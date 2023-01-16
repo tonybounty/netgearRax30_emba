@@ -1,0 +1,1187 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libtmctl.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">libtmctl.so</span></pre>
+<br />
+<pre>    364c:	e8bd4010 	pop	{r4, lr}</pre>
+<pre>    3650:	eafffda0 	b	2cd8 &lt;tmctl_setDscpToPbit_plat&commat;plt&gt;</pre>
+<br />
+<pre>00003654 &lt;tmctl_setTcToQueue&commat;&commat;Base&gt;:</pre>
+<pre>    3654:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    3658:	e1a04000 	mov	r4, r0</pre>
+<pre>    365c:	e1a05001 	mov	r5, r1</pre>
+<pre>    3660:	ebfffd84 	bl	2c78 &lt;tmctl_setTcToQueueTrace&commat;plt&gt;</pre>
+<pre>    3664:	e1a00004 	mov	r0, r4</pre>
+<pre>    3668:	e1a01005 	mov	r1, r5</pre>
+<pre>    366c:	ebfffe32 	bl	2f3c &lt;tmctl_setTcToQueue_plat&commat;plt&gt;</pre>
+<pre>    3670:	e3700001 	cmn	r0, #1</pre>
+<pre>    3674:	e1a04000 	mov	r4, r0</pre>
+<pre>    3678:	1a000006 	bne	3698 &lt;tmctl_setTcToQueue&commat;&commat;Base+0x44&gt;</pre>
+<pre>    367c:	e59f101c 	ldr	r1, [pc, #28]	; 36a0 &lt;tmctl_setTcToQueue&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3680:	e1a03000 	mov	r3, r0</pre>
+<pre>    3684:	e59f0018 	ldr	r0, [pc, #24]	; 36a4 &lt;tmctl_setTcToQueue&commat;&commat;Base+0x50&gt;</pre>
+<pre>    3688:	e3a02e36 	mov	r2, #864	; 0x360</pre>
+<pre>    368c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3690:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3694:	ebfffd68 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3698:	e1a00004 	mov	r0, r4</pre>
+<pre>    369c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>    748c:	eaffffea 	b	743c &lt;tmctl_deletePolicerTrace&commat;&commat;Base+0x1b0&gt;</pre>
+<pre>    7490:	00002bb5 			; &lt;UNDEFINED&gt; instruction: 0x00002bb5</pre>
+<pre>    7494:	00013c04 	andeq	r3, r1, r4, lsl #24</pre>
+<pre>    7498:	00000204 	andeq	r0, r0, r4, lsl #4</pre>
+<pre>    749c:	00002b89 	andeq	r2, r0, r9, lsl #23</pre>
+<pre>    74a0:	00002b44 	andeq	r2, r0, r4, asr #22</pre>
+<br />
+<pre>000074a4 &lt;tmctlArcher_TmInit&commat;&commat;Base&gt;:</pre>
+<pre>    74a4:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>    74a8:	e24dd014 	sub	sp, sp, #20</pre>
+<pre>    74ac:	e1a06000 	mov	r6, r0</pre>
+<pre>    74b0:	ebffedc9 	bl	2bdc &lt;tmctlEthSw_resetPortSched&commat;plt&gt;</pre>
+<pre>    74b4:	e3700001 	cmn	r0, #1</pre>
+<pre>    74b8:	1a000007 	bne	74dc &lt;tmctlArcher_TmInit&commat;&commat;Base+0x38&gt;</pre>
+<pre>    74bc:	e59f10ac 	ldr	r1, [pc, #172]	; 7570 &lt;tmctlArcher_TmInit&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    74c0:	e1a04000 	mov	r4, r0</pre>
+<pre>    74c4:	e59f00a8 	ldr	r0, [pc, #168]	; 7574 &lt;tmctlArcher_TmInit&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    74c8:	e3a02070 	mov	r2, #112	; 0x70</pre>
+<pre>    74cc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    74d0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    74d4:	ebffedd8 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    74d8:	ea000011 	b	7524 &lt;tmctlArcher_TmInit&commat;&commat;Base+0x80&gt;</pre>
+<pre>    74dc:	e28d7004 	add	r7, sp, #4</pre>
+<pre>    74e0:	e1a00006 	mov	r0, r6</pre>
+<pre>    74e4:	e3a05000 	mov	r5, #0</pre>
+<pre>    74e8:	e58d5004 	str	r5, [sp, #4]</pre>
+<pre>    74ec:	e1a01007 	mov	r1, r7</pre>
+<pre>    74f0:	e5875004 	str	r5, [r7, #4]</pre>
+<pre>    74f4:	e5875008 	str	r5, [r7, #8]</pre>
+<pre>    74f8:	ebffee08 	bl	2d20 &lt;tmctlEthSw_setPortShaper&commat;plt&gt;</pre>
+<pre>    74fc:	e3700001 	cmn	r0, #1</pre>
+<pre>    7500:	e1a04000 	mov	r4, r0</pre>
+<pre>    7504:	1a00000c 	bne	753c &lt;tmctlArcher_TmInit&commat;&commat;Base+0x98&gt;</pre>
+<pre>    7508:	e59f1068 	ldr	r1, [pc, #104]	; 7578 &lt;tmctlArcher_TmInit&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    750c:	e1a03000 	mov	r3, r0</pre>
+<pre>    7510:	e59f0064 	ldr	r0, [pc, #100]	; 757c &lt;tmctlArcher_TmInit&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    7514:	e3a0207a 	mov	r2, #122	; 0x7a</pre>
+<pre>    7518:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    751c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7520:	ebffedc5 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7524:	e1a00004 	mov	r0, r4</pre>
+<pre>    7528:	e28dd014 	add	sp, sp, #20</pre>
+<pre>--</pre>
+<pre>    756c:	eaffffd8 	b	74d4 &lt;tmctlArcher_TmInit&commat;&commat;Base+0x30&gt;</pre>
+<pre>    7570:	00002d97 	muleq	r0, r7, sp</pre>
+<pre>    7574:	00002af3 	strdeq	r2, [r0], -r3</pre>
+<pre>    7578:	00002d4b 	andeq	r2, r0, fp, asr #26</pre>
+<pre>    757c:	00002ad7 	ldrdeq	r2, [r0], -r7</pre>
+<pre>    7580:	00002cff 	strdeq	r2, [r0], -pc	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>    7584:	00002ac1 	andeq	r2, r0, r1, asr #21</pre>
+<br />
+<pre>00007588 &lt;tmctlArcher_TmUninit&commat;&commat;Base&gt;:</pre>
+<pre>    7588:	e92d4010 	push	{r4, lr}</pre>
+<pre>    758c:	ebffee25 	bl	2e28 &lt;tmctlArcher_TmInit&commat;plt&gt;</pre>
+<pre>    7590:	e3700001 	cmn	r0, #1</pre>
+<pre>    7594:	e1a04000 	mov	r4, r0</pre>
+<pre>    7598:	1a000006 	bne	75b8 &lt;tmctlArcher_TmUninit&commat;&commat;Base+0x30&gt;</pre>
+<pre>    759c:	e59f101c 	ldr	r1, [pc, #28]	; 75c0 &lt;tmctlArcher_TmUninit&commat;&commat;Base+0x38&gt;</pre>
+<pre>    75a0:	e3a020a0 	mov	r2, #160	; 0xa0</pre>
+<pre>    75a4:	e59f0018 	ldr	r0, [pc, #24]	; 75c4 &lt;tmctlArcher_TmUninit&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    75a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    75ac:	e2811013 	add	r1, r1, #19</pre>
+<pre>    75b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    75b4:	ebffeda0 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    75b8:	e1a00004 	mov	r0, r4</pre>
+<pre>    75bc:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>    75c8:	e5923010 	ldr	r3, [r2, #16]</pre>
+<pre>    75cc:	e92d46f0 	push	{r4, r5, r6, r7, r9, sl, lr}</pre>
+<pre>    75d0:	e3530001 	cmp	r3, #1</pre>
+<pre>    75d4:	e24ddfa5 	sub	sp, sp, #660	; 0x294</pre>
+<pre>    75d8:	e1a06000 	mov	r6, r0</pre>
+<pre>    75dc:	e1a07001 	mov	r7, r1</pre>
+<pre>    75e0:	e1a05002 	mov	r5, r2</pre>
+<pre>    75e4:	1a00000f 	bne	7628 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x60&gt;</pre>
+<pre>    75e8:	e5923000 	ldr	r3, [r2]</pre>
+<pre>    75ec:	e5922004 	ldr	r2, [r2, #4]</pre>
+<pre>    75f0:	e1530002 	cmp	r3, r2</pre>
+<pre>    75f4:	0a00000b 	beq	7628 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x60&gt;</pre>
+<pre>    75f8:	e59f111c 	ldr	r1, [pc, #284]	; 771c &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x154&gt;</pre>
+<pre>    75fc:	e3e04000 	mvn	r4, #0</pre>
+<pre>    7600:	e59f0118 	ldr	r0, [pc, #280]	; 7720 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x158&gt;</pre>
+<pre>    7604:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7608:	e58d2000 	str	r2, [sp]</pre>
+<pre>    760c:	e2811028 	add	r1, r1, #40	; 0x28</pre>
+<pre>    7610:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7614:	e3002102 	movw	r2, #258	; 0x102</pre>
+<pre><span class="red">    7618:	ebffed87 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    761c:	e1a00004 	mov	r0, r4</pre>
+<pre>    7620:	e28ddfa5 	add	sp, sp, #660	; 0x294</pre>
+<pre>    7624:	e8bd86f0 	pop	{r4, r5, r6, r7, r9, sl, pc}</pre>
+<pre>    7628:	e28da008 	add	sl, sp, #8</pre>
+<pre>    762c:	e1a00006 	mov	r0, r6</pre>
+<pre>    7630:	e1a0100a 	mov	r1, sl</pre>
+<pre>    7634:	ebffee9a 	bl	30a4 &lt;tmctlEthSw_getPortSched&commat;plt&gt;</pre>
+<pre>    7638:	e3700001 	cmn	r0, #1</pre>
+<pre>    763c:	e1a04000 	mov	r4, r0</pre>
+<pre>    7640:	1a000007 	bne	7664 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x9c&gt;</pre>
+<pre>    7644:	e59f10d8 	ldr	r1, [pc, #216]	; 7724 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x15c&gt;</pre>
+<pre>    7648:	e3002109 	movw	r2, #265	; 0x109</pre>
+<pre>    764c:	e59f00d4 	ldr	r0, [pc, #212]	; 7728 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x160&gt;</pre>
+<pre>    7650:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7654:	e2811028 	add	r1, r1, #40	; 0x28</pre>
+<pre>    7658:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    765c:	ebffed76 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7660:	eaffffed 	b	761c &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x54&gt;</pre>
+<pre>    7664:	e28d9f53 	add	r9, sp, #332	; 0x14c</pre>
+<pre>    7668:	e1a0200a 	mov	r2, sl</pre>
+<pre>    766c:	e1a01005 	mov	r1, r5</pre>
+<pre>    7670:	e1a00007 	mov	r0, r7</pre>
+<pre>    7674:	e1a03009 	mov	r3, r9</pre>
+<pre>    7678:	ebffee4d 	bl	2fb4 &lt;tmctlEthSw_determineNewPortQcfg&commat;plt&gt;</pre>
+<pre>    767c:	e3700001 	cmn	r0, #1</pre>
+<pre>    7680:	e1a04000 	mov	r4, r0</pre>
+<pre>    7684:	1a000009 	bne	76b0 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    7688:	e59f109c 	ldr	r1, [pc, #156]	; 772c &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x164&gt;</pre>
+<pre>    768c:	e1a03006 	mov	r3, r6</pre>
+<pre>    7690:	e58d0000 	str	r0, [sp]</pre>
+<pre>    7694:	e3a02e11 	mov	r2, #272	; 0x110</pre>
+<pre>    7698:	e59f0090 	ldr	r0, [pc, #144]	; 7730 &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x168&gt;</pre>
+<pre>    769c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    76a0:	e2811028 	add	r1, r1, #40	; 0x28</pre>
+<pre>    76a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    76a8:	ebffed63 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    76ac:	eaffffda 	b	761c &lt;tmctlArcher_setQueueCfg&commat;&commat;Base+0x54&gt;</pre>
+<pre>    76b0:	e1a01009 	mov	r1, r9</pre>
+<pre>--</pre>
+<pre>    7758:	0a000015 	beq	77b4 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x70&gt;</pre>
+<pre>    775c:	e3530003 	cmp	r3, #3</pre>
+<pre>    7760:	1a000018 	bne	77c8 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x84&gt;</pre>
+<pre>    7764:	e59f10d8 	ldr	r1, [pc, #216]	; 7844 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x100&gt;</pre>
+<pre>    7768:	e3a02010 	mov	r2, #16</pre>
+<pre>    776c:	e1a0000d 	mov	r0, sp</pre>
+<pre>    7770:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7774:	ebffee0b 	bl	2fa8 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    7778:	e3a00078 	mov	r0, #120	; 0x78</pre>
+<pre>    777c:	e1a0100d 	mov	r1, sp</pre>
+<pre>    7780:	e58d5010 	str	r5, [sp, #16]</pre>
+<pre>    7784:	ebffff13 	bl	73d8 &lt;tmctl_deletePolicerTrace&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    7788:	e3500000 	cmp	r0, #0</pre>
+<pre>    778c:	0a000017 	beq	77f0 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0xac&gt;</pre>
+<pre>    7790:	e59f10b0 	ldr	r1, [pc, #176]	; 7848 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x104&gt;</pre>
+<pre>    7794:	e300214e 	movw	r2, #334	; 0x14e</pre>
+<pre>    7798:	e59f00ac 	ldr	r0, [pc, #172]	; 784c &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x108&gt;</pre>
+<pre>    779c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    77a0:	e2811040 	add	r1, r1, #64	; 0x40</pre>
+<pre>    77a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    77a8:	ebffed23 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    77ac:	e3e00000 	mvn	r0, #0</pre>
+<pre>    77b0:	ea00000c 	b	77e8 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    77b4:	e3a02010 	mov	r2, #16</pre>
+<pre>    77b8:	e1a0000d 	mov	r0, sp</pre>
+<pre>    77bc:	ebffedf9 	bl	2fa8 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    77c0:	e3a00075 	mov	r0, #117	; 0x75</pre>
+<pre>    77c4:	eaffffec 	b	777c &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x38&gt;</pre>
+<pre>    77c8:	e59f1080 	ldr	r1, [pc, #128]	; 7850 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    77cc:	e3002146 	movw	r2, #326	; 0x146</pre>
+<pre>    77d0:	e59f007c 	ldr	r0, [pc, #124]	; 7854 &lt;tmctlArcher_getQueueDropAlg&commat;&commat;Base+0x110&gt;</pre>
+<pre>    77d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    77d8:	e2811040 	add	r1, r1, #64	; 0x40</pre>
+<pre>    77dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    77e0:	ebffed15 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    77e4:	e3a00002 	mov	r0, #2</pre>
+<pre>    77e8:	e28dd03c 	add	sp, sp, #60	; 0x3c</pre>
+<pre>--</pre>
+<pre>    78b4:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>    78b8:	e5943018 	ldr	r3, [r4, #24]</pre>
+<pre>    78bc:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    78c0:	e594301c 	ldr	r3, [r4, #28]</pre>
+<pre>    78c4:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    78c8:	e5943020 	ldr	r3, [r4, #32]</pre>
+<pre>    78cc:	e58d3028 	str	r3, [sp, #40]	; 0x28</pre>
+<pre>    78d0:	e5943024 	ldr	r3, [r4, #36]	; 0x24</pre>
+<pre>    78d4:	e58d302c 	str	r3, [sp, #44]	; 0x2c</pre>
+<pre>    78d8:	e5943028 	ldr	r3, [r4, #40]	; 0x28</pre>
+<pre>    78dc:	e58d3024 	str	r3, [sp, #36]	; 0x24</pre>
+<pre>    78e0:	ebfffebc 	bl	73d8 &lt;tmctl_deletePolicerTrace&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    78e4:	e3500000 	cmp	r0, #0</pre>
+<pre>    78e8:	0a000015 	beq	7944 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0xec&gt;</pre>
+<pre>    78ec:	e59f105c 	ldr	r1, [pc, #92]	; 7950 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    78f0:	e3a02f65 	mov	r2, #404	; 0x194</pre>
+<pre>    78f4:	e59f0058 	ldr	r0, [pc, #88]	; 7954 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    78f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    78fc:	e281105c 	add	r1, r1, #92	; 0x5c</pre>
+<pre>    7900:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7904:	ebffeccc 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7908:	e3e00000 	mvn	r0, #0</pre>
+<pre>    790c:	ea00000c 	b	7944 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0xec&gt;</pre>
+<pre>    7910:	e3a02010 	mov	r2, #16</pre>
+<pre>    7914:	e1a0000d 	mov	r0, sp</pre>
+<pre>    7918:	ebffeda2 	bl	2fa8 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    791c:	e3a00074 	mov	r0, #116	; 0x74</pre>
+<pre>    7920:	eaffffda 	b	7890 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0x38&gt;</pre>
+<pre>    7924:	e59f102c 	ldr	r1, [pc, #44]	; 7958 &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0x100&gt;</pre>
+<pre>    7928:	e3002182 	movw	r2, #386	; 0x182</pre>
+<pre>    792c:	e59f0028 	ldr	r0, [pc, #40]	; 795c &lt;tmctlArcher_setQueueDropAlg&commat;&commat;Base+0x104&gt;</pre>
+<pre>    7930:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7934:	e281105c 	add	r1, r1, #92	; 0x5c</pre>
+<pre>    7938:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    793c:	ebffecbe 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7940:	e3a00002 	mov	r0, #2</pre>
+<pre>    7944:	e28dd03c 	add	sp, sp, #60	; 0x3c</pre>
+<pre>--</pre>
+<pre>    7974:	0a000015 	beq	79d0 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0x70&gt;</pre>
+<pre>    7978:	e3530003 	cmp	r3, #3</pre>
+<pre>    797c:	1a000018 	bne	79e4 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0x84&gt;</pre>
+<pre>    7980:	e59f10a8 	ldr	r1, [pc, #168]	; 7a30 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    7984:	e28d0004 	add	r0, sp, #4</pre>
+<pre>    7988:	e3a02010 	mov	r2, #16</pre>
+<pre>    798c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7990:	ebffed84 	bl	2fa8 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    7994:	e3a0007b 	mov	r0, #123	; 0x7b</pre>
+<pre>    7998:	e28d1004 	add	r1, sp, #4</pre>
+<pre>    799c:	e58d5014 	str	r5, [sp, #20]</pre>
+<pre>    79a0:	ebfffe8c 	bl	73d8 &lt;tmctl_deletePolicerTrace&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    79a4:	e3500000 	cmp	r0, #0</pre>
+<pre>    79a8:	0a000017 	beq	7a0c &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xac&gt;</pre>
+<pre>    79ac:	e59f1080 	ldr	r1, [pc, #128]	; 7a34 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    79b0:	e30021c5 	movw	r2, #453	; 0x1c5</pre>
+<pre>    79b4:	e59f007c 	ldr	r0, [pc, #124]	; 7a38 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    79b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    79bc:	e2811078 	add	r1, r1, #120	; 0x78</pre>
+<pre>    79c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    79c4:	ebffec9c 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    79c8:	e3e00000 	mvn	r0, #0</pre>
+<pre>    79cc:	ea00000c 	b	7a04 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    79d0:	e28d0004 	add	r0, sp, #4</pre>
+<pre>    79d4:	e3a02010 	mov	r2, #16</pre>
+<pre>    79d8:	ebffed72 	bl	2fa8 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    79dc:	e3a0007a 	mov	r0, #122	; 0x7a</pre>
+<pre>    79e0:	eaffffec 	b	7998 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0x38&gt;</pre>
+<pre>    79e4:	e59f1050 	ldr	r1, [pc, #80]	; 7a3c &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    79e8:	e30021bd 	movw	r2, #445	; 0x1bd</pre>
+<pre>    79ec:	e59f004c 	ldr	r0, [pc, #76]	; 7a40 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    79f0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    79f4:	e2811078 	add	r1, r1, #120	; 0x78</pre>
+<pre>    79f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    79fc:	ebffec8e 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7a00:	e3a00002 	mov	r0, #2</pre>
+<pre>    7a04:	e28dd02c 	add	sp, sp, #44	; 0x2c</pre>
+<pre>--</pre>
+<pre>    7a2c:	eafffff4 	b	7a04 &lt;tmctlArcher_getQueueStats&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    7a30:	000027ee 	andeq	r2, r0, lr, ror #15</pre>
+<pre>    7a34:	000028ab 	andeq	r2, r0, fp, lsr #17</pre>
+<pre>    7a38:	000027e1 	andeq	r2, r0, r1, ror #15</pre>
+<pre>    7a3c:	00002873 	andeq	r2, r0, r3, ror r8</pre>
+<pre>    7a40:	00002786 	andeq	r2, r0, r6, lsl #15</pre>
+<br />
+<pre>00007a44 &lt;tmctlArcher_getDefQSize&commat;&commat;Base&gt;:</pre>
+<pre>    7a44:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    7a48:	e92d4013 	push	{r0, r1, r4, lr}</pre>
+<pre>    7a4c:	e1a04001 	mov	r4, r1</pre>
+<pre>    7a50:	0a00000b 	beq	7a84 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x40&gt;</pre>
+<pre>    7a54:	e3530003 	cmp	r3, #3</pre>
+<pre>    7a58:	0a000018 	beq	7ac0 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x7c&gt;</pre>
+<pre>    7a5c:	e59f1064 	ldr	r1, [pc, #100]	; 7ac8 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x84&gt;</pre>
+<pre>    7a60:	e30021ee 	movw	r2, #494	; 0x1ee</pre>
+<pre>    7a64:	e59f0060 	ldr	r0, [pc, #96]	; 7acc &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x88&gt;</pre>
+<pre>    7a68:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7a6c:	e2811092 	add	r1, r1, #146	; 0x92</pre>
+<pre>    7a70:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7a74:	ebffec70 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7a78:	e3e00000 	mvn	r0, #0</pre>
+<pre>    7a7c:	e28dd008 	add	sp, sp, #8</pre>
+<pre>    7a80:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>    7a84:	e3a00076 	mov	r0, #118	; 0x76</pre>
+<pre>    7a88:	e28d1004 	add	r1, sp, #4</pre>
+<pre>    7a8c:	ebfffe51 	bl	73d8 &lt;tmctl_deletePolicerTrace&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    7a90:	e3500000 	cmp	r0, #0</pre>
+<pre>    7a94:	059d3004 	ldreq	r3, [sp, #4]</pre>
+<pre>    7a98:	05843000 	streq	r3, [r4]</pre>
+<pre>    7a9c:	0afffff6 	beq	7a7c &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x38&gt;</pre>
+<pre>    7aa0:	e59f1028 	ldr	r1, [pc, #40]	; 7ad0 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    7aa4:	e3a02f7d 	mov	r2, #500	; 0x1f4</pre>
+<pre>    7aa8:	e59f0024 	ldr	r0, [pc, #36]	; 7ad4 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x90&gt;</pre>
+<pre>    7aac:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7ab0:	e2811092 	add	r1, r1, #146	; 0x92</pre>
+<pre>    7ab4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7ab8:	ebffec5f 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7abc:	eaffffed 	b	7a78 &lt;tmctlArcher_getDefQSize&commat;&commat;Base+0x34&gt;</pre>
+<pre>    7ac0:	e3a00079 	mov	r0, #121	; 0x79</pre>
+<pre>--</pre>
+<pre>    7ac8:	000027fb 	strdeq	r2, [r0], -fp</pre>
+<pre>    7acc:	0000270e 	andeq	r2, r0, lr, lsl #14</pre>
+<pre>    7ad0:	000027b7 			; &lt;UNDEFINED&gt; instruction: 0x000027b7</pre>
+<pre>    7ad4:	000026ed 	andeq	r2, r0, sp, ror #13</pre>
+<br />
+<pre>00007ad8 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base&gt;:</pre>
+<pre>    7ad8:	e3510007 	cmp	r1, #7</pre>
+<pre>    7adc:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>    7ae0:	e1a06001 	mov	r6, r1</pre>
+<pre>    7ae4:	e24ddf55 	sub	sp, sp, #340	; 0x154</pre>
+<pre>    7ae8:	da00000c 	ble	7b20 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x48&gt;</pre>
+<pre>    7aec:	e58d1000 	str	r1, [sp]</pre>
+<pre>    7af0:	e3a03008 	mov	r3, #8</pre>
+<pre>    7af4:	e59f1114 	ldr	r1, [pc, #276]	; 7c10 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x138&gt;</pre>
+<pre>    7af8:	e3a020bf 	mov	r2, #191	; 0xbf</pre>
+<pre>    7afc:	e59f0110 	ldr	r0, [pc, #272]	; 7c14 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    7b00:	e3e04000 	mvn	r4, #0</pre>
+<pre>    7b04:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7b08:	e28110aa 	add	r1, r1, #170	; 0xaa</pre>
+<pre>    7b0c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7b10:	ebffec49 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7b14:	e1a00004 	mov	r0, r4</pre>
+<pre>    7b18:	e28ddf55 	add	sp, sp, #340	; 0x154</pre>
+<pre>    7b1c:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>    7b20:	e28d100c 	add	r1, sp, #12</pre>
+<pre>    7b24:	e1a07000 	mov	r7, r0</pre>
+<pre>    7b28:	e1a05002 	mov	r5, r2</pre>
+<pre>    7b2c:	ebffed5c 	bl	30a4 &lt;tmctlEthSw_getPortSched&commat;plt&gt;</pre>
+<pre>    7b30:	e3700001 	cmn	r0, #1</pre>
+<pre>    7b34:	e1a04000 	mov	r4, r0</pre>
+<pre>    7b38:	1a000007 	bne	7b5c &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x84&gt;</pre>
+<pre>    7b3c:	e59f10d4 	ldr	r1, [pc, #212]	; 7c18 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x140&gt;</pre>
+<pre>    7b40:	e3a020c6 	mov	r2, #198	; 0xc6</pre>
+<pre>    7b44:	e59f00d0 	ldr	r0, [pc, #208]	; 7c1c &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x144&gt;</pre>
+<pre>    7b48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7b4c:	e28110aa 	add	r1, r1, #170	; 0xaa</pre>
+<pre>    7b50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7b54:	ebffec38 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7b58:	eaffffed 	b	7b14 &lt;tmctlArcher_getQueueCfg&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    7b5c:	e28d1008 	add	r1, sp, #8</pre>
+<pre>--</pre>
+<pre>    7c38:	e3a03000 	mov	r3, #0</pre>
+<pre>    7c3c:	e1a06000 	mov	r6, r0</pre>
+<pre>    7c40:	e5cd3000 	strb	r3, [sp]</pre>
+<pre>    7c44:	e1a0700d 	mov	r7, sp</pre>
+<pre>    7c48:	e59f3068 	ldr	r3, [pc, #104]	; 7cb8 &lt;tmctlEthSw_isWanIntf&commat;&commat;Base+0x88&gt;</pre>
+<pre>    7c4c:	e1a05001 	mov	r5, r1</pre>
+<pre>    7c50:	e30829fa 	movw	r2, #35322	; 0x89fa</pre>
+<pre>    7c54:	e3a01020 	mov	r1, #32</pre>
+<pre>    7c58:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    7c5c:	e1a00007 	mov	r0, r7</pre>
+<pre>    7c60:	ebffecaf 	bl	2f24 &lt;bcm_enet_driver_get_port_list_name&commat;plt&gt;</pre>
+<pre>    7c64:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    7c68:	0a00000a 	beq	7c98 &lt;tmctlEthSw_isWanIntf&commat;&commat;Base+0x68&gt;</pre>
+<pre>    7c6c:	e59f1048 	ldr	r1, [pc, #72]	; 7cbc &lt;tmctlEthSw_isWanIntf&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    7c70:	e1a03004 	mov	r3, r4</pre>
+<pre>    7c74:	e59f0044 	ldr	r0, [pc, #68]	; 7cc0 &lt;tmctlEthSw_isWanIntf&commat;&commat;Base+0x90&gt;</pre>
+<pre>    7c78:	e3a02052 	mov	r2, #82	; 0x52</pre>
+<pre>    7c7c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7c80:	e3e04000 	mvn	r4, #0</pre>
+<pre>    7c84:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7c88:	ebffebeb 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7c8c:	e1a00004 	mov	r0, r4</pre>
+<pre>    7c90:	e28dd024 	add	sp, sp, #36	; 0x24</pre>
+<pre>--</pre>
+<pre>    7e14:	e15e0002 	cmp	lr, r2</pre>
+<pre>    7e18:	a1a0200e 	movge	r2, lr</pre>
+<pre>    7e1c:	eaffffca 	b	7d4c &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x88&gt;</pre>
+<pre>    7e20:	e3530003 	cmp	r3, #3</pre>
+<pre>    7e24:	1a000008 	bne	7e4c &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x188&gt;</pre>
+<pre>    7e28:	e5941000 	ldr	r1, [r4]</pre>
+<pre>    7e2c:	e15c0001 	cmp	ip, r1</pre>
+<pre>    7e30:	03a00000 	moveq	r0, #0</pre>
+<pre>    7e34:	12000001 	andne	r0, r0, #1</pre>
+<pre>    7e38:	e3500000 	cmp	r0, #0</pre>
+<pre>    7e3c:	01a0200c 	moveq	r2, ip</pre>
+<pre>    7e40:	03a03005 	moveq	r3, #5</pre>
+<pre>    7e44:	0affffc0 	beq	7d4c &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x88&gt;</pre>
+<pre>    7e48:	eaffffef 	b	7e0c &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x148&gt;</pre>
+<pre>    7e4c:	e59f10b0 	ldr	r1, [pc, #176]	; 7f04 &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x240&gt;</pre>
+<pre>    7e50:	e3002121 	movw	r2, #289	; 0x121</pre>
+<pre>    7e54:	e59f00ac 	ldr	r0, [pc, #172]	; 7f08 &lt;tmctlEthSw_determineNewPortQcfg&commat;&commat;Base+0x244&gt;</pre>
+<pre>    7e58:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7e5c:	e2811015 	add	r1, r1, #21</pre>
+<pre>    7e60:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7e64:	ebffeb74 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7e68:	e3e00000 	mvn	r0, #0</pre>
+<pre>    7e6c:	e28dd008 	add	sp, sp, #8</pre>
+<pre>--</pre>
+<pre>    7f18:	e24dd03c 	sub	sp, sp, #60	; 0x3c</pre>
+<pre>    7f1c:	e28d5018 	add	r5, sp, #24</pre>
+<pre>    7f20:	e1a06000 	mov	r6, r0</pre>
+<pre>    7f24:	e3a02020 	mov	r2, #32</pre>
+<pre>    7f28:	e1a04001 	mov	r4, r1</pre>
+<pre>    7f2c:	e1a00005 	mov	r0, r5</pre>
+<pre>    7f30:	e3a01000 	mov	r1, #0</pre>
+<pre>    7f34:	ebffec18 	bl	2f9c &lt</span>emset&commat;plt&gt;</pre>
+<pre>    7f38:	e28d2004 	add	r2, sp, #4</pre>
+<pre>    7f3c:	e1a0100d 	mov	r1, sp</pre>
+<pre>    7f40:	e1a00006 	mov	r0, r6</pre>
+<pre>    7f44:	ebffeb87 	bl	2d68 &lt;bcm_enet_map_ifname_to_unit_port&commat;plt&gt;</pre>
+<pre>    7f48:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    7f4c:	0a000009 	beq	7f78 &lt;tmctlEthSw_getPortSched&commat;&commat;Base+0x64&gt;</pre>
+<pre>    7f50:	e59f1104 	ldr	r1, [pc, #260]	; 805c &lt;tmctlEthSw_getPortSched&commat;&commat;Base+0x148&gt;</pre>
+<pre>    7f54:	e300217a 	movw	r2, #378	; 0x17a</pre>
+<pre>    7f58:	e59f0100 	ldr	r0, [pc, #256]	; 8060 &lt;tmctlEthSw_getPortSched&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    7f5c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7f60:	e2811035 	add	r1, r1, #53	; 0x35</pre>
+<pre>    7f64:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7f68:	ebffeb33 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7f6c:	e3e00000 	mvn	r0, #0</pre>
+<pre>    7f70:	e28dd03c 	add	sp, sp, #60	; 0x3c</pre>
+<pre>--</pre>
+<pre>    8080:	e3a01000 	mov	r1, #0</pre>
+<pre>    8084:	e3a02020 	mov	r2, #32</pre>
+<pre>    8088:	e1a00009 	mov	r0, r9</pre>
+<pre>    808c:	ebffebc2 	bl	2f9c &lt</span>emset&commat;plt&gt;</pre>
+<pre>    8090:	e5943000 	ldr	r3, [r4]</pre>
+<pre>    8094:	e3a06000 	mov	r6, #0</pre>
+<pre>    8098:	e58d6014 	str	r6, [sp, #20]</pre>
+<pre>    809c:	e3530008 	cmp	r3, #8</pre>
+<pre>    80a0:	01a01004 	moveq	r1, r4</pre>
+<pre>    80a4:	01a05006 	moveq	r5, r6</pre>
+<pre>    80a8:	01a03006 	moveq	r3, r6</pre>
+<pre>    80ac:	0a00000c 	beq	80e4 &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x78&gt;</pre>
+<pre>    80b0:	e59f11b4 	ldr	r1, [pc, #436]	; 826c &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x200&gt;</pre>
+<pre>    80b4:	e3a02008 	mov	r2, #8</pre>
+<pre>    80b8:	e59f01b0 	ldr	r0, [pc, #432]	; 8270 &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x204&gt;</pre>
+<pre>    80bc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    80c0:	e58d2000 	str	r2, [sp]</pre>
+<pre>    80c4:	e281104d 	add	r1, r1, #77	; 0x4d</pre>
+<pre>    80c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    80cc:	e30021e1 	movw	r2, #481	; 0x1e1</pre>
+<pre><span class="red">    80d0:	ebffead9 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    80d4:	e3e04000 	mvn	r4, #0</pre>
+<pre>    80d8:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>    8150:	e3550008 	cmp	r5, #8</pre>
+<pre>    8154:	03a05000 	moveq	r5, #0</pre>
+<pre>    8158:	13a0a002 	movne	sl, #2</pre>
+<pre>    815c:	01a0a005 	moveq	sl, r5</pre>
+<pre>    8160:	e1a00007 	mov	r0, r7</pre>
+<pre>    8164:	e28d2014 	add	r2, sp, #20</pre>
+<pre>    8168:	e28d1010 	add	r1, sp, #16</pre>
+<pre>    816c:	ebffeb30 	bl	2e34 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;plt&gt;</pre>
+<pre>    8170:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8174:	028d3018 	addeq	r3, sp, #24</pre>
+<pre>    8178:	03e07000 	mvneq	r7, #0</pre>
+<pre>    817c:	03a0b001 	moveq	fp, #1</pre>
+<pre>    8180:	0a000019 	beq	81ec &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x180&gt;</pre>
+<pre>    8184:	e59f10f0 	ldr	r1, [pc, #240]	; 827c &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x210&gt;</pre>
+<pre>    8188:	e1a03004 	mov	r3, r4</pre>
+<pre>    818c:	e59f00ec 	ldr	r0, [pc, #236]	; 8280 &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x214&gt;</pre>
+<pre>    8190:	e3a02f86 	mov	r2, #536	; 0x218</pre>
+<pre>    8194:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8198:	e281104d 	add	r1, r1, #77	; 0x4d</pre>
+<pre>    819c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    81a0:	ebffeaa5 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    81a4:	eaffffca 	b	80d4 &lt;tmctlEthSw_setPortSched&commat;&commat;Base+0x68&gt;</pre>
+<pre>    81a8:	e59d0010 	ldr	r0, [sp, #16]</pre>
+<pre>--</pre>
+<pre>    82cc:	e5823004 	str	r3, [r2, #4]</pre>
+<pre>    82d0:	e2822028 	add	r2, r2, #40	; 0x28</pre>
+<pre>    82d4:	e5023020 	str	r3, [r2, #-32]	; 0xffffffe0</pre>
+<pre>    82d8:	e2833001 	add	r3, r3, #1</pre>
+<pre>    82dc:	e3530008 	cmp	r3, #8</pre>
+<pre>    82e0:	e5020014 	str	r0, [r2, #-20]	; 0xffffffec</pre>
+<pre>    82e4:	e5021018 	str	r1, [r2, #-24]	; 0xffffffe8</pre>
+<pre>    82e8:	1afffff7 	bne	82cc &lt;tmctlEthSw_resetPortSched&commat;&commat;Base+0x38&gt;</pre>
+<pre>    82ec:	e1a00004 	mov	r0, r4</pre>
+<pre>    82f0:	e1a01005 	mov	r1, r5</pre>
+<pre>    82f4:	ebffeb6d 	bl	30b0 &lt;tmctlEthSw_setPortSched&commat;plt&gt;</pre>
+<pre>    82f8:	e3700001 	cmn	r0, #1</pre>
+<pre>    82fc:	e1a04000 	mov	r4, r0</pre>
+<pre>    8300:	1a000006 	bne	8320 &lt;tmctlEthSw_resetPortSched&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    8304:	e59f1020 	ldr	r1, [pc, #32]	; 832c &lt;tmctlEthSw_resetPortSched&commat;&commat;Base+0x98&gt;</pre>
+<pre>    8308:	e3002269 	movw	r2, #617	; 0x269</pre>
+<pre>    830c:	e59f001c 	ldr	r0, [pc, #28]	; 8330 &lt;tmctlEthSw_resetPortSched&commat;&commat;Base+0x9c&gt;</pre>
+<pre>    8310:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8314:	e2811065 	add	r1, r1, #101	; 0x65</pre>
+<pre>    8318:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    831c:	ebffea46 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8320:	e1a00004 	mov	r0, r4</pre>
+<pre>    8324:	e28ddf53 	add	sp, sp, #332	; 0x14c</pre>
+<pre>--</pre>
+<pre>    8330:	00001e34 	andeq	r1, r0, r4, lsr lr</pre>
+<br />
+<pre>00008334 &lt;tmctlEthSw_getPortShaper&commat;&commat;Base&gt;:</pre>
+<pre>    8334:	e92d4030 	push	{r4, r5, lr}</pre>
+<pre>    8338:	e24dd01c 	sub	sp, sp, #28</pre>
+<pre>    833c:	e28d200c 	add	r2, sp, #12</pre>
+<pre>    8340:	e1a04001 	mov	r4, r1</pre>
+<pre>    8344:	e28d1008 	add	r1, sp, #8</pre>
+<pre>    8348:	e3a03000 	mov	r3, #0</pre>
+<pre>    834c:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    8350:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    8354:	ebffea83 	bl	2d68 &lt;bcm_enet_map_ifname_to_unit_port&commat;plt&gt;</pre>
+<pre>    8358:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    835c:	0a000009 	beq	8388 &lt;tmctlEthSw_getPortShaper&commat;&commat;Base+0x54&gt;</pre>
+<pre>    8360:	e59f1090 	ldr	r1, [pc, #144]	; 83f8 &lt;tmctlEthSw_getPortShaper&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    8364:	e3002292 	movw	r2, #658	; 0x292</pre>
+<pre>    8368:	e59f008c 	ldr	r0, [pc, #140]	; 83fc &lt;tmctlEthSw_getPortShaper&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    836c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8370:	e281107f 	add	r1, r1, #127	; 0x7f</pre>
+<pre>    8374:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8378:	ebffea2f 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    837c:	e3e00000 	mvn	r0, #0</pre>
+<pre>    8380:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>--</pre>
+<pre>    8404:	0000218a 	andeq	r2, r0, sl, lsl #3</pre>
+<br />
+<pre>00008408 &lt;tmctlEthSw_setPortShaper&commat;&commat;Base&gt;:</pre>
+<pre>    8408:	e92d46f0 	push	{r4, r5, r6, r7, r9, sl, lr}</pre>
+<pre>    840c:	e24dd014 	sub	sp, sp, #20</pre>
+<pre>    8410:	e28d200c 	add	r2, sp, #12</pre>
+<pre>    8414:	e1a06001 	mov	r6, r1</pre>
+<pre>    8418:	e28d1008 	add	r1, sp, #8</pre>
+<pre>    841c:	e3a03000 	mov	r3, #0</pre>
+<pre>    8420:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>    8424:	ebffea82 	bl	2e34 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;plt&gt;</pre>
+<pre>    8428:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    842c:	0a00000b 	beq	8460 &lt;tmctlEthSw_setPortShaper&commat;&commat;Base+0x58&gt;</pre>
+<pre>    8430:	e59f10ac 	ldr	r1, [pc, #172]	; 84e4 &lt;tmctlEthSw_setPortShaper&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    8434:	e1a03004 	mov	r3, r4</pre>
+<pre>    8438:	e59f00a8 	ldr	r0, [pc, #168]	; 84e8 &lt;tmctlEthSw_setPortShaper&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    843c:	e3a02fb3 	mov	r2, #716	; 0x2cc</pre>
+<pre>    8440:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8444:	e2811098 	add	r1, r1, #152	; 0x98</pre>
+<pre>    8448:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    844c:	ebffe9fa 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8450:	e3e04000 	mvn	r4, #0</pre>
+<pre>    8454:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<br />
+<pre>000084f8 &lt;tmctlEthSw_getQueueShaper&commat;&commat;Base&gt;:</pre>
+<pre>    84f8:	e92d4030 	push	{r4, r5, lr}</pre>
+<pre>    84fc:	e24dd01c 	sub	sp, sp, #28</pre>
+<pre>    8500:	e1a05001 	mov	r5, r1</pre>
+<pre>    8504:	e1a04002 	mov	r4, r2</pre>
+<pre>    8508:	e28d1008 	add	r1, sp, #8</pre>
+<pre>    850c:	e28d200c 	add	r2, sp, #12</pre>
+<pre>    8510:	e3a03000 	mov	r3, #0</pre>
+<pre>    8514:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    8518:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    851c:	ebffea11 	bl	2d68 &lt;bcm_enet_map_ifname_to_unit_port&commat;plt&gt;</pre>
+<pre>    8520:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    8524:	0a000009 	beq	8550 &lt;tmctlEthSw_getQueueShaper&commat;&commat;Base+0x58&gt;</pre>
+<pre>    8528:	e59f108c 	ldr	r1, [pc, #140]	; 85bc &lt;tmctlEthSw_getQueueShaper&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    852c:	e300230d 	movw	r2, #781	; 0x30d</pre>
+<pre>    8530:	e59f0088 	ldr	r0, [pc, #136]	; 85c0 &lt;tmctlEthSw_getQueueShaper&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    8534:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8538:	e28110b1 	add	r1, r1, #177	; 0xb1</pre>
+<pre>    853c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8540:	ebffe9bd 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8544:	e3e00000 	mvn	r0, #0</pre>
+<pre>    8548:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>--</pre>
+<br />
+<pre>000085cc &lt;tmctlEthSw_setQueueShaper&commat;&commat;Base&gt;:</pre>
+<pre>    85cc:	e92d46f0 	push	{r4, r5, r6, r7, r9, sl, lr}</pre>
+<pre>    85d0:	e24dd014 	sub	sp, sp, #20</pre>
+<pre>    85d4:	e1a06001 	mov	r6, r1</pre>
+<pre>    85d8:	e1a05002 	mov	r5, r2</pre>
+<pre>    85dc:	e28d1008 	add	r1, sp, #8</pre>
+<pre>    85e0:	e28d200c 	add	r2, sp, #12</pre>
+<pre>    85e4:	e3a03000 	mov	r3, #0</pre>
+<pre>    85e8:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>    85ec:	ebffea10 	bl	2e34 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;plt&gt;</pre>
+<pre>    85f0:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    85f4:	0a000028 	beq	869c &lt;tmctlEthSw_setQueueShaper&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    85f8:	e59f10ac 	ldr	r1, [pc, #172]	; 86ac &lt;tmctlEthSw_setQueueShaper&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    85fc:	e1a03004 	mov	r3, r4</pre>
+<pre>    8600:	e59f00a8 	ldr	r0, [pc, #168]	; 86b0 &lt;tmctlEthSw_setQueueShaper&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    8604:	e300234a 	movw	r2, #842	; 0x34a</pre>
+<pre>    8608:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    860c:	e28110cb 	add	r1, r1, #203	; 0xcb</pre>
+<pre>    8610:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8614:	ebffe988 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8618:	e3e04000 	mvn	r4, #0</pre>
+<pre>    861c:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>    86c4:	e24dd038 	sub	sp, sp, #56	; 0x38</pre>
+<pre>    86c8:	e28d6018 	add	r6, sp, #24</pre>
+<pre>    86cc:	e1a05000 	mov	r5, r0</pre>
+<pre>    86d0:	e3a02020 	mov	r2, #32</pre>
+<pre>    86d4:	e1a04001 	mov	r4, r1</pre>
+<pre>    86d8:	e1a00006 	mov	r0, r6</pre>
+<pre>    86dc:	e3a01000 	mov	r1, #0</pre>
+<pre>    86e0:	ebffea2d 	bl	2f9c &lt</span>emset&commat;plt&gt;</pre>
+<pre>    86e4:	e28d2004 	add	r2, sp, #4</pre>
+<pre>    86e8:	e1a0100d 	mov	r1, sp</pre>
+<pre>    86ec:	e1a00005 	mov	r0, r5</pre>
+<pre>    86f0:	ebffe99c 	bl	2d68 &lt;bcm_enet_map_ifname_to_unit_port&commat;plt&gt;</pre>
+<pre>    86f4:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    86f8:	0a000009 	beq	8724 &lt;tmctlEthSw_getPortTmParms&commat;&commat;Base+0x64&gt;</pre>
+<pre>    86fc:	e59f10dc 	ldr	r1, [pc, #220]	; 87e0 &lt;tmctlEthSw_getPortTmParms&commat;&commat;Base+0x120&gt;</pre>
+<pre>    8700:	e3a02fe2 	mov	r2, #904	; 0x388</pre>
+<pre>    8704:	e59f00d8 	ldr	r0, [pc, #216]	; 87e4 &lt;tmctlEthSw_getPortTmParms&commat;&commat;Base+0x124&gt;</pre>
+<pre>    8708:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    870c:	e28110e5 	add	r1, r1, #229	; 0xe5</pre>
+<pre>    8710:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8714:	ebffe948 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8718:	e3e00000 	mvn	r0, #0</pre>
+<pre>    871c:	e28dd038 	add	sp, sp, #56	; 0x38</pre>
+<pre>--</pre>
+<pre>    8800:	e1c120f0 	strd	r2, [r1]</pre>
+<pre>    8804:	e5813008 	str	r3, [r1, #8]</pre>
+<pre>    8808:	e3003101 	movw	r3, #257	; 0x101</pre>
+<pre>    880c:	e5810010 	str	r0, [r1, #16]</pre>
+<pre>    8810:	e5810014 	str	r0, [r1, #20]</pre>
+<pre>    8814:	e1c130bc 	strh	r3, [r1, #12]</pre>
+<pre>    8818:	e12fff1e 	bx	lr</pre>
+<br />
+<pre>0000881c &lt;tmctlSysportTm_portTmInit&commat;&commat;Base&gt;:</pre>
+<pre>    881c:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}</pre>
+<pre>    8820:	e1a05000 	mov	r5, r0</pre>
+<pre>    8824:	ebffea18 	bl	308c &lt;archer_sysport_tm_enable&commat;plt&gt;</pre>
+<pre>    8828:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    882c:	0a000009 	beq	8858 &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    8830:	e59f108c 	ldr	r1, [pc, #140]	; 88c4 &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    8834:	e1a03004 	mov	r3, r4</pre>
+<pre>    8838:	e59f0088 	ldr	r0, [pc, #136]	; 88c8 &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0xac&gt;</pre>
+<pre>    883c:	e3a0206c 	mov	r2, #108	; 0x6c</pre>
+<pre>    8840:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8844:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8848:	ebffe8fb 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    884c:	e1a00004 	mov	r0, r4</pre>
+<pre>    8850:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>    8854:	e8bd8030 	pop	{r4, r5, pc}</pre>
+<pre>    8858:	e1a01004 	mov	r1, r4</pre>
+<pre>    885c:	e1a00005 	mov	r0, r5</pre>
+<pre>    8860:	ebffe9ca 	bl	2f90 &lt;archer_sysport_tm_mode_set&commat;plt&gt;</pre>
+<pre>    8864:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8868:	0a000008 	beq	8890 &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0x74&gt;</pre>
+<pre>    886c:	e59f1058 	ldr	r1, [pc, #88]	; 88cc &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    8870:	e1a03005 	mov	r3, r5</pre>
+<pre>    8874:	e59f0054 	ldr	r0, [pc, #84]	; 88d0 &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    8878:	e3a02074 	mov	r2, #116	; 0x74</pre>
+<pre>    887c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8880:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8884:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8888:	ebffe8eb 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    888c:	eaffffee 	b	884c &lt;tmctlSysportTm_portTmInit&commat;&commat;Base+0x30&gt;</pre>
+<pre>    8890:	e1a01004 	mov	r1, r4</pre>
+<pre>--</pre>
+<pre>    88d8:	00001ecf 	andeq	r1, r0, pc, asr #29</pre>
+<br />
+<pre>000088dc &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base&gt;:</pre>
+<pre>    88dc:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>    88e0:	e24dd02c 	sub	sp, sp, #44	; 0x2c</pre>
+<pre>    88e4:	e1a07001 	mov	r7, r1</pre>
+<pre>    88e8:	e28d100c 	add	r1, sp, #12</pre>
+<pre>    88ec:	e1a05000 	mov	r5, r0</pre>
+<pre>    88f0:	e1a06002 	mov	r6, r2</pre>
+<pre>    88f4:	ebffea02 	bl	3104 &lt;archer_sysport_tm_arbiter_get&commat;plt&gt;</pre>
+<pre>    88f8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    88fc:	0a00000b 	beq	8930 &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x54&gt;</pre>
+<pre>    8900:	e59f1114 	ldr	r1, [pc, #276]	; 8a1c &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x140&gt;</pre>
+<pre>    8904:	e1a03005 	mov	r3, r5</pre>
+<pre>    8908:	e59f0110 	ldr	r0, [pc, #272]	; 8a20 &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x144&gt;</pre>
+<pre>    890c:	e3a020a3 	mov	r2, #163	; 0xa3</pre>
+<pre>    8910:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8914:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8918:	e281101a 	add	r1, r1, #26</pre>
+<pre>    891c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8920:	ebffe8c5 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8924:	e1a00004 	mov	r0, r4</pre>
+<pre>    8928:	e28dd02c 	add	sp, sp, #44	; 0x2c</pre>
+<pre>--</pre>
+<pre>    896c:	e28d3024 	add	r3, sp, #36	; 0x24</pre>
+<pre>    8970:	e28d2018 	add	r2, sp, #24</pre>
+<pre>    8974:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    8978:	e1a01007 	mov	r1, r7</pre>
+<pre>    897c:	e28d3020 	add	r3, sp, #32</pre>
+<pre>    8980:	e1a00005 	mov	r0, r5</pre>
+<pre>    8984:	e58d3000 	str	r3, [sp]</pre>
+<pre>    8988:	e28d301c 	add	r3, sp, #28</pre>
+<pre>    898c:	ebffe8d7 	bl	2cf0 &lt;archer_sysport_tm_queue_get&commat;plt&gt;</pre>
+<pre>    8990:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8994:	0a00000a 	beq	89c4 &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    8998:	e59f108c 	ldr	r1, [pc, #140]	; 8a2c &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x150&gt;</pre>
+<pre>    899c:	e1a03005 	mov	r3, r5</pre>
+<pre>    89a0:	e59f0088 	ldr	r0, [pc, #136]	; 8a30 &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x154&gt;</pre>
+<pre>    89a4:	e3a020b3 	mov	r2, #179	; 0xb3</pre>
+<pre>    89a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    89ac:	e58d4004 	str	r4, [sp, #4]</pre>
+<pre>    89b0:	e281101a 	add	r1, r1, #26</pre>
+<pre>    89b4:	e58d7000 	str	r7, [sp]</pre>
+<pre>    89b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    89bc:	ebffe89e 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    89c0:	eaffffd7 	b	8924 &lt;tmctlSysportTm_getQueueCfg&commat;&commat;Base+0x48&gt;</pre>
+<pre>    89c4:	e3a02028 	mov	r2, #40	; 0x28</pre>
+<pre>--</pre>
+<pre>00008a34 &lt;tmctlSysportTm_setQueueCfg&commat;&commat;Base&gt;:</pre>
+<pre>    8a34:	e5921010 	ldr	r1, [r2, #16]</pre>
+<pre>    8a38:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    8a3c:	e2411004 	sub	r1, r1, #4</pre>
+<pre>    8a40:	e16f1f11 	clz	r1, r1</pre>
+<pre>    8a44:	e24dd018 	sub	sp, sp, #24</pre>
+<pre>    8a48:	e1a05000 	mov	r5, r0</pre>
+<pre>    8a4c:	e1a06002 	mov	r6, r2</pre>
+<pre>    8a50:	e1a012a1 	lsr	r1, r1, #5</pre>
+<pre>    8a54:	ebffe9bf 	bl	3158 &lt;archer_sysport_tm_arbiter_set&commat;plt&gt;</pre>
+<pre>    8a58:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8a5c:	0a000009 	beq	8a88 &lt;tmctlSysportTm_setQueueCfg&commat;&commat;Base+0x54&gt;</pre>
+<pre>    8a60:	e59f1114 	ldr	r1, [pc, #276]	; 8b7c &lt;tmctlSysportTm_setQueueCfg&commat;&commat;Base+0x148&gt;</pre>
+<pre>    8a64:	e1a03005 	mov	r3, r5</pre>
+<pre>    8a68:	e59f0110 	ldr	r0, [pc, #272]	; 8b80 &lt;tmctlSysportTm_setQueueCfg&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    8a6c:	e3a020fc 	mov	r2, #252	; 0xfc</pre>
+<pre>    8a70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8a74:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8a78:	e2811035 	add	r1, r1, #53	; 0x35</pre>
+<pre>    8a7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8a80:	ebffe86d 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8a84:	ea000039 	b	8b70 &lt;tmctlSysportTm_setQueueCfg&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    8a88:	e5961014 	ldr	r1, [r6, #20]</pre>
+<pre>--</pre>
+<pre>    8b94:	00001ea9 	andeq	r1, r0, r9, lsr #29</pre>
+<pre>    8b98:	00001cbd 			; &lt;UNDEFINED&gt; instruction: 0x00001cbd</pre>
+<br />
+<pre>00008b9c &lt;tmctlSysportTm_getPortShaper&commat;&commat;Base&gt;:</pre>
+<pre>    8b9c:	e92d407f 	push	{r0, r1, r2, r3, r4, r5, r6, lr}</pre>
+<pre>    8ba0:	e1a05001 	mov	r5, r1</pre>
+<pre>    8ba4:	e28d200c 	add	r2, sp, #12</pre>
+<pre>    8ba8:	e28d1008 	add	r1, sp, #8</pre>
+<pre>    8bac:	e1a06000 	mov	r6, r0</pre>
+<pre>    8bb0:	ebffe91d 	bl	302c &lt;archer_sysport_tm_port_get&commat;plt&gt;</pre>
+<pre>    8bb4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8bb8:	0a00000b 	beq	8bec &lt;tmctlSysportTm_getPortShaper&commat;&commat;Base+0x50&gt;</pre>
+<pre>    8bbc:	e59f1040 	ldr	r1, [pc, #64]	; 8c04 &lt;tmctlSysportTm_getPortShaper&commat;&commat;Base+0x68&gt;</pre>
+<pre>    8bc0:	e1a03006 	mov	r3, r6</pre>
+<pre>    8bc4:	e59f003c 	ldr	r0, [pc, #60]	; 8c08 &lt;tmctlSysportTm_getPortShaper&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    8bc8:	e3a02f56 	mov	r2, #344	; 0x158</pre>
+<pre>    8bcc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8bd0:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8bd4:	e2811050 	add	r1, r1, #80	; 0x50</pre>
+<pre>    8bd8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8bdc:	ebffe816 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8be0:	e1a00004 	mov	r0, r4</pre>
+<pre>    8be4:	e28dd010 	add	sp, sp, #16</pre>
+<pre>--</pre>
+<pre>    8c0c:	e92d40f7 	push	{r0, r1, r2, r4, r5, r6, r7, lr}</pre>
+<pre>    8c10:	e1a05000 	mov	r5, r0</pre>
+<pre>    8c14:	e5917000 	ldr	r7, [r1]</pre>
+<pre>    8c18:	e3570000 	cmp	r7, #0</pre>
+<pre>    8c1c:	da000021 	ble	8ca8 &lt;tmctlSysportTm_setPortShaper&commat;&commat;Base+0x9c&gt;</pre>
+<pre>    8c20:	e5916004 	ldr	r6, [r1, #4]</pre>
+<pre>    8c24:	e3a01001 	mov	r1, #1</pre>
+<pre>    8c28:	e3560000 	cmp	r6, #0</pre>
+<pre>    8c2c:	d3a06e7d 	movle	r6, #2000	; 0x7d0</pre>
+<pre>    8c30:	ebffe8d6 	bl	2f90 &lt;archer_sysport_tm_mode_set&commat;plt&gt;</pre>
+<pre>    8c34:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8c38:	0a00000b 	beq	8c6c &lt;tmctlSysportTm_setPortShaper&commat;&commat;Base+0x60&gt;</pre>
+<pre>    8c3c:	e59f1098 	ldr	r1, [pc, #152]	; 8cdc &lt;tmctlSysportTm_setPortShaper&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    8c40:	e1a03005 	mov	r3, r5</pre>
+<pre>    8c44:	e59f0094 	ldr	r0, [pc, #148]	; 8ce0 &lt;tmctlSysportTm_setPortShaper&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    8c48:	e3002199 	movw	r2, #409	; 0x199</pre>
+<pre>    8c4c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8c50:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8c54:	e281106d 	add	r1, r1, #109	; 0x6d</pre>
+<pre>    8c58:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8c5c:	ebffe7f6 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8c60:	e1a00004 	mov	r0, r4</pre>
+<pre>    8c64:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>--</pre>
+<pre>    8d1c:	e28d3014 	add	r3, sp, #20</pre>
+<pre>    8d20:	e1a02005 	mov	r2, r5</pre>
+<pre>    8d24:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    8d28:	e1a01007 	mov	r1, r7</pre>
+<pre>    8d2c:	e28d3010 	add	r3, sp, #16</pre>
+<pre>    8d30:	e1a00006 	mov	r0, r6</pre>
+<pre>    8d34:	e58d3000 	str	r3, [sp]</pre>
+<pre>    8d38:	e28d300c 	add	r3, sp, #12</pre>
+<pre>    8d3c:	ebffe818 	bl	2da4 &lt;archer_sysport_tm_stats_get&commat;plt&gt;</pre>
+<pre>    8d40:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    8d44:	0a00000c 	beq	8d7c &lt;tmctlSysportTm_getQueueStats&commat;&commat;Base+0x88&gt;</pre>
+<pre>    8d48:	e59f1050 	ldr	r1, [pc, #80]	; 8da0 &lt;tmctlSysportTm_getQueueStats&commat;&commat;Base+0xac&gt;</pre>
+<pre>    8d4c:	e1a03006 	mov	r3, r6</pre>
+<pre>    8d50:	e59f004c 	ldr	r0, [pc, #76]	; 8da4 &lt;tmctlSysportTm_getQueueStats&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    8d54:	e30021d1 	movw	r2, #465	; 0x1d1</pre>
+<pre>    8d58:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8d5c:	e58d5004 	str	r5, [sp, #4]</pre>
+<pre>    8d60:	e281108a 	add	r1, r1, #138	; 0x8a</pre>
+<pre>    8d64:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    8d68:	e58d7000 	str	r7, [sp]</pre>
+<pre><span class="red">    8d6c:	ebffe7b2 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8d70:	e1a00005 	mov	r0, r5</pre>
+<pre>    8d74:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>--</pre>
+<pre>    8d9c:	eafffff3 	b	8d70 &lt;tmctlSysportTm_getQueueStats&commat;&commat;Base+0x7c&gt;</pre>
+<pre>    8da0:	00001c9d 	muleq	r0, sp, ip</pre>
+<pre>    8da4:	00001c47 	andeq	r1, r0, r7, asr #24</pre>
+<br />
+<pre>00008da8 &lt;tmctl_portTmInit_plat&commat;&commat;Base&gt;:</pre>
+<pre>    8da8:	e3500000 	cmp	r0, #0</pre>
+<pre>    8dac:	e92d4010 	push	{r4, lr}</pre>
+<pre>    8db0:	13a04002 	movne	r4, #2</pre>
+<pre>    8db4:	1a00000b 	bne	8de8 &lt;tmctl_portTmInit_plat&commat;&commat;Base+0x40&gt;</pre>
+<pre>    8db8:	e5910000 	ldr	r0, [r1]</pre>
+<pre>    8dbc:	ebffe819 	bl	2e28 &lt;tmctlArcher_TmInit&commat;plt&gt;</pre>
+<pre>    8dc0:	e3700001 	cmn	r0, #1</pre>
+<pre>    8dc4:	e1a04000 	mov	r4, r0</pre>
+<pre>    8dc8:	1a000006 	bne	8de8 &lt;tmctl_portTmInit_plat&commat;&commat;Base+0x40&gt;</pre>
+<pre>    8dcc:	e59f101c 	ldr	r1, [pc, #28]	; 8df0 &lt;tmctl_portTmInit_plat&commat;&commat;Base+0x48&gt;</pre>
+<pre>    8dd0:	e1a03000 	mov	r3, r0</pre>
+<pre>    8dd4:	e59f0018 	ldr	r0, [pc, #24]	; 8df4 &lt;tmctl_portTmInit_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    8dd8:	e3a0206e 	mov	r2, #110	; 0x6e</pre>
+<pre>    8ddc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8de0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8de4:	ebffe794 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8de8:	e1a00004 	mov	r0, r4</pre>
+<pre>    8dec:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>    8df0:	00001ecb 	andeq	r1, r0, fp, asr #29</pre>
+<pre>    8df4:	00001cbc 			; &lt;UNDEFINED&gt; instruction: 0x00001cbc</pre>
+<br />
+<pre>00008df8 &lt;tmctl_portTmUninit_plat&commat;&commat;Base&gt;:</pre>
+<pre>    8df8:	e3500000 	cmp	r0, #0</pre>
+<pre>    8dfc:	e92d4010 	push	{r4, lr}</pre>
+<pre>    8e00:	13a04002 	movne	r4, #2</pre>
+<pre>    8e04:	1a00000c 	bne	8e3c &lt;tmctl_portTmUninit_plat&commat;&commat;Base+0x44&gt;</pre>
+<pre>    8e08:	e5910000 	ldr	r0, [r1]</pre>
+<pre>    8e0c:	ebffe841 	bl	2f18 &lt;tmctlArcher_TmUninit&commat;plt&gt;</pre>
+<pre>    8e10:	e3700001 	cmn	r0, #1</pre>
+<pre>    8e14:	e1a04000 	mov	r4, r0</pre>
+<pre>    8e18:	1a000007 	bne	8e3c &lt;tmctl_portTmUninit_plat&commat;&commat;Base+0x44&gt;</pre>
+<pre>    8e1c:	e59f1020 	ldr	r1, [pc, #32]	; 8e44 &lt;tmctl_portTmUninit_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    8e20:	e1a03000 	mov	r3, r0</pre>
+<pre>    8e24:	e59f001c 	ldr	r0, [pc, #28]	; 8e48 &lt;tmctl_portTmUninit_plat&commat;&commat;Base+0x50&gt;</pre>
+<pre>    8e28:	e3a020a1 	mov	r2, #161	; 0xa1</pre>
+<pre>    8e2c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8e30:	e2811016 	add	r1, r1, #22</pre>
+<pre>    8e34:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8e38:	ebffe77f 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8e3c:	e1a00004 	mov	r0, r4</pre>
+<pre>    8e40:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>00008e4c &lt;tmctl_getQueueCfg_plat&commat;&commat;Base&gt;:</pre>
+<pre>    8e4c:	e3500000 	cmp	r0, #0</pre>
+<pre>    8e50:	e92d4010 	push	{r4, lr}</pre>
+<pre>    8e54:	13a04002 	movne	r4, #2</pre>
+<pre>    8e58:	1a00000f 	bne	8e9c &lt;tmctl_getQueueCfg_plat&commat;&commat;Base+0x50&gt;</pre>
+<pre>    8e5c:	e1a0c001 	mov	ip, r1</pre>
+<pre>    8e60:	e1a01002 	mov	r1, r2</pre>
+<pre>    8e64:	e59c0000 	ldr	r0, [ip]</pre>
+<pre>    8e68:	e1a02003 	mov	r2, r3</pre>
+<pre>    8e6c:	ebffe7b4 	bl	2d44 &lt;tmctlArcher_getQueueCfg&commat;plt&gt;</pre>
+<pre>    8e70:	e3700001 	cmn	r0, #1</pre>
+<pre>    8e74:	e1a04000 	mov	r4, r0</pre>
+<pre>    8e78:	1a000007 	bne	8e9c &lt;tmctl_getQueueCfg_plat&commat;&commat;Base+0x50&gt;</pre>
+<pre>    8e7c:	e59f1020 	ldr	r1, [pc, #32]	; 8ea4 &lt;tmctl_getQueueCfg_plat&commat;&commat;Base+0x58&gt;</pre>
+<pre>    8e80:	e1a03000 	mov	r3, r0</pre>
+<pre>    8e84:	e59f001c 	ldr	r0, [pc, #28]	; 8ea8 &lt;tmctl_getQueueCfg_plat&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    8e88:	e3a020d6 	mov	r2, #214	; 0xd6</pre>
+<pre>    8e8c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8e90:	e281102e 	add	r1, r1, #46	; 0x2e</pre>
+<pre>    8e94:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8e98:	ebffe767 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8e9c:	e1a00004 	mov	r0, r4</pre>
+<pre>    8ea0:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>    8ea8:	00001c6a 	andeq	r1, r0, sl, ror #24</pre>
+<br />
+<pre>00008eac &lt;tmctl_setQueueCfg_plat&commat;&commat;Base&gt;:</pre>
+<pre>    8eac:	e3500000 	cmp	r0, #0</pre>
+<pre>    8eb0:	1a00003d 	bne	8fac &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x100&gt;</pre>
+<pre>    8eb4:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    8eb8:	e24dd018 	sub	sp, sp, #24</pre>
+<pre>    8ebc:	e1a04002 	mov	r4, r2</pre>
+<pre>    8ec0:	e1a05001 	mov	r5, r1</pre>
+<pre>    8ec4:	e1a0600d 	mov	r6, sp</pre>
+<pre>    8ec8:	e1a02006 	mov	r2, r6</pre>
+<pre>    8ecc:	ebffe871 	bl	3098 &lt;tmctl_getPortTmParms&commat;plt&gt;</pre>
+<pre>    8ed0:	e3700001 	cmn	r0, #1</pre>
+<pre>    8ed4:	1a000009 	bne	8f00 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x54&gt;</pre>
+<pre>    8ed8:	e59f10d4 	ldr	r1, [pc, #212]	; 8fb4 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x108&gt;</pre>
+<pre>    8edc:	e300211a 	movw	r2, #282	; 0x11a</pre>
+<pre>    8ee0:	e59f00d0 	ldr	r0, [pc, #208]	; 8fb8 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    8ee4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8ee8:	e2811045 	add	r1, r1, #69	; 0x45</pre>
+<pre>    8eec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8ef0:	ebffe751 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8ef4:	e3e00000 	mvn	r0, #0</pre>
+<pre>    8ef8:	e28dd018 	add	sp, sp, #24</pre>
+<pre>    8efc:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    8f00:	e5943010 	ldr	r3, [r4, #16]</pre>
+<pre>    8f04:	e3530001 	cmp	r3, #1</pre>
+<pre>    8f08:	1a000011 	bne	8f54 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    8f0c:	e59d2000 	ldr	r2, [sp]</pre>
+<pre>    8f10:	e3120011 	tst	r2, #17</pre>
+<pre>    8f14:	0a00001d 	beq	8f90 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    8f18:	e5950000 	ldr	r0, [r5]</pre>
+<pre>    8f1c:	e1a02004 	mov	r2, r4</pre>
+<pre>    8f20:	e1a01006 	mov	r1, r6</pre>
+<pre>    8f24:	ebffe7a4 	bl	2dbc &lt;tmctlArcher_setQueueCfg&commat;plt&gt;</pre>
+<pre>    8f28:	e3700001 	cmn	r0, #1</pre>
+<pre>    8f2c:	1afffff1 	bne	8ef8 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    8f30:	e59f1084 	ldr	r1, [pc, #132]	; 8fbc &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x110&gt;</pre>
+<pre>    8f34:	e1a03000 	mov	r3, r0</pre>
+<pre>    8f38:	e59f0080 	ldr	r0, [pc, #128]	; 8fc0 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x114&gt;</pre>
+<pre>    8f3c:	e3002132 	movw	r2, #306	; 0x132</pre>
+<pre>    8f40:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8f44:	e2811045 	add	r1, r1, #69	; 0x45</pre>
+<pre>    8f48:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8f4c:	ebffe73a 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8f50:	eaffffe7 	b	8ef4 &lt;tmctl_setQueueCfg_plat&commat;&commat;Base+0x48&gt;</pre>
+<pre>    8f54:	e3530002 	cmp	r3, #2</pre>
+<pre>--</pre>
+<br />
+<pre>00008fd4 &lt;tmctl_getPortShaper_plat&commat;&commat;Base&gt;:</pre>
+<pre>    8fd4:	e3500000 	cmp	r0, #0</pre>
+<pre>    8fd8:	e92d4010 	push	{r4, lr}</pre>
+<pre>    8fdc:	13a04002 	movne	r4, #2</pre>
+<pre>    8fe0:	1a00000e 	bne	9020 &lt;tmctl_getPortShaper_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    8fe4:	e1a03001 	mov	r3, r1</pre>
+<pre>    8fe8:	e1a01002 	mov	r1, r2</pre>
+<pre>    8fec:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    8ff0:	ebffe75f 	bl	2d74 &lt;tmctlEthSw_getPortShaper&commat;plt&gt;</pre>
+<pre>    8ff4:	e3700001 	cmn	r0, #1</pre>
+<pre>    8ff8:	e1a04000 	mov	r4, r0</pre>
+<pre>    8ffc:	1a000007 	bne	9020 &lt;tmctl_getPortShaper_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9000:	e59f1020 	ldr	r1, [pc, #32]	; 9028 &lt;tmctl_getPortShaper_plat&commat;&commat;Base+0x54&gt;</pre>
+<pre>    9004:	e1a03000 	mov	r3, r0</pre>
+<pre>    9008:	e59f001c 	ldr	r0, [pc, #28]	; 902c &lt;tmctl_getPortShaper_plat&commat;&commat;Base+0x58&gt;</pre>
+<pre>    900c:	e30021b2 	movw	r2, #434	; 0x1b2</pre>
+<pre>    9010:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9014:	e281105c 	add	r1, r1, #92	; 0x5c</pre>
+<pre>    9018:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    901c:	ebffe706 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9020:	e1a00004 	mov	r0, r4</pre>
+<pre>    9024:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<br />
+<pre>00009030 &lt;tmctl_setPortShaper_plat&commat;&commat;Base&gt;:</pre>
+<pre>    9030:	e3500000 	cmp	r0, #0</pre>
+<pre>    9034:	e92d4010 	push	{r4, lr}</pre>
+<pre>    9038:	13a04002 	movne	r4, #2</pre>
+<pre>    903c:	1a00000e 	bne	907c &lt;tmctl_setPortShaper_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9040:	e1a03001 	mov	r3, r1</pre>
+<pre>    9044:	e1a01002 	mov	r1, r2</pre>
+<pre>    9048:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    904c:	ebffe733 	bl	2d20 &lt;tmctlEthSw_setPortShaper&commat;plt&gt;</pre>
+<pre>    9050:	e3700001 	cmn	r0, #1</pre>
+<pre>    9054:	e1a04000 	mov	r4, r0</pre>
+<pre>    9058:	1a000007 	bne	907c &lt;tmctl_setPortShaper_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    905c:	e59f1020 	ldr	r1, [pc, #32]	; 9084 &lt;tmctl_setPortShaper_plat&commat;&commat;Base+0x54&gt;</pre>
+<pre>    9060:	e1a03000 	mov	r3, r0</pre>
+<pre>    9064:	e59f001c 	ldr	r0, [pc, #28]	; 9088 &lt;tmctl_setPortShaper_plat&commat;&commat;Base+0x58&gt;</pre>
+<pre>    9068:	e30021e1 	movw	r2, #481	; 0x1e1</pre>
+<pre>    906c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9070:	e2811075 	add	r1, r1, #117	; 0x75</pre>
+<pre>    9074:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9078:	ebffe6ef 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    907c:	e1a00004 	mov	r0, r4</pre>
+<pre>    9080:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>    911c:	e3a01000 	mov	r1, #0</pre>
+<pre>    9120:	eaffe70a 	b	2d50 &lt;tmctlArcher_setQueueDropAlg&commat;plt&gt;</pre>
+<br />
+<pre>00009124 &lt;tmctl_getQueueStats_plat&commat;&commat;Base&gt;:</pre>
+<pre>    9124:	e3500000 	cmp	r0, #0</pre>
+<pre>    9128:	e92d4010 	push	{r4, lr}</pre>
+<pre>    912c:	13a04002 	movne	r4, #2</pre>
+<pre>    9130:	1a00000c 	bne	9168 &lt;tmctl_getQueueStats_plat&commat;&commat;Base+0x44&gt;</pre>
+<pre>    9134:	e5911000 	ldr	r1, [r1]</pre>
+<pre>    9138:	ebffe78e 	bl	2f78 &lt;tmctlArcher_getQueueStats&commat;plt&gt;</pre>
+<pre>    913c:	e3700001 	cmn	r0, #1</pre>
+<pre>    9140:	e1a04000 	mov	r4, r0</pre>
+<pre>    9144:	1a000007 	bne	9168 &lt;tmctl_getQueueStats_plat&commat;&commat;Base+0x44&gt;</pre>
+<pre>    9148:	e59f1020 	ldr	r1, [pc, #32]	; 9170 &lt;tmctl_getQueueStats_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    914c:	e1a03000 	mov	r3, r0</pre>
+<pre>    9150:	e59f001c 	ldr	r0, [pc, #28]	; 9174 &lt;tmctl_getQueueStats_plat&commat;&commat;Base+0x50&gt;</pre>
+<pre>    9154:	e3a02fe1 	mov	r2, #900	; 0x384</pre>
+<pre>    9158:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    915c:	e281108e 	add	r1, r1, #142	; 0x8e</pre>
+<pre>    9160:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9164:	ebffe6b4 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9168:	e1a00004 	mov	r0, r4</pre>
+<pre>    916c:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<br />
+<pre>00009178 &lt;tmctl_getPortTmParms_plat&commat;&commat;Base&gt;:</pre>
+<pre>    9178:	e3500000 	cmp	r0, #0</pre>
+<pre>    917c:	e92d4010 	push	{r4, lr}</pre>
+<pre>    9180:	13a04002 	movne	r4, #2</pre>
+<pre>    9184:	1a00000e 	bne	91c4 &lt;tmctl_getPortTmParms_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9188:	e1a03001 	mov	r3, r1</pre>
+<pre>    918c:	e1a01002 	mov	r1, r2</pre>
+<pre>    9190:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    9194:	ebffe6db 	bl	2d08 &lt;tmctlEthSw_getPortTmParms&commat;plt&gt;</pre>
+<pre>    9198:	e3700001 	cmn	r0, #1</pre>
+<pre>    919c:	e1a04000 	mov	r4, r0</pre>
+<pre>    91a0:	1a000007 	bne	91c4 &lt;tmctl_getPortTmParms_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    91a4:	e59f1020 	ldr	r1, [pc, #32]	; 91cc &lt;tmctl_getPortTmParms_plat&commat;&commat;Base+0x54&gt;</pre>
+<pre>    91a8:	e1a03000 	mov	r3, r0</pre>
+<pre>    91ac:	e59f001c 	ldr	r0, [pc, #28]	; 91d0 &lt;tmctl_getPortTmParms_plat&commat;&commat;Base+0x58&gt;</pre>
+<pre>    91b0:	e30023c2 	movw	r2, #962	; 0x3c2</pre>
+<pre>    91b4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    91b8:	e28110a7 	add	r1, r1, #167	; 0xa7</pre>
+<pre>    91bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    91c0:	ebffe69d 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    91c4:	e1a00004 	mov	r0, r4</pre>
+<pre>    91c8:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>00009224 &lt;tmctl_setQueueShaper_plat&commat;&commat;Base&gt;:</pre>
+<pre>    9224:	e3a00002 	mov	r0, #2</pre>
+<pre>    9228:	e12fff1e 	bx	lr</pre>
+<br />
+<pre>0000922c &lt;tmctl_getDefQSize_plat&commat;&commat;Base&gt;:</pre>
+<pre>    922c:	e92d4013 	push	{r0, r1, r4, lr}</pre>
+<pre>    9230:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    9234:	1a00000c 	bne	926c &lt;tmctl_getDefQSize_plat&commat;&commat;Base+0x40&gt;</pre>
+<pre>    9238:	e28d1004 	add	r1, sp, #4</pre>
+<pre>    923c:	ebffe65d 	bl	2bb8 &lt;tmctlArcher_getDefQSize&commat;plt&gt;</pre>
+<pre>    9240:	e3700001 	cmn	r0, #1</pre>
+<pre>    9244:	e1a03000 	mov	r3, r0</pre>
+<pre>    9248:	159d0004 	ldrne	r0, [sp, #4]</pre>
+<pre>    924c:	1a000007 	bne	9270 &lt;tmctl_getDefQSize_plat&commat;&commat;Base+0x44&gt;</pre>
+<pre>    9250:	e59f1020 	ldr	r1, [pc, #32]	; 9278 &lt;tmctl_getDefQSize_plat&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9254:	e3002501 	movw	r2, #1281	; 0x501</pre>
+<pre>    9258:	e59f001c 	ldr	r0, [pc, #28]	; 927c &lt;tmctl_getDefQSize_plat&commat;&commat;Base+0x50&gt;</pre>
+<pre>    925c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9260:	e28110c1 	add	r1, r1, #193	; 0xc1</pre>
+<pre>    9264:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9268:	ebffe673 	bl	2c3c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    926c:	e3a00000 	mov	r0, #0</pre>
+<pre>    9270:	e28dd008 	add	sp, sp, #8</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">46</span> times </span><span class="orange">libtmctl.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

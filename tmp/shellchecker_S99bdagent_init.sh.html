@@ -1,0 +1,77 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 4:</span></pre>
+<pre></span>echo -e "\033[35mStarting BDAgent...\033[0m"</span></span></pre>
+<pre><span class="orange">     ^-- SC3037 (warning): In POSIX sh, echo flags are undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 9:</span></pre>
+<pre></span>	fw_bdagent=`cat /tmp/bitdefender/bitdefender-release | grep VERSION`</span></pre>
+<pre><span class="green">                   ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                        ^-- SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	fw_bdagent=$(cat /tmp/bitdefender/bitdefender-release | grep VERSION)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 10:</span></pre>
+<pre></span>	fw_ver=$(echo $fw_bdagent | tr "=.-" " ") #split version to VERSION 2 2 65 3~61f979c75</span></pre>
+<pre><span class="green">                      ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	fw_ver=$(echo "$fw_bdagent" | tr "=.-" " ") #split version to VERSION 2 2 65 3~61f979c75</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 11:</span></pre>
+<pre></span>	set -- $fw_ver</span></pre>
+<pre><span class="green">               ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	set -- "$fw_ver"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 15:</span></pre>
+<pre></span>		cur_bdagent=`cat /opt/bitdefender/bitdefender-release | grep VERSION`</span></pre>
+<pre><span class="green">                            ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                 ^-- SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		cur_bdagent=$(cat /opt/bitdefender/bitdefender-release | grep VERSION)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 16:</span></pre>
+<pre></span>		cur_ver=$(echo $cur_bdagent | tr "=.-" " ") #split version to VERSION 2 2 65 3~61f979c75</span></pre>
+<pre><span class="green">                               ^----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		cur_ver=$(echo "$cur_bdagent" | tr "=.-" " ") #split version to VERSION 2 2 65 3~61f979c75</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 17:</span></pre>
+<pre></span>		set -- $cur_ver</span></pre>
+<pre><span class="green">                       ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		set -- "$cur_ver"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 67:</span></pre>
+<pre></span>	rand=`shuf -i 0-179 -n 1`</span></pre>
+<pre><span class="green">             ^------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	rand=$(shuf -i 0-179 -n 1)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 68:</span></pre>
+<pre></span>	hour=$(($rand/60 + 1))</span></pre>
+<pre><span class="green">                ^---^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/rc3.d/S99bdagent_init.sh line 69:</span></pre>
+<pre></span>	min=$(($rand%60))</span></pre>
+<pre><span class="green">               ^---^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3037" title="https://www.shellcheck.net/wiki/SC3037" target="_blank" >https://www.shellcheck.net/wiki/SC3037</a> -- In POSIX sh, echo flags are undef...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2002" title="https://www.shellcheck.net/wiki/SC2002" target="_blank" >https://www.shellcheck.net/wiki/SC2002</a> -- Useless cat. Consider 'cmd &lt; file...</pre>

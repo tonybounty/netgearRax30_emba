@@ -1,0 +1,2348 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">wps_pbcd</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">wps_pbcd</span></pre>
+<br />
+<pre>   11f48:	e1a0100a 	mov	r1, sl</pre>
+<pre>   11f4c:	e1a00005 	mov	r0, r5</pre>
+<pre>   11f50:	ebfffeb5 	bl	11a2c &lt;osifname_to_nvifname&commat;plt&gt;</pre>
+<pre>   11f54:	e3500000 	cmp	r0, #0</pre>
+<pre>   11f58:	ba00001b 	blt	11fcc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x450&gt;</pre>
+<pre>   11f5c:	e28d204c 	add	r2, sp, #76	; 0x4c</pre>
+<pre>   11f60:	e28d1048 	add	r1, sp, #72	; 0x48</pre>
+<pre>   11f64:	e1a0000a 	mov	r0, sl</pre>
+<pre>   11f68:	ebfffe3d 	bl	11864 &lt;get_ifname_unit&commat;plt&gt;</pre>
+<pre>   11f6c:	e3500000 	cmp	r0, #0</pre>
+<pre>   11f70:	ba0003f0 	blt	12f38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x13bc&gt;</pre>
+<pre>   11f74:	e59d304c 	ldr	r3, [sp, #76]	; 0x4c</pre>
+<pre>   11f78:	e3530000 	cmp	r3, #0</pre>
+<pre>   11f7c:	da0003e8 	ble	12f24 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x13a8&gt;</pre>
+<pre>   11f80:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   11f84:	e3130008 	tst	r3, #8</pre>
+<pre>   11f88:	0affffcb 	beq	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   11f8c:	e1a02005 	mov	r2, r5</pre>
+<pre>   11f90:	e1a01008 	mov	r1, r8</pre>
+<pre>   11f94:	e1a0000b 	mov	r0, fp</pre>
+<pre><span class="red">   11f98:	ebfffe8e 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11f9c:	eaffffc6 	b	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   11fa0:	e59f4bf4 	ldr	r4, [pc, #3060]	; 12b9c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1020&gt;</pre>
+<pre>   11fa4:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   11fa8:	eaffffca 	b	11ed8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x35c&gt;</pre>
+<pre>   11fac:	e59f1bec 	ldr	r1, [pc, #3052]	; 12ba0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1024&gt;</pre>
+<pre>   11fb0:	e1a02005 	mov	r2, r5</pre>
+<pre>   11fb4:	e59f0be8 	ldr	r0, [pc, #3048]	; 12ba4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1028&gt;</pre>
+<pre>   11fb8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11fbc:	e2811e47 	add	r1, r1, #1136	; 0x470</pre>
+<pre>   11fc0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11fc4:	ebfffe83 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11fc8:	eaffffbb 	b	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   11fcc:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   11fd0:	e3130008 	tst	r3, #8</pre>
+<pre>   11fd4:	0affffb8 	beq	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   11fd8:	e59f1bc8 	ldr	r1, [pc, #3016]	; 12ba8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x102c&gt;</pre>
+<pre>   11fdc:	e1a02005 	mov	r2, r5</pre>
+<pre>   11fe0:	e59f0bc4 	ldr	r0, [pc, #3012]	; 12bac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1030&gt;</pre>
+<pre>   11fe4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11fe8:	e2811e47 	add	r1, r1, #1136	; 0x470</pre>
+<pre>   11fec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11ff0:	ebfffe78 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11ff4:	eaffffb0 	b	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   11ff8:	e5993000 	ldr	r3, [r9]</pre>
+<pre>--</pre>
+<pre>   12490:	e28bb008 	add	fp, fp, #8</pre>
+<pre>   12494:	e28aa008 	add	sl, sl, #8</pre>
+<pre>   12498:	e58d8024 	str	r8, [sp, #36]	; 0x24</pre>
+<pre>   1249c:	e58da01c 	str	sl, [sp, #28]</pre>
+<pre>   124a0:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   124a4:	e2862018 	add	r2, r6, #24</pre>
+<pre>   124a8:	e58d2010 	str	r2, [sp, #16]</pre>
+<pre>   124ac:	e2133002 	ands	r3, r3, #2</pre>
+<pre>   124b0:	0a000055 	beq	1260c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa90&gt;</pre>
+<pre>   124b4:	e5d63010 	ldrb	r3, [r6, #16]</pre>
+<pre>   124b8:	e3530001 	cmp	r3, #1</pre>
+<pre>   124bc:	0a0002ed 	beq	13078 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14fc&gt;</pre>
+<pre>   124c0:	e59f3728 	ldr	r3, [pc, #1832]	; 12bf0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1074&gt;</pre>
+<pre>   124c4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   124c8:	e59f1724 	ldr	r1, [pc, #1828]	; 12bf4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1078&gt;</pre>
+<pre>   124cc:	e1a02006 	mov	r2, r6</pre>
+<pre>   124d0:	e59f0720 	ldr	r0, [pc, #1824]	; 12bf8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x107c&gt;</pre>
+<pre>   124d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   124d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   124dc:	e2811e49 	add	r1, r1, #1168	; 0x490</pre>
+<pre><span class="red">   124e0:	ebfffd3c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   124e4:	e5963018 	ldr	r3, [r6, #24]</pre>
+<pre>   124e8:	e3530000 	cmp	r3, #0</pre>
+<pre>--</pre>
+<pre>   12520:	e3530000 	cmp	r3, #0</pre>
+<pre>   12524:	1a00004b 	bne	12658 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xadc&gt;</pre>
+<pre>   12528:	e5961018 	ldr	r1, [r6, #24]</pre>
+<pre>   1252c:	e2877001 	add	r7, r7, #1</pre>
+<pre>   12530:	e1570001 	cmp	r7, r1</pre>
+<pre>   12534:	ca000014 	bgt	1258c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa10&gt;</pre>
+<pre>   12538:	e59d2010 	ldr	r2, [sp, #16]</pre>
+<pre>   1253c:	e7921107 	ldr	r1, [r2, r7, lsl #2]</pre>
+<pre>   12540:	e1a02003 	mov	r2, r3</pre>
+<pre>   12544:	e3510004 	cmp	r1, #4</pre>
+<pre>   12548:	1afffff0 	bne	12510 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x994&gt;</pre>
+<pre>   1254c:	e3530000 	cmp	r3, #0</pre>
+<pre>   12550:	0afffff4 	beq	12528 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9ac&gt;</pre>
+<pre>   12554:	e59f16a8 	ldr	r1, [pc, #1704]	; 12c04 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1088&gt;</pre>
+<pre>   12558:	e59f06a8 	ldr	r0, [pc, #1704]	; 12c08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x108c&gt;</pre>
+<pre>   1255c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12560:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12564:	e2811e4a 	add	r1, r1, #1184	; 0x4a0</pre>
+<pre>   12568:	e2877001 	add	r7, r7, #1</pre>
+<pre>   1256c:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   12570:	ebfffd18 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12574:	e5961018 	ldr	r1, [r6, #24]</pre>
+<pre>   12578:	e5993000 	ldr	r3, [r9]</pre>
+<pre>--</pre>
+<pre>   125f0:	e3530000 	cmp	r3, #0</pre>
+<pre>   125f4:	0a000072 	beq	127c4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc48&gt;</pre>
+<pre>   125f8:	e1a00004 	mov	r0, r4</pre>
+<pre>   125fc:	e3a01020 	mov	r1, #32</pre>
+<pre>   12600:	ebfffc8b 	bl	11834 &lt;strchr&commat;plt&gt;</pre>
+<pre>   12604:	e1a04000 	mov	r4, r0</pre>
+<pre>   12608:	eaffffa4 	b	124a0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x924&gt;</pre>
+<pre>   1260c:	e5962018 	ldr	r2, [r6, #24]</pre>
+<pre>   12610:	e3520000 	cmp	r2, #0</pre>
+<pre>   12614:	caffffb7 	bgt	124f8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x97c&gt;</pre>
+<pre>   12618:	eaffffdd 	b	12594 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa18&gt;</pre>
+<pre>   1261c:	e59f45f0 	ldr	r4, [pc, #1520]	; 12c14 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1098&gt;</pre>
+<pre>   12620:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   12624:	eaffff5e 	b	123a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x828&gt;</pre>
+<pre>   12628:	e59f15e8 	ldr	r1, [pc, #1512]	; 12c18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x109c&gt;</pre>
+<pre>   1262c:	e59f05e8 	ldr	r0, [pc, #1512]	; 12c1c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10a0&gt;</pre>
+<pre>   12630:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12634:	e2811e4a 	add	r1, r1, #1184	; 0x4a0</pre>
+<pre>   12638:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1263c:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   12640:	ebfffce4 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12644:	e3540000 	cmp	r4, #0</pre>
+<pre>   12648:	1affffd3 	bne	1259c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa20&gt;</pre>
+<pre>   1264c:	e59f45cc 	ldr	r4, [pc, #1484]	; 12c20 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10a4&gt;</pre>
+<pre>   12650:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   12654:	eaffffd5 	b	125b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa34&gt;</pre>
+<pre>   12658:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>   1265c:	e1a0000a 	mov	r0, sl</pre>
+<pre><span class="red">   12660:	ebfffcdc 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12664:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12668:	e2033002 	and	r3, r3, #2</pre>
+<pre>   1266c:	e1a02003 	mov	r2, r3</pre>
+<pre>   12670:	eaffffac 	b	12528 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9ac&gt;</pre>
+<pre>   12674:	e3530000 	cmp	r3, #0</pre>
+<pre>   12678:	0affffaa 	beq	12528 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9ac&gt;</pre>
+<pre>   1267c:	e1a0100b 	mov	r1, fp</pre>
+<pre>   12680:	e1a00008 	mov	r0, r8</pre>
+<pre><span class="red">   12684:	ebfffcd3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12688:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1268c:	e2033002 	and	r3, r3, #2</pre>
+<pre>   12690:	e1a02003 	mov	r2, r3</pre>
+<pre>   12694:	eaffffa3 	b	12528 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9ac&gt;</pre>
+<pre>   12698:	e3530000 	cmp	r3, #0</pre>
+<pre>   1269c:	0affffa1 	beq	12528 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9ac&gt;</pre>
+<pre>   126a0:	e59f157c 	ldr	r1, [pc, #1404]	; 12c24 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10a8&gt;</pre>
+<pre>   126a4:	e59f057c 	ldr	r0, [pc, #1404]	; 12c28 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10ac&gt;</pre>
+<pre>   126a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   126ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   126b0:	eaffffab 	b	12564 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x9e8&gt;</pre>
+<pre>   126b4:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   126b8:	e3130008 	tst	r3, #8</pre>
+<pre>   126bc:	0affff2f 	beq	12380 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x804&gt;</pre>
+<pre>   126c0:	e59f0564 	ldr	r0, [pc, #1380]	; 12c2c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10b0&gt;</pre>
+<pre>   126c4:	e1a02006 	mov	r2, r6</pre>
+<pre>   126c8:	e59d1034 	ldr	r1, [sp, #52]	; 0x34</pre>
+<pre>   126cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126d0:	ebfffcc0 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126d4:	eaffff29 	b	12380 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x804&gt;</pre>
+<pre>   126d8:	e59f1550 	ldr	r1, [pc, #1360]	; 12c30 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10b4&gt;</pre>
+<pre>   126dc:	e1a02006 	mov	r2, r6</pre>
+<pre>   126e0:	e59f054c 	ldr	r0, [pc, #1356]	; 12c34 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10b8&gt;</pre>
+<pre>   126e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   126e8:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   126ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126f0:	ebfffcb8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126f4:	eafffea1 	b	12180 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x604&gt;</pre>
+<pre>   126f8:	e59d1038 	ldr	r1, [sp, #56]	; 0x38</pre>
+<pre>   126fc:	e1a03006 	mov	r3, r6</pre>
+<pre>   12700:	e59d001c 	ldr	r0, [sp, #28]</pre>
+<pre>   12704:	e1a0200a 	mov	r2, sl</pre>
+<pre><span class="red">   12708:	ebfffcb2 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1270c:	eaffff10 	b	12354 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x7d8&gt;</pre>
+<pre>   12710:	e1a00008 	mov	r0, r8</pre>
+<pre>   12714:	ebfffc7f 	bl	11918 &lt;nvram_get&commat;plt&gt;</pre>
+<pre>   12718:	e3500000 	cmp	r0, #0</pre>
+<pre>   1271c:	0a00001c 	beq	12794 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc18&gt;</pre>
+<pre>   12720:	e5d02000 	ldrb	r2, [r0]</pre>
+<pre>   12724:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12728:	e2522030 	subs	r2, r2, #48	; 0x30</pre>
+<pre>   1272c:	05d02001 	ldrbeq	r2, [r0, #1]</pre>
+<pre>   12730:	e2033008 	and	r3, r3, #8</pre>
+<pre>   12734:	e3520000 	cmp	r2, #0</pre>
+<pre>   12738:	1a000017 	bne	1279c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc20&gt;</pre>
+<pre>   1273c:	e3530000 	cmp	r3, #0</pre>
+<pre>   12740:	e545201c 	strb	r2, [r5, #-28]	; 0xffffffe4</pre>
+<pre>   12744:	0afffe8d 	beq	12180 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x604&gt;</pre>
+<pre>   12748:	e59f14e8 	ldr	r1, [pc, #1256]	; 12c38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10bc&gt;</pre>
+<pre>   1274c:	e1a02006 	mov	r2, r6</pre>
+<pre>   12750:	e59f04e4 	ldr	r0, [pc, #1252]	; 12c3c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10c0&gt;</pre>
+<pre>   12754:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12758:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   1275c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12760:	ebfffc9c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12764:	eafffe85 	b	12180 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x604&gt;</pre>
+<pre>   12768:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1276c:	e3130008 	tst	r3, #8</pre>
+<pre>   12770:	0affff02 	beq	12380 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x804&gt;</pre>
+<pre>   12774:	e59f14c4 	ldr	r1, [pc, #1220]	; 12c40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10c4&gt;</pre>
+<pre>   12778:	e1a02007 	mov	r2, r7</pre>
+<pre>   1277c:	e59f04c0 	ldr	r0, [pc, #1216]	; 12c44 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10c8&gt;</pre>
+<pre>   12780:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12784:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   12788:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1278c:	ebfffc91 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12790:	eafffefa 	b	12380 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x804&gt;</pre>
+<pre>   12794:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12798:	e2033008 	and	r3, r3, #8</pre>
+<pre>   1279c:	e3530000 	cmp	r3, #0</pre>
+<pre>   127a0:	0afffe76 	beq	12180 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x604&gt;</pre>
+<pre>   127a4:	e59f149c 	ldr	r1, [pc, #1180]	; 12c48 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10cc&gt;</pre>
+<pre>   127a8:	e1a02006 	mov	r2, r6</pre>
+<pre>   127ac:	e59f0498 	ldr	r0, [pc, #1176]	; 12c4c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10d0&gt;</pre>
+<pre>   127b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   127b4:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   127b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127bc:	ebfffc85 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127c0:	eafffe6e 	b	12180 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x604&gt;</pre>
+<pre>   127c4:	e59d8024 	ldr	r8, [sp, #36]	; 0x24</pre>
+<pre>--</pre>
+<pre>   1290c:	0a000109 	beq	12d38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x11bc&gt;</pre>
+<pre>   12910:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   12914:	e1a00008 	mov	r0, r8</pre>
+<pre>   12918:	eb0008fd 	bl	14d14 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3198&gt;</pre>
+<pre>   1291c:	e3500000 	cmp	r0, #0</pre>
+<pre>   12920:	1affffda 	bne	12890 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xd14&gt;</pre>
+<pre>   12924:	e28d6050 	add	r6, sp, #80	; 0x50</pre>
+<pre>   12928:	e3a02010 	mov	r2, #16</pre>
+<pre>   1292c:	e1a01006 	mov	r1, r6</pre>
+<pre>   12930:	e1a00008 	mov	r0, r8</pre>
+<pre>   12934:	ebfffc3c 	bl	11a2c &lt;osifname_to_nvifname&commat;plt&gt;</pre>
+<pre>   12938:	e2507000 	subs	r7, r0, #0</pre>
+<pre>   1293c:	0a00000c 	beq	12974 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xdf8&gt;</pre>
+<pre>   12940:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12944:	e3130002 	tst	r3, #2</pre>
+<pre>   12948:	0affffd3 	beq	1289c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xd20&gt;</pre>
+<pre>   1294c:	e59f0318 	ldr	r0, [pc, #792]	; 12c6c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x10f0&gt;</pre>
+<pre>   12950:	e1a02008 	mov	r2, r8</pre>
+<pre>   12954:	e59d1024 	ldr	r1, [sp, #36]	; 0x24</pre>
+<pre>   12958:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1295c:	ebfffc1d 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12960:	e3550000 	cmp	r5, #0</pre>
+<pre>   12964:	1affffce 	bne	128a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xd28&gt;</pre>
+<pre>--</pre>
+<pre>   12aa4:	e59f21e4 	ldr	r2, [pc, #484]	; 12c90 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1114&gt;</pre>
+<pre>   12aa8:	e59f31e4 	ldr	r3, [pc, #484]	; 12c94 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1118&gt;</pre>
+<pre>   12aac:	e584c99c 	str	ip, [r4, #2460]	; 0x99c</pre>
+<pre>   12ab0:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12ab4:	e58419a8 	str	r1, [r4, #2472]	; 0x9a8</pre>
+<pre>   12ab8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   12abc:	e584298c 	str	r2, [r4, #2444]	; 0x98c</pre>
+<pre>   12ac0:	e5843990 	str	r3, [r4, #2448]	; 0x990</pre>
+<pre>   12ac4:	eb000557 	bl	14028 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x24ac&gt;</pre>
+<pre>   12ac8:	e58402a8 	str	r0, [r4, #680]	; 0x2a8</pre>
+<pre>   12acc:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   12ad0:	e2832001 	add	r2, r3, #1</pre>
+<pre>   12ad4:	e08a3103 	add	r3, sl, r3, lsl #2</pre>
+<pre>   12ad8:	e5834004 	str	r4, [r3, #4]</pre>
+<pre>   12adc:	e58a2000 	str	r2, [sl]</pre>
+<pre>   12ae0:	eaffff6d 	b	1289c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xd20&gt;</pre>
+<pre>   12ae4:	e59f01ac 	ldr	r0, [pc, #428]	; 12c98 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x111c&gt;</pre>
+<pre>   12ae8:	e1a02008 	mov	r2, r8</pre>
+<pre>   12aec:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>   12af0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12af4:	ebfffbb7 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12af8:	eaffff67 	b	1289c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xd20&gt;</pre>
+<pre>   12afc:	e3a03001 	mov	r3, #1</pre>
+<pre>--</pre>
+<pre>   12ce4:	00000170 	andeq	r0, r0, r0, ror r1</pre>
+<pre>   12ce8:	00006b80 	andeq	r6, r0, r0, lsl #23</pre>
+<pre>   12cec:	000072f8 	strdeq	r7, [r0], -r8</pre>
+<pre>   12cf0:	00007114 	andeq	r7, r0, r4, lsl r1</pre>
+<pre>   12cf4:	000072cc 	andeq	r7, r0, ip, asr #5</pre>
+<pre>   12cf8:	00006d68 	andeq	r6, r0, r8, ror #26</pre>
+<pre>   12cfc:	000072ac 	andeq	r7, r0, ip, lsr #5</pre>
+<pre>   12d00:	00006c98 	muleq	r0, r8, ip</pre>
+<pre>   12d04:	000063fc 	strdeq	r6, [r0], -ip</pre>
+<pre>   12d08:	000063f0 	strdeq	r6, [r0], -r0</pre>
+<pre>   12d0c:	000004c0 	andeq	r0, r0, r0, asr #9</pre>
+<pre>   12d10:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12d14:	e3130001 	tst	r3, #1</pre>
+<pre>   12d18:	0a000006 	beq	12d38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x11bc&gt;</pre>
+<pre>   12d1c:	e51f1074 	ldr	r1, [pc, #-116]	; 12cb0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1134&gt;</pre>
+<pre>   12d20:	e3a02e9b 	mov	r2, #2480	; 0x9b0</pre>
+<pre>   12d24:	e51f0078 	ldr	r0, [pc, #-120]	; 12cb4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1138&gt;</pre>
+<pre>   12d28:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12d2c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12d30:	e2811e43 	add	r1, r1, #1072	; 0x430</pre>
+<pre><span class="red">   12d34:	ebfffb27 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12d38:	eb0005f0 	bl	14500 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2984&gt;</pre>
+<pre>   12d3c:	e59d0020 	ldr	r0, [sp, #32]</pre>
+<pre>--</pre>
+<pre>   12e98:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   12e9c:	1affffea 	bne	12e4c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12d0&gt;</pre>
+<pre>   12ea0:	e5950000 	ldr	r0, [r5]</pre>
+<pre>   12ea4:	ebfffb10 	bl	11aec &lt;wpa_ctrl_get_fd&commat;plt&gt;</pre>
+<pre>   12ea8:	e3700001 	cmn	r0, #1</pre>
+<pre>   12eac:	e1a01000 	mov	r1, r0</pre>
+<pre>   12eb0:	e58509a4 	str	r0, [r5, #2468]	; 0x9a4</pre>
+<pre>   12eb4:	0affffeb 	beq	12e68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12ec&gt;</pre>
+<pre>   12eb8:	e5940320 	ldr	r0, [r4, #800]	; 0x320</pre>
+<pre>   12ebc:	e1a02005 	mov	r2, r5</pre>
+<pre>   12ec0:	e1a0300a 	mov	r3, sl</pre>
+<pre>   12ec4:	eb0007d1 	bl	14e10 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3294&gt;</pre>
+<pre>   12ec8:	e3500000 	cmp	r0, #0</pre>
+<pre>   12ecc:	0affffe5 	beq	12e68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12ec&gt;</pre>
+<pre>   12ed0:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12ed4:	e3130001 	tst	r3, #1</pre>
+<pre>   12ed8:	0affffe2 	beq	12e68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12ec&gt;</pre>
+<pre>   12edc:	e59d1010 	ldr	r1, [sp, #16]</pre>
+<pre>   12ee0:	e1a02006 	mov	r2, r6</pre>
+<pre>   12ee4:	e59d0014 	ldr	r0, [sp, #20]</pre>
+<pre><span class="red">   12ee8:	ebfffaba 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12eec:	eaffffdd 	b	12e68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12ec&gt;</pre>
+<pre>   12ef0:	e51f3230 	ldr	r3, [pc, #-560]	; 12cc8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x114c&gt;</pre>
+<pre>   12ef4:	e79b3003 	ldr	r3, [fp, r3]</pre>
+<pre>   12ef8:	e5843988 	str	r3, [r4, #2440]	; 0x988</pre>
+<pre>   12efc:	eaffff11 	b	12b48 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xfcc&gt;</pre>
+<pre>   12f00:	e51f123c 	ldr	r1, [pc, #-572]	; 12ccc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1150&gt;</pre>
+<pre>   12f04:	e1a02006 	mov	r2, r6</pre>
+<pre>   12f08:	e51f0240 	ldr	r0, [pc, #-576]	; 12cd0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1154&gt;</pre>
+<pre>   12f0c:	e1a03005 	mov	r3, r5</pre>
+<pre>   12f10:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12f14:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   12f18:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12f1c:	ebfffaad 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f20:	eafffd16 	b	12380 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x804&gt;</pre>
+<pre>   12f24:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   12f28:	e1a02007 	mov	r2, r7</pre>
+<pre>   12f2c:	e1a00005 	mov	r0, r5</pre>
+<pre>   12f30:	ebfffa27 	bl	117d4 &lt;add_to_list&commat;plt&gt;</pre>
+<pre>   12f34:	eafffbe0 	b	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   12f38:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12f3c:	e3130008 	tst	r3, #8</pre>
+<pre>   12f40:	0afffbdd 	beq	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   12f44:	e59d1010 	ldr	r1, [sp, #16]</pre>
+<pre>   12f48:	e1a0200a 	mov	r2, sl</pre>
+<pre>   12f4c:	e59d001c 	ldr	r0, [sp, #28]</pre>
+<pre><span class="red">   12f50:	ebfffaa0 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f54:	eafffbd8 	b	11ebc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x340&gt;</pre>
+<pre>   12f58:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   12f5c:	e3130001 	tst	r3, #1</pre>
+<pre>   12f60:	0affffc0 	beq	12e68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12ec&gt;</pre>
+<pre>   12f64:	e51f1298 	ldr	r1, [pc, #-664]	; 12cd4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1158&gt;</pre>
+<pre>   12f68:	e1a02006 	mov	r2, r6</pre>
+<pre>   12f6c:	e51f029c 	ldr	r0, [pc, #-668]	; 12cd8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x115c&gt;</pre>
+<pre>   12f70:	e2877001 	add	r7, r7, #1</pre>
+<pre>   12f74:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12f78:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12f7c:	e2811d13 	add	r1, r1, #1216	; 0x4c0</pre>
+<pre><span class="red">   12f80:	ebfffa94 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f84:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   12f88:	e1570003 	cmp	r7, r3</pre>
+<pre>--</pre>
+<pre>   13010:	e1a02005 	mov	r2, r5</pre>
+<pre>   13014:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   13018:	eb00077c 	bl	14e10 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3294&gt;</pre>
+<pre>   1301c:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   13020:	0a00003f 	beq	13124 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x15a8&gt;</pre>
+<pre>   13024:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13028:	e3130001 	tst	r3, #1</pre>
+<pre>   1302c:	1a00006e 	bne	131ec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1670&gt;</pre>
+<pre>   13030:	eb00072b 	bl	14ce4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3168&gt;</pre>
+<pre>   13034:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   13038:	e3a04000 	mov	r4, #0</pre>
+<pre>   1303c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>   13040:	eb000796 	bl	14ea0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3324&gt;</pre>
+<pre>   13044:	e1a00004 	mov	r0, r4</pre>
+<pre>   13048:	e28ddf55 	add	sp, sp, #340	; 0x154</pre>
+<pre>   1304c:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   13050:	e51f0378 	ldr	r0, [pc, #-888]	; 12ce0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1164&gt;</pre>
+<pre>   13054:	e1a02006 	mov	r2, r6</pre>
+<pre>   13058:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   1305c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13060:	ebfffa5c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13064:	eaffff7b 	b	12e58 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x12dc&gt;</pre>
+<pre>   13068:	e51f338c 	ldr	r3, [pc, #-908]	; 12ce4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1168&gt;</pre>
+<pre>   1306c:	e59d2014 	ldr	r2, [sp, #20]</pre>
+<pre>   13070:	e7929003 	ldr	r9, [r2, r3]</pre>
+<pre>   13074:	eafffad9 	b	11be0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x64&gt;</pre>
+<pre>   13078:	e51f3398 	ldr	r3, [pc, #-920]	; 12ce8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x116c&gt;</pre>
+<pre>   1307c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   13080:	eafffd10 	b	124c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x94c&gt;</pre>
+<pre>   13084:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13088:	e3130001 	tst	r3, #1</pre>
+<pre>   1308c:	1a000073 	bne	13260 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x16e4&gt;</pre>
+<pre>   13090:	e594004c 	ldr	r0, [r4, #76]	; 0x4c</pre>
+<pre>   13094:	ebfffa61 	bl	11a20 &lt;close&commat;plt&gt;</pre>
+<pre>   13098:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1309c:	e3130001 	tst	r3, #1</pre>
+<pre>   130a0:	0affff56 	beq	12e00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1284&gt;</pre>
+<pre>   130a4:	e51f13c0 	ldr	r1, [pc, #-960]	; 12cec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1170&gt;</pre>
+<pre>   130a8:	e51f03c0 	ldr	r0, [pc, #-960]	; 12cf0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1174&gt;</pre>
+<pre>   130ac:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   130b0:	e2811d13 	add	r1, r1, #1216	; 0x4c0</pre>
+<pre>   130b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   130b8:	ebfffa46 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   130bc:	eaffff4f 	b	12e00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1284&gt;</pre>
+<pre>   130c0:	e5992000 	ldr	r2, [r9]</pre>
+<pre>   130c4:	e3120001 	tst	r2, #1</pre>
+<pre>   130c8:	0afffdbe 	beq	127c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc4c&gt;</pre>
+<pre>   130cc:	e51f13e0 	ldr	r1, [pc, #-992]	; 12cf4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1178&gt;</pre>
+<pre>   130d0:	e1a02006 	mov	r2, r6</pre>
+<pre>   130d4:	e51f03e4 	ldr	r0, [pc, #-996]	; 12cf8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x117c&gt;</pre>
+<pre>   130d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   130dc:	e2811e45 	add	r1, r1, #1104	; 0x450</pre>
+<pre>   130e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   130e4:	ebfffa3b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   130e8:	eafffdb6 	b	127c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc4c&gt;</pre>
+<pre>   130ec:	e51f13f8 	ldr	r1, [pc, #-1016]	; 12cfc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1180&gt;</pre>
+<pre>   130f0:	e51f03f8 	ldr	r0, [pc, #-1016]	; 12d00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1184&gt;</pre>
+<pre>   130f4:	e59d200c 	ldr	r2, [sp, #12]</pre>
+<pre>   130f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   130fc:	e2811e47 	add	r1, r1, #1136	; 0x470</pre>
+<pre>   13100:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13104:	ebfffa33 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13108:	eafffbbd 	b	12004 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x488&gt;</pre>
+<pre>   1310c:	e51f0410 	ldr	r0, [pc, #-1040]	; 12d04 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1188&gt;</pre>
+<pre>--</pre>
+<pre>   13138:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1313c:	e58d0000 	str	r0, [sp]</pre>
+<pre>   13140:	e59c0320 	ldr	r0, [ip, #800]	; 0x320</pre>
+<pre>   13144:	eb000937 	bl	15628 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3aac&gt;</pre>
+<pre>   13148:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   1314c:	e5930320 	ldr	r0, [r3, #800]	; 0x320</pre>
+<pre>   13150:	ebfffa14 	bl	119a8 &lt;bcm_usched_run&commat;plt&gt;</pre>
+<pre>   13154:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13158:	e1a04000 	mov	r4, r0</pre>
+<pre>   1315c:	e3130010 	tst	r3, #16</pre>
+<pre>   13160:	0affffb2 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13164:	ebfff9cd 	bl	118a0 &lt;bcm_usched_strerror&commat;plt&gt;</pre>
+<pre>   13168:	e59f1308 	ldr	r1, [pc, #776]	; 13478 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x18fc&gt;</pre>
+<pre>   1316c:	e1a03000 	mov	r3, r0</pre>
+<pre>   13170:	e59f0304 	ldr	r0, [pc, #772]	; 1347c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1900&gt;</pre>
+<pre>   13174:	e1a02004 	mov	r2, r4</pre>
+<pre>   13178:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1317c:	e2811c05 	add	r1, r1, #1280	; 0x500</pre>
+<pre>   13180:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13184:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   13188:	ebfffa12 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1318c:	eaffffa7 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13190:	e59f32e8 	ldr	r3, [pc, #744]	; 13480 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1904&gt;</pre>
+<pre>   13194:	e284204c 	add	r2, r4, #76	; 0x4c</pre>
+<pre>   13198:	e5940320 	ldr	r0, [r4, #800]	; 0x320</pre>
+<pre>   1319c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   131a0:	eb00071a 	bl	14e10 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3294&gt;</pre>
+<pre>   131a4:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   131a8:	e1a05000 	mov	r5, r0</pre>
+<pre>   131ac:	e3130010 	tst	r3, #16</pre>
+<pre>   131b0:	1a000015 	bne	1320c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1690&gt;</pre>
+<pre>   131b4:	e3550000 	cmp	r5, #0</pre>
+<pre>   131b8:	0affff10 	beq	12e00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1284&gt;</pre>
+<pre>   131bc:	eaffffb5 	b	13098 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x151c&gt;</pre>
+<pre>   131c0:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   131c4:	e3130001 	tst	r3, #1</pre>
+<pre>   131c8:	0affffb0 	beq	13090 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1514&gt;</pre>
+<pre>   131cc:	e59f12b0 	ldr	r1, [pc, #688]	; 13484 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1908&gt;</pre>
+<pre>   131d0:	e59f02b0 	ldr	r0, [pc, #688]	; 13488 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x190c&gt;</pre>
+<pre>   131d4:	e594204c 	ldr	r2, [r4, #76]	; 0x4c</pre>
+<pre>   131d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   131dc:	e2811e4d 	add	r1, r1, #1232	; 0x4d0</pre>
+<pre>   131e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   131e4:	ebfff9fb 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   131e8:	eaffffa8 	b	13090 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1514&gt;</pre>
+<pre>   131ec:	e59f1298 	ldr	r1, [pc, #664]	; 1348c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1910&gt;</pre>
+<pre>   131f0:	e1a02004 	mov	r2, r4</pre>
+<pre>   131f4:	e59f0294 	ldr	r0, [pc, #660]	; 13490 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1914&gt;</pre>
+<pre>   131f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   131fc:	e2811e4f 	add	r1, r1, #1264	; 0x4f0</pre>
+<pre>   13200:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13204:	ebfff9f3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13208:	eaffff88 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   1320c:	e59f1280 	ldr	r1, [pc, #640]	; 13494 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1918&gt;</pre>
+<pre>   13210:	e59f0280 	ldr	r0, [pc, #640]	; 13498 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x191c&gt;</pre>
+<pre>   13214:	e594204c 	ldr	r2, [r4, #76]	; 0x4c</pre>
+<pre>   13218:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1321c:	e2811e4d 	add	r1, r1, #1232	; 0x4d0</pre>
+<pre>   13220:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13224:	ebfff9eb 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13228:	eaffffe1 	b	131b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1638&gt;</pre>
+<pre>   1322c:	e5992000 	ldr	r2, [r9]</pre>
+<pre>   13230:	e2022002 	and	r2, r2, #2</pre>
+<pre>   13234:	eafffcd4 	b	1258c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xa10&gt;</pre>
+<pre>   13238:	e59f125c 	ldr	r1, [pc, #604]	; 1349c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1920&gt;</pre>
+<pre>   1323c:	e1a02008 	mov	r2, r8</pre>
+<pre>   13240:	e59f0258 	ldr	r0, [pc, #600]	; 134a0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1924&gt;</pre>
+<pre>   13244:	e58d3000 	str	r3, [sp]</pre>
+<pre>   13248:	e3a03010 	mov	r3, #16</pre>
+<pre>   1324c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13250:	e2811e43 	add	r1, r1, #1072	; 0x430</pre>
+<pre>   13254:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13258:	ebfff9de 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1325c:	eafffeb5 	b	12d38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x11bc&gt;</pre>
+<pre>   13260:	e59f123c 	ldr	r1, [pc, #572]	; 134a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1928&gt;</pre>
+<pre>   13264:	e59f023c 	ldr	r0, [pc, #572]	; 134a8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x192c&gt;</pre>
+<pre>   13268:	e594204c 	ldr	r2, [r4, #76]	; 0x4c</pre>
+<pre>   1326c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13270:	e2811e4d 	add	r1, r1, #1232	; 0x4d0</pre>
+<pre>   13274:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13278:	ebfff9d6 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1327c:	eaffff83 	b	13090 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1514&gt;</pre>
+<pre>   13280:	e28d80d0 	add	r8, sp, #208	; 0xd0</pre>
+<pre>   13284:	eafffc5d 	b	12400 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x884&gt;</pre>
+<pre>   13288:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1328c:	e3130001 	tst	r3, #1</pre>
+<pre>   13290:	0afffeda 	beq	12e00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1284&gt;</pre>
+<pre>   13294:	e59f1210 	ldr	r1, [pc, #528]	; 134ac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1930&gt;</pre>
+<pre>   13298:	e59f0210 	ldr	r0, [pc, #528]	; 134b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1934&gt;</pre>
+<pre>   1329c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   132a0:	e2811e4d 	add	r1, r1, #1232	; 0x4d0</pre>
+<pre>   132a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   132a8:	ebfff9ca 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   132ac:	eaffff79 	b	13098 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x151c&gt;</pre>
+<pre>   132b0:	e59f31fc 	ldr	r3, [pc, #508]	; 134b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1938&gt;</pre>
+<pre>   132b4:	e1a04000 	mov	r4, r0</pre>
+<pre>   132b8:	e59d2014 	ldr	r2, [sp, #20]</pre>
+<pre>   132bc:	e7923003 	ldr	r3, [r2, r3]</pre>
+<pre>   132c0:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   132c4:	e3130001 	tst	r3, #1</pre>
+<pre>   132c8:	0affff5d 	beq	13044 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14c8&gt;</pre>
+<pre>   132cc:	e59f11e4 	ldr	r1, [pc, #484]	; 134b8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x193c&gt;</pre>
+<pre>   132d0:	e59f01e4 	ldr	r0, [pc, #484]	; 134bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1940&gt;</pre>
+<pre>   132d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   132d8:	e2811e42 	add	r1, r1, #1056	; 0x420</pre>
+<pre>   132dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   132e0:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   132e4:	ebfff9bb 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   132e8:	eaffff55 	b	13044 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14c8&gt;</pre>
+<pre>   132ec:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   132f0:	e3130001 	tst	r3, #1</pre>
+<pre>   132f4:	0affff4d 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   132f8:	e59f11c0 	ldr	r1, [pc, #448]	; 134c0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1944&gt;</pre>
+<pre>   132fc:	e59f01c0 	ldr	r0, [pc, #448]	; 134c4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1948&gt;</pre>
+<pre>   13300:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13304:	e2811d13 	add	r1, r1, #1216	; 0x4c0</pre>
+<pre>   13308:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1330c:	ebfff9b1 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13310:	eaffff46 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13314:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13318:	e3130001 	tst	r3, #1</pre>
+<pre>   1331c:	0affff43 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13320:	e59f11a0 	ldr	r1, [pc, #416]	; 134c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x194c&gt;</pre>
+<pre>   13324:	e1a02004 	mov	r2, r4</pre>
+<pre>   13328:	e59f019c 	ldr	r0, [pc, #412]	; 134cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1950&gt;</pre>
+<pre>   1332c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13330:	e2811e4f 	add	r1, r1, #1264	; 0x4f0</pre>
+<pre>   13334:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13338:	ebfff9a6 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1333c:	eaffff3b 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13340:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13344:	e3130001 	tst	r3, #1</pre>
+<pre>   13348:	0affff38 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   1334c:	e59f117c 	ldr	r1, [pc, #380]	; 134d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1954&gt;</pre>
+<pre>   13350:	e1a02004 	mov	r2, r4</pre>
+<pre>   13354:	e59f0178 	ldr	r0, [pc, #376]	; 134d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1958&gt;</pre>
+<pre>   13358:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1335c:	e2811e4f 	add	r1, r1, #1264	; 0x4f0</pre>
+<pre>   13360:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13364:	ebfff99b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13368:	eaffff30 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   1336c:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13370:	e3130001 	tst	r3, #1</pre>
+<pre>   13374:	0affff2d 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13378:	e59f1158 	ldr	r1, [pc, #344]	; 134d8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x195c&gt;</pre>
+<pre>   1337c:	e1a02004 	mov	r2, r4</pre>
+<pre>   13380:	e59f0154 	ldr	r0, [pc, #340]	; 134dc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1960&gt;</pre>
+<pre>   13384:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13388:	e2811e4f 	add	r1, r1, #1264	; 0x4f0</pre>
+<pre>   1338c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13390:	ebfff990 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13394:	eaffff25 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13398:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1339c:	e3130001 	tst	r3, #1</pre>
+<pre>   133a0:	0afffe67 	beq	12d44 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x11c8&gt;</pre>
+<pre>   133a4:	e59f3134 	ldr	r3, [pc, #308]	; 134e0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1964&gt;</pre>
+<pre>   133a8:	e1a02004 	mov	r2, r4</pre>
+<pre>   133ac:	e59f0130 	ldr	r0, [pc, #304]	; 134e4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1968&gt;</pre>
+<pre>   133b0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   133b4:	e2831e43 	add	r1, r3, #1072	; 0x430</pre>
+<pre>   133b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   133bc:	ebfff985 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   133c0:	eafffe5f 	b	12d44 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x11c8&gt;</pre>
+<pre>   133c4:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   133c8:	e3130001 	tst	r3, #1</pre>
+<pre>   133cc:	028d80d0 	addeq	r8, sp, #208	; 0xd0</pre>
+<pre>   133d0:	0afffcfe 	beq	127d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc54&gt;</pre>
+<pre>   133d4:	e59f410c 	ldr	r4, [pc, #268]	; 134e8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x196c&gt;</pre>
+<pre>   133d8:	e1a02007 	mov	r2, r7</pre>
+<pre>   133dc:	e59f0108 	ldr	r0, [pc, #264]	; 134ec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1970&gt;</pre>
+<pre>   133e0:	e28d80d0 	add	r8, sp, #208	; 0xd0</pre>
+<pre>   133e4:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   133e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   133ec:	e2841e45 	add	r1, r4, #1104	; 0x450</pre>
+<pre><span class="red">   133f0:	ebfff978 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   133f4:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   133f8:	e3130001 	tst	r3, #1</pre>
+<pre>   133fc:	0afffcf3 	beq	127d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc54&gt;</pre>
+<pre>   13400:	e59f00e8 	ldr	r0, [pc, #232]	; 134f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1974&gt;</pre>
+<pre>   13404:	e2841e43 	add	r1, r4, #1072	; 0x430</pre>
+<pre>   13408:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1340c:	ebfff971 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13410:	eafffcee 	b	127d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0xc54&gt;</pre>
+<pre>   13414:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13418:	e3130001 	tst	r3, #1</pre>
+<pre>   1341c:	0afffafa 	beq	1200c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x490&gt;</pre>
+<pre>   13420:	e59f10cc 	ldr	r1, [pc, #204]	; 134f4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1978&gt;</pre>
+<pre>   13424:	e1a02007 	mov	r2, r7</pre>
+<pre>   13428:	e59f00c8 	ldr	r0, [pc, #200]	; 134f8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x197c&gt;</pre>
+<pre>   1342c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13430:	e2811e47 	add	r1, r1, #1136	; 0x470</pre>
+<pre>   13434:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13438:	ebfff966 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1343c:	eafffaf2 	b	1200c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x490&gt;</pre>
+<pre>   13440:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   13444:	e3130001 	tst	r3, #1</pre>
+<pre>   13448:	0afffef8 	beq	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   1344c:	e59f10a8 	ldr	r1, [pc, #168]	; 134fc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1980&gt;</pre>
+<pre>   13450:	e3a02fc9 	mov	r2, #804	; 0x324</pre>
+<pre>   13454:	e59f00a4 	ldr	r0, [pc, #164]	; 13500 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1984&gt;</pre>
+<pre>   13458:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1345c:	e2811e42 	add	r1, r1, #1056	; 0x420</pre>
+<pre>   13460:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13464:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   13468:	ebfff95a 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1346c:	eafffeef 	b	13030 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x14b4&gt;</pre>
+<pre>   13470:	004c4b40 	subeq	r4, ip, r0, asr #22</pre>
+<pre>--</pre>
+<pre>   13668:	e1a00006 	mov	r0, r6</pre>
+<pre>   1366c:	ebfff87f 	bl	11870 &lt;wl_ioctl&commat;plt&gt;</pre>
+<pre>   13670:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   13674:	e3530002 	cmp	r3, #2</pre>
+<pre>   13678:	ca000013 	bgt	136cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1b50&gt;</pre>
+<pre>   1367c:	e58d4000 	str	r4, [sp]</pre>
+<pre>   13680:	1affffed 	bne	1363c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1ac0&gt;</pre>
+<pre>   13684:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   13688:	e2432001 	sub	r2, r3, #1</pre>
+<pre>   1368c:	e3530004 	cmp	r3, #4</pre>
+<pre>   13690:	13520001 	cmpne	r2, #1</pre>
+<pre>   13694:	91a04003 	movls	r4, r3</pre>
+<pre>   13698:	958d3000 	strls	r3, [sp]</pre>
+<pre>   1369c:	eaffffe6 	b	1363c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1ac0&gt;</pre>
+<pre>   136a0:	e59f103c 	ldr	r1, [pc, #60]	; 136e4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1b68&gt;</pre>
+<pre>   136a4:	e1a03004 	mov	r3, r4</pre>
+<pre>   136a8:	e59f0038 	ldr	r0, [pc, #56]	; 136e8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1b6c&gt;</pre>
+<pre>   136ac:	e1a02006 	mov	r2, r6</pre>
+<pre>   136b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   136b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   136b8:	ebfff8c6 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   136bc:	e59d4000 	ldr	r4, [sp]</pre>
+<pre>   136c0:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   13978:	ebfff822 	bl	11a08 &lt;strstr&commat;plt&gt;</pre>
+<pre>   1397c:	e3500000 	cmp	r0, #0</pre>
+<pre>   13980:	1affffdf 	bne	13904 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1d88&gt;</pre>
+<pre>   13984:	e59f11c8 	ldr	r1, [pc, #456]	; 13b54 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1fd8&gt;</pre>
+<pre>   13988:	e1a00005 	mov	r0, r5</pre>
+<pre>   1398c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13990:	ebfff81c 	bl	11a08 &lt;strstr&commat;plt&gt;</pre>
+<pre>   13994:	e3500000 	cmp	r0, #0</pre>
+<pre>   13998:	0a000002 	beq	139a8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1e2c&gt;</pre>
+<pre>   1399c:	ebfff7c2 	bl	118ac &lt;wl_wlif_get_wps_status_code&commat;plt&gt;</pre>
+<pre>   139a0:	e3500000 	cmp	r0, #0</pre>
+<pre>   139a4:	daffffd6 	ble	13904 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1d88&gt;</pre>
+<pre>   139a8:	e59f11a8 	ldr	r1, [pc, #424]	; 13b58 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1fdc&gt;</pre>
+<pre>   139ac:	e2842004 	add	r2, r4, #4</pre>
+<pre>   139b0:	e59f01a4 	ldr	r0, [pc, #420]	; 13b5c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1fe0&gt;</pre>
+<pre>   139b4:	e58d5000 	str	r5, [sp]</pre>
+<pre>   139b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   139bc:	e59432a4 	ldr	r3, [r4, #676]	; 0x2a4</pre>
+<pre>   139c0:	e2811018 	add	r1, r1, #24</pre>
+<pre>   139c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   139c8:	ebfff802 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   139cc:	e59f118c 	ldr	r1, [pc, #396]	; 13b60 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1fe4&gt;</pre>
+<pre>   139d0:	e1a00005 	mov	r0, r5</pre>
+<pre>--</pre>
+<pre>   13da0:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13da4:	e3130001 	tst	r3, #1</pre>
+<pre>   13da8:	1a000012 	bne	13df8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x227c&gt;</pre>
+<pre>   13dac:	e3e00000 	mvn	r0, #0</pre>
+<pre>   13db0:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>   13db4:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   13db8:	e59f3158 	ldr	r3, [pc, #344]	; 13f18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x239c&gt;</pre>
+<pre>   13dbc:	e59d200c 	ldr	r2, [sp, #12]</pre>
+<pre>   13dc0:	e7923003 	ldr	r3, [r2, r3]</pre>
+<pre>   13dc4:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13dc8:	e3130001 	tst	r3, #1</pre>
+<pre>   13dcc:	0afffff6 	beq	13dac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2230&gt;</pre>
+<pre>   13dd0:	e59fc144 	ldr	ip, [pc, #324]	; 13f1c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23a0&gt;</pre>
+<pre>   13dd4:	e1a03001 	mov	r3, r1</pre>
+<pre>   13dd8:	e59f0140 	ldr	r0, [pc, #320]	; 13f20 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23a4&gt;</pre>
+<pre>   13ddc:	e3002704 	movw	r2, #1796	; 0x704</pre>
+<pre>   13de0:	e58da000 	str	sl, [sp]</pre>
+<pre>   13de4:	e08fc00c 	add	ip, pc, ip</pre>
+<pre>   13de8:	e28c104c 	add	r1, ip, #76	; 0x4c</pre>
+<pre>   13dec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13df0:	ebfff6f8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13df4:	eaffffec 	b	13dac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2230&gt;</pre>
+<pre>   13df8:	e59f1124 	ldr	r1, [pc, #292]	; 13f24 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23a8&gt;</pre>
+<pre>   13dfc:	e3a02008 	mov	r2, #8</pre>
+<pre>   13e00:	e59f0120 	ldr	r0, [pc, #288]	; 13f28 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23ac&gt;</pre>
+<pre>   13e04:	e1a03005 	mov	r3, r5</pre>
+<pre>   13e08:	e58d2000 	str	r2, [sp]</pre>
+<pre>   13e0c:	e30026f2 	movw	r2, #1778	; 0x6f2</pre>
+<pre>   13e10:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13e14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13e18:	e281104c 	add	r1, r1, #76	; 0x4c</pre>
+<pre><span class="red">   13e1c:	ebfff6ed 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13e20:	e3e00000 	mvn	r0, #0</pre>
+<pre>   13e24:	eaffffa9 	b	13cd0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2154&gt;</pre>
+<pre>--</pre>
+<pre>   13e34:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13e38:	e3130001 	tst	r3, #1</pre>
+<pre>   13e3c:	1a00002d 	bne	13ef8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x237c&gt;</pre>
+<pre>   13e40:	e3a03001 	mov	r3, #1</pre>
+<pre>   13e44:	e3e00000 	mvn	r0, #0</pre>
+<pre>   13e48:	e5c73065 	strb	r3, [r7, #101]	; 0x65</pre>
+<pre>   13e4c:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>   13e50:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   13e54:	e59f30bc 	ldr	r3, [pc, #188]	; 13f18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x239c&gt;</pre>
+<pre>   13e58:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   13e5c:	e7913003 	ldr	r3, [r1, r3]</pre>
+<pre>   13e60:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13e64:	e3130001 	tst	r3, #1</pre>
+<pre>   13e68:	0afffff4 	beq	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13e6c:	e59f10b8 	ldr	r1, [pc, #184]	; 13f2c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23b0&gt;</pre>
+<pre>   13e70:	e3a03020 	mov	r3, #32</pre>
+<pre>   13e74:	e59f00b4 	ldr	r0, [pc, #180]	; 13f30 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23b4&gt;</pre>
+<pre>   13e78:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13e7c:	e281104c 	add	r1, r1, #76	; 0x4c</pre>
+<pre>   13e80:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13e84:	ebfff6d3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13e88:	eaffffec 	b	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13e8c:	e59f3084 	ldr	r3, [pc, #132]	; 13f18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x239c&gt;</pre>
+<pre>   13e90:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   13e94:	e7913003 	ldr	r3, [r1, r3]</pre>
+<pre>   13e98:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13e9c:	e3130001 	tst	r3, #1</pre>
+<pre>   13ea0:	0affffe6 	beq	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13ea4:	e59f1088 	ldr	r1, [pc, #136]	; 13f34 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23b8&gt;</pre>
+<pre>   13ea8:	e3a03040 	mov	r3, #64	; 0x40</pre>
+<pre>   13eac:	e59f0084 	ldr	r0, [pc, #132]	; 13f38 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23bc&gt;</pre>
+<pre>   13eb0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13eb4:	e281104c 	add	r1, r1, #76	; 0x4c</pre>
+<pre>   13eb8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13ebc:	ebfff6c5 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13ec0:	eaffffde 	b	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13ec4:	e59f304c 	ldr	r3, [pc, #76]	; 13f18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x239c&gt;</pre>
+<pre>   13ec8:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   13ecc:	e7913003 	ldr	r3, [r1, r3]</pre>
+<pre>   13ed0:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   13ed4:	e3130001 	tst	r3, #1</pre>
+<pre>   13ed8:	0affffd8 	beq	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13edc:	e59f3058 	ldr	r3, [pc, #88]	; 13f3c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23c0&gt;</pre>
+<pre>   13ee0:	e59f0058 	ldr	r0, [pc, #88]	; 13f40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23c4&gt;</pre>
+<pre>   13ee4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   13ee8:	e283104c 	add	r1, r3, #76	; 0x4c</pre>
+<pre>   13eec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13ef0:	ebfff6b8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13ef4:	eaffffd1 	b	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13ef8:	e59f3044 	ldr	r3, [pc, #68]	; 13f44 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23c8&gt;</pre>
+<pre>   13efc:	e59f0044 	ldr	r0, [pc, #68]	; 13f48 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x23cc&gt;</pre>
+<pre>   13f00:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   13f04:	e283104c 	add	r1, r3, #76	; 0x4c</pre>
+<pre>   13f08:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13f0c:	ebfff6b1 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13f10:	eaffffca 	b	13e40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x22c4&gt;</pre>
+<pre>   13f14:	0001741c 	andeq	r7, r1, ip, lsl r4</pre>
+<pre>--</pre>
+<pre>   13f50:	e2805fab 	add	r5, r0, #684	; 0x2ac</pre>
+<pre>   13f54:	e59012a4 	ldr	r1, [r0, #676]	; 0x2a4</pre>
+<pre>   13f58:	e24dd00c 	sub	sp, sp, #12</pre>
+<pre>   13f5c:	e1a04000 	mov	r4, r0</pre>
+<pre>   13f60:	e1a02005 	mov	r2, r5</pre>
+<pre>   13f64:	e28000b9 	add	r0, r0, #185	; 0xb9</pre>
+<pre>   13f68:	e2411015 	sub	r1, r1, #21</pre>
+<pre>   13f6c:	ebffff0a 	bl	13b9c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2020&gt;</pre>
+<pre>   13f70:	e59f1038 	ldr	r1, [pc, #56]	; 13fb0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2434&gt;</pre>
+<pre>   13f74:	e2843fb3 	add	r3, r4, #716	; 0x2cc</pre>
+<pre>   13f78:	e5d4e310 	ldrb	lr, [r4, #784]	; 0x310</pre>
+<pre>   13f7c:	e1a02005 	mov	r2, r5</pre>
+<pre>   13f80:	e5d4c30e 	ldrb	ip, [r4, #782]	; 0x30e</pre>
+<pre>   13f84:	e1a04000 	mov	r4, r0</pre>
+<pre>   13f88:	e59f0024 	ldr	r0, [pc, #36]	; 13fb4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2438&gt;</pre>
+<pre>   13f8c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13f90:	e2833001 	add	r3, r3, #1</pre>
+<pre>   13f94:	e2811070 	add	r1, r1, #112	; 0x70</pre>
+<pre>   13f98:	e88d5000 	stm	sp, {ip, lr}</pre>
+<pre>   13f9c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13fa0:	ebfff68c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13fa4:	e1a00004 	mov	r0, r4</pre>
+<pre>   13fa8:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>--</pre>
+<pre>   13fbc:	e2805fab 	add	r5, r0, #684	; 0x2ac</pre>
+<pre>   13fc0:	e59012a4 	ldr	r1, [r0, #676]	; 0x2a4</pre>
+<pre>   13fc4:	e24dd00c 	sub	sp, sp, #12</pre>
+<pre>   13fc8:	e1a04000 	mov	r4, r0</pre>
+<pre>   13fcc:	e1a02005 	mov	r2, r5</pre>
+<pre>   13fd0:	e28000bb 	add	r0, r0, #187	; 0xbb</pre>
+<pre>   13fd4:	e2411017 	sub	r1, r1, #23</pre>
+<pre>   13fd8:	ebfffeef 	bl	13b9c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2020&gt;</pre>
+<pre>   13fdc:	e59f1038 	ldr	r1, [pc, #56]	; 1401c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x24a0&gt;</pre>
+<pre>   13fe0:	e2843fb3 	add	r3, r4, #716	; 0x2cc</pre>
+<pre>   13fe4:	e5d4e310 	ldrb	lr, [r4, #784]	; 0x310</pre>
+<pre>   13fe8:	e1a02005 	mov	r2, r5</pre>
+<pre>   13fec:	e5d4c30e 	ldrb	ip, [r4, #782]	; 0x30e</pre>
+<pre>   13ff0:	e1a04000 	mov	r4, r0</pre>
+<pre>   13ff4:	e59f0024 	ldr	r0, [pc, #36]	; 14020 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x24a4&gt;</pre>
+<pre>   13ff8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13ffc:	e2833001 	add	r3, r3, #1</pre>
+<pre>   14000:	e2811090 	add	r1, r1, #144	; 0x90</pre>
+<pre>   14004:	e88d5000 	stm	sp, {ip, lr}</pre>
+<pre>   14008:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1400c:	ebfff671 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14010:	e1a00004 	mov	r0, r4</pre>
+<pre>   14014:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>--</pre>
+<pre>   1427c:	e58d6028 	str	r6, [sp, #40]	; 0x28</pre>
+<pre>   14280:	e58d4008 	str	r4, [sp, #8]</pre>
+<pre>   14284:	e59d604c 	ldr	r6, [sp, #76]	; 0x4c</pre>
+<pre>   14288:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1428c:	e59d4044 	ldr	r4, [sp, #68]	; 0x44</pre>
+<pre>   14290:	e28110b4 	add	r1, r1, #180	; 0xb4</pre>
+<pre>   14294:	e58d0034 	str	r0, [sp, #52]	; 0x34</pre>
+<pre>   14298:	e59f00fc 	ldr	r0, [pc, #252]	; 1439c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2820&gt;</pre>
+<pre>   1429c:	e58dc02c 	str	ip, [sp, #44]	; 0x2c</pre>
+<pre>   142a0:	e3a0c0fe 	mov	ip, #254	; 0xfe</pre>
+<pre>   142a4:	e58d6020 	str	r6, [sp, #32]</pre>
+<pre>   142a8:	e1cd81f4 	strd	r8, [sp, #20]</pre>
+<pre>   142ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   142b0:	e58d7010 	str	r7, [sp, #16]</pre>
+<pre>   142b4:	e58db00c 	str	fp, [sp, #12]</pre>
+<pre>   142b8:	e58d4004 	str	r4, [sp, #4]</pre>
+<pre>   142bc:	e58da000 	str	sl, [sp]</pre>
+<pre>   142c0:	e58dc030 	str	ip, [sp, #48]	; 0x30</pre>
+<pre>   142c4:	e58dc03c 	str	ip, [sp, #60]	; 0x3c</pre>
+<pre>   142c8:	e58de038 	str	lr, [sp, #56]	; 0x38</pre>
+<pre><span class="red">   142cc:	ebfff5c1 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   142d0:	eaffff90 	b	14118 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x259c&gt;</pre>
+<pre>   142d4:	e59f10c4 	ldr	r1, [pc, #196]	; 143a0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2824&gt;</pre>
+<pre>   142d8:	e1a02006 	mov	r2, r6</pre>
+<pre>   142dc:	e59f00c0 	ldr	r0, [pc, #192]	; 143a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2828&gt;</pre>
+<pre>   142e0:	e3e05024 	mvn	r5, #36	; 0x24</pre>
+<pre>   142e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   142e8:	e28110b4 	add	r1, r1, #180	; 0xb4</pre>
+<pre>   142ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   142f0:	ebfff5b8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   142f4:	e1a00005 	mov	r0, r5</pre>
+<pre>   142f8:	e28ddd81 	add	sp, sp, #8256	; 0x2040</pre>
+<pre>   142fc:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>   14300:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   14304:	e59f3080 	ldr	r3, [pc, #128]	; 1438c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2810&gt;</pre>
+<pre>   14308:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>   1430c:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14310:	e3130001 	tst	r3, #1</pre>
+<pre>   14314:	0affff7f 	beq	14118 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x259c&gt;</pre>
+<pre>   14318:	e59f1088 	ldr	r1, [pc, #136]	; 143a8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x282c&gt;</pre>
+<pre>   1431c:	e1a02006 	mov	r2, r6</pre>
+<pre>   14320:	e59f0084 	ldr	r0, [pc, #132]	; 143ac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2830&gt;</pre>
+<pre>   14324:	e1a03005 	mov	r3, r5</pre>
+<pre>   14328:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1432c:	e28110b4 	add	r1, r1, #180	; 0xb4</pre>
+<pre>   14330:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14334:	ebfff5a7 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14338:	eaffff76 	b	14118 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x259c&gt;</pre>
+<pre>   1433c:	e59f3048 	ldr	r3, [pc, #72]	; 1438c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2810&gt;</pre>
+<pre>   14340:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>   14344:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14348:	e3130001 	tst	r3, #1</pre>
+<pre>   1434c:	0affff71 	beq	14118 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x259c&gt;</pre>
+<pre>   14350:	e59f1058 	ldr	r1, [pc, #88]	; 143b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2834&gt;</pre>
+<pre>   14354:	e1a02006 	mov	r2, r6</pre>
+<pre>   14358:	e59f0054 	ldr	r0, [pc, #84]	; 143b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2838&gt;</pre>
+<pre>   1435c:	e1a03005 	mov	r3, r5</pre>
+<pre>   14360:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14364:	e28110b4 	add	r1, r1, #180	; 0xb4</pre>
+<pre>   14368:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1436c:	ebfff599 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14370:	eaffff68 	b	14118 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x259c&gt;</pre>
+<pre>   14374:	e59f103c 	ldr	r1, [pc, #60]	; 143b8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x283c&gt;</pre>
+<pre>--</pre>
+<pre>   14418:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1441c:	e58d6000 	str	r6, [sp]</pre>
+<pre>   14420:	ebfff4ee 	bl	117e0 &lt;wl_iovar_setbuf&commat;plt&gt;</pre>
+<pre>   14424:	e59f30b4 	ldr	r3, [pc, #180]	; 144e0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2964&gt;</pre>
+<pre>   14428:	e2505000 	subs	r5, r0, #0</pre>
+<pre>   1442c:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>   14430:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14434:	1a000010 	bne	1447c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2900&gt;</pre>
+<pre>   14438:	e3130008 	tst	r3, #8</pre>
+<pre>   1443c:	1a000003 	bne	14450 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x28d4&gt;</pre>
+<pre>   14440:	e1a00005 	mov	r0, r5</pre>
+<pre>   14444:	e28dd901 	add	sp, sp, #16384	; 0x4000</pre>
+<pre>   14448:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>   1444c:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>   14450:	e59f108c 	ldr	r1, [pc, #140]	; 144e4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2968&gt;</pre>
+<pre>   14454:	e1a02004 	mov	r2, r4</pre>
+<pre>   14458:	e59f0088 	ldr	r0, [pc, #136]	; 144e8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x296c&gt;</pre>
+<pre>   1445c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14460:	e28110e8 	add	r1, r1, #232	; 0xe8</pre>
+<pre>   14464:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14468:	ebfff55a 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1446c:	e1a00005 	mov	r0, r5</pre>
+<pre>   14470:	e28dd901 	add	sp, sp, #16384	; 0x4000</pre>
+<pre>   14474:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>   14478:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>   1447c:	e3130008 	tst	r3, #8</pre>
+<pre>   14480:	0affffee 	beq	14440 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x28c4&gt;</pre>
+<pre>   14484:	e59f1060 	ldr	r1, [pc, #96]	; 144ec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2970&gt;</pre>
+<pre>   14488:	e1a02004 	mov	r2, r4</pre>
+<pre>   1448c:	e59f005c 	ldr	r0, [pc, #92]	; 144f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2974&gt;</pre>
+<pre>   14490:	e1a03005 	mov	r3, r5</pre>
+<pre>   14494:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14498:	e28110e8 	add	r1, r1, #232	; 0xe8</pre>
+<pre>   1449c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   144a0:	ebfff54c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   144a4:	e1a00005 	mov	r0, r5</pre>
+<pre>   144a8:	e28dd901 	add	sp, sp, #16384	; 0x4000</pre>
+<pre>--</pre>
+<pre>   14794:	e2451080 	sub	r1, r5, #128	; 0x80</pre>
+<pre>   14798:	e1a00003 	mov	r0, r3</pre>
+<pre>   1479c:	ebffff06 	bl	143bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2840&gt;</pre>
+<pre>   147a0:	e59d000c 	ldr	r0, [sp, #12]</pre>
+<pre>   147a4:	e24510c0 	sub	r1, r5, #192	; 0xc0</pre>
+<pre>   147a8:	ebffff03 	bl	143bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2840&gt;</pre>
+<pre>   147ac:	eaffff82 	b	145bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a40&gt;</pre>
+<pre>   147b0:	e59f218c 	ldr	r2, [pc, #396]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   147b4:	e1a03001 	mov	r3, r1</pre>
+<pre>   147b8:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   147bc:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   147c0:	e3120008 	tst	r2, #8</pre>
+<pre>   147c4:	0affff82 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   147c8:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   147cc:	e1a02004 	mov	r2, r4</pre>
+<pre>   147d0:	e59f1170 	ldr	r1, [pc, #368]	; 14948 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dcc&gt;</pre>
+<pre>   147d4:	e59f0170 	ldr	r0, [pc, #368]	; 1494c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dd0&gt;</pre>
+<pre>   147d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   147dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   147e0:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   147e4:	ebfff47b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   147e8:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   147ec:	eaffff78 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   147f0:	e59f214c 	ldr	r2, [pc, #332]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   147f4:	e1a03001 	mov	r3, r1</pre>
+<pre>   147f8:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   147fc:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   14800:	e3120008 	tst	r2, #8</pre>
+<pre>   14804:	0affff72 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14808:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   1480c:	e1a02004 	mov	r2, r4</pre>
+<pre>   14810:	e59f1138 	ldr	r1, [pc, #312]	; 14950 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dd4&gt;</pre>
+<pre>   14814:	e59f0138 	ldr	r0, [pc, #312]	; 14954 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dd8&gt;</pre>
+<pre>   14818:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1481c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14820:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   14824:	ebfff46b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14828:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   1482c:	eaffff68 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14830:	e59f210c 	ldr	r2, [pc, #268]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   14834:	e1a03001 	mov	r3, r1</pre>
+<pre>   14838:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   1483c:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   14840:	e3120008 	tst	r2, #8</pre>
+<pre>   14844:	0affff62 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14848:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   1484c:	e1a02004 	mov	r2, r4</pre>
+<pre>   14850:	e59f1100 	ldr	r1, [pc, #256]	; 14958 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2ddc&gt;</pre>
+<pre>   14854:	e59f0100 	ldr	r0, [pc, #256]	; 1495c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2de0&gt;</pre>
+<pre>   14858:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1485c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14860:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   14864:	ebfff45b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14868:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   1486c:	eaffff58 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14870:	e59f20cc 	ldr	r2, [pc, #204]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   14874:	e1a03001 	mov	r3, r1</pre>
+<pre>   14878:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   1487c:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   14880:	e3120008 	tst	r2, #8</pre>
+<pre>   14884:	0affff52 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14888:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   1488c:	e1a02004 	mov	r2, r4</pre>
+<pre>   14890:	e59f10c8 	ldr	r1, [pc, #200]	; 14960 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2de4&gt;</pre>
+<pre>   14894:	e59f00c8 	ldr	r0, [pc, #200]	; 14964 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2de8&gt;</pre>
+<pre>   14898:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1489c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   148a0:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   148a4:	ebfff44b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   148a8:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   148ac:	eaffff48 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   148b0:	e59f208c 	ldr	r2, [pc, #140]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   148b4:	e1a03001 	mov	r3, r1</pre>
+<pre>   148b8:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   148bc:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   148c0:	e3120008 	tst	r2, #8</pre>
+<pre>   148c4:	0affff42 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   148c8:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   148cc:	e1a02004 	mov	r2, r4</pre>
+<pre>   148d0:	e59f1090 	ldr	r1, [pc, #144]	; 14968 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dec&gt;</pre>
+<pre>   148d4:	e59f0090 	ldr	r0, [pc, #144]	; 1496c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2df0&gt;</pre>
+<pre>   148d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   148dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   148e0:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   148e4:	ebfff43b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   148e8:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   148ec:	eaffff38 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   148f0:	e59f204c 	ldr	r2, [pc, #76]	; 14944 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2dc8&gt;</pre>
+<pre>   148f4:	e1a03001 	mov	r3, r1</pre>
+<pre>   148f8:	e79a2002 	ldr	r2, [sl, r2]</pre>
+<pre>   148fc:	e5922000 	ldr	r2, [r2]</pre>
+<pre>   14900:	e3120008 	tst	r2, #8</pre>
+<pre>   14904:	0affff32 	beq	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>   14908:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   1490c:	e1a02004 	mov	r2, r4</pre>
+<pre>   14910:	e59f1058 	ldr	r1, [pc, #88]	; 14970 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2df4&gt;</pre>
+<pre>   14914:	e59f0058 	ldr	r0, [pc, #88]	; 14974 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2df8&gt;</pre>
+<pre>   14918:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1491c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14920:	e2811c01 	add	r1, r1, #256	; 0x100</pre>
+<pre><span class="red">   14924:	ebfff42b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14928:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   1492c:	eaffff28 	b	145d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2a58&gt;</pre>
+<pre>--</pre>
+<pre>   14990:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   14994:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   14998:	0a000004 	beq	149b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2e34&gt;</pre>
+<pre>   1499c:	e59f2050 	ldr	r2, [pc, #80]	; 149f4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2e78&gt;</pre>
+<pre>   149a0:	e7933002 	ldr	r3, [r3, r2]</pre>
+<pre>   149a4:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   149a8:	e3130001 	tst	r3, #1</pre>
+<pre>   149ac:	1a000002 	bne	149bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2e40&gt;</pre>
+<pre>   149b0:	e1a00004 	mov	r0, r4</pre>
+<pre>   149b4:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   149b8:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   149bc:	ebfff3b7 	bl	118a0 &lt;bcm_usched_strerror&commat;plt&gt;</pre>
+<pre>   149c0:	e59f1030 	ldr	r1, [pc, #48]	; 149f8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2e7c&gt;</pre>
+<pre>   149c4:	e1a02000 	mov	r2, r0</pre>
+<pre>   149c8:	e59f002c 	ldr	r0, [pc, #44]	; 149fc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2e80&gt;</pre>
+<pre>   149cc:	e1a03005 	mov	r3, r5</pre>
+<pre>   149d0:	e58d6000 	str	r6, [sp]</pre>
+<pre>   149d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   149d8:	e2811e12 	add	r1, r1, #288	; 0x120</pre>
+<pre>   149dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   149e0:	ebfff3fc 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   149e4:	e1a00004 	mov	r0, r4</pre>
+<pre>   149e8:	e28dd008 	add	sp, sp, #8</pre>
+<pre>--</pre>
+<pre>   14b10:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14b14:	ebfff3f1 	bl	11ae0 &lt;strcspn&commat;plt&gt;</pre>
+<pre>   14b18:	e28d3010 	add	r3, sp, #16</pre>
+<pre>   14b1c:	e3a02000 	mov	r2, #0</pre>
+<pre>   14b20:	e0833000 	add	r3, r3, r0</pre>
+<pre>   14b24:	e3a01020 	mov	r1, #32</pre>
+<pre>   14b28:	e1a00004 	mov	r0, r4</pre>
+<pre>   14b2c:	e5432010 	strb	r2, [r3, #-16]</pre>
+<pre>   14b30:	e5cd200f 	strb	r2, [sp, #15]</pre>
+<pre>   14b34:	ebfff33e 	bl	11834 &lt;strchr&commat;plt&gt;</pre>
+<pre>   14b38:	e5dd3000 	ldrb	r3, [sp]</pre>
+<pre>   14b3c:	e1a04000 	mov	r4, r0</pre>
+<pre>   14b40:	e3530000 	cmp	r3, #0</pre>
+<pre>   14b44:	0a00000a 	beq	14b74 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2ff8&gt;</pre>
+<pre>   14b48:	e5963000 	ldr	r3, [r6]</pre>
+<pre>   14b4c:	e3130010 	tst	r3, #16</pre>
+<pre>   14b50:	0affffd6 	beq	14ab0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2f34&gt;</pre>
+<pre>   14b54:	e1a02005 	mov	r2, r5</pre>
+<pre>   14b58:	e1a01007 	mov	r1, r7</pre>
+<pre>   14b5c:	e1a00009 	mov	r0, r9</pre>
+<pre><span class="red">   14b60:	ebfff39c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14b64:	eaffffd1 	b	14ab0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2f34&gt;</pre>
+<pre>   14b68:	e59f4030 	ldr	r4, [pc, #48]	; 14ba0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3024&gt;</pre>
+<pre>--</pre>
+<pre>   14c78:	0affffec 	beq	14c30 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x30b4&gt;</pre>
+<pre>   14c7c:	e59f3054 	ldr	r3, [pc, #84]	; 14cd8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x315c&gt;</pre>
+<pre>   14c80:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>   14c84:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14c88:	e3130010 	tst	r3, #16</pre>
+<pre>   14c8c:	1a000007 	bne	14cb0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3134&gt;</pre>
+<pre>   14c90:	e9960009 	ldmib	r6, {r0, r3}</pre>
+<pre>   14c94:	e12fff33 	blx	r3</pre>
+<pre>   14c98:	e5d60000 	ldrb	r0, [r6]</pre>
+<pre>   14c9c:	ebfffaec 	bl	13854 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x1cd8&gt;</pre>
+<pre>   14ca0:	e1a00006 	mov	r0, r6</pre>
+<pre>   14ca4:	ebfff30c 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   14ca8:	e3a00000 	mov	r0, #0</pre>
+<pre>   14cac:	e8bd8ff8 	pop	{r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   14cb0:	e59f1024 	ldr	r1, [pc, #36]	; 14cdc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3160&gt;</pre>
+<pre>   14cb4:	e59f0024 	ldr	r0, [pc, #36]	; 14ce0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3164&gt;</pre>
+<pre>   14cb8:	e5962000 	ldr	r2, [r6]</pre>
+<pre>   14cbc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14cc0:	e2811f53 	add	r1, r1, #332	; 0x14c</pre>
+<pre>   14cc4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14cc8:	ebfff342 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14ccc:	eaffffef 	b	14c90 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3114&gt;</pre>
+<pre>   14cd0:	00016570 	andeq	r6, r1, r0, ror r5</pre>
+<pre>--</pre>
+<pre>   14d50:	ebfff2c6 	bl	11870 &lt;wl_ioctl&commat;plt&gt;</pre>
+<pre>   14d54:	e3500000 	cmp	r0, #0</pre>
+<pre>   14d58:	059d3004 	ldreq	r3, [sp, #4]</pre>
+<pre>   14d5c:	05863000 	streq	r3, [r6]</pre>
+<pre>   14d60:	1a000001 	bne	14d6c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x31f0&gt;</pre>
+<pre>   14d64:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   14d68:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   14d6c:	e59f3038 	ldr	r3, [pc, #56]	; 14dac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3230&gt;</pre>
+<pre>   14d70:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>   14d74:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14d78:	e3130010 	tst	r3, #16</pre>
+<pre>   14d7c:	1a000001 	bne	14d88 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x320c&gt;</pre>
+<pre>   14d80:	e3e00000 	mvn	r0, #0</pre>
+<pre>   14d84:	eafffff6 	b	14d64 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x31e8&gt;</pre>
+<pre>   14d88:	e59f1020 	ldr	r1, [pc, #32]	; 14db0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3234&gt;</pre>
+<pre>   14d8c:	e1a02005 	mov	r2, r5</pre>
+<pre>   14d90:	e59f001c 	ldr	r0, [pc, #28]	; 14db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3238&gt;</pre>
+<pre>   14d94:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14d98:	e2811f5b 	add	r1, r1, #364	; 0x16c</pre>
+<pre>   14d9c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14da0:	ebfff30c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14da4:	eafffff5 	b	14d80 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3204&gt;</pre>
+<pre>   14da8:	000162c0 	andeq	r6, r1, r0, asr #5</pre>
+<pre>--</pre>
+<pre>   14e2c:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   14e30:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   14e34:	0a000005 	beq	14e50 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x32d4&gt;</pre>
+<pre>   14e38:	e59f3054 	ldr	r3, [pc, #84]	; 14e94 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3318&gt;</pre>
+<pre>   14e3c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>   14e40:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   14e44:	e3130001 	tst	r3, #1</pre>
+<pre>   14e48:	03e03000 	mvneq	r3, #0</pre>
+<pre>   14e4c:	1a000002 	bne	14e5c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x32e0&gt;</pre>
+<pre>   14e50:	e1a00003 	mov	r0, r3</pre>
+<pre>   14e54:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>   14e58:	e8bd8030 	pop	{r4, r5, pc}</pre>
+<pre>   14e5c:	ebfff28f 	bl	118a0 &lt;bcm_usched_strerror&commat;plt&gt;</pre>
+<pre>   14e60:	e59f1030 	ldr	r1, [pc, #48]	; 14e98 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x331c&gt;</pre>
+<pre>   14e64:	e1a03000 	mov	r3, r0</pre>
+<pre>   14e68:	e59f002c 	ldr	r0, [pc, #44]	; 14e9c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3320&gt;</pre>
+<pre>   14e6c:	e1a02005 	mov	r2, r5</pre>
+<pre>   14e70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   14e74:	e2811f61 	add	r1, r1, #388	; 0x184</pre>
+<pre>   14e78:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14e7c:	ebfff2d5 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14e80:	e3e03000 	mvn	r3, #0</pre>
+<pre>   14e84:	e1a00003 	mov	r0, r3</pre>
+<pre>--</pre>
+<pre>   15084:	e1a02006 	mov	r2, r6</pre>
+<pre>   15088:	e1a00005 	mov	r0, r5</pre>
+<pre>   1508c:	e797c00c 	ldr	ip, [r7, ip]</pre>
+<pre>   15090:	e5dcc000 	ldrb	ip, [ip]</pre>
+<pre>   15094:	e35c0000 	cmp	ip, #0</pre>
+<pre>   15098:	13a0c501 	movne	ip, #4194304	; 0x400000</pre>
+<pre>   1509c:	01a0c003 	moveq	ip, r3</pre>
+<pre>   150a0:	e586c000 	str	ip, [r6]</pre>
+<pre>   150a4:	ebfff1f1 	bl	11870 &lt;wl_ioctl&commat;plt&gt;</pre>
+<pre>   150a8:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   150ac:	0a00000a 	beq	150dc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3560&gt;</pre>
+<pre>   150b0:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   150b4:	e3130001 	tst	r3, #1</pre>
+<pre>   150b8:	0affffe6 	beq	15058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34dc&gt;</pre>
+<pre>   150bc:	e59f12d0 	ldr	r1, [pc, #720]	; 15394 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3818&gt;</pre>
+<pre>   150c0:	e1a02005 	mov	r2, r5</pre>
+<pre>   150c4:	e59f02cc 	ldr	r0, [pc, #716]	; 15398 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x381c&gt;</pre>
+<pre>   150c8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   150cc:	e2811e1a 	add	r1, r1, #416	; 0x1a0</pre>
+<pre>   150d0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   150d4:	ebfff23f 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   150d8:	eaffffde 	b	15058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34dc&gt;</pre>
+<pre>   150dc:	e2443040 	sub	r3, r4, #64	; 0x40</pre>
+<pre>--</pre>
+<pre>   151b0:	e1a0000b 	mov	r0, fp</pre>
+<pre>   151b4:	e2431040 	sub	r1, r3, #64	; 0x40</pre>
+<pre>   151b8:	ebfffc7f 	bl	143bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2840&gt;</pre>
+<pre>   151bc:	e2866001 	add	r6, r6, #1</pre>
+<pre>   151c0:	e28880b4 	add	r8, r8, #180	; 0xb4</pre>
+<pre>   151c4:	e3560004 	cmp	r6, #4</pre>
+<pre>   151c8:	1affffe1 	bne	15154 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x35d8&gt;</pre>
+<pre>   151cc:	eaffffa1 	b	15058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34dc&gt;</pre>
+<pre>   151d0:	e5992000 	ldr	r2, [r9]</pre>
+<pre>   151d4:	e3120008 	tst	r2, #8</pre>
+<pre>   151d8:	0afffff7 	beq	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   151dc:	e3a000b4 	mov	r0, #180	; 0xb4</pre>
+<pre>   151e0:	e59d1024 	ldr	r1, [sp, #36]	; 0x24</pre>
+<pre>   151e4:	e0204690 	mla	r0, r0, r6, r4</pre>
+<pre>   151e8:	e0842008 	add	r2, r4, r8</pre>
+<pre>   151ec:	e1a03005 	mov	r3, r5</pre>
+<pre>   151f0:	e590c074 	ldr	ip, [r0, #116]	; 0x74</pre>
+<pre>   151f4:	e59d0028 	ldr	r0, [sp, #40]	; 0x28</pre>
+<pre>   151f8:	e58da000 	str	sl, [sp]</pre>
+<pre>   151fc:	e58dc004 	str	ip, [sp, #4]</pre>
+<pre><span class="red">   15200:	ebfff1f4 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   15204:	eaffffec 	b	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   15208:	e5543043 	ldrb	r3, [r4, #-67]	; 0xffffffbd</pre>
+<pre>   1520c:	e1a02005 	mov	r2, r5</pre>
+<pre>   15210:	e5540046 	ldrb	r0, [r4, #-70]	; 0xffffffba</pre>
+<pre>   15214:	e554e044 	ldrb	lr, [r4, #-68]	; 0xffffffbc</pre>
+<pre>   15218:	e554c045 	ldrb	ip, [r4, #-69]	; 0xffffffbb</pre>
+<pre>   1521c:	e59f118c 	ldr	r1, [pc, #396]	; 153b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3834&gt;</pre>
+<pre>   15220:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>   15224:	e5543047 	ldrb	r3, [r4, #-71]	; 0xffffffb9</pre>
+<pre>   15228:	e98d5001 	stmib	sp, {r0, ip, lr}</pre>
+<pre>   1522c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15230:	e59f017c 	ldr	r0, [pc, #380]	; 153b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3838&gt;</pre>
+<pre>   15234:	e2811e1a 	add	r1, r1, #416	; 0x1a0</pre>
+<pre>   15238:	e58d3000 	str	r3, [sp]</pre>
+<pre>   1523c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   15240:	e5543048 	ldrb	r3, [r4, #-72]	; 0xffffffb8</pre>
+<pre><span class="red">   15244:	ebfff1e3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   15248:	eaffff7b 	b	1503c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34c0&gt;</pre>
+<pre>   1524c:	e59d401c 	ldr	r4, [sp, #28]</pre>
+<pre>--</pre>
+<pre>   15280:	ebfff156 	bl	117e0 &lt;wl_iovar_setbuf&commat;plt&gt;</pre>
+<pre>   15284:	e3500000 	cmp	r0, #0</pre>
+<pre>   15288:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   1528c:	1a00001b 	bne	15300 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3784&gt;</pre>
+<pre>   15290:	e3130008 	tst	r3, #8</pre>
+<pre>   15294:	0affffc8 	beq	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   15298:	e59d401c 	ldr	r4, [sp, #28]</pre>
+<pre>   1529c:	e1a0200b 	mov	r2, fp</pre>
+<pre>   152a0:	e59d102c 	ldr	r1, [sp, #44]	; 0x2c</pre>
+<pre>   152a4:	e5543043 	ldrb	r3, [r4, #-67]	; 0xffffffbd</pre>
+<pre>   152a8:	e5540046 	ldrb	r0, [r4, #-70]	; 0xffffffba</pre>
+<pre>   152ac:	e554e044 	ldrb	lr, [r4, #-68]	; 0xffffffbc</pre>
+<pre>   152b0:	e554c045 	ldrb	ip, [r4, #-69]	; 0xffffffbb</pre>
+<pre>   152b4:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>   152b8:	e5543047 	ldrb	r3, [r4, #-71]	; 0xffffffb9</pre>
+<pre>   152bc:	e98d5001 	stmib	sp, {r0, ip, lr}</pre>
+<pre>   152c0:	e59f00f4 	ldr	r0, [pc, #244]	; 153bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3840&gt;</pre>
+<pre>   152c4:	e58d3000 	str	r3, [sp]</pre>
+<pre>   152c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   152cc:	e5543048 	ldrb	r3, [r4, #-72]	; 0xffffffb8</pre>
+<pre><span class="red">   152d0:	ebfff1c0 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   152d4:	eaffffb8 	b	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   152d8:	e59f10e0 	ldr	r1, [pc, #224]	; 153c0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3844&gt;</pre>
+<pre>   152dc:	e1a02005 	mov	r2, r5</pre>
+<pre>   152e0:	e59f00dc 	ldr	r0, [pc, #220]	; 153c4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3848&gt;</pre>
+<pre>   152e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   152e8:	e2811e1a 	add	r1, r1, #416	; 0x1a0</pre>
+<pre>   152ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   152f0:	ebfff1b8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   152f4:	e28dda05 	add	sp, sp, #20480	; 0x5000</pre>
+<pre>   152f8:	e28dd07c 	add	sp, sp, #124	; 0x7c</pre>
+<pre>   152fc:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   15300:	e3130008 	tst	r3, #8</pre>
+<pre>   15304:	0affffac 	beq	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   15308:	e59d401c 	ldr	r4, [sp, #28]</pre>
+<pre>   1530c:	e1a0200b 	mov	r2, fp</pre>
+<pre>   15310:	e59f10b0 	ldr	r1, [pc, #176]	; 153c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x384c&gt;</pre>
+<pre>   15314:	e554e043 	ldrb	lr, [r4, #-67]	; 0xffffffbd</pre>
+<pre>   15318:	e5543045 	ldrb	r3, [r4, #-69]	; 0xffffffbb</pre>
+<pre>   1531c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15320:	e554c044 	ldrb	ip, [r4, #-68]	; 0xffffffbc</pre>
+<pre>   15324:	e2811f6f 	add	r1, r1, #444	; 0x1bc</pre>
+<pre>   15328:	e58d0014 	str	r0, [sp, #20]</pre>
+<pre>   1532c:	e5540046 	ldrb	r0, [r4, #-70]	; 0xffffffba</pre>
+<pre>   15330:	e58de010 	str	lr, [sp, #16]</pre>
+<pre>   15334:	e554e047 	ldrb	lr, [r4, #-71]	; 0xffffffb9</pre>
+<pre>   15338:	e98d1009 	stmib	sp, {r0, r3, ip}</pre>
+<pre>   1533c:	e59f0088 	ldr	r0, [pc, #136]	; 153cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3850&gt;</pre>
+<pre>   15340:	e58de000 	str	lr, [sp]</pre>
+<pre>   15344:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   15348:	e5543048 	ldrb	r3, [r4, #-72]	; 0xffffffb8</pre>
+<pre><span class="red">   1534c:	ebfff1a1 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   15350:	eaffff99 	b	151bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3640&gt;</pre>
+<pre>   15354:	e5993000 	ldr	r3, [r9]</pre>
+<pre>   15358:	e3130001 	tst	r3, #1</pre>
+<pre>   1535c:	0affff3d 	beq	15058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34dc&gt;</pre>
+<pre>   15360:	e59f1068 	ldr	r1, [pc, #104]	; 153d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3854&gt;</pre>
+<pre>   15364:	e1a02005 	mov	r2, r5</pre>
+<pre>   15368:	e59f0064 	ldr	r0, [pc, #100]	; 153d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3858&gt;</pre>
+<pre>   1536c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15370:	e2811e1a 	add	r1, r1, #416	; 0x1a0</pre>
+<pre>   15374:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   15378:	ebfff196 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1537c:	eaffff35 	b	15058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x34dc&gt;</pre>
+<pre>   15380:	00015fe8 	andeq	r5, r1, r8, ror #31</pre>
+<pre>--</pre>
+<pre>   15438:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   1543c:	e3130008 	tst	r3, #8</pre>
+<pre>   15440:	1a000014 	bne	15498 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x391c&gt;</pre>
+<pre>   15444:	e28ddc42 	add	sp, sp, #16896	; 0x4200</pre>
+<pre>   15448:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>   1544c:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   15450:	e5953024 	ldr	r3, [r5, #36]	; 0x24</pre>
+<pre>   15454:	e3530004 	cmp	r3, #4</pre>
+<pre>   15458:	0a000018 	beq	154c0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3944&gt;</pre>
+<pre>   1545c:	e59f318c 	ldr	r3, [pc, #396]	; 155f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a74&gt;</pre>
+<pre>   15460:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   15464:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   15468:	e3130008 	tst	r3, #8</pre>
+<pre>   1546c:	0afffff4 	beq	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   15470:	e59f117c 	ldr	r1, [pc, #380]	; 155f4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a78&gt;</pre>
+<pre>   15474:	e1a02005 	mov	r2, r5</pre>
+<pre>   15478:	e59f0178 	ldr	r0, [pc, #376]	; 155f8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a7c&gt;</pre>
+<pre>   1547c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15480:	e2811f75 	add	r1, r1, #468	; 0x1d4</pre>
+<pre>   15484:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   15488:	ebfff152 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1548c:	e28ddc42 	add	sp, sp, #16896	; 0x4200</pre>
+<pre>   15490:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>   15494:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   15498:	e59f115c 	ldr	r1, [pc, #348]	; 155fc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a80&gt;</pre>
+<pre>   1549c:	e1a02005 	mov	r2, r5</pre>
+<pre>   154a0:	e59f0158 	ldr	r0, [pc, #344]	; 15600 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a84&gt;</pre>
+<pre>   154a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   154a8:	e2811f75 	add	r1, r1, #468	; 0x1d4</pre>
+<pre>   154ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   154b0:	ebfff148 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   154b4:	e28ddc42 	add	sp, sp, #16896	; 0x4200</pre>
+<pre>   154b8:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>--</pre>
+<pre>   15518:	e1a0100b 	mov	r1, fp</pre>
+<pre>   1551c:	e1d830b2 	ldrh	r3, [r8, #2]</pre>
+<pre>   15520:	e1a00005 	mov	r0, r5</pre>
+<pre>   15524:	e5c87005 	strb	r7, [r8, #5]</pre>
+<pre>   15528:	ebfff0ac 	bl	117e0 &lt;wl_iovar_setbuf&commat;plt&gt;</pre>
+<pre>   1552c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>   15530:	aaffffc3 	bge	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   15534:	e59f30b4 	ldr	r3, [pc, #180]	; 155f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a74&gt;</pre>
+<pre>   15538:	e7964003 	ldr	r4, [r6, r3]</pre>
+<pre>   1553c:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   15540:	e3130001 	tst	r3, #1</pre>
+<pre>   15544:	1a000020 	bne	155cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a50&gt;</pre>
+<pre>   15548:	e3130008 	tst	r3, #8</pre>
+<pre>   1554c:	0affffbc 	beq	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   15550:	e59f10b0 	ldr	r1, [pc, #176]	; 15608 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a8c&gt;</pre>
+<pre>   15554:	e1a02005 	mov	r2, r5</pre>
+<pre>   15558:	e59f00ac 	ldr	r0, [pc, #172]	; 1560c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a90&gt;</pre>
+<pre>   1555c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15560:	e2811f75 	add	r1, r1, #468	; 0x1d4</pre>
+<pre>   15564:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   15568:	ebfff11a 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1556c:	eaffffb4 	b	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   15570:	e59f3078 	ldr	r3, [pc, #120]	; 155f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a74&gt;</pre>
+<pre>   15574:	e7964003 	ldr	r4, [r6, r3]</pre>
+<pre>   15578:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   1557c:	e3130001 	tst	r3, #1</pre>
+<pre>   15580:	1a000009 	bne	155ac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a30&gt;</pre>
+<pre>   15584:	e3130008 	tst	r3, #8</pre>
+<pre>   15588:	0affffad 	beq	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   1558c:	e59f107c 	ldr	r1, [pc, #124]	; 15610 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a94&gt;</pre>
+<pre>   15590:	e1a02009 	mov	r2, r9</pre>
+<pre>   15594:	e59f0078 	ldr	r0, [pc, #120]	; 15614 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a98&gt;</pre>
+<pre>   15598:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1559c:	e2811f75 	add	r1, r1, #468	; 0x1d4</pre>
+<pre>   155a0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   155a4:	ebfff10b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   155a8:	eaffffa5 	b	15444 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x38c8&gt;</pre>
+<pre>   155ac:	e59f1064 	ldr	r1, [pc, #100]	; 15618 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a9c&gt;</pre>
+<pre>   155b0:	e59f0064 	ldr	r0, [pc, #100]	; 1561c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3aa0&gt;</pre>
+<pre>   155b4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   155b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   155bc:	e2811e1f 	add	r1, r1, #496	; 0x1f0</pre>
+<pre><span class="red">   155c0:	ebfff104 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   155c4:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   155c8:	eaffffed 	b	15584 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3a08&gt;</pre>
+<pre>   155cc:	e59f104c 	ldr	r1, [pc, #76]	; 15620 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3aa4&gt;</pre>
+<pre>   155d0:	e59f004c 	ldr	r0, [pc, #76]	; 15624 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3aa8&gt;</pre>
+<pre>   155d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   155d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   155dc:	e2811f82 	add	r1, r1, #520	; 0x208</pre>
+<pre><span class="red">   155e0:	ebfff0fc 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   155e4:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   155e8:	eaffffd6 	b	15548 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x39cc&gt;</pre>
+<pre>--</pre>
+<pre>   1565c:	0a000004 	beq	15674 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3af8&gt;</pre>
+<pre>   15660:	e59f3058 	ldr	r3, [pc, #88]	; 156c0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3b44&gt;</pre>
+<pre>   15664:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   15668:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   1566c:	e3130001 	tst	r3, #1</pre>
+<pre>   15670:	1a000002 	bne	15680 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3b04&gt;</pre>
+<pre>   15674:	e1a00004 	mov	r0, r4</pre>
+<pre>   15678:	e28dd014 	add	sp, sp, #20</pre>
+<pre>   1567c:	e8bd83f0 	pop	{r4, r5, r6, r7, r8, r9, pc}</pre>
+<pre>   15680:	ebfff086 	bl	118a0 &lt;bcm_usched_strerror&commat;plt&gt;</pre>
+<pre>   15684:	e59f1038 	ldr	r1, [pc, #56]	; 156c4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3b48&gt;</pre>
+<pre>   15688:	e1a02000 	mov	r2, r0</pre>
+<pre>   1568c:	e59f0034 	ldr	r0, [pc, #52]	; 156c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3b4c&gt;</pre>
+<pre>   15690:	e58d800c 	str	r8, [sp, #12]</pre>
+<pre>   15694:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15698:	e58d5008 	str	r5, [sp, #8]</pre>
+<pre>   1569c:	e2811e22 	add	r1, r1, #544	; 0x220</pre>
+<pre>   156a0:	e58d9000 	str	r9, [sp]</pre>
+<pre>   156a4:	e58d7004 	str	r7, [sp, #4]</pre>
+<pre>   156a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   156ac:	ebfff0c9 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   156b0:	e1a00004 	mov	r0, r4</pre>
+<pre>   156b4:	e28dd014 	add	sp, sp, #20</pre>
+<pre>--</pre>
+<pre>   15c4c:	ebffef3d 	bl	11948 &lt;wl_wlif_create_thrd&commat;plt&gt;</pre>
+<pre>   15c50:	e3500000 	cmp	r0, #0</pre>
+<pre>   15c54:	1a000001 	bne	15c60 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x40e4&gt;</pre>
+<pre>   15c58:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   15c5c:	e8bd87f0 	pop	{r4, r5, r6, r7, r8, r9, sl, pc}</pre>
+<pre>   15c60:	e59f3084 	ldr	r3, [pc, #132]	; 15cec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4170&gt;</pre>
+<pre>   15c64:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   15c68:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   15c6c:	e3130001 	tst	r3, #1</pre>
+<pre>   15c70:	1a000003 	bne	15c84 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4108&gt;</pre>
+<pre>   15c74:	e1a00004 	mov	r0, r4</pre>
+<pre>   15c78:	ebffef17 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   15c7c:	e3e00000 	mvn	r0, #0</pre>
+<pre>   15c80:	eafffff4 	b	15c58 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x40dc&gt;</pre>
+<pre>   15c84:	e59f1064 	ldr	r1, [pc, #100]	; 15cf0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4174&gt;</pre>
+<pre>   15c88:	e1a02006 	mov	r2, r6</pre>
+<pre>   15c8c:	e59f0060 	ldr	r0, [pc, #96]	; 15cf4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4178&gt;</pre>
+<pre>   15c90:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15c94:	e2811f92 	add	r1, r1, #584	; 0x248</pre>
+<pre>   15c98:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   15c9c:	ebffef4d 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   15ca0:	eafffff3 	b	15c74 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x40f8&gt;</pre>
+<pre>   15ca4:	e59f3040 	ldr	r3, [pc, #64]	; 15cec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4170&gt;</pre>
+<pre>   15ca8:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   15cac:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   15cb0:	e3130001 	tst	r3, #1</pre>
+<pre>   15cb4:	03e00000 	mvneq	r0, #0</pre>
+<pre>   15cb8:	0affffe6 	beq	15c58 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x40dc&gt;</pre>
+<pre>   15cbc:	e59f1034 	ldr	r1, [pc, #52]	; 15cf8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x417c&gt;</pre>
+<pre>   15cc0:	e3a0200c 	mov	r2, #12</pre>
+<pre>   15cc4:	e59f0030 	ldr	r0, [pc, #48]	; 15cfc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4180&gt;</pre>
+<pre>   15cc8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   15ccc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   15cd0:	e2811f92 	add	r1, r1, #584	; 0x248</pre>
+<pre><span class="red">   15cd4:	ebffef3f 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   15cd8:	e3e00000 	mvn	r0, #0</pre>
+<pre>   15cdc:	eaffffdd 	b	15c58 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x40dc&gt;</pre>
+<pre>--</pre>
+<pre>   164dc:	ebffed0d 	bl	11918 &lt;nvram_get&commat;plt&gt;</pre>
+<pre>   164e0:	e3500000 	cmp	r0, #0</pre>
+<pre>   164e4:	0a00001b 	beq	16558 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49dc&gt;</pre>
+<pre>   164e8:	e5d03000 	ldrb	r3, [r0]</pre>
+<pre>   164ec:	e3530030 	cmp	r3, #48	; 0x30</pre>
+<pre>   164f0:	1a000018 	bne	16558 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49dc&gt;</pre>
+<pre>   164f4:	e5d06001 	ldrb	r6, [r0, #1]</pre>
+<pre>   164f8:	e3560000 	cmp	r6, #0</pre>
+<pre>   164fc:	1a000015 	bne	16558 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49dc&gt;</pre>
+<pre>   16500:	e59f3188 	ldr	r3, [pc, #392]	; 16690 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b14&gt;</pre>
+<pre>   16504:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   16508:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   1650c:	e3130002 	tst	r3, #2</pre>
+<pre>   16510:	0a00000d 	beq	1654c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d0&gt;</pre>
+<pre>   16514:	e59f1178 	ldr	r1, [pc, #376]	; 16694 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b18&gt;</pre>
+<pre>   16518:	e1a02007 	mov	r2, r7</pre>
+<pre>   1651c:	e59f0174 	ldr	r0, [pc, #372]	; 16698 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b1c&gt;</pre>
+<pre>   16520:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16524:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16528:	e2811f9b 	add	r1, r1, #620	; 0x26c</pre>
+<pre><span class="red">   1652c:	ebffed29 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16530:	e1a00006 	mov	r0, r6</pre>
+<pre>   16534:	ea000005 	b	16550 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d4&gt;</pre>
+<pre>--</pre>
+<pre>   165a0:	e3a01040 	mov	r1, #64	; 0x40</pre>
+<pre>   165a4:	e1a00004 	mov	r0, r4</pre>
+<pre>   165a8:	e08f2002 	add	r2, pc, r2</pre>
+<pre><span class="red">   165ac:	ebffed45 	bl	11ac8 &lt;snprintf&commat;plt&gt</span></span></pre>
+<pre>   165b0:	e1a00004 	mov	r0, r4</pre>
+<pre>   165b4:	ebffecd7 	bl	11918 &lt;nvram_get&commat;plt&gt;</pre>
+<pre>   165b8:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   165bc:	0a000002 	beq	165cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4a50&gt;</pre>
+<pre>   165c0:	e5d33000 	ldrb	r3, [r3]</pre>
+<pre>   165c4:	e3530000 	cmp	r3, #0</pre>
+<pre>   165c8:	1a000018 	bne	16630 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ab4&gt;</pre>
+<pre>   165cc:	e3a00001 	mov	r0, #1</pre>
+<pre>   165d0:	e28dd040 	add	sp, sp, #64	; 0x40</pre>
+<pre>   165d4:	e8bd81f0 	pop	{r4, r5, r6, r7, r8, pc}</pre>
+<pre>   165d8:	e59f10c4 	ldr	r1, [pc, #196]	; 166a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b28&gt;</pre>
+<pre>   165dc:	e1a02007 	mov	r2, r7</pre>
+<pre>   165e0:	e59f00c0 	ldr	r0, [pc, #192]	; 166a8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b2c&gt;</pre>
+<pre>   165e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   165e8:	e2811f9b 	add	r1, r1, #620	; 0x26c</pre>
+<pre>   165ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   165f0:	ebffecf8 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   165f4:	eaffffd4 	b	1654c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d0&gt;</pre>
+<pre>   165f8:	e59f3090 	ldr	r3, [pc, #144]	; 16690 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b14&gt;</pre>
+<pre>   165fc:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   16600:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   16604:	e3130002 	tst	r3, #2</pre>
+<pre>   16608:	0affffcf 	beq	1654c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d0&gt;</pre>
+<pre>   1660c:	e59f1098 	ldr	r1, [pc, #152]	; 166ac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b30&gt;</pre>
+<pre>   16610:	e1a02007 	mov	r2, r7</pre>
+<pre>   16614:	e59f0094 	ldr	r0, [pc, #148]	; 166b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b34&gt;</pre>
+<pre>   16618:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1661c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16620:	e2811f9b 	add	r1, r1, #620	; 0x26c</pre>
+<pre><span class="red">   16624:	ebffeceb 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16628:	e3a00000 	mov	r0, #0</pre>
+<pre>   1662c:	eaffffc7 	b	16550 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d4&gt;</pre>
+<pre>   16630:	e1a02006 	mov	r2, r6</pre>
+<pre>   16634:	e1a01006 	mov	r1, r6</pre>
+<pre>   16638:	ebffecd1 	bl	11984 &lt;strtoul&commat;plt&gt;</pre>
+<pre>   1663c:	e6ff0070 	uxth	r0, r0</pre>
+<pre>   16640:	e3500002 	cmp	r0, #2</pre>
+<pre>   16644:	1affffe0 	bne	165cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4a50&gt;</pre>
+<pre>   16648:	e59f3040 	ldr	r3, [pc, #64]	; 16690 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b14&gt;</pre>
+<pre>   1664c:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   16650:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   16654:	e3130002 	tst	r3, #2</pre>
+<pre>   16658:	0affffbb 	beq	1654c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d0&gt;</pre>
+<pre>   1665c:	e59f1050 	ldr	r1, [pc, #80]	; 166b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b38&gt;</pre>
+<pre>   16660:	e1a02007 	mov	r2, r7</pre>
+<pre>   16664:	e59f004c 	ldr	r0, [pc, #76]	; 166b8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4b3c&gt;</pre>
+<pre>   16668:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1666c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16670:	e2811f9b 	add	r1, r1, #620	; 0x26c</pre>
+<pre><span class="red">   16674:	ebffecd7 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16678:	e1a00006 	mov	r0, r6</pre>
+<pre>   1667c:	eaffffb3 	b	16550 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x49d4&gt;</pre>
+<pre>--</pre>
+<pre>   16708:	e28d004c 	add	r0, sp, #76	; 0x4c</pre>
+<pre>   1670c:	e58d5048 	str	r5, [sp, #72]	; 0x48</pre>
+<pre>   16710:	ebffec50 	bl	11858 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   16714:	e5d63000 	ldrb	r3, [r6]</pre>
+<pre>   16718:	e3e02000 	mvn	r2, #0</pre>
+<pre>   1671c:	e5cd5023 	strb	r5, [sp, #35]	; 0x23</pre>
+<pre>   16720:	e58d2024 	str	r2, [sp, #36]	; 0x24</pre>
+<pre>   16724:	e1530005 	cmp	r3, r5</pre>
+<pre>   16728:	1a000017 	bne	1678c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4c10&gt;</pre>
+<pre>   1672c:	e5d43000 	ldrb	r3, [r4]</pre>
+<pre>   16730:	e3530000 	cmp	r3, #0</pre>
+<pre>   16734:	1a000015 	bne	16790 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4c14&gt;</pre>
+<pre>   16738:	e59f1434 	ldr	r1, [pc, #1076]	; 16b74 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ff8&gt;</pre>
+<pre>   1673c:	e1a03006 	mov	r3, r6</pre>
+<pre>   16740:	e59f0430 	ldr	r0, [pc, #1072]	; 16b78 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ffc&gt;</pre>
+<pre>   16744:	e1a02009 	mov	r2, r9</pre>
+<pre>   16748:	e58d4000 	str	r4, [sp]</pre>
+<pre>   1674c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16750:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16754:	e2811fa5 	add	r1, r1, #660	; 0x294</pre>
+<pre><span class="red">   16758:	ebffec9e 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1675c:	e3a00000 	mov	r0, #0</pre>
+<pre>   16760:	ea0000b9 	b	16a4c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ed0&gt;</pre>
+<pre>--</pre>
+<pre>   1692c:	e5cd2047 	strb	r2, [sp, #71]	; 0x47</pre>
+<pre>   16930:	ebffebbf 	bl	11834 &lt;strchr&commat;plt&gt;</pre>
+<pre>   16934:	e5dd3038 	ldrb	r3, [sp, #56]	; 0x38</pre>
+<pre>   16938:	e1a04000 	mov	r4, r0</pre>
+<pre>   1693c:	e3530000 	cmp	r3, #0</pre>
+<pre>   16940:	0a000038 	beq	16a28 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4eac&gt;</pre>
+<pre>   16944:	e1a01006 	mov	r1, r6</pre>
+<pre>   16948:	e1a00005 	mov	r0, r5</pre>
+<pre>   1694c:	ebfff8f0 	bl	14d14 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3198&gt;</pre>
+<pre>   16950:	e3500000 	cmp	r0, #0</pre>
+<pre>   16954:	0affffc5 	beq	16870 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4cf4&gt;</pre>
+<pre>   16958:	e5983000 	ldr	r3, [r8]</pre>
+<pre>   1695c:	e3130010 	tst	r3, #16</pre>
+<pre>   16960:	0affffda 	beq	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16964:	e59f1230 	ldr	r1, [pc, #560]	; 16b9c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5020&gt;</pre>
+<pre>   16968:	e1a02005 	mov	r2, r5</pre>
+<pre>   1696c:	e59f022c 	ldr	r0, [pc, #556]	; 16ba0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5024&gt;</pre>
+<pre>   16970:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16974:	e2811fa5 	add	r1, r1, #660	; 0x294</pre>
+<pre>   16978:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1697c:	ebffec15 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16980:	eaffffd2 	b	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16984:	e59f4218 	ldr	r4, [pc, #536]	; 16ba4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5028&gt;</pre>
+<pre>--</pre>
+<pre>   169c8:	e3500000 	cmp	r0, #0</pre>
+<pre>   169cc:	0a00002e 	beq	16a8c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4f10&gt;</pre>
+<pre>   169d0:	e1a01009 	mov	r1, r9</pre>
+<pre>   169d4:	ebffec53 	bl	11b28 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   169d8:	e3500000 	cmp	r0, #0</pre>
+<pre>   169dc:	1a00002a 	bne	16a8c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4f10&gt;</pre>
+<pre>   169e0:	e59d2010 	ldr	r2, [sp, #16]</pre>
+<pre>   169e4:	e1a01007 	mov	r1, r7</pre>
+<pre>   169e8:	e1a00005 	mov	r0, r5</pre>
+<pre>   169ec:	ebffeb78 	bl	117d4 &lt;add_to_list&commat;plt&gt;</pre>
+<pre>   169f0:	e3500000 	cmp	r0, #0</pre>
+<pre>   169f4:	0a00003c 	beq	16aec &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4f70&gt;</pre>
+<pre>   169f8:	e5983000 	ldr	r3, [r8]</pre>
+<pre>   169fc:	e3130002 	tst	r3, #2</pre>
+<pre>   16a00:	0affffb2 	beq	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16a04:	e59f019c 	ldr	r0, [pc, #412]	; 16ba8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x502c&gt;</pre>
+<pre>   16a08:	e1a03009 	mov	r3, r9</pre>
+<pre>   16a0c:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>   16a10:	e1a02005 	mov	r2, r5</pre>
+<pre>   16a14:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16a18:	ebffebee 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16a1c:	eaffffab 	b	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16a20:	e59f315c 	ldr	r3, [pc, #348]	; 16b84 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5008&gt;</pre>
+<pre>--</pre>
+<pre>   16a34:	e5d73000 	ldrb	r3, [r7]</pre>
+<pre>   16a38:	e3530000 	cmp	r3, #0</pre>
+<pre>   16a3c:	1a000004 	bne	16a54 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ed8&gt;</pre>
+<pre>   16a40:	e1a00007 	mov	r0, r7</pre>
+<pre>   16a44:	ebffeba4 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   16a48:	e3a00000 	mov	r0, #0</pre>
+<pre>   16a4c:	e28dd08c 	add	sp, sp, #140	; 0x8c</pre>
+<pre>   16a50:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   16a54:	e1a00007 	mov	r0, r7</pre>
+<pre>   16a58:	ebffebff 	bl	11a5c &lt;strdup&commat;plt&gt;</pre>
+<pre>   16a5c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   16a60:	e5830000 	str	r0, [r3]</pre>
+<pre>   16a64:	eafffff5 	b	16a40 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ec4&gt;</pre>
+<pre>   16a68:	e59f113c 	ldr	r1, [pc, #316]	; 16bac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5030&gt;</pre>
+<pre>   16a6c:	e1a02009 	mov	r2, r9</pre>
+<pre>   16a70:	e59f0138 	ldr	r0, [pc, #312]	; 16bb0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5034&gt;</pre>
+<pre>   16a74:	e1a03007 	mov	r3, r7</pre>
+<pre>   16a78:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16a7c:	e2811fa5 	add	r1, r1, #660	; 0x294</pre>
+<pre>   16a80:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16a84:	ebffebd3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16a88:	eaffffe9 	b	16a34 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4eb8&gt;</pre>
+<pre>   16a8c:	e5983000 	ldr	r3, [r8]</pre>
+<pre>   16a90:	e3130010 	tst	r3, #16</pre>
+<pre>   16a94:	0affff8d 	beq	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16a98:	e1a0000b 	mov	r0, fp</pre>
+<pre>   16a9c:	ebffeb9d 	bl	11918 &lt;nvram_get&commat;plt&gt;</pre>
+<pre>   16aa0:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   16aa4:	0a00001e 	beq	16b24 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4fa8&gt;</pre>
+<pre>   16aa8:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>   16aac:	e1a02005 	mov	r2, r5</pre>
+<pre>   16ab0:	e59d0018 	ldr	r0, [sp, #24]</pre>
+<pre>   16ab4:	e58d9000 	str	r9, [sp]</pre>
+<pre><span class="red">   16ab8:	ebffebc6 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16abc:	eaffff83 	b	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16ac0:	e59f10ec 	ldr	r1, [pc, #236]	; 16bb4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5038&gt;</pre>
+<pre>   16ac4:	e1a02005 	mov	r2, r5</pre>
+<pre>   16ac8:	e59f00e8 	ldr	r0, [pc, #232]	; 16bb8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x503c&gt;</pre>
+<pre>   16acc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16ad0:	e2811fa5 	add	r1, r1, #660	; 0x294</pre>
+<pre>   16ad4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16ad8:	ebffebbe 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16adc:	eaffff7b 	b	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16ae0:	e59f40d4 	ldr	r4, [pc, #212]	; 16bbc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5040&gt;</pre>
+<pre>--</pre>
+<pre>   16b10:	e2033007 	and	r3, r3, #7</pre>
+<pre>   16b14:	526c3000 	rsbpl	r3, ip, #0</pre>
+<pre>   16b18:	e180331e 	orr	r3, r0, lr, lsl r3</pre>
+<pre>   16b1c:	e7c231c1 	strb	r3, [r2, r1, asr #3]</pre>
+<pre>   16b20:	eaffff6a 	b	168d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4d54&gt;</pre>
+<pre>   16b24:	e59f3094 	ldr	r3, [pc, #148]	; 16bc0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5044&gt;</pre>
+<pre>   16b28:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   16b2c:	eaffffdd 	b	16aa8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4f2c&gt;</pre>
+<pre>   16b30:	e59f304c 	ldr	r3, [pc, #76]	; 16b84 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5008&gt;</pre>
+<pre>   16b34:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   16b38:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   16b3c:	e3130001 	tst	r3, #1</pre>
+<pre>   16b40:	03e00000 	mvneq	r0, #0</pre>
+<pre>   16b44:	0affffc0 	beq	16a4c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ed0&gt;</pre>
+<pre>   16b48:	e59f1074 	ldr	r1, [pc, #116]	; 16bc4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5048&gt;</pre>
+<pre>   16b4c:	e59f0074 	ldr	r0, [pc, #116]	; 16bc8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x504c&gt;</pre>
+<pre>   16b50:	e59d2010 	ldr	r2, [sp, #16]</pre>
+<pre>   16b54:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16b58:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16b5c:	e2811fa5 	add	r1, r1, #660	; 0x294</pre>
+<pre><span class="red">   16b60:	ebffeb9c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16b64:	e3e00000 	mvn	r0, #0</pre>
+<pre>   16b68:	eaffffb7 	b	16a4c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x4ed0&gt;</pre>
+<pre>--</pre>
+<pre>   16cac:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   16cb0:	e2033004 	and	r3, r3, #4</pre>
+<pre>   16cb4:	ca0001fa 	bgt	174a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5928&gt;</pre>
+<pre>   16cb8:	e3530000 	cmp	r3, #0</pre>
+<pre>   16cbc:	0a00002a 	beq	16d6c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x51f0&gt;</pre>
+<pre>   16cc0:	e59f2958 	ldr	r2, [pc, #2392]	; 17620 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aa4&gt;</pre>
+<pre>   16cc4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   16cc8:	ea000021 	b	16d54 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x51d8&gt;</pre>
+<pre>   16ccc:	e59f3948 	ldr	r3, [pc, #2376]	; 1761c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aa0&gt;</pre>
+<pre>   16cd0:	e7984003 	ldr	r4, [r8, r3]</pre>
+<pre>   16cd4:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   16cd8:	e3130004 	tst	r3, #4</pre>
+<pre>   16cdc:	0a000008 	beq	16d04 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5188&gt;</pre>
+<pre>   16ce0:	e59f193c 	ldr	r1, [pc, #2364]	; 17624 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aa8&gt;</pre>
+<pre>   16ce4:	e59f293c 	ldr	r2, [pc, #2364]	; 17628 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aac&gt;</pre>
+<pre>   16ce8:	e59f093c 	ldr	r0, [pc, #2364]	; 1762c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ab0&gt;</pre>
+<pre>   16cec:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16cf0:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   16cf4:	e2811fde 	add	r1, r1, #888	; 0x378</pre>
+<pre>   16cf8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16cfc:	ebffeb35 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16d00:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   16d04:	e3130001 	tst	r3, #1</pre>
+<pre>   16d08:	1a000001 	bne	16d14 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5198&gt;</pre>
+<pre>   16d0c:	e28dd064 	add	sp, sp, #100	; 0x64</pre>
+<pre>   16d10:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   16d14:	e59f1914 	ldr	r1, [pc, #2324]	; 17630 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ab4&gt;</pre>
+<pre>   16d18:	e3a02000 	mov	r2, #0</pre>
+<pre>   16d1c:	e59f0910 	ldr	r0, [pc, #2320]	; 17634 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ab8&gt;</pre>
+<pre>   16d20:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16d24:	e2811e2b 	add	r1, r1, #688	; 0x2b0</pre>
+<pre>   16d28:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16d2c:	ebffeb29 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16d30:	e28dd064 	add	sp, sp, #100	; 0x64</pre>
+<pre>   16d34:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   16d38:	e59f38dc 	ldr	r3, [pc, #2268]	; 1761c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aa0&gt;</pre>
+<pre>   16d3c:	e7984003 	ldr	r4, [r8, r3]</pre>
+<pre>   16d40:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   16d44:	e3130004 	tst	r3, #4</pre>
+<pre>   16d48:	0a000007 	beq	16d6c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x51f0&gt;</pre>
+<pre>   16d4c:	e59f28e4 	ldr	r2, [pc, #2276]	; 17638 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5abc&gt;</pre>
+<pre>   16d50:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   16d54:	e59f18e0 	ldr	r1, [pc, #2272]	; 1763c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ac0&gt;</pre>
+<pre>   16d58:	e59f08e0 	ldr	r0, [pc, #2272]	; 17640 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ac4&gt;</pre>
+<pre>   16d5c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16d60:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   16d64:	e2811fde 	add	r1, r1, #888	; 0x378</pre>
+<pre><span class="red">   16d68:	ebffeb1a 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16d6c:	e59f08d0 	ldr	r0, [pc, #2256]	; 17644 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ac8&gt;</pre>
+<pre>   16d70:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>   16f08:	e284001c 	add	r0, r4, #28</pre>
+<pre>   16f0c:	ebffea42 	bl	1181c &lt;strncpy&commat;plt&gt;</pre>
+<pre>   16f10:	e3a01000 	mov	r1, #0</pre>
+<pre>   16f14:	e1a00005 	mov	r0, r5</pre>
+<pre>   16f18:	e5c4102b 	strb	r1, [r4, #43]	; 0x2b</pre>
+<pre>   16f1c:	ebffeb0d 	bl	11b58 &lt;wl_wlif_wps_pbc_hdlr&commat;plt&gt;</pre>
+<pre>   16f20:	eaffff79 	b	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   16f24:	e5941000 	ldr	r1, [r4]</pre>
+<pre>   16f28:	e3110001 	tst	r1, #1</pre>
+<pre>   16f2c:	0affff76 	beq	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   16f30:	e3520000 	cmp	r2, #0</pre>
+<pre>   16f34:	0a000150 	beq	1747c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5900&gt;</pre>
+<pre>   16f38:	e3530000 	cmp	r3, #0</pre>
+<pre>   16f3c:	0a000151 	beq	17488 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x590c&gt;</pre>
+<pre>   16f40:	e59f171c 	ldr	r1, [pc, #1820]	; 17664 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5ae8&gt;</pre>
+<pre>   16f44:	e58d0000 	str	r0, [sp]</pre>
+<pre>   16f48:	e59f0718 	ldr	r0, [pc, #1816]	; 17668 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5aec&gt;</pre>
+<pre>   16f4c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   16f50:	e2811e2b 	add	r1, r1, #688	; 0x2b0</pre>
+<pre>   16f54:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   16f58:	ebffea9e 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   16f5c:	eaffff6a 	b	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   16f60:	e59f0704 	ldr	r0, [pc, #1796]	; 1766c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5af0&gt;</pre>
+<pre>--</pre>
+<pre>   17414:	ebfff8ac 	bl	156cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x3b50&gt;</pre>
+<pre>   17418:	eafffe3b 	b	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   1741c:	e3130010 	tst	r3, #16</pre>
+<pre>   17420:	1a000069 	bne	175cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5a50&gt;</pre>
+<pre>   17424:	e1a00006 	mov	r0, r6</pre>
+<pre>   17428:	ebffe92b 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   1742c:	eaffff41 	b	17138 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x55bc&gt;</pre>
+<pre>   17430:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   17434:	e3130010 	tst	r3, #16</pre>
+<pre>   17438:	1a00006c 	bne	175f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5a74&gt;</pre>
+<pre>   1743c:	e1a00005 	mov	r0, r5</pre>
+<pre>   17440:	ebffe925 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   17444:	eafffedb 	b	16fb8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x543c&gt;</pre>
+<pre>   17448:	e59f1260 	ldr	r1, [pc, #608]	; 176b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b34&gt;</pre>
+<pre>   1744c:	e1a03007 	mov	r3, r7</pre>
+<pre>   17450:	e59f025c 	ldr	r0, [pc, #604]	; 176b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b38&gt;</pre>
+<pre>   17454:	e1a02009 	mov	r2, r9</pre>
+<pre>   17458:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1745c:	e2811fcb 	add	r1, r1, #812	; 0x32c</pre>
+<pre>   17460:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17464:	ebffe95b 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17468:	eaffff84 	b	17280 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5704&gt;</pre>
+<pre>   1746c:	e3a01001 	mov	r1, #1</pre>
+<pre>--</pre>
+<pre>   17574:	e28d0050 	add	r0, sp, #80	; 0x50</pre>
+<pre>   17578:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   1757c:	ebffe8a6 	bl	1181c &lt;strncpy&commat;plt&gt;</pre>
+<pre>   17580:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>   17584:	e59d6030 	ldr	r6, [sp, #48]	; 0x30</pre>
+<pre>   17588:	e5cd305f 	strb	r3, [sp, #95]	; 0x5f</pre>
+<pre>   1758c:	e1a03006 	mov	r3, r6</pre>
+<pre>   17590:	eafffe44 	b	16ea8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x532c&gt;</pre>
+<pre>   17594:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   17598:	e3130001 	tst	r3, #1</pre>
+<pre>   1759c:	0afffdda 	beq	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   175a0:	e59f3120 	ldr	r3, [pc, #288]	; 176c8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b4c&gt;</pre>
+<pre>   175a4:	e1a02007 	mov	r2, r7</pre>
+<pre>   175a8:	e59f111c 	ldr	r1, [pc, #284]	; 176cc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b50&gt;</pre>
+<pre>   175ac:	e59f011c 	ldr	r0, [pc, #284]	; 176d0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b54&gt;</pre>
+<pre>   175b0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   175b4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   175b8:	e5d3302d 	ldrb	r3, [r3, #45]	; 0x2d</pre>
+<pre>   175bc:	e2811fd6 	add	r1, r1, #856	; 0x358</pre>
+<pre>   175c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   175c4:	ebffe903 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   175c8:	eafffdcf 	b	16d0c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5190&gt;</pre>
+<pre>   175cc:	e59f1100 	ldr	r1, [pc, #256]	; 176d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b58&gt;</pre>
+<pre>   175d0:	e59f0100 	ldr	r0, [pc, #256]	; 176d8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b5c&gt;</pre>
+<pre>   175d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   175d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   175dc:	e2811fbf 	add	r1, r1, #764	; 0x2fc</pre>
+<pre><span class="red">   175e0:	ebffe8fc 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   175e4:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   175e8:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   175ec:	eaffff8c 	b	17424 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x58a8&gt;</pre>
+<pre>   175f0:	e59f10e4 	ldr	r1, [pc, #228]	; 176dc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b60&gt;</pre>
+<pre>   175f4:	e59f00e4 	ldr	r0, [pc, #228]	; 176e0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5b64&gt;</pre>
+<pre>   175f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   175fc:	e2811fb3 	add	r1, r1, #716	; 0x2cc</pre>
+<pre>   17600:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17604:	ebffe8f3 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17608:	eaffff8b 	b	1743c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x58c0&gt;</pre>
+<pre>   1760c:	e3e09000 	mvn	r9, #0</pre>
+<pre>--</pre>
+<pre>   17824:	e28d1008 	add	r1, sp, #8</pre>
+<pre>   17828:	e2850008 	add	r0, r5, #8</pre>
+<pre>   1782c:	ebffe86f 	bl	119f0 &lt;ether_etoa&commat;plt&gt;</pre>
+<pre>   17830:	e59f2050 	ldr	r2, [pc, #80]	; 17888 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5d0c&gt;</pre>
+<pre>   17834:	e1a03000 	mov	r3, r0</pre>
+<pre>   17838:	e59f004c 	ldr	r0, [pc, #76]	; 1788c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5d10&gt;</pre>
+<pre>   1783c:	e7942002 	ldr	r2, [r4, r2]</pre>
+<pre>   17840:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   17844:	e5d22000 	ldrb	r2, [r2]</pre>
+<pre>   17848:	e3520000 	cmp	r2, #0</pre>
+<pre>   1784c:	11d514b8 	ldrhne	r1, [r5, #72]	; 0x48</pre>
+<pre>   17850:	01d524b8 	ldrheq	r2, [r5, #72]	; 0x48</pre>
+<pre>   17854:	11a02421 	lsrne	r2, r1, #8</pre>
+<pre>   17858:	11822401 	orrne	r2, r2, r1, lsl #8</pre>
+<pre>   1785c:	e59f102c 	ldr	r1, [pc, #44]	; 17890 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5d14&gt;</pre>
+<pre>   17860:	16ff2072 	uxthne	r2, r2</pre>
+<pre>   17864:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17868:	e58d2000 	str	r2, [sp]</pre>
+<pre>   1786c:	e2811fe6 	add	r1, r1, #920	; 0x398</pre>
+<pre>   17870:	e1a02006 	mov	r2, r6</pre>
+<pre><span class="red">   17874:	ebffe857 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17878:	e28dd0a0 	add	sp, sp, #160	; 0xa0</pre>
+<pre>   1787c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   17990:	e1a00004 	mov	r0, r4</pre>
+<pre>   17994:	e5944000 	ldr	r4, [r4]</pre>
+<pre>   17998:	ebffe7cf 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   1799c:	e3540000 	cmp	r4, #0</pre>
+<pre>   179a0:	1afffffa 	bne	17990 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5e14&gt;</pre>
+<pre>   179a4:	e3a03000 	mov	r3, #0</pre>
+<pre>   179a8:	e58730ac 	str	r3, [r7, #172]	; 0xac</pre>
+<pre>   179ac:	e28dd06c 	add	sp, sp, #108	; 0x6c</pre>
+<pre>   179b0:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   179b4:	e3a030b4 	mov	r3, #180	; 0xb4</pre>
+<pre>   179b8:	e08b2008 	add	r2, fp, r8</pre>
+<pre>   179bc:	e02bb693 	mla	fp, r3, r6, fp</pre>
+<pre>   179c0:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>   179c4:	e1a03007 	mov	r3, r7</pre>
+<pre>   179c8:	e59b0078 	ldr	r0, [fp, #120]	; 0x78</pre>
+<pre>   179cc:	e58d0008 	str	r0, [sp, #8]</pre>
+<pre>   179d0:	e59bc074 	ldr	ip, [fp, #116]	; 0x74</pre>
+<pre>   179d4:	e59d001c 	ldr	r0, [sp, #28]</pre>
+<pre>   179d8:	e58d5000 	str	r5, [sp]</pre>
+<pre>   179dc:	e58dc004 	str	ip, [sp, #4]</pre>
+<pre><span class="red">   179e0:	ebffe7fc 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   179e4:	eaffffe2 	b	17974 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5df8&gt;</pre>
+<pre>   179e8:	e59750ac 	ldr	r5, [r7, #172]	; 0xac</pre>
+<pre>--</pre>
+<pre>   17a3c:	ebffe785 	bl	11858 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   17a40:	e1a0200b 	mov	r2, fp</pre>
+<pre>   17a44:	e2851004 	add	r1, r5, #4</pre>
+<pre>   17a48:	e1a00007 	mov	r0, r7</pre>
+<pre>   17a4c:	ebfff189 	bl	14078 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x24fc&gt;</pre>
+<pre>   17a50:	e1a02000 	mov	r2, r0</pre>
+<pre>   17a54:	e59fc04c 	ldr	ip, [pc, #76]	; 17aa8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f2c&gt;</pre>
+<pre>   17a58:	e3520000 	cmp	r2, #0</pre>
+<pre>   17a5c:	e1a0100b 	mov	r1, fp</pre>
+<pre>   17a60:	e1a00009 	mov	r0, r9</pre>
+<pre>   17a64:	1affffe7 	bne	17a08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5e8c&gt;</pre>
+<pre>   17a68:	ebfff253 	bl	143bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2840&gt;</pre>
+<pre>   17a6c:	e3500000 	cmp	r0, #0</pre>
+<pre>   17a70:	05942078 	ldreq	r2, [r4, #120]	; 0x78</pre>
+<pre>   17a74:	02822001 	addeq	r2, r2, #1</pre>
+<pre>   17a78:	05842078 	streq	r2, [r4, #120]	; 0x78</pre>
+<pre>   17a7c:	eaffffe5 	b	17a18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5e9c&gt;</pre>
+<pre>   17a80:	e59d1020 	ldr	r1, [sp, #32]</pre>
+<pre>   17a84:	e1a02007 	mov	r2, r7</pre>
+<pre>   17a88:	e59d0024 	ldr	r0, [sp, #36]	; 0x24</pre>
+<pre><span class="red">   17a8c:	ebffe7d1 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17a90:	eaffffe0 	b	17a18 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5e9c&gt;</pre>
+<pre>   17a94:	00013744 	andeq	r3, r1, r4, asr #14</pre>
+<pre>--</pre>
+<pre>   17b38:	e3a02a01 	mov	r2, #4096	; 0x1000</pre>
+<pre>   17b3c:	e58da02c 	str	sl, [sp, #44]	; 0x2c</pre>
+<pre>   17b40:	ebffe7f2 	bl	11b10 &lt;recvfrom&commat;plt&gt;</pre>
+<pre>   17b44:	e2509000 	subs	r9, r0, #0</pre>
+<pre>   17b48:	ba000037 	blt	17c2c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x60b0&gt;</pre>
+<pre>   17b4c:	e598502c 	ldr	r5, [r8, #44]	; 0x2c</pre>
+<pre>   17b50:	e6bf5f35 	rev	r5, r5</pre>
+<pre>   17b54:	e35500c9 	cmp	r5, #201	; 0xc9</pre>
+<pre>   17b58:	da00000c 	ble	17b90 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6014&gt;</pre>
+<pre>   17b5c:	e59f38f0 	ldr	r3, [pc, #2288]	; 18454 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68d8&gt;</pre>
+<pre>   17b60:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>   17b64:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   17b68:	e3130001 	tst	r3, #1</pre>
+<pre>   17b6c:	0affffe5 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17b70:	e59f18e4 	ldr	r1, [pc, #2276]	; 1845c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68e0&gt;</pre>
+<pre>   17b74:	e1a02005 	mov	r2, r5</pre>
+<pre>   17b78:	e59f08e0 	ldr	r0, [pc, #2272]	; 18460 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68e4&gt;</pre>
+<pre>   17b7c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17b80:	e2811e3d 	add	r1, r1, #976	; 0x3d0</pre>
+<pre>   17b84:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17b88:	ebffe792 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17b8c:	eaffffdd 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17b90:	e28d4030 	add	r4, sp, #48	; 0x30</pre>
+<pre>--</pre>
+<pre>   17bd0:	e5dd3030 	ldrb	r3, [sp, #48]	; 0x30</pre>
+<pre>   17bd4:	e3530077 	cmp	r3, #119	; 0x77</pre>
+<pre>   17bd8:	1a000008 	bne	17c00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6084&gt;</pre>
+<pre>   17bdc:	e5d43001 	ldrb	r3, [r4, #1]</pre>
+<pre>   17be0:	e3530064 	cmp	r3, #100	; 0x64</pre>
+<pre>   17be4:	1a000005 	bne	17c00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6084&gt;</pre>
+<pre>   17be8:	e5d43002 	ldrb	r3, [r4, #2]</pre>
+<pre>   17bec:	e3530073 	cmp	r3, #115	; 0x73</pre>
+<pre>   17bf0:	1a000002 	bne	17c00 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6084&gt;</pre>
+<pre>   17bf4:	e59f0868 	ldr	r0, [pc, #2152]	; 18464 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68e8&gt;</pre>
+<pre>   17bf8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   17bfc:	ebffe7bd 	bl	11af8 &lt;hapd_wpasupp_wds_hndlr&commat;plt&gt;</pre>
+<pre>   17c00:	e1a00004 	mov	r0, r4</pre>
+<pre>   17c04:	ebfff4f3 	bl	14fd8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x345c&gt;</pre>
+<pre>   17c08:	eaffffbe 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17c0c:	e59f1854 	ldr	r1, [pc, #2132]	; 18468 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68ec&gt;</pre>
+<pre>   17c10:	e59f0854 	ldr	r0, [pc, #2132]	; 1846c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68f0&gt;</pre>
+<pre>   17c14:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17c18:	e2811e3d 	add	r1, r1, #976	; 0x3d0</pre>
+<pre>   17c1c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17c20:	ebffe76c 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17c24:	e28dd094 	add	sp, sp, #148	; 0x94</pre>
+<pre>   17c28:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   17c2c:	e59f3820 	ldr	r3, [pc, #2080]	; 18454 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68d8&gt;</pre>
+<pre>   17c30:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>   17c34:	e5933000 	ldr	r3, [r3]</pre>
+<pre>   17c38:	e3130001 	tst	r3, #1</pre>
+<pre>   17c3c:	0affffb1 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17c40:	e59f1828 	ldr	r1, [pc, #2088]	; 18470 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68f4&gt;</pre>
+<pre>   17c44:	e59f0828 	ldr	r0, [pc, #2088]	; 18474 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68f8&gt;</pre>
+<pre>   17c48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17c4c:	e2811e3d 	add	r1, r1, #976	; 0x3d0</pre>
+<pre>   17c50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17c54:	ebffe75f 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17c58:	eaffffaa 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17c5c:	e59f1814 	ldr	r1, [pc, #2068]	; 18478 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68fc&gt;</pre>
+<pre>   17c60:	e1a03006 	mov	r3, r6</pre>
+<pre>   17c64:	e59f0810 	ldr	r0, [pc, #2064]	; 1847c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6900&gt;</pre>
+<pre>   17c68:	e1a02004 	mov	r2, r4</pre>
+<pre>   17c6c:	e58d9004 	str	r9, [sp, #4]</pre>
+<pre>   17c70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17c74:	e58d5000 	str	r5, [sp]</pre>
+<pre>   17c78:	e2816e3d 	add	r6, r1, #976	; 0x3d0</pre>
+<pre>   17c7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   17c80:	e1a01006 	mov	r1, r6</pre>
+<pre><span class="red">   17c84:	ebffe753 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17c88:	e355001a 	cmp	r5, #26</pre>
+<pre>   17c8c:	0a000027 	beq	17d30 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x61b4&gt;</pre>
+<pre>   17c90:	e3550045 	cmp	r5, #69	; 0x45</pre>
+<pre>   17c94:	0a00000b 	beq	17cc8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x614c&gt;</pre>
+<pre>   17c98:	e3550010 	cmp	r5, #16</pre>
+<pre>   17c9c:	0affffcb 	beq	17bd0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6054&gt;</pre>
+<pre>   17ca0:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17ca4:	e3130008 	tst	r3, #8</pre>
+<pre>   17ca8:	0affff96 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17cac:	e59f07cc 	ldr	r0, [pc, #1996]	; 18480 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6904&gt;</pre>
+<pre>   17cb0:	e1a03004 	mov	r3, r4</pre>
+<pre>   17cb4:	e1a02005 	mov	r2, r5</pre>
+<pre>   17cb8:	e1a01006 	mov	r1, r6</pre>
+<pre>   17cbc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17cc0:	ebffe744 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17cc4:	eaffff8f 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17cc8:	e59f37b4 	ldr	r3, [pc, #1972]	; 18484 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6908&gt;</pre>
+<pre>--</pre>
+<pre>   17cd8:	e2876050 	add	r6, r7, #80	; 0x50</pre>
+<pre>   17cdc:	e1a01004 	mov	r1, r4</pre>
+<pre>   17ce0:	e1a00006 	mov	r0, r6</pre>
+<pre>   17ce4:	ebffe78f 	bl	11b28 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   17ce8:	e3500000 	cmp	r0, #0</pre>
+<pre>   17cec:	0a00004b 	beq	17e20 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x62a4&gt;</pre>
+<pre>   17cf0:	e2888001 	add	r8, r8, #1</pre>
+<pre>   17cf4:	e28660b4 	add	r6, r6, #180	; 0xb4</pre>
+<pre>   17cf8:	e3580004 	cmp	r8, #4</pre>
+<pre>   17cfc:	1afffff6 	bne	17cdc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6160&gt;</pre>
+<pre>   17d00:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17d04:	e3130008 	tst	r3, #8</pre>
+<pre>   17d08:	0affff7e 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17d0c:	e59f1774 	ldr	r1, [pc, #1908]	; 18488 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x690c&gt;</pre>
+<pre>   17d10:	e1a02004 	mov	r2, r4</pre>
+<pre>   17d14:	e59f0770 	ldr	r0, [pc, #1904]	; 1848c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6910&gt;</pre>
+<pre>   17d18:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17d1c:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   17d20:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   17d24:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   17d28:	ebffe72a 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17d2c:	eaffff75 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17d30:	e59f374c 	ldr	r3, [pc, #1868]	; 18484 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6908&gt;</pre>
+<pre>--</pre>
+<pre>   17d9c:	e5d32060 	ldrb	r2, [r3, #96]	; 0x60</pre>
+<pre>   17da0:	e3520001 	cmp	r2, #1</pre>
+<pre>   17da4:	0a000007 	beq	17dc8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x624c&gt;</pre>
+<pre>   17da8:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17dac:	e3130008 	tst	r3, #8</pre>
+<pre>   17db0:	1a00003b 	bne	17ea4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6328&gt;</pre>
+<pre>   17db4:	e2855001 	add	r5, r5, #1</pre>
+<pre>   17db8:	e28660b4 	add	r6, r6, #180	; 0xb4</pre>
+<pre>   17dbc:	e3550004 	cmp	r5, #4</pre>
+<pre>   17dc0:	1affffeb 	bne	17d74 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x61f8&gt;</pre>
+<pre>   17dc4:	eaffff4f 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17dc8:	e5d3307c 	ldrb	r3, [r3, #124]	; 0x7c</pre>
+<pre>   17dcc:	e3530000 	cmp	r3, #0</pre>
+<pre>   17dd0:	1a000029 	bne	17e7c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6300&gt;</pre>
+<pre>   17dd4:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17dd8:	e3130008 	tst	r3, #8</pre>
+<pre>   17ddc:	0afffff4 	beq	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17de0:	e59d0010 	ldr	r0, [sp, #16]</pre>
+<pre>   17de4:	e1a02009 	mov	r2, r9</pre>
+<pre>   17de8:	e1a01008 	mov	r1, r8</pre>
+<pre><span class="red">   17dec:	ebffe6f9 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17df0:	eaffffef 	b	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17df4:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17df8:	e3130008 	tst	r3, #8</pre>
+<pre>   17dfc:	0affffec 	beq	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17e00:	e59f1698 	ldr	r1, [pc, #1688]	; 184a0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6924&gt;</pre>
+<pre>   17e04:	e1a02009 	mov	r2, r9</pre>
+<pre>   17e08:	e59f0694 	ldr	r0, [pc, #1684]	; 184a4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6928&gt;</pre>
+<pre>   17e0c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17e10:	e2811ffa 	add	r1, r1, #1000	; 0x3e8</pre>
+<pre>   17e14:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17e18:	ebffe6ee 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17e1c:	eaffffe4 	b	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17e20:	e59f1680 	ldr	r1, [pc, #1664]	; 184a8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x692c&gt;</pre>
+<pre>   17e24:	e3a03001 	mov	r3, #1</pre>
+<pre>   17e28:	e1a05000 	mov	r5, r0</pre>
+<pre>   17e2c:	e3002101 	movw	r2, #257	; 0x101</pre>
+<pre>   17e30:	e1a00004 	mov	r0, r4</pre>
+<pre>   17e34:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   17e38:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17e3c:	e58d3000 	str	r3, [sp]</pre>
+<pre>   17e40:	ebffe6db 	bl	119b4 &lt;wl_iovar_xtlv_getint&commat;plt&gt;</pre>
+<pre>   17e44:	e3500000 	cmp	r0, #0</pre>
+<pre>   17e48:	1a00001d 	bne	17ec4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6348&gt;</pre>
+<pre>   17e4c:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   17e50:	e3130008 	tst	r3, #8</pre>
+<pre>   17e54:	0affff2b 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17e58:	e59f164c 	ldr	r1, [pc, #1612]	; 184ac &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6930&gt;</pre>
+<pre>   17e5c:	e1a02004 	mov	r2, r4</pre>
+<pre>   17e60:	e59f0648 	ldr	r0, [pc, #1608]	; 184b0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6934&gt;</pre>
+<pre>   17e64:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17e68:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   17e6c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   17e70:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   17e74:	ebffe6d7 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17e78:	eaffff22 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   17e7c:	e286002c 	add	r0, r6, #44	; 0x2c</pre>
+<pre>   17e80:	e1a01004 	mov	r1, r4</pre>
+<pre>   17e84:	e0870000 	add	r0, r7, r0</pre>
+<pre>   17e88:	ebffe738 	bl	11b70 &lt;find_in_list&commat;plt&gt;</pre>
+<pre>   17e8c:	e3500000 	cmp	r0, #0</pre>
+<pre>   17e90:	0a000078 	beq	18078 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x64fc&gt;</pre>
+<pre>   17e94:	e1a01009 	mov	r1, r9</pre>
+<pre>   17e98:	e1a00004 	mov	r0, r4</pre>
+<pre>   17e9c:	ebfff54d 	bl	153d8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x385c&gt;</pre>
+<pre>   17ea0:	eaffffc3 	b	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17ea4:	e59f1608 	ldr	r1, [pc, #1544]	; 184b4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6938&gt;</pre>
+<pre>   17ea8:	e1a02009 	mov	r2, r9</pre>
+<pre>   17eac:	e59f0604 	ldr	r0, [pc, #1540]	; 184b8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x693c&gt;</pre>
+<pre>   17eb0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   17eb4:	e2811ffa 	add	r1, r1, #1000	; 0x3e8</pre>
+<pre>   17eb8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   17ebc:	ebffe6c5 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   17ec0:	eaffffbb 	b	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   17ec4:	e59f05f0 	ldr	r0, [pc, #1520]	; 184bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6940&gt;</pre>
+<pre>--</pre>
+<pre>   18040:	1affffe4 	bne	17fd8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x645c&gt;</pre>
+<pre>   18044:	e59d6014 	ldr	r6, [sp, #20]</pre>
+<pre>   18048:	ebfff12c 	bl	14500 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2984&gt;</pre>
+<pre>   1804c:	e59640ac 	ldr	r4, [r6, #172]	; 0xac</pre>
+<pre>   18050:	e3540000 	cmp	r4, #0</pre>
+<pre>   18054:	0a000004 	beq	1806c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x64f0&gt;</pre>
+<pre>   18058:	e1a00004 	mov	r0, r4</pre>
+<pre>   1805c:	e5944000 	ldr	r4, [r4]</pre>
+<pre>   18060:	ebffe61d 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   18064:	e3540000 	cmp	r4, #0</pre>
+<pre>   18068:	1afffffa 	bne	18058 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x64dc&gt;</pre>
+<pre>   1806c:	e3a03000 	mov	r3, #0</pre>
+<pre>   18070:	e58630ac 	str	r3, [r6, #172]	; 0xac</pre>
+<pre>   18074:	eafffea3 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   18078:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   1807c:	e3130008 	tst	r3, #8</pre>
+<pre>   18080:	0affff4b 	beq	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   18084:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>   18088:	e1a02004 	mov	r2, r4</pre>
+<pre>   1808c:	e59d0018 	ldr	r0, [sp, #24]</pre>
+<pre><span class="red">   18090:	ebffe650 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   18094:	eaffff46 	b	17db4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6238&gt;</pre>
+<pre>   18098:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   1809c:	e3130008 	tst	r3, #8</pre>
+<pre>   180a0:	0afffe98 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   180a4:	e59f1428 	ldr	r1, [pc, #1064]	; 184d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6958&gt;</pre>
+<pre>   180a8:	e59f0428 	ldr	r0, [pc, #1064]	; 184d8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x695c&gt;</pre>
+<pre>   180ac:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   180b0:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   180b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   180b8:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   180bc:	ebffe645 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   180c0:	eafffe90 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   180c4:	e59f0410 	ldr	r0, [pc, #1040]	; 184dc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6960&gt;</pre>
+<pre>   180c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   180cc:	eaffff81 	b	17ed8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x635c&gt;</pre>
+<pre>   180d0:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   180d4:	e3130008 	tst	r3, #8</pre>
+<pre>   180d8:	0afffe8a 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   180dc:	e59f13fc 	ldr	r1, [pc, #1020]	; 184e0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6964&gt;</pre>
+<pre>   180e0:	e1a02004 	mov	r2, r4</pre>
+<pre>   180e4:	e59f03f8 	ldr	r0, [pc, #1016]	; 184e4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6968&gt;</pre>
+<pre>   180e8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   180ec:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   180f0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   180f4:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   180f8:	ebffe636 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   180fc:	eafffe81 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   18100:	e3a000b4 	mov	r0, #180	; 0xb4</pre>
+<pre>   18104:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>   18108:	e020b590 	mla	r0, r0, r5, fp</pre>
+<pre>   1810c:	e08b2008 	add	r2, fp, r8</pre>
+<pre>   18110:	e1a03004 	mov	r3, r4</pre>
+<pre>   18114:	e590c078 	ldr	ip, [r0, #120]	; 0x78</pre>
+<pre>   18118:	e58dc008 	str	ip, [sp, #8]</pre>
+<pre>   1811c:	e590c074 	ldr	ip, [r0, #116]	; 0x74</pre>
+<pre>   18120:	e59d001c 	ldr	r0, [sp, #28]</pre>
+<pre>   18124:	e58d7000 	str	r7, [sp]</pre>
+<pre>   18128:	e58dc004 	str	ip, [sp, #4]</pre>
+<pre><span class="red">   1812c:	ebffe629 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   18130:	eaffffbf 	b	18034 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x64b8&gt;</pre>
+<pre>   18134:	e596b0ac 	ldr	fp, [r6, #172]	; 0xac</pre>
+<pre>--</pre>
+<pre>   18244:	ebffe580 	bl	1184c &lt;calloc&commat;plt&gt;</pre>
+<pre>   18248:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   1824c:	0a00006a 	beq	183fc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6880&gt;</pre>
+<pre>   18250:	e1a02007 	mov	r2, r7</pre>
+<pre>   18254:	e2881064 	add	r1, r8, #100	; 0x64</pre>
+<pre>   18258:	e2840004 	add	r0, r4, #4</pre>
+<pre>   1825c:	ebffe5cb 	bl	11990 &lt</span>emcpy&commat;plt&gt;</pre>
+<pre>   18260:	e59630ac 	ldr	r3, [r6, #172]	; 0xac</pre>
+<pre>   18264:	e5843000 	str	r3, [r4]</pre>
+<pre>   18268:	e58640ac 	str	r4, [r6, #172]	; 0xac</pre>
+<pre>   1826c:	eafffe25 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   18270:	e3510000 	cmp	r1, #0</pre>
+<pre>   18274:	0afffe23 	beq	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   18278:	e59f1270 	ldr	r1, [pc, #624]	; 184f0 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6974&gt;</pre>
+<pre>   1827c:	e59f0270 	ldr	r0, [pc, #624]	; 184f4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6978&gt;</pre>
+<pre>   18280:	e1d226b0 	ldrh	r2, [r2, #96]	; 0x60</pre>
+<pre>   18284:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   18288:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   1828c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   18290:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   18294:	ebffe5cf 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   18298:	eafffe1a 	b	17b08 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x5f8c&gt;</pre>
+<pre>   1829c:	e59fc254 	ldr	ip, [pc, #596]	; 184f8 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x697c&gt;</pre>
+<pre>--</pre>
+<pre>   18338:	e1a0000b 	mov	r0, fp</pre>
+<pre>   1833c:	ebffe545 	bl	11858 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   18340:	e2871004 	add	r1, r7, #4</pre>
+<pre>   18344:	e1a0200b 	mov	r2, fp</pre>
+<pre>   18348:	e1a00004 	mov	r0, r4</pre>
+<pre>   1834c:	ebffef49 	bl	14078 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x24fc&gt;</pre>
+<pre>   18350:	e1a03000 	mov	r3, r0</pre>
+<pre>   18354:	e1a0100b 	mov	r1, fp</pre>
+<pre>   18358:	e3530000 	cmp	r3, #0</pre>
+<pre>   1835c:	e1a00009 	mov	r0, r9</pre>
+<pre>   18360:	1affffe9 	bne	1830c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6790&gt;</pre>
+<pre>   18364:	ebfff014 	bl	143bc &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x2840&gt;</pre>
+<pre>   18368:	e3500000 	cmp	r0, #0</pre>
+<pre>   1836c:	05963078 	ldreq	r3, [r6, #120]	; 0x78</pre>
+<pre>   18370:	02833001 	addeq	r3, r3, #1</pre>
+<pre>   18374:	05863078 	streq	r3, [r6, #120]	; 0x78</pre>
+<pre>   18378:	eaffffe6 	b	18318 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x679c&gt;</pre>
+<pre>   1837c:	e59d1020 	ldr	r1, [sp, #32]</pre>
+<pre>   18380:	e1a02004 	mov	r2, r4</pre>
+<pre>   18384:	e59d0024 	ldr	r0, [sp, #36]	; 0x24</pre>
+<pre><span class="red">   18388:	ebffe592 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1838c:	eaffffe1 	b	18318 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x679c&gt;</pre>
+<pre>   18390:	e59f1168 	ldr	r1, [pc, #360]	; 18500 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6984&gt;</pre>
+<pre>   18394:	e1a02004 	mov	r2, r4</pre>
+<pre>   18398:	e59f0164 	ldr	r0, [pc, #356]	; 18504 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6988&gt;</pre>
+<pre>   1839c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   183a0:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   183a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   183a8:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   183ac:	ebffe589 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   183b0:	eafffee1 	b	17f3c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x63c0&gt;</pre>
+<pre>   183b4:	e59f114c 	ldr	r1, [pc, #332]	; 18508 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x698c&gt;</pre>
+<pre>   183b8:	e1a02004 	mov	r2, r4</pre>
+<pre>   183bc:	e59f0148 	ldr	r0, [pc, #328]	; 1850c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6990&gt;</pre>
+<pre>   183c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   183c4:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   183c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   183cc:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   183d0:	ebffe580 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   183d4:	eaffffbe 	b	182d4 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6758&gt;</pre>
+<pre>   183d8:	e59f1130 	ldr	r1, [pc, #304]	; 18510 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6994&gt;</pre>
+<pre>   183dc:	e1a02004 	mov	r2, r4</pre>
+<pre>   183e0:	e59f012c 	ldr	r0, [pc, #300]	; 18514 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6998&gt;</pre>
+<pre>   183e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   183e8:	e2811b01 	add	r1, r1, #1024	; 0x400</pre>
+<pre>   183ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   183f0:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   183f4:	ebffe577 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   183f8:	eafffeda 	b	17f68 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x63ec&gt;</pre>
+<pre>   183fc:	e59a3000 	ldr	r3, [sl]</pre>
+<pre>   18400:	e3130001 	tst	r3, #1</pre>
+<pre>   18404:	1a000006 	bne	18424 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x68a8&gt;</pre>
+<pre>   18408:	e59640ac 	ldr	r4, [r6, #172]	; 0xac</pre>
+<pre>   1840c:	ea000001 	b	18418 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x689c&gt;</pre>
+<pre>   18410:	e5944000 	ldr	r4, [r4]</pre>
+<pre>   18414:	ebffe530 	bl	118dc &lt;free&commat;plt&gt;</pre>
+<pre>   18418:	e2540000 	subs	r0, r4, #0</pre>
+<pre>   1841c:	1afffffb 	bne	18410 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x6894&gt;</pre>
+<pre>   18420:	eaffff90 	b	18268 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x66ec&gt;</pre>
+<pre>   18424:	e59f30ec 	ldr	r3, [pc, #236]	; 18518 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x699c&gt;</pre>
+<pre>   18428:	e1a02005 	mov	r2, r5</pre>
+<pre>   1842c:	e59f00e8 	ldr	r0, [pc, #232]	; 1851c &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x69a0&gt;</pre>
+<pre>   18430:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   18434:	e2831b01 	add	r1, r3, #1024	; 0x400</pre>
+<pre>   18438:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1843c:	e2811008 	add	r1, r1, #8</pre>
+<pre><span class="red">   18440:	ebffe564 	bl	119d8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   18444:	eaffffef 	b	18408 &lt;wl_wlif_wps_gpio_led_blink&commat;plt+0x688c&gt;</pre>
+<pre>   18448:	00989680 	addseq	r9, r8, r0, lsl #13</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">127</span> times </span><span class="orange">wps_pbcd</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

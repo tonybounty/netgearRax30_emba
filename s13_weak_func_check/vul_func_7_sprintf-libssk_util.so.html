@@ -1,0 +1,304 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libssk_util.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> tear down of </span><span class="orange">libssk_util.so</span></pre>
+<br />
+<pre>    3360:	e1500006 	cmp	r0, r6</pre>
+<pre>    3364:	ca000046 	bgt	3484 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x51c&gt;</pre>
+<pre>    3368:	e5943038 	ldr	r3, [r4, #56]	; 0x38</pre>
+<pre>    336c:	e28d5e13 	add	r5, sp, #304	; 0x130</pre>
+<pre>    3370:	e28d6030 	add	r6, sp, #48	; 0x30</pre>
+<pre>    3374:	e3530000 	cmp	r3, #0</pre>
+<pre>    3378:	0a000002 	beq	3388 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x420&gt;</pre>
+<pre>    337c:	e5d33000 	ldrb	r3, [r3]</pre>
+<pre>    3380:	e3530000 	cmp	r3, #0</pre>
+<pre>    3384:	1a00004d 	bne	34c0 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x558&gt;</pre>
+<pre>    3388:	e3a02c02 	mov	r2, #512	; 0x200</pre>
+<pre>    338c:	e3a01000 	mov	r1, #0</pre>
+<pre>    3390:	e1a00005 	mov	r0, r5</pre>
+<pre>    3394:	ebfffd97 	bl	29f8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    3398:	e59f11f0 	ldr	r1, [pc, #496]	; 3590 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x628&gt;</pre>
+<pre>    339c:	e594300c 	ldr	r3, [r4, #12]</pre>
+<pre>    33a0:	e1a00005 	mov	r0, r5</pre>
+<pre>    33a4:	e5942010 	ldr	r2, [r4, #16]</pre>
+<pre>    33a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    33ac:	e58d6000 	str	r6, [sp]</pre>
+<pre><span class="red">    33b0:	ebfffdc9 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    33b4:	e1a00005 	mov	r0, r5</pre>
+<pre>    33b8:	ebfffcfb 	bl	27ac &lt;pegaSystem&commat;plt&gt;</pre>
+<pre>    33bc:	e28d5e13 	add	r5, sp, #304	; 0x130</pre>
+<pre>    33c0:	e3a02c02 	mov	r2, #512	; 0x200</pre>
+<pre>    33c4:	e3a01000 	mov	r1, #0</pre>
+<pre>    33c8:	e1a00005 	mov	r0, r5</pre>
+<pre>    33cc:	ebfffd89 	bl	29f8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    33d0:	e59f11bc 	ldr	r1, [pc, #444]	; 3594 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x62c&gt;</pre>
+<pre>    33d4:	e5942010 	ldr	r2, [r4, #16]</pre>
+<pre>    33d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    33dc:	e1a00005 	mov	r0, r5</pre>
+<pre><span class="red">    33e0:	ebfffdbd 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    33e4:	e1a00005 	mov	r0, r5</pre>
+<pre>    33e8:	ebfffcef 	bl	27ac &lt;pegaSystem&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    3494:	e2853001 	add	r3, r5, #1</pre>
+<pre>    3498:	e2866001 	add	r6, r6, #1</pre>
+<pre>    349c:	e3520022 	cmp	r2, #34	; 0x22</pre>
+<pre>    34a0:	0541a300 	strbeq	sl, [r1, #-768]	; 0xfffffd00</pre>
+<pre>    34a4:	028d1e33 	addeq	r1, sp, #816	; 0x330</pre>
+<pre>    34a8:	15412300 	strbne	r2, [r1, #-768]	; 0xfffffd00</pre>
+<pre>    34ac:	00813003 	addeq	r3, r1, r3</pre>
+<pre>    34b0:	05432300 	strbeq	r2, [r3, #-768]	; 0xfffffd00</pre>
+<pre>    34b4:	02853002 	addeq	r3, r5, #2</pre>
+<pre>    34b8:	e1a05003 	mov	r5, r3</pre>
+<pre>    34bc:	eaffffa5 	b	3358 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x3f0&gt;</pre>
+<pre>    34c0:	e3a02c02 	mov	r2, #512	; 0x200</pre>
+<pre>    34c4:	e3a01000 	mov	r1, #0</pre>
+<pre>    34c8:	e1a00005 	mov	r0, r5</pre>
+<pre>    34cc:	ebfffd49 	bl	29f8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    34d0:	e59f10d0 	ldr	r1, [pc, #208]	; 35a8 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x640&gt;</pre>
+<pre>    34d4:	e594300c 	ldr	r3, [r4, #12]</pre>
+<pre>    34d8:	e1a00005 	mov	r0, r5</pre>
+<pre>    34dc:	e5942010 	ldr	r2, [r4, #16]</pre>
+<pre>    34e0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    34e4:	ebfffd7c 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    34e8:	e1a00005 	mov	r0, r5</pre>
+<pre>    34ec:	ebfffcae 	bl	27ac &lt;pegaSystem&commat;plt&gt;</pre>
+<pre>    34f0:	e59f10b4 	ldr	r1, [pc, #180]	; 35ac &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x644&gt;</pre>
+<pre>    34f4:	e1a00006 	mov	r0, r6</pre>
+<pre>    34f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    34fc:	ebfffcec 	bl	28b4 &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    3500:	e3500000 	cmp	r0, #0</pre>
+<pre>    3504:	0affffac 	beq	33bc &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x454&gt;</pre>
+<pre>    3508:	e3a02c02 	mov	r2, #512	; 0x200</pre>
+<pre>    350c:	e3a01000 	mov	r1, #0</pre>
+<pre>    3510:	e1a00005 	mov	r0, r5</pre>
+<pre>    3514:	ebfffd37 	bl	29f8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    3518:	e59f1090 	ldr	r1, [pc, #144]	; 35b0 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x648&gt;</pre>
+<pre>    351c:	e5942010 	ldr	r2, [r4, #16]</pre>
+<pre>    3520:	e1a03006 	mov	r3, r6</pre>
+<pre>    3524:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3528:	e1a00005 	mov	r0, r5</pre>
+<pre><span class="red">    352c:	ebfffd6a 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    3530:	eaffff9f 	b	33b4 &lt;_updateAttachDeviceEntry&commat;&commat;Base+0x44c&gt;</pre>
+<pre>    3534:	e1a01005 	mov	r1, r5</pre>
+<pre>--</pre>
+<pre>    36f0:	e59f30ac 	ldr	r3, [pc, #172]	; 37a4 &lt;deleteAttachDeviceEntry&commat;&commat;Base+0x1ec&gt;</pre>
+<pre>    36f4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    36f8:	ebfffd24 	bl	2b90 &lt;log_log&commat;plt&gt;</pre>
+<pre>    36fc:	e59d9008 	ldr	r9, [sp, #8]</pre>
+<pre>    3700:	e5993010 	ldr	r3, [r9, #16]</pre>
+<pre>    3704:	e3530000 	cmp	r3, #0</pre>
+<pre>    3708:	0a00000f 	beq	374c &lt;deleteAttachDeviceEntry&commat;&commat;Base+0x194&gt;</pre>
+<pre>    370c:	e5d33000 	ldrb	r3, [r3]</pre>
+<pre>    3710:	e3530000 	cmp	r3, #0</pre>
+<pre>    3714:	0a00000c 	beq	374c &lt;deleteAttachDeviceEntry&commat;&commat;Base+0x194&gt;</pre>
+<pre>    3718:	e1a01004 	mov	r1, r4</pre>
+<pre>    371c:	e3a020fc 	mov	r2, #252	; 0xfc</pre>
+<pre>    3720:	e28d004c 	add	r0, sp, #76	; 0x4c</pre>
+<pre>    3724:	e58d4048 	str	r4, [sp, #72]	; 0x48</pre>
+<pre>    3728:	ebfffcb2 	bl	29f8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    372c:	e28d4048 	add	r4, sp, #72	; 0x48</pre>
+<pre>    3730:	e59f1070 	ldr	r1, [pc, #112]	; 37a8 &lt;deleteAttachDeviceEntry&commat;&commat;Base+0x1f0&gt;</pre>
+<pre>    3734:	e5992010 	ldr	r2, [r9, #16]</pre>
+<pre>    3738:	e1a00004 	mov	r0, r4</pre>
+<pre>    373c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3740:	ebfffce5 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    3744:	e1a00004 	mov	r0, r4</pre>
+<pre>    3748:	ebfffc17 	bl	27ac &lt;pegaSystem&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    7090:	e3a00003 	mov	r0, #3</pre>
+<pre>    7094:	e1cd20f0 	strd	r2, [sp]</pre>
+<pre>    7098:	e3002975 	movw	r2, #2421	; 0x975</pre>
+<pre>    709c:	e59f3120 	ldr	r3, [pc, #288]	; 71c4 &lt;updateLanHostEntryActiveStatus_dev2&commat;&commat;Base+0x470&gt;</pre>
+<pre>    70a0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    70a4:	e2811fae 	add	r1, r1, #696	; 0x2b8</pre>
+<pre>    70a8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    70ac:	e2811003 	add	r1, r1, #3</pre>
+<pre>    70b0:	ebffeeb6 	bl	2b90 &lt;log_log&commat;plt&gt;</pre>
+<pre>    70b4:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>    70b8:	e5932010 	ldr	r2, [r3, #16]</pre>
+<pre>    70bc:	e5d33030 	ldrb	r3, [r3, #48]	; 0x30</pre>
+<pre>    70c0:	e3530000 	cmp	r3, #0</pre>
+<pre>    70c4:	1a00002b 	bne	7178 &lt;updateLanHostEntryActiveStatus_dev2&commat;&commat;Base+0x424&gt;</pre>
+<pre>    70c8:	e59f30f8 	ldr	r3, [pc, #248]	; 71c8 &lt;updateLanHostEntryActiveStatus_dev2&commat;&commat;Base+0x474&gt;</pre>
+<pre>    70cc:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    70d0:	e28db058 	add	fp, sp, #88	; 0x58</pre>
+<pre>    70d4:	e59f10f0 	ldr	r1, [pc, #240]	; 71cc &lt;updateLanHostEntryActiveStatus_dev2&commat;&commat;Base+0x478&gt;</pre>
+<pre>    70d8:	e1a0000b 	mov	r0, fp</pre>
+<pre>    70dc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    70e0:	ebffee7d 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    70e4:	e1a0000b 	mov	r0, fp</pre>
+<pre>    70e8:	ebffedaf 	bl	27ac &lt;pegaSystem&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    b45c:	e1a02007 	mov	r2, r7</pre>
+<pre>    b460:	e1a01006 	mov	r1, r6</pre>
+<pre>    b464:	e300057b 	movw	r0, #1403	; 0x57b</pre>
+<pre>    b468:	e58d9000 	str	r9, [sp]</pre>
+<pre>    b46c:	ebffdd16 	bl	28cc &lt;cmsObj_getNextInSubTreeFlags&commat;plt&gt;</pre>
+<pre>    b470:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    b474:	13a04000 	movne	r4, #0</pre>
+<pre>    b478:	1a000011 	bne	b4c4 &lt;sskConn_getAnyIpv6AddressLocked&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    b47c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>    b480:	e3a00003 	mov	r0, #3</pre>
+<pre>    b484:	e5931014 	ldr	r1, [r3, #20]</pre>
+<pre>    b488:	ebffdd1b 	bl	28fc &lt;cmsUtl_isZeroIpvxAddress&commat;plt&gt;</pre>
+<pre>    b48c:	e3500000 	cmp	r0, #0</pre>
+<pre>    b490:	1a000007 	bne	b4b4 &lt;sskConn_getAnyIpv6AddressLocked&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    b494:	e3550000 	cmp	r5, #0</pre>
+<pre>    b498:	0a000004 	beq	b4b0 &lt;sskConn_getAnyIpv6AddressLocked&commat;&commat;Base+0x9c&gt;</pre>
+<pre>    b49c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>    b4a0:	e1a0100a 	mov	r1, sl</pre>
+<pre>    b4a4:	e1a00005 	mov	r0, r5</pre>
+<pre>    b4a8:	e5932014 	ldr	r2, [r3, #20]</pre>
+<pre><span class="red">    b4ac:	ebffdd8a 	bl	2adc &lt;sprintf&commat;plt&gt</span></span></pre>
+<pre>    b4b0:	e3a04001 	mov	r4, #1</pre>
+<pre>    b4b4:	e1a00009 	mov	r0, r9</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> used </span><span class="orange">7</span> times </span><span class="orange">libssk_util.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

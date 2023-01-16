@@ -1,0 +1,67 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 3:</span></pre>
+<pre></span>source /etc/init.d/mount-data.inc</span></pre>
+<pre><span class="orange">^-- SC3046 (warning): In POSIX sh, 'source' in place of '.' is undefined.</span></pre>
+<pre><span class="green">       ^------------------------^ SC1091 (info): Not following: /etc/init.d/mount-data.inc was not specified as input (see shellcheck -x).</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 4:</span></pre>
+<pre></span>function is_file_to_delete() {</span></pre>
+<pre><span class="orange">^-- SC2112 (warning): 'function' keyword is non-standard. Delete it.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 7:</span></pre>
+<pre></span>    local files_to_skip="reg_id pmd_calibration.json pmd_calibration pmd_temp2apd"</span></pre>
+<pre><span class="orange">    ^-----------------^ SC3043 (warning): In POSIX sh, 'local' is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 10:</span></pre>
+<pre></span>    local file=$1</span></pre>
+<pre><span class="orange">    ^--------^ SC3043 (warning): In POSIX sh, 'local' is undefined.</span></pre>
+<pre><span class="green">               ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    local file="$1"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 12:</span></pre>
+<pre></span>        if [ $file == $elem ] ; then </span></pre>
+<pre><span class="green">             ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                   ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<pre><span class="green">                      ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        if [ "$file" == "$elem" ] ; then </pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 52:</span></pre>
+<pre></span>		if [ -x /bin/fscryptctl -a -r /proc/device-tree/key_dev_specific_512 ]</span></pre>
+<pre><span class="orange">                                        ^-- SC2166 (warning): Prefer [ p ] &amp;&amp; [ q ] as [ p -a q ] is not well defined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 54:</span></pre>
+<pre></span>			cat /proc/device-tree/key_dev_specific_512 | fscryptctl  insert_key</span></pre>
+<pre><span class="green">                            ^-- SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 66:</span></pre>
+<pre></span>        for i in $(cat /proc/cmdline) ; do</span></pre>
+<pre><span class="green">                 ^------------------^ SC2013 (info): To read lines rather than words, pipe/redirect to a 'while read' loop.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 70:</span></pre>
+<pre></span>              for t in $(ls -A /data) ; do</span></pre>
+<pre><span class="orange">                       ^------------^ SC2045 (warning): Iterating over ls output is fragile. Use globs.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/mount-fs.sh line 73:</span></pre>
+<pre></span>                     rm -rf /data/$t</span></pre>
+<pre><span class="green">                                  ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>                     rm -rf /data/"$t"</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2045" title="https://www.shellcheck.net/wiki/SC2045" target="_blank" >https://www.shellcheck.net/wiki/SC2045</a> -- Iterating over ls output is fragi...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2112" title="https://www.shellcheck.net/wiki/SC2112" target="_blank" >https://www.shellcheck.net/wiki/SC2112</a> -- 'function' keyword is non-standar...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2166" title="https://www.shellcheck.net/wiki/SC2166" target="_blank" >https://www.shellcheck.net/wiki/SC2166</a> -- Prefer [ p ] &amp;&amp; [ q ] as [ p -a q...</pre>

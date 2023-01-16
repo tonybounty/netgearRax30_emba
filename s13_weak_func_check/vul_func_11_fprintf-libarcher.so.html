@@ -1,0 +1,417 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libarcher.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> tear down of </span><span class="orange">libarcher.so</span></pre>
+<br />
+<pre>     a90:	e08f7007 	add	r7, pc, r7</pre>
+<pre>     a94:	e08f6006 	add	r6, pc, r6</pre>
+<pre>     a98:	e1a00007 	mov	r0, r7</pre>
+<pre>     a9c:	ebffff90 	bl	8e4 &lt;open&commat;plt&gt;</pre>
+<pre>     aa0:	e2509000 	subs	r9, r0, #0</pre>
+<pre>     aa4:	aa000012 	bge	af4 &lt;archer_cmd_send&commat;&commat;Base+0x7c&gt;</pre>
+<pre>     aa8:	e59f30a4 	ldr	r3, [pc, #164]	; b54 &lt;archer_cmd_send&commat;&commat;Base+0xdc&gt;</pre>
+<pre>     aac:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>     ab0:	e5934000 	ldr	r4, [r3]</pre>
+<pre>     ab4:	ebffff90 	bl	8fc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>     ab8:	e5900000 	ldr	r0, [r0]</pre>
+<pre>     abc:	ebffff82 	bl	8cc &lt;strerror&commat;plt&gt;</pre>
+<pre>     ac0:	e59f2090 	ldr	r2, [pc, #144]	; b58 &lt;archer_cmd_send&commat;&commat;Base+0xe0&gt;</pre>
+<pre>     ac4:	e59f1090 	ldr	r1, [pc, #144]	; b5c &lt;archer_cmd_send&commat;&commat;Base+0xe4&gt;</pre>
+<pre>     ac8:	e3a03052 	mov	r3, #82	; 0x52</pre>
+<pre>     acc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     ad0:	e58d7000 	str	r7, [sp]</pre>
+<pre>     ad4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     ad8:	e58d0004 	str	r0, [sp, #4]</pre>
+<pre>     adc:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">     ae0:	ebffff82 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     ae4:	e3e04015 	mvn	r4, #21</pre>
+<pre>     ae8:	e1a00004 	mov	r0, r4</pre>
+<pre>     aec:	e28dd008 	add	sp, sp, #8</pre>
+<pre>     af0:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>     af4:	e1a01004 	mov	r1, r4</pre>
+<pre>     af8:	e1a02005 	mov	r2, r5</pre>
+<pre>     afc:	ebffff6f 	bl	8c0 &lt;ioctl&commat;plt&gt;</pre>
+<pre>     b00:	e2504000 	subs	r4, r0, #0</pre>
+<pre>     b04:	0a00000d 	beq	b40 &lt;archer_cmd_send&commat;&commat;Base+0xc8&gt;</pre>
+<pre>     b08:	e59f3044 	ldr	r3, [pc, #68]	; b54 &lt;archer_cmd_send&commat;&commat;Base+0xdc&gt;</pre>
+<pre>     b0c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>     b10:	e5935000 	ldr	r5, [r3]</pre>
+<pre>     b14:	ebffff78 	bl	8fc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>     b18:	e5900000 	ldr	r0, [r0]</pre>
+<pre>     b1c:	ebffff6a 	bl	8cc &lt;strerror&commat;plt&gt;</pre>
+<pre>     b20:	e59f2038 	ldr	r2, [pc, #56]	; b60 &lt;archer_cmd_send&commat;&commat;Base+0xe8&gt;</pre>
+<pre>     b24:	e59f1038 	ldr	r1, [pc, #56]	; b64 &lt;archer_cmd_send&commat;&commat;Base+0xec&gt;</pre>
+<pre>     b28:	e3a0305a 	mov	r3, #90	; 0x5a</pre>
+<pre>     b2c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     b30:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     b34:	e58d0000 	str	r0, [sp]</pre>
+<pre>     b38:	e1a00005 	mov	r0, r5</pre>
+<pre><span class="red">     b3c:	ebffff6b 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     b40:	e1a00009 	mov	r0, r9</pre>
+<pre>     b44:	ebffff75 	bl	920 &lt;close&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>     bf4:	e3a03003 	mov	r3, #3</pre>
+<pre>     bf8:	e58d3000 	str	r3, [sp]</pre>
+<pre>     bfc:	ebffff41 	bl	908 &lt;strncpy&commat;plt&gt;</pre>
+<pre>     c00:	e1a0100d 	mov	r1, sp</pre>
+<pre>     c04:	e3a00073 	mov	r0, #115	; 0x73</pre>
+<pre>     c08:	e58d6014 	str	r6, [sp, #20]</pre>
+<pre>     c0c:	ebffff40 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>     c10:	e59f7068 	ldr	r7, [pc, #104]	; c80 &lt;archer_sysport_tm_stats_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>     c14:	e08f7007 	add	r7, pc, r7</pre>
+<pre>     c18:	e2506000 	subs	r6, r0, #0</pre>
+<pre>     c1c:	0a00000c 	beq	c54 &lt;archer_sysport_tm_stats_get&commat;&commat;Base+0x80&gt;</pre>
+<pre>     c20:	e59f305c 	ldr	r3, [pc, #92]	; c84 &lt;archer_sysport_tm_stats_get&commat;&commat;Base+0xb0&gt;</pre>
+<pre>     c24:	e59f205c 	ldr	r2, [pc, #92]	; c88 &lt;archer_sysport_tm_stats_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>     c28:	e59f105c 	ldr	r1, [pc, #92]	; c8c &lt;archer_sysport_tm_stats_get&commat;&commat;Base+0xb8&gt;</pre>
+<pre>     c2c:	e7970003 	ldr	r0, [r7, r3]</pre>
+<pre>     c30:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     c34:	e2822010 	add	r2, r2, #16</pre>
+<pre>     c38:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     c3c:	e3a03091 	mov	r3, #145	; 0x91</pre>
+<pre>     c40:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">     c44:	ebffff29 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     c48:	e1a00006 	mov	r0, r6</pre>
+<pre>     c4c:	e28dd044 	add	sp, sp, #68	; 0x44</pre>
+<pre>--</pre>
+<pre>     d0c:	e3a03005 	mov	r3, #5</pre>
+<pre>     d10:	e58d3000 	str	r3, [sp]</pre>
+<pre>     d14:	ebfffefb 	bl	908 &lt;strncpy&commat;plt&gt;</pre>
+<pre>     d18:	e1a0100d 	mov	r1, sp</pre>
+<pre>     d1c:	e3a00073 	mov	r0, #115	; 0x73</pre>
+<pre>     d20:	e58d6014 	str	r6, [sp, #20]</pre>
+<pre>     d24:	ebfffefa 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>     d28:	e59f7068 	ldr	r7, [pc, #104]	; d98 &lt;archer_sysport_tm_queue_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>     d2c:	e08f7007 	add	r7, pc, r7</pre>
+<pre>     d30:	e2506000 	subs	r6, r0, #0</pre>
+<pre>     d34:	0a00000c 	beq	d6c &lt;archer_sysport_tm_queue_get&commat;&commat;Base+0x80&gt;</pre>
+<pre>     d38:	e59f305c 	ldr	r3, [pc, #92]	; d9c &lt;archer_sysport_tm_queue_get&commat;&commat;Base+0xb0&gt;</pre>
+<pre>     d3c:	e59f205c 	ldr	r2, [pc, #92]	; da0 &lt;archer_sysport_tm_queue_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>     d40:	e59f105c 	ldr	r1, [pc, #92]	; da4 &lt;archer_sysport_tm_queue_get&commat;&commat;Base+0xb8&gt;</pre>
+<pre>     d44:	e7970003 	ldr	r0, [r7, r3]</pre>
+<pre>     d48:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     d4c:	e282202c 	add	r2, r2, #44	; 0x2c</pre>
+<pre>     d50:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     d54:	e3a030bd 	mov	r3, #189	; 0xbd</pre>
+<pre>     d58:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">     d5c:	ebfffee3 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     d60:	e1a00006 	mov	r0, r6</pre>
+<pre>     d64:	e28dd044 	add	sp, sp, #68	; 0x44</pre>
+<pre>--</pre>
+<pre>     e04:	e28d0004 	add	r0, sp, #4</pre>
+<pre>     e08:	e3a03007 	mov	r3, #7</pre>
+<pre>     e0c:	e58d3000 	str	r3, [sp]</pre>
+<pre>     e10:	ebfffebc 	bl	908 &lt;strncpy&commat;plt&gt;</pre>
+<pre>     e14:	e1a0100d 	mov	r1, sp</pre>
+<pre>     e18:	e3a00073 	mov	r0, #115	; 0x73</pre>
+<pre>     e1c:	ebfffebc 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>     e20:	e59f6050 	ldr	r6, [pc, #80]	; e78 &lt;archer_sysport_tm_port_get&commat;&commat;Base+0x8c&gt;</pre>
+<pre>     e24:	e08f6006 	add	r6, pc, r6</pre>
+<pre>     e28:	e2507000 	subs	r7, r0, #0</pre>
+<pre>     e2c:	0a00000c 	beq	e64 &lt;archer_sysport_tm_port_get&commat;&commat;Base+0x78&gt;</pre>
+<pre>     e30:	e59f3044 	ldr	r3, [pc, #68]	; e7c &lt;archer_sysport_tm_port_get&commat;&commat;Base+0x90&gt;</pre>
+<pre>     e34:	e59f2044 	ldr	r2, [pc, #68]	; e80 &lt;archer_sysport_tm_port_get&commat;&commat;Base+0x94&gt;</pre>
+<pre>     e38:	e59f1044 	ldr	r1, [pc, #68]	; e84 &lt;archer_sysport_tm_port_get&commat;&commat;Base+0x98&gt;</pre>
+<pre>     e3c:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>     e40:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     e44:	e2822048 	add	r2, r2, #72	; 0x48</pre>
+<pre>     e48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     e4c:	e3a030e1 	mov	r3, #225	; 0xe1</pre>
+<pre>     e50:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">     e54:	ebfffea5 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     e58:	e1a00007 	mov	r0, r7</pre>
+<pre>     e5c:	e28dd044 	add	sp, sp, #68	; 0x44</pre>
+<pre>--</pre>
+<pre>     ee0:	e58d3000 	str	r3, [sp]</pre>
+<pre>     ee4:	ebfffe87 	bl	908 &lt;strncpy&commat;plt&gt;</pre>
+<pre>     ee8:	e1a0100d 	mov	r1, sp</pre>
+<pre>     eec:	e3a00073 	mov	r0, #115	; 0x73</pre>
+<pre>     ef0:	e59f6048 	ldr	r6, [pc, #72]	; f40 &lt;archer_sysport_tm_arbiter_get&commat;&commat;Base+0x7c&gt;</pre>
+<pre>     ef4:	ebfffe86 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>     ef8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>     efc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>     f00:	059d3028 	ldreq	r3, [sp, #40]	; 0x28</pre>
+<pre>     f04:	05853000 	streq	r3, [r5]</pre>
+<pre>     f08:	0a000009 	beq	f34 &lt;archer_sysport_tm_arbiter_get&commat;&commat;Base+0x70&gt;</pre>
+<pre>     f0c:	e59f3030 	ldr	r3, [pc, #48]	; f44 &lt;archer_sysport_tm_arbiter_get&commat;&commat;Base+0x80&gt;</pre>
+<pre>     f10:	e59f2030 	ldr	r2, [pc, #48]	; f48 &lt;archer_sysport_tm_arbiter_get&commat;&commat;Base+0x84&gt;</pre>
+<pre>     f14:	e59f1030 	ldr	r1, [pc, #48]	; f4c &lt;archer_sysport_tm_arbiter_get&commat;&commat;Base+0x88&gt;</pre>
+<pre>     f18:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>     f1c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     f20:	e2822063 	add	r2, r2, #99	; 0x63</pre>
+<pre>     f24:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     f28:	e3003102 	movw	r3, #258	; 0x102</pre>
+<pre>     f2c:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">     f30:	ebfffe6e 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     f34:	e1a00004 	mov	r0, r4</pre>
+<pre>     f38:	e28dd040 	add	sp, sp, #64	; 0x40</pre>
+<pre>--</pre>
+<pre>     fa8:	e58d3000 	str	r3, [sp]</pre>
+<pre>     fac:	ebfffe55 	bl	908 &lt;strncpy&commat;plt&gt;</pre>
+<pre>     fb0:	e1a0100d 	mov	r1, sp</pre>
+<pre>     fb4:	e3a00073 	mov	r0, #115	; 0x73</pre>
+<pre>     fb8:	e59f6048 	ldr	r6, [pc, #72]	; 1008 &lt;archer_sysport_tm_mode_get&commat;&commat;Base+0x7c&gt;</pre>
+<pre>     fbc:	ebfffe54 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>     fc0:	e08f6006 	add	r6, pc, r6</pre>
+<pre>     fc4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>     fc8:	059d302c 	ldreq	r3, [sp, #44]	; 0x2c</pre>
+<pre>     fcc:	05853000 	streq	r3, [r5]</pre>
+<pre>     fd0:	0a000009 	beq	ffc &lt;archer_sysport_tm_mode_get&commat;&commat;Base+0x70&gt;</pre>
+<pre>     fd4:	e59f3030 	ldr	r3, [pc, #48]	; 100c &lt;archer_sysport_tm_mode_get&commat;&commat;Base+0x80&gt;</pre>
+<pre>     fd8:	e59f2030 	ldr	r2, [pc, #48]	; 1010 &lt;archer_sysport_tm_mode_get&commat;&commat;Base+0x84&gt;</pre>
+<pre>     fdc:	e59f1030 	ldr	r1, [pc, #48]	; 1014 &lt;archer_sysport_tm_mode_get&commat;&commat;Base+0x88&gt;</pre>
+<pre>     fe0:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>     fe4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>     fe8:	e2822081 	add	r2, r2, #129	; 0x81</pre>
+<pre>     fec:	e08f1001 	add	r1, pc, r1</pre>
+<pre>     ff0:	e3003122 	movw	r3, #290	; 0x122</pre>
+<pre>     ff4:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">     ff8:	ebfffe3c 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>     ffc:	e1a00004 	mov	r0, r4</pre>
+<pre>    1000:	e28dd040 	add	sp, sp, #64	; 0x40</pre>
+<pre>--</pre>
+<pre>    1048:	e3a00072 	mov	r0, #114	; 0x72</pre>
+<pre>    104c:	e1a0100d 	mov	r1, sp</pre>
+<pre>    1050:	e3a03001 	mov	r3, #1</pre>
+<pre>    1054:	e58d3000 	str	r3, [sp]</pre>
+<pre>    1058:	ebfffe2d 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>    105c:	e59f6044 	ldr	r6, [pc, #68]	; 10a8 &lt;archer_dpi_mode_get&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    1060:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    1064:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    1068:	059d3004 	ldreq	r3, [sp, #4]</pre>
+<pre>    106c:	05853000 	streq	r3, [r5]</pre>
+<pre>    1070:	0a000009 	beq	109c &lt;archer_dpi_mode_get&commat;&commat;Base+0x60&gt;</pre>
+<pre>    1074:	e59f3030 	ldr	r3, [pc, #48]	; 10ac &lt;archer_dpi_mode_get&commat;&commat;Base+0x70&gt;</pre>
+<pre>    1078:	e59f2030 	ldr	r2, [pc, #48]	; 10b0 &lt;archer_dpi_mode_get&commat;&commat;Base+0x74&gt;</pre>
+<pre>    107c:	e59f1030 	ldr	r1, [pc, #48]	; 10b4 &lt;archer_dpi_mode_get&commat;&commat;Base+0x78&gt;</pre>
+<pre>    1080:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>    1084:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    1088:	e282209c 	add	r2, r2, #156	; 0x9c</pre>
+<pre>    108c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    1090:	e3003146 	movw	r3, #326	; 0x146</pre>
+<pre>    1094:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    1098:	ebfffe14 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    109c:	e1a00004 	mov	r0, r4</pre>
+<pre>    10a0:	e28dd018 	add	sp, sp, #24</pre>
+<pre>--</pre>
+<pre>    110c:	e3a03004 	mov	r3, #4</pre>
+<pre>    1110:	e58d000c 	str	r0, [sp, #12]</pre>
+<pre>    1114:	e1a0100d 	mov	r1, sp</pre>
+<pre>    1118:	e3a00072 	mov	r0, #114	; 0x72</pre>
+<pre>    111c:	e1a04002 	mov	r4, r2</pre>
+<pre>    1120:	e58d3000 	str	r3, [sp]</pre>
+<pre>    1124:	ebfffdfa 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>    1128:	e59f6050 	ldr	r6, [pc, #80]	; 1180 &lt;archer_dpi_sq_queue_get&commat;&commat;Base+0x80&gt;</pre>
+<pre>    112c:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    1130:	e2507000 	subs	r7, r0, #0</pre>
+<pre>    1134:	0a00000c 	beq	116c &lt;archer_dpi_sq_queue_get&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    1138:	e59f3044 	ldr	r3, [pc, #68]	; 1184 &lt;archer_dpi_sq_queue_get&commat;&commat;Base+0x84&gt;</pre>
+<pre>    113c:	e59f2044 	ldr	r2, [pc, #68]	; 1188 &lt;archer_dpi_sq_queue_get&commat;&commat;Base+0x88&gt;</pre>
+<pre>    1140:	e59f1044 	ldr	r1, [pc, #68]	; 118c &lt;archer_dpi_sq_queue_get&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    1144:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>    1148:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    114c:	e28220b0 	add	r2, r2, #176	; 0xb0</pre>
+<pre>    1150:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    1154:	e3a03e17 	mov	r3, #368	; 0x170</pre>
+<pre>    1158:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    115c:	ebfffde3 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    1160:	e1a00007 	mov	r0, r7</pre>
+<pre>    1164:	e28dd01c 	add	sp, sp, #28</pre>
+<pre>--</pre>
+<pre>    11c0:	e3a00072 	mov	r0, #114	; 0x72</pre>
+<pre>    11c4:	e1a0100d 	mov	r1, sp</pre>
+<pre>    11c8:	e3a03006 	mov	r3, #6</pre>
+<pre>    11cc:	e58d3000 	str	r3, [sp]</pre>
+<pre>    11d0:	ebfffdcf 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>    11d4:	e59f6044 	ldr	r6, [pc, #68]	; 1220 &lt;archer_dpi_sq_port_get&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    11d8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    11dc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    11e0:	059d3010 	ldreq	r3, [sp, #16]</pre>
+<pre>    11e4:	05853000 	streq	r3, [r5]</pre>
+<pre>    11e8:	0a000009 	beq	1214 &lt;archer_dpi_sq_port_get&commat;&commat;Base+0x60&gt;</pre>
+<pre>    11ec:	e59f3030 	ldr	r3, [pc, #48]	; 1224 &lt;archer_dpi_sq_port_get&commat;&commat;Base+0x70&gt;</pre>
+<pre>    11f0:	e59f2030 	ldr	r2, [pc, #48]	; 1228 &lt;archer_dpi_sq_port_get&commat;&commat;Base+0x74&gt;</pre>
+<pre>    11f4:	e59f1030 	ldr	r1, [pc, #48]	; 122c &lt;archer_dpi_sq_port_get&commat;&commat;Base+0x78&gt;</pre>
+<pre>    11f8:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>    11fc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    1200:	e28220c8 	add	r2, r2, #200	; 0xc8</pre>
+<pre>    1204:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    1208:	e300318f 	movw	r3, #399	; 0x18f</pre>
+<pre>    120c:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    1210:	ebfffdb6 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    1214:	e1a00004 	mov	r0, r4</pre>
+<pre>    1218:	e28dd018 	add	sp, sp, #24</pre>
+<pre>--</pre>
+<pre>    1260:	e3a00072 	mov	r0, #114	; 0x72</pre>
+<pre>    1264:	e1a0100d 	mov	r1, sp</pre>
+<pre>    1268:	e3a03008 	mov	r3, #8</pre>
+<pre>    126c:	e58d3000 	str	r3, [sp]</pre>
+<pre>    1270:	ebfffda7 	bl	914 &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>    1274:	e59f6044 	ldr	r6, [pc, #68]	; 12c0 &lt;archer_dpi_sq_arbiter_get&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    1278:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    127c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    1280:	059d3008 	ldreq	r3, [sp, #8]</pre>
+<pre>    1284:	05853000 	streq	r3, [r5]</pre>
+<pre>    1288:	0a000009 	beq	12b4 &lt;archer_dpi_sq_arbiter_get&commat;&commat;Base+0x60&gt;</pre>
+<pre>    128c:	e59f3030 	ldr	r3, [pc, #48]	; 12c4 &lt;archer_dpi_sq_arbiter_get&commat;&commat;Base+0x70&gt;</pre>
+<pre>    1290:	e59f2030 	ldr	r2, [pc, #48]	; 12c8 &lt;archer_dpi_sq_arbiter_get&commat;&commat;Base+0x74&gt;</pre>
+<pre>    1294:	e59f1030 	ldr	r1, [pc, #48]	; 12cc &lt;archer_dpi_sq_arbiter_get&commat;&commat;Base+0x78&gt;</pre>
+<pre>    1298:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>    129c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    12a0:	e28220df 	add	r2, r2, #223	; 0xdf</pre>
+<pre>    12a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    12a8:	e30031ad 	movw	r3, #429	; 0x1ad</pre>
+<pre>    12ac:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    12b0:	ebfffd8e 	bl	8f0 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    12b4:	e1a00004 	mov	r0, r4</pre>
+<pre>    12b8:	e28dd018 	add	sp, sp, #24</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> used </span><span class="orange">11</span> times </span><span class="orange">libarcher.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

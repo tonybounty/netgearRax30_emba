@@ -1,0 +1,1183 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s115_usermode_emulator.html" title="./../s115_usermode_emulator.html" >&laquo; Back to s115_usermode_emulator</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Initial strace run on the command </span><span class="orange">./usr/sbin/wbd_slave</span> to identify missing areas</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">wbd_slave</span> in </span><span class="orange">strace</span> mode to identify missing areas</pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<br />
+<pre>1 brk(NULL) = 0x00064000</pre>
+<pre>1 uname(0x40730648) = 0</pre>
+<pre>1 access("/etc/ld.so.preload",R_OK) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ld.so.cache",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libnvram.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe90) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3ffcb000</pre>
+<pre>1 mmap2(NULL,83324,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ffb6000</pre>
+<pre>1 mprotect(0x3ffba000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffc9000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x3) = 0x3ffc9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff50,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe80) = 0</pre>
+<pre>1 mmap2(NULL,246432,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff79000</pre>
+<pre>1 mprotect(0x3ffa2000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffb1000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x28) = 0x3ffb1000</pre>
+<pre>1 mmap2(0x3ffb4000,4768,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ffb4000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff40,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe70) = 0</pre>
+<pre>1 mmap2(NULL,168548,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff4f000</pre>
+<pre>1 mprotect(0x3ff66000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff75000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x16) = 0x3ff75000</pre>
+<pre>1 mmap2(0x3ff77000,4708,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ff77000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/v8l/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/v8l/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/v8l/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/v8l",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/tls",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/v8l/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/v8l/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/v8l/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/v8l",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/neon/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/neon",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/vfp/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/usr/lib/vfp",0x4072fe60) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/libbshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff30,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe60) = 0</pre>
+<pre>1 mmap2(NULL,119100,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff31000</pre>
+<pre>1 mprotect(0x3ff3e000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff4d000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xc) = 0x3ff4d000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/vfp/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/libwbdshared.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff20,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe50) = 0</pre>
+<pre>1 mmap2(NULL,326480,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fee1000</pre>
+<pre>1 mprotect(0x3ff1c000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff2b000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x3a) = 0x3ff2b000</pre>
+<pre>1 mmap2(0x3ff2d000,15184,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ff2d000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbcmcrypto.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff10,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe40) = 0</pre>
+<pre>1 mmap2(NULL,156260,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3feba000</pre>
+<pre>1 mprotect(0x3fed0000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fedf000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x15) = 0x3fedf000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/vfp/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/libieee1905.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff00,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe30) = 0</pre>
+<pre>1 mmap2(NULL,874632,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fde4000</pre>
+<pre>1 mprotect(0x3fea5000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3feb5000,16384,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xc1) = 0x3feb5000</pre>
+<pre>1 mmap2(0x3feb9000,2184,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3feb9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libi5api.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fef0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe20) = 0</pre>
+<pre>1 mmap2(NULL,73856,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fdd1000</pre>
+<pre>1 mprotect(0x3fdd3000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fde2000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3fde2000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libgcc_s.so.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fee0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe10) = 0</pre>
+<pre>1 mmap2(NULL,192936,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fda1000</pre>
+<pre>1 mprotect(0x3fdc0000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fdcf000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1e) = 0x3fdcf000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbcm_flashutil.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fed0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe00) = 0</pre>
+<pre>1 mmap2(NULL,191312,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd72000</pre>
+<pre>1 mprotect(0x3fd90000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd9f000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1d) = 0x3fd9f000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbcm_boardctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fec0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fdf0) = 0</pre>
+<pre>1 mmap2(NULL,77972,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd5e000</pre>
+<pre>1 mprotect(0x3fd61000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd70000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3fd70000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbcm_util.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072feb0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fde0) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3fd5c000</pre>
+<pre>1 mmap2(NULL,87976,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd46000</pre>
+<pre>1 mprotect(0x3fd4b000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd5a000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x4) = 0x3fd5a000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libsys_util.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fea0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fdd0) = 0</pre>
+<pre>1 mmap2(NULL,73900,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd33000</pre>
+<pre>1 mprotect(0x3fd35000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd44000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3fd44000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libgen_util.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe90,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fdc0) = 0</pre>
+<pre>1 mmap2(NULL,77976,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd1f000</pre>
+<pre>1 mprotect(0x3fd22000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd31000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3fd31000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/v8l/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/tls/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/v8l/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/neon/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/vfp/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/libjson-c.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe80,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fdb0) = 0</pre>
+<pre>1 mmap2(NULL,98792,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd06000</pre>
+<pre>1 mprotect(0x3fd0e000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd1d000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x7) = 0x3fd1d000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe70,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fda0) = 0</pre>
+<pre>1 mmap2(NULL,1323700,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fbc2000</pre>
+<pre>1 mprotect(0x3fcf0000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd00000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x12e) = 0x3fd00000</pre>
+<pre>1 mmap2(0x3fd03000,8884,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fd03000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libdl.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd90) = 0</pre>
+<pre>1 mmap2(NULL,73916,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fbaf000</pre>
+<pre>1 mprotect(0x3fbb1000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbc0000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3fbc0000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libstaged.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe50,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd80) = 0</pre>
+<pre>1 mmap2(NULL,78040,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb9b000</pre>
+<pre>1 mprotect(0x3fb9d000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbad000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3fbad000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libjson-c.so.3",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe40,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd70) = 0</pre>
+<pre>1 mmap2(NULL,115380,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb7e000</pre>
+<pre>1 mprotect(0x3fb89000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb99000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xb) = 0x3fb99000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libwlmdm.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe30,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd60) = 0</pre>
+<pre>1 mmap2(NULL,157672,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb57000</pre>
+<pre>1 mprotect(0x3fb64000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb73000,45056,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xc) = 0x3fb73000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcms_msg.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe20,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd50) = 0</pre>
+<pre>1 mmap2(NULL,78112,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb43000</pre>
+<pre>1 mprotect(0x3fb46000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb55000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3fb55000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcms_util.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe10,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd40) = 0</pre>
+<pre>1 mmap2(NULL,199088,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb12000</pre>
+<pre>1 mprotect(0x3fb32000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb41000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1f) = 0x3fb41000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcrypt.so.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fe00,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd30) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3fb10000</pre>
+<pre>1 mmap2(NULL,254312,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fad1000</pre>
+<pre>1 mprotect(0x3fad8000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fae7000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x6) = 0x3fae7000</pre>
+<pre>1 mmap2(0x3fae9000,156008,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fae9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcms_core.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fdf0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd20) = 0</pre>
+<pre>1 mmap2(NULL,854020,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fa00000</pre>
+<pre>1 mprotect(0x3fabd000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3facc000,20480,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xbc) = 0x3facc000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libmdm_db.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fde0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd10) = 0</pre>
+<pre>1 mmap2(NULL,222680,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f9c9000</pre>
+<pre>1 mprotect(0x3f9ef000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f9fe000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x25) = 0x3f9fe000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcms_qdm.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fdd0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fd00) = 0</pre>
+<pre>1 mmap2(NULL,151968,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f9a3000</pre>
+<pre>1 mprotect(0x3f9b8000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f9c7000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x14) = 0x3f9c7000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libnanoxml.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fdc0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fcf0) = 0</pre>
+<pre>1 mmap2(NULL,69712,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f991000</pre>
+<pre>1 mprotect(0x3f992000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f9a1000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0) = 0x3f9a1000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libmdm_cbk_core.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fdb0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fce0) = 0</pre>
+<pre>1 mmap2(NULL,123016,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f972000</pre>
+<pre>1 mprotect(0x3f97e000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f98e000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xc) = 0x3f98e000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libmdm_cbk_sysmgmt.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fda0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fcd0) = 0</pre>
+<pre>1 mmap2(NULL,118992,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f954000</pre>
+<pre>1 mprotect(0x3f95f000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f96f000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xb) = 0x3f96f000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libmdm_cbk_devinfo.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd90,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fcc0) = 0</pre>
+<pre>1 mmap2(NULL,94544,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f93c000</pre>
+<pre>1 mprotect(0x3f943000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f952000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x6) = 0x3f952000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libmdm_cbk_wifi.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd80,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fcb0) = 0</pre>
+<pre>1 mmap2(NULL,123500,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f91d000</pre>
+<pre>1 mprotect(0x3f92a000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f93a000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xd) = 0x3f93a000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libvlanctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd70,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fca0) = 0</pre>
+<pre>1 mmap2(NULL,99064,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f904000</pre>
+<pre>1 mprotect(0x3f90c000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f91b000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x7) = 0x3f91b000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libpwrctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc90) = 0</pre>
+<pre>1 mmap2(NULL,82400,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f8ef000</pre>
+<pre>1 mprotect(0x3f8f3000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f902000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x3) = 0x3f902000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libethswctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd50,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc80) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3f8ed000</pre>
+<pre>1 mmap2(NULL,111076,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f8d1000</pre>
+<pre>1 mprotect(0x3f8dc000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8eb000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xa) = 0x3f8eb000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libethctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd40,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc70) = 0</pre>
+<pre>1 mmap2(NULL,78260,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f8bd000</pre>
+<pre>1 mprotect(0x3f8c0000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8cf000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3f8cf000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libm.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd30,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc60) = 0</pre>
+<pre>1 mmap2(NULL,663672,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f81a000</pre>
+<pre>1 mprotect(0x3f8ab000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8bb000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x91) = 0x3f8bb000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbridgeutil.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd20,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc50) = 0</pre>
+<pre>1 mmap2(NULL,73876,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f807000</pre>
+<pre>1 mprotect(0x3f809000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f818000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3f818000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libtmctl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd10,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc40) = 0</pre>
+<pre>1 mmap2(NULL,111140,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f7eb000</pre>
+<pre>1 mprotect(0x3f7f6000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f805000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xa) = 0x3f805000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libarcher.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fd00,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc30) = 0</pre>
+<pre>1 mmap2(NULL,73808,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f7d8000</pre>
+<pre>1 mprotect(0x3f7da000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f7e9000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3f7e9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libbcmmcast.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fcf0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc20) = 0</pre>
+<pre>1 mmap2(NULL,77968,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f7c4000</pre>
+<pre>1 mprotect(0x3f7c7000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f7d6000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x2) = 0x3f7d6000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libwlsysutil.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072fce0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fc10) = 0</pre>
+<pre>1 mmap2(NULL,73872,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3f7b1000</pre>
+<pre>1 mprotect(0x3f7b3000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f7c2000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3f7c2000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3f7af000</pre>
+<pre>1 mprotect(0x3fd00000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f7c2000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f7d6000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f7e9000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f8eb000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f805000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f818000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f8bb000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f8cf000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f902000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f91b000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f93a000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f952000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f96f000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f98e000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f9a1000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f9c7000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fbc0000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3f9fe000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff75000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3facc000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fae7000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fb41000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fb55000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd9f000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd70000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd5a000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd44000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd31000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fbad000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fb99000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fb73000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd1d000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fdcf000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fde2000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffc9000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffb1000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fedf000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3feb5000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff2b000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff4d000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x00062000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fffe000,4096,PROT_READ) = 0</pre>
+<pre>1 set_tid_address(1065025656,1081281092,1081281100,1065025552,0,1073176576) = 1</pre>
+<pre>1 set_robust_list(1065025664,12,-20,1065025692,0,1073176576) = -1 errno=38 (Function not implemented)</pre>
+<pre>1 rt_sigaction(32,0x40730818,NULL) = 0</pre>
+<pre>1 rt_sigaction(33,0x40730818,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_UNBLOCK,0x40730958,NULL) = 0</pre>
+<pre>1 ugetrlimit(3,1081280844,4,1073185304,1760,1073176576) = 0</pre>
+<pre>1 unlink("/tmp/wbd_Slave_nvrams.txt") = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/var/smd_messaging_server_addr",0x40730190) = 0</pre>
+<pre>1 stat64("/tmp/smd_shutdown_in_progress",0x40730190) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 brk(NULL) = 0x00064000</pre>
+<pre>1 brk(0x00085000) = 0x00085000</pre>
+<pre>1 socket(PF_UNIX,SOCK_STREAM,IPPROTO_IP) = 3</pre>
+<pre>1 fcntl64(3,F_SETFD,1) = 0</pre>
+<pre>1 connect(3,0x407301d8,110) = -1 errno=111 (Connection refused)</pre>
+<pre>1 gettid() = 1</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 fstat64(1,0x407302f0) = 0</pre>
+<pre>1 stat64("/var/smd_messaging_server_addr",0x407301a0) = 0</pre>
+<pre>1 stat64("/tmp/smd_shutdown_in_progress",0x407301a0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 socket(PF_UNIX,SOCK_STREAM,IPPROTO_IP) = 3</pre>
+<pre>1 fcntl64(3,F_SETFD,1) = 0</pre>
+<pre>1 connect(3,0x407301e8,110) = -1 errno=111 (Connection refused)</pre>
+<pre>1 gettid() = 1</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 write(1,0x64190,19)Shutting down 1905</pre>
+<pre> = 19</pre>
+<pre>1 exit_group(0)</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Identification of missing filesytem areas.</pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/v8l/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/tls/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/neon/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/v8l/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/vfp/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libbshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/vfp/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libieee1905.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/vfp/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libjson-c.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/vfp/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libwbdshared.so</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/vfp/</span></pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

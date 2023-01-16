@@ -1,0 +1,88 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 12:</span></pre>
+<pre></span>	grep ^/dev/sd /proc/mounts | while read d r t o; do</span></pre>
+<pre><span class="green">                                           ^--^ SC2162 (info): read without -r will mangle backslashes.</span></pre>
+<pre><span class="orange">                                                ^-- SC2034 (warning): d appears unused. Verify use (or export if used externally).</span></pre>
+<pre><span class="orange">                                                    ^-- SC2034 (warning): t appears unused. Verify use (or export if used externally).</span></pre>
+<pre><span class="orange">                                                      ^-- SC2034 (warning): o appears unused. Verify use (or export if used externally).</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 13:</span></pre>
+<pre></span>		umount $r || umount -f $r</span></pre>
+<pre><span class="green">                       ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                       ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		umount "$r" || umount -f "$r"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 15:</span></pre>
+<pre></span>	while read h s c c i i l l; do</span></pre>
+<pre><span class="green">              ^--^ SC2162 (info): read without -r will mangle backslashes.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 17:</span></pre>
+<pre></span>		echo scsi remove-single-device ${s#scsi} $c $i $l &gt; /proc/scsi/scsi </span>;</span></pre>
+<pre><span class="green">                                               ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                         ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                            ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                               ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		echo scsi remove-single-device "${s#scsi}" "$c" "$i" "$l" &gt; /proc/scsi/scsi </span>;</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 20:</span></pre>
+<pre></span>	for m in ${mod//-/_}; do</span></pre>
+<pre><span class="orange">                 ^---------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 21:</span></pre>
+<pre></span>		grep -e"^\&lt;$m\&gt;" /proc/modules &amp;&amp; rmmod -w $m &amp;&amp; echo $m removed</span></span></pre>
+<pre><span class="green">                                                           ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                                      ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		grep -e"^\&lt;$m\&gt;" /proc/modules &amp;&amp; rmmod -w "$m" &amp;&amp; echo "$m" removed;</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 25:</span></pre>
+<pre></span>	grep -e${mod// /.ko -e}KERNELVER= /etc/init.d/bcm-base-drivers.sh | while read i f; do</span></pre>
+<pre><span class="orange">               ^--------------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<pre><span class="green">               ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                                                  ^--^ SC2162 (info): read without -r will mangle backslashes.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	grep -e"${mod// /.ko -e}"KERNELVER= /etc/init.d/bcm-base-drivers.sh | while read i f; do</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 26:</span></pre>
+<pre></span>		m=${f##*/} &amp;&amp; m=${m%.ko} &amp;&amp; m=${m//-/_}</span></span></pre>
+<pre><span class="orange">                                              ^-------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 28:</span></pre>
+<pre></span>			echo $m already loaded</span></span></pre>
+<pre><span class="green">                             ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			echo "$m" already loaded;</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 30:</span></pre>
+<pre></span>			$i $f &amp;&amp; echo $m inserted</span></span></pre>
+<pre><span class="green">                           ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                      ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			$i "$f" &amp;&amp; echo "$m" inserted;</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/disk.sh line 35:</span></pre>
+<pre></span>    for m in ${mod//-/_}; do grep -e"^\&lt;$m\&gt;" /proc/modules; done</span></pre>
+<pre><span class="orange">             ^---------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2034" title="https://www.shellcheck.net/wiki/SC2034" target="_blank" >https://www.shellcheck.net/wiki/SC2034</a> -- d appears unused. Verify use (or ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3060" title="https://www.shellcheck.net/wiki/SC3060" target="_blank" >https://www.shellcheck.net/wiki/SC3060</a> -- In POSIX sh, string replacement i...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>

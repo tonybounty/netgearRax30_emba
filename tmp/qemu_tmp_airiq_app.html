@@ -1,0 +1,258 @@
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">airiq_app</span></pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary: </span><span class="orange">/usr/sbin/airiq_app</span></pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">NONE</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">-v</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">-V</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">-h</span></pre>
+<br />
+<pre>Usage:</pre>
+<br />
+<pre>   airiq_app [-i [INTERFACE_NAME]] [-p [IPADDR]] [-h] [-help]</pre>
+<br />
+<pre>For single radio interface </pre>
+<pre>-v                  Enable verbose output</pre>
+<pre>-print_events       Enable printing of event data</pre>
+<pre>-i [INTERFACE_NAME] Specify interface name. The default</pre>
+<pre>                    interface used is the first 11AC interface </pre>
+<pre>-d [DWELL TIME]     Set the dwell time to be used for user-controlled scanning</pre>
+<pre>                    Units: Milliseconds. Default value: 1000 ms.</pre>
+<pre>                    Acceptable values: 400 - 1000 ms</pre>
+<pre>-c [CAPTURE_TIME]   Set the capture time to be used for user-controlled scanning</pre>
+<pre>                    Units: Milliseconds. Default value: 0 ms.</pre>
+<pre>                    Acceptable values: 0 - 50 ms</pre>
+<pre>-int [CAPTURE_INTERVAL]  Set the FFT capture interval to be used for user-controlled scanning</pre>
+<pre>                    Units: Microseconds. Default value: 100 us.</pre>
+<pre>                    Acceptable values: 50 - 500 us</pre>
+<pre>-b                  Used to force the radio interface to 2.4GHz scanning only. </pre>
+<pre>-a                  Used to force the radio interface to 5GHz scanning only. </pre>
+<pre>-ch                 Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-home               Used to specify a single scan channel on the home channel in the 5GHz band. </pre>
+<pre>-core               Used to specify the core to use for the scan</pre>
+<pre>-phy_mode           Used to specify the PHY mode to use for the scan 4x4 or 3+1</pre>
+<pre>-p [IPADDR]         Set the IP address of airiq_service server. The default</pre>
+<pre>                    to 127.0.0.1 for local connection</pre>
+<pre>-h or -help         Display the command line help text.</pre>
+<br />
+<pre>Examples:</pre>
+<pre>1. Scan both 2.4GHz and 5GHz band on single radio</pre>
+<pre>dwell time: default; capture time: default; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2&gt;</pre>
+<br />
+<pre>2. Scan only 2.4GHz band on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: 200us</pre>
+<pre>    &lt;airiq_app -i eth2 -b -d 1000 -c 10 -int 200&gt;</pre>
+<br />
+<pre>3. Scan only 5GHz band on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -a -d 1000 -c 10&gt;</pre>
+<br />
+<pre>4. Scan only 5GHz home channel on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -a -home&gt;</pre>
+<br />
+<pre>5. Scan 5GHz channel 36 on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -a -ch 36&gt;</pre>
+<br />
+<br />
+<br />
+<pre>For multiple radio interfaces </pre>
+<pre>-i [2.4GHZ_RADIO] -i [5GHZ_RADIO]               Specify interface name. The first radio</pre>
+<pre>                                                specified is the 2.4GHz radio and the second is 5GHz radio </pre>
+<pre>-d [2.4GHZ_DWELL_TIME] -d [5GHZ_DWELL_TIME]     Set the dwell time to be used for each radio I/F</pre>
+<pre>                                                Units: Milliseconds. Default value: 1000 ms.</pre>
+<pre>-c [2.4GHZ_CAPTURE_TIME] -c [5GHZ_CAPTURE_TIME] Set the capture time to be used for each radio I/F</pre>
+<pre>                                                Units: Milliseconds. Default value: 0 ms.</pre>
+<pre>-int [2.4GHZ_CAPTURE_INTERVAL] -int [5GHZ_CAPTURE_INTERVAL] Set the capture time to be used for each radio I/F</pre>
+<pre>                                                Units: Microseconds. Default value: 100 us.</pre>
+<pre>-ch                                             Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-home                                           Used to scan ONLY the home channel in the 5GHz band. </pre>
+<pre>-p [IPADDR]                                     Set the IP address of airiq_service server. The default</pre>
+<pre>                                                to 127.0.0.1 for local connection</pre>
+<pre>-h or -help                                     Display the command line help text.</pre>
+<br />
+<pre>Examples:</pre>
+<pre>1. Scan 2.4GHz on first radio and 5GHz on second radio</pre>
+<pre>dwell time: default; capture time: default; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -i eth3&gt;</pre>
+<br />
+<pre>2. Scan 2.4GHz on first radio and 5GHz on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 5000ms (eth3); capture time: 10ms; capture interval 200us</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -int 200 -i eth3 -d 5000 -c 10 -int 200&gt;</pre>
+<br />
+<pre>3. Scan 2.4GHz on first radio and 5GHz home channel on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 1000ms (eth3); capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -i eth3 -d 1000 -c 10 -home&gt;</pre>
+<br />
+<pre>4. Scan 2.4GHs on first radio and 5GHz channel 36 on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 2000ms (eth3); capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -i eth3 -d 2000 -c 10 -ch 36&gt;</pre>
+<br />
+<pre>***********Help for LTE_U scanning********</pre>
+<br />
+<pre>Usage:</pre>
+<br />
+<pre>   airiq_app -lteu [-i [INTERFACE_NAME]]  [-h] [-help]</pre>
+<br />
+<pre>For single radio interface </pre>
+<pre>-i [INTERFACE_NAME] Specify interface name. The default</pre>
+<pre>                    interface used is the first 11AC interface </pre>
+<pre>-d [DWELL TIME]     Set the dwell time to be used for LTE-U scan</pre>
+<pre>                    Units: Milliseconds. Default value: 200 ms.</pre>
+<pre>                    Acceptable values: &gt;= 200ms</pre>
+<pre>-c [CAPTURE_COUNT]  Set the capture count to be used for LTE-U scan</pre>
+<pre>                    Default value: 200 </pre>
+<pre>-int [CAPTURE_INTERVAL]  Set the FFT capture interval to be used for LTE-U scan</pre>
+<pre>                    Units: Microseconds. Default value: 656 us.</pre>
+<pre>                    Acceptable values: Min 656us to multiples of 328us</pre>
+<pre>-lte_cfg [LTE CONFIG REG VALUES]  Set the config for the LTE_U detector</pre>
+<pre>                    values reg0 reg1 reg2 reg3 reg4 reg5 reg6 reg7 </pre>
+<pre>-ch                 Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-h or -help         Display the command line help text.</pre>
+<br />
+<pre>Examples: </pre>
+<pre>1. Run with default settings </pre>
+<pre>airiq_app -lteu -i eth1</pre>
+<br />
+<pre>2. Increase the capture count and dwell time per channel for higher detection probability </pre>
+<pre>airiq_app -lteu -i eth1 -d 300 -c 400</pre>
+<br />
+<pre>3. Set a specific channel instead of scanning the default list of channels </pre>
+<pre>airiq_app -lteu -i eth1 -ch 36</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">-help</span></pre>
+<br />
+<pre>Usage:</pre>
+<br />
+<pre>   airiq_app [-i [INTERFACE_NAME]] [-p [IPADDR]] [-h] [-help]</pre>
+<br />
+<pre>For single radio interface </pre>
+<pre>-v                  Enable verbose output</pre>
+<pre>-print_events       Enable printing of event data</pre>
+<pre>-i [INTERFACE_NAME] Specify interface name. The default</pre>
+<pre>                    interface used is the first 11AC interface </pre>
+<pre>-d [DWELL TIME]     Set the dwell time to be used for user-controlled scanning</pre>
+<pre>                    Units: Milliseconds. Default value: 1000 ms.</pre>
+<pre>                    Acceptable values: 400 - 1000 ms</pre>
+<pre>-c [CAPTURE_TIME]   Set the capture time to be used for user-controlled scanning</pre>
+<pre>                    Units: Milliseconds. Default value: 0 ms.</pre>
+<pre>                    Acceptable values: 0 - 50 ms</pre>
+<pre>-int [CAPTURE_INTERVAL]  Set the FFT capture interval to be used for user-controlled scanning</pre>
+<pre>                    Units: Microseconds. Default value: 100 us.</pre>
+<pre>                    Acceptable values: 50 - 500 us</pre>
+<pre>-b                  Used to force the radio interface to 2.4GHz scanning only. </pre>
+<pre>-a                  Used to force the radio interface to 5GHz scanning only. </pre>
+<pre>-ch                 Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-home               Used to specify a single scan channel on the home channel in the 5GHz band. </pre>
+<pre>-core               Used to specify the core to use for the scan</pre>
+<pre>-phy_mode           Used to specify the PHY mode to use for the scan 4x4 or 3+1</pre>
+<pre>-p [IPADDR]         Set the IP address of airiq_service server. The default</pre>
+<pre>                    to 127.0.0.1 for local connection</pre>
+<pre>-h or -help         Display the command line help text.</pre>
+<br />
+<pre>Examples:</pre>
+<pre>1. Scan both 2.4GHz and 5GHz band on single radio</pre>
+<pre>dwell time: default; capture time: default; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2&gt;</pre>
+<br />
+<pre>2. Scan only 2.4GHz band on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: 200us</pre>
+<pre>    &lt;airiq_app -i eth2 -b -d 1000 -c 10 -int 200&gt;</pre>
+<br />
+<pre>3. Scan only 5GHz band on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -a -d 1000 -c 10&gt;</pre>
+<br />
+<pre>4. Scan only 5GHz home channel on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -a -home&gt;</pre>
+<br />
+<pre>5. Scan 5GHz channel 36 on single radio</pre>
+<pre>dwell time: 1000ms; capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -a -ch 36&gt;</pre>
+<br />
+<br />
+<br />
+<pre>For multiple radio interfaces </pre>
+<pre>-i [2.4GHZ_RADIO] -i [5GHZ_RADIO]               Specify interface name. The first radio</pre>
+<pre>                                                specified is the 2.4GHz radio and the second is 5GHz radio </pre>
+<pre>-d [2.4GHZ_DWELL_TIME] -d [5GHZ_DWELL_TIME]     Set the dwell time to be used for each radio I/F</pre>
+<pre>                                                Units: Milliseconds. Default value: 1000 ms.</pre>
+<pre>-c [2.4GHZ_CAPTURE_TIME] -c [5GHZ_CAPTURE_TIME] Set the capture time to be used for each radio I/F</pre>
+<pre>                                                Units: Milliseconds. Default value: 0 ms.</pre>
+<pre>-int [2.4GHZ_CAPTURE_INTERVAL] -int [5GHZ_CAPTURE_INTERVAL] Set the capture time to be used for each radio I/F</pre>
+<pre>                                                Units: Microseconds. Default value: 100 us.</pre>
+<pre>-ch                                             Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-home                                           Used to scan ONLY the home channel in the 5GHz band. </pre>
+<pre>-p [IPADDR]                                     Set the IP address of airiq_service server. The default</pre>
+<pre>                                                to 127.0.0.1 for local connection</pre>
+<pre>-h or -help                                     Display the command line help text.</pre>
+<br />
+<pre>Examples:</pre>
+<pre>1. Scan 2.4GHz on first radio and 5GHz on second radio</pre>
+<pre>dwell time: default; capture time: default; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -i eth3&gt;</pre>
+<br />
+<pre>2. Scan 2.4GHz on first radio and 5GHz on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 5000ms (eth3); capture time: 10ms; capture interval 200us</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -int 200 -i eth3 -d 5000 -c 10 -int 200&gt;</pre>
+<br />
+<pre>3. Scan 2.4GHz on first radio and 5GHz home channel on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 1000ms (eth3); capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -i eth3 -d 1000 -c 10 -home&gt;</pre>
+<br />
+<pre>4. Scan 2.4GHs on first radio and 5GHz channel 36 on second radio</pre>
+<pre>dwell time: 1000ms (eth2) 2000ms (eth3); capture time: 10ms; capture interval: default</pre>
+<pre>    &lt;airiq_app -i eth2 -d 1000 -c 10 -i eth3 -d 2000 -c 10 -ch 36&gt;</pre>
+<br />
+<pre>***********Help for LTE_U scanning********</pre>
+<br />
+<pre>Usage:</pre>
+<br />
+<pre>   airiq_app -lteu [-i [INTERFACE_NAME]]  [-h] [-help]</pre>
+<br />
+<pre>For single radio interface </pre>
+<pre>-i [INTERFACE_NAME] Specify interface name. The default</pre>
+<pre>                    interface used is the first 11AC interface </pre>
+<pre>-d [DWELL TIME]     Set the dwell time to be used for LTE-U scan</pre>
+<pre>                    Units: Milliseconds. Default value: 200 ms.</pre>
+<pre>                    Acceptable values: &gt;= 200ms</pre>
+<pre>-c [CAPTURE_COUNT]  Set the capture count to be used for LTE-U scan</pre>
+<pre>                    Default value: 200 </pre>
+<pre>-int [CAPTURE_INTERVAL]  Set the FFT capture interval to be used for LTE-U scan</pre>
+<pre>                    Units: Microseconds. Default value: 656 us.</pre>
+<pre>                    Acceptable values: Min 656us to multiples of 328us</pre>
+<pre>-lte_cfg [LTE CONFIG REG VALUES]  Set the config for the LTE_U detector</pre>
+<pre>                    values reg0 reg1 reg2 reg3 reg4 reg5 reg6 reg7 </pre>
+<pre>-ch                 Used to specify a single scan channel in the 5GHz band</pre>
+<pre>-h or -help         Display the command line help text.</pre>
+<br />
+<pre>Examples: </pre>
+<pre>1. Run with default settings </pre>
+<pre>airiq_app -lteu -i eth1</pre>
+<br />
+<pre>2. Increase the capture count and dwell time per channel for higher detection probability </pre>
+<pre>airiq_app -lteu -i eth1 -d 300 -c 400</pre>
+<br />
+<pre>3. Set a specific channel instead of scanning the default list of channels </pre>
+<pre>airiq_app -lteu -i eth1 -ch 36</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">--help</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">--version</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<pre>[</span><span class="orange">*</span>] Emulating binary </span><span class="orange">./usr/sbin/airiq_app</span> with parameter </span><span class="orange">version</span></pre>
+<pre>Please specify WLAN interface to use with -i &lt;ifname&gt;</pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />

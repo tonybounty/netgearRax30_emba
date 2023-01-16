@@ -1,0 +1,562 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s115_usermode_emulator.html" title="./../s115_usermode_emulator.html" >&laquo; Back to s115_usermode_emulator</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Initial strace run on the command </span><span class="orange">./bin/curl</span> to identify missing areas</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">curl</span> in </span><span class="orange">strace</span> mode to identify missing areas</pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<br />
+<pre>1 brk(NULL) = 0x00070000</pre>
+<pre>1 uname(0x40730698) = 0</pre>
+<pre>1 access("/etc/ld.so.preload",R_OK) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ld.so.cache",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/vfp",0x4072fee0) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libcurl.so.4",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ffb0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fee0) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3ffcb000</pre>
+<pre>1 mmap2(NULL,397144,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff6a000</pre>
+<pre>1 mprotect(0x3ffb9000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffc9000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x4f) = 0x3ffc9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ffa0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fed0) = 0</pre>
+<pre>1 mmap2(NULL,476264,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fef5000</pre>
+<pre>1 mprotect(0x3ff51000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff61000,36864,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x5c) = 0x3ff61000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff90,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fec0) = 0</pre>
+<pre>1 mmap2(NULL,1966348,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd14000</pre>
+<pre>1 mprotect(0x3feca000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fed9000,98304,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1b5) = 0x3fed9000</pre>
+<pre>1 mmap2(0x3fef1000,12556,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fef1000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff80,512) = 512</pre>
+<pre>1 fstat64(3,0x4072feb0) = 0</pre>
+<pre>1 mmap2(NULL,168548,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fcea000</pre>
+<pre>1 mprotect(0x3fd01000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd10000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x16) = 0x3fd10000</pre>
+<pre>1 mmap2(0x3fd12000,4708,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fd12000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff70,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fea0) = 0</pre>
+<pre>1 mmap2(NULL,1323700,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fba6000</pre>
+<pre>1 mprotect(0x3fcd4000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fce4000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x12e) = 0x3fce4000</pre>
+<pre>1 mmap2(0x3fce7000,8884,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fce7000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libdl.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe90) = 0</pre>
+<pre>1 mmap2(NULL,73916,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fb93000</pre>
+<pre>1 mprotect(0x3fb95000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fba4000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3fba4000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3fb91000</pre>
+<pre>1 mprotect(0x3fce4000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fba4000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd10000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fed9000,90112,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff61000,20480,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffc9000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x0006e000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fffe000,4096,PROT_READ) = 0</pre>
+<pre>1 set_tid_address(1069092984,1081281172,1081281180,1069092880,0,1070665728) = 1</pre>
+<pre>1 set_robust_list(1069092992,12,-20,1069093020,0,1070665728) = -1 errno=38 (Function not implemented)</pre>
+<pre>1 rt_sigaction(32,0x40730868,NULL) = 0</pre>
+<pre>1 rt_sigaction(33,0x40730868,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_UNBLOCK,0x407309a8,NULL) = 0</pre>
+<pre>1 ugetrlimit(3,1081280924,4,1070674456,1760,1070665728) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x407309b0,0x407308a0) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x40730768,0x407307f4) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_BLOCK,NULL,0x3fef0484) = 0</pre>
+<pre>--- SIGILL {si_signo=SIGILL, si_code=2, si_addr=0x3fd681c8} ---</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x3fef0484,NULL) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x40730768,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x407308a0,NULL) = 0</pre>
+<pre>1 pipe(1081280748,0,-1,0,166748,1) = 0</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 rt_sigaction(SIGPIPE,0x40730698,0x40730724) = 0</pre>
+<pre>1 brk(NULL) = 0x00070000</pre>
+<pre>1 brk(0x00091000) = 0x00091000</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/etc/ssl/openssl.cnf",O_RDONLY|O_LARGEFILE) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 futex(0x3fef2c5c,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef0b30,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef2c60,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef2c64,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef062c,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef2c68,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fef2b94,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/locale/locale-archive",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/share/locale/locale.alias",O_RDONLY|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION",O_RDONLY|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/locale/C.utf8/LC_IDENTIFICATION",O_RDONLY|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/usr/lib/locale/C/LC_IDENTIFICATION",O_RDONLY|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/root/.curlrc",O_RDONLY|O_LARGEFILE) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 write(2,0x3fce6cdf,1)c = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)u = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)l = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1): = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)t = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)y = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)' = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)c = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)u = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)l = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)- = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)- = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)h = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)e = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)l = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)p = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)' = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)o = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)' = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)c = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)u = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)l = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)- = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)- = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)m = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)a = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)n = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)u = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)a = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)l = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)' = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)f = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)o = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)m = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)o = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)e = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)  = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)i = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)n = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)f = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)o = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)r = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)m = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)a = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)t = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)i = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)o = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)n = 1</pre>
+<pre>1 write(2,0x3fce6cdf,1)</pre>
+<pre> = 1</pre>
+<pre>1 exit_group(2)</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Identification of missing filesytem areas.</pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/etc/ssl/openssl.cnf</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">openssl.cnf</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ssl/openssl.cnf</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/etc/ssl</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ssl/openssl.cnf</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/etc/ssl/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/vfp/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/vfp</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcurl.so.4</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/public/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/root/.curlrc</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">.curlrc</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/root</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/root/.curlrc</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C.UTF-8</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C.UTF-8/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/locale/C.utf8/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C.utf8</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C.utf8/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/locale/C/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/C/LC_IDENTIFICATION</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/lib/locale/locale-archive</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">locale-archive</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/lib/locale/locale-archive</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/usr/share/locale/locale.alias</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">locale.alias</span></pre>
+<pre>[</span><span class="orange">*</span>] Creating directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/share/locale</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/share/locale/locale.alias</span></pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

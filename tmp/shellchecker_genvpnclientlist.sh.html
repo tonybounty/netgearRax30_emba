@@ -1,0 +1,172 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 15:</span></pre>
+<pre></span>    ps -p $PID &gt; /dev/null 2&gt;&amp<span class="bold"></span></pre>
+<pre><span class="green">          ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    ps -p "$PID" &gt; /dev/null 2&gt;&amp;1</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 16:</span></pre>
+<pre></span>    if [ $? -eq 0 ]; then</span></pre>
+<pre><span class="green">         ^-- SC2181 (style): Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 24:</span></pre>
+<pre></span>if [ $? -ne 0 ]; then</span></pre>
+<pre><span class="orange">     ^-- SC2320 (warning): This $? refers to echo/printf, not a previous command. Assign to variable to avoid it being overwritten.</span></pre>
+<pre><span class="green">     ^-- SC2181 (style): Check exit code directly with e.g. 'if ! mycmd;', not indirectly with $?.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 37:</span></pre>
+<pre></span>    first_line=`grep -n 'Virtual Address' ${TUN_ST_FILE} | awk -F":" '{print $1}'`</span></pre>
+<pre><span class="green">               ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    first_line=$(grep -n 'Virtual Address' ${TUN_ST_FILE} | awk -F":" '{print $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 38:</span></pre>
+<pre></span>    last_line=`grep -n 'GLOBAL STATS' ${TUN_ST_FILE} | awk -F":" '{print $1}'`</span></pre>
+<pre><span class="green">              ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    last_line=$(grep -n 'GLOBAL STATS' ${TUN_ST_FILE} | awk -F":" '{print $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 39:</span></pre>
+<pre></span>    start_line=$((${first_line}+1))</span></pre>
+<pre><span class="green">                  ^-----------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 40:</span></pre>
+<pre></span>    end_line=$((${last_line}-1))</span></pre>
+<pre><span class="green">                ^----------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 42:</span></pre>
+<pre></span>    echo "first_line = " ${first_line} " last_line  = " ${last_line}</span></pre>
+<pre><span class="green">                         ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                        ^----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "first_line = " "${first_line}" " last_line  = " "${last_line}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 56:</span></pre>
+<pre></span>    first_line=`grep -n 'Virtual Address' ${TAP_ST_FILE} | awk -F":" '{print $1}'`</span></pre>
+<pre><span class="green">               ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    first_line=$(grep -n 'Virtual Address' ${TAP_ST_FILE} | awk -F":" '{print $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 57:</span></pre>
+<pre></span>    last_line=`grep -n 'GLOBAL STATS' ${TAP_ST_FILE} | awk -F":" '{print $1}'`</span></pre>
+<pre><span class="green">              ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    last_line=$(grep -n 'GLOBAL STATS' ${TAP_ST_FILE} | awk -F":" '{print $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 58:</span></pre>
+<pre></span>    start_line=$((${first_line}+1))</span></pre>
+<pre><span class="green">                  ^-----------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 59:</span></pre>
+<pre></span>    end_line=$((${last_line}-1))</span></pre>
+<pre><span class="green">                ^----------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 61:</span></pre>
+<pre></span>    echo "first_line = " ${first_line} " last_line  = " ${last_line}</span></pre>
+<pre><span class="green">                         ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                        ^----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "first_line = " "${first_line}" " last_line  = " "${last_line}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 86:</span></pre>
+<pre></span>        va=`echo ${line} | awk -F',' '{print $1}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g'`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        va=$(echo "${line}" | awk -F',' '{print $1}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 87:</span></pre>
+<pre></span>        cn=`echo ${line} | awk -F',' '{print $2}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g'`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        cn=$(echo "${line}" | awk -F',' '{print $2}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 88:</span></pre>
+<pre></span>        ra=`echo ${line} | awk -F',' '{print $3}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g'`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        ra=$(echo "${line}" | awk -F',' '{print $3}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 89:</span></pre>
+<pre></span>        lr=`echo ${line} | awk -F',' '{print $4}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g'`</span></pre>
+<pre><span class="orange">        ^-- SC2034 (warning): lr appears unused. Verify use (or export if used externally).</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        lr=$(echo "${line}" | awk -F',' '{print $4}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 90:</span></pre>
+<pre></span>        cs=`cat ${ST_FILE} | grep ${ra} | head -n1 | awk -F',' '{print $5}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g'`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                  ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        cs=$(cat ${ST_FILE} | grep "${ra}" | head -n1 | awk -F',' '{print $5}' | sed -e 's/^[ ]*//g' | sed -e 's/[ ]*$//g')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 92:</span></pre>
+<pre></span>        echo -n -e '{"Virtual Address":"'${va}'",' &gt;&gt; ${JSON_FILE}</span></pre>
+<pre><span class="green">        ^-- SC2129 (style): Consider using { cmd1; cmd2; } &gt;&gt; file instead of individual redirects.</span></pre>
+<pre><span class="green">                                         ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        echo -n -e '{"Virtual Address":"'"${va}"'",' &gt;&gt; ${JSON_FILE}</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 93:</span></pre>
+<pre></span>        echo -n -e '"Common Name":"'${cn}'",'      &gt;&gt; ${JSON_FILE}</span></pre>
+<pre><span class="green">                                    ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        echo -n -e '"Common Name":"'"${cn}"'",'      &gt;&gt; ${JSON_FILE}</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 94:</span></pre>
+<pre></span>        echo -n -e '"Real Address":"'${ra}'",'     &gt;&gt; ${JSON_FILE}</span></pre>
+<pre><span class="green">                                     ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        echo -n -e '"Real Address":"'"${ra}"'",'     &gt;&gt; ${JSON_FILE}</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/genvpnclientlist.sh line 95:</span></pre>
+<pre></span>        echo    -e '"Last Ref":"'${cs}'"},'        &gt;&gt; ${JSON_FILE}</span></pre>
+<pre><span class="green">                                 ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        echo    -e '"Last Ref":"'"${cs}"'"},'        &gt;&gt; ${JSON_FILE}</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2034" title="https://www.shellcheck.net/wiki/SC2034" target="_blank" >https://www.shellcheck.net/wiki/SC2034</a> -- lr appears unused. Verify use (or...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2320" title="https://www.shellcheck.net/wiki/SC2320" target="_blank" >https://www.shellcheck.net/wiki/SC2320</a> -- This $? refers to echo/printf, no...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>

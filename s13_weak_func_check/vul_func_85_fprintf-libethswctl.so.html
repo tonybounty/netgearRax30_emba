@@ -1,0 +1,2180 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libethswctl.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> tear down of </span><span class="orange">libethswctl.so</span></pre>
+<br />
+<pre>    2c0c:	aa000005 	bge	2c28 &lt;close&commat;plt+0x198&gt;</pre>
+<pre>    2c10:	e59f0050 	ldr	r0, [pc, #80]	; 2c68 &lt;close&commat;plt+0x1d8&gt;</pre>
+<pre>    2c14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    2c18:	ebffff36 	bl	28f8 &lt;perror&commat;plt&gt;</pre>
+<pre>    2c1c:	e3e04000 	mvn	r4, #0</pre>
+<pre>    2c20:	e1a00004 	mov	r0, r4</pre>
+<pre>    2c24:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    2c28:	e1a02005 	mov	r2, r5</pre>
+<pre>    2c2c:	e3081933 	movw	r1, #35123	; 0x8933</pre>
+<pre>    2c30:	ebffff33 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    2c34:	e3500000 	cmp	r0, #0</pre>
+<pre>    2c38:	aafffff8 	bge	2c20 &lt;close&commat;plt+0x190&gt;</pre>
+<pre>    2c3c:	e1a00004 	mov	r0, r4</pre>
+<pre>    2c40:	ebffff92 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    2c44:	e59f3020 	ldr	r3, [pc, #32]	; 2c6c &lt;close&commat;plt+0x1dc&gt;</pre>
+<pre>    2c48:	e59f1020 	ldr	r1, [pc, #32]	; 2c70 &lt;close&commat;plt+0x1e0&gt;</pre>
+<pre>    2c4c:	e1a02005 	mov	r2, r5</pre>
+<pre>    2c50:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    2c54:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    2c58:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    2c5c:	ebffff58 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    2c60:	eaffffed 	b	2c1c &lt;close&commat;plt+0x18c&gt;</pre>
+<pre>    2c64:	000183f4 	strdeq	r8, [r1], -r4</pre>
+<pre>--</pre>
+<pre>    2ec0:	e28d3020 	add	r3, sp, #32</pre>
+<pre>    2ec4:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    2ec8:	e3c93080 	bic	r3, r9, #128	; 0x80</pre>
+<pre>    2ecc:	e3530008 	cmp	r3, #8</pre>
+<pre>    2ed0:	9a000006 	bls	2ef0 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x88&gt;</pre>
+<pre>    2ed4:	e59f30d8 	ldr	r3, [pc, #216]	; 2fb4 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    2ed8:	e59f00dc 	ldr	r0, [pc, #220]	; 2fbc &lt;ethswctl_mibdump_x&commat;&commat;Base+0x154&gt;</pre>
+<pre>    2edc:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    2ee0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    2ee4:	e5931000 	ldr	r1, [r3]</pre>
+<pre>    2ee8:	ebfffee5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    2eec:	ea000008 	b	2f14 &lt;ethswctl_mibdump_x&commat;&commat;Base+0xac&gt;</pre>
+<pre>    2ef0:	e3540002 	cmp	r4, #2</pre>
+<pre>    2ef4:	9a00000b 	bls	2f28 &lt;ethswctl_mibdump_x&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    2ef8:	e59f30b4 	ldr	r3, [pc, #180]	; 2fb4 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    2efc:	e1a02004 	mov	r2, r4</pre>
+<pre>    2f00:	e59f10b8 	ldr	r1, [pc, #184]	; 2fc0 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x158&gt;</pre>
+<pre>    2f04:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    2f08:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    2f0c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    2f10:	ebfffeab 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    2f14:	e3e04000 	mvn	r4, #0</pre>
+<pre>    2f18:	e1a00005 	mov	r0, r5</pre>
+<pre>--</pre>
+<pre>    2f58:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    2f5c:	e58d902c 	str	r9, [sp, #44]	; 0x2c</pre>
+<pre>    2f60:	e58d7028 	str	r7, [sp, #40]	; 0x28</pre>
+<pre>    2f64:	e58da0ec 	str	sl, [sp, #236]	; 0xec</pre>
+<pre>    2f68:	ebfffe65 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    2f6c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    2f70:	0affffe8 	beq	2f18 &lt;ethswctl_mibdump_x&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    2f74:	e59f3038 	ldr	r3, [pc, #56]	; 2fb4 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    2f78:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    2f7c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    2f80:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    2f84:	1a000004 	bne	2f9c &lt;ethswctl_mibdump_x&commat;&commat;Base+0x134&gt;</pre>
+<pre>    2f88:	e1a01000 	mov	r1, r0</pre>
+<pre>    2f8c:	e59f0034 	ldr	r0, [pc, #52]	; 2fc8 &lt;ethswctl_mibdump_x&commat;&commat;Base+0x160&gt;</pre>
+<pre>    2f90:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    2f94:	ebfffeba 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    2f98:	eaffffde 	b	2f18 &lt;ethswctl_mibdump_x&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    2f9c:	e59f1028 	ldr	r1, [pc, #40]	; 2fcc &lt;ethswctl_mibdump_x&commat;&commat;Base+0x164&gt;</pre>
+<pre>    2fa0:	e1a02004 	mov	r2, r4</pre>
+<pre>    2fa4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    2fa8:	ebfffe85 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    2fac:	eaffffd9 	b	2f18 &lt;ethswctl_mibdump_x&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    2fb0:	00018168 	andeq	r8, r1, r8, ror #2</pre>
+<pre>--</pre>
+<pre>    309c:	e30819fd 	movw	r1, #35325	; 0x89fd</pre>
+<pre>    30a0:	e1a02009 	mov	r2, r9</pre>
+<pre>    30a4:	e58d4024 	str	r4, [sp, #36]	; 0x24</pre>
+<pre>    30a8:	e58d7028 	str	r7, [sp, #40]	; 0x28</pre>
+<pre>    30ac:	ebfffe14 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    30b0:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    30b4:	0afffff3 	beq	3088 &lt;ethswctl_pagedump&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    30b8:	e59f3038 	ldr	r3, [pc, #56]	; 30f8 &lt;ethswctl_pagedump&commat;&commat;Base+0x128&gt;</pre>
+<pre>    30bc:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    30c0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    30c4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    30c8:	1a000004 	bne	30e0 &lt;ethswctl_pagedump&commat;&commat;Base+0x110&gt;</pre>
+<pre>    30cc:	e1a01000 	mov	r1, r0</pre>
+<pre>    30d0:	e59f002c 	ldr	r0, [pc, #44]	; 3104 &lt;ethswctl_pagedump&commat;&commat;Base+0x134&gt;</pre>
+<pre>    30d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    30d8:	ebfffe69 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    30dc:	eaffffe9 	b	3088 &lt;ethswctl_pagedump&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    30e0:	e59f1020 	ldr	r1, [pc, #32]	; 3108 &lt;ethswctl_pagedump&commat;&commat;Base+0x138&gt;</pre>
+<pre>    30e4:	e1a02004 	mov	r2, r4</pre>
+<pre>    30e8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    30ec:	ebfffe34 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    30f0:	eaffffe4 	b	3088 &lt;ethswctl_pagedump&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    30f4:	00018008 	andeq	r8, r1, r8</pre>
+<pre>--</pre>
+<pre>    3160:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    3164:	e3a03004 	mov	r3, #4</pre>
+<pre>    3168:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    316c:	e3a03001 	mov	r3, #1</pre>
+<pre>    3170:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    3174:	ebfffde2 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3178:	e2506000 	subs	r6, r0, #0</pre>
+<pre>    317c:	0a00000c 	beq	31b4 &lt;ethswctl_enable_switching&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    3180:	e59f3040 	ldr	r3, [pc, #64]	; 31c8 &lt;ethswctl_enable_switching&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    3184:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    3188:	e5937000 	ldr	r7, [r3]</pre>
+<pre>    318c:	ebfffe12 	bl	29dc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    3190:	e5905000 	ldr	r5, [r0]</pre>
+<pre>    3194:	e1a00005 	mov	r0, r5</pre>
+<pre>    3198:	ebfffdf1 	bl	2964 &lt;strerror&commat;plt&gt;</pre>
+<pre>    319c:	e59f102c 	ldr	r1, [pc, #44]	; 31d0 &lt;ethswctl_enable_switching&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    31a0:	e1a02005 	mov	r2, r5</pre>
+<pre>    31a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    31a8:	e1a03000 	mov	r3, r0</pre>
+<pre>    31ac:	e1a00007 	mov	r0, r7</pre>
+<pre><span class="red">    31b0:	ebfffe03 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    31b4:	e1a00004 	mov	r0, r4</pre>
+<pre>    31b8:	e1a04006 	mov	r4, r6</pre>
+<pre>--</pre>
+<pre>    3238:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    323c:	ebfffdb0 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3240:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3244:	0a000008 	beq	326c &lt;ethswctl_disable_switching&commat;&commat;Base+0x98&gt;</pre>
+<pre>    3248:	e59f3044 	ldr	r3, [pc, #68]	; 3294 &lt;ethswctl_disable_switching&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    324c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3250:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3254:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3258:	1a000007 	bne	327c &lt;ethswctl_disable_switching&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    325c:	e1a01000 	mov	r1, r0</pre>
+<pre>    3260:	e59f0034 	ldr	r0, [pc, #52]	; 329c &lt;ethswctl_disable_switching&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    3264:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3268:	ebfffe05 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    326c:	e1a00004 	mov	r0, r4</pre>
+<pre>    3270:	e1a04005 	mov	r4, r5</pre>
+<pre>    3274:	ebfffe05 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3278:	eaffffe4 	b	3210 &lt;ethswctl_disable_switching&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    327c:	e59f101c 	ldr	r1, [pc, #28]	; 32a0 &lt;ethswctl_disable_switching&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    3280:	e1a02005 	mov	r2, r5</pre>
+<pre>    3284:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3288:	ebfffdcd 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    328c:	eafffff6 	b	326c &lt;ethswctl_disable_switching&commat;&commat;Base+0x98&gt;</pre>
+<pre>    3290:	00017e10 	andeq	r7, r1, r0, lsl lr</pre>
+<pre>--</pre>
+<pre>    3314:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3318:	059d3044 	ldreq	r3, [sp, #68]	; 0x44</pre>
+<pre>    331c:	05873000 	streq	r3, [r7]</pre>
+<pre>    3320:	0a000008 	beq	3348 &lt;ethswctl_get_switching_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    3324:	e59f3044 	ldr	r3, [pc, #68]	; 3370 &lt;ethswctl_get_switching_status&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    3328:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    332c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3330:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3334:	1a000007 	bne	3358 &lt;ethswctl_get_switching_status&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    3338:	e1a01000 	mov	r1, r0</pre>
+<pre>    333c:	e59f0034 	ldr	r0, [pc, #52]	; 3378 &lt;ethswctl_get_switching_status&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3340:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3344:	ebfffdce 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3348:	e1a00004 	mov	r0, r4</pre>
+<pre>    334c:	e1a04005 	mov	r4, r5</pre>
+<pre>    3350:	ebfffdce 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3354:	eaffffe2 	b	32e4 &lt;ethswctl_get_switching_status&commat;&commat;Base+0x40&gt;</pre>
+<pre>    3358:	e59f101c 	ldr	r1, [pc, #28]	; 337c &lt;ethswctl_get_switching_status&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    335c:	e1a02005 	mov	r2, r5</pre>
+<pre>    3360:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3364:	ebfffd96 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3368:	eafffff6 	b	3348 &lt;ethswctl_get_switching_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    336c:	00017d3c 	andeq	r7, r1, ip, lsr sp</pre>
+<pre>--</pre>
+<pre>    33dc:	13a05001 	movne	r5, #1</pre>
+<pre>    33e0:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    33e4:	e58d503c 	str	r5, [sp, #60]	; 0x3c</pre>
+<pre>    33e8:	e3a03057 	mov	r3, #87	; 0x57</pre>
+<pre>    33ec:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    33f0:	ebfffd43 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    33f4:	e2507000 	subs	r7, r0, #0</pre>
+<pre>    33f8:	0a00000c 	beq	3430 &lt;ethswctl_set_switch_flag&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    33fc:	e59f3040 	ldr	r3, [pc, #64]	; 3444 &lt;ethswctl_set_switch_flag&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    3400:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3404:	e5936000 	ldr	r6, [r3]</pre>
+<pre>    3408:	ebfffd73 	bl	29dc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    340c:	e5905000 	ldr	r5, [r0]</pre>
+<pre>    3410:	e1a00005 	mov	r0, r5</pre>
+<pre>    3414:	ebfffd52 	bl	2964 &lt;strerror&commat;plt&gt;</pre>
+<pre>    3418:	e59f102c 	ldr	r1, [pc, #44]	; 344c &lt;ethswctl_set_switch_flag&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    341c:	e1a02005 	mov	r2, r5</pre>
+<pre>    3420:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3424:	e1a03000 	mov	r3, r0</pre>
+<pre>    3428:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    342c:	ebfffd64 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3430:	e1a00004 	mov	r0, r4</pre>
+<pre>    3434:	e1a04007 	mov	r4, r7</pre>
+<pre>--</pre>
+<pre>    34d4:	e58d705c 	str	r7, [sp, #92]	; 0x5c</pre>
+<pre>    34d8:	ebfffd09 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    34dc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    34e0:	0a000008 	beq	3508 &lt;bcm_switch_control_setX&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    34e4:	e59f3044 	ldr	r3, [pc, #68]	; 3530 &lt;bcm_switch_control_setX&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    34e8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    34ec:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    34f0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    34f4:	1a000007 	bne	3518 &lt;bcm_switch_control_setX&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    34f8:	e1a01000 	mov	r1, r0</pre>
+<pre>    34fc:	e59f0034 	ldr	r0, [pc, #52]	; 3538 &lt;bcm_switch_control_setX&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    3500:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3504:	ebfffd5e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3508:	e1a00004 	mov	r0, r4</pre>
+<pre>    350c:	e1a04005 	mov	r4, r5</pre>
+<pre>    3510:	ebfffd5e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3514:	eaffffe0 	b	349c &lt;bcm_switch_control_setX&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3518:	e59f101c 	ldr	r1, [pc, #28]	; 353c &lt;bcm_switch_control_setX&commat;&commat;Base+0xec&gt;</pre>
+<pre>    351c:	e1a02005 	mov	r2, r5</pre>
+<pre>    3520:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3524:	ebfffd26 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3528:	eafffff6 	b	3508 &lt;bcm_switch_control_setX&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    352c:	00017b80 	andeq	r7, r1, r0, lsl #23</pre>
+<pre>--</pre>
+<pre>    35dc:	e58d3028 	str	r3, [sp, #40]	; 0x28</pre>
+<pre>    35e0:	ebfffcc7 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    35e4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    35e8:	0a000011 	beq	3634 &lt;ethswctl_quemap_call&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    35ec:	e59f3058 	ldr	r3, [pc, #88]	; 364c &lt;ethswctl_quemap_call&commat;&commat;Base+0x100&gt;</pre>
+<pre>    35f0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    35f4:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    35f8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    35fc:	1a000007 	bne	3620 &lt;ethswctl_quemap_call&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3600:	e1a01000 	mov	r1, r0</pre>
+<pre>    3604:	e59f0048 	ldr	r0, [pc, #72]	; 3654 &lt;ethswctl_quemap_call&commat;&commat;Base+0x108&gt;</pre>
+<pre>    3608:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    360c:	ebfffd1c 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3610:	e1a00004 	mov	r0, r4</pre>
+<pre>    3614:	e1a04005 	mov	r4, r5</pre>
+<pre>    3618:	ebfffd1c 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    361c:	eaffffdc 	b	3594 &lt;ethswctl_quemap_call&commat;&commat;Base+0x48&gt;</pre>
+<pre>    3620:	e59f1030 	ldr	r1, [pc, #48]	; 3658 &lt;ethswctl_quemap_call&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    3624:	e1a02005 	mov	r2, r5</pre>
+<pre>    3628:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    362c:	ebfffce4 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3630:	eafffff6 	b	3610 &lt;ethswctl_quemap_call&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    3634:	e59d305c 	ldr	r3, [sp, #92]	; 0x5c</pre>
+<pre>--</pre>
+<pre>    36e8:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    36ec:	059d3208 	ldreq	r3, [sp, #520]	; 0x208</pre>
+<pre>    36f0:	059d205c 	ldreq	r2, [sp, #92]	; 0x5c</pre>
+<pre>    36f4:	05832000 	streq	r2, [r3]</pre>
+<pre>    36f8:	0a000008 	beq	3720 &lt;ethswctl_quemon_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    36fc:	e59f3040 	ldr	r3, [pc, #64]	; 3744 &lt;ethswctl_quemon_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    3700:	e372005f 	cmn	r2, #95	; 0x5f</pre>
+<pre>    3704:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    3708:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    370c:	1a000007 	bne	3730 &lt;ethswctl_quemon_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3710:	e1a01000 	mov	r1, r0</pre>
+<pre>    3714:	e59f0030 	ldr	r0, [pc, #48]	; 374c &lt;ethswctl_quemon_get&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    3718:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    371c:	ebfffcd8 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3720:	e1a00004 	mov	r0, r4</pre>
+<pre>    3724:	ebfffcd9 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3728:	e59d4058 	ldr	r4, [sp, #88]	; 0x58</pre>
+<pre>    372c:	eaffffdd 	b	36a8 &lt;ethswctl_quemon_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3730:	e59f1018 	ldr	r1, [pc, #24]	; 3750 &lt;ethswctl_quemon_get&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    3734:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3738:	ebfffca1 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    373c:	eafffff7 	b	3720 &lt;ethswctl_quemon_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    3740:	00017974 	andeq	r7, r1, r4, ror r9</pre>
+<pre>--</pre>
+<pre>    37d4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    37d8:	059d305c 	ldreq	r3, [sp, #92]	; 0x5c</pre>
+<pre>    37dc:	05873000 	streq	r3, [r7]</pre>
+<pre>    37e0:	0a000008 	beq	3808 &lt;bcm_switch_control_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    37e4:	e59f3044 	ldr	r3, [pc, #68]	; 3830 &lt;bcm_switch_control_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    37e8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    37ec:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    37f0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    37f4:	1a000007 	bne	3818 &lt;bcm_switch_control_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    37f8:	e1a01000 	mov	r1, r0</pre>
+<pre>    37fc:	e59f0034 	ldr	r0, [pc, #52]	; 3838 &lt;bcm_switch_control_get&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    3800:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3804:	ebfffc9e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3808:	e1a00004 	mov	r0, r4</pre>
+<pre>    380c:	e1a04005 	mov	r4, r5</pre>
+<pre>    3810:	ebfffc9e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3814:	eaffffe0 	b	379c &lt;bcm_switch_control_get&commat;&commat;Base+0x48&gt;</pre>
+<pre>    3818:	e59f101c 	ldr	r1, [pc, #28]	; 383c &lt;bcm_switch_control_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    381c:	e1a02005 	mov	r2, r5</pre>
+<pre>    3820:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3824:	ebfffc66 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3828:	eafffff6 	b	3808 &lt;bcm_switch_control_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    382c:	00017880 	andeq	r7, r1, r0, lsl #17</pre>
+<pre>--</pre>
+<pre>    38cc:	e58d7028 	str	r7, [sp, #40]	; 0x28</pre>
+<pre>    38d0:	ebfffc0b 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    38d4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    38d8:	0a000008 	beq	3900 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    38dc:	e59f3044 	ldr	r3, [pc, #68]	; 3928 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    38e0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    38e4:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    38e8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    38ec:	1a000007 	bne	3910 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    38f0:	e1a01000 	mov	r1, r0</pre>
+<pre>    38f4:	e59f0034 	ldr	r0, [pc, #52]	; 3930 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    38f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    38fc:	ebfffc60 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3900:	e1a00004 	mov	r0, r4</pre>
+<pre>    3904:	e1a04005 	mov	r4, r5</pre>
+<pre>    3908:	ebfffc60 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    390c:	eaffffde 	b	388c &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3910:	e59f101c 	ldr	r1, [pc, #28]	; 3934 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    3914:	e1a02005 	mov	r2, r5</pre>
+<pre>    3918:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    391c:	ebfffc28 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3920:	eafffff6 	b	3900 &lt;bcm_switch_control_priority_setX&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    3924:	00017790 	muleq	r1, r0, r7</pre>
+<pre>--</pre>
+<pre>    39e8:	059d3208 	ldreq	r3, [sp, #520]	; 0x208</pre>
+<pre>    39ec:	059d2058 	ldreq	r2, [sp, #88]	; 0x58</pre>
+<pre>    39f0:	05832000 	streq	r2, [r3]</pre>
+<pre>    39f4:	0a000008 	beq	3a1c &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    39f8:	e59f3044 	ldr	r3, [pc, #68]	; 3a44 &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xec&gt;</pre>
+<pre>    39fc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3a00:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    3a04:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3a08:	1a000007 	bne	3a2c &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3a0c:	e1a01000 	mov	r1, r0</pre>
+<pre>    3a10:	e59f0034 	ldr	r0, [pc, #52]	; 3a4c &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    3a14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3a18:	ebfffc19 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3a1c:	e1a00004 	mov	r0, r4</pre>
+<pre>    3a20:	e1a04005 	mov	r4, r5</pre>
+<pre>    3a24:	ebfffc19 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3a28:	eaffffdd 	b	39a4 &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3a2c:	e59f101c 	ldr	r1, [pc, #28]	; 3a50 &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    3a30:	e1a02005 	mov	r2, r5</pre>
+<pre>    3a34:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3a38:	ebfffbe1 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3a3c:	eafffff6 	b	3a1c &lt;bcm_switch_control_priority_getX&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    3a40:	00017678 	andeq	r7, r1, r8, ror r6</pre>
+<pre>--</pre>
+<pre>    3af8:	e58d7028 	str	r7, [sp, #40]	; 0x28</pre>
+<pre>    3afc:	ebfffb80 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3b00:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3b04:	0a000008 	beq	3b2c &lt;bcm_acb_cfg_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3b08:	e59f3044 	ldr	r3, [pc, #68]	; 3b54 &lt;bcm_acb_cfg_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    3b0c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3b10:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3b14:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3b18:	1a000007 	bne	3b3c &lt;bcm_acb_cfg_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    3b1c:	e1a01000 	mov	r1, r0</pre>
+<pre>    3b20:	e59f0034 	ldr	r0, [pc, #52]	; 3b5c &lt;bcm_acb_cfg_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    3b24:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3b28:	ebfffbd5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3b2c:	e1a00004 	mov	r0, r4</pre>
+<pre>    3b30:	e1a04005 	mov	r4, r5</pre>
+<pre>    3b34:	ebfffbd5 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3b38:	eaffffe0 	b	3ac0 &lt;bcm_acb_cfg_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3b3c:	e59f101c 	ldr	r1, [pc, #28]	; 3b60 &lt;bcm_acb_cfg_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    3b40:	e1a02005 	mov	r2, r5</pre>
+<pre>    3b44:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3b48:	ebfffb9d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3b4c:	eafffff6 	b	3b2c &lt;bcm_acb_cfg_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3b50:	0001755c 	andeq	r7, r1, ip, asr r5</pre>
+<pre>--</pre>
+<pre>    3be8:	e58d70ec 	str	r7, [sp, #236]	; 0xec</pre>
+<pre>    3bec:	ebfffb44 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3bf0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3bf4:	0a000008 	beq	3c1c &lt;bcm_acb_cfg_get&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3bf8:	e59f3044 	ldr	r3, [pc, #68]	; 3c44 &lt;bcm_acb_cfg_get&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    3bfc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3c00:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3c04:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3c08:	1a000007 	bne	3c2c &lt;bcm_acb_cfg_get&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    3c0c:	e1a01000 	mov	r1, r0</pre>
+<pre>    3c10:	e59f0034 	ldr	r0, [pc, #52]	; 3c4c &lt;bcm_acb_cfg_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    3c14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3c18:	ebfffb99 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3c1c:	e1a00004 	mov	r0, r4</pre>
+<pre>    3c20:	e1a04005 	mov	r4, r5</pre>
+<pre>    3c24:	ebfffb99 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3c28:	eaffffe0 	b	3bb0 &lt;bcm_acb_cfg_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3c2c:	e59f101c 	ldr	r1, [pc, #28]	; 3c50 &lt;bcm_acb_cfg_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    3c30:	e1a02005 	mov	r2, r5</pre>
+<pre>    3c34:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3c38:	ebfffb61 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3c3c:	eafffff6 	b	3c1c &lt;bcm_acb_cfg_get&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3c40:	0001746c 	andeq	r7, r1, ip, ror #8</pre>
+<pre>--</pre>
+<pre>    3cb0:	e28d3020 	add	r3, sp, #32</pre>
+<pre>    3cb4:	e58d5028 	str	r5, [sp, #40]	; 0x28</pre>
+<pre>    3cb8:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    3cbc:	e3a03013 	mov	r3, #19</pre>
+<pre>    3cc0:	e58d902c 	str	r9, [sp, #44]	; 0x2c</pre>
+<pre>    3cc4:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    3cc8:	e3a03003 	mov	r3, #3</pre>
+<pre>    3ccc:	e58d705c 	str	r7, [sp, #92]	; 0x5c</pre>
+<pre>    3cd0:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    3cd4:	ebfffb0a 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3cd8:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3cdc:	0a000008 	beq	3d04 &lt;bcm_port_pause_capability_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    3ce0:	e59f3030 	ldr	r3, [pc, #48]	; 3d18 &lt;bcm_port_pause_capability_set&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    3ce4:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3ce8:	e5936000 	ldr	r6, [r3]</pre>
+<pre>    3cec:	ebfffb3a 	bl	29dc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    3cf0:	e59f1028 	ldr	r1, [pc, #40]	; 3d20 &lt;bcm_port_pause_capability_set&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    3cf4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3cf8:	e5902000 	ldr	r2, [r0]</pre>
+<pre>    3cfc:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    3d00:	ebfffb2f 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3d04:	e1a00004 	mov	r0, r4</pre>
+<pre>    3d08:	e1a04005 	mov	r4, r5</pre>
+<pre>--</pre>
+<pre>    3da0:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    3da4:	ebfffad6 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3da8:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3dac:	0a000011 	beq	3df8 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3db0:	e59f3074 	ldr	r3, [pc, #116]	; 3e2c &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0x108&gt;</pre>
+<pre>    3db4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3db8:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    3dbc:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3dc0:	1a000007 	bne	3de4 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    3dc4:	e1a01000 	mov	r1, r0</pre>
+<pre>    3dc8:	e59f0064 	ldr	r0, [pc, #100]	; 3e34 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0x110&gt;</pre>
+<pre>    3dcc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3dd0:	ebfffb2b 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3dd4:	e1a00006 	mov	r0, r6</pre>
+<pre>    3dd8:	e1a06005 	mov	r6, r5</pre>
+<pre>    3ddc:	ebfffb2b 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3de0:	eaffffe2 	b	3d70 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3de4:	e59f104c 	ldr	r1, [pc, #76]	; 3e38 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0x114&gt;</pre>
+<pre>    3de8:	e1a02005 	mov	r2, r5</pre>
+<pre>    3dec:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3df0:	ebfffaf3 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3df4:	eafffff6 	b	3dd4 &lt;bcm_port_pause_capability_get2&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    3df8:	e59d3040 	ldr	r3, [sp, #64]	; 0x40</pre>
+<pre>--</pre>
+<pre>    3ec0:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    3ec4:	ebfffa8e 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3ec8:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3ecc:	0a000008 	beq	3ef4 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3ed0:	e59f3044 	ldr	r3, [pc, #68]	; 3f1c &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    3ed4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3ed8:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    3edc:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3ee0:	1a000007 	bne	3f04 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    3ee4:	e1a01000 	mov	r1, r0</pre>
+<pre>    3ee8:	e59f0034 	ldr	r0, [pc, #52]	; 3f24 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    3eec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3ef0:	ebfffae3 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3ef4:	e1a00004 	mov	r0, r4</pre>
+<pre>    3ef8:	e1a04005 	mov	r4, r5</pre>
+<pre>    3efc:	ebfffae3 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3f00:	eaffffe0 	b	3e88 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3f04:	e59f101c 	ldr	r1, [pc, #28]	; 3f28 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    3f08:	e1a02005 	mov	r2, r5</pre>
+<pre>    3f0c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3f10:	ebfffaab 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3f14:	eafffff6 	b	3ef4 &lt;bcm_port_rate_ingress_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    3f18:	00017194 	muleq	r1, r4, r1</pre>
+<pre>--</pre>
+<pre>    3fa8:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    3fac:	ebfffa54 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    3fb0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3fb4:	0a000011 	beq	4000 &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3fb8:	e59f3058 	ldr	r3, [pc, #88]	; 4018 &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    3fbc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    3fc0:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    3fc4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    3fc8:	1a000007 	bne	3fec &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    3fcc:	e1a01000 	mov	r1, r0</pre>
+<pre>    3fd0:	e59f0048 	ldr	r0, [pc, #72]	; 4020 &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    3fd4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3fd8:	ebfffaa9 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    3fdc:	e1a00004 	mov	r0, r4</pre>
+<pre>    3fe0:	e1a04005 	mov	r4, r5</pre>
+<pre>    3fe4:	ebfffaa9 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    3fe8:	eaffffe2 	b	3f78 &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    3fec:	e59f1030 	ldr	r1, [pc, #48]	; 4024 &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    3ff0:	e1a02005 	mov	r2, r5</pre>
+<pre>    3ff4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    3ff8:	ebfffa71 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    3ffc:	eafffff6 	b	3fdc &lt;bcm_port_rate_ingress_get&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4000:	e59d30f8 	ldr	r3, [sp, #248]	; 0xf8</pre>
+<pre>--</pre>
+<pre>    40b4:	e58d305c 	str	r3, [sp, #92]	; 0x5c</pre>
+<pre>    40b8:	ebfffa11 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    40bc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    40c0:	0a000008 	beq	40e8 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    40c4:	e59f3044 	ldr	r3, [pc, #68]	; 4110 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    40c8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    40cc:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    40d0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    40d4:	1a000007 	bne	40f8 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    40d8:	e1a01000 	mov	r1, r0</pre>
+<pre>    40dc:	e59f0034 	ldr	r0, [pc, #52]	; 4118 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    40e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    40e4:	ebfffa66 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    40e8:	e1a00004 	mov	r0, r4</pre>
+<pre>    40ec:	e1a04005 	mov	r4, r5</pre>
+<pre>    40f0:	ebfffa66 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    40f4:	eaffffde 	b	4074 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    40f8:	e59f101c 	ldr	r1, [pc, #28]	; 411c &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    40fc:	e1a02005 	mov	r2, r5</pre>
+<pre>    4100:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4104:	ebfffa2e 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4108:	eafffff6 	b	40e8 &lt;bcm_port_shaper_cfg&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    410c:	00016fa8 	andeq	r6, r1, r8, lsr #31</pre>
+<pre>--</pre>
+<pre>    41b4:	e58d3040 	str	r3, [sp, #64]	; 0x40</pre>
+<pre>    41b8:	ebfff9d1 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    41bc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    41c0:	0a000008 	beq	41e8 &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    41c4:	e59f3044 	ldr	r3, [pc, #68]	; 4210 &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    41c8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    41cc:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    41d0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    41d4:	1a000007 	bne	41f8 &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    41d8:	e1a01000 	mov	r1, r0</pre>
+<pre>    41dc:	e59f0034 	ldr	r0, [pc, #52]	; 4218 &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    41e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    41e4:	ebfffa26 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    41e8:	e1a00004 	mov	r0, r4</pre>
+<pre>    41ec:	e1a04005 	mov	r4, r5</pre>
+<pre>    41f0:	ebfffa26 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    41f4:	eaffffdc 	b	416c &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    41f8:	e59f101c 	ldr	r1, [pc, #28]	; 421c &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    41fc:	e1a02005 	mov	r2, r5</pre>
+<pre>    4200:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4204:	ebfff9ee 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4208:	eafffff6 	b	41e8 &lt;bcm_port_rate_egress_set_X&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    420c:	00016eb0 			; &lt;UNDEFINED&gt; instruction: 0x00016eb0</pre>
+<pre>--</pre>
+<pre>    42e0:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>    42e4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    42e8:	1a00000d 	bne	4324 &lt;bcm_port_rate_egress_get_X&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    42ec:	e1a01000 	mov	r1, r0</pre>
+<pre>    42f0:	e59f004c 	ldr	r0, [pc, #76]	; 4344 &lt;bcm_port_rate_egress_get_X&commat;&commat;Base+0x108&gt;</pre>
+<pre>    42f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    42f8:	ebfff9e1 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    42fc:	e59d320c 	ldr	r3, [sp, #524]	; 0x20c</pre>
+<pre>    4300:	e1a00004 	mov	r0, r4</pre>
+<pre>    4304:	e1a04005 	mov	r4, r5</pre>
+<pre>    4308:	e3530000 	cmp	r3, #0</pre>
+<pre>    430c:	059d30f8 	ldreq	r3, [sp, #248]	; 0xf8</pre>
+<pre>    4310:	05873000 	streq	r3, [r7]</pre>
+<pre>    4314:	059d30fc 	ldreq	r3, [sp, #252]	; 0xfc</pre>
+<pre>    4318:	05863000 	streq	r3, [r6]</pre>
+<pre>    431c:	ebfff9db 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4320:	eaffffd8 	b	4288 &lt;bcm_port_rate_egress_get_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    4324:	e59f101c 	ldr	r1, [pc, #28]	; 4348 &lt;bcm_port_rate_egress_get_X&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    4328:	e1a02005 	mov	r2, r5</pre>
+<pre>    432c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4330:	ebfff9a3 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4334:	eafffff0 	b	42fc &lt;bcm_port_rate_egress_get_X&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    4338:	00016d94 	muleq	r1, r4, sp</pre>
+<pre>--</pre>
+<pre>    43e4:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    43e8:	ebfff945 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    43ec:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    43f0:	0a000008 	beq	4418 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    43f4:	e59f3044 	ldr	r3, [pc, #68]	; 4440 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    43f8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    43fc:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    4400:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4404:	1a000007 	bne	4428 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    4408:	e1a01000 	mov	r1, r0</pre>
+<pre>    440c:	e59f0034 	ldr	r0, [pc, #52]	; 4448 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    4410:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4414:	ebfff99a 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4418:	e1a00004 	mov	r0, r4</pre>
+<pre>    441c:	e1a04005 	mov	r4, r5</pre>
+<pre>    4420:	ebfff99a 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4424:	eaffffe1 	b	43b0 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0x48&gt;</pre>
+<pre>    4428:	e59f101c 	ldr	r1, [pc, #28]	; 444c &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    442c:	e1a02005 	mov	r2, r5</pre>
+<pre>    4430:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4434:	ebfff962 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4438:	eafffff6 	b	4418 &lt;bcm_port_learning_ind_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    443c:	00016c6c 	andeq	r6, r1, ip, ror #24</pre>
+<pre>--</pre>
+<pre>    44c8:	e58d3028 	str	r3, [sp, #40]	; 0x28</pre>
+<pre>    44cc:	ebfff90c 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    44d0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    44d4:	0a000008 	beq	44fc &lt;bcm_mtu_set&commat;&commat;Base+0xac&gt;</pre>
+<pre>    44d8:	e59f3044 	ldr	r3, [pc, #68]	; 4524 &lt;bcm_mtu_set&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    44dc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    44e0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    44e4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    44e8:	1a000007 	bne	450c &lt;bcm_mtu_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    44ec:	e1a01000 	mov	r1, r0</pre>
+<pre>    44f0:	e59f0034 	ldr	r0, [pc, #52]	; 452c &lt;bcm_mtu_set&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    44f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    44f8:	ebfff961 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    44fc:	e1a00004 	mov	r0, r4</pre>
+<pre>    4500:	e1a04005 	mov	r4, r5</pre>
+<pre>    4504:	ebfff961 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4508:	eaffffe0 	b	4490 &lt;bcm_mtu_set&commat;&commat;Base+0x40&gt;</pre>
+<pre>    450c:	e59f101c 	ldr	r1, [pc, #28]	; 4530 &lt;bcm_mtu_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    4510:	e1a02005 	mov	r2, r5</pre>
+<pre>    4514:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4518:	ebfff929 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    451c:	eafffff6 	b	44fc &lt;bcm_mtu_set&commat;&commat;Base+0xac&gt;</pre>
+<pre>    4520:	00016b90 	muleq	r1, r0, fp</pre>
+<pre>--</pre>
+<pre>    45b0:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    45b4:	ebfff8d2 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    45b8:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    45bc:	0a000008 	beq	45e4 &lt;bcm_port_transparent_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    45c0:	e59f3044 	ldr	r3, [pc, #68]	; 460c &lt;bcm_port_transparent_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    45c4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    45c8:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    45cc:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    45d0:	1a000007 	bne	45f4 &lt;bcm_port_transparent_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    45d4:	e1a01000 	mov	r1, r0</pre>
+<pre>    45d8:	e59f0034 	ldr	r0, [pc, #52]	; 4614 &lt;bcm_port_transparent_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    45dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    45e0:	ebfff927 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    45e4:	e1a00004 	mov	r0, r4</pre>
+<pre>    45e8:	e1a04005 	mov	r4, r5</pre>
+<pre>    45ec:	ebfff927 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    45f0:	eaffffe1 	b	457c &lt;bcm_port_transparent_set&commat;&commat;Base+0x48&gt;</pre>
+<pre>    45f4:	e59f101c 	ldr	r1, [pc, #28]	; 4618 &lt;bcm_port_transparent_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    45f8:	e1a02005 	mov	r2, r5</pre>
+<pre>    45fc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4600:	ebfff8ef 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4604:	eafffff6 	b	45e4 &lt;bcm_port_transparent_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4608:	00016aa0 	andeq	r6, r1, r0, lsr #21</pre>
+<pre>--</pre>
+<pre>    46a0:	e5cd7040 	strb	r7, [sp, #64]	; 0x40</pre>
+<pre>    46a4:	ebfff896 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    46a8:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    46ac:	0a000008 	beq	46d4 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    46b0:	e59f3044 	ldr	r3, [pc, #68]	; 46fc &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    46b4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    46b8:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    46bc:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    46c0:	1a000007 	bne	46e4 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    46c4:	e1a01000 	mov	r1, r0</pre>
+<pre>    46c8:	e59f0034 	ldr	r0, [pc, #52]	; 4704 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    46cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    46d0:	ebfff8eb 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    46d4:	e1a00004 	mov	r0, r4</pre>
+<pre>    46d8:	e1a04005 	mov	r4, r5</pre>
+<pre>    46dc:	ebfff8eb 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    46e0:	eaffffe0 	b	4668 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    46e4:	e59f101c 	ldr	r1, [pc, #28]	; 4708 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    46e8:	e1a02005 	mov	r2, r5</pre>
+<pre>    46ec:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    46f0:	ebfff8b3 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    46f4:	eafffff6 	b	46d4 &lt;bcm_port_vlan_isolation_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    46f8:	000169b4 			; &lt;UNDEFINED&gt; instruction: 0x000169b4</pre>
+<pre>--</pre>
+<pre>    4790:	e58d3040 	str	r3, [sp, #64]	; 0x40</pre>
+<pre>    4794:	ebfff85a 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    4798:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    479c:	0a000008 	beq	47c4 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    47a0:	e59f3044 	ldr	r3, [pc, #68]	; 47ec &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    47a4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    47a8:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    47ac:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    47b0:	1a000007 	bne	47d4 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    47b4:	e1a01000 	mov	r1, r0</pre>
+<pre>    47b8:	e59f0034 	ldr	r0, [pc, #52]	; 47f4 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    47bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    47c0:	ebfff8af 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    47c4:	e1a00004 	mov	r0, r4</pre>
+<pre>    47c8:	e1a04005 	mov	r4, r5</pre>
+<pre>    47cc:	ebfff8af 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    47d0:	eaffffdf 	b	4754 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0x48&gt;</pre>
+<pre>    47d4:	e59f101c 	ldr	r1, [pc, #28]	; 47f8 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    47d8:	e1a02005 	mov	r2, r5</pre>
+<pre>    47dc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    47e0:	ebfff877 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    47e4:	eafffff6 	b	47c4 &lt;bcm_port_bc_rate_limit_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    47e8:	000168c8 	andeq	r6, r1, r8, asr #17</pre>
+<pre>--</pre>
+<pre>    487c:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    4880:	059d3058 	ldreq	r3, [sp, #88]	; 0x58</pre>
+<pre>    4884:	05873000 	streq	r3, [r7]</pre>
+<pre>    4888:	0a000008 	beq	48b0 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    488c:	e59f3044 	ldr	r3, [pc, #68]	; 48d8 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    4890:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    4894:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    4898:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    489c:	1a000007 	bne	48c0 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    48a0:	e1a01000 	mov	r1, r0</pre>
+<pre>    48a4:	e59f0034 	ldr	r0, [pc, #52]	; 48e0 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    48a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    48ac:	ebfff874 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    48b0:	e1a00004 	mov	r0, r4</pre>
+<pre>    48b4:	e1a04005 	mov	r4, r5</pre>
+<pre>    48b8:	ebfff874 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    48bc:	eaffffe1 	b	4848 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    48c0:	e59f101c 	ldr	r1, [pc, #28]	; 48e4 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    48c4:	e1a02005 	mov	r2, r5</pre>
+<pre>    48c8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    48cc:	ebfff83c 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    48d0:	eafffff6 	b	48b0 &lt;bcm_enet_driver_use_default_txq_status_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    48d4:	000167d4 	ldrdeq	r6, [r1], -r4</pre>
+<pre>--</pre>
+<pre>    4964:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    4968:	ebfff7e5 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    496c:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    4970:	0a000008 	beq	4998 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4974:	e59f3044 	ldr	r3, [pc, #68]	; 49c0 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    4978:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    497c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    4980:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4984:	1a000007 	bne	49a8 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    4988:	e1a01000 	mov	r1, r0</pre>
+<pre>    498c:	e59f0034 	ldr	r0, [pc, #52]	; 49c8 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    4990:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4994:	ebfff83a 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4998:	e1a00004 	mov	r0, r4</pre>
+<pre>    499c:	e1a04005 	mov	r4, r5</pre>
+<pre>    49a0:	ebfff83a 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    49a4:	eaffffe2 	b	4934 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    49a8:	e59f101c 	ldr	r1, [pc, #28]	; 49cc &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    49ac:	e1a02005 	mov	r2, r5</pre>
+<pre>    49b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    49b4:	ebfff802 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    49b8:	eafffff6 	b	4998 &lt;bcm_enet_driver_use_default_txq_status_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    49bc:	000166e8 	andeq	r6, r1, r8, ror #13</pre>
+<pre>--</pre>
+<pre>    4a50:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    4a54:	059d30ec 	ldreq	r3, [sp, #236]	; 0xec</pre>
+<pre>    4a58:	05873000 	streq	r3, [r7]</pre>
+<pre>    4a5c:	0a000008 	beq	4a84 &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    4a60:	e59f3044 	ldr	r3, [pc, #68]	; 4aac &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    4a64:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    4a68:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    4a6c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4a70:	1a000007 	bne	4a94 &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    4a74:	e1a01000 	mov	r1, r0</pre>
+<pre>    4a78:	e59f0034 	ldr	r0, [pc, #52]	; 4ab4 &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    4a7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4a80:	ebfff7ff 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4a84:	e1a00004 	mov	r0, r4</pre>
+<pre>    4a88:	e1a04005 	mov	r4, r5</pre>
+<pre>    4a8c:	ebfff7ff 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4a90:	eaffffe1 	b	4a1c &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    4a94:	e59f101c 	ldr	r1, [pc, #28]	; 4ab8 &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    4a98:	e1a02005 	mov	r2, r5</pre>
+<pre>    4a9c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4aa0:	ebfff7c7 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4aa4:	eafffff6 	b	4a84 &lt;bcm_enet_driver_default_txq_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    4aa8:	00016600 	andeq	r6, r1, r0, lsl #12</pre>
+<pre>--</pre>
+<pre>    4b38:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    4b3c:	ebfff770 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    4b40:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    4b44:	0a000008 	beq	4b6c &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4b48:	e59f3044 	ldr	r3, [pc, #68]	; 4b94 &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    4b4c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    4b50:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    4b54:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4b58:	1a000007 	bne	4b7c &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    4b5c:	e1a01000 	mov	r1, r0</pre>
+<pre>    4b60:	e59f0034 	ldr	r0, [pc, #52]	; 4b9c &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    4b64:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4b68:	ebfff7c5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4b6c:	e1a00004 	mov	r0, r4</pre>
+<pre>    4b70:	e1a04005 	mov	r4, r5</pre>
+<pre>    4b74:	ebfff7c5 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4b78:	eaffffe2 	b	4b08 &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    4b7c:	e59f101c 	ldr	r1, [pc, #28]	; 4ba0 &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    4b80:	e1a02005 	mov	r2, r5</pre>
+<pre>    4b84:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4b88:	ebfff78d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4b8c:	eafffff6 	b	4b6c &lt;bcm_enet_driver_default_txq_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4b90:	00016514 	andeq	r6, r1, r4, lsl r5</pre>
+<pre>--</pre>
+<pre>    4e38:	e59f3054 	ldr	r3, [pc, #84]	; 4e94 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    4e3c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    4e40:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    4e44:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4e48:	1a00000b 	bne	4e7c &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    4e4c:	e1a01000 	mov	r1, r0</pre>
+<pre>    4e50:	e59f0044 	ldr	r0, [pc, #68]	; 4e9c &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0x100&gt;</pre>
+<pre>    4e54:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4e58:	ebfff709 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4e5c:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>    4e60:	e1a00004 	mov	r0, r4</pre>
+<pre>    4e64:	e1a04005 	mov	r4, r5</pre>
+<pre>    4e68:	e5873000 	str	r3, [r7]</pre>
+<pre>    4e6c:	e59d3128 	ldr	r3, [sp, #296]	; 0x128</pre>
+<pre>    4e70:	e5863000 	str	r3, [r6]</pre>
+<pre>    4e74:	ebfff705 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4e78:	eaffffd9 	b	4de4 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0x48&gt;</pre>
+<pre>    4e7c:	e59f101c 	ldr	r1, [pc, #28]	; 4ea0 &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0x104&gt;</pre>
+<pre>    4e80:	e1a02005 	mov	r2, r5</pre>
+<pre>    4e84:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4e88:	ebfff6cd 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4e8c:	eafffff2 	b	4e5c &lt;bcm_enet_map_ifname_to_unit_portmap&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    4e90:	00016238 	andeq	r6, r1, r8, lsr r2</pre>
+<pre>--</pre>
+<pre>    4f60:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    4f64:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    4f68:	1a00000d 	bne	4fa4 &lt;bcm_enet_map_oam_idx_to_unit_port&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    4f6c:	e1a01000 	mov	r1, r0</pre>
+<pre>    4f70:	e59f0048 	ldr	r0, [pc, #72]	; 4fc0 &lt;bcm_enet_map_oam_idx_to_unit_port&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    4f74:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4f78:	ebfff6c1 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    4f7c:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>    4f80:	e1a00004 	mov	r0, r4</pre>
+<pre>    4f84:	e1a04005 	mov	r4, r5</pre>
+<pre>    4f88:	e5873000 	str	r3, [r7]</pre>
+<pre>    4f8c:	e59d302c 	ldr	r3, [sp, #44]	; 0x2c</pre>
+<pre>    4f90:	e5863000 	str	r3, [r6]</pre>
+<pre>    4f94:	ebfff6bd 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    4f98:	e1a00004 	mov	r0, r4</pre>
+<pre>    4f9c:	e28ddf7b 	add	sp, sp, #492	; 0x1ec</pre>
+<pre>    4fa0:	e8bd86f0 	pop	{r4, r5, r6, r7, r9, sl, pc}</pre>
+<pre>    4fa4:	e59f1018 	ldr	r1, [pc, #24]	; 4fc4 &lt;bcm_enet_map_oam_idx_to_unit_port&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    4fa8:	e1a02005 	mov	r2, r5</pre>
+<pre>    4fac:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    4fb0:	ebfff683 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4fb4:	eafffff0 	b	4f7c &lt;bcm_enet_map_oam_idx_to_unit_port&commat;&commat;Base+0x88&gt;</pre>
+<pre>    4fb8:	000160e0 	andeq	r6, r1, r0, ror #1</pre>
+<pre>--</pre>
+<pre>    5038:	e3a03002 	mov	r3, #2</pre>
+<pre>    503c:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    5040:	e58d3040 	str	r3, [sp, #64]	; 0x40</pre>
+<pre>    5044:	ebfff62e 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5048:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    504c:	0a00000f 	beq	5090 &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    5050:	e59f304c 	ldr	r3, [pc, #76]	; 50a4 &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    5054:	e372005f 	cmn	r2, #95	; 0x5f</pre>
+<pre>    5058:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    505c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5060:	1a000006 	bne	5080 &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5064:	e1a01000 	mov	r1, r0</pre>
+<pre>    5068:	e59f003c 	ldr	r0, [pc, #60]	; 50ac &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    506c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5070:	ebfff683 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5074:	e1a00005 	mov	r0, r5</pre>
+<pre>    5078:	ebfff684 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    507c:	eaffffe2 	b	500c &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0x44&gt;</pre>
+<pre>    5080:	e59f1028 	ldr	r1, [pc, #40]	; 50b0 &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5084:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5088:	ebfff64d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    508c:	eafffff8 	b	5074 &lt;bcm_enet_map_unit_port_to_oam_idx&commat;&commat;Base+0xac&gt;</pre>
+<pre>    5090:	e1a00005 	mov	r0, r5</pre>
+<pre>--</pre>
+<pre>    5104:	ebfff5fe 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5108:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    510c:	0a000008 	beq	5134 &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0x80&gt;</pre>
+<pre>    5110:	e59f3048 	ldr	r3, [pc, #72]	; 5160 &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0xac&gt;</pre>
+<pre>    5114:	e372005f 	cmn	r2, #95	; 0x5f</pre>
+<pre>    5118:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    511c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5120:	1a000009 	bne	514c &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0x98&gt;</pre>
+<pre>    5124:	e1a01000 	mov	r1, r0</pre>
+<pre>    5128:	e59f0034 	ldr	r0, [pc, #52]	; 5164 &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    512c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5130:	ebfff653 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5134:	e1a00004 	mov	r0, r4</pre>
+<pre>    5138:	ebfff654 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    513c:	e59d4048 	ldr	r4, [sp, #72]	; 0x48</pre>
+<pre>    5140:	e1a00004 	mov	r0, r4</pre>
+<pre>    5144:	e28ddf7b 	add	sp, sp, #492	; 0x1ec</pre>
+<pre>    5148:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>    514c:	e59f1014 	ldr	r1, [pc, #20]	; 5168 &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    5150:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5154:	ebfff61a 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5158:	eafffff5 	b	5134 &lt;bcm_enet_map_oam_idx_to_rdpaif&commat;&commat;Base+0x80&gt;</pre>
+<pre>    515c:	00015f2c 	andeq	r5, r1, ip, lsr #30</pre>
+<pre>--</pre>
+<pre>0000516c &lt;bcm_enet_map_oam_idx_to_phys_port&commat;&commat;Base&gt;:</pre>
+<pre>    516c:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}</pre>
+<pre>    5170:	e28d2004 	add	r2, sp, #4</pre>
+<pre>    5174:	e1a0100d 	mov	r1, sp</pre>
+<pre>    5178:	e3a03000 	mov	r3, #0</pre>
+<pre>    517c:	e1a04000 	mov	r4, r0</pre>
+<pre>    5180:	e58d3000 	str	r3, [sp]</pre>
+<pre>    5184:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    5188:	ebfff5d7 	bl	28ec &lt;bcm_enet_map_oam_idx_to_unit_port&commat;plt&gt;</pre>
+<pre>    518c:	e59f5034 	ldr	r5, [pc, #52]	; 51c8 &lt;bcm_enet_map_oam_idx_to_phys_port&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    5190:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    5194:	e3500000 	cmp	r0, #0</pre>
+<pre>    5198:	059d0004 	ldreq	r0, [sp, #4]</pre>
+<pre>    519c:	0a000007 	beq	51c0 &lt;bcm_enet_map_oam_idx_to_phys_port&commat;&commat;Base+0x54&gt;</pre>
+<pre>    51a0:	e59f3024 	ldr	r3, [pc, #36]	; 51cc &lt;bcm_enet_map_oam_idx_to_phys_port&commat;&commat;Base+0x60&gt;</pre>
+<pre>    51a4:	e1a02004 	mov	r2, r4</pre>
+<pre>    51a8:	e59f1020 	ldr	r1, [pc, #32]	; 51d0 &lt;bcm_enet_map_oam_idx_to_phys_port&commat;&commat;Base+0x64&gt;</pre>
+<pre>    51ac:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    51b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    51b4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    51b8:	ebfff601 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    51bc:	e3e00000 	mvn	r0, #0</pre>
+<pre>    51c0:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>--</pre>
+<pre>    5248:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    524c:	ebfff5ac 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5250:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5254:	0a000011 	beq	52a0 &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    5258:	e59f3054 	ldr	r3, [pc, #84]	; 52b4 &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    525c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5260:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5264:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5268:	1a000007 	bne	528c &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    526c:	e1a01000 	mov	r1, r0</pre>
+<pre>    5270:	e59f0044 	ldr	r0, [pc, #68]	; 52bc &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5274:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5278:	ebfff601 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    527c:	e1a00004 	mov	r0, r4</pre>
+<pre>    5280:	e1a04005 	mov	r4, r5</pre>
+<pre>    5284:	ebfff601 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5288:	eaffffe2 	b	5218 &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0x44&gt;</pre>
+<pre>    528c:	e59f102c 	ldr	r1, [pc, #44]	; 52c0 &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xec&gt;</pre>
+<pre>    5290:	e1a02005 	mov	r2, r5</pre>
+<pre>    5294:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5298:	ebfff5c9 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    529c:	eafffff6 	b	527c &lt;bcm_enet_map_phys_port_to_rdpa_if&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    52a0:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>    5354:	ebfff5a0 	bl	29dc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    5358:	e5902000 	ldr	r2, [r0]</pre>
+<pre>    535c:	e372005f 	cmn	r2, #95	; 0x5f</pre>
+<pre>    5360:	1a000008 	bne	5388 &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    5364:	e59f3058 	ldr	r3, [pc, #88]	; 53c4 &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0x100&gt;</pre>
+<pre>    5368:	e59f005c 	ldr	r0, [pc, #92]	; 53cc &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0x108&gt;</pre>
+<pre>    536c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5370:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5374:	e5931000 	ldr	r1, [r3]</pre>
+<pre>    5378:	ebfff5c1 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    537c:	e1a00004 	mov	r0, r4</pre>
+<pre>    5380:	ebfff5c2 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5384:	eaffffe0 	b	530c &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0x48&gt;</pre>
+<pre>    5388:	e3520019 	cmp	r2, #25</pre>
+<pre>    538c:	0afffffa 	beq	537c &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5390:	e59f302c 	ldr	r3, [pc, #44]	; 53c4 &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0x100&gt;</pre>
+<pre>    5394:	e59f1034 	ldr	r1, [pc, #52]	; 53d0 &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    5398:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    539c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    53a0:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    53a4:	ebfff586 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    53a8:	eafffff3 	b	537c &lt;bcm_enet_get_rdpa_if_from_if_name&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    53ac:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>    5458:	e3a0303c 	mov	r3, #60	; 0x3c</pre>
+<pre>    545c:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    5460:	ebfff527 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5464:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    5468:	0a000008 	beq	5490 &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    546c:	e59f3040 	ldr	r3, [pc, #64]	; 54b4 &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    5470:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    5474:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    5478:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    547c:	1a000006 	bne	549c &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    5480:	e1a01000 	mov	r1, r0</pre>
+<pre>    5484:	e59f0030 	ldr	r0, [pc, #48]	; 54bc &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5488:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    548c:	ebfff57c 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5490:	e1a00005 	mov	r0, r5</pre>
+<pre>    5494:	ebfff57d 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5498:	eaffffe4 	b	5430 &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    549c:	e59f101c 	ldr	r1, [pc, #28]	; 54c0 &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xec&gt;</pre>
+<pre>    54a0:	e1a02004 	mov	r2, r4</pre>
+<pre>    54a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    54a8:	ebfff545 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    54ac:	eafffff7 	b	5490 &lt;bcm_enet_driver_enable_soft_switching_port&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    54b0:	00015c04 	andeq	r5, r1, r4, lsl #24</pre>
+<pre>--</pre>
+<pre>    5534:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5538:	059d3044 	ldreq	r3, [sp, #68]	; 0x44</pre>
+<pre>    553c:	05873000 	streq	r3, [r7]</pre>
+<pre>    5540:	0a000008 	beq	5568 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    5544:	e59f3044 	ldr	r3, [pc, #68]	; 5590 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    5548:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    554c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5550:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5554:	1a000007 	bne	5578 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    5558:	e1a01000 	mov	r1, r0</pre>
+<pre>    555c:	e59f0034 	ldr	r0, [pc, #52]	; 5598 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    5560:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5564:	ebfff546 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5568:	e1a00004 	mov	r0, r4</pre>
+<pre>    556c:	e1a04005 	mov	r4, r5</pre>
+<pre>    5570:	ebfff546 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5574:	eaffffe2 	b	5504 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0x40&gt;</pre>
+<pre>    5578:	e59f101c 	ldr	r1, [pc, #28]	; 559c &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    557c:	e1a02005 	mov	r2, r5</pre>
+<pre>    5580:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5584:	ebfff50e 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5588:	eafffff6 	b	5568 &lt;bcm_enet_driver_get_soft_switching_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    558c:	00015b1c 	andeq	r5, r1, ip, lsl fp</pre>
+<pre>--</pre>
+<pre>    5624:	e3a0303b 	mov	r3, #59	; 0x3b</pre>
+<pre>    5628:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    562c:	ebfff4b4 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5630:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    5634:	0a000008 	beq	565c &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    5638:	e59f3040 	ldr	r3, [pc, #64]	; 5680 &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    563c:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    5640:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    5644:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5648:	1a000006 	bne	5668 &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    564c:	e1a01000 	mov	r1, r0</pre>
+<pre>    5650:	e59f0030 	ldr	r0, [pc, #48]	; 5688 &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5654:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5658:	ebfff509 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    565c:	e1a00005 	mov	r0, r5</pre>
+<pre>    5660:	ebfff50a 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5664:	eaffffe4 	b	55fc &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    5668:	e59f101c 	ldr	r1, [pc, #28]	; 568c &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    566c:	e1a02004 	mov	r2, r4</pre>
+<pre>    5670:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5674:	ebfff4d2 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5678:	eafffff7 	b	565c &lt;bcm_enet_driver_hw_stp_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    567c:	00015a38 	andeq	r5, r1, r8, lsr sl</pre>
+<pre>--</pre>
+<pre>    5700:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5704:	059d3044 	ldreq	r3, [sp, #68]	; 0x44</pre>
+<pre>    5708:	05873000 	streq	r3, [r7]</pre>
+<pre>    570c:	0a000008 	beq	5734 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    5710:	e59f3044 	ldr	r3, [pc, #68]	; 575c &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    5714:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5718:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    571c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5720:	1a000007 	bne	5744 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    5724:	e1a01000 	mov	r1, r0</pre>
+<pre>    5728:	e59f0034 	ldr	r0, [pc, #52]	; 5764 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    572c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5730:	ebfff4d3 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5734:	e1a00004 	mov	r0, r4</pre>
+<pre>    5738:	e1a04005 	mov	r4, r5</pre>
+<pre>    573c:	ebfff4d3 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5740:	eaffffe2 	b	56d0 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0x40&gt;</pre>
+<pre>    5744:	e59f101c 	ldr	r1, [pc, #28]	; 5768 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    5748:	e1a02005 	mov	r2, r5</pre>
+<pre>    574c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5750:	ebfff49b 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5754:	eafffff6 	b	5734 &lt;bcm_enet_driver_get_hw_stp_status&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    5758:	00015950 	andeq	r5, r1, r0, asr r9</pre>
+<pre>--</pre>
+<pre>    57ec:	e3a03003 	mov	r3, #3</pre>
+<pre>    57f0:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    57f4:	ebfff442 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    57f8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    57fc:	0a000008 	beq	5824 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5800:	e59f3040 	ldr	r3, [pc, #64]	; 5848 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    5804:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    5808:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    580c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5810:	1a000006 	bne	5830 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    5814:	e1a01000 	mov	r1, r0</pre>
+<pre>    5818:	e59f0030 	ldr	r0, [pc, #48]	; 5850 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    581c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5820:	ebfff497 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5824:	e1a00005 	mov	r0, r5</pre>
+<pre>    5828:	ebfff498 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    582c:	eaffffe4 	b	57c4 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0x58&gt;</pre>
+<pre>    5830:	e59f101c 	ldr	r1, [pc, #28]	; 5854 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5834:	e1a02004 	mov	r2, r4</pre>
+<pre>    5838:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    583c:	ebfff460 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5840:	eafffff7 	b	5824 &lt;bcm_enet_driver_if_stp_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5844:	00015870 	andeq	r5, r1, r0, ror r8</pre>
+<pre>--</pre>
+<pre>    58dc:	ebfff408 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    58e0:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    58e4:	059d305c 	ldreq	r3, [sp, #92]	; 0x5c</pre>
+<pre>    58e8:	05863000 	streq	r3, [r6]</pre>
+<pre>    58ec:	0a000008 	beq	5914 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    58f0:	e59f3040 	ldr	r3, [pc, #64]	; 5938 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    58f4:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    58f8:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    58fc:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5900:	1a000006 	bne	5920 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    5904:	e1a01000 	mov	r1, r0</pre>
+<pre>    5908:	e59f0030 	ldr	r0, [pc, #48]	; 5940 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    590c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5910:	ebfff45b 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5914:	e1a00005 	mov	r0, r5</pre>
+<pre>    5918:	ebfff45c 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    591c:	eaffffe3 	b	58b0 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0x58&gt;</pre>
+<pre>    5920:	e59f101c 	ldr	r1, [pc, #28]	; 5944 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    5924:	e1a02004 	mov	r2, r4</pre>
+<pre>    5928:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    592c:	ebfff424 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5930:	eafffff7 	b	5914 &lt;bcm_enet_driver_if_stp_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    5934:	00015784 	andeq	r5, r1, r4, lsl #15</pre>
+<pre>--</pre>
+<pre>    59cc:	e58d70e8 	str	r7, [sp, #232]	; 0xe8</pre>
+<pre>    59d0:	ebfff3cb 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    59d4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    59d8:	0a000008 	beq	5a00 &lt;bcm_vlan_port_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    59dc:	e59f3044 	ldr	r3, [pc, #68]	; 5a28 &lt;bcm_vlan_port_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    59e0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    59e4:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    59e8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    59ec:	1a000007 	bne	5a10 &lt;bcm_vlan_port_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    59f0:	e1a01000 	mov	r1, r0</pre>
+<pre>    59f4:	e59f0034 	ldr	r0, [pc, #52]	; 5a30 &lt;bcm_vlan_port_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    59f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    59fc:	ebfff420 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5a00:	e1a00004 	mov	r0, r4</pre>
+<pre>    5a04:	e1a04005 	mov	r4, r5</pre>
+<pre>    5a08:	ebfff420 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5a0c:	eaffffe0 	b	5994 &lt;bcm_vlan_port_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    5a10:	e59f101c 	ldr	r1, [pc, #28]	; 5a34 &lt;bcm_vlan_port_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    5a14:	e1a02005 	mov	r2, r5</pre>
+<pre>    5a18:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5a1c:	ebfff3e8 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5a20:	eafffff6 	b	5a00 &lt;bcm_vlan_port_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5a24:	00015688 	andeq	r5, r1, r8, lsl #13</pre>
+<pre>--</pre>
+<pre>    5ab4:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    5ab8:	ebfff391 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5abc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5ac0:	0a000011 	beq	5b0c &lt;bcm_vlan_port_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    5ac4:	e59f3058 	ldr	r3, [pc, #88]	; 5b24 &lt;bcm_vlan_port_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    5ac8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5acc:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    5ad0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5ad4:	1a000007 	bne	5af8 &lt;bcm_vlan_port_get&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    5ad8:	e1a01000 	mov	r1, r0</pre>
+<pre>    5adc:	e59f0048 	ldr	r0, [pc, #72]	; 5b2c &lt;bcm_vlan_port_get&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    5ae0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5ae4:	ebfff3e6 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5ae8:	e1a00004 	mov	r0, r4</pre>
+<pre>    5aec:	e1a04005 	mov	r4, r5</pre>
+<pre>    5af0:	ebfff3e6 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5af4:	eaffffe2 	b	5a84 &lt;bcm_vlan_port_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    5af8:	e59f1030 	ldr	r1, [pc, #48]	; 5b30 &lt;bcm_vlan_port_get&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    5afc:	e1a02005 	mov	r2, r5</pre>
+<pre>    5b00:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5b04:	ebfff3ae 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5b08:	eafffff6 	b	5ae8 &lt;bcm_vlan_port_get&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    5b0c:	e59d30e4 	ldr	r3, [sp, #228]	; 0xe4</pre>
+<pre>--</pre>
+<pre>    5ba8:	e58d70e4 	str	r7, [sp, #228]	; 0xe4</pre>
+<pre>    5bac:	ebfff354 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5bb0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5bb4:	0a000008 	beq	5bdc &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    5bb8:	e59f3044 	ldr	r3, [pc, #68]	; 5c04 &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    5bbc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5bc0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5bc4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5bc8:	1a000007 	bne	5bec &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    5bcc:	e1a01000 	mov	r1, r0</pre>
+<pre>    5bd0:	e59f0034 	ldr	r0, [pc, #52]	; 5c0c &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    5bd4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5bd8:	ebfff3a9 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5bdc:	e1a00004 	mov	r0, r4</pre>
+<pre>    5be0:	e1a04005 	mov	r4, r5</pre>
+<pre>    5be4:	ebfff3a9 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5be8:	eaffffe3 	b	5b7c &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0x48&gt;</pre>
+<pre>    5bec:	e59f101c 	ldr	r1, [pc, #28]	; 5c10 &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    5bf0:	e1a02005 	mov	r2, r5</pre>
+<pre>    5bf4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5bf8:	ebfff371 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5bfc:	eafffff6 	b	5bdc &lt;bcm_port_pbvlanmap_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    5c00:	000154a0 	andeq	r5, r1, r0, lsr #9</pre>
+<pre>--</pre>
+<pre>    5c94:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5c98:	059d30e4 	ldreq	r3, [sp, #228]	; 0xe4</pre>
+<pre>    5c9c:	05873000 	streq	r3, [r7]</pre>
+<pre>    5ca0:	0a000008 	beq	5cc8 &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    5ca4:	e59f3044 	ldr	r3, [pc, #68]	; 5cf0 &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    5ca8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5cac:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    5cb0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5cb4:	1a000007 	bne	5cd8 &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    5cb8:	e1a01000 	mov	r1, r0</pre>
+<pre>    5cbc:	e59f0034 	ldr	r0, [pc, #52]	; 5cf8 &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    5cc0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5cc4:	ebfff36e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5cc8:	e1a00004 	mov	r0, r4</pre>
+<pre>    5ccc:	e1a04005 	mov	r4, r5</pre>
+<pre>    5cd0:	ebfff36e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5cd4:	eaffffe0 	b	5c5c &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0x48&gt;</pre>
+<pre>    5cd8:	e59f101c 	ldr	r1, [pc, #28]	; 5cfc &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    5cdc:	e1a02005 	mov	r2, r5</pre>
+<pre>    5ce0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5ce4:	ebfff336 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5ce8:	eafffff6 	b	5cc8 &lt;bcm_port_pbvlanmap_get&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    5cec:	000153c0 	andeq	r5, r1, r0, asr #7</pre>
+<pre>--</pre>
+<pre>    5d78:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5d7c:	059d30f4 	ldreq	r3, [sp, #244]	; 0xf4</pre>
+<pre>    5d80:	05863000 	streq	r3, [r6]</pre>
+<pre>    5d84:	0a000008 	beq	5dac &lt;bcm_cosq_config_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    5d88:	e59f3044 	ldr	r3, [pc, #68]	; 5dd4 &lt;bcm_cosq_config_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    5d8c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5d90:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    5d94:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5d98:	1a000007 	bne	5dbc &lt;bcm_cosq_config_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    5d9c:	e1a01000 	mov	r1, r0</pre>
+<pre>    5da0:	e59f0034 	ldr	r0, [pc, #52]	; 5ddc &lt;bcm_cosq_config_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    5da4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5da8:	ebfff335 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5dac:	e1a00004 	mov	r0, r4</pre>
+<pre>    5db0:	e1a04005 	mov	r4, r5</pre>
+<pre>    5db4:	ebfff335 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5db8:	eaffffe1 	b	5d44 &lt;bcm_cosq_config_get&commat;&commat;Base+0x44&gt;</pre>
+<pre>    5dbc:	e59f101c 	ldr	r1, [pc, #28]	; 5de0 &lt;bcm_cosq_config_get&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    5dc0:	e1a02005 	mov	r2, r5</pre>
+<pre>    5dc4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5dc8:	ebfff2fd 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5dcc:	eafffff6 	b	5dac &lt;bcm_cosq_config_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    5dd0:	000152d8 	ldrdeq	r5, [r1], -r8</pre>
+<pre>--</pre>
+<pre>    5e50:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    5e54:	ebfff2aa 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5e58:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    5e5c:	0a000008 	beq	5e84 &lt;bcm_cosq_config_set&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    5e60:	e59f3044 	ldr	r3, [pc, #68]	; 5eac &lt;bcm_cosq_config_set&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    5e64:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    5e68:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5e6c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5e70:	1a000007 	bne	5e94 &lt;bcm_cosq_config_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    5e74:	e1a01000 	mov	r1, r0</pre>
+<pre>    5e78:	e59f0034 	ldr	r0, [pc, #52]	; 5eb4 &lt;bcm_cosq_config_set&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    5e7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5e80:	ebfff2ff 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5e84:	e1a00004 	mov	r0, r4</pre>
+<pre>    5e88:	e1a04005 	mov	r4, r5</pre>
+<pre>    5e8c:	ebfff2ff 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5e90:	eaffffe4 	b	5e28 &lt;bcm_cosq_config_set&commat;&commat;Base+0x44&gt;</pre>
+<pre>    5e94:	e59f101c 	ldr	r1, [pc, #28]	; 5eb8 &lt;bcm_cosq_config_set&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    5e98:	e1a02005 	mov	r2, r5</pre>
+<pre>    5e9c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5ea0:	ebfff2c7 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5ea4:	eafffff6 	b	5e84 &lt;bcm_cosq_config_set&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    5ea8:	000151f4 	strdeq	r5, [r1], -r4</pre>
+<pre>--</pre>
+<pre>    5f38:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    5f3c:	ebfff270 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    5f40:	e2506000 	subs	r6, r0, #0</pre>
+<pre>    5f44:	0a000011 	beq	5f90 &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    5f48:	e59f3080 	ldr	r3, [pc, #128]	; 5fd0 &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0x114&gt;</pre>
+<pre>    5f4c:	e376005f 	cmn	r6, #95	; 0x5f</pre>
+<pre>    5f50:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    5f54:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    5f58:	1a000007 	bne	5f7c &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    5f5c:	e1a01000 	mov	r1, r0</pre>
+<pre>    5f60:	e59f0070 	ldr	r0, [pc, #112]	; 5fd8 &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0x11c&gt;</pre>
+<pre>    5f64:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5f68:	ebfff2c5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    5f6c:	e1a00005 	mov	r0, r5</pre>
+<pre>    5f70:	e1a05006 	mov	r5, r6</pre>
+<pre>    5f74:	ebfff2c5 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    5f78:	eaffffe2 	b	5f08 &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    5f7c:	e59f1058 	ldr	r1, [pc, #88]	; 5fdc &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0x120&gt;</pre>
+<pre>    5f80:	e1a02006 	mov	r2, r6</pre>
+<pre>    5f84:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    5f88:	ebfff28d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    5f8c:	eafffff6 	b	5f6c &lt;bcm_cosq_sched_get_X&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    5f90:	e28d3040 	add	r3, sp, #64	; 0x40</pre>
+<pre>--</pre>
+<pre>    60d4:	e58d702c 	str	r7, [sp, #44]	; 0x2c</pre>
+<pre>    60d8:	ebfff209 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    60dc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    60e0:	0a000008 	beq	6108 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0xec&gt;</pre>
+<pre>    60e4:	e59f3044 	ldr	r3, [pc, #68]	; 6130 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0x114&gt;</pre>
+<pre>    60e8:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    60ec:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    60f0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    60f4:	1a000007 	bne	6118 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    60f8:	e1a01000 	mov	r1, r0</pre>
+<pre>    60fc:	e59f0034 	ldr	r0, [pc, #52]	; 6138 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0x11c&gt;</pre>
+<pre>    6100:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6104:	ebfff25e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6108:	e1a00005 	mov	r0, r5</pre>
+<pre>    610c:	e1a05004 	mov	r5, r4</pre>
+<pre>    6110:	ebfff25e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6114:	eaffffd3 	b	6068 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    6118:	e59f101c 	ldr	r1, [pc, #28]	; 613c &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0x120&gt;</pre>
+<pre>    611c:	e1a02004 	mov	r2, r4</pre>
+<pre>    6120:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6124:	ebfff226 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6128:	eafffff6 	b	6108 &lt;bcm_cosq_sched_set_X&commat;&commat;Base+0xec&gt;</pre>
+<pre>    612c:	00014fb4 			; &lt;UNDEFINED&gt; instruction: 0x00014fb4</pre>
+<pre>--</pre>
+<pre>    61f0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    61f4:	059d30ec 	ldreq	r3, [sp, #236]	; 0xec</pre>
+<pre>    61f8:	05873000 	streq	r3, [r7]</pre>
+<pre>    61fc:	0a000008 	beq	6224 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    6200:	e59f3044 	ldr	r3, [pc, #68]	; 624c &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    6204:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6208:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    620c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6210:	1a000007 	bne	6234 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    6214:	e1a01000 	mov	r1, r0</pre>
+<pre>    6218:	e59f0034 	ldr	r0, [pc, #52]	; 6254 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    621c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6220:	ebfff217 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6224:	e1a00004 	mov	r0, r4</pre>
+<pre>    6228:	e1a04005 	mov	r4, r5</pre>
+<pre>    622c:	ebfff217 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6230:	eaffffdf 	b	61b4 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    6234:	e59f101c 	ldr	r1, [pc, #28]	; 6258 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    6238:	e1a02005 	mov	r2, r5</pre>
+<pre>    623c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6240:	ebfff1df 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6244:	eafffff6 	b	6224 &lt;bcm_cosq_port_mapping_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    6248:	00014e68 	andeq	r4, r1, r8, ror #28</pre>
+<pre>--</pre>
+<pre>    62d8:	e58d70ec 	str	r7, [sp, #236]	; 0xec</pre>
+<pre>    62dc:	ebfff188 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    62e0:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    62e4:	0a000008 	beq	630c &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    62e8:	e59f3044 	ldr	r3, [pc, #68]	; 6334 &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    62ec:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    62f0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    62f4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    62f8:	1a000007 	bne	631c &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    62fc:	e1a01000 	mov	r1, r0</pre>
+<pre>    6300:	e59f0034 	ldr	r0, [pc, #52]	; 633c &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    6304:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6308:	ebfff1dd 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    630c:	e1a00004 	mov	r0, r4</pre>
+<pre>    6310:	e1a04005 	mov	r4, r5</pre>
+<pre>    6314:	ebfff1dd 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6318:	eaffffe2 	b	62a8 &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    631c:	e59f101c 	ldr	r1, [pc, #28]	; 6340 &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    6320:	e1a02005 	mov	r2, r5</pre>
+<pre>    6324:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6328:	ebfff1a5 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    632c:	eafffff6 	b	630c &lt;bcm_cosq_port_mapping_set&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    6330:	00014d74 	andeq	r4, r1, r4, ror sp</pre>
+<pre>--</pre>
+<pre>    63bc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    63c0:	059d3058 	ldreq	r3, [sp, #88]	; 0x58</pre>
+<pre>    63c4:	05863000 	streq	r3, [r6]</pre>
+<pre>    63c8:	0a000008 	beq	63f0 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    63cc:	e59f3044 	ldr	r3, [pc, #68]	; 6418 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    63d0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    63d4:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    63d8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    63dc:	1a000007 	bne	6400 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    63e0:	e1a01000 	mov	r1, r0</pre>
+<pre>    63e4:	e59f0034 	ldr	r0, [pc, #52]	; 6420 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    63e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    63ec:	ebfff1a4 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    63f0:	e1a00004 	mov	r0, r4</pre>
+<pre>    63f4:	e1a04005 	mov	r4, r5</pre>
+<pre>    63f8:	ebfff1a4 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    63fc:	eaffffe1 	b	6388 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0x44&gt;</pre>
+<pre>    6400:	e59f101c 	ldr	r1, [pc, #28]	; 6424 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    6404:	e1a02005 	mov	r2, r5</pre>
+<pre>    6408:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    640c:	ebfff16c 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6410:	eafffff6 	b	63f0 &lt;bcm_cosq_txq_selection_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    6414:	00014c94 	muleq	r1, r4, ip</pre>
+<pre>--</pre>
+<pre>    649c:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    64a0:	ebfff117 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    64a4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    64a8:	0a000008 	beq	64d0 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    64ac:	e59f3044 	ldr	r3, [pc, #68]	; 64f8 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    64b0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    64b4:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    64b8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    64bc:	1a000007 	bne	64e0 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    64c0:	e1a01000 	mov	r1, r0</pre>
+<pre>    64c4:	e59f0034 	ldr	r0, [pc, #52]	; 6500 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    64c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    64cc:	ebfff16c 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    64d0:	e1a00004 	mov	r0, r4</pre>
+<pre>    64d4:	e1a04005 	mov	r4, r5</pre>
+<pre>    64d8:	ebfff16c 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    64dc:	eaffffe2 	b	646c &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0x44&gt;</pre>
+<pre>    64e0:	e59f101c 	ldr	r1, [pc, #28]	; 6504 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    64e4:	e1a02005 	mov	r2, r5</pre>
+<pre>    64e8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    64ec:	ebfff134 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    64f0:	eafffff6 	b	64d0 &lt;bcm_cosq_txq_selection_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    64f4:	00014bb0 			; &lt;UNDEFINED&gt; instruction: 0x00014bb0</pre>
+<pre>--</pre>
+<pre>    6590:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    6594:	059d3058 	ldreq	r3, [sp, #88]	; 0x58</pre>
+<pre>    6598:	05873000 	streq	r3, [r7]</pre>
+<pre>    659c:	0a000008 	beq	65c4 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    65a0:	e59f3044 	ldr	r3, [pc, #68]	; 65ec &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    65a4:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    65a8:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    65ac:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    65b0:	1a000007 	bne	65d4 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    65b4:	e1a01000 	mov	r1, r0</pre>
+<pre>    65b8:	e59f0034 	ldr	r0, [pc, #52]	; 65f4 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xec&gt;</pre>
+<pre>    65bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    65c0:	ebfff12f 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    65c4:	e1a00004 	mov	r0, r4</pre>
+<pre>    65c8:	e1a04005 	mov	r4, r5</pre>
+<pre>    65cc:	ebfff12f 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    65d0:	eaffffdf 	b	6554 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    65d4:	e59f101c 	ldr	r1, [pc, #28]	; 65f8 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    65d8:	e1a02005 	mov	r2, r5</pre>
+<pre>    65dc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    65e0:	ebfff0f7 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    65e4:	eafffff6 	b	65c4 &lt;bcm_cosq_priority_method_get_X&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    65e8:	00014ac8 	andeq	r4, r1, r8, asr #21</pre>
+<pre>--</pre>
+<pre>    6688:	e58d702c 	str	r7, [sp, #44]	; 0x2c</pre>
+<pre>    668c:	ebfff09c 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6690:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    6694:	0a000008 	beq	66bc &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    6698:	e59f3044 	ldr	r3, [pc, #68]	; 66e4 &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    669c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    66a0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    66a4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    66a8:	1a000007 	bne	66cc &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    66ac:	e1a01000 	mov	r1, r0</pre>
+<pre>    66b0:	e59f0034 	ldr	r0, [pc, #52]	; 66ec &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    66b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    66b8:	ebfff0f1 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    66bc:	e1a00004 	mov	r0, r4</pre>
+<pre>    66c0:	e1a04005 	mov	r4, r5</pre>
+<pre>    66c4:	ebfff0f1 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    66c8:	eaffffe0 	b	6650 &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    66cc:	e59f101c 	ldr	r1, [pc, #28]	; 66f0 &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xec&gt;</pre>
+<pre>    66d0:	e1a02005 	mov	r2, r5</pre>
+<pre>    66d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    66d8:	ebfff0b9 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    66dc:	eafffff6 	b	66bc &lt;bcm_cosq_priority_method_set_X&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    66e0:	000149cc 	andeq	r4, r1, ip, asr #19</pre>
+<pre>--</pre>
+<pre>    6c14:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    6c18:	ebffef39 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6c1c:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    6c20:	0a000008 	beq	6c48 &lt;bcm_stat_clear&commat;&commat;Base+0x98&gt;</pre>
+<pre>    6c24:	e59f3044 	ldr	r3, [pc, #68]	; 6c70 &lt;bcm_stat_clear&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    6c28:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6c2c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    6c30:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6c34:	1a000007 	bne	6c58 &lt;bcm_stat_clear&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    6c38:	e1a01000 	mov	r1, r0</pre>
+<pre>    6c3c:	e59f0034 	ldr	r0, [pc, #52]	; 6c78 &lt;bcm_stat_clear&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    6c40:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6c44:	ebffef8e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6c48:	e1a00004 	mov	r0, r4</pre>
+<pre>    6c4c:	e1a04005 	mov	r4, r5</pre>
+<pre>    6c50:	ebffef8e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6c54:	eaffffe5 	b	6bf0 &lt;bcm_stat_clear&commat;&commat;Base+0x40&gt;</pre>
+<pre>    6c58:	e59f101c 	ldr	r1, [pc, #28]	; 6c7c &lt;bcm_stat_clear&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    6c5c:	e1a02005 	mov	r2, r5</pre>
+<pre>    6c60:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6c64:	ebffef56 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6c68:	eafffff6 	b	6c48 &lt;bcm_stat_clear&commat;&commat;Base+0x98&gt;</pre>
+<pre>    6c6c:	00014430 	andeq	r4, r1, r0, lsr r4</pre>
+<pre>--</pre>
+<pre>    6cec:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    6cf0:	ebffef03 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6cf4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    6cf8:	0a000008 	beq	6d20 &lt;bcm_stat_port_clear&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    6cfc:	e59f3044 	ldr	r3, [pc, #68]	; 6d48 &lt;bcm_stat_port_clear&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    6d00:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6d04:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    6d08:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6d0c:	1a000007 	bne	6d30 &lt;bcm_stat_port_clear&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    6d10:	e1a01000 	mov	r1, r0</pre>
+<pre>    6d14:	e59f0034 	ldr	r0, [pc, #52]	; 6d50 &lt;bcm_stat_port_clear&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    6d18:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6d1c:	ebffef58 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6d20:	e1a00004 	mov	r0, r4</pre>
+<pre>    6d24:	e1a04005 	mov	r4, r5</pre>
+<pre>    6d28:	ebffef58 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6d2c:	eaffffe4 	b	6cc4 &lt;bcm_stat_port_clear&commat;&commat;Base+0x44&gt;</pre>
+<pre>    6d30:	e59f101c 	ldr	r1, [pc, #28]	; 6d54 &lt;bcm_stat_port_clear&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    6d34:	e1a02005 	mov	r2, r5</pre>
+<pre>    6d38:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6d3c:	ebffef20 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6d40:	eafffff6 	b	6d20 &lt;bcm_stat_port_clear&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    6d44:	00014358 	andeq	r4, r1, r8, asr r3</pre>
+<pre>--</pre>
+<pre>    6dbc:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>    6dc0:	ebffeecf 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6dc4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    6dc8:	0a000008 	beq	6df0 &lt;bcm_stat_sync&commat;&commat;Base+0x98&gt;</pre>
+<pre>    6dcc:	e59f3044 	ldr	r3, [pc, #68]	; 6e18 &lt;bcm_stat_sync&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    6dd0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6dd4:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    6dd8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6ddc:	1a000007 	bne	6e00 &lt;bcm_stat_sync&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    6de0:	e1a01000 	mov	r1, r0</pre>
+<pre>    6de4:	e59f0034 	ldr	r0, [pc, #52]	; 6e20 &lt;bcm_stat_sync&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    6de8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6dec:	ebffef24 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6df0:	e1a00004 	mov	r0, r4</pre>
+<pre>    6df4:	e1a04005 	mov	r4, r5</pre>
+<pre>    6df8:	ebffef24 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6dfc:	eaffffe5 	b	6d98 &lt;bcm_stat_sync&commat;&commat;Base+0x40&gt;</pre>
+<pre>    6e00:	e59f101c 	ldr	r1, [pc, #28]	; 6e24 &lt;bcm_stat_sync&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    6e04:	e1a02005 	mov	r2, r5</pre>
+<pre>    6e08:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6e0c:	ebffeeec 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6e10:	eafffff6 	b	6df0 &lt;bcm_stat_sync&commat;&commat;Base+0x98&gt;</pre>
+<pre>    6e14:	00014288 	andeq	r4, r1, r8, lsl #5</pre>
+<pre>--</pre>
+<pre>    6e98:	ebffee99 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6e9c:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    6ea0:	e1a05000 	mov	r5, r0</pre>
+<pre>    6ea4:	0a000008 	beq	6ecc &lt;bcm_stat_clear_emac&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    6ea8:	e59f3044 	ldr	r3, [pc, #68]	; 6ef4 &lt;bcm_stat_clear_emac&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    6eac:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6eb0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    6eb4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6eb8:	1a000007 	bne	6edc &lt;bcm_stat_clear_emac&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    6ebc:	e1a01000 	mov	r1, r0</pre>
+<pre>    6ec0:	e59f0034 	ldr	r0, [pc, #52]	; 6efc &lt;bcm_stat_clear_emac&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    6ec4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6ec8:	ebffeeed 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6ecc:	e1a00004 	mov	r0, r4</pre>
+<pre>    6ed0:	e1a04005 	mov	r4, r5</pre>
+<pre>    6ed4:	ebffeeed 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6ed8:	eaffffe3 	b	6e6c &lt;bcm_stat_clear_emac&commat;&commat;Base+0x44&gt;</pre>
+<pre>    6edc:	e59f101c 	ldr	r1, [pc, #28]	; 6f00 &lt;bcm_stat_clear_emac&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    6ee0:	e1a02005 	mov	r2, r5</pre>
+<pre>    6ee4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6ee8:	ebffeeb5 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6eec:	eafffff6 	b	6ecc &lt;bcm_stat_clear_emac&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    6ef0:	000141b0 			; &lt;UNDEFINED&gt; instruction: 0x000141b0</pre>
+<pre>--</pre>
+<pre>    6f78:	ebffee61 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    6f7c:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    6f80:	e1a05000 	mov	r5, r0</pre>
+<pre>    6f84:	0a000011 	beq	6fd0 &lt;bcm_stat_get_emac&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    6f88:	e59f3058 	ldr	r3, [pc, #88]	; 6fe8 &lt;bcm_stat_get_emac&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    6f8c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    6f90:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    6f94:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    6f98:	1a000007 	bne	6fbc &lt;bcm_stat_get_emac&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    6f9c:	e1a01000 	mov	r1, r0</pre>
+<pre>    6fa0:	e59f0048 	ldr	r0, [pc, #72]	; 6ff0 &lt;bcm_stat_get_emac&commat;&commat;Base+0xec&gt;</pre>
+<pre>    6fa4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6fa8:	ebffeeb5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6fac:	e1a00004 	mov	r0, r4</pre>
+<pre>    6fb0:	e1a04005 	mov	r4, r5</pre>
+<pre>    6fb4:	ebffeeb5 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    6fb8:	eaffffe3 	b	6f4c &lt;bcm_stat_get_emac&commat;&commat;Base+0x48&gt;</pre>
+<pre>    6fbc:	e59f1030 	ldr	r1, [pc, #48]	; 6ff4 &lt;bcm_stat_get_emac&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    6fc0:	e1a02005 	mov	r2, r5</pre>
+<pre>    6fc4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    6fc8:	ebffee7d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6fcc:	eafffff6 	b	6fac &lt;bcm_stat_get_emac&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    6fd0:	e28d1040 	add	r1, sp, #64	; 0x40</pre>
+<pre>--</pre>
+<pre>    71b8:	ebffedd1 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    71bc:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    71c0:	e1a05000 	mov	r5, r0</pre>
+<pre>    71c4:	0a000008 	beq	71ec &lt;bcm_arl_write2&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    71c8:	e59f3044 	ldr	r3, [pc, #68]	; 7214 &lt;bcm_arl_write2&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    71cc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    71d0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    71d4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    71d8:	1a000007 	bne	71fc &lt;bcm_arl_write2&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    71dc:	e1a01000 	mov	r1, r0</pre>
+<pre>    71e0:	e59f0034 	ldr	r0, [pc, #52]	; 721c &lt;bcm_arl_write2&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    71e4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    71e8:	ebffee25 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    71ec:	e1a00004 	mov	r0, r4</pre>
+<pre>    71f0:	e1a04005 	mov	r4, r5</pre>
+<pre>    71f4:	ebffee25 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    71f8:	eaffffdb 	b	716c &lt;bcm_arl_write2&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    71fc:	e59f101c 	ldr	r1, [pc, #28]	; 7220 &lt;bcm_arl_write2&commat;&commat;Base+0x100&gt;</pre>
+<pre>    7200:	e1a02005 	mov	r2, r5</pre>
+<pre>    7204:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    7208:	ebffeded 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    720c:	eafffff6 	b	71ec &lt;bcm_arl_write2&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    7210:	00013eb0 			; &lt;UNDEFINED&gt; instruction: 0x00013eb0</pre>
+<pre>--</pre>
+<pre>    72c8:	ebffed8d 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    72cc:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    72d0:	e1a05000 	mov	r5, r0</pre>
+<pre>    72d4:	0a000008 	beq	72fc &lt;bcm_arl_dump&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    72d8:	e59f3044 	ldr	r3, [pc, #68]	; 7324 &lt;bcm_arl_dump&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    72dc:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    72e0:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    72e4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    72e8:	1a000007 	bne	730c &lt;bcm_arl_dump&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    72ec:	e1a01000 	mov	r1, r0</pre>
+<pre>    72f0:	e59f0034 	ldr	r0, [pc, #52]	; 732c &lt;bcm_arl_dump&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    72f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    72f8:	ebffede1 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    72fc:	e1a00004 	mov	r0, r4</pre>
+<pre>    7300:	e1a04005 	mov	r4, r5</pre>
+<pre>    7304:	ebffede1 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    7308:	eaffffe2 	b	7298 &lt;bcm_arl_dump&commat;&commat;Base+0x40&gt;</pre>
+<pre>    730c:	e59f101c 	ldr	r1, [pc, #28]	; 7330 &lt;bcm_arl_dump&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    7310:	e1a02005 	mov	r2, r5</pre>
+<pre>    7314:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    7318:	ebffeda9 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    731c:	eafffff6 	b	72fc &lt;bcm_arl_dump&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    7320:	00013d88 	andeq	r3, r1, r8, lsl #27</pre>
+<pre>--</pre>
+<pre>    73a4:	ebffed56 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    73a8:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    73ac:	e1a05000 	mov	r5, r0</pre>
+<pre>    73b0:	0a000008 	beq	73d8 &lt;bcm_arl_flush&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    73b4:	e59f3044 	ldr	r3, [pc, #68]	; 7400 &lt;bcm_arl_flush&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    73b8:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    73bc:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    73c0:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    73c4:	1a000007 	bne	73e8 &lt;bcm_arl_flush&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    73c8:	e1a01000 	mov	r1, r0</pre>
+<pre>    73cc:	e59f0034 	ldr	r0, [pc, #52]	; 7408 &lt;bcm_arl_flush&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    73d0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    73d4:	ebffedaa 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    73d8:	e1a00004 	mov	r0, r4</pre>
+<pre>    73dc:	e1a04005 	mov	r4, r5</pre>
+<pre>    73e0:	ebffedaa 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    73e4:	eaffffe2 	b	7374 &lt;bcm_arl_flush&commat;&commat;Base+0x40&gt;</pre>
+<pre>    73e8:	e59f101c 	ldr	r1, [pc, #28]	; 740c &lt;bcm_arl_flush&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    73ec:	e1a02005 	mov	r2, r5</pre>
+<pre>    73f0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    73f4:	ebffed72 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    73f8:	eafffff6 	b	73d8 &lt;bcm_arl_flush&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    73fc:	00013cac 	andeq	r3, r1, ip, lsr #25</pre>
+<pre>--</pre>
+<pre>000086b4 &lt;bcm_get_phyid&commat;&commat;Base&gt;:</pre>
+<pre>    86b4:	e92d4ef0 	push	{r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>    86b8:	e24dde25 	sub	sp, sp, #592	; 0x250</pre>
+<pre>    86bc:	e28d6018 	add	r6, sp, #24</pre>
+<pre>    86c0:	e1a04000 	mov	r4, r0</pre>
+<pre>    86c4:	e58d200c 	str	r2, [sp, #12]</pre>
+<pre>    86c8:	e1a05001 	mov	r5, r1</pre>
+<pre>    86cc:	e1a02006 	mov	r2, r6</pre>
+<pre>    86d0:	e59f72e4 	ldr	r7, [pc, #740]	; 89bc &lt;bcm_get_phyid&commat;&commat;Base+0x308&gt;</pre>
+<pre>    86d4:	ebffe89c 	bl	294c &lt;bcm_ifname_get&commat;plt&gt;</pre>
+<pre>    86d8:	e08f7007 	add	r7, pc, r7</pre>
+<pre>    86dc:	e3500000 	cmp	r0, #0</pre>
+<pre>    86e0:	aa00000b 	bge	8714 &lt;bcm_get_phyid&commat;&commat;Base+0x60&gt;</pre>
+<pre>    86e4:	e59f32d4 	ldr	r3, [pc, #724]	; 89c0 &lt;bcm_get_phyid&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    86e8:	e1a02004 	mov	r2, r4</pre>
+<pre>    86ec:	e59f12d0 	ldr	r1, [pc, #720]	; 89c4 &lt;bcm_get_phyid&commat;&commat;Base+0x310&gt;</pre>
+<pre>    86f0:	e7970003 	ldr	r0, [r7, r3]</pre>
+<pre>    86f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    86f8:	e1a03005 	mov	r3, r5</pre>
+<pre>    86fc:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    8700:	ebffe8af 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8704:	e3e04000 	mvn	r4, #0</pre>
+<pre>    8708:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>    873c:	ebffe8d0 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    8740:	eaffffef 	b	8704 &lt;bcm_get_phyid&commat;&commat;Base+0x50&gt;</pre>
+<pre>    8744:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    8748:	e1a02006 	mov	r2, r6</pre>
+<pre>    874c:	e30819f7 	movw	r1, #35319	; 0x89f7</pre>
+<pre>    8750:	e3a09000 	mov	r9, #0</pre>
+<pre>    8754:	e28db038 	add	fp, sp, #56	; 0x38</pre>
+<pre>    8758:	e58d9038 	str	r9, [sp, #56]	; 0x38</pre>
+<pre>    875c:	e5934000 	ldr	r4, [r3]</pre>
+<pre>    8760:	e28da088 	add	sl, sp, #136	; 0x88</pre>
+<pre>    8764:	e58db028 	str	fp, [sp, #40]	; 0x28</pre>
+<pre>    8768:	ebffe865 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    876c:	e1500009 	cmp	r0, r9</pre>
+<pre>    8770:	aa000009 	bge	879c &lt;bcm_get_phyid&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    8774:	e59f2244 	ldr	r2, [pc, #580]	; 89c0 &lt;bcm_get_phyid&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    8778:	e59f124c 	ldr	r1, [pc, #588]	; 89cc &lt;bcm_get_phyid&commat;&commat;Base+0x318&gt;</pre>
+<pre>    877c:	e7970002 	ldr	r0, [r7, r2]</pre>
+<pre>    8780:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8784:	e1a02006 	mov	r2, r6</pre>
+<pre>    8788:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    878c:	ebffe88c 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8790:	e58da028 	str	sl, [sp, #40]	; 0x28</pre>
+<pre>    8794:	e3e04000 	mvn	r4, #0</pre>
+<pre>--</pre>
+<pre>    8864:	e28bb004 	add	fp, fp, #4</pre>
+<pre>    8868:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    886c:	ebffe827 	bl	2910 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    8870:	e1a0000b 	mov	r0, fp</pre>
+<pre>    8874:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>    8878:	e1a0200a 	mov	r2, sl</pre>
+<pre>    887c:	e2877001 	add	r7, r7, #1</pre>
+<pre>    8880:	ebffe879 	bl	2a6c &lt;sprintf&commat;plt&gt;</pre>
+<pre>    8884:	e3a03001 	mov	r3, #1</pre>
+<pre>    8888:	e1c55a13 	bic	r5, r5, r3, lsl sl</pre>
+<pre>    888c:	e08bb000 	add	fp, fp, r0</pre>
+<pre>    8890:	e3550000 	cmp	r5, #0</pre>
+<pre>    8894:	e28aa001 	add	sl, sl, #1</pre>
+<pre>    8898:	1affffe6 	bne	8838 &lt;bcm_get_phyid&commat;&commat;Base+0x184&gt;</pre>
+<pre>    889c:	e59f313c 	ldr	r3, [pc, #316]	; 89e0 &lt;bcm_get_phyid&commat;&commat;Base+0x32c&gt;</pre>
+<pre>    88a0:	e1a02006 	mov	r2, r6</pre>
+<pre>    88a4:	e59f1138 	ldr	r1, [pc, #312]	; 89e4 &lt;bcm_get_phyid&commat;&commat;Base+0x330&gt;</pre>
+<pre>    88a8:	e59d000c 	ldr	r0, [sp, #12]</pre>
+<pre>    88ac:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    88b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    88b4:	ebffe842 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    88b8:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>    88bc:	ebffe873 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    88d8:	eaffffe4 	b	8870 &lt;bcm_get_phyid&commat;&commat;Base+0x1bc&gt;</pre>
+<pre>    88dc:	1a000006 	bne	88fc &lt;bcm_get_phyid&commat;&commat;Base+0x248&gt;</pre>
+<pre>    88e0:	e3a04000 	mov	r4, #0</pre>
+<pre>    88e4:	e1a02455 	asr	r2, r5, r4</pre>
+<pre>    88e8:	e3120001 	tst	r2, #1</pre>
+<pre>    88ec:	1a000019 	bne	8958 &lt;bcm_get_phyid&commat;&commat;Base+0x2a4&gt;</pre>
+<pre>    88f0:	e2844001 	add	r4, r4, #1</pre>
+<pre>    88f4:	e3540020 	cmp	r4, #32</pre>
+<pre>    88f8:	1afffff9 	bne	88e4 &lt;bcm_get_phyid&commat;&commat;Base+0x230&gt;</pre>
+<pre>    88fc:	e1a02455 	asr	r2, r5, r4</pre>
+<pre>    8900:	e3120001 	tst	r2, #1</pre>
+<pre>    8904:	1a000013 	bne	8958 &lt;bcm_get_phyid&commat;&commat;Base+0x2a4&gt;</pre>
+<pre>    8908:	e59f30b0 	ldr	r3, [pc, #176]	; 89c0 &lt;bcm_get_phyid&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    890c:	e1a02004 	mov	r2, r4</pre>
+<pre>    8910:	e59f10d4 	ldr	r1, [pc, #212]	; 89ec &lt;bcm_get_phyid&commat;&commat;Base+0x338&gt;</pre>
+<pre>    8914:	e7970003 	ldr	r0, [r7, r3]</pre>
+<pre>    8918:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    891c:	e58d5000 	str	r5, [sp]</pre>
+<pre>    8920:	e1a03006 	mov	r3, r6</pre>
+<pre>    8924:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    8928:	ebffe825 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    892c:	eaffff98 	b	8794 &lt;bcm_get_phyid&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    8930:	e3740001 	cmn	r4, #1</pre>
+<pre>    8934:	0a000007 	beq	8958 &lt;bcm_get_phyid&commat;&commat;Base+0x2a4&gt;</pre>
+<pre>    8938:	e59f3080 	ldr	r3, [pc, #128]	; 89c0 &lt;bcm_get_phyid&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    893c:	e1a02006 	mov	r2, r6</pre>
+<pre>    8940:	e59f10a8 	ldr	r1, [pc, #168]	; 89f0 &lt;bcm_get_phyid&commat;&commat;Base+0x33c&gt;</pre>
+<pre>    8944:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    8948:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    894c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    8950:	ebffe81b 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8954:	eaffff8e 	b	8794 &lt;bcm_get_phyid&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    8958:	e3a0204c 	mov	r2, #76	; 0x4c</pre>
+<pre>--</pre>
+<pre>    8a7c:	ebffe7a0 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    8a80:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    8a84:	e1a05000 	mov	r5, r0</pre>
+<pre>    8a88:	0a000008 	beq	8ab0 &lt;bcm_multiport_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    8a8c:	e59f3044 	ldr	r3, [pc, #68]	; 8ad8 &lt;bcm_multiport_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    8a90:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    8a94:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    8a98:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    8a9c:	1a000007 	bne	8ac0 &lt;bcm_multiport_set&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    8aa0:	e1a01000 	mov	r1, r0</pre>
+<pre>    8aa4:	e59f0034 	ldr	r0, [pc, #52]	; 8ae0 &lt;bcm_multiport_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    8aa8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    8aac:	ebffe7f4 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    8ab0:	e1a00004 	mov	r0, r4</pre>
+<pre>    8ab4:	e1a04005 	mov	r4, r5</pre>
+<pre>    8ab8:	ebffe7f4 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    8abc:	eaffffdd 	b	8a38 &lt;bcm_multiport_set&commat;&commat;Base+0x44&gt;</pre>
+<pre>    8ac0:	e59f101c 	ldr	r1, [pc, #28]	; 8ae4 &lt;bcm_multiport_set&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    8ac4:	e1a02005 	mov	r2, r5</pre>
+<pre>    8ac8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    8acc:	ebffe7bc 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8ad0:	eafffff6 	b	8ab0 &lt;bcm_multiport_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    8ad4:	000125e4 	andeq	r2, r1, r4, ror #11</pre>
+<pre>--</pre>
+<pre>    8c60:	ebffe727 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    8c64:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    8c68:	e1a04000 	mov	r4, r0</pre>
+<pre>    8c6c:	0a000008 	beq	8c94 &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1ac&gt;</pre>
+<pre>    8c70:	e59f3044 	ldr	r3, [pc, #68]	; 8cbc &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1d4&gt;</pre>
+<pre>    8c74:	e374005f 	cmn	r4, #95	; 0x5f</pre>
+<pre>    8c78:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    8c7c:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    8c80:	1a000007 	bne	8ca4 &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1bc&gt;</pre>
+<pre>    8c84:	e1a01000 	mov	r1, r0</pre>
+<pre>    8c88:	e59f0034 	ldr	r0, [pc, #52]	; 8cc4 &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1dc&gt;</pre>
+<pre>    8c8c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    8c90:	ebffe77b 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    8c94:	e1a00005 	mov	r0, r5</pre>
+<pre>    8c98:	e1a05004 	mov	r5, r4</pre>
+<pre>    8c9c:	ebffe77b 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    8ca0:	eaffffa1 	b	8b2c &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x44&gt;</pre>
+<pre>    8ca4:	e59f101c 	ldr	r1, [pc, #28]	; 8cc8 &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1e0&gt;</pre>
+<pre>    8ca8:	e1a02004 	mov	r2, r4</pre>
+<pre>    8cac:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    8cb0:	ebffe743 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8cb4:	eafffff6 	b	8c94 &lt;bcm_dos_ctrl_set&commat;&commat;Base+0x1ac&gt;</pre>
+<pre>    8cb8:	000124f0 	strdeq	r2, [r1], -r0</pre>
+<pre>--</pre>
+<pre>    8d54:	ebffe6ea 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    8d58:	e3d03010 	bics	r3, r0, #16</pre>
+<pre>    8d5c:	e1a06000 	mov	r6, r0</pre>
+<pre>    8d60:	0a000011 	beq	8dac &lt;bcm_dos_ctrl_get&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    8d64:	e59f3138 	ldr	r3, [pc, #312]	; 8ea4 &lt;bcm_dos_ctrl_get&commat;&commat;Base+0x1d8&gt;</pre>
+<pre>    8d68:	e376005f 	cmn	r6, #95	; 0x5f</pre>
+<pre>    8d6c:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>    8d70:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    8d74:	1a000007 	bne	8d98 &lt;bcm_dos_ctrl_get&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    8d78:	e1a01000 	mov	r1, r0</pre>
+<pre>    8d7c:	e59f0128 	ldr	r0, [pc, #296]	; 8eac &lt;bcm_dos_ctrl_get&commat;&commat;Base+0x1e0&gt;</pre>
+<pre>    8d80:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    8d84:	ebffe73e 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    8d88:	e1a00005 	mov	r0, r5</pre>
+<pre>    8d8c:	e1a05006 	mov	r5, r6</pre>
+<pre>    8d90:	ebffe73e 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    8d94:	eaffffdd 	b	8d10 &lt;bcm_dos_ctrl_get&commat;&commat;Base+0x44&gt;</pre>
+<pre>    8d98:	e59f1110 	ldr	r1, [pc, #272]	; 8eb0 &lt;bcm_dos_ctrl_get&commat;&commat;Base+0x1e4&gt;</pre>
+<pre>    8d9c:	e1a02006 	mov	r2, r6</pre>
+<pre>    8da0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    8da4:	ebffe706 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8da8:	eafffff6 	b	8d88 &lt;bcm_dos_ctrl_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    8dac:	e5dd3040 	ldrb	r3, [sp, #64]	; 0x40</pre>
+<pre>--</pre>
+<pre>    8f20:	e58d7020 	str	r7, [sp, #32]</pre>
+<pre>    8f24:	ebffe676 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    8f28:	e3500000 	cmp	r0, #0</pre>
+<pre>    8f2c:	aa000013 	bge	8f80 &lt;bcm_enet_driver_wan_interface_set&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    8f30:	e59f305c 	ldr	r3, [pc, #92]	; 8f94 &lt;bcm_enet_driver_wan_interface_set&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    8f34:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    8f38:	e5936000 	ldr	r6, [r3]</pre>
+<pre>    8f3c:	ebffe6a6 	bl	29dc &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    8f40:	e5904000 	ldr	r4, [r0]</pre>
+<pre>    8f44:	e1a00004 	mov	r0, r4</pre>
+<pre>    8f48:	ebffe685 	bl	2964 &lt;strerror&commat;plt&gt;</pre>
+<pre>    8f4c:	e59f2048 	ldr	r2, [pc, #72]	; 8f9c &lt;bcm_enet_driver_wan_interface_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    8f50:	e59f1048 	ldr	r1, [pc, #72]	; 8fa0 &lt;bcm_enet_driver_wan_interface_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    8f54:	e30839f9 	movw	r3, #35321	; 0x89f9</pre>
+<pre>    8f58:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    8f5c:	e58d4004 	str	r4, [sp, #4]</pre>
+<pre>    8f60:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8f64:	e58d9000 	str	r9, [sp]</pre>
+<pre>    8f68:	e58d0008 	str	r0, [sp, #8]</pre>
+<pre>    8f6c:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    8f70:	ebffe693 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    8f74:	e1a00005 	mov	r0, r5</pre>
+<pre>    8f78:	ebffe6c4 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    9004:	e3e00000 	mvn	r0, #0</pre>
+<pre>    9008:	ea000018 	b	9070 &lt;bcm_enet_driver_get_port_list_name&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    900c:	e1a0200b 	mov	r2, fp</pre>
+<pre>    9010:	e1a01009 	mov	r1, r9</pre>
+<pre>    9014:	e28d3020 	add	r3, sp, #32</pre>
+<pre>    9018:	e58d5040 	str	r5, [sp, #64]	; 0x40</pre>
+<pre>    901c:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    9020:	e58da048 	str	sl, [sp, #72]	; 0x48</pre>
+<pre>    9024:	ebffe636 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    9028:	e3500000 	cmp	r0, #0</pre>
+<pre>    902c:	aa00000c 	bge	9064 &lt;bcm_enet_driver_get_port_list_name&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    9030:	e59f3048 	ldr	r3, [pc, #72]	; 9080 &lt;bcm_enet_driver_get_port_list_name&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    9034:	e59f204c 	ldr	r2, [pc, #76]	; 9088 &lt;bcm_enet_driver_get_port_list_name&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    9038:	e59f104c 	ldr	r1, [pc, #76]	; 908c &lt;bcm_enet_driver_get_port_list_name&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    903c:	e7970003 	ldr	r0, [r7, r3]</pre>
+<pre>    9040:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    9044:	e2822022 	add	r2, r2, #34	; 0x22</pre>
+<pre>    9048:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    904c:	e1a03006 	mov	r3, r6</pre>
+<pre>    9050:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    9054:	ebffe65a 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    9058:	e1a00004 	mov	r0, r4</pre>
+<pre>    905c:	ebffe68b 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    96f8:	e58d3058 	str	r3, [sp, #88]	; 0x58</pre>
+<pre>    96fc:	ebffe480 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    9700:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    9704:	0a000008 	beq	972c &lt;bcm_port_mirror_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    9708:	e59f3044 	ldr	r3, [pc, #68]	; 9754 &lt;bcm_port_mirror_set&commat;&commat;Base+0x100&gt;</pre>
+<pre>    970c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    9710:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    9714:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    9718:	1a000007 	bne	973c &lt;bcm_port_mirror_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    971c:	e1a01000 	mov	r1, r0</pre>
+<pre>    9720:	e59f0034 	ldr	r0, [pc, #52]	; 975c &lt;bcm_port_mirror_set&commat;&commat;Base+0x108&gt;</pre>
+<pre>    9724:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9728:	ebffe4d5 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    972c:	e1a00004 	mov	r0, r4</pre>
+<pre>    9730:	e1a04005 	mov	r4, r5</pre>
+<pre>    9734:	ebffe4d5 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    9738:	eaffffd8 	b	96a0 &lt;bcm_port_mirror_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    973c:	e59f101c 	ldr	r1, [pc, #28]	; 9760 &lt;bcm_port_mirror_set&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    9740:	e1a02005 	mov	r2, r5</pre>
+<pre>    9744:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    9748:	ebffe49d 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    974c:	eafffff6 	b	972c &lt;bcm_port_mirror_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    9750:	0001197c 	andeq	r1, r1, ip, ror r9</pre>
+<pre>--</pre>
+<pre>    97dc:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    97e0:	ebffe447 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    97e4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    97e8:	0a000011 	beq	9834 &lt;bcm_port_mirror_get&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    97ec:	e59f3090 	ldr	r3, [pc, #144]	; 9884 &lt;bcm_port_mirror_get&commat;&commat;Base+0x120&gt;</pre>
+<pre>    97f0:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    97f4:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>    97f8:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    97fc:	1a000007 	bne	9820 &lt;bcm_port_mirror_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    9800:	e1a01000 	mov	r1, r0</pre>
+<pre>    9804:	e59f0080 	ldr	r0, [pc, #128]	; 988c &lt;bcm_port_mirror_get&commat;&commat;Base+0x128&gt;</pre>
+<pre>    9808:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    980c:	ebffe49c 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    9810:	e1a00004 	mov	r0, r4</pre>
+<pre>    9814:	e1a04005 	mov	r4, r5</pre>
+<pre>    9818:	ebffe49c 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    981c:	eaffffe3 	b	97b0 &lt;bcm_port_mirror_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9820:	e59f1068 	ldr	r1, [pc, #104]	; 9890 &lt;bcm_port_mirror_get&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    9824:	e1a02005 	mov	r2, r5</pre>
+<pre>    9828:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    982c:	ebffe464 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    9830:	eafffff6 	b	9810 &lt;bcm_port_mirror_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    9834:	e59d3040 	ldr	r3, [sp, #64]	; 0x40</pre>
+<pre>--</pre>
+<pre>    9908:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    990c:	ebffe3fc 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    9910:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    9914:	0a000008 	beq	993c &lt;bcm_port_trunk_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    9918:	e59f3044 	ldr	r3, [pc, #68]	; 9964 &lt;bcm_port_trunk_set&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    991c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    9920:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    9924:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    9928:	1a000007 	bne	994c &lt;bcm_port_trunk_set&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    992c:	e1a01000 	mov	r1, r0</pre>
+<pre>    9930:	e59f0034 	ldr	r0, [pc, #52]	; 996c &lt;bcm_port_trunk_set&commat;&commat;Base+0xd8&gt;</pre>
+<pre>    9934:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9938:	ebffe451 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    993c:	e1a00004 	mov	r0, r4</pre>
+<pre>    9940:	e1a04005 	mov	r4, r5</pre>
+<pre>    9944:	ebffe451 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    9948:	eaffffe2 	b	98d8 &lt;bcm_port_trunk_set&commat;&commat;Base+0x44&gt;</pre>
+<pre>    994c:	e59f101c 	ldr	r1, [pc, #28]	; 9970 &lt;bcm_port_trunk_set&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    9950:	e1a02005 	mov	r2, r5</pre>
+<pre>    9954:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    9958:	ebffe419 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    995c:	eafffff6 	b	993c &lt;bcm_port_trunk_set&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    9960:	00011744 	andeq	r1, r1, r4, asr #14</pre>
+<pre>--</pre>
+<pre>    99ec:	e58d303c 	str	r3, [sp, #60]	; 0x3c</pre>
+<pre>    99f0:	ebffe3c3 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    99f4:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    99f8:	0a000011 	beq	9a44 &lt;bcm_port_trunk_get&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    99fc:	e59f306c 	ldr	r3, [pc, #108]	; 9a70 &lt;bcm_port_trunk_get&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    9a00:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    9a04:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>    9a08:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    9a0c:	1a000007 	bne	9a30 &lt;bcm_port_trunk_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    9a10:	e1a01000 	mov	r1, r0</pre>
+<pre>    9a14:	e59f005c 	ldr	r0, [pc, #92]	; 9a78 &lt;bcm_port_trunk_get&commat;&commat;Base+0x104&gt;</pre>
+<pre>    9a18:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9a1c:	ebffe418 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    9a20:	e1a00004 	mov	r0, r4</pre>
+<pre>    9a24:	e1a04005 	mov	r4, r5</pre>
+<pre>    9a28:	ebffe418 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    9a2c:	eaffffe3 	b	99c0 &lt;bcm_port_trunk_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9a30:	e59f1044 	ldr	r1, [pc, #68]	; 9a7c &lt;bcm_port_trunk_get&commat;&commat;Base+0x108&gt;</pre>
+<pre>    9a34:	e1a02005 	mov	r2, r5</pre>
+<pre>    9a38:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    9a3c:	ebffe3e0 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    9a40:	eafffff6 	b	9a20 &lt;bcm_port_trunk_get&commat;&commat;Base+0xac&gt;</pre>
+<pre>    9a44:	e59d3040 	ldr	r3, [sp, #64]	; 0x40</pre>
+<pre>--</pre>
+<pre>    9f7c:	e58d30fc 	str	r3, [sp, #252]	; 0xfc</pre>
+<pre>    9f80:	ebffe25f 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    9f84:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    9f88:	0a000008 	beq	9fb0 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    9f8c:	e59f3044 	ldr	r3, [pc, #68]	; 9fd8 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xe8&gt;</pre>
+<pre>    9f90:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    9f94:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    9f98:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    9f9c:	1a000007 	bne	9fc0 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    9fa0:	e1a01000 	mov	r1, r0</pre>
+<pre>    9fa4:	e59f0034 	ldr	r0, [pc, #52]	; 9fe0 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    9fa8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9fac:	ebffe2b4 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    9fb0:	e1a00004 	mov	r0, r4</pre>
+<pre>    9fb4:	e1a04005 	mov	r4, r5</pre>
+<pre>    9fb8:	ebffe2b4 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    9fbc:	eaffffde 	b	9f3c &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    9fc0:	e59f101c 	ldr	r1, [pc, #28]	; 9fe4 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    9fc4:	e1a02005 	mov	r2, r5</pre>
+<pre>    9fc8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    9fcc:	ebffe27c 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    9fd0:	eafffff6 	b	9fb0 &lt;bcm_port_storm_ctrl_set&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    9fd4:	000110e0 	andeq	r1, r1, r0, ror #1</pre>
+<pre>--</pre>
+<pre>    a080:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    a084:	1a00000e 	bne	a0c4 &lt;bcm_port_storm_ctrl_get&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    a088:	e1a01000 	mov	r1, r0</pre>
+<pre>    a08c:	e59f0050 	ldr	r0, [pc, #80]	; a0e4 &lt;bcm_port_storm_ctrl_get&commat;&commat;Base+0xfc&gt;</pre>
+<pre>    a090:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a094:	ebffe27a 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    a098:	e1a00004 	mov	r0, r4</pre>
+<pre>    a09c:	e1a04005 	mov	r4, r5</pre>
+<pre>    a0a0:	ebffe27a 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    a0a4:	e59d30b8 	ldr	r3, [sp, #184]	; 0xb8</pre>
+<pre>    a0a8:	e59d20fc 	ldr	r2, [sp, #252]	; 0xfc</pre>
+<pre>    a0ac:	e5873000 	str	r3, [r7]</pre>
+<pre>    a0b0:	e59d30f8 	ldr	r3, [sp, #248]	; 0xf8</pre>
+<pre>    a0b4:	e5863000 	str	r3, [r6]</pre>
+<pre>    a0b8:	e59d3208 	ldr	r3, [sp, #520]	; 0x208</pre>
+<pre>    a0bc:	e5832000 	str	r2, [r3]</pre>
+<pre>    a0c0:	eaffffdb 	b	a034 &lt;bcm_port_storm_ctrl_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    a0c4:	e59f101c 	ldr	r1, [pc, #28]	; a0e8 &lt;bcm_port_storm_ctrl_get&commat;&commat;Base+0x100&gt;</pre>
+<pre>    a0c8:	e1a02005 	mov	r2, r5</pre>
+<pre>    a0cc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    a0d0:	ebffe23b 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    a0d4:	eaffffef 	b	a098 &lt;bcm_port_storm_ctrl_get&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    a0d8:	00010fe8 	andeq	r0, r1, r8, ror #31</pre>
+<pre>--</pre>
+<pre>    a174:	e58d305c 	str	r3, [sp, #92]	; 0x5c</pre>
+<pre>    a178:	ebffe1e1 	bl	2904 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    a17c:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    a180:	0a000008 	beq	a1a8 &lt;bcm_port_maclmt_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    a184:	e59f3044 	ldr	r3, [pc, #68]	; a1d0 &lt;bcm_port_maclmt_set&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    a188:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    a18c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    a190:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    a194:	1a000007 	bne	a1b8 &lt;bcm_port_maclmt_set&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    a198:	e1a01000 	mov	r1, r0</pre>
+<pre>    a19c:	e59f0034 	ldr	r0, [pc, #52]	; a1d8 &lt;bcm_port_maclmt_set&commat;&commat;Base+0xec&gt;</pre>
+<pre>    a1a0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a1a4:	ebffe236 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    a1a8:	e1a00004 	mov	r0, r4</pre>
+<pre>    a1ac:	e1a04005 	mov	r4, r5</pre>
+<pre>    a1b0:	ebffe236 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    a1b4:	eaffffdf 	b	a138 &lt;bcm_port_maclmt_set&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    a1b8:	e59f101c 	ldr	r1, [pc, #28]	; a1dc &lt;bcm_port_maclmt_set&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    a1bc:	e1a02005 	mov	r2, r5</pre>
+<pre>    a1c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    a1c4:	ebffe1fe 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    a1c8:	eafffff6 	b	a1a8 &lt;bcm_port_maclmt_set&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    a1cc:	00010ee4 	andeq	r0, r1, r4, ror #29</pre>
+<pre>--</pre>
+<pre>    a270:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    a274:	0a000008 	beq	a29c &lt;bcm_port_maclmt_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    a278:	e59f304c 	ldr	r3, [pc, #76]	; a2cc &lt;bcm_port_maclmt_get&commat;&commat;Base+0xec&gt;</pre>
+<pre>    a27c:	e375005f 	cmn	r5, #95	; 0x5f</pre>
+<pre>    a280:	e7993003 	ldr	r3, [r9, r3]</pre>
+<pre>    a284:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    a288:	1a000009 	bne	a2b4 &lt;bcm_port_maclmt_get&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    a28c:	e1a01000 	mov	r1, r0</pre>
+<pre>    a290:	e59f003c 	ldr	r0, [pc, #60]	; a2d4 &lt;bcm_port_maclmt_get&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    a294:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a298:	ebffe1f9 	bl	2a84 &lt;fputs&commat;plt&gt;</pre>
+<pre>    a29c:	e59d305c 	ldr	r3, [sp, #92]	; 0x5c</pre>
+<pre>    a2a0:	e1a00004 	mov	r0, r4</pre>
+<pre>    a2a4:	e1a04005 	mov	r4, r5</pre>
+<pre>    a2a8:	e5873000 	str	r3, [r7]</pre>
+<pre>    a2ac:	ebffe1f7 	bl	2a90 &lt;close&commat;plt&gt;</pre>
+<pre>    a2b0:	eaffffdd 	b	a22c &lt;bcm_port_maclmt_get&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    a2b4:	e59f101c 	ldr	r1, [pc, #28]	; a2d8 &lt;bcm_port_maclmt_get&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    a2b8:	e1a02005 	mov	r2, r5</pre>
+<pre>    a2bc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    a2c0:	ebffe1bf 	bl	29c4 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    a2c4:	eafffff4 	b	a29c &lt;bcm_port_maclmt_get&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    a2c8:	00010df0 	strdeq	r0, [r1], -r0	; &lt;UNPREDICTABLE&gt;</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> used </span><span class="orange">85</span> times </span><span class="orange">libethswctl.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

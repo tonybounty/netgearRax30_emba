@@ -1,0 +1,1242 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">archerctl</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> tear down of </span><span class="orange">archerctl</span></pre>
+<br />
+<pre>   10ca8:	e2444001 	sub	r4, r4, #1</pre>
+<pre>   10cac:	e1a0100a 	mov	r1, sl</pre>
+<pre>   10cb0:	e3a03000 	mov	r3, #0</pre>
+<pre>   10cb4:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   10cb8:	eb0009d6 	bl	13418 &lt;archer_sysport_tm_port_set&commat;plt+0x2810&gt;</pre>
+<pre>   10cbc:	e1a02009 	mov	r2, r9</pre>
+<pre>   10cc0:	e28d300c 	add	r3, sp, #12</pre>
+<pre>   10cc4:	e1a01004 	mov	r1, r4</pre>
+<pre>   10cc8:	e58d3000 	str	r3, [sp]</pre>
+<pre>   10ccc:	e1a0300a 	mov	r3, sl</pre>
+<pre>   10cd0:	eb0009e0 	bl	13458 &lt;archer_sysport_tm_port_set&commat;plt+0x2850&gt;</pre>
+<pre>   10cd4:	e59d200c 	ldr	r2, [sp, #12]</pre>
+<pre>   10cd8:	e0444002 	sub	r4, r4, r2</pre>
+<pre>   10cdc:	e0899102 	add	r9, r9, r2, lsl #2</pre>
+<pre>   10ce0:	eaffffe1 	b	10c6c &lt;archer_sysport_tm_port_set&commat;plt+0x64&gt;</pre>
+<pre>   10ce4:	e59f302c 	ldr	r3, [pc, #44]	; 10d18 &lt;archer_sysport_tm_port_set&commat;plt+0x110&gt;</pre>
+<pre>   10ce8:	e1a02006 	mov	r2, r6</pre>
+<pre>   10cec:	e1a01007 	mov	r1, r7</pre>
+<pre>   10cf0:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   10cf4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   10cf8:	ebffff92 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   10cfc:	e3a00067 	mov	r0, #103	; 0x67</pre>
+<pre>   10d00:	eaffffd9 	b	10c6c &lt;archer_sysport_tm_port_set&commat;plt+0x64&gt;</pre>
+<pre>--</pre>
+<pre>   10e5c:	e7933002 	ldr	r3, [r3, r2]</pre>
+<pre>   10e60:	e5931000 	ldr	r1, [r3]</pre>
+<pre>   10e64:	ebffff5b 	bl	10bd8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   10e68:	e3a00000 	mov	r0, #0</pre>
+<pre>   10e6c:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>   10e70:	000141ac 	andeq	r4, r1, ip, lsr #3</pre>
+<pre>   10e74:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   10e78:	00002871 	andeq	r2, r0, r1, ror r8</pre>
+<pre>   10e7c:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   10e80:	e3510000 	cmp	r1, #0</pre>
+<pre>   10e84:	e59f5130 	ldr	r5, [pc, #304]	; 10fbc &lt;archer_sysport_tm_port_set&commat;plt+0x3b4&gt;</pre>
+<pre>   10e88:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   10e8c:	1a00000a 	bne	10ebc &lt;archer_sysport_tm_port_set&commat;plt+0x2b4&gt;</pre>
+<pre>   10e90:	e59f3128 	ldr	r3, [pc, #296]	; 10fc0 &lt;archer_sysport_tm_port_set&commat;plt+0x3b8&gt;</pre>
+<pre>   10e94:	e59f2128 	ldr	r2, [pc, #296]	; 10fc4 &lt;archer_sysport_tm_port_set&commat;plt+0x3bc&gt;</pre>
+<pre>   10e98:	e59f1128 	ldr	r1, [pc, #296]	; 10fc8 &lt;archer_sysport_tm_port_set&commat;plt+0x3c0&gt;</pre>
+<pre>   10e9c:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   10ea0:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   10ea4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10ea8:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   10eac:	ebffff25 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   10eb0:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   10eb4:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   10edc:	eafffff1 	b	10ea8 &lt;archer_sysport_tm_port_set&commat;plt+0x2a0&gt;</pre>
+<pre>   10ee0:	e5906000 	ldr	r6, [r0]</pre>
+<pre>   10ee4:	e1a04000 	mov	r4, r0</pre>
+<pre>   10ee8:	e59f10e4 	ldr	r1, [pc, #228]	; 10fd4 &lt;archer_sysport_tm_port_set&commat;plt+0x3cc&gt;</pre>
+<pre>   10eec:	e1a00006 	mov	r0, r6</pre>
+<pre>   10ef0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10ef4:	ebfffee6 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   10ef8:	e3500000 	cmp	r0, #0</pre>
+<pre>   10efc:	1a00000c 	bne	10f34 &lt;archer_sysport_tm_port_set&commat;plt+0x32c&gt;</pre>
+<pre>   10f00:	e5941044 	ldr	r1, [r4, #68]	; 0x44</pre>
+<pre>   10f04:	e3510000 	cmp	r1, #0</pre>
+<pre>   10f08:	0a000013 	beq	10f5c &lt;archer_sysport_tm_port_set&commat;plt+0x354&gt;</pre>
+<pre>   10f0c:	e59f30ac 	ldr	r3, [pc, #172]	; 10fc0 &lt;archer_sysport_tm_port_set&commat;plt+0x3b8&gt;</pre>
+<pre>   10f10:	e3a04069 	mov	r4, #105	; 0x69</pre>
+<pre>   10f14:	e59f20bc 	ldr	r2, [pc, #188]	; 10fd8 &lt;archer_sysport_tm_port_set&commat;plt+0x3d0&gt;</pre>
+<pre>   10f18:	e59f10bc 	ldr	r1, [pc, #188]	; 10fdc &lt;archer_sysport_tm_port_set&commat;plt+0x3d4&gt;</pre>
+<pre>   10f1c:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   10f20:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   10f24:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f28:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   10f2c:	ebffff05 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   10f30:	eaffffdf 	b	10eb4 &lt;archer_sysport_tm_port_set&commat;plt+0x2ac&gt;</pre>
+<pre>   10f34:	e59f10a4 	ldr	r1, [pc, #164]	; 10fe0 &lt;archer_sysport_tm_port_set&commat;plt+0x3d8&gt;</pre>
+<pre>--</pre>
+<pre>   10f3c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f40:	ebfffed3 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   10f44:	e3500000 	cmp	r0, #0</pre>
+<pre>   10f48:	1a000011 	bne	10f94 &lt;archer_sysport_tm_port_set&commat;plt+0x38c&gt;</pre>
+<pre>   10f4c:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   10f50:	e3530000 	cmp	r3, #0</pre>
+<pre>   10f54:	1affffec 	bne	10f0c &lt;archer_sysport_tm_port_set&commat;plt+0x304&gt;</pre>
+<pre>   10f58:	e3a01001 	mov	r1, #1</pre>
+<pre>   10f5c:	e3a0006d 	mov	r0, #109	; 0x6d</pre>
+<pre>   10f60:	ebffff25 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   10f64:	e3500000 	cmp	r0, #0</pre>
+<pre>   10f68:	e1a04000 	mov	r4, r0</pre>
+<pre>   10f6c:	0affffd0 	beq	10eb4 &lt;archer_sysport_tm_port_set&commat;plt+0x2ac&gt;</pre>
+<pre>   10f70:	e59f3048 	ldr	r3, [pc, #72]	; 10fc0 &lt;archer_sysport_tm_port_set&commat;plt+0x3b8&gt;</pre>
+<pre>   10f74:	e59f2068 	ldr	r2, [pc, #104]	; 10fe4 &lt;archer_sysport_tm_port_set&commat;plt+0x3dc&gt;</pre>
+<pre>   10f78:	e59f1068 	ldr	r1, [pc, #104]	; 10fe8 &lt;archer_sysport_tm_port_set&commat;plt+0x3e0&gt;</pre>
+<pre>   10f7c:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   10f80:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   10f84:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f88:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   10f8c:	ebfffeed 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   10f90:	eaffffc7 	b	10eb4 &lt;archer_sysport_tm_port_set&commat;plt+0x2ac&gt;</pre>
+<pre>   10f94:	e59f3024 	ldr	r3, [pc, #36]	; 10fc0 &lt;archer_sysport_tm_port_set&commat;plt+0x3b8&gt;</pre>
+<pre>   10f98:	e59f204c 	ldr	r2, [pc, #76]	; 10fec &lt;archer_sysport_tm_port_set&commat;plt+0x3e4&gt;</pre>
+<pre>   10f9c:	e59f104c 	ldr	r1, [pc, #76]	; 10ff0 &lt;archer_sysport_tm_port_set&commat;plt+0x3e8&gt;</pre>
+<pre>   10fa0:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   10fa4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   10fa8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10fac:	e1a03006 	mov	r3, r6</pre>
+<pre>   10fb0:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   10fb4:	ebfffee3 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   10fb8:	eaffffbc 	b	10eb0 &lt;archer_sysport_tm_port_set&commat;plt+0x2a8&gt;</pre>
+<pre>   10fbc:	00014170 	andeq	r4, r1, r0, ror r1</pre>
+<pre>--</pre>
+<pre>   10fd4:	00002844 	andeq	r2, r0, r4, asr #16</pre>
+<pre>   10fd8:	00015939 	andeq	r5, r1, r9, lsr r9</pre>
+<pre>   10fdc:	00002815 	andeq	r2, r0, r5, lsl r8</pre>
+<pre>   10fe0:	00002820 	andeq	r2, r0, r0, lsr #16</pre>
+<pre>   10fe4:	000158d9 	ldrdeq	r5, [r1], -r9</pre>
+<pre>   10fe8:	000027f9 	strdeq	r2, [r0], -r9</pre>
+<pre>   10fec:	000158b5 			; &lt;UNDEFINED&gt; instruction: 0x000158b5</pre>
+<pre>   10ff0:	000027bc 			; &lt;UNDEFINED&gt; instruction: 0x000027bc</pre>
+<pre>   10ff4:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   10ff8:	e3510000 	cmp	r1, #0</pre>
+<pre>   10ffc:	e59f512c 	ldr	r5, [pc, #300]	; 11130 &lt;archer_sysport_tm_port_set&commat;plt+0x528&gt;</pre>
+<pre>   11000:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   11004:	1a00000a 	bne	11034 &lt;archer_sysport_tm_port_set&commat;plt+0x42c&gt;</pre>
+<pre>   11008:	e59f3124 	ldr	r3, [pc, #292]	; 11134 &lt;archer_sysport_tm_port_set&commat;plt+0x52c&gt;</pre>
+<pre>   1100c:	e59f2124 	ldr	r2, [pc, #292]	; 11138 &lt;archer_sysport_tm_port_set&commat;plt+0x530&gt;</pre>
+<pre>   11010:	e59f1124 	ldr	r1, [pc, #292]	; 1113c &lt;archer_sysport_tm_port_set&commat;plt+0x534&gt;</pre>
+<pre>   11014:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   11018:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1101c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11020:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11024:	ebfffec7 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11028:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   1102c:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   11054:	eafffff1 	b	11020 &lt;archer_sysport_tm_port_set&commat;plt+0x418&gt;</pre>
+<pre>   11058:	e5906000 	ldr	r6, [r0]</pre>
+<pre>   1105c:	e1a04000 	mov	r4, r0</pre>
+<pre>   11060:	e59f10e0 	ldr	r1, [pc, #224]	; 11148 &lt;archer_sysport_tm_port_set&commat;plt+0x540&gt;</pre>
+<pre>   11064:	e1a00006 	mov	r0, r6</pre>
+<pre>   11068:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1106c:	ebfffe88 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11070:	e3500000 	cmp	r0, #0</pre>
+<pre>   11074:	1a00000c 	bne	110ac &lt;archer_sysport_tm_port_set&commat;plt+0x4a4&gt;</pre>
+<pre>   11078:	e5941044 	ldr	r1, [r4, #68]	; 0x44</pre>
+<pre>   1107c:	e3510000 	cmp	r1, #0</pre>
+<pre>   11080:	0a000013 	beq	110d4 &lt;archer_sysport_tm_port_set&commat;plt+0x4cc&gt;</pre>
+<pre>   11084:	e59f30a8 	ldr	r3, [pc, #168]	; 11134 &lt;archer_sysport_tm_port_set&commat;plt+0x52c&gt;</pre>
+<pre>   11088:	e3a04069 	mov	r4, #105	; 0x69</pre>
+<pre>   1108c:	e59f20b8 	ldr	r2, [pc, #184]	; 1114c &lt;archer_sysport_tm_port_set&commat;plt+0x544&gt;</pre>
+<pre>   11090:	e59f10b8 	ldr	r1, [pc, #184]	; 11150 &lt;archer_sysport_tm_port_set&commat;plt+0x548&gt;</pre>
+<pre>   11094:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   11098:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1109c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   110a0:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   110a4:	ebfffea7 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   110a8:	eaffffdf 	b	1102c &lt;archer_sysport_tm_port_set&commat;plt+0x424&gt;</pre>
+<pre>   110ac:	e59f10a0 	ldr	r1, [pc, #160]	; 11154 &lt;archer_sysport_tm_port_set&commat;plt+0x54c&gt;</pre>
+<pre>   110b0:	e1a00006 	mov	r0, r6</pre>
+<pre>   110b4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   110b8:	ebfffe75 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   110bc:	e3500000 	cmp	r0, #0</pre>
+<pre>   110c0:	1a000010 	bne	11108 &lt;archer_sysport_tm_port_set&commat;plt+0x500&gt;</pre>
+<pre>   110c4:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   110c8:	e3530000 	cmp	r3, #0</pre>
+<pre>   110cc:	03a01001 	moveq	r1, #1</pre>
+<pre>   110d0:	1affffeb 	bne	11084 &lt;archer_sysport_tm_port_set&commat;plt+0x47c&gt;</pre>
+<pre>   110d4:	e3a0006f 	mov	r0, #111	; 0x6f</pre>
+<pre>   110d8:	ebfffec7 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   110dc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   110e0:	0affffd1 	beq	1102c &lt;archer_sysport_tm_port_set&commat;plt+0x424&gt;</pre>
+<pre>   110e4:	e59f3048 	ldr	r3, [pc, #72]	; 11134 &lt;archer_sysport_tm_port_set&commat;plt+0x52c&gt;</pre>
+<pre>   110e8:	e59f2068 	ldr	r2, [pc, #104]	; 11158 &lt;archer_sysport_tm_port_set&commat;plt+0x550&gt;</pre>
+<pre>   110ec:	e59f1068 	ldr	r1, [pc, #104]	; 1115c &lt;archer_sysport_tm_port_set&commat;plt+0x554&gt;</pre>
+<pre>   110f0:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   110f4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   110f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   110fc:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11100:	ebfffe90 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11104:	eaffffc8 	b	1102c &lt;archer_sysport_tm_port_set&commat;plt+0x424&gt;</pre>
+<pre>   11108:	e59f3024 	ldr	r3, [pc, #36]	; 11134 &lt;archer_sysport_tm_port_set&commat;plt+0x52c&gt;</pre>
+<pre>   1110c:	e59f204c 	ldr	r2, [pc, #76]	; 11160 &lt;archer_sysport_tm_port_set&commat;plt+0x558&gt;</pre>
+<pre>   11110:	e59f104c 	ldr	r1, [pc, #76]	; 11164 &lt;archer_sysport_tm_port_set&commat;plt+0x55c&gt;</pre>
+<pre>   11114:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   11118:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1111c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11120:	e1a03006 	mov	r3, r6</pre>
+<pre>   11124:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11128:	ebfffe86 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1112c:	eaffffbd 	b	11028 &lt;archer_sysport_tm_port_set&commat;plt+0x420&gt;</pre>
+<pre>   11130:	00013ff8 	strdeq	r3, [r1], -r8</pre>
+<pre>--</pre>
+<pre>   11148:	0000273b 	andeq	r2, r0, fp, lsr r7</pre>
+<pre>   1114c:	000157c1 	andeq	r5, r1, r1, asr #15</pre>
+<pre>   11150:	0000269d 	muleq	r0, sp, r6</pre>
+<pre>   11154:	000026f5 	strdeq	r2, [r0], -r5</pre>
+<pre>   11158:	00015765 	andeq	r5, r1, r5, ror #14</pre>
+<pre>   1115c:	000026b8 			; &lt;UNDEFINED&gt; instruction: 0x000026b8</pre>
+<pre>   11160:	00015741 	andeq	r5, r1, r1, asr #14</pre>
+<pre>   11164:	00002648 	andeq	r2, r0, r8, asr #12</pre>
+<pre>   11168:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   1116c:	e3510000 	cmp	r1, #0</pre>
+<pre>   11170:	e59f6154 	ldr	r6, [pc, #340]	; 112cc &lt;archer_sysport_tm_port_set&commat;plt+0x6c4&gt;</pre>
+<pre>   11174:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   11178:	1a000009 	bne	111a4 &lt;archer_sysport_tm_port_set&commat;plt+0x59c&gt;</pre>
+<pre>   1117c:	e59f314c 	ldr	r3, [pc, #332]	; 112d0 &lt;archer_sysport_tm_port_set&commat;plt+0x6c8&gt;</pre>
+<pre>   11180:	e59f214c 	ldr	r2, [pc, #332]	; 112d4 &lt;archer_sysport_tm_port_set&commat;plt+0x6cc&gt;</pre>
+<pre>   11184:	e59f114c 	ldr	r1, [pc, #332]	; 112d8 &lt;archer_sysport_tm_port_set&commat;plt+0x6d0&gt;</pre>
+<pre>   11188:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   1118c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11190:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11194:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11198:	ebfffe6a 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1119c:	e3a00068 	mov	r0, #104	; 0x68</pre>
+<pre>   111a0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   111c4:	eafffff2 	b	11194 &lt;archer_sysport_tm_port_set&commat;plt+0x58c&gt;</pre>
+<pre>   111c8:	e5905000 	ldr	r5, [r0]</pre>
+<pre>   111cc:	e1a04000 	mov	r4, r0</pre>
+<pre>   111d0:	e59f110c 	ldr	r1, [pc, #268]	; 112e4 &lt;archer_sysport_tm_port_set&commat;plt+0x6dc&gt;</pre>
+<pre>   111d4:	e1a00005 	mov	r0, r5</pre>
+<pre>   111d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   111dc:	ebfffe2c 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   111e0:	e3500000 	cmp	r0, #0</pre>
+<pre>   111e4:	1a00000d 	bne	11220 &lt;archer_sysport_tm_port_set&commat;plt+0x618&gt;</pre>
+<pre>   111e8:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   111ec:	e3530000 	cmp	r3, #0</pre>
+<pre>   111f0:	03a00001 	moveq	r0, #1</pre>
+<pre>   111f4:	0a000013 	beq	11248 &lt;archer_sysport_tm_port_set&commat;plt+0x640&gt;</pre>
+<pre>   111f8:	e59f30d0 	ldr	r3, [pc, #208]	; 112d0 &lt;archer_sysport_tm_port_set&commat;plt+0x6c8&gt;</pre>
+<pre>   111fc:	e59f20e4 	ldr	r2, [pc, #228]	; 112e8 &lt;archer_sysport_tm_port_set&commat;plt+0x6e0&gt;</pre>
+<pre>   11200:	e59f10e4 	ldr	r1, [pc, #228]	; 112ec &lt;archer_sysport_tm_port_set&commat;plt+0x6e4&gt;</pre>
+<pre>   11204:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   11208:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1120c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11210:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11214:	ebfffe4b 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11218:	e3a00069 	mov	r0, #105	; 0x69</pre>
+<pre>   1121c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   11274:	eaffffdf 	b	111f8 &lt;archer_sysport_tm_port_set&commat;plt+0x5f0&gt;</pre>
+<pre>   11278:	e59f1078 	ldr	r1, [pc, #120]	; 112f8 &lt;archer_sysport_tm_port_set&commat;plt+0x6f0&gt;</pre>
+<pre>   1127c:	e1a00005 	mov	r0, r5</pre>
+<pre>   11280:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11284:	ebfffe02 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11288:	e3500000 	cmp	r0, #0</pre>
+<pre>   1128c:	1a000004 	bne	112a4 &lt;archer_sysport_tm_port_set&commat;plt+0x69c&gt;</pre>
+<pre>   11290:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   11294:	e3530000 	cmp	r3, #0</pre>
+<pre>   11298:	1affffd6 	bne	111f8 &lt;archer_sysport_tm_port_set&commat;plt+0x5f0&gt;</pre>
+<pre>   1129c:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>   112a0:	eafffe07 	b	10ac4 &lt;archer_dpi_stats&commat;plt&gt;</pre>
+<pre>   112a4:	e59f3024 	ldr	r3, [pc, #36]	; 112d0 &lt;archer_sysport_tm_port_set&commat;plt+0x6c8&gt;</pre>
+<pre>   112a8:	e59f204c 	ldr	r2, [pc, #76]	; 112fc &lt;archer_sysport_tm_port_set&commat;plt+0x6f4&gt;</pre>
+<pre>   112ac:	e59f104c 	ldr	r1, [pc, #76]	; 11300 &lt;archer_sysport_tm_port_set&commat;plt+0x6f8&gt;</pre>
+<pre>   112b0:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>   112b4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   112b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   112bc:	e1a03005 	mov	r3, r5</pre>
+<pre>   112c0:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   112c4:	ebfffe1f 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   112c8:	eaffffb3 	b	1119c &lt;archer_sysport_tm_port_set&commat;plt+0x594&gt;</pre>
+<pre>   112cc:	00013e84 	andeq	r3, r1, r4, lsl #29</pre>
+<pre>--</pre>
+<pre>   112e8:	00015651 	andeq	r5, r1, r1, asr r6</pre>
+<pre>   112ec:	0000252d 	andeq	r2, r0, sp, lsr #10</pre>
+<pre>   112f0:	000025bc 			; &lt;UNDEFINED&gt; instruction: 0x000025bc</pre>
+<pre>   112f4:	00002591 	muleq	r0, r1, r5</pre>
+<pre>   112f8:	00002573 	andeq	r2, r0, r3, ror r5</pre>
+<pre>   112fc:	000155a5 	andeq	r5, r1, r5, lsr #11</pre>
+<pre>   11300:	000024ac 	andeq	r2, r0, ip, lsr #9</pre>
+<pre>   11304:	e92d4ef0 	push	{r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>   11308:	e3510000 	cmp	r1, #0</pre>
+<pre>   1130c:	e59f550c 	ldr	r5, [pc, #1292]	; 11820 &lt;archer_sysport_tm_port_set&commat;plt+0xc18&gt;</pre>
+<pre>   11310:	e24dd020 	sub	sp, sp, #32</pre>
+<pre>   11314:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   11318:	1a000009 	bne	11344 &lt;archer_sysport_tm_port_set&commat;plt+0x73c&gt;</pre>
+<pre>   1131c:	e59f3500 	ldr	r3, [pc, #1280]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   11320:	e59f2500 	ldr	r2, [pc, #1280]	; 11828 &lt;archer_sysport_tm_port_set&commat;plt+0xc20&gt;</pre>
+<pre>   11324:	e59f1500 	ldr	r1, [pc, #1280]	; 1182c &lt;archer_sysport_tm_port_set&commat;plt+0xc24&gt;</pre>
+<pre>   11328:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   1132c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11330:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11334:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11338:	ebfffe02 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1133c:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   11340:	ea000091 	b	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>--</pre>
+<pre>   11360:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11364:	eafffff2 	b	11334 &lt;archer_sysport_tm_port_set&commat;plt+0x72c&gt;</pre>
+<pre>   11368:	e5906000 	ldr	r6, [r0]</pre>
+<pre>   1136c:	e1a04000 	mov	r4, r0</pre>
+<pre>   11370:	e59f14c0 	ldr	r1, [pc, #1216]	; 11838 &lt;archer_sysport_tm_port_set&commat;plt+0xc30&gt;</pre>
+<pre>   11374:	e1a00006 	mov	r0, r6</pre>
+<pre>   11378:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1137c:	ebfffdc4 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11380:	e3500000 	cmp	r0, #0</pre>
+<pre>   11384:	1a00000f 	bne	113c8 &lt;archer_sysport_tm_port_set&commat;plt+0x7c0&gt;</pre>
+<pre>   11388:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   1138c:	e3530000 	cmp	r3, #0</pre>
+<pre>   11390:	0a000009 	beq	113bc &lt;archer_sysport_tm_port_set&commat;plt+0x7b4&gt;</pre>
+<pre>   11394:	e59f3488 	ldr	r3, [pc, #1160]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   11398:	e59f249c 	ldr	r2, [pc, #1180]	; 1183c &lt;archer_sysport_tm_port_set&commat;plt+0xc34&gt;</pre>
+<pre>   1139c:	e59f149c 	ldr	r1, [pc, #1180]	; 11840 &lt;archer_sysport_tm_port_set&commat;plt+0xc38&gt;</pre>
+<pre>   113a0:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   113a4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   113a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   113ac:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   113b0:	ebfffde4 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   113b4:	e3a04069 	mov	r4, #105	; 0x69</pre>
+<pre>   113b8:	ea000073 	b	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>   113bc:	ebfffdc0 	bl	10ac4 &lt;archer_dpi_stats&commat;plt&gt;</pre>
+<pre>   113c0:	e1a04000 	mov	r4, r0</pre>
+<pre>   113c4:	ea000070 	b	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>   113c8:	e59f1474 	ldr	r1, [pc, #1140]	; 11844 &lt;archer_sysport_tm_port_set&commat;plt+0xc3c&gt;</pre>
+<pre>   113cc:	e1a00006 	mov	r0, r6</pre>
+<pre>   113d0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   113d4:	ebfffdae 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   113d8:	e3500000 	cmp	r0, #0</pre>
+<pre>   113dc:	1a000048 	bne	11504 &lt;archer_sysport_tm_port_set&commat;plt+0x8fc&gt;</pre>
+<pre>   113e0:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   113e4:	e3530006 	cmp	r3, #6</pre>
+<pre>   113e8:	0a000008 	beq	11410 &lt;archer_sysport_tm_port_set&commat;plt+0x808&gt;</pre>
+<pre>   113ec:	e59f2430 	ldr	r2, [pc, #1072]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   113f0:	e59f1450 	ldr	r1, [pc, #1104]	; 11848 &lt;archer_sysport_tm_port_set&commat;plt+0xc40&gt;</pre>
+<pre>   113f4:	e7950002 	ldr	r0, [r5, r2]</pre>
+<pre>   113f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   113fc:	e59f2448 	ldr	r2, [pc, #1096]	; 1184c &lt;archer_sysport_tm_port_set&commat;plt+0xc44&gt;</pre>
+<pre>   11400:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11404:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11408:	ebfffdce 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1140c:	eaffffe8 	b	113b4 &lt;archer_sysport_tm_port_set&commat;plt+0x7ac&gt;</pre>
+<pre>   11410:	e2443004 	sub	r3, r4, #4</pre>
+<pre>--</pre>
+<pre>   114ac:	ebfffdc3 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   114b0:	e1a0a000 	mov	sl, r0</pre>
+<pre>   114b4:	eaffffee 	b	11474 &lt;archer_sysport_tm_port_set&commat;plt+0x86c&gt;</pre>
+<pre>   114b8:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>   114bc:	e1a0000b 	mov	r0, fp</pre>
+<pre>   114c0:	ebfffd73 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   114c4:	e3500000 	cmp	r0, #0</pre>
+<pre>   114c8:	1a000003 	bne	114dc &lt;archer_sysport_tm_port_set&commat;plt+0x8d4&gt;</pre>
+<pre>   114cc:	e7940106 	ldr	r0, [r4, r6, lsl #2]</pre>
+<pre>   114d0:	ebfffdba 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   114d4:	e1a07000 	mov	r7, r0</pre>
+<pre>   114d8:	eaffffe5 	b	11474 &lt;archer_sysport_tm_port_set&commat;plt+0x86c&gt;</pre>
+<pre>   114dc:	e59f2340 	ldr	r2, [pc, #832]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   114e0:	e1a0300b 	mov	r3, fp</pre>
+<pre>   114e4:	e59f1370 	ldr	r1, [pc, #880]	; 1185c &lt;archer_sysport_tm_port_set&commat;plt+0xc54&gt;</pre>
+<pre>   114e8:	e7950002 	ldr	r0, [r5, r2]</pre>
+<pre>   114ec:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   114f0:	e59f2368 	ldr	r2, [pc, #872]	; 11860 &lt;archer_sysport_tm_port_set&commat;plt+0xc58&gt;</pre>
+<pre>   114f4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   114f8:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   114fc:	ebfffd91 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11500:	eaffff8d 	b	1133c &lt;archer_sysport_tm_port_set&commat;plt+0x734&gt;</pre>
+<pre>   11504:	e59f1358 	ldr	r1, [pc, #856]	; 11864 &lt;archer_sysport_tm_port_set&commat;plt+0xc5c&gt;</pre>
+<pre>--</pre>
+<pre>   11538:	ebfffd55 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   1153c:	e3500000 	cmp	r0, #0</pre>
+<pre>   11540:	1a00001b 	bne	115b4 &lt;archer_sysport_tm_port_set&commat;plt+0x9ac&gt;</pre>
+<pre>   11544:	e5940008 	ldr	r0, [r4, #8]</pre>
+<pre>   11548:	ebfffd9c 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   1154c:	e28d201c 	add	r2, sp, #28</pre>
+<pre>   11550:	e28d1018 	add	r1, sp, #24</pre>
+<pre>   11554:	e1a06000 	mov	r6, r0</pre>
+<pre>   11558:	ebfffd80 	bl	10b60 &lt;archer_dpi_sq_queue_get&commat;plt&gt;</pre>
+<pre>   1155c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   11560:	1a000009 	bne	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>   11564:	e59f32b8 	ldr	r3, [pc, #696]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   11568:	e1a02006 	mov	r2, r6</pre>
+<pre>   1156c:	e59f12f8 	ldr	r1, [pc, #760]	; 1186c &lt;archer_sysport_tm_port_set&commat;plt+0xc64&gt;</pre>
+<pre>   11570:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   11574:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11578:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>   1157c:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11580:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>   11584:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11588:	ebfffd6e 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1158c:	e1a00004 	mov	r0, r4</pre>
+<pre>   11590:	e28dd020 	add	sp, sp, #32</pre>
+<pre>--</pre>
+<pre>   11678:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   1167c:	e3530000 	cmp	r3, #0</pre>
+<pre>   11680:	0a000006 	beq	116a0 &lt;archer_sysport_tm_port_set&commat;plt+0xa98&gt;</pre>
+<pre>   11684:	e59f2198 	ldr	r2, [pc, #408]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   11688:	e59f120c 	ldr	r1, [pc, #524]	; 1189c &lt;archer_sysport_tm_port_set&commat;plt+0xc94&gt;</pre>
+<pre>   1168c:	e7950002 	ldr	r0, [r5, r2]</pre>
+<pre>   11690:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11694:	e59f2204 	ldr	r2, [pc, #516]	; 118a0 &lt;archer_sysport_tm_port_set&commat;plt+0xc98&gt;</pre>
+<pre>   11698:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1169c:	eaffff58 	b	11404 &lt;archer_sysport_tm_port_set&commat;plt+0x7fc&gt;</pre>
+<pre>   116a0:	e28d001c 	add	r0, sp, #28</pre>
+<pre>   116a4:	ebfffd0f 	bl	10ae8 &lt;archer_dpi_sq_port_get&commat;plt&gt;</pre>
+<pre>   116a8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   116ac:	1affffb6 	bne	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>   116b0:	e59f316c 	ldr	r3, [pc, #364]	; 11824 &lt;archer_sysport_tm_port_set&commat;plt+0xc1c&gt;</pre>
+<pre>   116b4:	e59f11e8 	ldr	r1, [pc, #488]	; 118a4 &lt;archer_sysport_tm_port_set&commat;plt+0xc9c&gt;</pre>
+<pre>   116b8:	e59d201c 	ldr	r2, [sp, #28]</pre>
+<pre>   116bc:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   116c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   116c4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   116c8:	ebfffd1e 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   116cc:	eaffffae 	b	1158c &lt;archer_sysport_tm_port_set&commat;plt+0x984&gt;</pre>
+<pre>   116d0:	e59f11d0 	ldr	r1, [pc, #464]	; 118a8 &lt;archer_sysport_tm_port_set&commat;plt+0xca0&gt;</pre>
+<pre>--</pre>
+<pre>   118c8:	00002286 	andeq	r2, r0, r6, lsl #5</pre>
+<pre>   118cc:	000150ad 	andeq	r5, r1, sp, lsr #1</pre>
+<pre>   118d0:	00002022 	andeq	r2, r0, r2, lsr #32</pre>
+<pre>   118d4:	00002269 	andeq	r2, r0, r9, ror #4</pre>
+<pre>   118d8:	00002003 	andeq	r2, r0, r3</pre>
+<pre>   118dc:	00015049 	andeq	r5, r1, r9, asr #32</pre>
+<pre>   118e0:	00001f50 	andeq	r1, r0, r0, asr pc</pre>
+<pre>   118e4:	e92d4ef0 	push	{r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>   118e8:	e2519000 	subs	r9, r1, #0</pre>
+<pre>   118ec:	e59fa9fc 	ldr	sl, [pc, #2556]	; 122f0 &lt;archer_sysport_tm_port_set&commat;plt+0x16e8&gt;</pre>
+<pre>   118f0:	e24dd048 	sub	sp, sp, #72	; 0x48</pre>
+<pre>   118f4:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   118f8:	1a000009 	bne	11924 &lt;archer_sysport_tm_port_set&commat;plt+0xd1c&gt;</pre>
+<pre>   118fc:	e59f39f0 	ldr	r3, [pc, #2544]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11900:	e59f29f0 	ldr	r2, [pc, #2544]	; 122f8 &lt;archer_sysport_tm_port_set&commat;plt+0x16f0&gt;</pre>
+<pre>   11904:	e59f19f0 	ldr	r1, [pc, #2544]	; 122fc &lt;archer_sysport_tm_port_set&commat;plt+0x16f4&gt;</pre>
+<pre>   11908:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>   1190c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11910:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11914:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11918:	ebfffc8a 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1191c:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   11920:	ea0000ef 	b	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>--</pre>
+<pre>   11940:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11944:	eafffff2 	b	11914 &lt;archer_sysport_tm_port_set&commat;plt+0xd0c&gt;</pre>
+<pre>   11948:	e5907000 	ldr	r7, [r0]</pre>
+<pre>   1194c:	e1a04000 	mov	r4, r0</pre>
+<pre>   11950:	e59f19b0 	ldr	r1, [pc, #2480]	; 12308 &lt;archer_sysport_tm_port_set&commat;plt+0x1700&gt;</pre>
+<pre>   11954:	e1a00007 	mov	r0, r7</pre>
+<pre>   11958:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1195c:	ebfffc4c 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11960:	e3500000 	cmp	r0, #0</pre>
+<pre>   11964:	1a00000f 	bne	119a8 &lt;archer_sysport_tm_port_set&commat;plt+0xda0&gt;</pre>
+<pre>   11968:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   1196c:	e3530000 	cmp	r3, #0</pre>
+<pre>   11970:	0a000009 	beq	1199c &lt;archer_sysport_tm_port_set&commat;plt+0xd94&gt;</pre>
+<pre>   11974:	e59f3978 	ldr	r3, [pc, #2424]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11978:	e59f298c 	ldr	r2, [pc, #2444]	; 1230c &lt;archer_sysport_tm_port_set&commat;plt+0x1704&gt;</pre>
+<pre>   1197c:	e59f198c 	ldr	r1, [pc, #2444]	; 12310 &lt;archer_sysport_tm_port_set&commat;plt+0x1708&gt;</pre>
+<pre>   11980:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>   11984:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11988:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1198c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   11990:	ebfffc6c 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11994:	e3a04069 	mov	r4, #105	; 0x69</pre>
+<pre>   11998:	ea0000d1 	b	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>--</pre>
+<pre>   119f0:	e3530000 	cmp	r3, #0</pre>
+<pre>   119f4:	1affffde 	bne	11974 &lt;archer_sysport_tm_port_set&commat;plt+0xd6c&gt;</pre>
+<pre>   119f8:	ebfffc22 	bl	10a88 &lt;archer_sysport_tm_stats&commat;plt&gt;</pre>
+<pre>   119fc:	eaffffe7 	b	119a0 &lt;archer_sysport_tm_port_set&commat;plt+0xd98&gt;</pre>
+<pre>   11a00:	e59f1914 	ldr	r1, [pc, #2324]	; 1231c &lt;archer_sysport_tm_port_set&commat;plt+0x1714&gt;</pre>
+<pre>   11a04:	e1a00007 	mov	r0, r7</pre>
+<pre>   11a08:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11a0c:	ebfffc20 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11a10:	e2506000 	subs	r6, r0, #0</pre>
+<pre>   11a14:	1a00006d 	bne	11bd0 &lt;archer_sysport_tm_port_set&commat;plt+0xfc8&gt;</pre>
+<pre>   11a18:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   11a1c:	e353000c 	cmp	r3, #12</pre>
+<pre>   11a20:	0a000008 	beq	11a48 &lt;archer_sysport_tm_port_set&commat;plt+0xe40&gt;</pre>
+<pre>   11a24:	e59f28c8 	ldr	r2, [pc, #2248]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11a28:	e59f18f0 	ldr	r1, [pc, #2288]	; 12320 &lt;archer_sysport_tm_port_set&commat;plt+0x1718&gt;</pre>
+<pre>   11a2c:	e79a0002 	ldr	r0, [sl, r2]</pre>
+<pre>   11a30:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11a34:	e59f28e8 	ldr	r2, [pc, #2280]	; 12324 &lt;archer_sysport_tm_port_set&commat;plt+0x171c&gt;</pre>
+<pre>   11a38:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11a3c:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11a40:	ebfffc40 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11a44:	eaffffd2 	b	11994 &lt;archer_sysport_tm_port_set&commat;plt+0xd8c&gt;</pre>
+<pre>   11a48:	e59f38d8 	ldr	r3, [pc, #2264]	; 12328 &lt;archer_sysport_tm_port_set&commat;plt+0x1720&gt;</pre>
+<pre>--</pre>
+<pre>   11b78:	ebfffc10 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   11b7c:	e58d001c 	str	r0, [sp, #28]</pre>
+<pre>   11b80:	eaffffd7 	b	11ae4 &lt;archer_sysport_tm_port_set&commat;plt+0xedc&gt;</pre>
+<pre>   11b84:	e59d1034 	ldr	r1, [sp, #52]	; 0x34</pre>
+<pre>   11b88:	e1a00007 	mov	r0, r7</pre>
+<pre>   11b8c:	ebfffbc0 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11b90:	e3500000 	cmp	r0, #0</pre>
+<pre>   11b94:	1a000003 	bne	11ba8 &lt;archer_sysport_tm_port_set&commat;plt+0xfa0&gt;</pre>
+<pre>   11b98:	e5940008 	ldr	r0, [r4, #8]</pre>
+<pre>   11b9c:	ebfffc07 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   11ba0:	e1a05000 	mov	r5, r0</pre>
+<pre>   11ba4:	eaffffce 	b	11ae4 &lt;archer_sysport_tm_port_set&commat;plt+0xedc&gt;</pre>
+<pre>   11ba8:	e59f2744 	ldr	r2, [pc, #1860]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11bac:	e1a03007 	mov	r3, r7</pre>
+<pre>   11bb0:	e59f1788 	ldr	r1, [pc, #1928]	; 12340 &lt;archer_sysport_tm_port_set&commat;plt+0x1738&gt;</pre>
+<pre>   11bb4:	e79a0002 	ldr	r0, [sl, r2]</pre>
+<pre>   11bb8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11bbc:	e59f2780 	ldr	r2, [pc, #1920]	; 12344 &lt;archer_sysport_tm_port_set&commat;plt+0x173c&gt;</pre>
+<pre>   11bc0:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   11bc4:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11bc8:	ebfffbde 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11bcc:	eaffff52 	b	1191c &lt;archer_sysport_tm_port_set&commat;plt+0xd14&gt;</pre>
+<pre>   11bd0:	e59f1770 	ldr	r1, [pc, #1904]	; 12348 &lt;archer_sysport_tm_port_set&commat;plt+0x1740&gt;</pre>
+<pre>--</pre>
+<pre>   11c90:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11c94:	e28d303c 	add	r3, sp, #60	; 0x3c</pre>
+<pre>   11c98:	ebfffb86 	bl	10ab8 &lt;archer_sysport_tm_queue_get&commat;plt&gt;</pre>
+<pre>   11c9c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   11ca0:	1a00000f 	bne	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>   11ca4:	e59f3648 	ldr	r3, [pc, #1608]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11ca8:	e1a02007 	mov	r2, r7</pre>
+<pre>   11cac:	e59f16a8 	ldr	r1, [pc, #1704]	; 1235c &lt;archer_sysport_tm_port_set&commat;plt+0x1754&gt;</pre>
+<pre>   11cb0:	e79a0003 	ldr	r0, [sl, r3]</pre>
+<pre>   11cb4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11cb8:	e59d3044 	ldr	r3, [sp, #68]	; 0x44</pre>
+<pre>   11cbc:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   11cc0:	e59d3040 	ldr	r3, [sp, #64]	; 0x40</pre>
+<pre>   11cc4:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>   11cc8:	e59d303c 	ldr	r3, [sp, #60]	; 0x3c</pre>
+<pre>   11ccc:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   11cd0:	e59d3038 	ldr	r3, [sp, #56]	; 0x38</pre>
+<pre>   11cd4:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11cd8:	e1a03005 	mov	r3, r5</pre>
+<pre>   11cdc:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11ce0:	ebfffb98 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11ce4:	e1a00004 	mov	r0, r4</pre>
+<pre>   11ce8:	e28dd048 	add	sp, sp, #72	; 0x48</pre>
+<pre>--</pre>
+<pre>   11e8c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11e90:	ebfffaff 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   11e94:	e3500000 	cmp	r0, #0</pre>
+<pre>   11e98:	1a000018 	bne	11f00 &lt;archer_sysport_tm_port_set&commat;plt+0x12f8&gt;</pre>
+<pre>   11e9c:	e5945008 	ldr	r5, [r4, #8]</pre>
+<pre>   11ea0:	e28d2044 	add	r2, sp, #68	; 0x44</pre>
+<pre>   11ea4:	e28d1040 	add	r1, sp, #64	; 0x40</pre>
+<pre>   11ea8:	e1a00005 	mov	r0, r5</pre>
+<pre>   11eac:	ebfffb3a 	bl	10b9c &lt;archer_sysport_tm_port_get&commat;plt&gt;</pre>
+<pre>   11eb0:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   11eb4:	1affff8a 	bne	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>   11eb8:	e59f3434 	ldr	r3, [pc, #1076]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   11ebc:	e1a02005 	mov	r2, r5</pre>
+<pre>   11ec0:	e59f14d0 	ldr	r1, [pc, #1232]	; 12398 &lt;archer_sysport_tm_port_set&commat;plt+0x1790&gt;</pre>
+<pre>   11ec4:	e79a0003 	ldr	r0, [sl, r3]</pre>
+<pre>   11ec8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11ecc:	e59d3044 	ldr	r3, [sp, #68]	; 0x44</pre>
+<pre>   11ed0:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11ed4:	e59d3040 	ldr	r3, [sp, #64]	; 0x40</pre>
+<pre>   11ed8:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   11edc:	ebfffb19 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11ee0:	eaffff7f 	b	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>   11ee4:	e59f2408 	ldr	r2, [pc, #1032]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>--</pre>
+<pre>   1205c:	1a00001b 	bne	120d0 &lt;archer_sysport_tm_port_set&commat;plt+0x14c8&gt;</pre>
+<pre>   12060:	e5945008 	ldr	r5, [r4, #8]</pre>
+<pre>   12064:	e28d1044 	add	r1, sp, #68	; 0x44</pre>
+<pre>   12068:	e1a00005 	mov	r0, r5</pre>
+<pre>   1206c:	ebfffad6 	bl	10bcc &lt;archer_sysport_tm_arbiter_get&commat;plt&gt;</pre>
+<pre>   12070:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12074:	1affff1a 	bne	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>   12078:	e59d3044 	ldr	r3, [sp, #68]	; 0x44</pre>
+<pre>   1207c:	e3530000 	cmp	r3, #0</pre>
+<pre>   12080:	0a00001a 	beq	120f0 &lt;archer_sysport_tm_port_set&commat;plt+0x14e8&gt;</pre>
+<pre>   12084:	e3530001 	cmp	r3, #1</pre>
+<pre>   12088:	11a03004 	movne	r3, r4</pre>
+<pre>   1208c:	059f3340 	ldreq	r3, [pc, #832]	; 123d4 &lt;archer_sysport_tm_port_set&commat;plt+0x17cc&gt;</pre>
+<pre>   12090:	008f3003 	addeq	r3, pc, r3</pre>
+<pre>   12094:	e59f2258 	ldr	r2, [pc, #600]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>   12098:	e59f1338 	ldr	r1, [pc, #824]	; 123d8 &lt;archer_sysport_tm_port_set&commat;plt+0x17d0&gt;</pre>
+<pre>   1209c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   120a0:	e79a0002 	ldr	r0, [sl, r2]</pre>
+<pre>   120a4:	e1a02005 	mov	r2, r5</pre>
+<pre>   120a8:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   120ac:	ebfffaa5 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   120b0:	eaffff0b 	b	11ce4 &lt;archer_sysport_tm_port_set&commat;plt+0x10dc&gt;</pre>
+<pre>   120b4:	e59f2238 	ldr	r2, [pc, #568]	; 122f4 &lt;archer_sysport_tm_port_set&commat;plt+0x16ec&gt;</pre>
+<pre>--</pre>
+<pre>   12494:	eafffff4 	b	1246c &lt;archer_sysport_tm_port_set&commat;plt+0x1864&gt;</pre>
+<pre>   12498:	e5906000 	ldr	r6, [r0]</pre>
+<pre>   1249c:	e1a04000 	mov	r4, r0</pre>
+<pre>   124a0:	e59f1288 	ldr	r1, [pc, #648]	; 12730 &lt;archer_sysport_tm_port_set&commat;plt+0x1b28&gt;</pre>
+<pre>   124a4:	e1a00006 	mov	r0, r6</pre>
+<pre>   124a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   124ac:	ebfff978 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   124b0:	e3500000 	cmp	r0, #0</pre>
+<pre>   124b4:	1a000026 	bne	12554 &lt;archer_sysport_tm_port_set&commat;plt+0x194c&gt;</pre>
+<pre>   124b8:	e59f325c 	ldr	r3, [pc, #604]	; 1271c &lt;archer_sysport_tm_port_set&commat;plt+0x1b14&gt;</pre>
+<pre>   124bc:	e7955003 	ldr	r5, [r5, r3]</pre>
+<pre>   124c0:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   124c4:	e3530000 	cmp	r3, #0</pre>
+<pre>   124c8:	e5956000 	ldr	r6, [r5]</pre>
+<pre>   124cc:	ca000007 	bgt	124f0 &lt;archer_sysport_tm_port_set&commat;plt+0x18e8&gt;</pre>
+<pre>   124d0:	e59f225c 	ldr	r2, [pc, #604]	; 12734 &lt;archer_sysport_tm_port_set&commat;plt+0x1b2c&gt;</pre>
+<pre>   124d4:	e1a00006 	mov	r0, r6</pre>
+<pre>   124d8:	e59f1258 	ldr	r1, [pc, #600]	; 12738 &lt;archer_sysport_tm_port_set&commat;plt+0x1b30&gt;</pre>
+<pre>   124dc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   124e0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   124e4:	ebfff997 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   124e8:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   124ec:	ea000015 	b	12548 &lt;archer_sysport_tm_port_set&commat;plt+0x1940&gt;</pre>
+<pre>   124f0:	e5940004 	ldr	r0, [r4, #4]</pre>
+<pre>   124f4:	ebfff9b1 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   124f8:	e59f123c 	ldr	r1, [pc, #572]	; 1273c &lt;archer_sysport_tm_port_set&commat;plt+0x1b34&gt;</pre>
+<pre>   124fc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12500:	e1a02000 	mov	r2, r0</pre>
+<pre>   12504:	e58d0010 	str	r0, [sp, #16]</pre>
+<pre>   12508:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">   1250c:	ebfff98d 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12510:	e28d1010 	add	r1, sp, #16</pre>
+<pre>   12514:	e3a0007d 	mov	r0, #125	; 0x7d</pre>
+<pre>   12518:	ebfff9b7 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   1251c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12520:	1a000008 	bne	12548 &lt;archer_sysport_tm_port_set&commat;plt+0x1940&gt;</pre>
+<pre>   12524:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>   12528:	e59f1210 	ldr	r1, [pc, #528]	; 12740 &lt;archer_sysport_tm_port_set&commat;plt+0x1b38&gt;</pre>
+<pre>   1252c:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   12530:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12534:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>   12538:	e58d3000 	str	r3, [sp]</pre>
+<pre>   1253c:	e1cd21d0 	ldrd	r2, [sp, #16]</pre>
+<pre>   12540:	e5950000 	ldr	r0, [r5]</pre>
+<pre><span class="red">   12544:	ebfff97f 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12548:	e1a00004 	mov	r0, r4</pre>
+<pre>   1254c:	e28dd020 	add	sp, sp, #32</pre>
+<pre>--</pre>
+<pre>   125d0:	e59fb17c 	ldr	fp, [pc, #380]	; 12754 &lt;archer_sysport_tm_port_set&commat;plt+0x1b4c&gt;</pre>
+<pre>   125d4:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>   125d8:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   125dc:	e59f3174 	ldr	r3, [pc, #372]	; 12758 &lt;archer_sysport_tm_port_set&commat;plt+0x1b50&gt;</pre>
+<pre>   125e0:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>   125e4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   125e8:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   125ec:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   125f0:	e1530007 	cmp	r3, r7</pre>
+<pre>   125f4:	ca000019 	bgt	12660 &lt;archer_sysport_tm_port_set&commat;plt+0x1a58&gt;</pre>
+<pre>   125f8:	e59f311c 	ldr	r3, [pc, #284]	; 1271c &lt;archer_sysport_tm_port_set&commat;plt+0x1b14&gt;</pre>
+<pre>   125fc:	e59f1158 	ldr	r1, [pc, #344]	; 1275c &lt;archer_sysport_tm_port_set&commat;plt+0x1b54&gt;</pre>
+<pre>   12600:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   12604:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12608:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>   1260c:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   12610:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>   12614:	e58d3000 	str	r3, [sp]</pre>
+<pre>   12618:	e1cd21d0 	ldrd	r2, [sp, #16]</pre>
+<pre>   1261c:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   12620:	ebfff948 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12624:	e1a01006 	mov	r1, r6</pre>
+<pre>   12628:	e3a0007c 	mov	r0, #124	; 0x7c</pre>
+<pre>   1262c:	ebfff972 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12630:	e1a04000 	mov	r4, r0</pre>
+<pre>   12634:	eaffffc3 	b	12548 &lt;archer_sysport_tm_port_set&commat;plt+0x1940&gt;</pre>
+<pre>   12638:	e59f30dc 	ldr	r3, [pc, #220]	; 1271c &lt;archer_sysport_tm_port_set&commat;plt+0x1b14&gt;</pre>
+<pre>   1263c:	e59f211c 	ldr	r2, [pc, #284]	; 12760 &lt;archer_sysport_tm_port_set&commat;plt+0x1b58&gt;</pre>
+<pre>   12640:	e59f111c 	ldr	r1, [pc, #284]	; 12764 &lt;archer_sysport_tm_port_set&commat;plt+0x1b5c&gt;</pre>
+<pre>   12644:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   12648:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1264c:	e5943004 	ldr	r3, [r4, #4]</pre>
+<pre>   12650:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12654:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   12658:	ebfff93a 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1265c:	eaffffa1 	b	124e8 &lt;archer_sysport_tm_port_set&commat;plt+0x18e0&gt;</pre>
+<pre>   12660:	e5949008 	ldr	r9, [r4, #8]</pre>
+<pre>--</pre>
+<pre>   12778:	e92d4ef0 	push	{r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>   1277c:	e24dd070 	sub	sp, sp, #112	; 0x70</pre>
+<pre>   12780:	e28d6038 	add	r6, sp, #56	; 0x38</pre>
+<pre>   12784:	e1a04001 	mov	r4, r1</pre>
+<pre>   12788:	e1a07000 	mov	r7, r0</pre>
+<pre>   1278c:	e3a02038 	mov	r2, #56	; 0x38</pre>
+<pre>   12790:	e3a01000 	mov	r1, #0</pre>
+<pre>   12794:	e1a00006 	mov	r0, r6</pre>
+<pre>   12798:	ebfff8f6 	bl	10b78 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   1279c:	e59f5450 	ldr	r5, [pc, #1104]	; 12bf4 &lt;archer_sysport_tm_port_set&commat;plt+0x1fec&gt;</pre>
+<pre>   127a0:	e3540000 	cmp	r4, #0</pre>
+<pre>   127a4:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   127a8:	1a000009 	bne	127d4 &lt;archer_sysport_tm_port_set&commat;plt+0x1bcc&gt;</pre>
+<pre>   127ac:	e59f3444 	ldr	r3, [pc, #1092]	; 12bf8 &lt;archer_sysport_tm_port_set&commat;plt+0x1ff0&gt;</pre>
+<pre>   127b0:	e59f2444 	ldr	r2, [pc, #1092]	; 12bfc &lt;archer_sysport_tm_port_set&commat;plt+0x1ff4&gt;</pre>
+<pre>   127b4:	e59f1444 	ldr	r1, [pc, #1092]	; 12c00 &lt;archer_sysport_tm_port_set&commat;plt+0x1ff8&gt;</pre>
+<pre>   127b8:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   127bc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   127c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   127c4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   127c8:	ebfff8de 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   127cc:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   127d0:	ea000047 	b	128f4 &lt;archer_sysport_tm_port_set&commat;plt+0x1cec&gt;</pre>
+<pre>--</pre>
+<pre>   128a0:	e59f1378 	ldr	r1, [pc, #888]	; 12c20 &lt;archer_sysport_tm_port_set&commat;plt+0x2018&gt;</pre>
+<pre>   128a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   128a8:	e1a04000 	mov	r4, r0</pre>
+<pre>   128ac:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   128b0:	e59d306c 	ldr	r3, [sp, #108]	; 0x6c</pre>
+<pre>   128b4:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>   128b8:	e59d3068 	ldr	r3, [sp, #104]	; 0x68</pre>
+<pre>   128bc:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>   128c0:	e59d3064 	ldr	r3, [sp, #100]	; 0x64</pre>
+<pre>   128c4:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>   128c8:	e59d3060 	ldr	r3, [sp, #96]	; 0x60</pre>
+<pre>   128cc:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   128d0:	e59d305c 	ldr	r3, [sp, #92]	; 0x5c</pre>
+<pre>   128d4:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>   128d8:	e59d3058 	ldr	r3, [sp, #88]	; 0x58</pre>
+<pre>   128dc:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   128e0:	e59d3054 	ldr	r3, [sp, #84]	; 0x54</pre>
+<pre>   128e4:	e58d3000 	str	r3, [sp]</pre>
+<pre>   128e8:	e1cd24dc 	ldrd	r2, [sp, #76]	; 0x4c</pre>
+<pre>   128ec:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   128f0:	ebfff894 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   128f4:	e1a00004 	mov	r0, r4</pre>
+<pre>   128f8:	e28dd070 	add	sp, sp, #112	; 0x70</pre>
+<pre>--</pre>
+<pre>   1292c:	eaffffd4 	b	12884 &lt;archer_sysport_tm_port_set&commat;plt+0x1c7c&gt;</pre>
+<pre>   12930:	e59f12ec 	ldr	r1, [pc, #748]	; 12c24 &lt;archer_sysport_tm_port_set&commat;plt+0x201c&gt;</pre>
+<pre>   12934:	e1a0000b 	mov	r0, fp</pre>
+<pre>   12938:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1293c:	ebfff854 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   12940:	e3500000 	cmp	r0, #0</pre>
+<pre>   12944:	1a000004 	bne	1295c &lt;archer_sysport_tm_port_set&commat;plt+0x1d54&gt;</pre>
+<pre>   12948:	e59a0008 	ldr	r0, [sl, #8]</pre>
+<pre>   1294c:	e2844002 	add	r4, r4, #2</pre>
+<pre>   12950:	ebfff89a 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   12954:	e58d0048 	str	r0, [sp, #72]	; 0x48</pre>
+<pre>   12958:	eaffffc9 	b	12884 &lt;archer_sysport_tm_port_set&commat;plt+0x1c7c&gt;</pre>
+<pre>   1295c:	e59f2294 	ldr	r2, [pc, #660]	; 12bf8 &lt;archer_sysport_tm_port_set&commat;plt+0x1ff0&gt;</pre>
+<pre>   12960:	e1a0300b 	mov	r3, fp</pre>
+<pre>   12964:	e59f12bc 	ldr	r1, [pc, #700]	; 12c28 &lt;archer_sysport_tm_port_set&commat;plt+0x2020&gt;</pre>
+<pre>   12968:	e7950002 	ldr	r0, [r5, r2]</pre>
+<pre>   1296c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12970:	e59f22b4 	ldr	r2, [pc, #692]	; 12c2c &lt;archer_sysport_tm_port_set&commat;plt+0x2024&gt;</pre>
+<pre>   12974:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12978:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   1297c:	ebfff871 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12980:	eaffff91 	b	127cc &lt;archer_sysport_tm_port_set&commat;plt+0x1bc4&gt;</pre>
+<pre>   12984:	e59f32a4 	ldr	r3, [pc, #676]	; 12c30 &lt;archer_sysport_tm_port_set&commat;plt+0x2028&gt;</pre>
+<pre>--</pre>
+<pre>   129fc:	e59d306c 	ldr	r3, [sp, #108]	; 0x6c</pre>
+<pre>   12a00:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>   12a04:	e59d3068 	ldr	r3, [sp, #104]	; 0x68</pre>
+<pre>   12a08:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>   12a0c:	e59d3064 	ldr	r3, [sp, #100]	; 0x64</pre>
+<pre>   12a10:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>   12a14:	e59d3060 	ldr	r3, [sp, #96]	; 0x60</pre>
+<pre>   12a18:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>   12a1c:	e59d305c 	ldr	r3, [sp, #92]	; 0x5c</pre>
+<pre>   12a20:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>   12a24:	e59d3058 	ldr	r3, [sp, #88]	; 0x58</pre>
+<pre>   12a28:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   12a2c:	e59d3054 	ldr	r3, [sp, #84]	; 0x54</pre>
+<pre>   12a30:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>   12a34:	e59d3050 	ldr	r3, [sp, #80]	; 0x50</pre>
+<pre>   12a38:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   12a3c:	e59d304c 	ldr	r3, [sp, #76]	; 0x4c</pre>
+<pre>   12a40:	e58d3000 	str	r3, [sp]</pre>
+<pre>   12a44:	e59d3048 	ldr	r3, [sp, #72]	; 0x48</pre>
+<pre>   12a48:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   12a4c:	ebfff83d 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12a50:	e1a01006 	mov	r1, r6</pre>
+<pre>   12a54:	e1a0000a 	mov	r0, sl</pre>
+<pre>--</pre>
+<pre>   12c50:	000014e7 	andeq	r1, r0, r7, ror #9</pre>
+<pre>   12c54:	000014a1 	andeq	r1, r0, r1, lsr #9</pre>
+<pre>   12c58:	00013c8d 	andeq	r3, r1, sp, lsl #25</pre>
+<pre>   12c5c:	0000140c 	andeq	r1, r0, ip, lsl #8</pre>
+<pre>   12c60:	00000ebe 			; &lt;UNDEFINED&gt; instruction: 0x00000ebe</pre>
+<pre>   12c64:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12c68:	e3a01000 	mov	r1, #0</pre>
+<pre>   12c6c:	e3a00065 	mov	r0, #101	; 0x65</pre>
+<pre>   12c70:	e59f5034 	ldr	r5, [pc, #52]	; 12cac &lt;archer_sysport_tm_port_set&commat;plt+0x20a4&gt;</pre>
+<pre>   12c74:	ebfff7e0 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12c78:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12c7c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12c80:	0a000007 	beq	12ca4 &lt;archer_sysport_tm_port_set&commat;plt+0x209c&gt;</pre>
+<pre>   12c84:	e59f3024 	ldr	r3, [pc, #36]	; 12cb0 &lt;archer_sysport_tm_port_set&commat;plt+0x20a8&gt;</pre>
+<pre>   12c88:	e59f2024 	ldr	r2, [pc, #36]	; 12cb4 &lt;archer_sysport_tm_port_set&commat;plt+0x20ac&gt;</pre>
+<pre>   12c8c:	e59f1024 	ldr	r1, [pc, #36]	; 12cb8 &lt;archer_sysport_tm_port_set&commat;plt+0x20b0&gt;</pre>
+<pre>   12c90:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12c94:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12c98:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12c9c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12ca0:	ebfff7a8 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12ca4:	e1a00004 	mov	r0, r4</pre>
+<pre>   12ca8:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   12cac:	00012380 	andeq	r2, r1, r0, lsl #7</pre>
+<pre>   12cb0:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   12cb4:	00013bc5 	andeq	r3, r1, r5, asr #23</pre>
+<pre>   12cb8:	00001451 	andeq	r1, r0, r1, asr r4</pre>
+<pre>   12cbc:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12cc0:	e3a01000 	mov	r1, #0</pre>
+<pre>   12cc4:	e3a00066 	mov	r0, #102	; 0x66</pre>
+<pre>   12cc8:	e59f5034 	ldr	r5, [pc, #52]	; 12d04 &lt;archer_sysport_tm_port_set&commat;plt+0x20fc&gt;</pre>
+<pre>   12ccc:	ebfff7ca 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12cd0:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12cd4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12cd8:	0a000007 	beq	12cfc &lt;archer_sysport_tm_port_set&commat;plt+0x20f4&gt;</pre>
+<pre>   12cdc:	e59f3024 	ldr	r3, [pc, #36]	; 12d08 &lt;archer_sysport_tm_port_set&commat;plt+0x2100&gt;</pre>
+<pre>   12ce0:	e59f2024 	ldr	r2, [pc, #36]	; 12d0c &lt;archer_sysport_tm_port_set&commat;plt+0x2104&gt;</pre>
+<pre>   12ce4:	e59f1024 	ldr	r1, [pc, #36]	; 12d10 &lt;archer_sysport_tm_port_set&commat;plt+0x2108&gt;</pre>
+<pre>   12ce8:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12cec:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12cf0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12cf4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12cf8:	ebfff792 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12cfc:	e1a00004 	mov	r0, r4</pre>
+<pre>   12d00:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   12d04:	00012328 	andeq	r2, r1, r8, lsr #6</pre>
+<pre>   12d08:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   12d0c:	00013b6d 	andeq	r3, r1, sp, ror #22</pre>
+<pre>   12d10:	00001422 	andeq	r1, r0, r2, lsr #8</pre>
+<pre>   12d14:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12d18:	e3a01000 	mov	r1, #0</pre>
+<pre>   12d1c:	e3a00064 	mov	r0, #100	; 0x64</pre>
+<pre>   12d20:	e59f5034 	ldr	r5, [pc, #52]	; 12d5c &lt;archer_sysport_tm_port_set&commat;plt+0x2154&gt;</pre>
+<pre>   12d24:	ebfff7b4 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12d28:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12d2c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12d30:	0a000007 	beq	12d54 &lt;archer_sysport_tm_port_set&commat;plt+0x214c&gt;</pre>
+<pre>   12d34:	e59f3024 	ldr	r3, [pc, #36]	; 12d60 &lt;archer_sysport_tm_port_set&commat;plt+0x2158&gt;</pre>
+<pre>   12d38:	e59f2024 	ldr	r2, [pc, #36]	; 12d64 &lt;archer_sysport_tm_port_set&commat;plt+0x215c&gt;</pre>
+<pre>   12d3c:	e59f1024 	ldr	r1, [pc, #36]	; 12d68 &lt;archer_sysport_tm_port_set&commat;plt+0x2160&gt;</pre>
+<pre>   12d40:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12d44:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12d48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12d4c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12d50:	ebfff77c 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12d54:	e1a00004 	mov	r0, r4</pre>
+<pre>   12d58:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   12d5c:	000122d0 	ldrdeq	r2, [r1], -r0</pre>
+<pre>   12d60:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   12d64:	00013b15 	andeq	r3, r1, r5, lsl fp</pre>
+<pre>   12d68:	000013e7 	andeq	r1, r0, r7, ror #7</pre>
+<pre>   12d6c:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12d70:	e3a01000 	mov	r1, #0</pre>
+<pre>   12d74:	e3a0006c 	mov	r0, #108	; 0x6c</pre>
+<pre>   12d78:	e59f5034 	ldr	r5, [pc, #52]	; 12db4 &lt;archer_sysport_tm_port_set&commat;plt+0x21ac&gt;</pre>
+<pre>   12d7c:	ebfff79e 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12d80:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12d84:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12d88:	0a000007 	beq	12dac &lt;archer_sysport_tm_port_set&commat;plt+0x21a4&gt;</pre>
+<pre>   12d8c:	e59f3024 	ldr	r3, [pc, #36]	; 12db8 &lt;archer_sysport_tm_port_set&commat;plt+0x21b0&gt;</pre>
+<pre>   12d90:	e59f2024 	ldr	r2, [pc, #36]	; 12dbc &lt;archer_sysport_tm_port_set&commat;plt+0x21b4&gt;</pre>
+<pre>   12d94:	e59f1024 	ldr	r1, [pc, #36]	; 12dc0 &lt;archer_sysport_tm_port_set&commat;plt+0x21b8&gt;</pre>
+<pre>   12d98:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12d9c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12da0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12da4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12da8:	ebfff766 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12dac:	e1a00004 	mov	r0, r4</pre>
+<pre>   12db0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   12db4:	00012278 	andeq	r2, r1, r8, ror r2</pre>
+<pre>   12db8:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   12dbc:	00013abd 			; &lt;UNDEFINED&gt; instruction: 0x00013abd</pre>
+<pre>   12dc0:	000013b1 			; &lt;UNDEFINED&gt; instruction: 0x000013b1</pre>
+<pre>   12dc4:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12dc8:	e3a01000 	mov	r1, #0</pre>
+<pre>   12dcc:	e3a0006e 	mov	r0, #110	; 0x6e</pre>
+<pre>   12dd0:	e59f5034 	ldr	r5, [pc, #52]	; 12e0c &lt;archer_sysport_tm_port_set&commat;plt+0x2204&gt;</pre>
+<pre>   12dd4:	ebfff788 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12dd8:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12ddc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12de0:	0a000007 	beq	12e04 &lt;archer_sysport_tm_port_set&commat;plt+0x21fc&gt;</pre>
+<pre>   12de4:	e59f3024 	ldr	r3, [pc, #36]	; 12e10 &lt;archer_sysport_tm_port_set&commat;plt+0x2208&gt;</pre>
+<pre>   12de8:	e59f2024 	ldr	r2, [pc, #36]	; 12e14 &lt;archer_sysport_tm_port_set&commat;plt+0x220c&gt;</pre>
+<pre>   12dec:	e59f1024 	ldr	r1, [pc, #36]	; 12e18 &lt;archer_sysport_tm_port_set&commat;plt+0x2210&gt;</pre>
+<pre>   12df0:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12df4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12df8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12dfc:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12e00:	ebfff750 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12e04:	e1a00004 	mov	r0, r4</pre>
+<pre>   12e08:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   12e28:	e24dd014 	sub	sp, sp, #20</pre>
+<pre>   12e2c:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12e30:	1a000024 	bne	12ec8 &lt;archer_sysport_tm_port_set&commat;plt+0x22c0&gt;</pre>
+<pre>   12e34:	e59f10ac 	ldr	r1, [pc, #172]	; 12ee8 &lt;archer_sysport_tm_port_set&commat;plt+0x22e0&gt;</pre>
+<pre>   12e38:	e1a04000 	mov	r4, r0</pre>
+<pre>   12e3c:	e5900000 	ldr	r0, [r0]</pre>
+<pre>   12e40:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12e44:	ebfff712 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   12e48:	e3500000 	cmp	r0, #0</pre>
+<pre>   12e4c:	1a00000a 	bne	12e7c &lt;archer_sysport_tm_port_set&commat;plt+0x2274&gt;</pre>
+<pre>   12e50:	e5943044 	ldr	r3, [r4, #68]	; 0x44</pre>
+<pre>   12e54:	e3530001 	cmp	r3, #1</pre>
+<pre>   12e58:	0a000009 	beq	12e84 &lt;archer_sysport_tm_port_set&commat;plt+0x227c&gt;</pre>
+<pre>   12e5c:	e59f3088 	ldr	r3, [pc, #136]	; 12eec &lt;archer_sysport_tm_port_set&commat;plt+0x22e4&gt;</pre>
+<pre>   12e60:	e59f2088 	ldr	r2, [pc, #136]	; 12ef0 &lt;archer_sysport_tm_port_set&commat;plt+0x22e8&gt;</pre>
+<pre>   12e64:	e59f1088 	ldr	r1, [pc, #136]	; 12ef4 &lt;archer_sysport_tm_port_set&commat;plt+0x22ec&gt;</pre>
+<pre>   12e68:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12e6c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12e70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12e74:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12e78:	ebfff732 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12e7c:	e3a00068 	mov	r0, #104	; 0x68</pre>
+<pre>   12e80:	ea00000e 	b	12ec0 &lt;archer_sysport_tm_port_set&commat;plt+0x22b8&gt;</pre>
+<pre>--</pre>
+<pre>   12ee0:	eaffffe3 	b	12e74 &lt;archer_sysport_tm_port_set&commat;plt+0x226c&gt;</pre>
+<pre>   12ee4:	000121cc 	andeq	r2, r1, ip, asr #3</pre>
+<pre>   12ee8:	0000134d 	andeq	r1, r0, sp, asr #6</pre>
+<pre>   12eec:	00000094 	muleq	r0, r4, r0</pre>
+<pre>   12ef0:	000139ed 	andeq	r3, r1, sp, ror #19</pre>
+<pre>   12ef4:	00001323 	andeq	r1, r0, r3, lsr #6</pre>
+<pre>   12ef8:	00013981 	andeq	r3, r1, r1, lsl #19</pre>
+<pre>   12efc:	000012dc 	ldrdeq	r1, [r0], -ip</pre>
+<pre>   12f00:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12f04:	e3510000 	cmp	r1, #0</pre>
+<pre>   12f08:	e59f5104 	ldr	r5, [pc, #260]	; 13014 &lt;archer_sysport_tm_port_set&commat;plt+0x240c&gt;</pre>
+<pre>   12f0c:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   12f10:	1a000009 	bne	12f3c &lt;archer_sysport_tm_port_set&commat;plt+0x2334&gt;</pre>
+<pre>   12f14:	e59f30fc 	ldr	r3, [pc, #252]	; 13018 &lt;archer_sysport_tm_port_set&commat;plt+0x2410&gt;</pre>
+<pre>   12f18:	e59f20fc 	ldr	r2, [pc, #252]	; 1301c &lt;archer_sysport_tm_port_set&commat;plt+0x2414&gt;</pre>
+<pre>   12f1c:	e59f10fc 	ldr	r1, [pc, #252]	; 13020 &lt;archer_sysport_tm_port_set&commat;plt+0x2418&gt;</pre>
+<pre>   12f20:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12f24:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12f28:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12f2c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12f30:	ebfff704 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12f34:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   12f38:	ea000029 	b	12fe4 &lt;archer_sysport_tm_port_set&commat;plt+0x23dc&gt;</pre>
+<pre>--</pre>
+<pre>   12f90:	e59f2098 	ldr	r2, [pc, #152]	; 13030 &lt;archer_sysport_tm_port_set&commat;plt+0x2428&gt;</pre>
+<pre>   12f94:	e59f1098 	ldr	r1, [pc, #152]	; 13034 &lt;archer_sysport_tm_port_set&commat;plt+0x242c&gt;</pre>
+<pre>   12f98:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12f9c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12fa0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12fa4:	eaffffe0 	b	12f2c &lt;archer_sysport_tm_port_set&commat;plt+0x2324&gt;</pre>
+<pre>   12fa8:	e5940004 	ldr	r0, [r4, #4]</pre>
+<pre>   12fac:	ebfff703 	bl	10bc0 &lt;atoi&commat;plt&gt;</pre>
+<pre>   12fb0:	e1a01000 	mov	r1, r0</pre>
+<pre>   12fb4:	e3a00067 	mov	r0, #103	; 0x67</pre>
+<pre>   12fb8:	ebfff70f 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   12fbc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   12fc0:	0a000007 	beq	12fe4 &lt;archer_sysport_tm_port_set&commat;plt+0x23dc&gt;</pre>
+<pre>   12fc4:	e59f304c 	ldr	r3, [pc, #76]	; 13018 &lt;archer_sysport_tm_port_set&commat;plt+0x2410&gt;</pre>
+<pre>   12fc8:	e59f2068 	ldr	r2, [pc, #104]	; 13038 &lt;archer_sysport_tm_port_set&commat;plt+0x2430&gt;</pre>
+<pre>   12fcc:	e59f1068 	ldr	r1, [pc, #104]	; 1303c &lt;archer_sysport_tm_port_set&commat;plt+0x2434&gt;</pre>
+<pre>   12fd0:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   12fd4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12fd8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12fdc:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   12fe0:	ebfff6d8 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12fe4:	e1a00004 	mov	r0, r4</pre>
+<pre>   12fe8:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   12fec:	e59f3024 	ldr	r3, [pc, #36]	; 13018 &lt;archer_sysport_tm_port_set&commat;plt+0x2410&gt;</pre>
+<pre>   12ff0:	e59f2048 	ldr	r2, [pc, #72]	; 13040 &lt;archer_sysport_tm_port_set&commat;plt+0x2438&gt;</pre>
+<pre>   12ff4:	e59f1048 	ldr	r1, [pc, #72]	; 13044 &lt;archer_sysport_tm_port_set&commat;plt+0x243c&gt;</pre>
+<pre>   12ff8:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>   12ffc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   13000:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13004:	e1a03006 	mov	r3, r6</pre>
+<pre>   13008:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   1300c:	ebfff6cd 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   13010:	eaffffc7 	b	12f34 &lt;archer_sysport_tm_port_set&commat;plt+0x232c&gt;</pre>
+<pre>   13014:	000120ec 	andeq	r2, r1, ip, ror #1</pre>
+<pre>--</pre>
+<pre>   1302c:	00001265 	andeq	r1, r0, r5, ror #4</pre>
+<pre>   13030:	000138bd 			; &lt;UNDEFINED&gt; instruction: 0x000138bd</pre>
+<pre>   13034:	0000123b 	andeq	r1, r0, fp, lsr r2</pre>
+<pre>   13038:	00013885 	andeq	r3, r1, r5, lsl #17</pre>
+<pre>   1303c:	000007a5 	andeq	r0, r0, r5, lsr #15</pre>
+<pre>   13040:	0001385d 	andeq	r3, r1, sp, asr r8</pre>
+<pre>   13044:	00000764 	andeq	r0, r0, r4, ror #14</pre>
+<pre>   13048:	e92d42f0 	push	{r4, r5, r6, r7, r9, lr}</pre>
+<pre>   1304c:	e3510000 	cmp	r1, #0</pre>
+<pre>   13050:	e59f6164 	ldr	r6, [pc, #356]	; 131bc &lt;archer_sysport_tm_port_set&commat;plt+0x25b4&gt;</pre>
+<pre>   13054:	e24dd020 	sub	sp, sp, #32</pre>
+<pre>   13058:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   1305c:	1a000009 	bne	13088 &lt;archer_sysport_tm_port_set&commat;plt+0x2480&gt;</pre>
+<pre>   13060:	e59f3158 	ldr	r3, [pc, #344]	; 131c0 &lt;archer_sysport_tm_port_set&commat;plt+0x25b8&gt;</pre>
+<pre>   13064:	e59f2158 	ldr	r2, [pc, #344]	; 131c4 &lt;archer_sysport_tm_port_set&commat;plt+0x25bc&gt;</pre>
+<pre>   13068:	e59f1158 	ldr	r1, [pc, #344]	; 131c8 &lt;archer_sysport_tm_port_set&commat;plt+0x25c0&gt;</pre>
+<pre>   1306c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   13070:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   13074:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13078:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   1307c:	ebfff6b1 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   13080:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>   13084:	ea00003f 	b	13188 &lt;archer_sysport_tm_port_set&commat;plt+0x2580&gt;</pre>
+<pre>--</pre>
+<pre>   13134:	e3a02010 	mov	r2, #16</pre>
+<pre>   13138:	e7d33004 	ldrb	r3, [r3, r4]</pre>
+<pre>   1313c:	e2844003 	add	r4, r4, #3</pre>
+<pre>   13140:	e5cd3001 	strb	r3, [sp, #1]</pre>
+<pre>   13144:	ebfff655 	bl	10aa0 &lt;strtol&commat;plt&gt;</pre>
+<pre>   13148:	e3540013 	cmp	r4, #19</pre>
+<pre>   1314c:	e4c70001 	strb	r0, [r7], #1</pre>
+<pre>   13150:	1afffff1 	bne	1311c &lt;archer_sysport_tm_port_set&commat;plt+0x2514&gt;</pre>
+<pre>   13154:	e28d1004 	add	r1, sp, #4</pre>
+<pre>   13158:	e3a00070 	mov	r0, #112	; 0x70</pre>
+<pre>   1315c:	ebfff6a6 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   13160:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   13164:	0a000007 	beq	13188 &lt;archer_sysport_tm_port_set&commat;plt+0x2580&gt;</pre>
+<pre>   13168:	e59f3050 	ldr	r3, [pc, #80]	; 131c0 &lt;archer_sysport_tm_port_set&commat;plt+0x25b8&gt;</pre>
+<pre>   1316c:	e59f2064 	ldr	r2, [pc, #100]	; 131d8 &lt;archer_sysport_tm_port_set&commat;plt+0x25d0&gt;</pre>
+<pre>   13170:	e59f1064 	ldr	r1, [pc, #100]	; 131dc &lt;archer_sysport_tm_port_set&commat;plt+0x25d4&gt;</pre>
+<pre>   13174:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>   13178:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1317c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13180:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   13184:	ebfff66f 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   13188:	e1a00004 	mov	r0, r4</pre>
+<pre>   1318c:	e28dd020 	add	sp, sp, #32</pre>
+<pre>   13190:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>   13194:	e59f3024 	ldr	r3, [pc, #36]	; 131c0 &lt;archer_sysport_tm_port_set&commat;plt+0x25b8&gt;</pre>
+<pre>   13198:	e59f2040 	ldr	r2, [pc, #64]	; 131e0 &lt;archer_sysport_tm_port_set&commat;plt+0x25d8&gt;</pre>
+<pre>   1319c:	e59f1040 	ldr	r1, [pc, #64]	; 131e4 &lt;archer_sysport_tm_port_set&commat;plt+0x25dc&gt;</pre>
+<pre>   131a0:	e7960003 	ldr	r0, [r6, r3]</pre>
+<pre>   131a4:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   131a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   131ac:	e1a03004 	mov	r3, r4</pre>
+<pre>   131b0:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   131b4:	ebfff663 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   131b8:	eaffffb0 	b	13080 &lt;archer_sysport_tm_port_set&commat;plt+0x2478&gt;</pre>
+<pre>   131bc:	00011fa0 	andeq	r1, r1, r0, lsr #31</pre>
+<pre>--</pre>
+<pre>   131fc:	1a000037 	bne	132e0 &lt;archer_sysport_tm_port_set&commat;plt+0x26d8&gt;</pre>
+<pre>   13200:	e5907000 	ldr	r7, [r0]</pre>
+<pre>   13204:	e1a04000 	mov	r4, r0</pre>
+<pre>   13208:	e59f112c 	ldr	r1, [pc, #300]	; 1333c &lt;archer_sysport_tm_port_set&commat;plt+0x2734&gt;</pre>
+<pre>   1320c:	e1a00007 	mov	r0, r7</pre>
+<pre>   13210:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13214:	ebfff61e 	bl	10a94 &lt;strcmp&commat;plt&gt;</pre>
+<pre>   13218:	e3500000 	cmp	r0, #0</pre>
+<pre>   1321c:	1a00000d 	bne	13258 &lt;archer_sysport_tm_port_set&commat;plt+0x2650&gt;</pre>
+<pre>   13220:	e5941044 	ldr	r1, [r4, #68]	; 0x44</pre>
+<pre>   13224:	e3510000 	cmp	r1, #0</pre>
+<pre>   13228:	0a000035 	beq	13304 &lt;archer_sysport_tm_port_set&commat;plt+0x26fc&gt;</pre>
+<pre>   1322c:	e59f310c 	ldr	r3, [pc, #268]	; 13340 &lt;archer_sysport_tm_port_set&commat;plt+0x2738&gt;</pre>
+<pre>   13230:	e59f210c 	ldr	r2, [pc, #268]	; 13344 &lt;archer_sysport_tm_port_set&commat;plt+0x273c&gt;</pre>
+<pre>   13234:	e59f110c 	ldr	r1, [pc, #268]	; 13348 &lt;archer_sysport_tm_port_set&commat;plt+0x2740&gt;</pre>
+<pre>   13238:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   1323c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   13240:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13244:	e5930000 	ldr	r0, [r3]</pre>
+<pre>   13248:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre><span class="red">   1324c:	ebfff63d 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   13250:	e1a00004 	mov	r0, r4</pre>
+<pre>   13254:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>--</pre>
+<pre>   132e0:	d3a01008 	movle	r1, #8</pre>
+<pre>   132e4:	da000006 	ble	13304 &lt;archer_sysport_tm_port_set&commat;plt+0x26fc&gt;</pre>
+<pre>   132e8:	e59f3050 	ldr	r3, [pc, #80]	; 13340 &lt;archer_sysport_tm_port_set&commat;plt+0x2738&gt;</pre>
+<pre>   132ec:	e59f2074 	ldr	r2, [pc, #116]	; 13368 &lt;archer_sysport_tm_port_set&commat;plt+0x2760&gt;</pre>
+<pre>   132f0:	e59f1074 	ldr	r1, [pc, #116]	; 1336c &lt;archer_sysport_tm_port_set&commat;plt+0x2764&gt;</pre>
+<pre>   132f4:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   132f8:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   132fc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13300:	eaffffcf 	b	13244 &lt;archer_sysport_tm_port_set&commat;plt+0x263c&gt;</pre>
+<pre>   13304:	e1a00006 	mov	r0, r6</pre>
+<pre>   13308:	ebfff63b 	bl	10bfc &lt;archer_cmd_send&commat;plt&gt;</pre>
+<pre>   1330c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   13310:	0affffce 	beq	13250 &lt;archer_sysport_tm_port_set&commat;plt+0x2648&gt;</pre>
+<pre>   13314:	e59f3024 	ldr	r3, [pc, #36]	; 13340 &lt;archer_sysport_tm_port_set&commat;plt+0x2738&gt;</pre>
+<pre>   13318:	e59f2050 	ldr	r2, [pc, #80]	; 13370 &lt;archer_sysport_tm_port_set&commat;plt+0x2768&gt;</pre>
+<pre>   1331c:	e59f1050 	ldr	r1, [pc, #80]	; 13374 &lt;archer_sysport_tm_port_set&commat;plt+0x276c&gt;</pre>
+<pre>   13320:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>   13324:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   13328:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1332c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   13330:	ebfff604 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   13334:	eaffffc5 	b	13250 &lt;archer_sysport_tm_port_set&commat;plt+0x2648&gt;</pre>
+<pre>   13338:	00011e00 	andeq	r1, r1, r0, lsl #28</pre>
+<pre>--</pre>
+<pre>   13570:	e2433001 	sub	r3, r3, #1</pre>
+<pre>   13574:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   13578:	13a04000 	movne	r4, #0</pre>
+<pre>   1357c:	e3540000 	cmp	r4, #0</pre>
+<pre>   13580:	1affffcf 	bne	134c4 &lt;archer_sysport_tm_port_set&commat;plt+0x28bc&gt;</pre>
+<pre>   13584:	e3500000 	cmp	r0, #0</pre>
+<pre>   13588:	1a000004 	bne	135a0 &lt;archer_sysport_tm_port_set&commat;plt+0x2998&gt;</pre>
+<pre>   1358c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   13590:	e1a01007 	mov	r1, r7</pre>
+<pre>   13594:	e1a0000b 	mov	r0, fp</pre>
+<pre>   13598:	e5933110 	ldr	r3, [r3, #272]	; 0x110</pre>
+<pre>   1359c:	e12fff33 	blx	r3</pre>
+<pre>   135a0:	e28ddc12 	add	sp, sp, #4608	; 0x1200</pre>
+<pre>   135a4:	e28dd018 	add	sp, sp, #24</pre>
+<pre>   135a8:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>   135ac:	e59f3068 	ldr	r3, [pc, #104]	; 1361c &lt;archer_sysport_tm_port_set&commat;plt+0x2a14&gt;</pre>
+<pre>   135b0:	e59d2010 	ldr	r2, [sp, #16]</pre>
+<pre>   135b4:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>   135b8:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>   135bc:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   135c0:	ebfff560 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   135c4:	e3a0006a 	mov	r0, #106	; 0x6a</pre>
+<pre>   135c8:	eaffffe1 	b	13554 &lt;archer_sysport_tm_port_set&commat;plt+0x294c&gt;</pre>
+<pre>   135cc:	e59f3048 	ldr	r3, [pc, #72]	; 1361c &lt;archer_sysport_tm_port_set&commat;plt+0x2a14&gt;</pre>
+<pre>   135d0:	e59f2048 	ldr	r2, [pc, #72]	; 13620 &lt;archer_sysport_tm_port_set&commat;plt+0x2a18&gt;</pre>
+<pre>   135d4:	e59f1048 	ldr	r1, [pc, #72]	; 13624 &lt;archer_sysport_tm_port_set&commat;plt+0x2a1c&gt;</pre>
+<pre>   135d8:	e79a3003 	ldr	r3, [sl, r3]</pre>
+<pre>   135dc:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   135e0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   135e4:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   135e8:	ebfff556 	bl	10b48 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   135ec:	e3a00068 	mov	r0, #104	; 0x68</pre>
+<pre>   135f0:	eaffffd7 	b	13554 &lt;archer_sysport_tm_port_set&commat;plt+0x294c&gt;</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> used </span><span class="orange">50</span> times </span><span class="orange">archerctl</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

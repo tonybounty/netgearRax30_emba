@@ -1,0 +1,116 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 3:</span></pre>
+<pre></span>FLASH_USAGE=`ubinfo /dev/ubi0 | grep "Total amount of" | awk -F ' ' '{printf $9}'`</span></pre>
+<pre><span class="green">            ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>FLASH_USAGE=$(ubinfo /dev/ubi0 | grep "Total amount of" | awk -F ' ' '{printf $9}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 4:</span></pre>
+<pre></span>FLASH_TOTAL="256MB"</span></pre>
+<pre><span class="orange">^---------^ SC2034 (warning): FLASH_TOTAL appears unused. Verify use (or export if used externally).</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 5:</span></pre>
+<pre></span>MAX_SESSIONS=`cat /proc/sys/net/netfilter/nf_conntrack_max | awk -F ' ' '{printf $1}'`</span></pre>
+<pre><span class="green">             ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                  ^-- SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>MAX_SESSIONS=$(cat /proc/sys/net/netfilter/nf_conntrack_max | awk -F ' ' '{printf $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 6:</span></pre>
+<pre></span>CUR_SESSIONS=`cat /proc/sys/net/netfilter/nf_conntrack_count | awk -F ' ' '{printf $1}'`</span></pre>
+<pre><span class="green">             ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                  ^-- SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CUR_SESSIONS=$(cat /proc/sys/net/netfilter/nf_conntrack_count | awk -F ' ' '{printf $1}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 7:</span></pre>
+<pre></span>MEMORY_TOTAL=`cat /proc/meminfo | grep "MemTotal:" | awk -F ' ' '{printf int(($2)/1024)}'`</span></pre>
+<pre><span class="green">             ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                  ^-----------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>MEMORY_TOTAL=$(cat /proc/meminfo | grep "MemTotal:" | awk -F ' ' '{printf int(($2)/1024)}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 8:</span></pre>
+<pre></span>MEMORY_USAGE=`top -n 1 | grep "Mem" | awk -F ' ' '{printf int($2/1024)}'`</span></pre>
+<pre><span class="green">             ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>MEMORY_USAGE=$(top -n 1 | grep "Mem" | awk -F ' ' '{printf int($2/1024)}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 9:</span></pre>
+<pre></span>SYSTEM_UPTIME=`uptime`</span></pre>
+<pre><span class="green">              ^------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>SYSTEM_UPTIME=$(uptime)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 10:</span></pre>
+<pre></span>SKU=`cat /proc/environment/sku`</span></pre>
+<pre><span class="green">    ^-------------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>SKU=$(cat /proc/environment/sku)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 11:</span></pre>
+<pre></span>CPU_USAGE=`mpstat -P ALL -u | tail -n +5 | awk '{print (100-$12)}'`</span></pre>
+<pre><span class="green">          ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CPU_USAGE=$(mpstat -P ALL -u | tail -n +5 | awk '{print (100-$12)}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 12:</span></pre>
+<pre></span>CPU1_USAGE=`echo $CPU_USAGE | cut -d' ' -f1`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CPU1_USAGE=$(echo "$CPU_USAGE" | cut -d' ' -f1)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 13:</span></pre>
+<pre></span>CPU2_USAGE=`echo $CPU_USAGE | cut -d' ' -f2`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CPU2_USAGE=$(echo "$CPU_USAGE" | cut -d' ' -f2)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 14:</span></pre>
+<pre></span>CPU3_USAGE=`echo $CPU_USAGE | cut -d' ' -f3`</span></pre>
+<pre><span class="green">           ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CPU3_USAGE=$(echo "$CPU_USAGE" | cut -d' ' -f3)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 15:</span></pre>
+<pre></span>WLAN_DRIVER_VER=`wl ver | head -n 1 | xargs echo -n`</span></pre>
+<pre><span class="green">                ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>WLAN_DRIVER_VER=$(wl ver | head -n 1 | xargs echo -n)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/debug_info.sh line 17:</span></pre>
+<pre></span>echo "MAX_SESSIONS=$MAX_SESSIONS" &gt;&gt; /var/debug_info</span></pre>
+<pre><span class="green">^-- SC2129 (style): Consider using { cmd1; cmd2; } &gt;&gt; file instead of individual redirects.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2034" title="https://www.shellcheck.net/wiki/SC2034" target="_blank" >https://www.shellcheck.net/wiki/SC2034</a> -- FLASH_TOTAL appears unused. Verif...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2002" title="https://www.shellcheck.net/wiki/SC2002" target="_blank" >https://www.shellcheck.net/wiki/SC2002</a> -- Useless cat. Consider 'cmd &lt; file...</pre>

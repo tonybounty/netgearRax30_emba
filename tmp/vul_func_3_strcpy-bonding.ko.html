@@ -1,0 +1,83 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">bonding.ko</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="red">No RELRO     </span>   <span class="green">Canary found   </span>   <span class="red">NX disabled</span>   <span class="orange">REL          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="red">1219) Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> tear down of </span><span class="orange">bonding.ko</span></pre>
+<br />
+<pre>    19a4:	e3a03001 	mov	r3, #1</pre>
+<pre>    19a8:	e3a00003 	mov	r0, #3</pre>
+<pre>    19ac:	e8bd4010 	pop	{r4, lr}</pre>
+<pre>    19b0:	eafffffe 	b	0 &lt;queue_delayed_work_on&gt;</pre>
+<br />
+<pre>000019b4 &lt;bond_netdev_notify_work&gt;:</pre>
+<pre>    19b4:	e92d4030 	push	{r4, r5, lr}</pre>
+<pre>    19b8:	e3003000 	movw	r3, #0</pre>
+<pre>    19bc:	e24dd034 	sub	sp, sp, #52	; 0x34</pre>
+<pre>    19c0:	e3403000 	movt	r3, #0</pre>
+<pre>    19c4:	e5933000 	ldr	r3, [r3]</pre>
+<pre>    19c8:	e58d302c 	str	r3, [sp, #44]	; 0x2c</pre>
+<pre>    19cc:	e3a03000 	mov	r3, #0</pre>
+<pre>    19d0:	e1a04000 	mov	r4, r0</pre>
+<pre>    19d4:	ebfffffe 	bl	0 &lt;rtnl_trylock&gt;</pre>
+<pre>    19d8:	e3500000 	cmp	r0, #0</pre>
+<pre>    19dc:	0a00001d 	beq	1a58 &lt;bond_netdev_notify_work+0xa4&gt;</pre>
+<pre>    19e0:	e5145094 	ldr	r5, [r4, #-148]	; 0xffffff6c</pre>
+<pre>    19e4:	e28d0008 	add	r0, sp, #8</pre>
+<pre>    19e8:	e1a01005 	mov	r1, r5</pre>
+<pre><span class="red">    19ec:	ebfffffe 	bl	0 &lt;strcpy&gt</span></span></pre>
+<pre>    19f0:	e5143090 	ldr	r3, [r4, #-144]	; 0xffffff70</pre>
+<pre>    19f4:	e554e040 	ldrb	lr, [r4, #-64]	; 0xffffffc0</pre>
+<pre>--</pre>
+<pre>    4e20:	1affffbe 	bne	4d20 &lt;bond_do_ioctl+0x16c&gt;</pre>
+<pre>    4e24:	e5950540 	ldr	r0, [r5, #1344]	; 0x540</pre>
+<pre>    4e28:	e1a0100d 	mov	r1, sp</pre>
+<pre>    4e2c:	e5903068 	ldr	r3, [r0, #104]	; 0x68</pre>
+<pre>    4e30:	e58d3000 	str	r3, [sp]</pre>
+<pre>    4e34:	ebfffffe 	bl	0 &lt;netdev_lower_get_next_private&gt;</pre>
+<pre>    4e38:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    4e3c:	1a000006 	bne	4e5c &lt;bond_do_ioctl+0x2a8&gt;</pre>
+<pre>    4e40:	ea000044 	b	4f58 &lt;bond_do_ioctl+0x3a4&gt;</pre>
+<pre>    4e44:	e5950540 	ldr	r0, [r5, #1344]	; 0x540</pre>
+<pre>    4e48:	e1a0100d 	mov	r1, sp</pre>
+<pre>    4e4c:	ebfffffe 	bl	0 &lt;netdev_lower_get_next_private&gt;</pre>
+<pre>    4e50:	e2866001 	add	r6, r6, #1</pre>
+<pre>    4e54:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    4e58:	0a00003e 	beq	4f58 &lt;bond_do_ioctl+0x3a4&gt;</pre>
+<pre>    4e5c:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>    4e60:	e1530006 	cmp	r3, r6</pre>
+<pre>    4e64:	1afffff6 	bne	4e44 &lt;bond_do_ioctl+0x290&gt;</pre>
+<pre>    4e68:	e5941000 	ldr	r1, [r4]</pre>
+<pre>    4e6c:	e28d001c 	add	r0, sp, #28</pre>
+<pre><span class="red">    4e70:	ebfffffe 	bl	0 &lt;strcpy&gt</span></span></pre>
+<pre>    4e74:	e594205c 	ldr	r2, [r4, #92]	; 0x5c</pre>
+<pre>    4e78:	e5d43056 	ldrb	r3, [r4, #86]	; 0x56</pre>
+<pre>--</pre>
+<pre>    efbc:	e58d3000 	str	r3, [sp]</pre>
+<pre>    efc0:	ebfffffe 	bl	0 &lt;netdev_lower_get_next_private&gt;</pre>
+<pre>    efc4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    efc8:	1a000005 	bne	efe4 &lt;bond_option_primary_set+0x80&gt;</pre>
+<pre>    efcc:	ea000024 	b	f064 &lt;bond_option_primary_set+0x100&gt;</pre>
+<pre>    efd0:	e5950000 	ldr	r0, [r5]</pre>
+<pre>    efd4:	e1a0100d 	mov	r1, sp</pre>
+<pre>    efd8:	ebfffffe 	bl	0 &lt;netdev_lower_get_next_private&gt;</pre>
+<pre>    efdc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    efe0:	0a00001f 	beq	f064 &lt;bond_option_primary_set+0x100&gt;</pre>
+<pre>    efe4:	e5940000 	ldr	r0, [r4]</pre>
+<pre>    efe8:	e3a02010 	mov	r2, #16</pre>
+<pre>    efec:	e1a01006 	mov	r1, r6</pre>
+<pre>    eff0:	ebfffffe 	bl	0 &lt;strncmp&gt;</pre>
+<pre>    eff4:	e3500000 	cmp	r0, #0</pre>
+<pre>    eff8:	1afffff4 	bne	efd0 &lt;bond_option_primary_set+0x6c&gt;</pre>
+<pre>    effc:	f57ff05b 	dmb	ish</pre>
+<pre>    f000:	e585400c 	str	r4, [r5, #12]</pre>
+<pre>    f004:	e1a00007 	mov	r0, r7</pre>
+<pre>    f008:	e5941000 	ldr	r1, [r4]</pre>
+<pre><span class="red">    f00c:	ebfffffe 	bl	0 &lt;strcpy&gt</span></span></pre>
+<pre>    f010:	e3a03001 	mov	r3, #1</pre>
+<pre>    f014:	e1a00005 	mov	r0, r5</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> used </span><span class="orange">3</span> times </span><span class="orange">bonding.ko</span></pre>
+<br />

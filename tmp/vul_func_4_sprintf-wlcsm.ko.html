@@ -1,0 +1,98 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">wlcsm.ko</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="red">No RELRO     </span>   <span class="green">Canary found   </span>   <span class="red">NX disabled</span>   <span class="orange">REL          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="red">165) Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> tear down of </span><span class="orange">wlcsm.ko</span></pre>
+<br />
+<pre> b4c:	eafffff1 	b	b18 &lt;wlcsm_nvram_k_set+0xd8&gt;</pre>
+<pre> b50:	00000118 	.word	0x00000118</pre>
+<br />
+<pre>00000b54 &lt;wlcsm_nvram_getall&gt;:</pre>
+<pre> b54:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}</pre>
+<pre> b58:	e24dd00c 	sub	sp, sp, #12</pre>
+<pre> b5c:	e1a07000 	mov	r7, r0</pre>
+<pre> b60:	e59f0108 	ldr	r0, [pc, #264]	; c70 &lt;wlcsm_nvram_getall+0x11c&gt;</pre>
+<pre> b64:	e1a08001 	mov	r8, r1</pre>
+<pre> b68:	e58d7004 	str	r7, [sp, #4]</pre>
+<pre> b6c:	ebfffffe 	bl	0 &lt;_raw_spin_lock_bh&gt;</pre>
+<pre> b70:	e3000000 	movw	r0, #0</pre>
+<pre> b74:	e3400000 	movt	r0, #0</pre>
+<pre> b78:	ebfffffe 	bl	0 &lt;rb_first&gt;</pre>
+<pre> b7c:	e2505000 	subs	r5, r0, #0</pre>
+<pre> b80:	0a000037 	beq	c64 &lt;wlcsm_nvram_getall+0x110&gt;</pre>
+<pre> b84:	e3009000 	movw	r9, #0</pre>
+<pre> b88:	e3a06000 	mov	r6, #0</pre>
+<pre> b8c:	e3409000 	movt	r9, #0</pre>
+<pre> b90:	ea000007 	b	bb4 &lt;wlcsm_nvram_getall+0x60&gt;</pre>
+<pre><span class="red"> b94:	ebfffffe 	bl	0 &lt;sprintf&gt</span></span></pre>
+<pre> b98:	e1a03000 	mov	r3, r0</pre>
+<pre> b9c:	e1a00005 	mov	r0, r5</pre>
+<pre>--</pre>
+<pre> cd0:	e3403000 	movt	r3, #0</pre>
+<pre> cd4:	e1a06005 	mov	r6, r5</pre>
+<pre> cd8:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre> cdc:	e3a03001 	mov	r3, #1</pre>
+<pre> ce0:	e58d3000 	str	r3, [sp]</pre>
+<pre> ce4:	ea000015 	b	d40 &lt;wlcsm_nvram_getall_pos+0xcc&gt;</pre>
+<pre> ce8:	e28d0014 	add	r0, sp, #20</pre>
+<pre> cec:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre> cf0:	e3a03000 	mov	r3, #0</pre>
+<pre> cf4:	e58d3000 	str	r3, [sp]</pre>
+<pre> cf8:	ebfffffe 	bl	0 &lt;strlen&gt;</pre>
+<pre> cfc:	e0462008 	sub	r2, r6, r8</pre>
+<pre> d00:	e2622001 	rsb	r2, r2, #1</pre>
+<pre> d04:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre> d08:	e1a01000 	mov	r1, r0</pre>
+<pre> d0c:	e0822001 	add	r2, r2, r1</pre>
+<pre> d10:	e59d1008 	ldr	r1, [sp, #8]</pre>
+<pre> d14:	e1a00003 	mov	r0, r3</pre>
+<pre> d18:	e28d3014 	add	r3, sp, #20</pre>
+<pre> d1c:	e0832002 	add	r2, r3, r2</pre>
+<pre><span class="red"> d20:	ebfffffe 	bl	0 &lt;sprintf&gt</span></span></pre>
+<pre> d24:	e0805005 	add	r5, r0, r5</pre>
+<pre> d28:	e1550007 	cmp	r5, r7</pre>
+<pre>--</pre>
+<pre> d30:	e1a00004 	mov	r0, r4</pre>
+<pre> d34:	ebfffffe 	bl	0 &lt;rb_next&gt;</pre>
+<pre> d38:	e2504000 	subs	r4, r0, #0</pre>
+<pre> d3c:	0a000022 	beq	dcc &lt;wlcsm_nvram_getall_pos+0x158&gt;</pre>
+<pre> d40:	e594b00c 	ldr	fp, [r4, #12]</pre>
+<pre> d44:	e28ba004 	add	sl, fp, #4</pre>
+<pre> d48:	e1a0000a 	mov	r0, sl</pre>
+<pre> d4c:	ebfffffe 	bl	0 &lt;strlen&gt;</pre>
+<pre> d50:	e1a0200a 	mov	r2, sl</pre>
+<pre> d54:	e1a01009 	mov	r1, r9</pre>
+<pre> d58:	e2803001 	add	r3, r0, #1</pre>
+<pre> d5c:	e3130003 	tst	r3, #3</pre>
+<pre> d60:	12800005 	addne	r0, r0, #5</pre>
+<pre> d64:	13c03003 	bicne	r3, r0, #3</pre>
+<pre> d68:	e2833004 	add	r3, r3, #4</pre>
+<pre> d6c:	e08b0003 	add	r0, fp, r3</pre>
+<pre> d70:	e79b3003 	ldr	r3, [fp, r3]</pre>
+<pre> d74:	e3530000 	cmp	r3, #0</pre>
+<pre> d78:	12803004 	addne	r3, r0, #4</pre>
+<pre> d7c:	e28d0014 	add	r0, sp, #20</pre>
+<pre><span class="red"> d80:	ebfffffe 	bl	0 &lt;sprintf&gt</span></span></pre>
+<pre> d84:	e2800001 	add	r0, r0, #1</pre>
+<pre> d88:	e0866000 	add	r6, r6, r0</pre>
+<pre> d8c:	e1560008 	cmp	r6, r8</pre>
+<pre> d90:	c1570005 	cmpgt	r7, r5</pre>
+<pre> d94:	daffffe3 	ble	d28 &lt;wlcsm_nvram_getall_pos+0xb4&gt;</pre>
+<pre> d98:	e59d3000 	ldr	r3, [sp]</pre>
+<pre> d9c:	e3530000 	cmp	r3, #0</pre>
+<pre> da0:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre> da4:	e0833005 	add	r3, r3, r5</pre>
+<pre> da8:	e2855001 	add	r5, r5, #1</pre>
+<pre> dac:	1affffcd 	bne	ce8 &lt;wlcsm_nvram_getall_pos+0x74&gt;</pre>
+<pre> db0:	e59d1008 	ldr	r1, [sp, #8]</pre>
+<pre> db4:	e28d2014 	add	r2, sp, #20</pre>
+<pre> db8:	e1a00003 	mov	r0, r3</pre>
+<pre><span class="red"> dbc:	ebfffffe 	bl	0 &lt;sprintf&gt</span></span></pre>
+<pre> dc0:	e0805005 	add	r5, r0, r5</pre>
+<pre> dc4:	e1550007 	cmp	r5, r7</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> used </span><span class="orange">4</span> times </span><span class="orange">wlcsm.ko</span></pre>
+<br />

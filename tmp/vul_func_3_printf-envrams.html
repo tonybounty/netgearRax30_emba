@@ -1,0 +1,83 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">envrams</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">envrams</span></pre>
+<br />
+<pre>   110c0:	e3a01001 	mov	r1, #1</pre>
+<pre>   110c4:	e3a00015 	mov	r0, #21</pre>
+<pre>   110c8:	ebfffed3 	bl	10c1c &lt;signal&commat;plt&gt;</pre>
+<pre>   110cc:	e3a01001 	mov	r1, #1</pre>
+<pre>   110d0:	e3a0000a 	mov	r0, #10</pre>
+<pre>   110d4:	ebfffed0 	bl	10c1c &lt;signal&commat;plt&gt;</pre>
+<pre>   110d8:	eaffff8a 	b	10f08 &lt;close&commat;plt+0x10c&gt;</pre>
+<pre>   110dc:	e1a00006 	mov	r0, r6</pre>
+<pre>   110e0:	ebfffefd 	bl	10cdc &lt;feof&commat;plt&gt;</pre>
+<pre>   110e4:	e3500000 	cmp	r0, #0</pre>
+<pre>   110e8:	13570802 	cmpne	r7, #131072	; 0x20000</pre>
+<pre>   110ec:	3a000045 	bcc	11208 &lt;close&commat;plt+0x40c&gt;</pre>
+<pre>   110f0:	e1a00006 	mov	r0, r6</pre>
+<pre>   110f4:	ebffff22 	bl	10d84 &lt;fclose&commat;plt&gt;</pre>
+<pre>   110f8:	e30d0fbc 	movw	r0, #57276	; 0xdfbc</pre>
+<pre>   110fc:	e3400001 	movt	r0, #1</pre>
+<pre>   11100:	ebfffee0 	bl	10c88 &lt;system&commat;plt&gt;</pre>
+<pre>   11104:	e30e0040 	movw	r0, #57408	; 0xe040</pre>
+<pre>   11108:	e1a01005 	mov	r1, r5</pre>
+<pre>   1110c:	e3400001 	movt	r0, #1</pre>
+<pre><span class="red">   11110:	ebfffeac 	bl	10bc8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11114:	e3a02000 	mov	r2, #0</pre>
+<pre>   11118:	e3a01001 	mov	r1, #1</pre>
+<pre>--</pre>
+<pre>   12870:	e7d33004 	ldrb	r3, [r3, r4]</pre>
+<pre><span class="red">   12874:	ebfff92a 	bl	10d24 &lt;snprintf&commat;plt&gt</span></span></pre>
+<pre>   12878:	e357000f 	cmp	r7, #15</pre>
+<pre>   1287c:	1affffe7 	bne	12820 &lt;close&commat;plt+0x1a24&gt;</pre>
+<pre>   12880:	e1a00009 	mov	r0, r9</pre>
+<pre>   12884:	e2844001 	add	r4, r4, #1</pre>
+<pre>   12888:	ebfff8f5 	bl	10c64 &lt;puts&commat;plt&gt;</pre>
+<pre>   1288c:	e1580004 	cmp	r8, r4</pre>
+<pre>   12890:	e3a05080 	mov	r5, #128	; 0x80</pre>
+<pre>   12894:	e1a06009 	mov	r6, r9</pre>
+<pre>   12898:	1affffe3 	bne	1282c &lt;close&commat;plt+0x1a30&gt;</pre>
+<pre>   1289c:	e1560009 	cmp	r6, r9</pre>
+<pre>   128a0:	0a000001 	beq	128ac &lt;close&commat;plt+0x1ab0&gt;</pre>
+<pre>   128a4:	e1a00009 	mov	r0, r9</pre>
+<pre>   128a8:	ebfff8ed 	bl	10c64 &lt;puts&commat;plt&gt;</pre>
+<pre>   128ac:	e28dd08c 	add	sp, sp, #140	; 0x8c</pre>
+<pre>   128b0:	e8bd8ff0 	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}</pre>
+<pre>   128b4:	e30d00dc 	movw	r0, #53468	; 0xd0dc</pre>
+<pre>   128b8:	e1a01003 	mov	r1, r3</pre>
+<pre>   128bc:	e3400001 	movt	r0, #1</pre>
+<pre><span class="red">   128c0:	ebfff8c0 	bl	10bc8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   128c4:	eaffffc6 	b	127e4 &lt;close&commat;plt+0x19e8&gt;</pre>
+<pre>   128c8:	e3500014 	cmp	r0, #20</pre>
+<pre>--</pre>
+<pre>   1299c:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>   129a0:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}</pre>
+<pre>   129a4:	e1a09000 	mov	r9, r0</pre>
+<pre>   129a8:	ebfff8ce 	bl	10ce8 &lt;strlen&commat;plt&gt;</pre>
+<pre>   129ac:	e3500c02 	cmp	r0, #512	; 0x200</pre>
+<pre>   129b0:	9a000015 	bls	12a0c &lt;close&commat;plt+0x1c10&gt;</pre>
+<pre>   129b4:	e2406c02 	sub	r6, r0, #512	; 0x200</pre>
+<pre>   129b8:	e30da110 	movw	sl, #53520	; 0xd110</pre>
+<pre>   129bc:	e2466001 	sub	r6, r6, #1</pre>
+<pre>   129c0:	e340a001 	movt	sl, #1</pre>
+<pre>   129c4:	e3c67f7f 	bic	r7, r6, #508	; 0x1fc</pre>
+<pre>   129c8:	e1a04009 	mov	r4, r9</pre>
+<pre>   129cc:	e3c77003 	bic	r7, r7, #3</pre>
+<pre>   129d0:	e3a08000 	mov	r8, #0</pre>
+<pre>   129d4:	e2877c02 	add	r7, r7, #512	; 0x200</pre>
+<pre>   129d8:	e0897007 	add	r7, r9, r7</pre>
+<pre>   129dc:	e5d45200 	ldrb	r5, [r4, #512]	; 0x200</pre>
+<pre>   129e0:	e1a01004 	mov	r1, r4</pre>
+<pre>   129e4:	e5c48200 	strb	r8, [r4, #512]	; 0x200</pre>
+<pre>   129e8:	e1a0000a 	mov	r0, sl</pre>
+<pre><span class="red">   129ec:	ebfff875 	bl	10bc8 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129f0:	e5e45200 	strb	r5, [r4, #512]!	; 0x200</pre>
+<pre>   129f4:	e1540007 	cmp	r4, r7</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">3</span> times </span><span class="orange">envrams</span></pre>
+<br />

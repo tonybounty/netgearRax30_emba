@@ -1,0 +1,2706 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./index.html"><img class="inherit" id="logoImage" src="./style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./index.html">&laquo; Back to main</a>
+      <!-- navigation start --><a class="modul" href="#binwalk_firmware_extractor" title="#binwalk_firmware_extractor" >Binwalk firmware extractor</a><a class="submodul" href="#analyzebinaryfirmwareblobwithbinwalk" title="#analyzebinaryfirmwareblobwithbinwalk" >Analyze binary firmware blob with binwalk</a><a class="submodul" href="#firmwareextractiondetails" title="#firmwareextractiondetails" >Firmware extraction details</a>
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="blue">+</span>] </span><span class="cyan"><span class="bold"><a id="binwalk_firmware_extractor">Binwalk firmware extractor</a></span></pre>
+<pre><span class="bold"><hr class="double" /></span></pre>
+<br />
+<br />
+<pre></span><span class="blue">==&gt</span></span> </span><span class="cyan"><a id="analyzebinaryfirmwareblobwithbinwalk">Analyze binary firmware blob with binwalk</a></span></pre>
+<pre><hr class="mono" /></pre>
+<pre>[</span><span class="orange">*</span>] Basic analysis with binwalk</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<pre>0             0x0             Flattened device tree, size: 985 bytes, version: 17</pre>
+<pre>988           0x3DC           Flattened device tree, size: 11178 bytes, version: 17</pre>
+<pre>31812         0x7C44          CRC32 polynomial table, little endian</pre>
+<pre>269257        0x41BC9         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>269281        0x41BE1         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270357        0x42015         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270901        0x42235         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270949        0x42265         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>273105        0x42AD1         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>273153        0x42B01         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>523596        0x7FD4C         SHA256 hash constants, little endian</pre>
+<pre>589064        0x8FD08         CRC32 polynomial table, little endian</pre>
+<pre>645037        0x9D7AD         LZO compressed data</pre>
+<pre>723956        0xB0BF4         HTML document header</pre>
+<pre>724206        0xB0CEE         HTML document footer</pre>
+<pre>724238        0xB0D0E         HTML document header</pre>
+<pre>724893        0xB0F9D         HTML document footer</pre>
+<pre>724917        0xB0FB5         HTML document header</pre>
+<pre>726332        0xB153C         HTML document footer</pre>
+<pre>726356        0xB1554         HTML document header</pre>
+<pre>726952        0xB17A8         HTML document footer</pre>
+<pre>760460        0xB9A8C         Intel x86 or x64 microcode, sig 0x0109ddfb, pf_mask 0x10a0744, 1D90-01-01, rev 0x102dab4, size 16964276</pre>
+<pre>835868        0xCC11C         Flattened device tree, size: 4745 bytes, version: 17</pre>
+<pre>840616        0xCD3A8         LZO compressed data</pre>
+<pre>915802        0xDF95A         SHA256 hash constants, little endian</pre>
+<pre>1939387       0x1D97BB        Certificate in DER format (x509 v3), header length: 4, sequence length: 8194</pre>
+<pre>3581205       0x36A515        Certificate in DER format (x509 v3), header length: 4, sequence length: 1316</pre>
+<pre>4821855       0x49935F        Certificate in DER format (x509 v3), header length: 4, sequence length: 773</pre>
+<pre>5413590       0x529AD6        AES Inverse S-Box</pre>
+<pre>5499420       0x53EA1C        CRC32 polynomial table, little endian</pre>
+<pre>5983793       0x5B4E31        xz compressed data</pre>
+<pre>6528406       0x639D96        ASCII cpio archive (SVR4 with no CRC), file name: "dev", file name length: "0x00000004", file size: "0x00000000"</pre>
+<pre>6528522       0x639E0A        ASCII cpio archive (SVR4 with no CRC), file name: "dev/console", file name length: "0x0000000C", file size: "0x00000000"</pre>
+<pre>6595512       0x64A3B8        Flattened device tree, size: 63459 bytes, version: 17</pre>
+<pre>6658972       0x659B9C        Flattened device tree, size: 61066 bytes, version: 17</pre>
+<pre>6720040       0x668A28        Flattened device tree, size: 63313 bytes, version: 17</pre>
+<pre>6783356       0x67817C        Flattened device tree, size: 62225 bytes, version: 17</pre>
+<pre>6845584       0x687490        Flattened device tree, size: 63110 bytes, version: 17</pre>
+<pre>6908696       0x696B18        Flattened device tree, size: 63212 bytes, version: 17</pre>
+<pre>6971908       0x6A6204        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7034928       0x6B5830        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7097600       0x6C4D00        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7160272       0x6D41D0        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7222944       0x6E36A0        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7285616       0x6F2B70        Flattened device tree, size: 61635 bytes, version: 17</pre>
+<pre>7347252       0x701C34        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7410272       0x711260        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7473292       0x72088C        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7536312       0x72FEB8        Flattened device tree, size: 61582 bytes, version: 17</pre>
+<pre>7597896       0x73EF48        Flattened device tree, size: 62381 bytes, version: 17</pre>
+<pre>7660280       0x74E2F8        Flattened device tree, size: 62381 bytes, version: 17</pre>
+<pre>7722664       0x75D6A8        Flattened device tree, size: 61570 bytes, version: 17</pre>
+<pre>7784236       0x76C72C        Flattened device tree, size: 61518 bytes, version: 17</pre>
+<pre>7845756       0x77B77C        Flattened device tree, size: 61972 bytes, version: 17</pre>
+<pre>7907728       0x78A990        Flattened device tree, size: 63257 bytes, version: 17</pre>
+<pre>7970988       0x79A0AC        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 56909140 bytes, 2227 inodes, blocksize: 131072 bytes, created: 2022-03-04 11:23:49</pre>
+<br />
+<br />
+<pre>[</span><span class="orange">*</span>] Extracting firmware to directory </span><span class="orange">/logs/firmware/firmware_binwalk_emba</span></pre>
+<br />
+<pre>Scan Time:     2023-01-15 15:49:58</pre>
+<pre>Target File:   /firmware</pre>
+<pre>MD5 Checksum:  c941ff26e7c69227ee8e7d95e68e8cb0</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<pre>0             0x0             Flattened device tree, size: 985 bytes, version: 17</pre>
+<pre>988           0x3DC           Flattened device tree, size: 11178 bytes, version: 17</pre>
+<pre>31812         0x7C44          CRC32 polynomial table, little endian</pre>
+<pre>269257        0x41BC9         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>269281        0x41BE1         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270357        0x42015         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270901        0x42235         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>270949        0x42265         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>273105        0x42AD1         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>273153        0x42B01         Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>523596        0x7FD4C         SHA256 hash constants, little endian</pre>
+<pre>589064        0x8FD08         CRC32 polynomial table, little endian</pre>
+<pre>645037        0x9D7AD         LZO compressed data</pre>
+<pre>723956        0xB0BF4         HTML document header</pre>
+<pre>724206        0xB0CEE         HTML document footer</pre>
+<pre>724238        0xB0D0E         HTML document header</pre>
+<pre>724893        0xB0F9D         HTML document footer</pre>
+<pre>724917        0xB0FB5         HTML document header</pre>
+<pre>726332        0xB153C         HTML document footer</pre>
+<pre>726356        0xB1554         HTML document header</pre>
+<pre>726952        0xB17A8         HTML document footer</pre>
+<pre>760460        0xB9A8C         Intel x86 or x64 microcode, sig 0x0109ddfb, pf_mask 0x10a0744, 1D90-01-01, rev 0x102dab4, size 16964276</pre>
+<pre>835868        0xCC11C         Flattened device tree, size: 4745 bytes, version: 17</pre>
+<pre>840616        0xCD3A8         LZO compressed data</pre>
+<pre>915802        0xDF95A         SHA256 hash constants, little endian</pre>
+<pre>1939387       0x1D97BB        Certificate in DER format (x509 v3), header length: 4, sequence length: 8194</pre>
+<pre>3581205       0x36A515        Certificate in DER format (x509 v3), header length: 4, sequence length: 1316</pre>
+<pre>4821855       0x49935F        Certificate in DER format (x509 v3), header length: 4, sequence length: 773</pre>
+<pre>5413590       0x529AD6        AES Inverse S-Box</pre>
+<pre>5499420       0x53EA1C        CRC32 polynomial table, little endian</pre>
+<pre>5983793       0x5B4E31        xz compressed data</pre>
+<pre>6528406       0x639D96        ASCII cpio archive (SVR4 with no CRC), file name: "dev", file name length: "0x00000004", file size: "0x00000000"</pre>
+<pre>6528522       0x639E0A        ASCII cpio archive (SVR4 with no CRC), file name: "dev/console", file name length: "0x0000000C", file size: "0x00000000"</pre>
+<pre>6595512       0x64A3B8        Flattened device tree, size: 63459 bytes, version: 17</pre>
+<pre>6658972       0x659B9C        Flattened device tree, size: 61066 bytes, version: 17</pre>
+<pre>6720040       0x668A28        Flattened device tree, size: 63313 bytes, version: 17</pre>
+<pre>6783356       0x67817C        Flattened device tree, size: 62225 bytes, version: 17</pre>
+<pre>6845584       0x687490        Flattened device tree, size: 63110 bytes, version: 17</pre>
+<pre>6908696       0x696B18        Flattened device tree, size: 63212 bytes, version: 17</pre>
+<pre>6971908       0x6A6204        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7034928       0x6B5830        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7097600       0x6C4D00        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7160272       0x6D41D0        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7222944       0x6E36A0        Flattened device tree, size: 62669 bytes, version: 17</pre>
+<pre>7285616       0x6F2B70        Flattened device tree, size: 61635 bytes, version: 17</pre>
+<pre>7347252       0x701C34        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7410272       0x711260        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7473292       0x72088C        Flattened device tree, size: 63017 bytes, version: 17</pre>
+<pre>7536312       0x72FEB8        Flattened device tree, size: 61582 bytes, version: 17</pre>
+<pre>7597896       0x73EF48        Flattened device tree, size: 62381 bytes, version: 17</pre>
+<pre>7660280       0x74E2F8        Flattened device tree, size: 62381 bytes, version: 17</pre>
+<pre>7722664       0x75D6A8        Flattened device tree, size: 61570 bytes, version: 17</pre>
+<pre>7784236       0x76C72C        Flattened device tree, size: 61518 bytes, version: 17</pre>
+<pre>7845756       0x77B77C        Flattened device tree, size: 61972 bytes, version: 17</pre>
+<pre>7907728       0x78A990        Flattened device tree, size: 63257 bytes, version: 17</pre>
+<pre>7970988       0x79A0AC        Squashfs filesystem, little endian, version 4.0, compression:xz, size: 56909140 bytes, 2227 inodes, blocksize: 131072 bytes, created: 2022-03-04 11:23:49</pre>
+<br />
+<br />
+<pre>Scan Time:     2023-01-15 15:50:11</pre>
+<pre>Target File:   /logs/firmware/firmware_binwalk_emba/_firmware.extracted/CD3A8</pre>
+<pre>MD5 Checksum:  23ce291f9a35e7e22707f398b4c08ca0</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<pre>1115584       0x1105C0        SHA256 hash constants, little endian</pre>
+<pre>1323598       0x14324E        bix header, header size: 64 bytes, header CRC: 0x57E30C00, created: 2039-08-04 08:04:16, image size: 670784 bytes, Data Address: 0x97E5024A, Entry Point: 0x14E22000, data CRC: 0xA0050, image name: ""</pre>
+<pre>2508021       0x2644F5        Certificate in DER format (x509 v3), header length: 4, sequence length: 8194</pre>
+<pre>2509029       0x2648E5        Certificate in DER format (x509 v3), header length: 4, sequence length: 8194</pre>
+<pre>4448981       0x43E2D5        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4449509       0x43E4E5        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4449557       0x43E515        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4450029       0x43E6ED        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4452477       0x43F07D        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4452525       0x43F0AD        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4452573       0x43F0DD        Certificate in DER format (x509 v3), header length: 4, sequence length: 1284</pre>
+<pre>4699977       0x47B749        Certificate in DER format (x509 v3), header length: 4, sequence length: 1316</pre>
+<pre>6311061       0x604C95        Certificate in DER format (x509 v3), header length: 4, sequence length: 773</pre>
+<pre>7308864       0x6F8640        AES Inverse S-Box</pre>
+<pre>7324004       0x6FC164        gzip compressed data, maximum compression, from Unix, last modified: 1970-01-01 00:00:00 (null date)</pre>
+<pre>7413120       0x711D80        DES SP2, little endian</pre>
+<pre>7414144       0x712180        DES SP1, little endian</pre>
+<pre>7458496       0x71CEC0        CRC32 polynomial table, little endian</pre>
+<pre>7567590       0x7378E6        Unix path: /var/run/rpcbind.sock</pre>
+<pre>7575916       0x73996C        CRC32 polynomial table, little endian</pre>
+<pre>7582619       0x73B39B        LZMA compressed data, properties: 0xC0, dictionary size: 0 bytes, uncompressed size: 80 bytes</pre>
+<pre>8211496       0x7D4C28        xz compressed data</pre>
+<pre>8258864       0x7E0530        Ubiquiti firmware header, third party, ~CRC32: 0x332E3130, version: "-"</pre>
+<pre>8317108       0x7EE8B4        Unix path: /sys/firmware/devicetree/base</pre>
+<pre>8318433       0x7EEDE1        Unix path: /sys/firmware/fdt': CRC check failed</pre>
+<pre>8327469       0x7F112D        Neighborly text, "neighbor table overflow!s_qlen_bytes"</pre>
+<pre>8356284       0x7F81BC        Neighborly text, "NeighborSolicitsp6InMsgs"</pre>
+<pre>8356304       0x7F81D0        Neighborly text, "NeighborAdvertisementsrs"</pre>
+<pre>8365318       0x7FA506        Neighborly text, "neighbor %.2x%.2x.%pM lostridge/br_netlink.c"</pre>
+<pre>8384508       0x7FEFFC        Unix path: /sys/block/mmcblk0boot0/force_ro</pre>
+<pre>9641324       0x931D6C        ASCII cpio archive (SVR4 with no CRC), file name: "dev", file name length: "0x00000004", file size: "0x00000000"</pre>
+<pre>9641440       0x931DE0        ASCII cpio archive (SVR4 with no CRC), file name: "dev/console", file name length: "0x0000000C", file size: "0x00000000"</pre>
+<pre>9641564       0x931E5C        ASCII cpio archive (SVR4 with no CRC), file name: "root", file name length: "0x00000005", file size: "0x00000000"</pre>
+<pre>9641680       0x931ED0        ASCII cpio archive (SVR4 with no CRC), file name: "TRAILER!!!", file name length: "0x0000000B", file size: "0x00000000"</pre>
+<br />
+<br />
+<pre>Scan Time:     2023-01-15 15:50:15</pre>
+<pre>Target File:   /logs/firmware/firmware_binwalk_emba/_firmware.extracted/console</pre>
+<pre>MD5 Checksum:  d41d8cd98f00b204e9800998ecf8427e</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<br />
+<br />
+<pre>Scan Time:     2023-01-15 15:50:15</pre>
+<pre>Target File:   /logs/firmware/firmware_binwalk_emba/_CD3A8.extracted/6FC164</pre>
+<pre>MD5 Checksum:  c64f78417b75586573f01eb84fab71bd</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<br />
+<br />
+<pre>Scan Time:     2023-01-15 15:50:15</pre>
+<pre>Target File:   /logs/firmware/firmware_binwalk_emba/_CD3A8.extracted/73B39B</pre>
+<pre>MD5 Checksum:  bbf7c6077962a7c28114dbd10be947cd</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<br />
+<br />
+<pre>Scan Time:     2023-01-15 15:50:15</pre>
+<pre>Target File:   /logs/firmware/firmware_binwalk_emba/_CD3A8.extracted/console</pre>
+<pre>MD5 Checksum:  d41d8cd98f00b204e9800998ecf8427e</pre>
+<pre>Signatures:    418</pre>
+<br />
+<pre>DECIMAL       HEXADECIMAL     DESCRIPTION</pre>
+<pre>--------------------------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Root directory auto detection for </span><span class="orange">/logs/firmware</span> (could take some time)</pre>
+<br />
+<a class="refmodul" href="./s05_firmware_details.html#anchor_file_dirs" title="LINK" ><pre>[</span><span class="orange">*</span>] Found </span><span class="orange">1</span> different root directories:</pre></a>
+
+<a class="refmodul" href="./s05_firmware_details.html#anchor_file_dirs" title="LINK" ><pre>[</span><span class="green">+</span>]</span><span class="green"> Found the following root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span><span class="green"> via </span><span class="orange">binary interpreter / dir names / busybox</span><span class="green">.</span></pre></a>
+
+<br />
+<br />
+<pre></span><span class="blue">==&gt</span></span> </span><span class="cyan"><a id="firmwareextractiondetails">Firmware extraction details</a></span></pre>
+<pre><hr class="mono" /></pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Found </span><span class="orange">1825</span> files (</span><span class="orange">1783</span> unique files) and </span><span class="orange">153</span> directories at all.</pre>
+<pre>[</span><span class="orange">*</span>] Found </span><span class="orange">701</span> binaries.</pre>
+<pre>[</span><span class="orange">*</span>] Additionally the Linux path counter is </span><span class="orange">10</span>.</pre>
+<br />
+<pre>[4.0K]  /logs/firmware</pre>
+<pre>├── [4.0K]  uefi_extraction</pre>
+<pre>│   └── [4.0K]  firmware.dump</pre>
+<pre>│       ├── [ 62M]  body.bin</pre>
+<pre>│       └── [  88]  info.txt</pre>
+<pre>└── [4.0K]  firmware_binwalk_emba</pre>
+<pre>    ├── [4.0K]  _firmware.extracted</pre>
+<pre>    │   ├── [ 62M]  0</pre>
+<pre>    │   ├── [ 62M]  3DC</pre>
+<pre>    │   ├── [1.3K]  41BC9</pre>
+<pre>    │   ├── [1.3K]  41BE1</pre>
+<pre>    │   ├── [1.3K]  42015</pre>
+<pre>    │   ├── [1.3K]  42235</pre>
+<pre>    │   ├── [1.3K]  42265</pre>
+<pre>    │   ├── [1.3K]  42AD1</pre>
+<pre>    │   ├── [1.3K]  42B01</pre>
+<pre>    │   ├── [ 62M]  7C44</pre>
+<pre>    │   ├── [ 61M]  7FD4C</pre>
+<pre>    │   ├── [ 61M]  8FD08</pre>
+<pre>    │   ├── [ 61M]  9D7AD</pre>
+<pre>    │   ├── [ 61M]  B0BF4</pre>
+<pre>    │   ├── [ 61M]  B0CEE</pre>
+<pre>    │   ├── [ 61M]  B0D0E</pre>
+<pre>    │   ├── [ 61M]  B0F9D</pre>
+<pre>    │   ├── [ 61M]  B0FB5</pre>
+<pre>    │   ├── [ 61M]  B153C</pre>
+<pre>    │   ├── [ 61M]  B1554</pre>
+<pre>    │   ├── [ 61M]  B17A8</pre>
+<pre>    │   ├── [ 16M]  B9A8C</pre>
+<pre>    │   ├── [ 61M]  CC11C</pre>
+<pre>    │   ├── [ 10M]  CD3A8</pre>
+<pre>    │   ├── [ 61M]  CD3A8-0</pre>
+<pre>    │   ├── [ 61M]  DF95A</pre>
+<pre>    │   ├── [8.0K]  1D97BB</pre>
+<pre>    │   ├── [1.3K]  36A515</pre>
+<pre>    │   ├── [ 777]  49935F</pre>
+<pre>    │   ├── [ 57M]  529AD6</pre>
+<pre>    │   ├── [ 57M]  53EA1C</pre>
+<pre>    │   ├── [ 56M]  5B4E31</pre>
+<pre>    │   ├── [   0]  console</pre>
+<pre>    │   ├── [4.0K]  dev</pre>
+<pre>    │   ├── [ 56M]  639D96.cpio</pre>
+<pre>    │   ├── [4.0K]  cpio-root</pre>
+<pre>    │   │   └── [4.0K]  dev</pre>
+<pre>    │   │       └── [   0]  console</pre>
+<pre>    │   ├── [ 56M]  64A3B8</pre>
+<pre>    │   ├── [ 56M]  659B9C</pre>
+<pre>    │   ├── [ 55M]  668A28</pre>
+<pre>    │   ├── [ 55M]  67817C</pre>
+<pre>    │   ├── [ 55M]  687490</pre>
+<pre>    │   ├── [ 55M]  696B18</pre>
+<pre>    │   ├── [ 55M]  6A6204</pre>
+<pre>    │   ├── [ 55M]  6B5830</pre>
+<pre>    │   ├── [ 55M]  6C4D00</pre>
+<pre>    │   ├── [ 55M]  6D41D0</pre>
+<pre>    │   ├── [ 55M]  6E36A0</pre>
+<pre>    │   ├── [ 55M]  6F2B70</pre>
+<pre>    │   ├── [ 55M]  701C34</pre>
+<pre>    │   ├── [ 55M]  711260</pre>
+<pre>    │   ├── [ 55M]  72088C</pre>
+<pre>    │   ├── [ 55M]  72FEB8</pre>
+<pre>    │   ├── [ 55M]  73EF48</pre>
+<pre>    │   ├── [ 55M]  74E2F8</pre>
+<pre>    │   ├── [ 55M]  75D6A8</pre>
+<pre>    │   ├── [ 54M]  76C72C</pre>
+<pre>    │   ├── [ 54M]  77B77C</pre>
+<pre>    │   ├── [ 54M]  78A990</pre>
+<pre>    │   ├── [ 54M]  79A0AC.squashfs</pre>
+<pre>    │   └── [4.0K]  squashfs-root</pre>
+<pre>    │       ├── [ 12K]  bin</pre>
+<pre>    │       │   ├── [ 25K]  ATS</pre>
+<pre>    │       │   ├── [   9]  archer -&gt; archerctl</pre>
+<pre>    │       │   ├── [ 27K]  archerctl</pre>
+<pre>    │       │   ├── [ 54K]  arp-scan</pre>
+<pre>    │       │   ├── [   7]  ash -&gt; busybox</pre>
+<pre>    │       │   ├── [  10]  base64 -&gt; bcmbusybox</pre>
+<pre>    │       │   ├── [   7]  bash -&gt; busybox</pre>
+<pre>    │       │   ├── [9.5K]  bcm_boot_launcher</pre>
+<pre>    │       │   ├── [9.4K]  bcm_bootstate</pre>
+<pre>    │       │   ├── [9.5K]  bcm_flasher</pre>
+<pre>    │       │   ├── [5.4K]  bcm_flashutil</pre>
+<pre>    │       │   ├── [163K]  bcmbusybox</pre>
+<pre>    │       │   ├── [9.8K]  bcmmcastctl</pre>
+<pre>    │       │   ├── [9.5K]  bcmmserver</pre>
+<pre>    │       │   ├── [9.5K]  bdbroker-client-cmd</pre>
+<pre>    │       │   ├── [9.5K]  bdbroker-client-loop</pre>
+<pre>    │       │   ├── [5.4K]  bdbroker-client-thread</pre>
+<pre>    │       │   ├── [ 62K]  bftpd</pre>
+<pre>    │       │   ├── [   5]  bftpd_wan -&gt; bftpd</pre>
+<pre>    │       │   ├── [   7]  blog -&gt; blogctl</pre>
+<pre>    │       │   ├── [9.8K]  blogctl</pre>
+<pre>    │       │   ├── [  11]  bmc -&gt; bcmmcastctl</pre>
+<pre>    │       │   ├── [ 14K]  boot_block_housekeeping</pre>
+<pre>    │       │   ├── [   6]  bpm -&gt; bpmctl</pre>
+<pre>    │       │   ├── [9.9K]  bpmctl</pre>
+<pre>    │       │   ├── [ 26K]  brctl</pre>
+<pre>    │       │   ├── [1.2M]  busybox</pre>
+<pre>    │       │   ├── [   7]  cat -&gt; busybox</pre>
+<pre>    │       │   ├── [ 14K]  ceventc</pre>
+<pre>    │       │   ├── [ 39K]  ceventd</pre>
+<pre>    │       │   ├── [ 872]  cfu_boot_notify.sh</pre>
+<pre>    │       │   ├── [   7]  chmod -&gt; busybox</pre>
+<pre>    │       │   ├── [9.5K]  consoled</pre>
+<pre>    │       │   ├── [   7]  cp -&gt; busybox</pre>
+<pre>    │       │   ├── [318K]  curl</pre>
+<pre>    │       │   ├── [5.4K]  dal_system</pre>
+<pre>    │       │   ├── [1.2K]  dal_update_DB.sh</pre>
+<pre>    │       │   ├── [1.3K]  dal_update_wan.sh</pre>
+<pre>    │       │   ├── [   7]  date -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  dd -&gt; busybox</pre>
+<pre>    │       │   ├── [ 22K]  ddnsd</pre>
+<pre>    │       │   ├── [5.5K]  deinterleave</pre>
+<pre>    │       │   ├── [   7]  df -&gt; busybox</pre>
+<pre>    │       │   ├── [ 90K]  dhcp6c</pre>
+<pre>    │       │   ├── [ 82K]  dhcp6s</pre>
+<pre>    │       │   ├── [3.2K]  dhcp_propagate.sh</pre>
+<pre>    │       │   ├── [   6]  dhcpc -&gt; udhcpd</pre>
+<pre>    │       │   ├── [   6]  dhcpd -&gt; udhcpd</pre>
+<pre>    │       │   ├── [  13]  dhdctl -&gt; /usr/sbin/dhd</pre>
+<pre>    │       │   ├── [   7]  dmesg -&gt; busybox</pre>
+<pre>    │       │   ├── [5.5K]  doc_loadbios</pre>
+<pre>    │       │   ├── [9.4K]  docfdisk</pre>
+<pre>    │       │   ├── [106K]  dropbearconvert</pre>
+<pre>    │       │   ├── [ 17K]  dry</pre>
+<pre>    │       │   ├── [ 50K]  eapd</pre>
+<pre>    │       │   ├── [  15]  ebtables -&gt; ebtables-legacy</pre>
+<pre>    │       │   ├── [5.4K]  ebtables-legacy</pre>
+<pre>    │       │   ├── [   7]  echo -&gt; busybox</pre>
+<pre>    │       │   ├── [ 38K]  ethctl</pre>
+<pre>    │       │   ├── [ 63K]  ethswctl</pre>
+<pre>    │       │   ├── [294K]  ethtool</pre>
+<pre>    │       │   ├── [   7]  false -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  fatattr -&gt; busybox</pre>
+<pre>    │       │   ├── [   5]  fc -&gt; fcctl</pre>
+<pre>    │       │   ├── [ 27K]  fcctl</pre>
+<pre>    │       │   ├── [ 30K]  flash_erase</pre>
+<pre>    │       │   ├── [ 150]  flash_eraseall</pre>
+<pre>    │       │   ├── [9.4K]  flash_lock</pre>
+<pre>    │       │   ├── [5.4K]  flash_otp_dump</pre>
+<pre>    │       │   ├── [5.4K]  flash_otp_info</pre>
+<pre>    │       │   ├── [5.4K]  flash_otp_lock</pre>
+<pre>    │       │   ├── [5.4K]  flash_otp_write</pre>
+<pre>    │       │   ├── [9.4K]  flash_unlock</pre>
+<pre>    │       │   ├── [9.5K]  flashcp</pre>
+<pre>    │       │   ├── [9.5K]  ftl_check</pre>
+<pre>    │       │   ├── [9.5K]  ftl_format</pre>
+<pre>    │       │   ├── [ 18K]  getdb</pre>
+<pre>    │       │   ├── [   7]  grep -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  gunzip -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  gzip -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  hostname -&gt; busybox</pre>
+<pre>    │       │   ├── [9.6K]  hotplug</pre>
+<pre>    │       │   ├── [1.1M]  hspotap</pre>
+<pre>    │       │   ├── [ 22K]  iconv</pre>
+<pre>    │       │   ├── [ 76K]  inadyn</pre>
+<pre>    │       │   ├── [5.5K]  interleave</pre>
+<pre>    │       │   ├── [ 46K]  iostat</pre>
+<pre>    │       │   ├── [483K]  ip</pre>
+<pre>    │       │   ├── [  20]  ip6tables -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  14]  ip6tables-apply -&gt; iptables-apply</pre>
+<pre>    │       │   ├── [  20]  ip6tables-legacy -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  ip6tables-legacy-restore -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  ip6tables-legacy-save -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  ip6tables-restore -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  ip6tables-save -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [ 62K]  iperf</pre>
+<pre>    │       │   ├── [ 95K]  iperf3</pre>
+<pre>    │       │   ├── [ 22K]  ippd</pre>
+<pre>    │       │   ├── [  20]  iptables -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  iptables-legacy -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  iptables-legacy-restore -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  iptables-legacy-save -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  iptables-restore -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [  20]  iptables-save -&gt; xtables-legacy-multi</pre>
+<pre>    │       │   ├── [   5]  iq -&gt; iqctl</pre>
+<pre>    │       │   ├── [ 20K]  iqctl</pre>
+<pre>    │       │   ├── [ 13K]  ivictl</pre>
+<pre>    │       │   ├── [   7]  kill -&gt; busybox</pre>
+<pre>    │       │   ├── [ 437]  kill.sh</pre>
+<pre>    │       │   ├── [140K]  l2tpconfig</pre>
+<pre>    │       │   ├── [9.4K]  ledCli</pre>
+<pre>    │       │   ├── [ 18K]  ledSer</pre>
+<pre>    │       │   ├── [   7]  linux32 -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  linux64 -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  ln -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  ls -&gt; busybox</pre>
+<pre>    │       │   ├── [ 50K]  lsmtd</pre>
+<pre>    │       │   ├── [ 91K]  lspci</pre>
+<pre>    │       │   ├── [ 10K]  maclimit</pre>
+<pre>    │       │   ├── [ 86K]  mailsend</pre>
+<pre>    │       │   ├── [   6]  mcp -&gt; mcpctl</pre>
+<pre>    │       │   ├── [9.7K]  mcpctl</pre>
+<pre>    │       │   ├── [ 94K]  mcpd</pre>
+<pre>    │       │   ├── [5.5K]  memaccess</pre>
+<pre>    │       │   ├── [   7]  mkdir -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  mknod -&gt; busybox</pre>
+<pre>    │       │   ├── [  10]  mktemp -&gt; bcmbusybox</pre>
+<pre>    │       │   ├── [   8]  mlmt -&gt; maclimit</pre>
+<pre>    │       │   ├── [   7]  more -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  mount -&gt; busybox</pre>
+<pre>    │       │   ├── [ 42K]  mpstat</pre>
+<pre>    │       │   ├── [9.5K]  mtd_debug</pre>
+<pre>    │       │   ├── [ 38K]  mtdinfo</pre>
+<pre>    │       │   ├── [9.5K]  mtdpart</pre>
+<pre>    │       │   ├── [  10]  mv -&gt; bcmbusybox</pre>
+<pre>    │       │   ├── [ 34K]  nanddump</pre>
+<pre>    │       │   ├── [9.5K]  nandtest</pre>
+<pre>    │       │   ├── [ 34K]  nandwrite</pre>
+<pre>    │       │   ├── [ 26K]  nbtscan</pre>
+<pre>    │       │   ├── [ 14K]  ndisc6</pre>
+<pre>    │       │   ├── [   7]  netstat -&gt; busybox</pre>
+<pre>    │       │   ├── [9.5K]  nftl_format</pre>
+<pre>    │       │   ├── [9.5K]  nftldump</pre>
+<pre>    │       │   ├── [   7]  nice -&gt; busybox</pre>
+<pre>    │       │   ├── [221K]  nmbd</pre>
+<pre>    │       │   ├── [106K]  ntfs-3g</pre>
+<pre>    │       │   ├── [ 26K]  ntgr_ddnsd</pre>
+<pre>    │       │   ├── [  23]  ntgr_ra_iot -&gt; /data/rabin/ntgr_ra_iot</pre>
+<pre>    │       │   ├── [ 74K]  ntgr_trafficmeter</pre>
+<pre>    │       │   ├── [ 14K]  nvram</pre>
+<pre>    │       │   ├── [ 18K]  nvramUpdate</pre>
+<pre>    │       │   ├── [194K]  openl2tpd</pre>
+<pre>    │       │   ├── [479K]  openssl</pre>
+<pre>    │       │   ├── [535K]  openvpn</pre>
+<pre>    │       │   ├── [9.4K]  otpctl</pre>
+<pre>    │       │   ├── [3.9M]  php-fpm</pre>
+<pre>    │       │   ├── [   7]  pidof -&gt; busybox</pre>
+<pre>    │       │   ├── [ 50K]  pidstat</pre>
+<pre>    │       │   ├── [  10]  ping -&gt; bcmbusybox</pre>
+<pre>    │       │   ├── [  10]  ping6 -&gt; bcmbusybox</pre>
+<pre>    │       │   ├── [ 54K]  pki</pre>
+<pre>    │       │   ├── [ 26K]  posix-stress</pre>
+<pre>    │       │   ├── [ 26K]  pot</pre>
+<pre>    │       │   ├── [282K]  pppd</pre>
+<pre>    │       │   ├── [ 26K]  pppoe-relay</pre>
+<pre>    │       │   ├── [   7]  ps -&gt; busybox</pre>
+<pre>    │       │   ├── [  13]  pspctl -&gt; scratchpadctl</pre>
+<pre>    │       │   ├── [ 26K]  pu_autodetect</pre>
+<pre>    │       │   ├── [ 22K]  pu_iQoS_db_update</pre>
+<pre>    │       │   ├── [ 22K]  pu_sshEnabled</pre>
+<pre>    │       │   ├── [ 22K]  pu_telnetEnabled</pre>
+<pre>    │       │   ├── [ 22K]  puarmor</pre>
+<pre>    │       │   ├── [9.6K]  pucfu</pre>
+<pre>    │       │   ├── [5.4K]  pudal</pre>
+<pre>    │       │   ├── [ 29K]  pudil</pre>
+<pre>    │       │   ├── [ 33K]  pudilcb</pre>
+<pre>    │       │   ├── [ 30K]  pufwUpgrade</pre>
+<pre>    │       │   ├── [9.5K]  puhttpsniff</pre>
+<pre>    │       │   ├── [ 22K]  puraUpdate</pre>
+<pre>    │       │   ├── [   7]  pwd -&gt; busybox</pre>
+<pre>    │       │   ├── [   6]  pwr -&gt; pwrctl</pre>
+<pre>    │       │   ├── [ 11K]  pwrctl</pre>
+<pre>    │       │   ├── [5.5K]  ra_cli</pre>
+<pre>    │       │   ├── [9.5K]  ra_nvram</pre>
+<pre>    │       │   ├── [ 83K]  radvd</pre>
+<pre>    │       │   ├── [ 18K]  rastatus6</pre>
+<pre>    │       │   ├── [6.9K]  rawSocketTest</pre>
+<pre>    │       │   ├── [9.9K]  readycloud_nvram</pre>
+<pre>    │       │   ├── [ 18K]  recv_image</pre>
+<pre>    │       │   ├── [ 83K]  redsocks</pre>
+<pre>    │       │   ├── [1.5K]  restoredefault</pre>
+<pre>    │       │   ├── [ 14K]  rex_maillog</pre>
+<pre>    │       │   ├── [ 14K]  rex_statusd</pre>
+<pre>    │       │   ├── [9.5K]  rfddump</pre>
+<pre>    │       │   ├── [5.4K]  rfdformat</pre>
+<pre>    │       │   ├── [ 98K]  ripd</pre>
+<pre>    │       │   ├── [   7]  rm -&gt; busybox</pre>
+<pre>    │       │   ├── [ 13K]  rngtest</pre>
+<pre>    │       │   ├── [7.3K]  rtpolicy</pre>
+<pre>    │       │   ├── [9.4K]  scratchpadctl</pre>
+<pre>    │       │   ├── [   7]  sed -&gt; busybox</pre>
+<pre>    │       │   ├── [9.5K]  send_cms_msg</pre>
+<pre>    │       │   ├── [ 17K]  serve_image</pre>
+<pre>    │       │   ├── [ 38K]  setpci</pre>
+<pre>    │       │   ├── [   7]  sh -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  sleep -&gt; busybox</pre>
+<pre>    │       │   ├── [ 73K]  smbd</pre>
+<pre>    │       │   ├── [ 25K]  smbpasswd</pre>
+<pre>    │       │   ├── [ 38K]  smd</pre>
+<pre>    │       │   ├── [222K]  soap_serverd</pre>
+<pre>    │       │   ├── [ 14K]  spcLoader</pre>
+<pre>    │       │   ├── [940K]  sqlite3</pre>
+<pre>    │       │   ├── [168K]  sshd</pre>
+<pre>    │       │   ├── [110K]  ssk</pre>
+<pre>    │       │   ├── [   7]  stty -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  sync -&gt; busybox</pre>
+<pre>    │       │   ├── [  12]  system -&gt; ./dal_system</pre>
+<pre>    │       │   ├── [   7]  tar -&gt; busybox</pre>
+<pre>    │       │   ├── [419K]  tc</pre>
+<pre>    │       │   ├── [637K]  tcpdump</pre>
+<pre>    │       │   ├── [ 14K]  telnetd</pre>
+<pre>    │       │   ├── [ 44K]  tmctl</pre>
+<pre>    │       │   ├── [   7]  touch -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  true -&gt; busybox</pre>
+<pre>    │       │   ├── [ 26K]  ubiattach</pre>
+<pre>    │       │   ├── [ 22K]  ubiblock</pre>
+<pre>    │       │   ├── [9.4K]  ubicrc32</pre>
+<pre>    │       │   ├── [ 22K]  ubidetach</pre>
+<pre>    │       │   ├── [ 58K]  ubiformat</pre>
+<pre>    │       │   ├── [ 26K]  ubimkvol</pre>
+<pre>    │       │   ├── [ 26K]  ubinfo</pre>
+<pre>    │       │   ├── [ 30K]  ubinize</pre>
+<pre>    │       │   ├── [ 21K]  ubirename</pre>
+<pre>    │       │   ├── [ 22K]  ubirmvol</pre>
+<pre>    │       │   ├── [ 26K]  ubirsvol</pre>
+<pre>    │       │   ├── [ 22K]  ubiupdatevol</pre>
+<pre>    │       │   ├── [ 50K]  udhcpd</pre>
+<pre>    │       │   ├── [   7]  umount -&gt; busybox</pre>
+<pre>    │       │   ├── [   7]  uname -&gt; busybox</pre>
+<pre>    │       │   ├── [134K]  unzip</pre>
+<pre>    │       │   ├── [ 98K]  upnp</pre>
+<pre>    │       │   ├── [ 26K]  urlfilterd</pre>
+<pre>    │       │   ├── [   7]  vi -&gt; busybox</pre>
+<pre>    │       │   ├── [ 30K]  vlanctl</pre>
+<pre>    │       │   ├── [ 22K]  wandetect</pre>
+<pre>    │       │   ├── [9.5K]  wdtctl</pre>
+<pre>    │       │   ├── [ 22K]  websockd</pre>
+<pre>    │       │   ├── [ 18K]  wlDiagnostic</pre>
+<pre>    │       │   ├── [ 25K]  wlaffinity</pre>
+<pre>    │       │   ├── [  12]  wlctl -&gt; /usr/sbin/wl</pre>
+<pre>    │       │   ├── [ 38K]  wlssk</pre>
+<pre>    │       │   ├── [279K]  xtables-legacy-multi</pre>
+<pre>    │       │   ├── [270K]  zebra</pre>
+<pre>    │       │   └── [169K]  zip</pre>
+<pre>    │       ├── [4.0K]  data</pre>
+<pre>    │       │   ├── [4.0K]  licenses</pre>
+<pre>    │       │   └── [4.0K]  rabin</pre>
+<pre>    │       │       └── [ 466]  raePolicy.json</pre>
+<pre>    │       ├── [  16]  debug -&gt; sys/kernel/debug</pre>
+<pre>    │       ├── [4.0K]  dev</pre>
+<pre>    │       │   ├── [   9]  fuse -&gt; /var/fuse</pre>
+<pre>    │       │   └── [4.0K]  misc</pre>
+<pre>    │       │       └── [   9]  fuse -&gt; /var/fuse</pre>
+<pre>    │       ├── [4.0K]  etc</pre>
+<pre>    │       │   ├── [ 527]  RASwitch.sh</pre>
+<pre>    │       │   ├── [ 15K]  RAX30</pre>
+<pre>    │       │   ├── [   7]  TZ -&gt; /var/TZ</pre>
+<pre>    │       │   ├── [4.0K]  adsl</pre>
+<pre>    │       │   ├── [ 311]  airiq.cfg</pre>
+<pre>    │       │   ├── [ 499]  arl</pre>
+<pre>    │       │   ├── [7.5M]  armor_bdagent.tar.gz</pre>
+<pre>    │       │   ├── [ 13K]  bftpd.conf</pre>
+<pre>    │       │   ├── [ 13K]  bftpd_ftp.conf</pre>
+<pre>    │       │   ├── [ 13K]  bftpd_ftpPwd.conf</pre>
+<pre>    │       │   ├── [1.1K]  bftpd_ftpWan.conf</pre>
+<pre>    │       │   ├── [4.0K]  bootfs</pre>
+<pre>    │       │   │   └── [2.1M]  brcm_simple.itb</pre>
+<pre>    │       │   ├── [   5]  build_profile -&gt; RAX30</pre>
+<pre>    │       │   ├── [4.0K]  certs</pre>
+<pre>    │       │   ├── [4.0K]  cms_entity_info.d</pre>
+<pre>    │       │   │   ├── [  75]  eid_autodetect.txt</pre>
+<pre>    │       │   │   ├── [  99]  eid_bcm_1905.txt</pre>
+<pre>    │       │   │   ├── [6.2K]  eid_bcm_base.txt</pre>
+<pre>    │       │   │   ├── [ 119]  eid_bcm_bftpd.txt</pre>
+<pre>    │       │   │   ├── [4.1K]  eid_bcm_mgmt.txt</pre>
+<pre>    │       │   │   ├── [ 568]  eid_bcm_voip.txt</pre>
+<pre>    │       │   │   ├── [1.0K]  eid_bcm_wifi.txt</pre>
+<pre>    │       │   │   ├── [ 127]  eid_getdb.txt</pre>
+<pre>    │       │   │   ├── [ 159]  eid_lighttpd.txt</pre>
+<pre>    │       │   │   ├── [ 443]  eid_netgearSoapServer.txt</pre>
+<pre>    │       │   │   ├── [ 289]  eid_netgearWifiGuestSch.txt</pre>
+<pre>    │       │   │   ├── [ 133]  eid_ntgrATS.txt</pre>
+<pre>    │       │   │   ├── [ 133]  eid_ntgrDDnsd.txt</pre>
+<pre>    │       │   │   ├── [ 188]  eid_ntgr_ra_iot.txt</pre>
+<pre>    │       │   │   ├── [ 254]  eid_php.txt</pre>
+<pre>    │       │   │   ├── [  97]  eid_pot.txt</pre>
+<pre>    │       │   │   ├── [ 157]  eid_pu_sshEnabled.txt</pre>
+<pre>    │       │   │   ├── [ 163]  eid_pu_telnetEnabled.txt</pre>
+<pre>    │       │   │   ├── [ 119]  eid_puarmor.txt</pre>
+<pre>    │       │   │   ├── [ 156]  eid_pudil.txt</pre>
+<pre>    │       │   │   ├── [ 158]  eid_rexMailLog.txt</pre>
+<pre>    │       │   │   ├── [ 154]  eid_rexService.txt</pre>
+<pre>    │       │   │   ├── [ 186]  eid_trafficmeterService.txt</pre>
+<pre>    │       │   │   ├── [ 135]  eid_wlDiagnostic.txt</pre>
+<pre>    │       │   │   └── [7.5K]  symbol_table.txt</pre>
+<pre>    │       │   ├── [4.0K]  d2</pre>
+<pre>    │       │   │   ├── [  84]  RGenieCfg.000.json</pre>
+<pre>    │       │   │   ├── [  62]  UpCfg.000.json</pre>
+<pre>    │       │   │   └── [ 288]  XagentCfg.000.json</pre>
+<pre>    │       │   ├── [ 335]  debug.conf</pre>
+<pre>    │       │   ├── [ 90K]  default.cfg</pre>
+<pre>    │       │   ├── [1.7K]  default.script</pre>
+<pre>    │       │   ├── [4.0K]  dhcp</pre>
+<pre>    │       │   │   └── [ 313]  dhcp_getdata</pre>
+<pre>    │       │   ├── [ 185]  dhcp6c.conf.sample</pre>
+<pre>    │       │   ├── [ 256]  dhcp6s.conf.sample</pre>
+<pre>    │       │   ├── [4.0K]  dil</pre>
+<pre>    │       │   │   ├── [2.5K]  file1.txt</pre>
+<pre>    │       │   │   └── [ 14K]  file2.txt</pre>
+<pre>    │       │   ├── [  13]  dms.conf -&gt; /var/dms.conf</pre>
+<pre>    │       │   ├── [4.0K]  dropbear</pre>
+<pre>    │       │   │   └── [ 584]  id_rsa.pub</pre>
+<pre>    │       │   ├── [ 489]  dyndscp.sh</pre>
+<pre>    │       │   ├── [1.3K]  ethertypes</pre>
+<pre>    │       │   ├── [  15]  filesystems</pre>
+<pre>    │       │   ├── [ 219]  fstab</pre>
+<pre>    │       │   ├── [  20]  gateway.conf -&gt; /var/fyi/sys/gateway</pre>
+<pre>    │       │   ├── [  10]  group -&gt; /var/group</pre>
+<pre>    │       │   ├── [ 291]  hp_wrapper.sh</pre>
+<pre>    │       │   ├── [  17]  image_version</pre>
+<pre>    │       │   ├── [4.0K]  init.d</pre>
+<pre>    │       │   │   ├── [ 533]  ASH</pre>
+<pre>    │       │   │   ├── [ 723]  CSH</pre>
+<pre>    │       │   │   ├── [ 527]  DALH</pre>
+<pre>    │       │   │   ├── [ 372]  RA</pre>
+<pre>    │       │   │   ├── [1.3K]  UPAgent</pre>
+<pre>    │       │   │   ├── [2.2K]  XAgent</pre>
+<pre>    │       │   │   ├── [3.0K]  bcm-base-drivers.sh</pre>
+<pre>    │       │   │   ├── [ 13K]  bcm-wlan-drivers.sh</pre>
+<pre>    │       │   │   ├── [ 181]  boot_block_housekeeping.sh</pre>
+<pre>    │       │   │   ├── [ 565]  bst</pre>
+<pre>    │       │   │   ├── [2.3K]  d2</pre>
+<pre>    │       │   │   ├── [2.2K]  d2_countryname.sh</pre>
+<pre>    │       │   │   ├── [1.6K]  dil</pre>
+<pre>    │       │   │   ├── [5.4K]  dilboot</pre>
+<pre>    │       │   │   ├── [1.1K]  disk.sh</pre>
+<pre>    │       │   │   ├── [ 524]  fwupg_create_bootfs2.sh</pre>
+<pre>    │       │   │   ├── [4.8K]  fwupg_create_tmprootfs.sh</pre>
+<pre>    │       │   │   ├── [2.1K]  fwupg_flashing.sh</pre>
+<pre>    │       │   │   ├── [ 776]  gre-tunnel-drivers.sh</pre>
+<pre>    │       │   │   ├── [ 23K]  hndmfg.sh</pre>
+<pre>    │       │   │   ├── [9.8K]  hndnvram.sh</pre>
+<pre>    │       │   │   ├── [ 226]  license_init.sh</pre>
+<pre>    │       │   │   ├── [ 518]  mcpd.sh</pre>
+<pre>    │       │   │   ├── [6.9K]  mount-data.inc</pre>
+<pre>    │       │   │   ├── [2.3K]  mount-fs.sh</pre>
+<pre>    │       │   │   ├── [ 589]  net-config</pre>
+<pre>    │       │   │   ├── [3.0K]  pega-post.sh</pre>
+<pre>    │       │   │   ├── [3.4K]  pega-pre.sh</pre>
+<pre>    │       │   │   ├── [1.3K]  remGenie</pre>
+<pre>    │       │   │   ├── [ 184]  restart_smbd.sh</pre>
+<pre>    │       │   │   ├── [ 260]  save-dmesg.sh</pre>
+<pre>    │       │   │   ├── [9.8K]  setlogLevelForDAL.sh</pre>
+<pre>    │       │   │   ├── [ 236]  smd.sh</pre>
+<pre>    │       │   │   ├── [ 741]  spc-post.sh</pre>
+<pre>    │       │   │   ├── [1.1K]  ssl.sh</pre>
+<pre>    │       │   │   ├── [2.3K]  switch.sh</pre>
+<pre>    │       │   │   ├── [ 934]  system-config.sh</pre>
+<pre>    │       │   │   ├── [ 449]  wdtd.sh</pre>
+<pre>    │       │   │   ├── [7.6K]  wifi.sh</pre>
+<pre>    │       │   │   ├── [ 25K]  x2serdes_init.sh</pre>
+<pre>    │       │   │   └── [ 24K]  xserdes_init.sh</pre>
+<pre>    │       │   ├── [ 532]  inittab</pre>
+<pre>    │       │   ├── [4.0K]  iproute2</pre>
+<pre>    │       │   │   └── [  23]  rt_tables -&gt; /var/iproute2/rt_tables</pre>
+<pre>    │       │   ├── [ 638]  ipsec.conf</pre>
+<pre>    │       │   ├── [4.0K]  ipsec.d</pre>
+<pre>    │       │   │   ├── [4.0K]  aacerts</pre>
+<pre>    │       │   │   ├── [4.0K]  acerts</pre>
+<pre>    │       │   │   ├── [   9]  cacerts -&gt; /var/cert</pre>
+<pre>    │       │   │   ├── [4.0K]  certs</pre>
+<pre>    │       │   │   ├── [4.0K]  crls</pre>
+<pre>    │       │   │   ├── [4.0K]  ocspcerts</pre>
+<pre>    │       │   │   ├── [4.0K]  private</pre>
+<pre>    │       │   │   └── [4.0K]  reqs</pre>
+<pre>    │       │   ├── [  81]  ipsec.secrets</pre>
+<pre>    │       │   ├── [ 586]  ipv6_start.sample</pre>
+<pre>    │       │   ├── [4.0K]  licenses</pre>
+<pre>    │       │   │   └── [ 829]  license_brcm.txt</pre>
+<pre>    │       │   ├── [4.0K]  lighttpd</pre>
+<pre>    │       │   │   ├── [4.0K]  conf.d</pre>
+<pre>    │       │   │   │   ├── [ 282]  https_on_lan.conf</pre>
+<pre>    │       │   │   │   ├── [9.5K]  lighttpd4.conf</pre>
+<pre>    │       │   │   │   ├── [6.8K]  lighttpd4_blankState.conf</pre>
+<pre>    │       │   │   │   ├── [9.4K]  lighttpd4_noPwdReset.conf</pre>
+<pre>    │       │   │   │   ├── [ 312]  usb_http_allow.inc</pre>
+<pre>    │       │   │   │   ├── [1.1K]  usb_http_allow_auth.inc</pre>
+<pre>    │       │   │   │   ├── [ 100]  usb_http_deny.inc</pre>
+<pre>    │       │   │   │   ├── [ 566]  usb_https_allow.inc</pre>
+<pre>    │       │   │   │   ├── [1.3K]  usb_https_allow_auth.inc</pre>
+<pre>    │       │   │   │   ├── [ 551]  usb_https_deny.inc</pre>
+<pre>    │       │   │   │   └── [ 432]  usb_lighttpd.conf</pre>
+<pre>    │       │   │   ├── [3.2K]  interleaved-lighttpd-default.pem</pre>
+<pre>    │       │   │   ├── [ 12K]  lighttpd.conf</pre>
+<pre>    │       │   │   ├── [  26]  lighttpd.pem -&gt; /var/lighttpd/lighttpd.pem</pre>
+<pre>    │       │   │   ├── [ 52K]  mime.conf</pre>
+<pre>    │       │   │   └── [3.9K]  modules.conf</pre>
+<pre>    │       │   ├── [  14]  localtime -&gt; /var/localtime</pre>
+<pre>    │       │   ├── [2.4K]  lte_start.sh</pre>
+<pre>    │       │   ├── [ 506]  make_mmc_links.sh</pre>
+<pre>    │       │   ├── [2.0K]  make_static_devnodes.sh</pre>
+<pre>    │       │   ├── [1.9K]  mdev.conf</pre>
+<pre>    │       │   ├── [  20]  mdk</pre>
+<pre>    │       │   ├── [3.3K]  minidlna.conf</pre>
+<pre>    │       │   ├── [3.7K]  mptcp.sh</pre>
+<pre>    │       │   ├── [   9]  mtab -&gt; /var/mtab</pre>
+<pre>    │       │   ├── [663K]  ntgr_ra_iot</pre>
+<pre>    │       │   ├── [2.8M]  ntgr_spc_agent.3_26_1_1.tar.gz</pre>
+<pre>    │       │   ├── [ 958]  ntgr_spc_config.ini</pre>
+<pre>    │       │   ├── [4.0K]  openssl</pre>
+<pre>    │       │   │   └── [ 398]  sslconf.xml</pre>
+<pre>    │       │   ├── [4.0K]  openvpncfg</pre>
+<pre>    │       │   │   ├── [ 181]  client_tap.ovpn.tmpl</pre>
+<pre>    │       │   │   ├── [ 200]  client_tun.ovpn.tmpl</pre>
+<pre>    │       │   │   ├── [3.2K]  genvpnclientlist.sh</pre>
+<pre>    │       │   │   ├── [ 630]  ovpncfg-stop.sh</pre>
+<pre>    │       │   │   ├── [ 13K]  ovpncfg.sh</pre>
+<pre>    │       │   │   ├── [ 431]  ovpnlog.sh</pre>
+<pre>    │       │   │   ├── [ 761]  server_tap.conf.tmpl</pre>
+<pre>    │       │   │   └── [ 741]  server_tun.conf.tmpl</pre>
+<pre>    │       │   ├── [  11]  passwd -&gt; /var/passwd</pre>
+<pre>    │       │   ├── [ 280]  patch.version</pre>
+<pre>    │       │   ├── [5.2K]  php-fpm.conf</pre>
+<pre>    │       │   ├── [4.0K]  php-fpm.d</pre>
+<pre>    │       │   │   └── [ 19K]  www.conf</pre>
+<pre>    │       │   ├── [4.0K]  ppp</pre>
+<pre>    │       │   │   ├── [  93]  chap-secrets</pre>
+<pre>    │       │   │   ├── [4.0K]  chat</pre>
+<pre>    │       │   │   ├── [ 310]  ip-down</pre>
+<pre>    │       │   │   ├── [ 362]  ip-up</pre>
+<pre>    │       │   │   ├── [  41]  options</pre>
+<pre>    │       │   │   ├── [  93]  pap-secrets</pre>
+<pre>    │       │   │   └── [4.0K]  peers</pre>
+<pre>    │       │   ├── [  15]  pppmsg -&gt; /var/ppp/pppmsg</pre>
+<pre>    │       │   ├── [ 284]  profile</pre>
+<pre>    │       │   ├── [1.8K]  radvd.conf.sample</pre>
+<pre>    │       │   ├── [ 466]  raePolicy.json</pre>
+<pre>    │       │   ├── [4.0K]  rc3.d</pre>
+<pre>    │       │   │   ├── [  16]  K25smd -&gt; ../init.d/smd.sh</pre>
+<pre>    │       │   │   ├── [  21]  K95mount-fs -&gt; ../init.d/mount-fs.sh</pre>
+<pre>    │       │   │   ├── [  21]  S25mount-fs -&gt; ../init.d/mount-fs.sh</pre>
+<pre>    │       │   │   ├── [  17]  S26wdtd -&gt; ../init.d/wdtd.sh</pre>
+<pre>    │       │   │   ├── [  26]  S35system-config -&gt; ../init.d/system-config.sh</pre>
+<pre>    │       │   │   ├── [  19]  S39hndmfg -&gt; ../init.d/hndmfg.sh</pre>
+<pre>    │       │   │   ├── [  21]  S40hndnvram -&gt; ../init.d/hndnvram.sh</pre>
+<pre>    │       │   │   ├── [  29]  S45bcm-base-drivers -&gt; ../init.d/bcm-base-drivers.sh</pre>
+<pre>    │       │   │   ├── [  25]  S45bcm-c-license -&gt; ../init.d/license_init.sh</pre>
+<pre>    │       │   │   ├── [  29]  S45bcm-wlan-drivers -&gt; ../init.d/bcm-wlan-drivers.sh</pre>
+<pre>    │       │   │   ├── [  36]  S45boot_block_housekeeping -&gt; ../init.d/boot_block_housekeeping.sh</pre>
+<pre>    │       │   │   ├── [  31]  S45gre-tunnel-drivers -&gt; ../init.d/gre-tunnel-drivers.sh</pre>
+<pre>    │       │   │   ├── [  20]  S49net-config -&gt; ../init.d/net-config</pre>
+<pre>    │       │   │   ├── [  17]  S50mcpd -&gt; ../init.d/mcpd.sh</pre>
+<pre>    │       │   │   ├── [  16]  S50ssl -&gt; ../init.d/ssl.sh</pre>
+<pre>    │       │   │   ├── [  33]  S51fwupg_create_bootfs2 -&gt; ../init.d/fwupg_create_bootfs2.sh</pre>
+<pre>    │       │   │   ├── [  21]  S60pega-pre -&gt; ../init.d/pega-pre.sh</pre>
+<pre>    │       │   │   ├── [  23]  S63save-dmesg -&gt; ../init.d/save-dmesg.sh</pre>
+<pre>    │       │   │   ├── [  16]  S66smd -&gt; ../init.d/smd.sh</pre>
+<pre>    │       │   │   ├── [  12]  S70d2 -&gt; ../init.d/d2</pre>
+<pre>    │       │   │   ├── [  18]  S72remGenie -&gt; ../init.d/remGenie</pre>
+<pre>    │       │   │   ├── [  16]  S73XAgent -&gt; ../init.d/XAgent</pre>
+<pre>    │       │   │   ├── [  13]  S74CSH -&gt; ../init.d/CSH</pre>
+<pre>    │       │   │   ├── [  17]  S75UPAgent -&gt; ../init.d/UPAgent</pre>
+<pre>    │       │   │   ├── [  13]  S76ASH -&gt; ../init.d/ASH</pre>
+<pre>    │       │   │   ├── [  14]  S77DALH -&gt; ../init.d/DALH</pre>
+<pre>    │       │   │   ├── [  13]  S77bst -&gt; ../init.d/bst</pre>
+<pre>    │       │   │   ├── [ 420]  S79dal_inited.sh</pre>
+<pre>    │       │   │   ├── [  12]  S99RA -&gt; ../init.d/RA</pre>
+<pre>    │       │   │   ├── [2.5K]  S99bdagent_init.sh</pre>
+<pre>    │       │   │   ├── [  22]  S99pega-post -&gt; ../init.d/pega-post.sh</pre>
+<pre>    │       │   │   ├── [ 854]  S99pu_telnetEnabled_init.sh</pre>
+<pre>    │       │   │   ├── [  21]  S99spc-post -&gt; ../init.d/spc-post.sh</pre>
+<pre>    │       │   │   └── [  13]  S99xdil -&gt; ../init.d/dil</pre>
+<pre>    │       │   ├── [1.3K]  redsocks.sh</pre>
+<pre>    │       │   ├── [  16]  resolv.conf -&gt; /var/fyi/sys/dns</pre>
+<pre>    │       │   ├── [4.0K]  rt_policy_info.d</pre>
+<pre>    │       │   │   ├── [ 641]  rt_settings_apps.txt</pre>
+<pre>    │       │   │   ├── [ 446]  rt_settings_interrupts.txt</pre>
+<pre>    │       │   │   ├── [6.6K]  rt_settings_kthreads.txt</pre>
+<pre>    │       │   │   ├── [1007]  rt_settings_metadata</pre>
+<pre>    │       │   │   └── [ 139]  symbol_table.txt</pre>
+<pre>    │       │   ├── [  10]  samba -&gt; /var/samba</pre>
+<pre>    │       │   ├── [5.6K]  services</pre>
+<pre>    │       │   ├── [4.0K]  snmp</pre>
+<pre>    │       │   ├── [ 555]  soft_bridge</pre>
+<pre>    │       │   ├── [4.0K]  ssl</pre>
+<pre>    │       │   │   ├── [4.0K]  certs</pre>
+<pre>    │       │   │   │   └── [217K]  cert.pem</pre>
+<pre>    │       │   │   └── [ 11K]  openssl.cnf</pre>
+<pre>    │       │   ├── [ 316]  strongswan.conf</pre>
+<pre>    │       │   ├── [4.0K]  strongswan.d</pre>
+<pre>    │       │   │   ├── [4.0K]  charon</pre>
+<pre>    │       │   │   │   ├── [ 130]  aes.conf</pre>
+<pre>    │       │   │   │   ├── [ 362]  attr.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  ccm.conf</pre>
+<pre>    │       │   │   │   ├── [ 131]  cmac.conf</pre>
+<pre>    │       │   │   │   ├── [ 138]  constraints.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  ctr.conf</pre>
+<pre>    │       │   │   │   ├── [ 137]  curve25519.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  des.conf</pre>
+<pre>    │       │   │   │   ├── [ 133]  dnskey.conf</pre>
+<pre>    │       │   │   │   ├── [ 135]  fips-prf.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  gcm.conf</pre>
+<pre>    │       │   │   │   ├── [ 131]  hmac.conf</pre>
+<pre>    │       │   │   │   ├── [2.2K]  kernel-netlink.conf</pre>
+<pre>    │       │   │   │   ├── [ 245]  kernel-pfkey.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  md5.conf</pre>
+<pre>    │       │   │   │   ├── [ 132]  nonce.conf</pre>
+<pre>    │       │   │   │   ├── [ 301]  openssl.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  pem.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  pgp.conf</pre>
+<pre>    │       │   │   │   ├── [ 132]  pkcs1.conf</pre>
+<pre>    │       │   │   │   ├── [ 133]  pkcs12.conf</pre>
+<pre>    │       │   │   │   ├── [ 132]  pkcs7.conf</pre>
+<pre>    │       │   │   │   ├── [ 132]  pkcs8.conf</pre>
+<pre>    │       │   │   │   ├── [ 133]  pubkey.conf</pre>
+<pre>    │       │   │   │   ├── [ 425]  random.conf</pre>
+<pre>    │       │   │   │   ├── [ 130]  rc2.conf</pre>
+<pre>    │       │   │   │   ├── [ 340]  resolve.conf</pre>
+<pre>    │       │   │   │   ├── [ 283]  revocation.conf</pre>
+<pre>    │       │   │   │   ├── [ 131]  sha1.conf</pre>
+<pre>    │       │   │   │   ├── [ 131]  sha2.conf</pre>
+<pre>    │       │   │   │   ├── [ 402]  socket-default.conf</pre>
+<pre>    │       │   │   │   ├── [ 133]  sshkey.conf</pre>
+<pre>    │       │   │   │   ├── [ 986]  stroke.conf</pre>
+<pre>    │       │   │   │   ├── [ 297]  updown.conf</pre>
+<pre>    │       │   │   │   ├── [ 221]  vici.conf</pre>
+<pre>    │       │   │   │   ├── [ 131]  x509.conf</pre>
+<pre>    │       │   │   │   ├── [ 140]  xauth-generic.conf</pre>
+<pre>    │       │   │   │   └── [ 131]  xcbc.conf</pre>
+<pre>    │       │   │   ├── [1.8K]  charon-logging.conf</pre>
+<pre>    │       │   │   ├── [ 10K]  charon.conf</pre>
+<pre>    │       │   │   ├── [  65]  pki.conf</pre>
+<pre>    │       │   │   ├── [  79]  scepclient.conf</pre>
+<pre>    │       │   │   ├── [ 173]  starter.conf</pre>
+<pre>    │       │   │   └── [  62]  swanctl.conf</pre>
+<pre>    │       │   ├── [  11]  sysmsg -&gt; /var/sysmsg</pre>
+<pre>    │       │   ├── [ 62K]  test_sig.trf</pre>
+<pre>    │       │   ├── [  13]  timezone -&gt; /var/timezone</pre>
+<pre>    │       │   ├── [4.0K]  traffic_meter</pre>
+<pre>    │       │   │   └── [  33]  dnsmasq_tmRedirecHttpHttps.conf</pre>
+<pre>    │       │   ├── [  23]  udhcpd.conf -&gt; /var/udhcpd/udhcpd.conf</pre>
+<pre>    │       │   ├── [  25]  udhcpd.leases -&gt; /var/udhcpd/udhcpd.leases</pre>
+<pre>    │       │   ├── [  32]  version.txt</pre>
+<pre>    │       │   ├── [ 273]  vlan</pre>
+<pre>    │       │   ├── [4.0K]  wlan</pre>
+<pre>    │       │   │   ├── [   0]  kernel_nvram.setting</pre>
+<pre>    │       │   │   ├── [4.0K]  nvram</pre>
+<pre>    │       │   │   │   ├── [6.5K]  963178REF1.nvm</pre>
+<pre>    │       │   │   │   ├── [6.5K]  963178REF1_EPA.nvm</pre>
+<pre>    │       │   │   │   ├── [6.4K]  963178REF2.nvm</pre>
+<pre>    │       │   │   │   ├── [6.4K]  963178REF2_P200.nvm</pre>
+<pre>    │       │   │   │   ├── [6.5K]  963178REF2_P300.nvm</pre>
+<pre>    │       │   │   │   ├── [10.0K]  963178REF3.nvm</pre>
+<pre>    │       │   │   │   ├── [10.0K]  963178REF3_Q506.nvm</pre>
+<pre>    │       │   │   │   ├── [9.2K]  963178REF3_R676.nvm</pre>
+<pre>    │       │   │   │   ├── [ 10K]  963178REF3_S772.nvm</pre>
+<pre>    │       │   │   │   ├── [ 15K]  963178REF5.nvm</pre>
+<pre>    │       │   │   │   ├── [6.4K]  963178REF6.nvm</pre>
+<pre>    │       │   │   │   ├── [6.4K]  963178REF6_R646.nvm</pre>
+<pre>    │       │   │   │   ├── [6.4K]  963178REF6_S347.nvm</pre>
+<pre>    │       │   │   │   ├── [5.0K]  963178RFDVT.nvm</pre>
+<pre>    │       │   │   │   ├── [5.4K]  963178SV.nvm</pre>
+<pre>    │       │   │   │   ├── [6.5K]  96750REF1.nvm</pre>
+<pre>    │       │   │   │   └── [8.1K]  96750REF4.nvm</pre>
+<pre>    │       │   │   └── [  89]  nvram_params</pre>
+<pre>    │       │   ├── [4.0K]  xagent</pre>
+<pre>    │       │   │   ├── [4.0K]  bst</pre>
+<pre>    │       │   │   │   ├── [  61]  bst.dev.env</pre>
+<pre>    │       │   │   │   ├── [  57]  bst.prod.env</pre>
+<pre>    │       │   │   │   ├── [  61]  bst.qa.env</pre>
+<pre>    │       │   │   │   ├── [  64]  bst.staging.env</pre>
+<pre>    │       │   │   │   └── [  78]  switch.sh</pre>
+<pre>    │       │   │   ├── [4.0K]  csh</pre>
+<pre>    │       │   │   │   ├── [  44]  csh.dev.env</pre>
+<pre>    │       │   │   │   ├── [  44]  csh.prod.env</pre>
+<pre>    │       │   │   │   ├── [  44]  csh.qa.env</pre>
+<pre>    │       │   │   │   ├── [  44]  csh.staging.env</pre>
+<pre>    │       │   │   │   └── [ 111]  switch.sh</pre>
+<pre>    │       │   │   ├── [4.0K]  remGenie</pre>
+<pre>    │       │   │   │   ├── [  78]  remGenie.beta.env</pre>
+<pre>    │       │   │   │   ├── [  79]  remGenie.dev.env</pre>
+<pre>    │       │   │   │   ├── [  75]  remGenie.ftrial.env</pre>
+<pre>    │       │   │   │   ├── [  76]  remGenie.prod.env</pre>
+<pre>    │       │   │   │   ├── [  78]  remGenie.qa.env</pre>
+<pre>    │       │   │   │   ├── [  78]  remGenie.qa2.env</pre>
+<pre>    │       │   │   │   ├── [  78]  remGenie.staging.env</pre>
+<pre>    │       │   │   │   └── [ 159]  switch.sh</pre>
+<pre>    │       │   │   ├── [4.0K]  upagent</pre>
+<pre>    │       │   │   │   ├── [ 161]  switch.sh</pre>
+<pre>    │       │   │   │   ├── [  60]  upagent.beta.env</pre>
+<pre>    │       │   │   │   ├── [  61]  upagent.dev.env</pre>
+<pre>    │       │   │   │   ├── [  57]  upagent.ftrial.env</pre>
+<pre>    │       │   │   │   ├── [  57]  upagent.prod.env</pre>
+<pre>    │       │   │   │   ├── [  60]  upagent.qa.env</pre>
+<pre>    │       │   │   │   ├── [  60]  upagent.qa2.env</pre>
+<pre>    │       │   │   │   └── [  65]  upagent.staging.env</pre>
+<pre>    │       │   │   ├── [4.0K]  xagent</pre>
+<pre>    │       │   │   │   ├── [ 613]  switch.sh</pre>
+<pre>    │       │   │   │   ├── [ 285]  xagent.beta.env</pre>
+<pre>    │       │   │   │   ├── [ 289]  xagent.dev.env</pre>
+<pre>    │       │   │   │   ├── [ 276]  xagent.ftrial.env</pre>
+<pre>    │       │   │   │   ├── [ 276]  xagent.prod.env</pre>
+<pre>    │       │   │   │   ├── [ 285]  xagent.qa.env</pre>
+<pre>    │       │   │   │   ├── [ 285]  xagent.qa2.env</pre>
+<pre>    │       │   │   │   └── [ 285]  xagent.staging.env</pre>
+<pre>    │       │   │   └── [2.8K]  xcenvsw.sh</pre>
+<pre>    │       │   └── [4.0K]  zoneinfo</pre>
+<pre>    │       │       ├── [ 921]  Adelaide</pre>
+<pre>    │       │       ├── [ 977]  Alaska</pre>
+<pre>    │       │       ├── [ 609]  Almaty</pre>
+<pre>    │       │       ├── [1.0K]  Amsterdam</pre>
+<pre>    │       │       ├── [ 240]  Arizona</pre>
+<pre>    │       │       ├── [ 682]  Athens</pre>
+<pre>    │       │       ├── [1.6K]  Atlantic_Time</pre>
+<pre>    │       │       ├── [1.0K]  Auckland</pre>
+<pre>    │       │       ├── [1.4K]  Azores</pre>
+<pre>    │       │       ├── [ 630]  Baghdad</pre>
+<pre>    │       │       ├── [ 744]  Baku</pre>
+<pre>    │       │       ├── [ 152]  Bangkok</pre>
+<pre>    │       │       ├── [ 393]  Beijing</pre>
+<pre>    │       │       ├── [ 478]  Belgrade</pre>
+<pre>    │       │       ├── [ 179]  Bogota</pre>
+<pre>    │       │       ├── [ 952]  Brasilia</pre>
+<pre>    │       │       ├── [ 289]  Brisbane</pre>
+<pre>    │       │       ├── [1.1K]  Brussels</pre>
+<pre>    │       │       ├── [ 661]  Bucharest</pre>
+<pre>    │       │       ├── [ 708]  Buenos_Aires</pre>
+<pre>    │       │       ├── [1.2K]  Cairo</pre>
+<pre>    │       │       ├── [ 904]  Canberra</pre>
+<pre>    │       │       ├── [ 175]  Cape_Verde_Is.</pre>
+<pre>    │       │       ├── [ 190]  Caracas</pre>
+<pre>    │       │       ├── [1.9K]  Casablanca</pre>
+<pre>    │       │       ├── [1.7K]  Central_Time</pre>
+<pre>    │       │       ├── [ 340]  Chihuahua</pre>
+<pre>    │       │       ├── [ 234]  Darwin</pre>
+<pre>    │       │       ├── [ 231]  Dhaka</pre>
+<pre>    │       │       ├── [1.7K]  Eastern_Time</pre>
+<pre>    │       │       ├── [4.0K]  Etc</pre>
+<pre>    │       │       │   ├── [ 111]  GMT</pre>
+<pre>    │       │       │   ├── [ 111]  GMT+0</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+1</pre>
+<pre>    │       │       │   ├── [ 114]  GMT+10</pre>
+<pre>    │       │       │   ├── [ 114]  GMT+11</pre>
+<pre>    │       │       │   ├── [ 114]  GMT+12</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+2</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+3</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+4</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+5</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+6</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+7</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+8</pre>
+<pre>    │       │       │   ├── [ 113]  GMT+9</pre>
+<pre>    │       │       │   ├── [ 111]  GMT-0</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-1</pre>
+<pre>    │       │       │   ├── [ 115]  GMT-10</pre>
+<pre>    │       │       │   ├── [ 115]  GMT-11</pre>
+<pre>    │       │       │   ├── [ 115]  GMT-12</pre>
+<pre>    │       │       │   ├── [ 115]  GMT-13</pre>
+<pre>    │       │       │   ├── [ 115]  GMT-14</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-2</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-3</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-4</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-5</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-6</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-7</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-8</pre>
+<pre>    │       │       │   ├── [ 114]  GMT-9</pre>
+<pre>    │       │       │   ├── [ 111]  GMT0</pre>
+<pre>    │       │       │   ├── [ 111]  Greenwich</pre>
+<pre>    │       │       │   ├── [ 111]  UCT</pre>
+<pre>    │       │       │   ├── [ 111]  UTC</pre>
+<pre>    │       │       │   ├── [ 111]  Universal</pre>
+<pre>    │       │       │   └── [ 111]  Zulu</pre>
+<pre>    │       │       ├── [ 419]  Fiji</pre>
+<pre>    │       │       ├── [ 111]  GMT</pre>
+<pre>    │       │       ├── [ 465]  Greenland</pre>
+<pre>    │       │       ├── [ 350]  Guam</pre>
+<pre>    │       │       ├── [ 131]  Harare</pre>
+<pre>    │       │       ├── [ 221]  Hawaii</pre>
+<pre>    │       │       ├── [ 481]  Helsinki</pre>
+<pre>    │       │       ├── [1003]  Hobart</pre>
+<pre>    │       │       ├── [ 531]  Indiana</pre>
+<pre>    │       │       ├── [ 115]  International_Date_Line_West</pre>
+<pre>    │       │       ├── [ 760]  Irkutsk</pre>
+<pre>    │       │       ├── [1.0K]  Jerusalem</pre>
+<pre>    │       │       ├── [ 159]  Kabul</pre>
+<pre>    │       │       ├── [ 727]  Kamchatka</pre>
+<pre>    │       │       ├── [ 266]  Karachi</pre>
+<pre>    │       │       ├── [ 161]  Kathmandu</pre>
+<pre>    │       │       ├── [ 180]  Kinshasa</pre>
+<pre>    │       │       ├── [ 220]  Kolkata</pre>
+<pre>    │       │       ├── [ 741]  Krasnoyarsk</pre>
+<pre>    │       │       ├── [ 256]  Kuala_Lumpur</pre>
+<pre>    │       │       ├── [ 133]  Kuwait</pre>
+<pre>    │       │       ├── [ 751]  Magadan</pre>
+<pre>    │       │       ├── [ 146]  Midway_Island</pre>
+<pre>    │       │       ├── [ 293]  Monterrey</pre>
+<pre>    │       │       ├── [ 908]  Moscow</pre>
+<pre>    │       │       ├── [1.0K]  Mountain_Time</pre>
+<pre>    │       │       ├── [ 133]  Muscat</pre>
+<pre>    │       │       ├── [ 191]  Nairobi</pre>
+<pre>    │       │       ├── [1.8K]  Newfoundland</pre>
+<pre>    │       │       ├── [1.8K]  Newfoundland_NST</pre>
+<pre>    │       │       ├── [ 484]  Noronha</pre>
+<pre>    │       │       ├── [1.0K]  Pacific_Time</pre>
+<pre>    │       │       ├── [ 306]  Perth</pre>
+<pre>    │       │       ├── [ 187]  Rangoon</pre>
+<pre>    │       │       ├── [1.3K]  Santiago</pre>
+<pre>    │       │       ├── [ 478]  Sarajevo</pre>
+<pre>    │       │       ├── [ 638]  Saskatchewan</pre>
+<pre>    │       │       ├── [ 415]  Seoul</pre>
+<pre>    │       │       ├── [ 904]  Sydney</pre>
+<pre>    │       │       ├── [ 511]  Taipei</pre>
+<pre>    │       │       ├── [2.0K]  Tehran</pre>
+<pre>    │       │       ├── [ 213]  Tokyo</pre>
+<pre>    │       │       ├── [ 237]  Tongatapu</pre>
+<pre>    │       │       ├── [ 742]  Vladivostok</pre>
+<pre>    │       │       └── [ 741]  Yakutsk</pre>
+<pre>    │       ├── [ 16K]  lib</pre>
+<pre>    │       │   ├── [9.5K]  cmsdb.so</pre>
+<pre>    │       │   ├── [9.4K]  event_sock.so</pre>
+<pre>    │       │   ├── [135K]  ld-linux.so.3</pre>
+<pre>    │       │   ├── [ 13K]  libBF.so</pre>
+<pre>    │       │   ├── [9.3K]  libCHARSET3-samba4.so</pre>
+<pre>    │       │   ├── [  18]  libFLAC++.so -&gt; libFLAC++.so.6.3.0</pre>
+<pre>    │       │   ├── [  18]  libFLAC++.so.6 -&gt; libFLAC++.so.6.3.0</pre>
+<pre>    │       │   ├── [ 78K]  libFLAC++.so.6.3.0</pre>
+<pre>    │       │   ├── [  16]  libFLAC.so -&gt; libFLAC.so.8.3.0</pre>
+<pre>    │       │   ├── [  16]  libFLAC.so.8 -&gt; libFLAC.so.8.3.0</pre>
+<pre>    │       │   ├── [350K]  libFLAC.so.8.3.0</pre>
+<pre>    │       │   ├── [9.3K]  libMESSAGING-SEND-samba4.so</pre>
+<pre>    │       │   ├── [ 33K]  libaddns-samba4.so</pre>
+<pre>    │       │   ├── [ 41K]  libads-samba4.so</pre>
+<pre>    │       │   ├── [  17]  libairiq.so -&gt; ./libairiq.so.2.6</pre>
+<pre>    │       │   ├── [219K]  libairiq.so.2.6</pre>
+<pre>    │       │   ├── [  22]  libairiq_sirp.so -&gt; ./libairiq_sirp.so.2.6</pre>
+<pre>    │       │   ├── [177K]  libairiq_sirp.so.2.6</pre>
+<pre>    │       │   ├── [9.3K]  libarcher.so</pre>
+<pre>    │       │   ├── [408K]  libasn1-samba4.so.8</pre>
+<pre>    │       │   ├── [ 21K]  libasn1util-samba4.so</pre>
+<pre>    │       │   ├── [129K]  libauth-samba4.so</pre>
+<pre>    │       │   ├── [213K]  libauthkrb5-samba4.so</pre>
+<pre>    │       │   ├── [  23]  libavcodec.so -&gt; libavcodec.so.56.26.100</pre>
+<pre>    │       │   ├── [  23]  libavcodec.so.56 -&gt; libavcodec.so.56.26.100</pre>
+<pre>    │       │   ├── [8.1M]  libavcodec.so.56.26.100</pre>
+<pre>    │       │   ├── [  23]  libavdevice.so -&gt; libavdevice.so.56.4.100</pre>
+<pre>    │       │   ├── [  23]  libavdevice.so.56 -&gt; libavdevice.so.56.4.100</pre>
+<pre>    │       │   ├── [ 51K]  libavdevice.so.56.4.100</pre>
+<pre>    │       │   ├── [  23]  libavfilter.so -&gt; libavfilter.so.5.11.102</pre>
+<pre>    │       │   ├── [  23]  libavfilter.so.5 -&gt; libavfilter.so.5.11.102</pre>
+<pre>    │       │   ├── [864K]  libavfilter.so.5.11.102</pre>
+<pre>    │       │   ├── [  24]  libavformat.so -&gt; libavformat.so.56.25.101</pre>
+<pre>    │       │   ├── [  24]  libavformat.so.56 -&gt; libavformat.so.56.25.101</pre>
+<pre>    │       │   ├── [1.5M]  libavformat.so.56.25.101</pre>
+<pre>    │       │   ├── [  22]  libavutil.so -&gt; libavutil.so.54.20.100</pre>
+<pre>    │       │   ├── [  22]  libavutil.so.54 -&gt; libavutil.so.54.20.100</pre>
+<pre>    │       │   ├── [302K]  libavutil.so.54.20.100</pre>
+<pre>    │       │   ├── [ 78K]  libb_playback_ip.so</pre>
+<pre>    │       │   ├── [ 13K]  libbcm_boardctl.so</pre>
+<pre>    │       │   ├── [122K]  libbcm_flashutil.so</pre>
+<pre>    │       │   ├── [9.3K]  libbcm_sslconf.so</pre>
+<pre>    │       │   ├── [ 22K]  libbcm_util.so</pre>
+<pre>    │       │   ├── [ 13K]  libbcmmcast.so</pre>
+<pre>    │       │   ├── [ 78K]  libbdbroker.so</pre>
+<pre>    │       │   ├── [ 54K]  libbdlna-dms-aal.so</pre>
+<pre>    │       │   ├── [428K]  libbdlna-dms.so</pre>
+<pre>    │       │   ├── [139K]  libbdlna.so</pre>
+<pre>    │       │   ├── [ 13K]  libbdpath.a</pre>
+<pre>    │       │   ├── [5.3K]  libblogctl.so</pre>
+<pre>    │       │   ├── [315K]  libbmedia.so</pre>
+<pre>    │       │   ├── [9.4K]  libbridgeutil.so</pre>
+<pre>    │       │   ├── [1.2M]  libc.so.6</pre>
+<pre>    │       │   ├── [  18]  libcharon.so -&gt; libcharon.so.0.0.0</pre>
+<pre>    │       │   ├── [  18]  libcharon.so.0 -&gt; libcharon.so.0.0.0</pre>
+<pre>    │       │   ├── [433K]  libcharon.so.0.0.0</pre>
+<pre>    │       │   ├── [  19]  libcharset.so -&gt; libcharset.so.1.0.0</pre>
+<pre>    │       │   ├── [  19]  libcharset.so.1 -&gt; libcharset.so.1.0.0</pre>
+<pre>    │       │   ├── [5.2K]  libcharset.so.1.0.0</pre>
+<pre>    │       │   ├── [ 25K]  libcli-cldap-samba4.so</pre>
+<pre>    │       │   ├── [249K]  libcli-ldap-common-samba4.so</pre>
+<pre>    │       │   ├── [ 57K]  libcli-ldap-samba4.so</pre>
+<pre>    │       │   ├── [ 33K]  libcli-nbt-samba4.so</pre>
+<pre>    │       │   ├── [161K]  libcli-smb-common-samba4.so</pre>
+<pre>    │       │   ├── [ 21K]  libcli-spoolss-samba4.so</pre>
+<pre>    │       │   ├── [ 69K]  libcliauth-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libcluster-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libcmdline-contexts-samba4.so</pre>
+<pre>    │       │   ├── [107K]  libcms_cli.so</pre>
+<pre>    │       │   ├── [771K]  libcms_core.so</pre>
+<pre>    │       │   ├── [234K]  libcms_dal.so</pre>
+<pre>    │       │   ├── [ 13K]  libcms_msg.so</pre>
+<pre>    │       │   ├── [ 86K]  libcms_qdm.so</pre>
+<pre>    │       │   ├── [131K]  libcms_util.so</pre>
+<pre>    │       │   ├── [9.4K]  libcom_err-samba4.so.0</pre>
+<pre>    │       │   ├── [ 21K]  libcommon-auth-samba4.so</pre>
+<pre>    │       │   ├── [  19]  libconfuse.so -&gt; libconfuse.so.2.1.0</pre>
+<pre>    │       │   ├── [  19]  libconfuse.so.2 -&gt; libconfuse.so.2.1.0</pre>
+<pre>    │       │   ├── [ 42K]  libconfuse.so.2.1.0</pre>
+<pre>    │       │   ├── [ 29K]  libcrypt.so.1</pre>
+<pre>    │       │   ├── [  16]  libcrypto.so -&gt; libcrypto.so.1.1</pre>
+<pre>    │       │   ├── [1.8M]  libcrypto.so.1.1</pre>
+<pre>    │       │   ├── [  16]  libcurl.so -&gt; libcurl.so.4.6.0</pre>
+<pre>    │       │   ├── [  16]  libcurl.so.4 -&gt; libcurl.so.4.6.0</pre>
+<pre>    │       │   ├── [324K]  libcurl.so.4.6.0</pre>
+<pre>    │       │   ├── [125K]  libdataapi.so</pre>
+<pre>    │       │   ├── [ 37K]  libdbwrap-samba4.so</pre>
+<pre>    │       │   ├── [105K]  libdcerpc-binding.so.0</pre>
+<pre>    │       │   ├── [1.5M]  libdcerpc-samba-samba4.so</pre>
+<pre>    │       │   ├── [9.5K]  libdl.so.2</pre>
+<pre>    │       │   ├── [  16]  libebtc.so -&gt; libebtc.so.0.0.0</pre>
+<pre>    │       │   ├── [  16]  libebtc.so.0 -&gt; libebtc.so.0.0.0</pre>
+<pre>    │       │   ├── [134K]  libebtc.so.0.0.0</pre>
+<pre>    │       │   ├── [ 14K]  libethctl.so</pre>
+<pre>    │       │   ├── [ 45K]  libethswctl.so</pre>
+<pre>    │       │   ├── [  21]  libevent-2.1.so.7 -&gt; libevent-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [263K]  libevent-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  21]  libevent.so -&gt; libevent-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  26]  libevent_core-2.1.so.7 -&gt; libevent_core-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [167K]  libevent_core-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  26]  libevent_core.so -&gt; libevent_core-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  27]  libevent_extra-2.1.so.7 -&gt; libevent_extra-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [110K]  libevent_extra-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  27]  libevent_extra.so -&gt; libevent_extra-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  30]  libevent_pthreads-2.1.so.7 -&gt; libevent_pthreads-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [5.3K]  libevent_pthreads-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [  30]  libevent_pthreads.so -&gt; libevent_pthreads-2.1.so.7.0.1</pre>
+<pre>    │       │   ├── [5.3K]  libevents-samba4.so</pre>
+<pre>    │       │   ├── [  17]  libexif.so -&gt; libexif.so.12.3.3</pre>
+<pre>    │       │   ├── [  17]  libexif.so.12 -&gt; libexif.so.12.3.3</pre>
+<pre>    │       │   ├── [206K]  libexif.so.12.3.3</pre>
+<pre>    │       │   ├── [  18]  libexpat.so -&gt; libexpat.so.1.6.12</pre>
+<pre>    │       │   ├── [  18]  libexpat.so.1 -&gt; libexpat.so.1.6.12</pre>
+<pre>    │       │   ├── [134K]  libexpat.so.1.6.12</pre>
+<pre>    │       │   ├── [9.3K]  libfcctl.so</pre>
+<pre>    │       │   ├── [ 26K]  libfdt-1.5.0.so</pre>
+<pre>    │       │   ├── [  11]  libfdt.so -&gt; libfdt.so.1</pre>
+<pre>    │       │   ├── [  15]  libfdt.so.1 -&gt; libfdt-1.5.0.so</pre>
+<pre>    │       │   ├── [5.3K]  libflag-mapping-samba4.so</pre>
+<pre>    │       │   ├── [126K]  libgcc_s.so.1</pre>
+<pre>    │       │   ├── [ 13K]  libgen_util.so</pre>
+<pre>    │       │   ├── [5.3K]  libgenrand-samba4.so</pre>
+<pre>    │       │   ├── [157K]  libgensec-samba4.so</pre>
+<pre>    │       │   ├── [141K]  libgse-samba4.so</pre>
+<pre>    │       │   ├── [161K]  libgssapi-samba4.so.2</pre>
+<pre>    │       │   ├── [171K]  libhcrypto-samba4.so.5</pre>
+<pre>    │       │   ├── [9.7K]  libheimbase-samba4.so.1</pre>
+<pre>    │       │   ├── [5.2K]  libhttpdshared.so</pre>
+<pre>    │       │   ├── [222K]  libhx509-samba4.so.5</pre>
+<pre>    │       │   ├── [  17]  libiconv.so -&gt; libiconv.so.2.6.1</pre>
+<pre>    │       │   ├── [  17]  libiconv.so.2 -&gt; libiconv.so.2.6.1</pre>
+<pre>    │       │   ├── [889K]  libiconv.so.2.6.1</pre>
+<pre>    │       │   ├── [  18]  libid3tag.so -&gt; libid3tag.so.0.3.0</pre>
+<pre>    │       │   ├── [  18]  libid3tag.so.0 -&gt; libid3tag.so.0.3.0</pre>
+<pre>    │       │   ├── [ 62K]  libid3tag.so.0.3.0</pre>
+<pre>    │       │   ├── [9.3K]  libinterfaces-samba4.so</pre>
+<pre>    │       │   ├── [ 25K]  libiov-buf-samba4.so</pre>
+<pre>    │       │   ├── [ 13K]  libiqctl.so</pre>
+<pre>    │       │   ├── [259K]  libjansson.a</pre>
+<pre>    │       │   ├── [  16]  libjpeg.so -&gt; libjpeg.so.9.1.0</pre>
+<pre>    │       │   ├── [  16]  libjpeg.so.9 -&gt; libjpeg.so.9.1.0</pre>
+<pre>    │       │   ├── [198K]  libjpeg.so.9.1.0</pre>
+<pre>    │       │   ├── [198K]  libjpeg.so.9.3.0</pre>
+<pre>    │       │   ├── [  18]  libjson-c.so -&gt; libjson-c.so.3.0.1</pre>
+<pre>    │       │   ├── [  18]  libjson-c.so.3 -&gt; libjson-c.so.3.0.1</pre>
+<pre>    │       │   ├── [ 50K]  libjson-c.so.3.0.1</pre>
+<pre>    │       │   ├── [349K]  libkrb5-samba4.so.26</pre>
+<pre>    │       │   ├── [ 41K]  libkrb5samba-samba4.so</pre>
+<pre>    │       │   ├── [150K]  libldbsamba-samba4.so</pre>
+<pre>    │       │   ├── [ 13K]  liblibcli-lsa3-samba4.so</pre>
+<pre>    │       │   ├── [ 25K]  liblibcli-netlogon3-samba4.so</pre>
+<pre>    │       │   ├── [381K]  liblibsmb-samba4.so</pre>
+<pre>    │       │   ├── [  16]  liblzo2.so -&gt; liblzo2.so.2.0.0</pre>
+<pre>    │       │   ├── [  16]  liblzo2.so.2 -&gt; liblzo2.so.2.0.0</pre>
+<pre>    │       │   ├── [ 97K]  liblzo2.so.2.0.0</pre>
+<pre>    │       │   ├── [585K]  libm.so.6</pre>
+<pre>    │       │   ├── [5.3K]  libmaclimit.so</pre>
+<pre>    │       │   ├── [253K]  libmdm2.so</pre>
+<pre>    │       │   ├── [ 12K]  libmdm2_devinfo.so</pre>
+<pre>    │       │   ├── [144K]  libmdm2_sysmgmt.so</pre>
+<pre>    │       │   ├── [ 77K]  libmdm2_wifi.so</pre>
+<pre>    │       │   ├── [ 57K]  libmdm_cbk_core.so</pre>
+<pre>    │       │   ├── [ 30K]  libmdm_cbk_devinfo.so</pre>
+<pre>    │       │   ├── [ 53K]  libmdm_cbk_sysmgmt.so</pre>
+<pre>    │       │   ├── [ 58K]  libmdm_cbk_wifi.so</pre>
+<pre>    │       │   ├── [ 30K]  libmdm_cli.so</pre>
+<pre>    │       │   ├── [154K]  libmdm_db.so</pre>
+<pre>    │       │   ├── [ 37K]  libmessages-dgm-samba4.so</pre>
+<pre>    │       │   ├── [5.2K]  libmessages-util-samba4.so</pre>
+<pre>    │       │   ├── [  15]  libmnl.so -&gt; libmnl.so.0.2.0</pre>
+<pre>    │       │   ├── [  15]  libmnl.so.0 -&gt; libmnl.so.0.2.0</pre>
+<pre>    │       │   ├── [ 13K]  libmnl.so.0.2.0</pre>
+<pre>    │       │   ├── [5.2K]  libmsghdr-samba4.so</pre>
+<pre>    │       │   ├── [117K]  libmsrpc3-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libnanoxml.so</pre>
+<pre>    │       │   ├── [ 45K]  libndr-krb5pac.so.0</pre>
+<pre>    │       │   ├── [ 73K]  libndr-nbt.so.0</pre>
+<pre>    │       │   ├── [1.1M]  libndr-samba-samba4.so</pre>
+<pre>    │       │   ├── [1.3M]  libndr-samba4.so</pre>
+<pre>    │       │   ├── [2.8M]  libndr-standard.so.0</pre>
+<pre>    │       │   ├── [ 73K]  libndr.so.0</pre>
+<pre>    │       │   ├── [ 13K]  libnet-keytab-samba4.so</pre>
+<pre>    │       │   ├── [341K]  libnetapi.so.0</pre>
+<pre>    │       │   ├── [  25]  libnetfilter_log.so -&gt; libnetfilter_log.so.1.1.0</pre>
+<pre>    │       │   ├── [  25]  libnetfilter_log.so.1 -&gt; libnetfilter_log.so.1.1.0</pre>
+<pre>    │       │   ├── [9.1K]  libnetfilter_log.so.1.1.0</pre>
+<pre>    │       │   ├── [ 13K]  libnetif-samba4.so</pre>
+<pre>    │       │   ├── [  21]  libnfnetlink.so -&gt; libnfnetlink.so.0.2.0</pre>
+<pre>    │       │   ├── [  21]  libnfnetlink.so.0 -&gt; libnfnetlink.so.0.2.0</pre>
+<pre>    │       │   ├── [ 21K]  libnfnetlink.so.0.2.0</pre>
+<pre>    │       │   ├── [4.0K]  libnl</pre>
+<pre>    │       │   │   └── [4.0K]  cli</pre>
+<pre>    │       │   │       ├── [4.0K]  cls</pre>
+<pre>    │       │   │       │   ├── [3.3K]  basic.a</pre>
+<pre>    │       │   │       │   ├── [1.0K]  basic.la</pre>
+<pre>    │       │   │       │   ├── [7.8K]  basic.so</pre>
+<pre>    │       │   │       │   ├── [2.7K]  cgroup.a</pre>
+<pre>    │       │   │       │   ├── [1.0K]  cgroup.la</pre>
+<pre>    │       │   │       │   └── [7.7K]  cgroup.so</pre>
+<pre>    │       │   │       └── [4.0K]  qdisc</pre>
+<pre>    │       │   │           ├── [2.9K]  bfifo.a</pre>
+<pre>    │       │   │           ├── [1.0K]  bfifo.la</pre>
+<pre>    │       │   │           ├── [7.7K]  bfifo.so</pre>
+<pre>    │       │   │           ├── [2.5K]  blackhole.a</pre>
+<pre>    │       │   │           ├── [1.0K]  blackhole.la</pre>
+<pre>    │       │   │           ├── [7.5K]  blackhole.so</pre>
+<pre>    │       │   │           ├── [3.6K]  fq_codel.a</pre>
+<pre>    │       │   │           ├── [1.0K]  fq_codel.la</pre>
+<pre>    │       │   │           ├── [7.9K]  fq_codel.so</pre>
+<pre>    │       │   │           ├── [5.5K]  htb.a</pre>
+<pre>    │       │   │           ├── [1.0K]  htb.la</pre>
+<pre>    │       │   │           ├── [ 12K]  htb.so</pre>
+<pre>    │       │   │           ├── [2.5K]  ingress.a</pre>
+<pre>    │       │   │           ├── [1.0K]  ingress.la</pre>
+<pre>    │       │   │           ├── [7.5K]  ingress.so</pre>
+<pre>    │       │   │           ├── [2.8K]  pfifo.a</pre>
+<pre>    │       │   │           ├── [1.0K]  pfifo.la</pre>
+<pre>    │       │   │           ├── [7.7K]  pfifo.so</pre>
+<pre>    │       │   │           ├── [4.3K]  plug.a</pre>
+<pre>    │       │   │           ├── [1.0K]  plug.la</pre>
+<pre>    │       │   │           └── [7.8K]  plug.so</pre>
+<pre>    │       │   ├── [  19]  libnl-3.so -&gt; libnl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  19]  libnl-3.so.200 -&gt; libnl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 94K]  libnl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  23]  libnl-cli-3.so -&gt; libnl-cli-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  23]  libnl-cli-3.so.200 -&gt; libnl-cli-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 34K]  libnl-cli-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  24]  libnl-genl-3.so -&gt; libnl-genl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  24]  libnl-genl-3.so.200 -&gt; libnl-genl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 18K]  libnl-genl-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  25]  libnl-idiag-3.so -&gt; libnl-idiag-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  25]  libnl-idiag-3.so.200 -&gt; libnl-idiag-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 22K]  libnl-idiag-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  22]  libnl-nf-3.so -&gt; libnl-nf-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  22]  libnl-nf-3.so.200 -&gt; libnl-nf-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 68K]  libnl-nf-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  25]  libnl-route-3.so -&gt; libnl-route-3.so.200.20.0</pre>
+<pre>    │       │   ├── [  25]  libnl-route-3.so.200 -&gt; libnl-route-3.so.200.20.0</pre>
+<pre>    │       │   ├── [297K]  libnl-route-3.so.200.20.0</pre>
+<pre>    │       │   ├── [ 29K]  libnpa-tstream-samba4.so</pre>
+<pre>    │       │   ├── [ 17K]  libnss_dns.so.2</pre>
+<pre>    │       │   ├── [ 38K]  libnss_files.so.2</pre>
+<pre>    │       │   ├── [287K]  libntfs-3g.so.88</pre>
+<pre>    │       │   ├── [ 68K]  libnv2hapdcfg.so</pre>
+<pre>    │       │   ├── [ 18K]  libnvram.so</pre>
+<pre>    │       │   ├── [  15]  libogg.so -&gt; libogg.so.0.8.2</pre>
+<pre>    │       │   ├── [  15]  libogg.so.0 -&gt; libogg.so.0.8.2</pre>
+<pre>    │       │   ├── [ 17K]  libogg.so.0.8.2</pre>
+<pre>    │       │   ├── [  12]  libpcap.so -&gt; libpcap.so.1</pre>
+<pre>    │       │   ├── [  16]  libpcap.so.1 -&gt; libpcap.so.1.9.1</pre>
+<pre>    │       │   ├── [234K]  libpcap.so.1.9.1</pre>
+<pre>    │       │   ├── [  16]  libpcre.so -&gt; libpcre.so.1.2.7</pre>
+<pre>    │       │   ├── [  16]  libpcre.so.1 -&gt; libpcre.so.1.2.7</pre>
+<pre>    │       │   ├── [249K]  libpcre.so.1.2.7</pre>
+<pre>    │       │   ├── [  18]  libpcre16.so -&gt; libpcre16.so.0.2.7</pre>
+<pre>    │       │   ├── [  18]  libpcre16.so.0 -&gt; libpcre16.so.0.2.7</pre>
+<pre>    │       │   ├── [221K]  libpcre16.so.0.2.7</pre>
+<pre>    │       │   ├── [  19]  libpcrecpp.so -&gt; libpcrecpp.so.0.0.1</pre>
+<pre>    │       │   ├── [  19]  libpcrecpp.so.0 -&gt; libpcrecpp.so.0.0.1</pre>
+<pre>    │       │   ├── [ 30K]  libpcrecpp.so.0.0.1</pre>
+<pre>    │       │   ├── [  21]  libpcreposix.so -&gt; libpcreposix.so.0.0.4</pre>
+<pre>    │       │   ├── [  21]  libpcreposix.so.0 -&gt; libpcreposix.so.0.0.4</pre>
+<pre>    │       │   ├── [9.3K]  libpcreposix.so.0.0.4</pre>
+<pre>    │       │   ├── [9.9K]  libpopt-samba3-samba4.so</pre>
+<pre>    │       │   ├── [ 38K]  libpopt-samba4.so</pre>
+<pre>    │       │   ├── [ 85K]  libprinting-migrate-samba4.so</pre>
+<pre>    │       │   ├── [ 94K]  libpthread.so.0</pre>
+<pre>    │       │   ├── [ 22K]  libpu_util.so</pre>
+<pre>    │       │   ├── [ 29K]  libpudil.so</pre>
+<pre>    │       │   ├── [ 18K]  libpwrctl.so</pre>
+<pre>    │       │   ├── [ 13K]  libreplace-samba4.so</pre>
+<pre>    │       │   ├── [ 66K]  libresolv.so.2</pre>
+<pre>    │       │   ├── [ 38K]  libroken-samba4.so.19</pre>
+<pre>    │       │   ├── [ 26K]  librt.so.1</pre>
+<pre>    │       │   ├── [ 73K]  libsamba-cluster-support-samba4.so</pre>
+<pre>    │       │   ├── [ 65K]  libsamba-credentials.so.0</pre>
+<pre>    │       │   ├── [ 37K]  libsamba-debug-samba4.so</pre>
+<pre>    │       │   ├── [941K]  libsamba-errors.so.1</pre>
+<pre>    │       │   ├── [192K]  libsamba-hostconfig.so.0</pre>
+<pre>    │       │   ├── [9.3K]  libsamba-modules-samba4.so</pre>
+<pre>    │       │   ├── [225K]  libsamba-passdb.so.0</pre>
+<pre>    │       │   ├── [ 97K]  libsamba-security-samba4.so</pre>
+<pre>    │       │   ├── [ 89K]  libsamba-sockets-samba4.so</pre>
+<pre>    │       │   ├── [493K]  libsamba-util.so.0</pre>
+<pre>    │       │   ├── [ 33K]  libsamba3-util-samba4.so</pre>
+<pre>    │       │   ├── [157K]  libsamdb-common-samba4.so</pre>
+<pre>    │       │   ├── [ 86K]  libsamdb.so.0</pre>
+<pre>    │       │   ├── [ 81K]  libsecrets3-samba4.so</pre>
+<pre>    │       │   ├── [9.3K]  libserver-id-db-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libserver-role-samba4.so</pre>
+<pre>    │       │   ├── [ 17K]  libsmb-transport-samba4.so</pre>
+<pre>    │       │   ├── [462K]  libsmbconf.so.0</pre>
+<pre>    │       │   ├── [2.9M]  libsmbd-base-samba4.so</pre>
+<pre>    │       │   ├── [9.3K]  libsmbd-conn-samba4.so</pre>
+<pre>    │       │   ├── [ 25K]  libsmbd-shim-samba4.so</pre>
+<pre>    │       │   ├── [5.2K]  libsocket-blocking-samba4.so</pre>
+<pre>    │       │   ├── [  19]  libsqlite3.so -&gt; libsqlite3.so.0.8.6</pre>
+<pre>    │       │   ├── [  19]  libsqlite3.so.0 -&gt; libsqlite3.so.0.8.6</pre>
+<pre>    │       │   ├── [812K]  libsqlite3.so.0.8.6</pre>
+<pre>    │       │   ├── [ 62K]  libssk_util.so</pre>
+<pre>    │       │   ├── [  13]  libssl.so -&gt; libssl.so.1.1</pre>
+<pre>    │       │   ├── [402K]  libssl.so.1.1</pre>
+<pre>    │       │   ├── [ 13K]  libstaged.so</pre>
+<pre>    │       │   ├── [1.2M]  libstdc++.so.6</pre>
+<pre>    │       │   ├── [  15]  libstlport.so -&gt; libstlport.so.5</pre>
+<pre>    │       │   ├── [  17]  libstlport.so.5 -&gt; libstlport.so.5.2</pre>
+<pre>    │       │   ├── [  19]  libstlport.so.5.2 -&gt; libstlport.so.5.2.1</pre>
+<pre>    │       │   ├── [  54]  libstlport.so.5.2.1 -&gt; ../arm-buildroot-linux-gnueabi-lib/libstlport.so.5.2.1</pre>
+<pre>    │       │   ├── [  22]  libstrongswan.so -&gt; libstrongswan.so.0.0.0</pre>
+<pre>    │       │   ├── [  22]  libstrongswan.so.0 -&gt; libstrongswan.so.0.0.0</pre>
+<pre>    │       │   ├── [284K]  libstrongswan.so.0.0.0</pre>
+<pre>    │       │   ├── [  24]  libswresample.so -&gt; libswresample.so.1.1.100</pre>
+<pre>    │       │   ├── [  24]  libswresample.so.1 -&gt; libswresample.so.1.1.100</pre>
+<pre>    │       │   ├── [ 78K]  libswresample.so.1.1.100</pre>
+<pre>    │       │   ├── [  21]  libswscale.so -&gt; libswscale.so.3.1.101</pre>
+<pre>    │       │   ├── [  21]  libswscale.so.3 -&gt; libswscale.so.3.1.101</pre>
+<pre>    │       │   ├── [286K]  libswscale.so.3.1.101</pre>
+<pre>    │       │   ├── [5.2K]  libsys-rw-samba4.so</pre>
+<pre>    │       │   ├── [9.4K]  libsys_util.so</pre>
+<pre>    │       │   ├── [ 25K]  libtalloc-report-samba4.so</pre>
+<pre>    │       │   ├── [ 77K]  libtdb-wrap-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libtime-basic-samba4.so</pre>
+<pre>    │       │   ├── [ 46K]  libtmctl.so</pre>
+<pre>    │       │   ├── [ 21K]  libtrusts-util-samba4.so</pre>
+<pre>    │       │   ├── [ 13K]  libutil-cmdline-samba4.so</pre>
+<pre>    │       │   ├── [5.3K]  libutil-reg-samba4.so</pre>
+<pre>    │       │   ├── [5.2K]  libutil-setid-samba4.so</pre>
+<pre>    │       │   ├── [ 97K]  libutil-tdb-samba4.so</pre>
+<pre>    │       │   ├── [9.5K]  libutil.so.1</pre>
+<pre>    │       │   ├── [  16]  libuuid.so -&gt; libuuid.so.1.0.0</pre>
+<pre>    │       │   ├── [  16]  libuuid.so.1 -&gt; libuuid.so.1.0.0</pre>
+<pre>    │       │   ├── [9.4K]  libuuid.so.1.0.0</pre>
+<pre>    │       │   ├── [ 13K]  libvendor.so</pre>
+<pre>    │       │   ├── [  16]  libvici.so -&gt; libvici.so.0.0.0</pre>
+<pre>    │       │   ├── [  16]  libvici.so.0 -&gt; libvici.so.0.0.0</pre>
+<pre>    │       │   ├── [ 18K]  libvici.so.0.0.0</pre>
+<pre>    │       │   ├── [ 34K]  libvlanctl.so</pre>
+<pre>    │       │   ├── [  18]  libvorbis.so -&gt; libvorbis.so.0.4.7</pre>
+<pre>    │       │   ├── [  18]  libvorbis.so.0 -&gt; libvorbis.so.0.4.7</pre>
+<pre>    │       │   ├── [226K]  libvorbis.so.0.4.7</pre>
+<pre>    │       │   ├── [  22]  libvorbisenc.so -&gt; libvorbisenc.so.2.0.10</pre>
+<pre>    │       │   ├── [  22]  libvorbisenc.so.2 -&gt; libvorbisenc.so.2.0.10</pre>
+<pre>    │       │   ├── [529K]  libvorbisenc.so.2.0.10</pre>
+<pre>    │       │   ├── [  22]  libvorbisfile.so -&gt; libvorbisfile.so.3.3.6</pre>
+<pre>    │       │   ├── [  22]  libvorbisfile.so.3 -&gt; libvorbisfile.so.3.3.6</pre>
+<pre>    │       │   ├── [ 38K]  libvorbisfile.so.3.3.6</pre>
+<pre>    │       │   ├── [ 45K]  libwbclient.so.0</pre>
+<pre>    │       │   ├── [126K]  libwebsockets.so</pre>
+<pre>    │       │   ├── [390K]  libwifihttp.so</pre>
+<pre>    │       │   ├── [9.3K]  libwinbind-client-samba4.so</pre>
+<pre>    │       │   ├── [158K]  libwind-samba4.so.0</pre>
+<pre>    │       │   ├── [ 91K]  libwlmdm.so</pre>
+<pre>    │       │   ├── [9.3K]  libwlsysutil.so</pre>
+<pre>    │       │   ├── [  16]  libxml2.so -&gt; libxml2.so.2.9.0</pre>
+<pre>    │       │   ├── [  16]  libxml2.so.2 -&gt; libxml2.so.2.9.0</pre>
+<pre>    │       │   ├── [1.1M]  libxml2.so.2.9.0</pre>
+<pre>    │       │   ├── [  14]  libz.so -&gt; libz.so.1.2.11</pre>
+<pre>    │       │   ├── [  14]  libz.so.1 -&gt; libz.so.1.2.11</pre>
+<pre>    │       │   ├── [ 94K]  libz.so.1.2.11</pre>
+<pre>    │       │   ├── [309K]  libzebra.so.1</pre>
+<pre>    │       │   ├── [4.0K]  modules</pre>
+<pre>    │       │   │   └── [4.0K]  4.19.151</pre>
+<pre>    │       │   │       ├── [4.0K]  bcmkernel</pre>
+<pre>    │       │   │       │   └── [4.0K]  net</pre>
+<pre>    │       │   │       │       └── [4.0K]  netfilter</pre>
+<pre>    │       │   │       │           ├── [ 15K]  nf_conntrack_rtsp.ko</pre>
+<pre>    │       │   │       │           ├── [ 13K]  nf_dyndscp.ko</pre>
+<pre>    │       │   │       │           ├── [ 11K]  nf_nat_pt.ko</pre>
+<pre>    │       │   │       │           ├── [9.3K]  nf_nat_rtsp.ko</pre>
+<pre>    │       │   │       │           ├── [3.9K]  xt_SKIPLOG.ko</pre>
+<pre>    │       │   │       │           ├── [3.9K]  xt_blog.ko</pre>
+<pre>    │       │   │       │           ├── [4.2K]  xt_flowlabel.ko</pre>
+<pre>    │       │   │       │           └── [4.5K]  xt_mac_extend.ko</pre>
+<pre>    │       │   │       ├── [  39]  build -&gt; /mnt/ssd/RAX30/504L02/kernel/linux-4.19</pre>
+<pre>    │       │   │       ├── [4.0K]  extra</pre>
+<pre>    │       │   │       │   ├── [230K]  archer.ko</pre>
+<pre>    │       │   │       │   ├── [ 36K]  bcm_bpm.ko</pre>
+<pre>    │       │   │       │   ├── [210K]  bcm_enet.ko</pre>
+<pre>    │       │   │       │   ├── [ 39K]  bcm_ingqos.ko</pre>
+<pre>    │       │   │       │   ├── [ 27K]  bcm_license.ko</pre>
+<pre>    │       │   │       │   ├── [ 98K]  bcm_pcie_hcd.ko</pre>
+<pre>    │       │   │       │   ├── [ 12K]  bcm_thermal.ko</pre>
+<pre>    │       │   │       │   ├── [8.6K]  bcm_usb.ko</pre>
+<pre>    │       │   │       │   ├── [ 43K]  bcmlibs.ko</pre>
+<pre>    │       │   │       │   ├── [116K]  bcmmcast.ko</pre>
+<pre>    │       │   │       │   ├── [136K]  bcmvlan.ko</pre>
+<pre>    │       │   │       │   ├── [5.1K]  chipinfo.ko</pre>
+<pre>    │       │   │       │   ├── [101K]  cmdlist.ko</pre>
+<pre>    │       │   │       │   ├── [1.0M]  dhd.ko</pre>
+<pre>    │       │   │       │   ├── [ 23K]  emf.ko</pre>
+<pre>    │       │   │       │   ├── [436K]  hnd.ko</pre>
+<pre>    │       │   │       │   ├── [471K]  hnd_mfgtest.ko</pre>
+<pre>    │       │   │       │   ├── [ 32K]  igs.ko</pre>
+<pre>    │       │   │       │   ├── [ 65K]  ivi.ko</pre>
+<pre>    │       │   │       │   ├── [6.5K]  otp.ko</pre>
+<pre>    │       │   │       │   ├── [302K]  pktflow.ko</pre>
+<pre>    │       │   │       │   ├── [8.2K]  pwrmngtd.ko</pre>
+<pre>    │       │   │       │   ├── [485K]  tdts.ko</pre>
+<pre>    │       │   │       │   ├── [169K]  tdts_udb.ko</pre>
+<pre>    │       │   │       │   ├── [ 45K]  tdts_udbfw.ko</pre>
+<pre>    │       │   │       │   ├── [8.1M]  wl.ko</pre>
+<pre>    │       │   │       │   ├── [8.6M]  wl_mfgtest.ko</pre>
+<pre>    │       │   │       │   ├── [ 13K]  wlcsm.ko</pre>
+<pre>    │       │   │       │   └── [8.2K]  wlshared.ko</pre>
+<pre>    │       │   │       ├── [4.0K]  kernel</pre>
+<pre>    │       │   │       │   ├── [4.0K]  drivers</pre>
+<pre>    │       │   │       │   │   ├── [4.0K]  base</pre>
+<pre>    │       │   │       │   │   │   └── [4.0K]  firmware_loader</pre>
+<pre>    │       │   │       │   │   │       └── [ 11K]  firmware_class.ko</pre>
+<pre>    │       │   │       │   │   ├── [4.0K]  net</pre>
+<pre>    │       │   │       │   │   │   └── [4.0K]  bonding</pre>
+<pre>    │       │   │       │   │   │       └── [160K]  bonding.ko</pre>
+<pre>    │       │   │       │   │   └── [4.0K]  usb</pre>
+<pre>    │       │   │       │   │       ├── [4.0K]  class</pre>
+<pre>    │       │   │       │   │       │   └── [ 20K]  usblp.ko</pre>
+<pre>    │       │   │       │   │       ├── [4.0K]  host</pre>
+<pre>    │       │   │       │   │       │   ├── [ 48K]  ehci-hcd.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [9.1K]  ehci-pci.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [ 12K]  ehci-platform.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [ 39K]  ohci-hcd.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [7.4K]  ohci-pci.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [9.7K]  ohci-platform.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [150K]  xhci-hcd.ko</pre>
+<pre>    │       │   │       │   │       │   ├── [8.4K]  xhci-pci.ko</pre>
+<pre>    │       │   │       │   │       │   └── [ 14K]  xhci-plat-hcd.ko</pre>
+<pre>    │       │   │       │   │       └── [4.0K]  storage</pre>
+<pre>    │       │   │       │   │           ├── [ 23K]  uas.ko</pre>
+<pre>    │       │   │       │   │           └── [ 98K]  usb-storage.ko</pre>
+<pre>    │       │   │       │   └── [4.0K]  net</pre>
+<pre>    │       │   │       │       ├── [4.0K]  bridge</pre>
+<pre>    │       │   │       │       │   └── [ 23K]  br_netfilter.ko</pre>
+<pre>    │       │   │       │       ├── [4.0K]  ipv4</pre>
+<pre>    │       │   │       │       │   ├── [4.0K]  netfilter</pre>
+<pre>    │       │   │       │       │   │   ├── [ 19K]  ip_tables.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [4.9K]  ipt_MASQUERADE.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [5.2K]  ipt_REJECT.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [6.2K]  ipt_TRIGGER.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [5.8K]  iptable_filter.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [5.6K]  iptable_mangle.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [5.3K]  iptable_nat.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [5.3K]  nf_defrag_ipv4.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 10K]  nf_log_ipv4.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 13K]  nf_nat_h323.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 13K]  nf_nat_ipv4.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [7.6K]  nf_nat_pptp.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [4.8K]  nf_nat_proto_gre.ko</pre>
+<pre>    │       │   │       │       │   │   └── [5.4K]  nf_reject_ipv4.ko</pre>
+<pre>    │       │   │       │       │   ├── [7.2K]  tcp_bic.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.9K]  tcp_htcp.ko</pre>
+<pre>    │       │   │       │       │   └── [5.2K]  tcp_westwood.ko</pre>
+<pre>    │       │   │       │       ├── [4.0K]  ipv6</pre>
+<pre>    │       │   │       │       │   └── [4.0K]  netfilter</pre>
+<pre>    │       │   │       │       │       ├── [ 20K]  ip6_tables.ko</pre>
+<pre>    │       │   │       │       │       ├── [5.5K]  ip6t_NPT.ko</pre>
+<pre>    │       │   │       │       │       ├── [5.3K]  ip6t_REJECT.ko</pre>
+<pre>    │       │   │       │       │       ├── [5.9K]  ip6table_filter.ko</pre>
+<pre>    │       │   │       │       │       ├── [6.1K]  ip6table_mangle.ko</pre>
+<pre>    │       │   │       │       │       ├── [5.3K]  ip6table_nat.ko</pre>
+<pre>    │       │   │       │       │       ├── [6.0K]  ip6table_raw.ko</pre>
+<pre>    │       │   │       │       │       ├── [ 13K]  nf_defrag_ipv6.ko</pre>
+<pre>    │       │   │       │       │       ├── [ 11K]  nf_log_ipv6.ko</pre>
+<pre>    │       │   │       │       │       ├── [ 10K]  nf_nat_ipv6.ko</pre>
+<pre>    │       │   │       │       │       └── [6.1K]  nf_reject_ipv6.ko</pre>
+<pre>    │       │   │       │       ├── [4.0K]  netfilter</pre>
+<pre>    │       │   │       │       │   ├── [4.4K]  guster.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.0K]  ipset</pre>
+<pre>    │       │   │       │       │   │   ├── [ 41K]  ip_set.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 13K]  ip_set_bitmap_ip.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 12K]  ip_set_bitmap_port.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 27K]  ip_set_hash_ip.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 28K]  ip_set_hash_ipport.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 29K]  ip_set_hash_ipportip.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 16K]  ip_set_hash_mac.ko</pre>
+<pre>    │       │   │       │       │   │   ├── [ 31K]  ip_set_hash_net.ko</pre>
+<pre>    │       │   │       │       │   │   └── [ 13K]  ip_set_list_set.ko</pre>
+<pre>    │       │   │       │       │   ├── [127K]  nf_conntrack.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 12K]  nf_conntrack_ftp.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 51K]  nf_conntrack_h323.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 10K]  nf_conntrack_irc.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 10K]  nf_conntrack_pptp.ko</pre>
+<pre>    │       │   │       │       │   ├── [8.5K]  nf_conntrack_proto_gre.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 32K]  nf_conntrack_sip.ko</pre>
+<pre>    │       │   │       │       │   ├── [8.4K]  nf_conntrack_tftp.ko</pre>
+<pre>    │       │   │       │       │   ├── [8.2K]  nf_log_common.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 27K]  nf_nat.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.4K]  nf_nat_ftp.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.1K]  nf_nat_irc.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 15K]  nf_nat_sip.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.4K]  nf_nat_tftp.ko</pre>
+<pre>    │       │   │       │       │   ├── [128K]  nf_tables.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 13K]  nfnetlink.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 16K]  nfnetlink_log.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 20K]  nfnetlink_queue.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.2K]  xt_DSCP.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.0K]  xt_LOG.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.3K]  xt_NETMAP.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.8K]  xt_NFLOG.ko</pre>
+<pre>    │       │   │       │       │   ├── [7.7K]  xt_NFQUEUE.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.7K]  xt_REDIRECT.ko</pre>
+<pre>    │       │   │       │       │   ├── [8.0K]  xt_TCPMSS.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.8K]  xt_addrtype.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.9K]  xt_bdconnmark.ko</pre>
+<pre>    │       │   │       │       │   ├── [3.9K]  xt_comment.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.6K]  xt_connmark.ko</pre>
+<pre>    │       │   │       │       │   ├── [6.8K]  xt_conntrack.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.6K]  xt_dscp.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.6K]  xt_iprange.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.2K]  xt_length.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.6K]  xt_limit.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.0K]  xt_mac.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.5K]  xt_mark.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.2K]  xt_multiport.ko</pre>
+<pre>    │       │   │       │       │   ├── [7.4K]  xt_nat.ko</pre>
+<pre>    │       │   │       │       │   ├── [5.4K]  xt_sctp.ko</pre>
+<pre>    │       │   │       │       │   ├── [ 15K]  xt_set.ko</pre>
+<pre>    │       │   │       │       │   ├── [4.9K]  xt_state.ko</pre>
+<pre>    │       │   │       │       │   └── [5.1K]  xt_u32.ko</pre>
+<pre>    │       │   │       │       └── [4.0K]  wireless</pre>
+<pre>    │       │   │       │           └── [305K]  cfg80211.ko</pre>
+<pre>    │       │   │       ├── [ 31K]  modules.alias</pre>
+<pre>    │       │   │       ├── [ 38K]  modules.alias.bin</pre>
+<pre>    │       │   │       ├── [7.3K]  modules.builtin</pre>
+<pre>    │       │   │       ├── [9.8K]  modules.builtin.bin</pre>
+<pre>    │       │   │       ├── [ 11K]  modules.dep</pre>
+<pre>    │       │   │       ├── [ 14K]  modules.dep.bin</pre>
+<pre>    │       │   │       ├── [  52]  modules.devname</pre>
+<pre>    │       │   │       ├── [5.7K]  modules.order</pre>
+<pre>    │       │   │       ├── [  86]  modules.softdep</pre>
+<pre>    │       │   │       ├── [ 19K]  modules.symbols</pre>
+<pre>    │       │   │       ├── [ 23K]  modules.symbols.bin</pre>
+<pre>    │       │   │       └── [  39]  source -&gt; /mnt/ssd/RAX30/504L02/kernel/linux-4.19</pre>
+<pre>    │       │   ├── [5.3K]  openl2tp.so</pre>
+<pre>    │       │   ├── [4.0K]  pega</pre>
+<pre>    │       │   │   ├── [ 65K]  jnl.ko</pre>
+<pre>    │       │   │   ├── [4.7K]  rae_kernel_monitor.ko</pre>
+<pre>    │       │   │   └── [566K]  ufsd.ko</pre>
+<pre>    │       │   ├── [4.0K]  pkgconfig</pre>
+<pre>    │       │   ├── [4.0K]  plugins</pre>
+<pre>    │       │   │   ├── [ 33K]  libstrongswan-aes.so</pre>
+<pre>    │       │   │   ├── [9.5K]  libstrongswan-attr.so</pre>
+<pre>    │       │   │   ├── [9.9K]  libstrongswan-ccm.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-cmac.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-constraints.so</pre>
+<pre>    │       │   │   ├── [5.5K]  libstrongswan-ctr.so</pre>
+<pre>    │       │   │   ├── [ 78K]  libstrongswan-curve25519.so</pre>
+<pre>    │       │   │   ├── [ 25K]  libstrongswan-des.so</pre>
+<pre>    │       │   │   ├── [5.3K]  libstrongswan-dnskey.so</pre>
+<pre>    │       │   │   ├── [5.3K]  libstrongswan-fips-prf.so</pre>
+<pre>    │       │   │   ├── [9.6K]  libstrongswan-gcm.so</pre>
+<pre>    │       │   │   ├── [5.8K]  libstrongswan-hmac.so</pre>
+<pre>    │       │   │   ├── [ 58K]  libstrongswan-kernel-netlink.so</pre>
+<pre>    │       │   │   ├── [ 30K]  libstrongswan-kernel-pfkey.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-md5.so</pre>
+<pre>    │       │   │   ├── [5.3K]  libstrongswan-nonce.so</pre>
+<pre>    │       │   │   ├── [ 61K]  libstrongswan-openssl.so</pre>
+<pre>    │       │   │   ├── [ 14K]  libstrongswan-pem.so</pre>
+<pre>    │       │   │   ├── [ 14K]  libstrongswan-pgp.so</pre>
+<pre>    │       │   │   ├── [9.6K]  libstrongswan-pkcs1.so</pre>
+<pre>    │       │   │   ├── [9.5K]  libstrongswan-pkcs12.so</pre>
+<pre>    │       │   │   ├── [ 26K]  libstrongswan-pkcs7.so</pre>
+<pre>    │       │   │   ├── [5.4K]  libstrongswan-pkcs8.so</pre>
+<pre>    │       │   │   ├── [5.4K]  libstrongswan-pubkey.so</pre>
+<pre>    │       │   │   ├── [5.4K]  libstrongswan-random.so</pre>
+<pre>    │       │   │   ├── [5.3K]  libstrongswan-rc2.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-resolve.so</pre>
+<pre>    │       │   │   ├── [ 13K]  libstrongswan-revocation.so</pre>
+<pre>    │       │   │   ├── [9.3K]  libstrongswan-sha1.so</pre>
+<pre>    │       │   │   ├── [9.3K]  libstrongswan-sha2.so</pre>
+<pre>    │       │   │   ├── [ 13K]  libstrongswan-socket-default.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-sshkey.so</pre>
+<pre>    │       │   │   ├── [ 78K]  libstrongswan-stroke.so</pre>
+<pre>    │       │   │   ├── [ 13K]  libstrongswan-updown.so</pre>
+<pre>    │       │   │   ├── [ 98K]  libstrongswan-vici.so</pre>
+<pre>    │       │   │   ├── [ 62K]  libstrongswan-x509.so</pre>
+<pre>    │       │   │   ├── [9.4K]  libstrongswan-xauth-generic.so</pre>
+<pre>    │       │   │   └── [9.4K]  libstrongswan-xcbc.so</pre>
+<pre>    │       │   ├── [ 18K]  ppp_unix.so</pre>
+<pre>    │       │   ├── [ 14K]  pppoatm.so</pre>
+<pre>    │       │   ├── [ 14K]  pppol2tp.so</pre>
+<pre>    │       │   ├── [  13]  pptp.so -&gt; pptp.so.0.0.0</pre>
+<pre>    │       │   ├── [  13]  pptp.so.0 -&gt; pptp.so.0.0.0</pre>
+<pre>    │       │   ├── [ 42K]  pptp.so.0.0.0</pre>
+<pre>    │       │   └── [ 22K]  rp-pppoe.so</pre>
+<pre>    │       ├── [4.0K]  libexec</pre>
+<pre>    │       │   └── [4.0K]  ipsec</pre>
+<pre>    │       │       ├── [ 20K]  _updown</pre>
+<pre>    │       │       ├── [ 18K]  charon</pre>
+<pre>    │       │       ├── [ 68K]  starter</pre>
+<pre>    │       │       └── [ 18K]  stroke</pre>
+<pre>    │       ├── [4.0K]  mnt</pre>
+<pre>    │       ├── [4.0K]  opt</pre>
+<pre>    │       │   ├── [4.0K]  bin</pre>
+<pre>    │       │   ├── [  17]  bitdefender -&gt; /data/bitdefender</pre>
+<pre>    │       │   ├── [4.0K]  etc</pre>
+<pre>    │       │   │   ├── [4.0K]  usi</pre>
+<pre>    │       │   │   │   ├── [4.0K]  profiles</pre>
+<pre>    │       │   │   │   │   └── [ 191]  d2.profile</pre>
+<pre>    │       │   │   │   └── [  19]  usi.profile -&gt; profiles/d2.profile</pre>
+<pre>    │       │   │   └── [ 642]  usi.conf</pre>
+<pre>    │       │   ├── [4.0K]  modules</pre>
+<pre>    │       │   ├── [4.0K]  scripts</pre>
+<pre>    │       │   │   ├── [  33]  bcmlog</pre>
+<pre>    │       │   │   ├── [  14]  db -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  14]  dh -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  40]  dumpmem</pre>
+<pre>    │       │   │   ├── [9.5K]  dumpsysinfo.sh</pre>
+<pre>    │       │   │   ├── [  14]  dw -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  14]  fb -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  14]  fh -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  14]  fw -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  14]  sb -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   ├── [  46]  setmem</pre>
+<pre>    │       │   │   ├── [  14]  sh -&gt; /bin/memaccess</pre>
+<pre>    │       │   │   └── [  14]  sw -&gt; /bin/memaccess</pre>
+<pre>    │       │   ├── [4.0K]  services</pre>
+<pre>    │       │   │   └── [  12]  spc-circle -&gt; /data/circle</pre>
+<pre>    │       │   ├── [4.0K]  usi</pre>
+<pre>    │       │   │   └── [ 36K]  usi</pre>
+<pre>    │       │   ├── [4.0K]  usr</pre>
+<pre>    │       │   │   └── [4.0K]  bin</pre>
+<pre>    │       │   │       └── [ 66K]  dal_ash</pre>
+<pre>    │       │   └── [4.0K]  xagent</pre>
+<pre>    │       │       ├── [4.0K]  certs</pre>
+<pre>    │       │       │   └── [255K]  ca-bundle-mega.crt</pre>
+<pre>    │       │       ├── [ 30K]  genie_handler</pre>
+<pre>    │       │       ├── [ 333]  run-xagent.sh</pre>
+<pre>    │       │       ├── [ 98K]  xagent</pre>
+<pre>    │       │       └── [ 90K]  xagent_control</pre>
+<pre>    │       ├── [4.0K]  proc</pre>
+<pre>    │       ├── [4.0K]  sbin</pre>
+<pre>    │       │   ├── [  14]  arp -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  blkid -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  blockdev -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  depmod -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  fstrim -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  halt -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  hotplug -&gt; ../bin/hotplug</pre>
+<pre>    │       │   ├── [  17]  ifconfig -&gt; ../bin/bcmbusybox</pre>
+<pre>    │       │   ├── [  14]  init -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  insmod -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [7.6K]  ipsec</pre>
+<pre>    │       │   ├── [109K]  ipset</pre>
+<pre>    │       │   ├── [  17]  klogd -&gt; ../bin/bcmbusybox</pre>
+<pre>    │       │   ├── [  14]  logread -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  lsmod -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  mdev -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  modprobe -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  pivot_root -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  reboot -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  rmmod -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  route -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  17]  sendarp -&gt; ../bin/bcmbusybox</pre>
+<pre>    │       │   ├── [ 62K]  swanctl</pre>
+<pre>    │       │   ├── [  14]  sysctl -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  17]  sysinfo -&gt; ../bin/bcmbusybox</pre>
+<pre>    │       │   ├── [  17]  syslogd -&gt; ../bin/bcmbusybox</pre>
+<pre>    │       │   ├── [  14]  udhcpc -&gt; ../bin/busybox</pre>
+<pre>    │       │   ├── [  14]  vconfig -&gt; ../bin/busybox</pre>
+<pre>    │       │   └── [ 46K]  wps_pbcd</pre>
+<pre>    │       ├── [4.0K]  sys</pre>
+<pre>    │       │   └── [4.0K]  kernel</pre>
+<pre>    │       │       └── [4.0K]  debug</pre>
+<pre>    │       ├── [   8]  tmp -&gt; /var/tmp</pre>
+<pre>    │       ├── [4.0K]  usr</pre>
+<pre>    │       │   ├── [4.0K]  bin</pre>
+<pre>    │       │   │   ├── [3.1K]  NTGR_RA_cpuCalcAllAve.sh</pre>
+<pre>    │       │   │   ├── [1.4K]  NTGR_RA_cpuUsage.sh</pre>
+<pre>    │       │   │   ├── [  17]  [ -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  [[ -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  awk -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  basename -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [4.1K]  bd_health_check.sh</pre>
+<pre>    │       │   │   ├── [6.8K]  bdupd_run.sh</pre>
+<pre>    │       │   │   ├── [ 42K]  bst_daemon</pre>
+<pre>    │       │   │   ├── [9.5K]  bsttest</pre>
+<pre>    │       │   │   ├── [9.5K]  caller</pre>
+<pre>    │       │   │   ├── [  17]  chrt -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  49]  circlectl -&gt; /opt/services/spc-circle/shares/usr/bin/circlectl</pre>
+<pre>    │       │   │   ├── [1.8K]  configure_spc.sh</pre>
+<pre>    │       │   │   ├── [  20]  crontab -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [ 62K]  csh</pre>
+<pre>    │       │   │   ├── [  17]  cut -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 18K]  d2</pre>
+<pre>    │       │   │   ├── [ 76K]  d2d</pre>
+<pre>    │       │   │   ├── [  25]  dal_ash -&gt; ../../opt/usr/bin/dal_ash</pre>
+<pre>    │       │   │   ├── [ 70K]  dal_ra</pre>
+<pre>    │       │   │   ├── [ 50K]  dalh</pre>
+<pre>    │       │   │   ├── [ 35K]  diltest</pre>
+<pre>    │       │   │   ├── [  17]  dirname -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  du -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  env -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [ 22K]  evsinkd2</pre>
+<pre>    │       │   │   ├── [  17]  expr -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  find -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 58K]  fing_dil</pre>
+<pre>    │       │   │   ├── [  17]  free -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  ftpget -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  17]  fuser -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  head -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [ 38K]  jsontest</pre>
+<pre>    │       │   │   ├── [  17]  killall -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  less -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  libvendor.so -&gt; /lib/libvendor.so</pre>
+<pre>    │       │   │   ├── [  17]  logger -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  lsof -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  md5sum -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 46K]  mpstat</pre>
+<pre>    │       │   │   ├── [  17]  nc -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  nslookup -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  20]  printf -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [9.5K]  pushntftest</pre>
+<pre>    │       │   │   ├── [  17]  pwdx -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [9.8K]  setlogLevelForDAL.sh</pre>
+<pre>    │       │   │   ├── [  17]  sha256sum -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  shuf -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  17]  smemcap -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  tail -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [9.5K]  taskset</pre>
+<pre>    │       │   │   ├── [  17]  tcpsvd -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  test -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  tftp -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  20]  top -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  20]  tr -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  20]  traceroute -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  20]  traceroute6 -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [  17]  tty -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [130K]  upagent</pre>
+<pre>    │       │   │   ├── [  17]  uptime -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  vendor.so -&gt; /lib/libvendor.so</pre>
+<pre>    │       │   │   ├── [ 14K]  vendortest</pre>
+<pre>    │       │   │   ├── [  17]  wc -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  wget -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  which -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   └── [  17]  xargs -&gt; ../../bin/busybox</pre>
+<pre>    │       │   ├── [4.0K]  include</pre>
+<pre>    │       │   │   ├── [1.9K]  bst_log.h</pre>
+<pre>    │       │   │   ├── [ 947]  bstapi.h</pre>
+<pre>    │       │   │   ├── [ 14K]  cJSON.h</pre>
+<pre>    │       │   │   ├── [6.3K]  cjsonapi.h</pre>
+<pre>    │       │   │   ├── [ 783]  csh_daemon.h</pre>
+<pre>    │       │   │   ├── [3.3K]  csh_def.h</pre>
+<pre>    │       │   │   ├── [1.2K]  csh_internal.h</pre>
+<pre>    │       │   │   ├── [2.0K]  csh_log.h</pre>
+<pre>    │       │   │   ├── [ 413]  csh_version.h</pre>
+<pre>    │       │   │   ├── [4.0K]  d2lib</pre>
+<pre>    │       │   │   │   ├── [1.9K]  d2_pdu.h</pre>
+<pre>    │       │   │   │   ├── [6.3K]  d2api.h</pre>
+<pre>    │       │   │   │   └── [ 931]  sortedset.h</pre>
+<pre>    │       │   │   ├── [2.4K]  dal_ra_armor.h</pre>
+<pre>    │       │   │   ├── [ 783]  dal_ra_daemon.h</pre>
+<pre>    │       │   │   ├── [2.8K]  dal_ra_def.h</pre>
+<pre>    │       │   │   ├── [1.2K]  dal_ra_internal.h</pre>
+<pre>    │       │   │   ├── [2.0K]  dal_ra_log.h</pre>
+<pre>    │       │   │   ├── [ 441]  dal_ra_version.h</pre>
+<pre>    │       │   │   ├── [ 788]  dalh_daemon.h</pre>
+<pre>    │       │   │   ├── [3.6K]  dalh_def.h</pre>
+<pre>    │       │   │   ├── [ 642]  dalh_fwtimer.h</pre>
+<pre>    │       │   │   ├── [1.5K]  dalh_internal.h</pre>
+<pre>    │       │   │   ├── [2.0K]  dalh_log.h</pre>
+<pre>    │       │   │   ├── [1.0K]  dalh_queue.h</pre>
+<pre>    │       │   │   ├── [ 413]  dalh_version.h</pre>
+<pre>    │       │   │   ├── [1.6K]  dil_log.h</pre>
+<pre>    │       │   │   ├── [9.8K]  dilapi.h</pre>
+<pre>    │       │   │   ├── [5.6K]  dilpostprocess.h</pre>
+<pre>    │       │   │   ├── [5.6K]  diltest.h</pre>
+<pre>    │       │   │   ├── [2.2K]  dyn_log.h</pre>
+<pre>    │       │   │   ├── [2.1K]  fw_check.h</pre>
+<pre>    │       │   │   └── [  81]  ra_vendor.h</pre>
+<pre>    │       │   ├── [4.0K]  lib</pre>
+<pre>    │       │   │   ├── [9.3K]  libbcm.so</pre>
+<pre>    │       │   │   ├── [ 90K]  libbcmcrypto.so</pre>
+<pre>    │       │   │   ├── [ 54K]  libbshared.so</pre>
+<pre>    │       │   │   ├── [ 17K]  libd2bst.a</pre>
+<pre>    │       │   │   ├── [9.3K]  libd2bst.so</pre>
+<pre>    │       │   │   ├── [167K]  libd2dil.a</pre>
+<pre>    │       │   │   ├── [ 73K]  libd2dil.so</pre>
+<pre>    │       │   │   ├── [ 20K]  libd2dynlog.a</pre>
+<pre>    │       │   │   ├── [9.4K]  libd2dynlog.so</pre>
+<pre>    │       │   │   ├── [148K]  libd2lib.a</pre>
+<pre>    │       │   │   ├── [ 26K]  libd2lib.so</pre>
+<pre>    │       │   │   ├── [119K]  libdalcjson.a</pre>
+<pre>    │       │   │   ├── [ 29K]  libdalcjson.so</pre>
+<pre>    │       │   │   ├── [147K]  libfwcheck.a</pre>
+<pre>    │       │   │   ├── [ 38K]  libfwcheck.so</pre>
+<pre>    │       │   │   ├── [9.3K]  libi5api.so</pre>
+<pre>    │       │   │   ├── [789K]  libieee1905.so</pre>
+<pre>    │       │   │   ├── [  18]  libjson-c.so -&gt; libjson-c.so.2.0.1</pre>
+<pre>    │       │   │   ├── [  18]  libjson-c.so.2 -&gt; libjson-c.so.2.0.1</pre>
+<pre>    │       │   │   ├── [ 34K]  libjson-c.so.2.0.1</pre>
+<pre>    │       │   │   ├── [729K]  libpcre.so</pre>
+<pre>    │       │   │   ├── [729K]  libpcre.so.1</pre>
+<pre>    │       │   │   ├── [729K]  libpcre.so.1.2.7</pre>
+<pre>    │       │   │   ├── [ 27K]  libpcreposix.so.0</pre>
+<pre>    │       │   │   ├── [ 27K]  libpcreposix.so.0.0.4</pre>
+<pre>    │       │   │   ├── [ 27K]  libpcreposix.so.0.0.4T</pre>
+<pre>    │       │   │   ├── [172K]  libshared.so</pre>
+<pre>    │       │   │   ├── [ 37K]  libupnp.so</pre>
+<pre>    │       │   │   ├── [ 63K]  libusi.so</pre>
+<pre>    │       │   │   ├── [240K]  libwbdshared.so</pre>
+<pre>    │       │   │   ├── [ 39K]  libwpa_client.so</pre>
+<pre>    │       │   │   └── [4.0K]  lighttpd</pre>
+<pre>    │       │   │       ├── [ 23K]  mod_access.so</pre>
+<pre>    │       │   │       ├── [ 84K]  mod_accesslog.so</pre>
+<pre>    │       │   │       ├── [ 31K]  mod_alias.so</pre>
+<pre>    │       │   │       ├── [110K]  mod_auth.so</pre>
+<pre>    │       │   │       ├── [ 61K]  mod_authn_file.so</pre>
+<pre>    │       │   │       ├── [ 62K]  mod_cgi.so</pre>
+<pre>    │       │   │       ├── [ 86K]  mod_deflate.so</pre>
+<pre>    │       │   │       ├── [ 72K]  mod_dirlisting.so</pre>
+<pre>    │       │   │       ├── [ 56K]  mod_fastcgi.so</pre>
+<pre>    │       │   │       ├── [ 30K]  mod_indexfile.so</pre>
+<pre>    │       │   │       ├── [150K]  mod_openssl.so</pre>
+<pre>    │       │   │       ├── [ 32K]  mod_redirect.so</pre>
+<pre>    │       │   │       ├── [ 40K]  mod_rewrite.so</pre>
+<pre>    │       │   │       ├── [ 48K]  mod_session.so</pre>
+<pre>    │       │   │       ├── [ 38K]  mod_setenv.so</pre>
+<pre>    │       │   │       ├── [ 27K]  mod_staticfile.so</pre>
+<pre>    │       │   │       └── [ 39K]  mod_usertrack.so</pre>
+<pre>    │       │   ├── [4.0K]  sbin</pre>
+<pre>    │       │   │   ├── [ 266]  AccessLocal_Accept.sh</pre>
+<pre>    │       │   │   ├── [7.3K]  AccessLocal_Deny.sh</pre>
+<pre>    │       │   │   ├── [ 21K]  WlGetDriverCfg.sh</pre>
+<pre>    │       │   │   ├── [ 11K]  WlGetDriverStats.sh</pre>
+<pre>    │       │   │   ├── [ 30K]  acs_cli2</pre>
+<pre>    │       │   │   ├── [202K]  acsd2</pre>
+<pre>    │       │   │   ├── [  17]  add-shell -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 44K]  airiq_app</pre>
+<pre>    │       │   │   ├── [114K]  airiq_service</pre>
+<pre>    │       │   │   ├── [ 280]  airiq_service.cfg</pre>
+<pre>    │       │   │   ├── [ 25K]  appeventd</pre>
+<pre>    │       │   │   ├── [  17]  arping -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 14K]  aspmd</pre>
+<pre>    │       │   │   ├── [9.5K]  bcmiqosd</pre>
+<pre>    │       │   │   ├── [ 419]  blockschedule_off.sh</pre>
+<pre>    │       │   │   ├── [ 507]  blockschedule_on.sh</pre>
+<pre>    │       │   │   ├── [202K]  bsd</pre>
+<pre>    │       │   │   ├── [   3]  bsdcli -&gt; bsd</pre>
+<pre>    │       │   │   ├── [  17]  chroot -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 193]  clean-cache.sh</pre>
+<pre>    │       │   │   ├── [ 335]  configure_wifi_region.sh</pre>
+<pre>    │       │   │   ├── [ 474]  createpotfile.sh</pre>
+<pre>    │       │   │   ├── [  20]  crond -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [ 21K]  debug.sh</pre>
+<pre>    │       │   │   ├── [1.3K]  debug_info.sh</pre>
+<pre>    │       │   │   ├── [1.7K]  debug_loop_acs_dfs.sh</pre>
+<pre>    │       │   │   ├── [ 18K]  debug_monitor</pre>
+<pre>    │       │   │   ├── [ 209]  debug_output.sh</pre>
+<pre>    │       │   │   ├── [  17]  deluser -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [121K]  dhd</pre>
+<pre>    │       │   │   ├── [274K]  dnsmasq</pre>
+<pre>    │       │   │   ├── [4.0K]  easyrsa-v3.0.6</pre>
+<pre>    │       │   │   │   ├── [1.3K]  COPYING.md</pre>
+<pre>    │       │   │   │   ├── [3.9K]  ChangeLog</pre>
+<pre>    │       │   │   │   ├── [2.0K]  README.md</pre>
+<pre>    │       │   │   │   ├── [3.3K]  README.quickstart.md</pre>
+<pre>    │       │   │   │   ├── [4.0K]  doc</pre>
+<pre>    │       │   │   │   │   ├── [5.3K]  EasyRSA-Advanced.md</pre>
+<pre>    │       │   │   │   │   ├── [9.3K]  EasyRSA-Readme.md</pre>
+<pre>    │       │   │   │   │   ├── [2.4K]  EasyRSA-Upgrade-Notes.md</pre>
+<pre>    │       │   │   │   │   ├── [5.8K]  Hacking.md</pre>
+<pre>    │       │   │   │   │   └── [4.8K]  Intro-To-PKI.md</pre>
+<pre>    │       │   │   │   ├── [ 48K]  easyrsa</pre>
+<pre>    │       │   │   │   ├── [ 18K]  gpl-2.0.txt</pre>
+<pre>    │       │   │   │   ├── [1.0K]  mktemp.txt</pre>
+<pre>    │       │   │   │   ├── [4.5K]  openssl-easyrsa.cnf</pre>
+<pre>    │       │   │   │   ├── [8.4K]  vars.example</pre>
+<pre>    │       │   │   │   └── [4.0K]  x509-types</pre>
+<pre>    │       │   │   │       ├── [ 300]  COMMON</pre>
+<pre>    │       │   │   │       ├── [ 426]  ca</pre>
+<pre>    │       │   │   │       ├── [ 192]  client</pre>
+<pre>    │       │   │   │       ├── [ 193]  code-signing</pre>
+<pre>    │       │   │   │       ├── [ 208]  server</pre>
+<pre>    │       │   │   │       └── [ 226]  serverClient</pre>
+<pre>    │       │   │   ├── [ 13K]  emf</pre>
+<pre>    │       │   │   ├── [9.5K]  envram</pre>
+<pre>    │       │   │   ├── [ 62K]  envrams</pre>
+<pre>    │       │   │   ├── [ 34K]  epi_ttcp</pre>
+<pre>    │       │   │   ├── [ 33K]  eventd</pre>
+<pre>    │       │   │   ├── [ 588]  flash_policy.xml</pre>
+<pre>    │       │   │   ├── [  17]  ftpd -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [2.1K]  genkey.sh</pre>
+<pre>    │       │   │   ├── [3.3K]  gpioctl.sh</pre>
+<pre>    │       │   │   ├── [4.5K]  hnddm.sh</pre>
+<pre>    │       │   │   ├── [1.0M]  hostapd</pre>
+<pre>    │       │   │   ├── [ 54K]  hostapd_cli</pre>
+<pre>    │       │   │   ├── [  17]  i2cdetect -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  i2cdump -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  i2cget -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  i2cset -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 43K]  i5ctl</pre>
+<pre>    │       │   │   ├── [735K]  ieee1905</pre>
+<pre>    │       │   │   ├── [9.5K]  igs</pre>
+<pre>    │       │   │   ├── [ 518]  iqos-setup.sh</pre>
+<pre>    │       │   │   ├── [131K]  iw</pre>
+<pre>    │       │   │   ├── [314K]  lighttpd</pre>
+<pre>    │       │   │   ├── [5.4K]  lighttpd-angel</pre>
+<pre>    │       │   │   ├── [4.5K]  mapgetcfg.sh</pre>
+<pre>    │       │   │   ├── [268K]  minidlnad</pre>
+<pre>    │       │   │   ├── [ 139]  moni.sh</pre>
+<pre>    │       │   │   ├── [  17]  nanddump -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [  17]  nandwrite -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [ 14K]  ncap</pre>
+<pre>    │       │   │   ├── [ 396]  ntgr_speedtest.sh</pre>
+<pre>    │       │   │   ├── [9.5K]  ntgr_wifiguestschedule</pre>
+<pre>    │       │   │   ├── [  22]  ntgr_wifiguestschedule_2g -&gt; ntgr_wifiguestschedule</pre>
+<pre>    │       │   │   ├── [  22]  ntgr_wifiguestschedule_5g -&gt; ntgr_wifiguestschedule</pre>
+<pre>    │       │   │   ├── [ 22K]  ntpclient</pre>
+<pre>    │       │   │   ├── [  20]  ntpd -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [1.6M]  ookla</pre>
+<pre>    │       │   │   ├── [1.2K]  qos.conf</pre>
+<pre>    │       │   │   ├── [ 120]  rae_restart.sh</pre>
+<pre>    │       │   │   ├── [  17]  remove-shell -&gt; ../../bin/busybox</pre>
+<pre>    │       │   │   ├── [671K]  rule.trf</pre>
+<pre>    │       │   │   ├── [ 30K]  sample.bin</pre>
+<pre>    │       │   │   ├── [ 425]  schedule_2g_off.sh</pre>
+<pre>    │       │   │   ├── [ 423]  schedule_2g_on.sh</pre>
+<pre>    │       │   │   ├── [ 421]  schedule_5g_off.sh</pre>
+<pre>    │       │   │   ├── [ 419]  schedule_5g_on.sh</pre>
+<pre>    │       │   │   ├── [ 604]  schedule_off.sh</pre>
+<pre>    │       │   │   ├── [ 826]  schedule_on.sh</pre>
+<pre>    │       │   │   ├── [ 356]  sendemailreport.sh</pre>
+<pre>    │       │   │   ├── [3.9K]  setup.sh</pre>
+<pre>    │       │   │   ├── [ 30K]  shn_ctrl</pre>
+<pre>    │       │   │   ├── [ 18K]  speedtest_cli</pre>
+<pre>    │       │   │   ├── [ 14K]  ssd</pre>
+<pre>    │       │   │   ├── [9.6K]  tcd</pre>
+<pre>    │       │   │   ├── [ 397]  tcd_monitor.sh</pre>
+<pre>    │       │   │   ├── [ 26K]  tdts_rule_agent</pre>
+<pre>    │       │   │   ├── [  20]  tftpd -&gt; ../../bin/bcmbusybox</pre>
+<pre>    │       │   │   ├── [ 18K]  toad</pre>
+<pre>    │       │   │   ├── [ 14K]  toast</pre>
+<pre>    │       │   │   ├── [ 14K]  utelnetd</pre>
+<pre>    │       │   │   ├── [9.5K]  vconfig</pre>
+<pre>    │       │   │   ├── [9.7K]  wb_cli</pre>
+<pre>    │       │   │   ├── [179K]  wbd_master</pre>
+<pre>    │       │   │   ├── [271K]  wbd_slave</pre>
+<pre>    │       │   │   ├── [1.1M]  wl</pre>
+<pre>    │       │   │   ├── [ 26K]  wl_server_socket</pre>
+<pre>    │       │   │   ├── [ 74K]  wlconf</pre>
+<pre>    │       │   │   ├── [ 74K]  wpa_cli</pre>
+<pre>    │       │   │   └── [946K]  wpa_supplicant</pre>
+<pre>    │       │   └── [4.0K]  share</pre>
+<pre>    │       │       └── [4.0K]  armor</pre>
+<pre>    │       │           └── [3.3K]  change_cloud_server.sh</pre>
+<pre>    │       ├── [4.0K]  var</pre>
+<pre>    │       └── [4.0K]  webs</pre>
+<pre>    │           ├── [ 22K]  ADVANCED_home.html</pre>
+<pre>    │           ├── [4.0K]  APP_index.html</pre>
+<pre>    │           ├── [ 11K]  Add_WPS_Client.html</pre>
+<pre>    │           ├── [8.4K]  BAK_backup.html</pre>
+<pre>    │           ├── [ 13K]  BAS_ether.html</pre>
+<pre>    │           ├── [ 17K]  BAS_l2tp.html</pre>
+<pre>    │           ├── [ 16K]  BAS_pppoe.html</pre>
+<pre>    │           ├── [ 17K]  BAS_pptp.html</pre>
+<pre>    │           ├── [2.4K]  BAS_wan.html</pre>
+<pre>    │           ├── [3.6K]  BAS_window_testEth.html</pre>
+<pre>    │           ├── [6.2K]  BAS_window_testPpp.html</pre>
+<pre>    │           ├── [9.8K]  BKS_keyword.html</pre>
+<pre>    │           ├── [ 14K]  BKS_schedule.html</pre>
+<pre>    │           ├── [ 27K]  BKS_service.html</pre>
+<pre>    │           ├── [ 853]  BRS_top.html</pre>
+<pre>    │           ├── [2.5K]  BRS_wanlan_conflict.html</pre>
+<pre>    │           ├── [ 33K]  DEV_control.html</pre>
+<pre>    │           ├── [ 28K]  DEV_device.html</pre>
+<pre>    │           ├── [8.0K]  DEV_name.html</pre>
+<pre>    │           ├── [ 23K]  DNS_ddns.html</pre>
+<pre>    │           ├── [1.5K]  DNS_ddns_st.html</pre>
+<pre>    │           ├── [ 19K]  DashBoard.html</pre>
+<pre>    │           ├── [1.6K]  ErrorMessage.html</pre>
+<pre>    │           ├── [ 13K]  FW_check.html</pre>
+<pre>    │           ├── [ 18K]  FW_email.html</pre>
+<pre>    │           ├── [ 12K]  FW_log.html</pre>
+<pre>    │           ├── [ 51K]  FW_port_forward.html</pre>
+<pre>    │           ├── [7.3K]  FW_remote.html</pre>
+<pre>    │           ├── [ 13K]  IPV6_6rd.html</pre>
+<pre>    │           ├── [ 13K]  IPV6_6to4.html</pre>
+<pre>    │           ├── [ 12K]  IPV6_AutoConfig.html</pre>
+<pre>    │           ├── [ 13K]  IPV6_AutoDetect.html</pre>
+<pre>    │           ├── [5.5K]  IPV6_PassThrough.html</pre>
+<pre>    │           ├── [4.4K]  IPV6_basic.html</pre>
+<pre>    │           ├── [ 12K]  IPV6_dhcp.html</pre>
+<pre>    │           ├── [5.3K]  IPV6_disabled.html</pre>
+<pre>    │           ├── [ 10K]  IPV6_fixed.html</pre>
+<pre>    │           ├── [ 15K]  IPV6_pppoe.html</pre>
+<pre>    │           ├── [ 31K]  LAN_lan.html</pre>
+<pre>    │           ├── [3.5K]  LED_settings.html</pre>
+<pre>    │           ├── [2.0K]  LGO_logout.html</pre>
+<pre>    │           ├── [1.0K]  MNU_access_multiLogin.html</pre>
+<pre>    │           ├── [5.4K]  MNU_access_multiLogin2.html</pre>
+<pre>    │           ├── [ 18K]  NTP_Settings.html</pre>
+<pre>    │           ├── [ 12K]  OPENVPN.html</pre>
+<pre>    │           ├── [  12]  POT.htm -&gt; /tmp/POT.htm</pre>
+<pre>    │           ├── [ 20K]  PWD_password.html</pre>
+<pre>    │           ├── [ 22K]  QOS_down_streaming.html</pre>
+<pre>    │           ├── [ 19K]  QOS_down_streaming_iqos_basic.html</pre>
+<pre>    │           ├── [6.3K]  RST_statistics.html</pre>
+<pre>    │           ├── [ 21K]  RST_wanstat.html</pre>
+<pre>    │           ├── [ 17K]  STR_static_route.html</pre>
+<pre>    │           ├── [4.0K]  TNC</pre>
+<pre>    │           │   ├── [128K]  Netgear_ConSolidated_Dutch.html</pre>
+<pre>    │           │   ├── [114K]  Netgear_ConSolidated_English.html</pre>
+<pre>    │           │   ├── [149K]  Netgear_ConSolidated_French.html</pre>
+<pre>    │           │   ├── [141K]  Netgear_ConSolidated_German.html</pre>
+<pre>    │           │   ├── [132K]  Netgear_ConSolidated_Italian.html</pre>
+<pre>    │           │   ├── [126K]  Netgear_ConSolidated_Japanese.html</pre>
+<pre>    │           │   ├── [120K]  Netgear_ConSolidated_Korean.html</pre>
+<pre>    │           │   ├── [137K]  Netgear_ConSolidated_Polish.html</pre>
+<pre>    │           │   ├── [157K]  Netgear_ConSolidated_Portuguese.html</pre>
+<pre>    │           │   ├── [ 95K]  Netgear_ConSolidated_S-Chinese.html</pre>
+<pre>    │           │   ├── [138K]  Netgear_ConSolidated_Spanish.html</pre>
+<pre>    │           │   └── [140K]  Netgear_ConSolidated_Swedish.html</pre>
+<pre>    │           ├── [ 12K]  UPG_upgrade.html</pre>
+<pre>    │           ├── [7.8K]  UPNP_upnp.html</pre>
+<pre>    │           ├── [ 16K]  USB_advanced.html</pre>
+<pre>    │           ├── [8.4K]  USB_basic.html</pre>
+<pre>    │           ├── [3.4K]  USB_browse_folder.html</pre>
+<pre>    │           ├── [ 13K]  USB_edit.html</pre>
+<pre>    │           ├── [4.5K]  USB_media.html</pre>
+<pre>    │           ├── [4.1K]  USB_remote.html</pre>
+<pre>    │           ├── [5.8K]  USB_remove.html</pre>
+<pre>    │           ├── [2.3K]  USB_vault.html</pre>
+<pre>    │           ├── [ 36K]  VLAN_IPTV.html</pre>
+<pre>    │           ├── [ 13K]  WAN_wan.html</pre>
+<pre>    │           ├── [ 697]  WEB_site_block.html</pre>
+<pre>    │           ├── [ 22K]  WIZ_sel.html</pre>
+<pre>    │           ├── [ 20K]  WLG_ap_ap.html</pre>
+<pre>    │           ├── [5.8K]  WLG_ap_basic.html</pre>
+<pre>    │           ├── [ 18K]  WLG_ap_bridge.html</pre>
+<pre>    │           ├── [ 13K]  WLG_ap_bridge_wlan.html</pre>
+<pre>    │           ├── [ 15K]  WLG_ap_dual_band.html</pre>
+<pre>    │           ├── [ 11K]  WLG_ap_router.html</pre>
+<pre>    │           ├── [ 51K]  WLG_wireless.html</pre>
+<pre>    │           ├── [ 60K]  WLG_wireless_adv.html</pre>
+<pre>    │           ├── [ 21K]  WLG_wireless_guest.html</pre>
+<pre>    │           ├── [5.5K]  WSM_webservice.html</pre>
+<pre>    │           ├── [2.0K]  XCloudLog.htm</pre>
+<pre>    │           ├── [  18]  XCloudLog.zip -&gt; /tmp/XCloudLog.zip</pre>
+<pre>    │           ├── [1.3K]  acblock.htm</pre>
+<pre>    │           ├── [4.0K]  blank_state</pre>
+<pre>    │           │   └── [ 514]  error-403.html</pre>
+<pre>    │           ├── [4.0K]  cgi-bin</pre>
+<pre>    │           │   ├── [ 14K]  NETGEAR_RAX28.cfg</pre>
+<pre>    │           │   ├── [ 14K]  NETGEAR_RAX29.cfg</pre>
+<pre>    │           │   ├── [ 14K]  NETGEAR_RAX30.cfg</pre>
+<pre>    │           │   ├── [ 34K]  debug.cgi</pre>
+<pre>    │           │   ├── [ 14K]  genie.cgi</pre>
+<pre>    │           │   └── [334K]  rex_cgi</pre>
+<pre>    │           ├── [4.0K]  css</pre>
+<pre>    │           │   ├── [ 440]  MNUAccess.css</pre>
+<pre>    │           │   ├── [6.6K]  button.css</pre>
+<pre>    │           │   ├── [ 53K]  custom.css</pre>
+<pre>    │           │   ├── [1.4K]  filetree.css</pre>
+<pre>    │           │   ├── [4.6K]  form.css</pre>
+<pre>    │           │   ├── [ 859]  help.css</pre>
+<pre>    │           │   ├── [1.1K]  jScrollPane.css</pre>
+<pre>    │           │   ├── [ 10K]  mainpage.css</pre>
+<pre>    │           │   ├── [ 11K]  menu.css</pre>
+<pre>    │           │   ├── [3.3K]  qos_tabs.css</pre>
+<pre>    │           │   ├── [1.6K]  scrollbar.css</pre>
+<pre>    │           │   ├── [4.4K]  settings.css</pre>
+<pre>    │           │   ├── [ 16K]  table_noh.css</pre>
+<pre>    │           │   └── [3.2K]  tabs.css</pre>
+<pre>    │           ├── [ 431]  currentsetting.htm</pre>
+<pre>    │           ├── [2.0K]  debug.htm</pre>
+<pre>    │           ├── [  18]  debug_log.zip -&gt; /var/debug_log.zip</pre>
+<pre>    │           ├── [ 26K]  debug_m.htm</pre>
+<pre>    │           ├── [ 642]  debuginfo.htm</pre>
+<pre>    │           ├── [8.2K]  favicon.ico</pre>
+<pre>    │           ├── [4.0K]  files</pre>
+<pre>    │           │   ├── [  27]  nonwindows.zip -&gt; /tmp/openvpn/nonwindows.zip</pre>
+<pre>    │           │   ├── [  15]  rex.log -&gt; /var/log/rexlog</pre>
+<pre>    │           │   ├── [  27]  smartphone.zip -&gt; /tmp/openvpn/smartphone.zip</pre>
+<pre>    │           │   └── [  24]  windows.zip -&gt; /tmp/openvpn/windows.zip</pre>
+<pre>    │           ├── [4.0K]  fonts</pre>
+<pre>    │           │   ├── [140K]  Avenir-Book.eot</pre>
+<pre>    │           │   ├── [140K]  Avenir-Book.ttf</pre>
+<pre>    │           │   ├── [ 62K]  Avenir-Book.woff</pre>
+<pre>    │           │   ├── [ 58K]  AvenirNext-Medium.woff2</pre>
+<pre>    │           │   └── [ 19K]  AvenirNext-Regular.woff2</pre>
+<pre>    │           ├── [3.2K]  genie_index.html</pre>
+<pre>    │           ├── [ 850]  genie_top.html</pre>
+<pre>    │           ├── [2.8K]  genie_welcome.html</pre>
+<pre>    │           ├── [4.0K]  help</pre>
+<pre>    │           │   ├── [1.0K]  BAK_backup_h.html</pre>
+<pre>    │           │   ├── [1.6K]  BAS_ether_h.html</pre>
+<pre>    │           │   ├── [ 516]  BAS_l2tp_h.html</pre>
+<pre>    │           │   ├── [ 509]  BAS_pppoe_h.html</pre>
+<pre>    │           │   ├── [ 514]  BAS_pptp_h.html</pre>
+<pre>    │           │   ├── [ 530]  BKS_keyword_h.html</pre>
+<pre>    │           │   ├── [ 514]  BKS_schedule_h.html</pre>
+<pre>    │           │   ├── [ 530]  BKS_service_add_h.html</pre>
+<pre>    │           │   ├── [ 530]  BKS_service_h.html</pre>
+<pre>    │           │   ├── [ 531]  DEV_control_h.html</pre>
+<pre>    │           │   ├── [ 512]  DEV_device2_h.html</pre>
+<pre>    │           │   ├── [ 512]  DEV_device_iQoS_edit_h.html</pre>
+<pre>    │           │   ├── [ 512]  DEV_name_h.html</pre>
+<pre>    │           │   ├── [ 514]  DNS_ddns_h.html</pre>
+<pre>    │           │   ├── [ 516]  FW_email_h.html</pre>
+<pre>    │           │   ├── [ 514]  FW_log_h.html</pre>
+<pre>    │           │   ├── [ 514]  FW_port_forward_h.html</pre>
+<pre>    │           │   ├── [ 516]  FW_port_trigger_h.html</pre>
+<pre>    │           │   ├── [ 510]  FW_remote_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_auto_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_autoconfig_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_dhcp_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_fixed_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_pppoe_h.html</pre>
+<pre>    │           │   ├── [ 514]  IPV6_tunnel_h.html</pre>
+<pre>    │           │   ├── [ 509]  LAN_lan_h.html</pre>
+<pre>    │           │   ├── [ 516]  LED_h.html</pre>
+<pre>    │           │   ├── [1.6K]  NTP_Settings_h.html</pre>
+<pre>    │           │   ├── [ 514]  PWD_passwd_h.html</pre>
+<pre>    │           │   ├── [ 515]  QOS_UP_QOS_h.html</pre>
+<pre>    │           │   ├── [ 515]  QOS_WMM_h.html</pre>
+<pre>    │           │   ├── [ 514]  STR_static_route_h.html</pre>
+<pre>    │           │   ├── [ 528]  UPG_upgrade_h.html</pre>
+<pre>    │           │   ├── [ 528]  UPNP_upnp_h.html</pre>
+<pre>    │           │   ├── [ 510]  USB_advanced_h.html</pre>
+<pre>    │           │   ├── [ 510]  USB_basic_h.html</pre>
+<pre>    │           │   ├── [ 510]  USB_media_h.html</pre>
+<pre>    │           │   ├── [ 510]  USB_remote_h.html</pre>
+<pre>    │           │   ├── [ 513]  VLAN_IPTV_h.html</pre>
+<pre>    │           │   ├── [ 516]  WAN_wan_h.html</pre>
+<pre>    │           │   ├── [ 510]  WIZ_sel_h.html</pre>
+<pre>    │           │   ├── [ 513]  WLG_ap_ap_h.html</pre>
+<pre>    │           │   ├── [1.6K]  WLG_ap_bridge_h.html</pre>
+<pre>    │           │   ├── [ 515]  WLG_ap_dual_band_h.html</pre>
+<pre>    │           │   ├── [ 513]  WLG_ap_router_h.html</pre>
+<pre>    │           │   ├── [ 516]  WLG_wireless_adv_h.html</pre>
+<pre>    │           │   ├── [ 516]  WLG_wireless_guest_h.html</pre>
+<pre>    │           │   ├── [ 582]  WLG_wireless_h.html</pre>
+<pre>    │           │   ├── [ 514]  WLG_wireless_sche_h.html</pre>
+<pre>    │           │   ├── [ 510]  WPS_h.html</pre>
+<pre>    │           │   ├── [ 515]  openvpn_h.html</pre>
+<pre>    │           │   └── [ 509]  traffic_meter_h.html</pre>
+<pre>    │           ├── [4.0K]  images</pre>
+<pre>    │           │   ├── [534K]  AP_Mode.png</pre>
+<pre>    │           │   ├── [ 631]  DDNS_No.png</pre>
+<pre>    │           │   ├── [6.7K]  DDNS_NoIplog.png</pre>
+<pre>    │           │   ├── [ 705]  DDNS_Yes.png</pre>
+<pre>    │           │   ├── [ 565]  DDNS_Yes_gray.png</pre>
+<pre>    │           │   ├── [ 153]  DashBackBottom.gif</pre>
+<pre>    │           │   ├── [ 222]  DashBackCenter.gif</pre>
+<pre>    │           │   ├── [7.0K]  DashCenter.gif</pre>
+<pre>    │           │   ├── [ 53K]  G1.jpg</pre>
+<pre>    │           │   ├── [ 54K]  G2.jpg</pre>
+<pre>    │           │   ├── [ 13K]  NightHawk.png</pre>
+<pre>    │           │   ├── [ 14K]  RAX30_PRODUCT-FRONT.png</pre>
+<pre>    │           │   ├── [ 11K]  Speedtest_logo.png</pre>
+<pre>    │           │   ├── [ 201]  advanced_homes.gif</pre>
+<pre>    │           │   ├── [3.1K]  ajax-loader.gif</pre>
+<pre>    │           │   ├── [6.7K]  ap.gif</pre>
+<pre>    │           │   ├── [4.4K]  ap_map_700.gif</pre>
+<pre>    │           │   ├── [ 16K]  app-store-badge-us-black.svg</pre>
+<pre>    │           │   ├── [4.7K]  armor.png</pre>
+<pre>    │           │   ├── [482K]  armor_Background.png</pre>
+<pre>    │           │   ├── [ 35K]  armor_QR.png</pre>
+<pre>    │           │   ├── [ 212]  armor_close.png</pre>
+<pre>    │           │   ├── [ 377]  armor_updated.png</pre>
+<pre>    │           │   ├── [2.7K]  armor_white.png</pre>
+<pre>    │           │   ├── [ 264]  arrow-right.png</pre>
+<pre>    │           │   ├── [ 855]  arrow_down_nobackground.gif</pre>
+<pre>    │           │   ├── [ 857]  arrow_nobackground.gif</pre>
+<pre>    │           │   ├── [ 969]  barrow.jpg</pre>
+<pre>    │           │   ├── [ 811]  barrow_down.jpg</pre>
+<pre>    │           │   ├── [3.1K]  basic-purple-button.gif</pre>
+<pre>    │           │   ├── [2.2K]  basic-white-button.gif</pre>
+<pre>    │           │   ├── [6.5K]  basic_homes.gif</pre>
+<pre>    │           │   ├── [2.6K]  box-header-background-large.gif</pre>
+<pre>    │           │   ├── [7.0K]  bridge.gif</pre>
+<pre>    │           │   ├── [ 821]  cover-image_noh.gif</pre>
+<pre>    │           │   ├── [ 811]  cross.svg</pre>
+<pre>    │           │   ├── [4.8K]  db.png</pre>
+<pre>    │           │   ├── [1.5M]  device-nighthawk.svg</pre>
+<pre>    │           │   ├── [ 13K]  download.png</pre>
+<pre>    │           │   ├── [3.7K]  download1.png</pre>
+<pre>    │           │   ├── [4.0K]  error.png</pre>
+<pre>    │           │   ├── [1.6K]  firmware-hint-background.gif</pre>
+<pre>    │           │   ├── [ 747]  folder.png</pre>
+<pre>    │           │   ├── [1.1K]  folder_open.png</pre>
+<pre>    │           │   ├── [1.8K]  footer.gif</pre>
+<pre>    │           │   ├── [ 15K]  google-play-badge-us.svg</pre>
+<pre>    │           │   ├── [3.3K]  gray-button.gif</pre>
+<pre>    │           │   ├── [1.6K]  guest.png</pre>
+<pre>    │           │   ├── [1.8K]  help-icon.png</pre>
+<pre>    │           │   ├── [1.1K]  helparrowdown-icon.png</pre>
+<pre>    │           │   ├── [1.1K]  helparrowup-icon.png</pre>
+<pre>    │           │   ├── [ 18K]  iconSprite2x.png</pre>
+<pre>    │           │   ├── [  58]  liteblue.gif</pre>
+<pre>    │           │   ├── [5.2K]  logo-netgear.svg</pre>
+<pre>    │           │   ├── [1.6K]  main-page-bottom.gif</pre>
+<pre>    │           │   ├── [4.8K]  netgear-log.svg</pre>
+<pre>    │           │   ├── [5.9K]  netgear.svg</pre>
+<pre>    │           │   ├── [7.1K]  nighthawk-app-icon.svg</pre>
+<pre>    │           │   ├── [ 14K]  nighthawk-front.png</pre>
+<pre>    │           │   ├── [ 27K]  nighthawk-front.svg</pre>
+<pre>    │           │   ├── [5.7K]  nighthawk-logo.svg</pre>
+<pre>    │           │   ├── [308K]  nighthawk-mobile.png</pre>
+<pre>    │           │   ├── [ 81K]  pvpn.jpg</pre>
+<pre>    │           │   ├── [ 12K]  pwdEye.png</pre>
+<pre>    │           │   ├── [ 23K]  pwdEyeSlash.png</pre>
+<pre>    │           │   ├── [1.1K]  qos-tab-nonactive.jpg</pre>
+<pre>    │           │   ├── [1.6K]  readyshare.png</pre>
+<pre>    │           │   ├── [6.2K]  repeating.gif</pre>
+<pre>    │           │   ├── [3.8K]  roundedcornr_637010.gif</pre>
+<pre>    │           │   ├── [1.5K]  roundedcornr_input.gif</pre>
+<pre>    │           │   ├── [5.5K]  router.gif</pre>
+<pre>    │           │   ├── [ 14K]  router_map.gif</pre>
+<pre>    │           │   ├── [  57]  seprator.gif</pre>
+<pre>    │           │   ├── [1.1K]  speedtest_download.jpg</pre>
+<pre>    │           │   ├── [5.3K]  speedtest_new_logo.jpg</pre>
+<pre>    │           │   ├── [1.1K]  speedtest_upload.jpg</pre>
+<pre>    │           │   ├── [2.5K]  spinner.gif</pre>
+<pre>    │           │   ├── [4.0K]  streamboost</pre>
+<pre>    │           │   │   ├── [3.3K]  Camera.png</pre>
+<pre>    │           │   │   ├── [ 815]  Computer_(Generic).png</pre>
+<pre>    │           │   │   ├── [ 925]  Desktop.png</pre>
+<pre>    │           │   │   ├── [2.0K]  Doorbell.png</pre>
+<pre>    │           │   │   ├── [ 595]  Entertainment (Generic).png</pre>
+<pre>    │           │   │   ├── [ 884]  Extender.png</pre>
+<pre>    │           │   │   ├── [ 890]  Frame.png</pre>
+<pre>    │           │   │   ├── [ 722]  Fridge.png</pre>
+<pre>    │           │   │   ├── [3.3K]  Gaming.png</pre>
+<pre>    │           │   │   ├── [2.1K]  Home Office (Generic).png</pre>
+<pre>    │           │   │   ├── [2.7K]  IP Phone.png</pre>
+<pre>    │           │   │   ├── [3.8K]  IoT (Generic).png</pre>
+<pre>    │           │   │   ├── [ 369]  Laptop.png</pre>
+<pre>    │           │   │   ├── [2.0K]  Light.png</pre>
+<pre>    │           │   │   ├── [1010]  Media Streamer.png</pre>
+<pre>    │           │   │   ├── [ 606]  NAS.png</pre>
+<pre>    │           │   │   ├── [4.0K]  Network (Generic).png</pre>
+<pre>    │           │   │   ├── [ 990]  Printer.png</pre>
+<pre>    │           │   │   ├── [1.1K]  Router.png</pre>
+<pre>    │           │   │   ├── [3.7K]  Security (Generic).png</pre>
+<pre>    │           │   │   ├── [1.6K]  Smart Lock.png</pre>
+<pre>    │           │   │   ├── [ 718]  Smart Phone (Generic).png</pre>
+<pre>    │           │   │   ├── [4.2K]  Smart Plug.png</pre>
+<pre>    │           │   │   ├── [2.2K]  Smart Speaker.png</pre>
+<pre>    │           │   │   ├── [ 348]  TV.png</pre>
+<pre>    │           │   │   ├── [1018]  Tablet.png</pre>
+<pre>    │           │   │   ├── [4.3K]  Thermostat.png</pre>
+<pre>    │           │   │   └── [1.5K]  Wearable (Generic).png</pre>
+<pre>    │           │   ├── [ 793]  subMenuActive.png</pre>
+<pre>    │           │   ├── [1.1K]  subMenuActiveLarge.png</pre>
+<pre>    │           │   ├── [5.3K]  subhead2-background_noh.jpg</pre>
+<pre>    │           │   ├── [1.0K]  subhead2-top_noh.gif</pre>
+<pre>    │           │   ├── [ 698]  tnb-ico1.png</pre>
+<pre>    │           │   ├── [ 719]  tnb-ico2.png</pre>
+<pre>    │           │   ├── [ 935]  tnb-ico3.png</pre>
+<pre>    │           │   ├── [ 13K]  tops.gif</pre>
+<pre>    │           │   ├── [ 12K]  upload.png</pre>
+<pre>    │           │   ├── [4.3K]  upload1.png</pre>
+<pre>    │           │   ├── [ 12K]  upload_new.gif</pre>
+<pre>    │           │   ├── [ 478]  v_middleline.gif</pre>
+<pre>    │           │   ├── [6.2K]  wait.gif</pre>
+<pre>    │           │   ├── [1.4K]  warning.png</pre>
+<pre>    │           │   ├── [ 361]  warrow.jpg</pre>
+<pre>    │           │   ├── [2.1K]  wps_icon_off.bmp</pre>
+<pre>    │           │   └── [2.1K]  wps_icon_on.bmp</pre>
+<pre>    │           ├── [3.2K]  index.html</pre>
+<pre>    │           ├── [4.0K]  jdoedw18ge</pre>
+<pre>    │           │   ├── [3.9K]  NetgearLogoHead.svg</pre>
+<pre>    │           │   ├── [2.2K]  blockedByAccessControl.svg</pre>
+<pre>    │           │   ├── [6.2K]  external-pages-styles.css</pre>
+<pre>    │           │   ├── [4.8K]  miniUtilitys.js</pre>
+<pre>    │           │   └── [2.8K]  popupWarningMessage.svg</pre>
+<pre>    │           ├── [4.0K]  js</pre>
+<pre>    │           │   ├── [ 13K]  dashboard.js</pre>
+<pre>    │           │   ├── [1.6K]  embedProgressBar.js</pre>
+<pre>    │           │   ├── [ 19K]  internet.js</pre>
+<pre>    │           │   ├── [ 11K]  ipInput.js</pre>
+<pre>    │           │   ├── [ 37K]  ipv6.js</pre>
+<pre>    │           │   ├── [120K]  jquery.inputmask.min.js</pre>
+<pre>    │           │   ├── [ 73K]  jquery.js</pre>
+<pre>    │           │   ├── [ 15K]  jquery.jscrollpane.min.js</pre>
+<pre>    │           │   ├── [ 86K]  jquery.min.js</pre>
+<pre>    │           │   ├── [2.4K]  jquery.mousewheel.js</pre>
+<pre>    │           │   ├── [ 19K]  menu.js</pre>
+<pre>    │           │   ├── [  19]  mlang.js -&gt; /data/lang/mlang.js</pre>
+<pre>    │           │   ├── [ 21K]  portForward.js</pre>
+<pre>    │           │   ├── [ 10K]  resize.js</pre>
+<pre>    │           │   ├── [3.8K]  staticRoute.js</pre>
+<pre>    │           │   ├── [ 25K]  utils.js</pre>
+<pre>    │           │   ├── [ 12K]  validations.js</pre>
+<pre>    │           │   ├── [ 43K]  wireless.js</pre>
+<pre>    │           │   └── [ 79K]  wizard.js</pre>
+<pre>    │           ├── [4.0K]  lang</pre>
+<pre>    │           │   ├── [655K]  lang-chs.js</pre>
+<pre>    │           │   ├── [656K]  lang-cht.js</pre>
+<pre>    │           │   ├── [917K]  lang-cs.js</pre>
+<pre>    │           │   ├── [842K]  lang-da.js</pre>
+<pre>    │           │   ├── [948K]  lang-de.js</pre>
+<pre>    │           │   ├── [1.5M]  lang-el.js</pre>
+<pre>    │           │   ├── [792K]  lang-en.js</pre>
+<pre>    │           │   ├── [918K]  lang-es.js</pre>
+<pre>    │           │   ├── [842K]  lang-fi.js</pre>
+<pre>    │           │   ├── [963K]  lang-fr.js</pre>
+<pre>    │           │   ├── [949K]  lang-hu.js</pre>
+<pre>    │           │   ├── [892K]  lang-it.js</pre>
+<pre>    │           │   ├── [1.0M]  lang-jp.js</pre>
+<pre>    │           │   ├── [769K]  lang-ko.js</pre>
+<pre>    │           │   ├── [872K]  lang-nl.js</pre>
+<pre>    │           │   ├── [829K]  lang-no.js</pre>
+<pre>    │           │   ├── [912K]  lang-pl.js</pre>
+<pre>    │           │   ├── [884K]  lang-pt.js</pre>
+<pre>    │           │   ├── [907K]  lang-ro.js</pre>
+<pre>    │           │   ├── [1.4M]  lang-ru.js</pre>
+<pre>    │           │   ├── [915K]  lang-sk.js</pre>
+<pre>    │           │   ├── [848K]  lang-sl.js</pre>
+<pre>    │           │   ├── [839K]  lang-sv.js</pre>
+<pre>    │           │   └── [909K]  lang-tr.js</pre>
+<pre>    │           ├── [ 76K]  license.htm</pre>
+<pre>    │           ├── [4.0K]  php</pre>
+<pre>    │           │   ├── [9.3K]  accessControl.php</pre>
+<pre>    │           │   ├── [6.3K]  apmode.php</pre>
+<pre>    │           │   ├── [ 894]  armor.php</pre>
+<pre>    │           │   ├── [ 26K]  attachedDev.php</pre>
+<pre>    │           │   ├── [1.7K]  blockServices.php</pre>
+<pre>    │           │   ├── [1.5K]  blockSite.php</pre>
+<pre>    │           │   ├── [4.4K]  blocksiteSchedule.php</pre>
+<pre>    │           │   ├── [ 696]  checkAnswer_data.php</pre>
+<pre>    │           │   ├── [ 18K]  commonCfg.php</pre>
+<pre>    │           │   ├── [ 311]  common_utils.php</pre>
+<pre>    │           │   ├── [ 11K]  dashboard.php</pre>
+<pre>    │           │   ├── [4.0K]  db</pre>
+<pre>    │           │   │   ├── [ 158]  2GwirelessScheduleTable_data.php</pre>
+<pre>    │           │   │   ├── [ 159]  5G1wirelessScheduleTable_data.php</pre>
+<pre>    │           │   │   ├── [ 158]  5GwirelessScheduleTable_data.php</pre>
+<pre>    │           │   │   ├── [ 22K]  Advanced_home_data.php</pre>
+<pre>    │           │   │   ├── [ 666]  DEV_control_data.php</pre>
+<pre>    │           │   │   ├── [2.6K]  LAN_lan_data.php</pre>
+<pre>    │           │   │   ├── [1.1K]  NTP_Settings_data.php</pre>
+<pre>    │           │   │   ├── [ 163]  NonReservedTable_data.php</pre>
+<pre>    │           │   │   ├── [1.7K]  QoS_data.php</pre>
+<pre>    │           │   │   ├── [ 687]  QoS_speedtest_data.php</pre>
+<pre>    │           │   │   ├── [ 144]  VlanRuleTable_data.php</pre>
+<pre>    │           │   │   ├── [ 164]  access_control_black_data.php</pre>
+<pre>    │           │   │   ├── [ 164]  access_control_white_data.php</pre>
+<pre>    │           │   │   ├── [1.9K]  apstat_data.php</pre>
+<pre>    │           │   │   ├── [ 152]  attachedDevTable_data.php</pre>
+<pre>    │           │   │   ├── [ 992]  attachedDev_data.php</pre>
+<pre>    │           │   │   ├── [  91]  backup_data.php</pre>
+<pre>    │           │   │   ├── [1.1K]  block_service_data.php</pre>
+<pre>    │           │   │   ├── [ 163]  block_service_table_data.php</pre>
+<pre>    │           │   │   ├── [ 942]  block_site_data.php</pre>
+<pre>    │           │   │   ├── [1.6K]  blocksiteSchedule_data.php</pre>
+<pre>    │           │   │   ├── [ 227]  checkLanguageChange_data.php</pre>
+<pre>    │           │   │   ├── [ 163]  control_table_data.php</pre>
+<pre>    │           │   │   ├── [ 278]  ddnsStatus_data.php</pre>
+<pre>    │           │   │   ├── [2.2K]  ddns_data.php</pre>
+<pre>    │           │   │   ├── [ 218]  deviceName_data.php</pre>
+<pre>    │           │   │   ├── [1.8K]  dhcpstat_data.php</pre>
+<pre>    │           │   │   ├── [2.0K]  email_data.php</pre>
+<pre>    │           │   │   ├── [ 297]  fwCheckNoNew_data.php</pre>
+<pre>    │           │   │   ├── [1.3K]  fwCheck_data.php</pre>
+<pre>    │           │   │   ├── [1.3K]  fwCheckonWizard_data.php</pre>
+<pre>    │           │   │   ├── [ 277]  fwDownloadNew_data.php</pre>
+<pre>    │           │   │   ├── [ 219]  fwUpgradeCancel_data.php</pre>
+<pre>    │           │   │   ├── [ 387]  fwUpgradeFinished_data.php</pre>
+<pre>    │           │   │   ├── [ 359]  fwUpgradeNew_data.php</pre>
+<pre>    │           │   │   ├── [ 558]  fwUploadResult_data.php</pre>
+<pre>    │           │   │   ├── [ 312]  index_data.php</pre>
+<pre>    │           │   │   ├── [ 156]  interfaceStatisticsTable_data.php</pre>
+<pre>    │           │   │   ├── [ 213]  internetEthStatus_data.php</pre>
+<pre>    │           │   │   ├── [1005]  internetPppStatus_data.php</pre>
+<pre>    │           │   │   ├── [ 213]  internetStatus_data.php</pre>
+<pre>    │           │   │   ├── [ 221]  internet_basic_data.php</pre>
+<pre>    │           │   │   ├── [2.1K]  internet_eth_data.php</pre>
+<pre>    │           │   │   ├── [2.2K]  internet_l2tp_data.php</pre>
+<pre>    │           │   │   ├── [2.0K]  internet_pppoe_data.php</pre>
+<pre>    │           │   │   ├── [2.3K]  internet_pptp_data.php</pre>
+<pre>    │           │   │   ├── [1.9K]  ipv6_6rd_data.php</pre>
+<pre>    │           │   │   ├── [1.6K]  ipv6_6to4_data.php</pre>
+<pre>    │           │   │   ├── [1.8K]  ipv6_AutoConfig_data.php</pre>
+<pre>    │           │   │   ├── [2.0K]  ipv6_AutoDetect_data.php</pre>
+<pre>    │           │   │   ├── [1.8K]  ipv6_Dhcp_data.php</pre>
+<pre>    │           │   │   ├── [1.3K]  ipv6_Fixed_data.php</pre>
+<pre>    │           │   │   ├── [2.3K]  ipv6_Pppoe_data.php</pre>
+<pre>    │           │   │   ├── [ 226]  ipv6_basic_data.php</pre>
+<pre>    │           │   │   ├── [ 632]  l2tpstat_data.php</pre>
+<pre>    │           │   │   ├── [ 232]  led_data.php</pre>
+<pre>    │           │   │   ├── [1.7K]  log_data.php</pre>
+<pre>    │           │   │   ├── [1.9K]  openVpn_data.php</pre>
+<pre>    │           │   │   ├── [ 928]  password_data.php</pre>
+<pre>    │           │   │   ├── [ 154]  portForwardTable_data.php</pre>
+<pre>    │           │   │   ├── [ 685]  portForward_data.php</pre>
+<pre>    │           │   │   ├── [ 154]  portTriggerTable_data.php</pre>
+<pre>    │           │   │   ├── [1.1K]  pppoestat_data.php</pre>
+<pre>    │           │   │   ├── [ 636]  pptpstat_data.php</pre>
+<pre>    │           │   │   ├── [ 152]  qosAppDevTable_data.php</pre>
+<pre>    │           │   │   ├── [ 877]  qosDbCheck_data.php</pre>
+<pre>    │           │   │   ├── [ 700]  qosDbUpgrade_data.php</pre>
+<pre>    │           │   │   ├── [ 149]  qosDevTable_data.php</pre>
+<pre>    │           │   │   ├── [1.7K]  remoteMgmt_data.php</pre>
+<pre>    │           │   │   ├── [ 154]  reservedTable_data.php</pre>
+<pre>    │           │   │   ├── [ 154]  staticRouteTable_data.php</pre>
+<pre>    │           │   │   ├── [ 818]  staticstat_data.php</pre>
+<pre>    │           │   │   ├── [ 246]  statistics_data.php</pre>
+<pre>    │           │   │   ├── [ 197]  sysReady_data.php</pre>
+<pre>    │           │   │   ├── [5.5K]  trafficMeter_data.php</pre>
+<pre>    │           │   │   ├── [1.4K]  trafficStatus_data.php</pre>
+<pre>    │           │   │   ├── [ 251]  upgrade_data.php</pre>
+<pre>    │           │   │   ├── [ 630]  upnp_data.php</pre>
+<pre>    │           │   │   ├── [ 156]  upnp_portmap_table_data.php</pre>
+<pre>    │           │   │   ├── [ 147]  usb_access_method_table_data.php</pre>
+<pre>    │           │   │   ├── [ 412]  usb_advanced_data.php</pre>
+<pre>    │           │   │   ├── [ 144]  usb_available_folder_table_data.php</pre>
+<pre>    │           │   │   ├── [ 236]  usb_basic_data.php</pre>
+<pre>    │           │   │   ├── [ 142]  usb_list_table_data.php</pre>
+<pre>    │           │   │   ├── [ 441]  usb_media_data.php</pre>
+<pre>    │           │   │   ├── [ 370]  usb_remote_data.php</pre>
+<pre>    │           │   │   ├── [1.1K]  vlan_data.php</pre>
+<pre>    │           │   │   ├── [ 149]  vpnDevTable_data.php</pre>
+<pre>    │           │   │   ├── [ 315]  wanDetect_data.php</pre>
+<pre>    │           │   │   ├── [2.1K]  wanSetup_data.php</pre>
+<pre>    │           │   │   ├── [4.5K]  wirelessAdv_data.php</pre>
+<pre>    │           │   │   ├── [3.1K]  wirelessGuest_data.php</pre>
+<pre>    │           │   │   ├── [1.6K]  wireless_apmode_ap_data.php</pre>
+<pre>    │           │   │   ├── [ 226]  wireless_apmode_basic_data.php</pre>
+<pre>    │           │   │   ├── [1.4K]  wireless_apmode_bridge_data.php</pre>
+<pre>    │           │   │   ├── [1.1K]  wireless_apmode_bridge_wlan_data.php</pre>
+<pre>    │           │   │   ├── [1.7K]  wireless_apmode_data.php</pre>
+<pre>    │           │   │   ├── [ 209]  wireless_apmode_router_data.php</pre>
+<pre>    │           │   │   ├── [6.9K]  wireless_data.php</pre>
+<pre>    │           │   │   ├── [1.7K]  wizard_data.php</pre>
+<pre>    │           │   │   ├── [ 204]  wpsCheck_data.php</pre>
+<pre>    │           │   │   ├── [ 188]  wps_data.php</pre>
+<pre>    │           │   │   └── [ 227]  wsm_data.php</pre>
+<pre>    │           │   ├── [5.5K]  ddns.php</pre>
+<pre>    │           │   ├── [1.1K]  ddnsStatus.php</pre>
+<pre>    │           │   ├── [5.6K]  dhcpv4.php</pre>
+<pre>    │           │   ├── [1.9K]  email.php</pre>
+<pre>    │           │   ├── [1.6K]  foldertree.php</pre>
+<pre>    │           │   ├── [ 25K]  interface.php</pre>
+<pre>    │           │   ├── [ 343]  interface2.php</pre>
+<pre>    │           │   ├── [1.6K]  internetStatus.php</pre>
+<pre>    │           │   ├── [ 32K]  ipv6.php</pre>
+<pre>    │           │   ├── [ 308]  language.php</pre>
+<pre>    │           │   ├── [ 218]  led.php</pre>
+<pre>    │           │   ├── [2.8K]  log.php</pre>
+<pre>    │           │   ├── [ 857]  openVpn.php</pre>
+<pre>    │           │   ├── [1.6K]  password.php</pre>
+<pre>    │           │   ├── [3.8K]  portForward.php</pre>
+<pre>    │           │   ├── [ 12K]  pppoe.php</pre>
+<pre>    │           │   ├── [5.5K]  qos.php</pre>
+<pre>    │           │   ├── [ 626]  remoteMgmt.php</pre>
+<pre>    │           │   ├── [6.6K]  reservedClient.php</pre>
+<pre>    │           │   ├── [1.9K]  staticRoute.php</pre>
+<pre>    │           │   ├── [ 15K]  statistics.php</pre>
+<pre>    │           │   ├── [6.8K]  trafficMeter.php</pre>
+<pre>    │           │   ├── [1.3K]  upnp.php</pre>
+<pre>    │           │   ├── [ 22K]  usb.php</pre>
+<pre>    │           │   ├── [ 479]  utf8ize.php</pre>
+<pre>    │           │   ├── [4.4K]  vlan.php</pre>
+<pre>    │           │   ├── [5.6K]  wanSetup.php</pre>
+<pre>    │           │   ├── [ 38K]  wifi.php</pre>
+<pre>    │           │   ├── [8.2K]  wifiSchedule.php</pre>
+<pre>    │           │   ├── [ 418]  wizard.php</pre>
+<pre>    │           │   ├── [ 427]  wps.php</pre>
+<pre>    │           │   └── [ 119]  wsm.php</pre>
+<pre>    │           ├── [4.5K]  progressbar.html</pre>
+<pre>    │           ├── [4.0K]  pwd_reset</pre>
+<pre>    │           │   ├── [ 595]  error-401.html</pre>
+<pre>    │           │   ├── [ 596]  error-423.html</pre>
+<pre>    │           │   ├── [ 596]  error-429.html</pre>
+<pre>    │           │   ├── [5.6K]  pwd_reset_checkAnswer.html</pre>
+<pre>    │           │   ├── [4.2K]  pwd_reset_checkSN.html</pre>
+<pre>    │           │   ├── [4.4K]  pwd_reset_checkSN1.html</pre>
+<pre>    │           │   ├── [4.4K]  pwd_reset_checkSN5.html</pre>
+<pre>    │           │   ├── [ 20K]  pwd_reset_passwordReset.html</pre>
+<pre>    │           │   ├── [2.6K]  pwd_reset_successfullyReset.html</pre>
+<pre>    │           │   └── [ 38K]  reset_pwd.cgi</pre>
+<pre>    │           ├── [3.2K]  rae_learn.html</pre>
+<pre>    │           ├── [6.2K]  ramain.html</pre>
+<pre>    │           ├── [  16]  shares -&gt; /var/samba/share</pre>
+<pre>    │           ├── [ 56K]  start.html</pre>
+<pre>    │           ├── [4.0K]  tm_block</pre>
+<pre>    │           │   ├── [4.0K]  php</pre>
+<pre>    │           │   │   ├── [ 18K]  commonCfg.php</pre>
+<pre>    │           │   │   ├── [4.0K]  db</pre>
+<pre>    │           │   │   │   ├── [ 571]  trafficMeter_limited_data.php</pre>
+<pre>    │           │   │   │   └── [ 689]  trafficMeter_warning_data.php</pre>
+<pre>    │           │   │   └── [6.8K]  trafficMeter.php</pre>
+<pre>    │           │   ├── [ 30K]  tm_block.cgi</pre>
+<pre>    │           │   ├── [4.2K]  tm_limited.html</pre>
+<pre>    │           │   └── [4.3K]  tm_warning.html</pre>
+<pre>    │           ├── [ 12K]  top.html</pre>
+<pre>    │           ├── [ 29K]  traffic_meter.html</pre>
+<pre>    │           ├── [ 15K]  traffic_status.html</pre>
+<pre>    │           ├── [3.1K]  vpn_instruction_android.html</pre>
+<pre>    │           ├── [2.0K]  vpn_instruction_iphone.html</pre>
+<pre>    │           ├── [2.0K]  vpn_instruction_mac.html</pre>
+<pre>    │           ├── [1.8K]  vpn_instruction_windows.html</pre>
+<pre>    │           └── [ 34K]  xCloud_Debug_log.zip</pre>
+<pre>    └── [4.0K]  _CD3A8.extracted</pre>
+<pre>        ├── [9.1M]  1105C0</pre>
+<pre>        ├── [8.9M]  14324E</pre>
+<pre>        ├── [8.0K]  2644F5</pre>
+<pre>        ├── [8.0K]  2648E5</pre>
+<pre>        ├── [1.3K]  43E2D5</pre>
+<pre>        ├── [1.3K]  43E4E5</pre>
+<pre>        ├── [1.3K]  43E515</pre>
+<pre>        ├── [1.3K]  43E6ED</pre>
+<pre>        ├── [1.3K]  43F07D</pre>
+<pre>        ├── [1.3K]  43F0AD</pre>
+<pre>        ├── [1.3K]  43F0DD</pre>
+<pre>        ├── [1.3K]  47B749</pre>
+<pre>        ├── [ 777]  604C95</pre>
+<pre>        ├── [3.2M]  6F8640</pre>
+<pre>        ├── [ 81K]  6FC164</pre>
+<pre>        ├── [3.1M]  711D80</pre>
+<pre>        ├── [3.1M]  712180</pre>
+<pre>        ├── [3.0M]  71CEC0</pre>
+<pre>        ├── [2.9M]  7378E6</pre>
+<pre>        ├── [2.9M]  73996C</pre>
+<pre>        ├── [  80]  73B39B</pre>
+<pre>        ├── [2.9M]  73B39B.7z</pre>
+<pre>        ├── [2.3M]  7D4C28.xz</pre>
+<pre>        ├── [2.3M]  7E0530</pre>
+<pre>        ├── [2.2M]  7EE8B4</pre>
+<pre>        ├── [2.2M]  7EEDE1</pre>
+<pre>        ├── [2.2M]  7F112D</pre>
+<pre>        ├── [2.2M]  7F81BC</pre>
+<pre>        ├── [2.2M]  7F81D0</pre>
+<pre>        ├── [2.2M]  7FA506</pre>
+<pre>        ├── [2.2M]  7FEFFC</pre>
+<pre>        ├── [990K]  931D6C.cpio</pre>
+<pre>        ├── [   0]  console</pre>
+<pre>        ├── [4.0K]  cpio-root</pre>
+<pre>        │   ├── [4.0K]  dev</pre>
+<pre>        │   │   └── [   0]  console</pre>
+<pre>        │   └── [4.0K]  root</pre>
+<pre>        ├── [4.0K]  dev</pre>
+<pre>        └── [4.0K]  root</pre>
+<br />
+<pre>155 directories, 2179 files</pre>
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

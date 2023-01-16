@@ -1,0 +1,28 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/genkey.sh line 24:</span></pre>
+<pre></span>cd ${ROOT_PATH}</span></pre>
+<pre><span class="orange">^-------------^ SC2164 (warning): Use 'cd ... || exit' or 'cd ... || return' in case cd fails.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>cd ${ROOT_PATH} || exit</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/genkey.sh line 67:</span></pre>
+<pre></span>CHK_KEY=`tail -n 2 ${SERKEY_PATH}/ta.key  | head -n 1`</span></pre>
+<pre><span class="green">        ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>CHK_KEY=$(tail -n 2 ${SERKEY_PATH}/ta.key  | head -n 1)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/genkey.sh line 68:</span></pre>
+<pre></span>echo ${CHK_KEY} &gt; ${CERT_PATH}/genkey-done</span></pre>
+<pre><span class="green">     ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>echo "${CHK_KEY}" &gt; ${CERT_PATH}/genkey-done</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2164" title="https://www.shellcheck.net/wiki/SC2164" target="_blank" >https://www.shellcheck.net/wiki/SC2164</a> -- Use 'cd ... || exit' or 'cd ... |...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2006" title="https://www.shellcheck.net/wiki/SC2006" target="_blank" >https://www.shellcheck.net/wiki/SC2006</a> -- Use $(...) notation instead of le...</pre>

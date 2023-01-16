@@ -1,0 +1,1401 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s115_usermode_emulator.html" title="./../s115_usermode_emulator.html" >&laquo; Back to s115_usermode_emulator</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Initial strace run on the command </span><span class="orange">./bin/openvpn</span> to identify missing areas</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">openvpn</span> in </span><span class="orange">strace</span> mode to identify missing areas</pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<br />
+<pre>1 brk(NULL) = 0x000a6000</pre>
+<pre>1 uname(0x40730678) = 0</pre>
+<pre>1 access("/etc/ld.so.preload",R_OK) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ld.so.cache",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/vfp",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l",0x4072fec0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libresolv.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff90,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fec0) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3ffcb000</pre>
+<pre>1 mmap2(NULL,141220,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ffa8000</pre>
+<pre>1 mprotect(0x3ffb8000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffc7000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0xf) = 0x3ffc7000</pre>
+<pre>1 mmap2(0x3ffc9000,6052,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ffc9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon",0x4072feb0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/vfp",0x4072feb0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/liblzo2.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff80,512) = 512</pre>
+<pre>1 fstat64(3,0x4072feb0) = 0</pre>
+<pre>1 mmap2(NULL,163968,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff7f000</pre>
+<pre>1 mprotect(0x3ff97000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffa6000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x17) = 0x3ffa6000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff70,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fea0) = 0</pre>
+<pre>1 mmap2(NULL,1966348,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd9e000</pre>
+<pre>1 mprotect(0x3ff54000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff63000,98304,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1b5) = 0x3ff63000</pre>
+<pre>1 mmap2(0x3ff7b000,12556,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ff7b000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libssl.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe90) = 0</pre>
+<pre>1 mmap2(NULL,476264,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fd29000</pre>
+<pre>1 mprotect(0x3fd85000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd95000,36864,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x5c) = 0x3fd95000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff50,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe80) = 0</pre>
+<pre>1 mmap2(NULL,1323700,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fbe5000</pre>
+<pre>1 mprotect(0x3fd13000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fd23000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x12e) = 0x3fd23000</pre>
+<pre>1 mmap2(0x3fd26000,8884,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fd26000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libdl.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff40,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe70) = 0</pre>
+<pre>1 mmap2(NULL,73916,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fbd2000</pre>
+<pre>1 mprotect(0x3fbd4000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbe3000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3fbe3000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff30,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe60) = 0</pre>
+<pre>1 mmap2(NULL,168548,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fba8000</pre>
+<pre>1 mprotect(0x3fbbf000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbce000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x16) = 0x3fbce000</pre>
+<pre>1 mmap2(0x3fbd0000,4708,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fbd0000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3fba6000</pre>
+<pre>1 mprotect(0x3fd23000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fbce000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fbe3000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff63000,90112,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fd95000,20480,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffa6000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffc7000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x000a4000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fffe000,4096,PROT_READ) = 0</pre>
+<pre>1 set_tid_address(1069179000,1081281140,1081281148,1069178896,0,1069346816) = 1</pre>
+<pre>1 set_robust_list(1069179008,12,-20,1069179036,0,1069346816) = -1 errno=38 (Function not implemented)</pre>
+<pre>1 rt_sigaction(32,0x40730848,NULL) = 0</pre>
+<pre>1 rt_sigaction(33,0x40730848,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_UNBLOCK,0x40730988,NULL) = 0</pre>
+<pre>1 ugetrlimit(3,1081280892,4,1069355544,1760,1069346816) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x40730990,0x40730880) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x40730748,0x407307d4) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_BLOCK,NULL,0x3ff7a484) = 0</pre>
+<pre>--- SIGILL {si_signo=SIGILL, si_code=2, si_addr=0x3fdf21c8} ---</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x3ff7a484,NULL) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x40730748,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x40730880,NULL) = 0</pre>
+<pre>1 gettimeofday(0x4072ff68,NULL) = 0 ({tv_sec = 1673794931,tv_usec = 383094},NULL)</pre>
+<pre>1 gettimeofday(0x4072ff50,NULL) = 0 ({tv_sec = 1673794931,tv_usec = 409569},NULL)</pre>
+<pre>1 brk(NULL) = 0x000a6000</pre>
+<pre>1 brk(0x000c7000) = 0x000c7000</pre>
+<pre>1 futex(0x3ff7cc5c,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3ff7cc60,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3ff7cc64,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3ff7cb94,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 rt_sigaction(SIGINT,0x4072fd18,0x4072fda4) = 0</pre>
+<pre>1 rt_sigaction(SIGTERM,0x4072fd18,0x4072fda4) = 0</pre>
+<pre>1 rt_sigaction(SIGHUP,0x4072fd18,0x4072fda4) = 0</pre>
+<pre>1 rt_sigaction(SIGUSR1,0x4072fd18,0x4072fda4) = 0</pre>
+<pre>1 rt_sigaction(SIGUSR2,0x4072fd18,0x4072fda4) = 0</pre>
+<pre>1 rt_sigaction(SIGPIPE,0x4072fd28,0x4072fdb4) = 0</pre>
+<pre>1 fstat64(1,0x4072f480) = 0</pre>
+<pre>1 write(1,0xacd48,4096)OpenVPN 2.4.9 arm-buildroot-linux-gnueabi [SSL (OpenSSL)] [LZO] [LZ4] [EPOLL] [MH/PKTINFO] [AEAD] built on Mar  4 2022</pre>
+<br />
+<pre>General Options:</pre>
+<pre>--config file   : Read configuration options from file.</pre>
+<pre>--help          : Show options.</pre>
+<pre>--version       : Show copyright and version information.</pre>
+<br />
+<pre>Tunnel Options:</pre>
+<pre>--local host    : Local host name or ip address. Implies --bind.</pre>
+<pre>--remote host [port] : Remote host name or ip address.</pre>
+<pre>--remote-random : If multiple --remote options specified, choose one randomly.</pre>
+<pre>--remote-random-hostname : Add a random string to remote DNS name.</pre>
+<pre>--mode m        : Major mode, m = 'p2p' (default, point-to-point) or 'server'.</pre>
+<pre>--proto p       : Use protocol p for communicating with peer.</pre>
+<pre>                  p = udp (default), tcp-server, or tcp-client</pre>
+<pre>--proto-force p : only consider protocol p in list of connection profiles.</pre>
+<pre>                  p = udp6, tcp6-server, or tcp6-client (ipv6)</pre>
+<pre>--connect-retry n [m] : For client, number of seconds to wait between</pre>
+<pre>                  connection retries (default=5). On repeated retries</pre>
+<pre>                  the wait time is exponentially increased to a maximum of m</pre>
+<pre>                  (default=300).</pre>
+<pre>--connect-retry-max n : Maximum connection attempt retries, default infinite.</pre>
+<pre>--http-proxy s p [up] [auth] : Connect to remote host</pre>
+<pre>                  through an HTTP proxy at address s and port p.</pre>
+<pre>                  If proxy authentication is required,</pre>
+<pre>                  up is a file containing username/password on 2 lines, or</pre>
+<pre>                  'stdin' to prompt from console.  Add auth='ntlm' if</pre>
+<pre>                  the proxy requires NTLM authentication.</pre>
+<pre>--http-proxy s p 'auto[-nct]' : Like the above directive, but automatically</pre>
+<pre>                  determine auth method and query for username/password</pre>
+<pre>                  if needed.  auto-nct disables weak proxy auth methods.</pre>
+<pre>--http-proxy-option type [parm] : Set extended HTTP proxy options.</pre>
+<pre>                                  Repeat to set multiple options.</pre>
+<pre>                  VERSION version (default=1.0)</pre>
+<pre>                  AGENT user-agent</pre>
+<pre>--socks-proxy s [p] [up] : Connect to remote host through a Socks5 proxy at</pre>
+<pre>                  address s and port p (default port = 1080).</pre>
+<pre>                  If proxy authentication is required,</pre>
+<pre>                  up is a file containing username/password on 2 lines, or</pre>
+<pre>                  'stdin' to prompt for console.</pre>
+<pre>--socks-proxy-retry : Retry indefinitely on Socks proxy errors.</pre>
+<pre>--resolv-retry n: If hostname resolve fails for --remote, retry</pre>
+<pre>                  resolve for n seconds before failing (disabled by default).</pre>
+<pre>                  Set n="infinite" to retry indefinitely.</pre>
+<pre>--float         : Allow remote to change its IP address/port, such as through</pre>
+<pre>                  DHCP (this is the default if --remote is not used).</pre>
+<pre>--ipchange cmd  : Run command cmd on remote ip address initial</pre>
+<pre>                  setting or change -- execute as: cmd ip-address port#</pre>
+<pre>--port port     : TCP/UDP port # for both local and remote.</pre>
+<pre>--lport port    : TCP/UDP port # for local (default=1194). Implies --bind.</pre>
+<pre>--rport port    : TCP/UDP port # for remote (default=1194).</pre>
+<pre>--bind          : Bind to local address and port. (This is the default unless</pre>
+<pre>                  --proto tcp-client or --http-proxy or --socks-proxy is used).</pre>
+<pre>--nobind        : Do not bind to local address and port.</pre>
+<pre>--dev tunX|tapX : tun/tap device (X can be omitted for dynamic device.</pre>
+<pre>--dev-type dt   : Which device type are we using? (dt = tun or tap) Use</pre>
+<pre>                  this option only if the tun/tap device used with --dev</pre>
+<pre>                  does not begin with "tun" or "tap".</pre>
+<pre>--dev-node node : Explicitly set the device node rather than using</pre>
+<pre>                  /dev/net/tun, /dev/tun, /dev/tap, etc.</pre>
+<pre>--lladdr hw     : Set the link layer address of the tap device.</pre>
+<pre>--topology t    : Set --dev tun topology: 'net30', 'p2p', or 'subnet'.</pre>
+<pre>--ifconfig l rn : TUN: configure device to use IP address l as a local</pre>
+<pre>                  endpoint and rn as a remote endpoint.  l &amp; rn should be</pre>
+<pre>                  swapped on the other peer.  l &amp; rn must be private</pre>
+<pre>                  addresses o = 4096</pre>
+<pre>1 write(1,0x82be8,4096)utside of the subnets used by either peer.</pre>
+<pre>                  TAP: configure device to use IP address l as a local</pre>
+<pre>                  endpoint and rn as a subnet mask.</pre>
+<pre>--ifconfig-ipv6 l r : configure device to use IPv6 address l as local</pre>
+<pre>                      endpoint (as a /64) and r as remote endpoint</pre>
+<pre>--ifconfig-noexec : Don't actually execute ifconfig/netsh command, instead</pre>
+<pre>                    pass --ifconfig parms by environment to scripts.</pre>
+<pre>--ifconfig-nowarn : Don't warn if the --ifconfig option on this side of the</pre>
+<pre>                    connection doesn't match the remote side.</pre>
+<pre>--route network [netmask] [gateway] [metric] :</pre>
+<pre>                  Add route to routing table after connection</pre>
+<pre>                  is established.  Multiple routes can be specified.</pre>
+<pre>                  netmask default: 255.255.255.255</pre>
+<pre>                  gateway default: taken from --route-gateway or --ifconfig</pre>
+<pre>                  Specify default by leaving blank or setting to "nil".</pre>
+<pre>--route-ipv6 network/bits [gateway] [metric] :</pre>
+<pre>                  Add IPv6 route to routing table after connection</pre>
+<pre>                  is established.  Multiple routes can be specified.</pre>
+<pre>                  gateway default: taken from 'remote' in --ifconfig-ipv6</pre>
+<pre>--route-gateway gw|'dhcp' : Specify a default gateway for use with --route.</pre>
+<pre>--route-metric m : Specify a default metric for use with --route.</pre>
+<pre>--route-delay n [w] : Delay n seconds after connection initiation before</pre>
+<pre>                  adding routes (may be 0).  If not specified, routes will</pre>
+<pre>                  be added immediately after tun/tap open.  On Windows, wait</pre>
+<pre>                  up to w seconds for TUN/TAP adapter to come up.</pre>
+<pre>--route-up cmd  : Run command cmd after routes are added.</pre>
+<pre>--route-pre-down cmd : Run command cmd before routes are removed.</pre>
+<pre>--route-noexec  : Don't add routes automatically.  Instead pass routes to</pre>
+<pre>                  --route-up script using environmental variables.</pre>
+<pre>--route-nopull  : When used with --client or --pull, accept options pushed</pre>
+<pre>                  by server EXCEPT for routes and dhcp options.</pre>
+<pre>--allow-pull-fqdn : Allow client to pull DNS names from server for</pre>
+<pre>                    --ifconfig, --route, and --route-gateway.</pre>
+<pre>--redirect-gateway [flags]: Automatically execute routing</pre>
+<pre>                  commands to redirect all outgoing IP traffic through the</pre>
+<pre>                  VPN.  Add 'local' flag if both OpenVPN servers are directly</pre>
+<pre>                  connected via a common subnet, such as with WiFi.</pre>
+<pre>                  Add 'def1' flag to set default route using using 0.0.0.0/1</pre>
+<pre>                  and 128.0.0.0/1 rather than 0.0.0.0/0.  Add 'bypass-dhcp'</pre>
+<pre>                  flag to add a direct route to DHCP server, bypassing tunnel.</pre>
+<pre>                  Add 'bypass-dns' flag to similarly bypass tunnel for DNS.</pre>
+<pre>--redirect-private [flags]: Like --redirect-gateway, but omit actually changing</pre>
+<pre>                  the default gateway.  Useful when pushing private subnets.</pre>
+<pre>--client-nat snat|dnat network netmask alias : on client add 1-to-1 NAT rule.</pre>
+<pre>--push-peer-info : (client only) push client info to server.</pre>
+<pre>--setenv name value : Set a custom environmental variable to pass to script.</pre>
+<pre>--setenv FORWARD_COMPATIBLE 1 : Relax config file syntax checking to allow</pre>
+<pre>                  directives for future OpenVPN versions to be ignored.</pre>
+<pre>--ignore-unkown-option opt1 opt2 ...: Relax config file syntax. Allow</pre>
+<pre>                  these options to be ignored when unknown</pre>
+<pre>--script-security level: Where level can be:</pre>
+<pre>                  0 -- strictly no calling of external programs</pre>
+<pre>                  1 -- (default) only call built-ins such as ifconfig</pre>
+<pre>                  2 -- allow calling of built-ins and scripts</pre>
+<pre>                  3 -- allow password to be passed to scripts via env</pre>
+<pre>--shaper n      : Restrict output to peer to n bytes per second.</pre>
+<pre>--keepalive n m : Helper option for setting timeouts in server mode.  Send</pre>
+<pre>                  ping once every n seconds, restart if ping not received</pre>
+<pre>                  for m seconds.</pre>
+<pre>--inactive n [bytes] : Exit after n seconds of activity on tun/tap device</pre>
+<pre>                  produces a combined in/ou = 4096</pre>
+<pre>1 write(1,0xacd48,4096)t byte count &lt; bytes.</pre>
+<pre>--ping-exit n   : Exit if n seconds pass without reception of remote ping.</pre>
+<pre>--ping-restart n: Restart if n seconds pass without reception of remote ping.</pre>
+<pre>--ping-timer-rem: Run the --ping-exit/--ping-restart timer only if we have a</pre>
+<pre>                  remote address.</pre>
+<pre>--ping n        : Ping remote once every n seconds over TCP/UDP port.</pre>
+<pre>--multihome     : Configure a multi-homed UDP server.</pre>
+<pre>--fast-io       : (experimental) Optimize TUN/TAP/UDP writes.</pre>
+<pre>--remap-usr1 s  : On SIGUSR1 signals, remap signal (s='SIGHUP' or 'SIGTERM').</pre>
+<pre>--persist-tun   : Keep tun/tap device open across SIGUSR1 or --ping-restart.</pre>
+<pre>--persist-remote-ip : Keep remote IP address across SIGUSR1 or --ping-restart.</pre>
+<pre>--persist-local-ip  : Keep local IP address across SIGUSR1 or --ping-restart.</pre>
+<pre>--persist-key   : Don't re-read key files across SIGUSR1 or --ping-restart.</pre>
+<pre>--passtos       : TOS passthrough (applies to IPv4 only).</pre>
+<pre>--tun-mtu n     : Take the tun/tap device MTU to be n and derive the</pre>
+<pre>                  TCP/UDP MTU from it (default=1500).</pre>
+<pre>--tun-mtu-extra n : Assume that tun/tap device might return as many</pre>
+<pre>                  as n bytes more than the tun-mtu size on read</pre>
+<pre>                  (default TUN=0 TAP=32).</pre>
+<pre>--link-mtu n    : Take the TCP/UDP device MTU to be n and derive the tun MTU</pre>
+<pre>                  from it.</pre>
+<pre>--mtu-disc type : Should we do Path MTU discovery on TCP/UDP channel?</pre>
+<pre>                  'no'    -- Never send DF (Don't Fragment) frames</pre>
+<pre>                  'maybe' -- Use per-route hints</pre>
+<pre>                  'yes'   -- Always DF (Don't Fragment)</pre>
+<pre>--mtu-test      : Empirically measure and report MTU.</pre>
+<pre>--fragment max  : Enable internal datagram fragmentation so that no UDP</pre>
+<pre>                  datagrams are sent which are larger than max bytes.</pre>
+<pre>                  Adds 4 bytes of overhead per datagram.</pre>
+<pre>--mssfix [n]    : Set upper bound on TCP MSS, default = tun-mtu size</pre>
+<pre>                  or --fragment max value, whichever is lower.</pre>
+<pre>--sndbuf size   : Set the TCP/UDP send buffer size.</pre>
+<pre>--rcvbuf size   : Set the TCP/UDP receive buffer size.</pre>
+<pre>--mark value    : Mark encrypted packets being sent with value. The mark value</pre>
+<pre>                  can be matched in policy routing and packetfilter rules.</pre>
+<pre>--txqueuelen n  : Set the tun/tap TX queue length to n (Linux only).</pre>
+<pre>--memstats file : Write live usage stats to memory mapped binary file.</pre>
+<pre>--mlock         : Disable Paging -- ensures key material and tunnel</pre>
+<pre>                  data will never be written to disk.</pre>
+<pre>--up cmd        : Run command cmd after successful tun device open.</pre>
+<pre>                  Execute as: cmd tun/tap-dev tun-mtu link-mtu \</pre>
+<pre>                              ifconfig-local-ip ifconfig-remote-ip</pre>
+<pre>                  (pre --user or --group UID/GID change)</pre>
+<pre>--up-delay      : Delay tun/tap open and possible --up script execution</pre>
+<pre>                  until after TCP/UDP connection establishment with peer.</pre>
+<pre>--down cmd      : Run command cmd after tun device close.</pre>
+<pre>                  (post --user/--group UID/GID change and/or --chroot)</pre>
+<pre>                  (command parameters are same as --up option)</pre>
+<pre>--down-pre      : Run --down command before TUN/TAP close.</pre>
+<pre>--up-restart    : Run up/down commands for all restarts including those</pre>
+<pre>                  caused by --ping-restart or SIGUSR1</pre>
+<pre>--user user     : Set UID to user after initialization.</pre>
+<pre>--group group   : Set GID to group after initialization.</pre>
+<pre>--chroot dir    : Chroot to this directory after initialization.</pre>
+<pre>--cd dir        : Change to this directory before initialization.</pre>
+<pre>--daemon [name] : Become a daemon after initialization.</pre>
+<pre>                  The optional 'name' parameter will be passed</pre>
+<pre>                  as the program name to the system logger.</pre>
+<pre>--syslog [name] : Output to syslog, but do not become a daemon.</pre>
+<pre>                  See --daemon above for a description of the 'name' parm.</pre>
+<pre>--inetd [name] ['wait'|'nowait'] : Run as an inetd or xinetd server.</pre>
+<pre>                  See --daemon above for a description of the 'name' parm.</pre>
+<pre>--log file      : Output log to file which is created/truncated on open.</pre>
+<pre>--log-append file : Append log to file, or create file if nonexisten = 4096</pre>
+<pre>1 write(1,0xacd48,4096)t.</pre>
+<pre>--suppress-timestamps : Don't log timestamps to stdout/stderr.</pre>
+<pre>--machine-readable-output : Always log timestamp, message flags to stdout/stderr.</pre>
+<pre>--writepid file : Write main process ID to file.</pre>
+<pre>--nice n        : Change process priority (&gt;0 = lower, &lt;0 = higher).</pre>
+<pre>--echo [parms ...] : Echo parameters to log output.</pre>
+<pre>--verb n        : Set output verbosity to n (default=1):</pre>
+<pre>                  (Level 3 is recommended if you want a good summary</pre>
+<pre>                  of what's happening without being swamped by output).</pre>
+<pre>                : 0 -- no output except fatal errors</pre>
+<pre>                : 1 -- startup info + connection initiated messages +</pre>
+<pre>                       non-fatal encryption &amp; net errors</pre>
+<pre>                : 2,3 -- show TLS negotiations &amp; route info</pre>
+<pre>                : 4 -- show parameters</pre>
+<pre>                : 5 -- show 'RrWw' chars on console for each packet sent</pre>
+<pre>                       and received from TCP/UDP (caps) or tun/tap (lc)</pre>
+<pre>                : 6 to 11 -- debug messages of increasing verbosity</pre>
+<pre>--mute n        : Log at most n consecutive messages in the same category.</pre>
+<pre>--status file n : Write operational status to file every n seconds.</pre>
+<pre>--status-version [n] : Choose the status file format version number.</pre>
+<pre>                  Currently, n can be 1, 2, or 3 (default=1).</pre>
+<pre>--disable-occ   : Disable options consistency check between peers.</pre>
+<pre>--gremlin mask  : Special stress testing mode (for debugging only).</pre>
+<pre>--compress alg  : Use compression algorithm alg</pre>
+<pre>--comp-lzo      : Use LZO compression -- may add up to 1 byte per</pre>
+<pre>                  packet for uncompressible data.</pre>
+<pre>--comp-noadapt  : Don't use adaptive compression when --comp-lzo</pre>
+<pre>                  is specified.</pre>
+<pre>--management ip port [pass] : Enable a TCP server on ip:port to handle</pre>
+<pre>                  management functions.  pass is a password file</pre>
+<pre>                  or 'stdin' to prompt from console.</pre>
+<pre>                  To listen on a unix domain socket, specific the pathname</pre>
+<pre>                  in place of ip and use 'unix' as the port number.</pre>
+<pre>--management-client : Management interface will connect as a TCP client to</pre>
+<pre>                      ip/port rather than listen as a TCP server.</pre>
+<pre>--management-query-passwords : Query management channel for private key</pre>
+<pre>                  and auth-user-pass passwords.</pre>
+<pre>--management-query-proxy : Query management channel for proxy information.</pre>
+<pre>--management-query-remote : Query management channel for --remote directive.</pre>
+<pre>--management-hold : Start OpenVPN in a hibernating state, until a client</pre>
+<pre>                    of the management interface explicitly starts it.</pre>
+<pre>--management-signal : Issue SIGUSR1 when management disconnect event occurs.</pre>
+<pre>--management-forget-disconnect : Forget passwords when management disconnect</pre>
+<pre>                                 event occurs.</pre>
+<pre>--management-up-down : Report tunnel up/down events to management interface.</pre>
+<pre>--management-log-cache n : Cache n lines of log file history for usage</pre>
+<pre>                  by the management channel.</pre>
+<pre>--management-client-user u  : When management interface is a unix socket, only</pre>
+<pre>                              allow connections from user u.</pre>
+<pre>--management-client-group g : When management interface is a unix socket, only</pre>
+<pre>                              allow connections from group g.</pre>
+<pre>--management-client-auth : gives management interface client the responsibility</pre>
+<pre>                           to authenticate clients after their client certificate</pre>
+<pre>			      has been verified.</pre>
+<pre>--management-client-pf : management interface clients must specify a packet</pre>
+<pre>                         filter file for each connecting client.</pre>
+<br />
+<pre>Multi-Client Server options (when --mode server is used):</pre>
+<pre>--server network netmask : Helper option to easily configure server mode.</pre>
+<pre>--server-ipv6 network/bits : Configure IPv6 server mode.</pre>
+<pre>--server-bridge [IP netmask pool-start-IP pool-end-IP] : Helper option to</pre>
+<pre>                    easily configure ethernet bridging server mode.</pre>
+<pre>--push "option" : Push a config file option back to the peer for remote</pre>
+<pre>                  execution.  Peer must specify --pull in its config file.</pre>
+<pre>--push-reset    : Don't inherit global push l = 4096</pre>
+<pre>1 write(1,0x85be7,4096)ist for specific</pre>
+<pre>                  client instance.</pre>
+<pre>--ifconfig-pool start-IP end-IP [netmask] : Set aside a pool of subnets</pre>
+<pre>                  to be dynamically allocated to connecting clients.</pre>
+<pre>--ifconfig-pool-linear : (DEPRECATED) Use individual addresses rather </pre>
+<pre>                  than /30 subnets</pre>
+<pre> in tun mode.  Not compatible with</pre>
+<pre>                  Windows clients.</pre>
+<pre>--ifconfig-pool-persist file [seconds] : Persist/unpersist ifconfig-pool</pre>
+<pre>                  data to file, at seconds intervals (default=600).</pre>
+<pre>                  If seconds=0, file will be treated as read-only.</pre>
+<pre>--ifconfig-ipv6-pool base-IP/bits : set aside an IPv6 network block</pre>
+<pre>                  to be dynamically allocated to connecting clients.</pre>
+<pre>--ifconfig-push local remote-netmask : Push an ifconfig option to remote,</pre>
+<pre>                  overrides --ifconfig-pool dynamic allocation.</pre>
+<pre>                  Only valid in a client-specific config file.</pre>
+<pre>--ifconfig-ipv6-push local/bits remote : Push an ifconfig-ipv6 option to</pre>
+<pre>                  remote, overrides --ifconfig-ipv6-pool allocation.</pre>
+<pre>                  Only valid in a client-specific config file.</pre>
+<pre>--iroute network [netmask] : Route subnet to client.</pre>
+<pre>--iroute-ipv6 network/bits : Route IPv6 subnet to client.</pre>
+<pre>                  Sets up internal routes only.</pre>
+<pre>                  Only valid in a client-specific config file.</pre>
+<pre>--disable       : Client is disabled.</pre>
+<pre>                  Only valid in a client-specific config file.</pre>
+<pre>--client-cert-not-required : (DEPRECATED) Don't require client certificate, client</pre>
+<pre>                  will authenticate using username/password.</pre>
+<pre>--verify-client-cert [none|optional|require] : perform no, optional or</pre>
+<pre>                  mandatory client certificate verification.</pre>
+<pre>                  Default is to require the client to supply a certificate.</pre>
+<pre>--username-as-common-name  : For auth-user-pass authentication, use</pre>
+<pre>                  the authenticated username as the common name,</pre>
+<pre>                  rather than the common name from the client cert.</pre>
+<pre>--auth-user-pass-verify cmd method: Query client for username/password and</pre>
+<pre>                  run command cmd to verify.  If method='via-env', pass</pre>
+<pre>                  user/pass via environment, if method='via-file', pass</pre>
+<pre>                  user/pass via temporary file.</pre>
+<pre>--auth-gen-token  [lifetime] Generate a random authentication token which is pushed</pre>
+<pre>                  to each client, replacing the password.  Usefull when</pre>
+<pre>                  OTP based two-factor auth mechanisms are in use and</pre>
+<pre>                  --reneg-* options are enabled. Optionally a lifetime in seconds</pre>
+<pre>                  for generated tokens can be set.</pre>
+<pre>--opt-verify    : Clients that connect with options that are incompatible</pre>
+<pre>                  with those of the server will be disconnected.</pre>
+<pre>--auth-user-pass-optional : Allow connections by clients that don't</pre>
+<pre>                  specify a username/password.</pre>
+<pre>--no-name-remapping : (DEPRECATED) Allow Common Name and X509 Subject to include</pre>
+<pre>                      any printable character.</pre>
+<pre>--client-to-client : Internally route client-to-client traffic.</pre>
+<pre>--duplicate-cn  : Allow multiple clients with the same common name to</pre>
+<pre>                  concurrently connect.</pre>
+<pre>--client-connect cmd : Run command cmd on client connection.</pre>
+<pre>--client-disconnect cmd : Run command cmd on client disconnection.</pre>
+<pre>--client-config-dir dir : Directory for custom client config files.</pre>
+<pre>--ccd-exclusive : Refuse connection unless custom client config is found.</pre>
+<pre>--tmp-dir dir   : Temporary directory, used for --client-connect return file and plugin communication.</pre>
+<pre>--hash-size r v : Set the size of the real address hash table to r and the</pre>
+<pre>                  virtual address table to v.</pre>
+<pre>--bcast-buffers n : Allocate n broadcast buffers.</pre>
+<pre>--tcp-queue-limit n : Maximum number of queued TCP output packets.</pre>
+<pre>--tcp-nodelay   : Macro that sets TCP_NODELAY socket flag on the server</pre>
+<pre>                  as well as pushes it to connecting clients.</pre>
+<pre>--learn-address cmd : Run command cmd to validate client virtual addresses.</pre>
+<pre>--connect-freq n s : Allow a maximum of n new connections per s seconds.</pre>
+<pre>--max-clients n : Allow  = 4096</pre>
+<pre>1 write(1,0xacd48,4096)a maximum of n simultaneously connected clients.</pre>
+<pre>--max-routes-per-client n : Allow a maximum of n internal routes per client.</pre>
+<pre>--stale-routes-check n [t] : Remove routes with a last activity timestamp</pre>
+<pre>                             older than n seconds. Run this check every t</pre>
+<pre>                             seconds (defaults to n).</pre>
+<pre>--explicit-exit-notify [n] : In UDP server mode send [RESTART] command on exit/restart to connected</pre>
+<pre>                             clients. n = 1 - reconnect to same server,</pre>
+<pre>                             2 - advance to next server, default=1.</pre>
+<pre>--port-share host port [dir] : When run in TCP mode, proxy incoming HTTPS</pre>
+<pre>                  sessions to a web server at host:port.  dir specifies an</pre>
+<pre>                  optional directory to write origin IP:port data.</pre>
+<br />
+<pre>Client options (when connecting to a multi-client server):</pre>
+<pre>--client         : Helper option to easily configure client mode.</pre>
+<pre>--auth-user-pass [up] : Authenticate with server using username/password.</pre>
+<pre>                  up is a file containing the username on the first line,</pre>
+<pre>                  and a password on the second. If either the password or both</pre>
+<pre>                  the username and the password are omitted OpenVPN will prompt</pre>
+<pre>                  for them from console.</pre>
+<pre>--pull           : Accept certain config file options from the peer as if they</pre>
+<pre>                  were part of the local config file.  Must be specified</pre>
+<pre>                  when connecting to a '--mode server' remote host.</pre>
+<pre>--pull-filter accept|ignore|reject t : Filter each option received from the</pre>
+<pre>                  server if it starts with the text t. The action flag accept,</pre>
+<pre>                  ignore or reject causes the option to be allowed, removed or</pre>
+<pre>                  rejected with error. May be specified multiple times, and</pre>
+<pre>                  each filter is applied in the order of appearance.</pre>
+<pre>--auth-retry t  : How to handle auth failures.  Set t to</pre>
+<pre>                  none (default), interact, or nointeract.</pre>
+<pre>--static-challenge t e : Enable static challenge/response protocol using</pre>
+<pre>                  challenge text t, with e indicating echo flag (0|1)</pre>
+<pre>--connect-timeout n : when polling possible remote servers to connect to</pre>
+<pre>                  in a round-robin fashion, spend no more than n seconds</pre>
+<pre>                  waiting for a response before trying the next server.</pre>
+<pre>--allow-recursive-routing : When this option is set, OpenVPN will not drop</pre>
+<pre>                  incoming tun packets with same destination as host.</pre>
+<pre>--explicit-exit-notify [n] : On exit/restart, send exit signal to</pre>
+<pre>                  server/remote. n = # of retries, default=1.</pre>
+<br />
+<pre>Data Channel Encryption Options (must be compatible between peers):</pre>
+<pre>(These options are meaningful for both Static Key &amp; TLS-mode)</pre>
+<pre>--secret f [d]  : Enable Static Key encryption mode (non-TLS).</pre>
+<pre>                  Use shared secret file f, generate with --genkey.</pre>
+<pre>                  The optional d parameter controls key directionality.</pre>
+<pre>                  If d is specified, use separate keys for each</pre>
+<pre>                  direction, set d=0 on one side of the connection,</pre>
+<pre>                  and d=1 on the other side.</pre>
+<pre>--auth alg      : Authenticate packets with HMAC using message</pre>
+<pre>                  digest algorithm alg (default=SHA1).</pre>
+<pre>                  (usually adds 16 or 20 bytes per packet)</pre>
+<pre>                  Set alg=none to disable authentication.</pre>
+<pre>--cipher alg    : Encrypt packets with cipher algorithm alg</pre>
+<pre>                  (default=BF-CBC).</pre>
+<pre>                  Set alg=none to disable encryption.</pre>
+<pre>--ncp-ciphers list : List of ciphers that are allowed to be negotiated.</pre>
+<pre>--ncp-disable   : Disable cipher negotiation.</pre>
+<pre>--prng alg [nsl] : For PRNG, use digest algorithm alg, and</pre>
+<pre>                   nonce_secret_len=nsl.  Set alg=none to disable PRNG.</pre>
+<pre>--keysize n     : (DEPRECATED) Size of cipher key in bits (optional).</pre>
+<pre>                  If unspecified, defaults to cipher-specific default.</pre>
+<pre>--engine [name] : Enable OpenSSL hardware crypto engine functionality.</pre>
+<pre>--no-replay     : (DEPRECATED) Disable replay protection.</pre>
+<pre>--mute-replay-warnings : Silence the output of replay warnings to log file = 4096</pre>
+<pre>1 write(1,0xacd48,4096).</pre>
+<pre>--replay-window n [t]  : Use a replay protection sliding window of size n</pre>
+<pre>                         and a time window of t seconds.</pre>
+<pre>                         Default n=64 t=15</pre>
+<pre>--no-iv         : Disable cipher IV -- only allowed with CBC mode ciphers.</pre>
+<pre>--replay-persist file : Persist replay-protection state across sessions</pre>
+<pre>                  using file.</pre>
+<pre>--test-crypto   : Run a self-test of crypto features enabled.</pre>
+<pre>                  For debugging only.</pre>
+<br />
+<pre>TLS Key Negotiation Options:</pre>
+<pre>(These options are meaningful only for TLS-mode)</pre>
+<pre>--tls-server    : Enable TLS and assume server role during TLS handshake.</pre>
+<pre>--tls-client    : Enable TLS and assume client role during TLS handshake.</pre>
+<pre>--key-method m  : (DEPRECATED) Data channel key exchange method.  m should be a method</pre>
+<pre>                  number, such as 1 (default), 2, etc.</pre>
+<pre>--ca file       : Certificate authority file in .pem format containing</pre>
+<pre>                  root certificate.</pre>
+<pre>--capath dir    : A directory of trusted certificates (CAs and CRLs).</pre>
+<pre>--dh file       : File containing Diffie Hellman parameters</pre>
+<pre>                  in .pem format (for --tls-server only).</pre>
+<pre>                  Use "openssl dhparam -out dh1024.pem 1024" to generate.</pre>
+<pre>--cert file     : Local certificate in .pem format -- must be signed</pre>
+<pre>                  by a Certificate Authority in --ca file.</pre>
+<pre>--extra-certs file : one or more PEM certs that complete the cert chain.</pre>
+<pre>--key file      : Local private key in .pem format.</pre>
+<pre>--tls-version-min &lt;version&gt; ['or-highest'] : sets the minimum TLS version we</pre>
+<pre>    will accept from the peer.  If version is unrecognized and 'or-highest'</pre>
+<pre>    is specified, require max TLS version supported by SSL implementation.</pre>
+<pre>--tls-version-max &lt;version&gt; : sets the maximum TLS version we will use.</pre>
+<pre>--pkcs12 file   : PKCS#12 file containing local private key, local certificate</pre>
+<pre>                  and optionally the root CA certificate.</pre>
+<pre>--verify-hash hash [algo] : Specify fingerprint for level-1 certificate.</pre>
+<pre>                            Valid algo flags are SHA1 and SHA256. </pre>
+<pre>--tls-cipher l  : A list l of allowable TLS ciphers separated by : (optional).</pre>
+<pre>                : Use --show-tls to see a list of supported TLS ciphers.</pre>
+<pre>--tls-cert-profile p : Set the allowed certificate crypto algorithm profile</pre>
+<pre>                  (default=legacy).</pre>
+<pre>--tls-timeout n : Packet retransmit timeout on TLS control channel</pre>
+<pre>                  if no ACK from remote within n seconds (default=2).</pre>
+<pre>--reneg-bytes n : Renegotiate data chan. key after n bytes sent and recvd.</pre>
+<pre>--reneg-pkts n  : Renegotiate data chan. key after n packets sent and recvd.</pre>
+<pre>--reneg-sec n   : Renegotiate data chan. key after n seconds (default=3600).</pre>
+<pre>--hand-window n : Data channel key exchange must finalize within n seconds</pre>
+<pre>                  of handshake initiation by any peer (default=60).</pre>
+<pre>--tran-window n : Transition window -- old key can live this many seconds</pre>
+<pre>                  after new key renegotiation begins (default=3600).</pre>
+<pre>--single-session: Allow only one session (reset state on restart).</pre>
+<pre>--tls-exit      : Exit on TLS negotiation failure.</pre>
+<pre>--tls-auth f [d]: Add an additional layer of authentication on top of the TLS</pre>
+<pre>                  control channel to protect against attacks on the TLS stack</pre>
+<pre>                  and DoS attacks.</pre>
+<pre>                  f (required) is a shared-secret key file.</pre>
+<pre>                  The optional d parameter controls key directionality,</pre>
+<pre>                  see --secret option for more info.</pre>
+<pre>--tls-crypt key : Add an additional layer of authenticated encryption on top</pre>
+<pre>                  of the TLS control channel to hide the TLS certificate,</pre>
+<pre>                  provide basic post-quantum security and protect against</pre>
+<pre>                  attacks on the TLS stack and DoS attacks.</pre>
+<pre>                  key (required) provides the pre-shared key file.</pre>
+<pre>                  see --secret option for more info.</pre>
+<pre>--askpass [file]: Get PEM password from controlling tty before we daemonize.</pre>
+<pre>--auth-nocache  : Don't cache --askpass or --auth-user-pass passwords.</pre>
+<pre>--crl-verify crl ['dir']: Check peer certificate against a CRL.</pre>
+<pre>--tls-verify cmd: Run command cmd to verify the  = 4096</pre>
+<pre>1 write(1,0xacd48,2765)X509 name of a</pre>
+<pre>                  pending TLS connection that has otherwise passed all other</pre>
+<pre>                  tests of certification.  cmd should return 0 to allow</pre>
+<pre>                  TLS handshake to proceed, or 1 to fail.  (cmd is</pre>
+<pre>                  executed as 'cmd certificate_depth subject')</pre>
+<pre>--tls-export-cert [directory] : Get peer cert in PEM format and store it </pre>
+<pre>                  in an openvpn temporary file in [directory]. Peer cert is </pre>
+<pre>                  stored before tls-verify script execution and deleted after.</pre>
+<pre>--verify-x509-name name: Accept connections only from a host with X509 subject</pre>
+<pre>                  DN name. The remote host must also pass all other tests</pre>
+<pre>                  of verification.</pre>
+<pre>--ns-cert-type t: (DEPRECATED) Require that peer certificate was signed with </pre>
+<pre>                  an explicit nsCertType designation t = 'client' | 'server'.</pre>
+<pre>--x509-track x  : Save peer X509 attribute x in environment for use by</pre>
+<pre>                  plugins and management interface.</pre>
+<pre>--keying-material-exporter label len : Save Exported Keying Material (RFC5705)</pre>
+<pre>                  of len bytes (min. 16 bytes) using label in environment for use by plugins.</pre>
+<pre>--remote-cert-ku v ... : Require that the peer certificate was signed with</pre>
+<pre>                  explicit key usage, you can specify more than one value.</pre>
+<pre>                  value should be given in hex format.</pre>
+<pre>--remote-cert-eku oid : Require that the peer certificate was signed with</pre>
+<pre>                  explicit extended key usage. Extended key usage can be encoded</pre>
+<pre>                  as an object identifier or OpenSSL string representation.</pre>
+<pre>--remote-cert-tls t: Require that peer certificate was signed with explicit</pre>
+<pre>                  key usage and extended key usage based on RFC3280 TLS rules.</pre>
+<pre>                  t = 'client' | 'server'.</pre>
+<br />
+<pre>SSL Library information:</pre>
+<pre>--show-ciphers  : Show cipher algorithms to use with --cipher option.</pre>
+<pre>--show-digests  : Show message digest algorithms to use with --auth option.</pre>
+<pre>--show-engines  : Show hardware crypto accelerator engines (if available).</pre>
+<pre>--show-tls      : Show all TLS ciphers (TLS used only as a control channel).</pre>
+<br />
+<pre>Generate a random key (only for non-TLS static key encryption mode):</pre>
+<pre>--genkey        : Generate a random key to be used as a shared secret,</pre>
+<pre>                  for use with the --secret option.</pre>
+<pre>--secret file   : Write key to file.</pre>
+<br />
+<pre>Tun/tap config mode (available with linux 2.4+):</pre>
+<pre>--mktun         : Create a persistent tunnel.</pre>
+<pre>--rmtun         : Remove a persistent tunnel.</pre>
+<pre>--dev tunX|tapX : tun/tap device</pre>
+<pre>--dev-type dt   : Device type.  See tunnel options above for details.</pre>
+<pre>--user user     : User to set privilege to.</pre>
+<pre>--group group   : Group to set privilege to.</pre>
+<br />
+<pre>General Standalone Options:</pre>
+<pre>--show-gateway : Show info about default gateway.</pre>
+<pre> = 2765</pre>
+<pre>1 exit_group(1)</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Identification of missing filesytem areas.</pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libc.so.6</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcrypto.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/liblzo2.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libpthread.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libresolv.so.2</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libssl.so.1.1</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/gpl/lib/vfp/</span></pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

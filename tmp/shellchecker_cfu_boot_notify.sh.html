@@ -1,0 +1,61 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 3:</span></pre>
+<pre></span>    internet_status="`getdb -s`"</span></pre>
+<pre><span class="green">                     ^--------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    internet_status="$(getdb -s)"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 4:</span></pre>
+<pre></span>    routerMode="`getdb -r`"</span></pre>
+<pre><span class="green">                ^--------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    routerMode="$(getdb -r)"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 9:</span></pre>
+<pre></span>        if [ $internet_status == "up" ] || [ -e /tmp/Wan_Online ]; then</span></pre>
+<pre><span class="green">             ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                              ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        if [ "$internet_status" == "up" ] || [ -e /tmp/Wan_Online ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 12:</span></pre>
+<pre></span>        echo -e "\033[35m wait internet ready in $routerMode mode, try $i !! \033[0m" &gt; /dev/console</span></pre>
+<pre><span class="orange">             ^-- SC3037 (warning): In POSIX sh, echo flags are undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 14:</span></pre>
+<pre></span>        internet_status="`getdb -s`"</span></pre>
+<pre><span class="green">                         ^--------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        internet_status="$(getdb -s)"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 16:</span></pre>
+<pre></span>    if [ $internet_status == "up" ] || [ -e /tmp/Wan_Online ]; then</span></pre>
+<pre><span class="green">         ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                          ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "$internet_status" == "up" ] || [ -e /tmp/Wan_Online ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 18:</span></pre>
+<pre></span>        echo -e "\033[35m CFU boot notify!! \033[0m" &gt; /dev/console</span></pre>
+<pre><span class="orange">             ^-- SC3037 (warning): In POSIX sh, echo flags are undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/bin/cfu_boot_notify.sh line 21:</span></pre>
+<pre></span>        echo -e "\033[35m AutoFW check at system bootup!! \033[0m" &gt; /dev/console</span></pre>
+<pre><span class="orange">             ^-- SC3037 (warning): In POSIX sh, echo flags are undefined.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3037" title="https://www.shellcheck.net/wiki/SC3037" target="_blank" >https://www.shellcheck.net/wiki/SC3037</a> -- In POSIX sh, echo flags are undef...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>

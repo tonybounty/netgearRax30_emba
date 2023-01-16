@@ -1,0 +1,266 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 25:</span></pre>
+<pre></span>	local part=$1</span></pre>
+<pre><span class="orange">        ^--------^ SC3043 (warning): In POSIX sh, 'local' is undefined.</span></pre>
+<pre><span class="green">                   ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	local part="$1"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 26:</span></pre>
+<pre></span>	if MTD=`grep $part /proc/mtd`; then</span></pre>
+<pre><span class="green">               ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                     ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	if MTD=$(grep "$part" /proc/mtd); then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 27:</span></pre>
+<pre></span>		MTD=${MTD/mtd/}; # replace "mtd" with nothing</span></pre>
+<pre><span class="orange">                    ^---------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 28:</span></pre>
+<pre></span>		MTD=${MTD/:*/}; # replace ":*" (trailing) with nothing</span></pre>
+<pre><span class="orange">                    ^--------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 37:</span></pre>
+<pre></span>	if [ "$?" == "0" ] &amp;&amp; [ "$MTD" != "" ]; then</span></pre>
+<pre><span class="green">             ^--^ SC2181 (style): Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.</span></pre>
+<pre><span class="orange">                  ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 40:</span></pre>
+<pre></span>		ubiattach -m $MTD || error_exit "$0: ubiattach failed"</span></pre>
+<pre><span class="green">                             ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		ubiattach -m "$MTD" || error_exit "$0: ubiattach failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 41:</span></pre>
+<pre></span>		if [ ! -d $MOUNT_DIR ]; then</span></pre>
+<pre><span class="green">                          ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		if [ ! -d "$MOUNT_DIR" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 43:</span></pre>
+<pre></span>			mkdir -p $MOUNT_DIR || error_exit "$0: mkdir failed"</span></pre>
+<pre><span class="green">                                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			mkdir -p "$MOUNT_DIR" || error_exit "$0: mkdir failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 47:</span></pre>
+<pre></span>		UBI=`grep -l $MTD /sys/class/ubi/*/mtd_num`</span></pre>
+<pre><span class="green">                    ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                             ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		UBI=$(grep -l "$MTD" /sys/class/ubi/*/mtd_num)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 48:</span></pre>
+<pre></span>		UBI=${UBI/\/mtd_num/}; # remove "/mtd_num" from the path</span></pre>
+<pre><span class="orange">                    ^---------------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 49:</span></pre>
+<pre></span>		UBI=${UBI/\/sys\/class\/ubi\//}; # remove "/sys/class/ubi/" from the path</span></pre>
+<pre><span class="orange">                    ^-------------------------^ SC3060 (warning): In POSIX sh, string replacement is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 51:</span></pre>
+<pre></span>		mount -t ubifs $UBI:$DM_UBI_VOLUME $MOUNT_DIR</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                   ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		mount -t ubifs "$UBI":$DM_UBI_VOLUME "$MOUNT_DIR"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 53:</span></pre>
+<pre></span>		if [ "$?" != "0" ]; then</span></pre>
+<pre><span class="green">                     ^--^ SC2181 (style): Check exit code directly with e.g. 'if ! mycmd;', not indirectly with $?.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 54:</span></pre>
+<pre></span>			ubidetach -m $MTD</span></pre>
+<pre><span class="green">                                     ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ubidetach -m "$MTD"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 57:</span></pre>
+<pre></span>			ubiformat -y /dev/mtd$MTD || error_exit "$0: ubiformat failed"</span></pre>
+<pre><span class="green">                                             ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ubiformat -y /dev/mtd"$MTD" || error_exit "$0: ubiformat failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 58:</span></pre>
+<pre></span>			ubiattach -m $MTD || error_exit "$0: ubiattach failed"</span></pre>
+<pre><span class="green">                                     ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ubiattach -m "$MTD" || error_exit "$0: ubiattach failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 61:</span></pre>
+<pre></span>			[ -e $DEV ] || error_exit "$0: device node '$DEV' does not exist."</span></pre>
+<pre><span class="green">                             ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			[ -e "$DEV" ] || error_exit "$0: device node '$DEV' does not exist."</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 63:</span></pre>
+<pre></span>			ubimkvol $DEV --name=$DM_UBI_VOLUME --type=dynamic --maxavsize || error_exit "$0: ubimkvol failed"</span></pre>
+<pre><span class="green">                                 ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ubimkvol "$DEV" --name=$DM_UBI_VOLUME --type=dynamic --maxavsize || error_exit "$0: ubimkvol failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 65:</span></pre>
+<pre></span>			mount -t ubifs $UBI:$DM_UBI_VOLUME $MOUNT_DIR || error_exit "$0: mount failed"</span></pre>
+<pre><span class="green">                                       ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                           ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			mount -t ubifs "$UBI":$DM_UBI_VOLUME "$MOUNT_DIR" || error_exit "$0: mount failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 91:</span></pre>
+<pre></span>	if [ -L $DEV ]; then</span></pre>
+<pre><span class="green">                ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	if [ -L "$DEV" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 92:</span></pre>
+<pre></span>		if [ ! -d $MOUNT_DIR ]; then</span></pre>
+<pre><span class="green">                          ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		if [ ! -d "$MOUNT_DIR" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 94:</span></pre>
+<pre></span>			mkdir -p $MOUNT_DIR || error_exit "$0: mkdir failed"</span></pre>
+<pre><span class="green">                                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			mkdir -p "$MOUNT_DIR" || error_exit "$0: mkdir failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 99:</span></pre>
+<pre></span>		mount -t $FSTYPE $DEV $MOUNT_DIR -rw</span></pre>
+<pre><span class="green">                         ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                 ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                      ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		mount -t "$FSTYPE" "$DEV" "$MOUNT_DIR" -rw</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 101:</span></pre>
+<pre></span>		if [ ! $? -eq 0 ]; then</span></pre>
+<pre><span class="green">                       ^-- SC2181 (style): Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 103:</span></pre>
+<pre></span>			mke2fs -t $FSTYPE -F $DEV</span></pre>
+<pre><span class="green">                                  ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                             ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			mke2fs -t "$FSTYPE" -F "$DEV"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 106:</span></pre>
+<pre></span>			mount -t $FSTYPE $DEV $MOUNT_DIR -rw || error_exit "$0: mount failed"</span></pre>
+<pre><span class="green">                                 ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                         ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                              ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			mount -t "$FSTYPE" "$DEV" "$MOUNT_DIR" -rw || error_exit "$0: mount failed"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 127:</span></pre>
+<pre></span>	if [ "$FLASHTYPE" == "NAND" ]; then</span></pre>
+<pre><span class="orange">                          ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 139:</span></pre>
+<pre></span>	umount $UMOUNT_DIR</span></pre>
+<pre><span class="green">               ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	umount "$UMOUNT_DIR"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 141:</span></pre>
+<pre></span>	if [ "$FLASHTYPE" == "NAND" ]; then</span></pre>
+<pre><span class="orange">                          ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 143:</span></pre>
+<pre></span>		if [ "$?" == "0" ] &amp;&amp; [ "$MTD" != "" ]; then</span></pre>
+<pre><span class="green">                     ^--^ SC2181 (style): Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.</span></pre>
+<pre><span class="orange">                          ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 145:</span></pre>
+<pre></span>			ubidetach -m $MTD</span></pre>
+<pre><span class="green">                                     ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ubidetach -m "$MTD"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 164:</span></pre>
+<pre></span>if [ /dev/root -ef /dev/rootfs1 ] || [ /dev/root -ef /dev/rootfs2 ]; then</span></pre>
+<pre><span class="orange">               ^-^ SC3013 (warning): In POSIX sh, -ef is undefined.</span></pre>
+<pre><span class="orange">                                                 ^-^ SC3013 (warning): In POSIX sh, -ef is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 167:</span></pre>
+<pre></span>elif [ /dev/root -ef /dev/mtdblock0 ]; then </span></pre>
+<pre><span class="orange">                 ^-^ SC3013 (warning): In POSIX sh, -ef is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 174:</span></pre>
+<pre></span>if [ "$FLASHTYPE" == "" ] || [ "$FLASHTYPE" == "NOR" ]; then</span></pre>
+<pre><span class="orange">                  ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<pre><span class="orange">                                            ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 179:</span></pre>
+<pre></span>if [ ! -z "$UMOUNT_PART" ]; then</span></pre>
+<pre><span class="green">     ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 183:</span></pre>
+<pre></span>if [ ! -z "$PARTITION" ] &amp;&amp; [ "$PARTITION" != "" ]; then</span></pre>
+<pre><span class="green">     ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/hnddm.sh line 184:</span></pre>
+<pre></span>	if [ ! -z "$MOUNT_DIR" ] &amp;&amp; [ "$MOUNT_DIR" != "" ]; then</span></pre>
+<pre><span class="green">             ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3013" title="https://www.shellcheck.net/wiki/SC3013" target="_blank" >https://www.shellcheck.net/wiki/SC3013</a> -- In POSIX sh, -ef is undefined.</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3043" title="https://www.shellcheck.net/wiki/SC3043" target="_blank" >https://www.shellcheck.net/wiki/SC3043</a> -- In POSIX sh, 'local' is undefined.</pre>

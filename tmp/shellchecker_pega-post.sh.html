@@ -1,0 +1,79 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 40:</span></pre>
+<pre></span>        USBPATH=`mount | grep 'mnt/disk' | awk '{print $3}'`</span></pre>
+<pre><span class="green">                ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        USBPATH=$(mount | grep 'mnt/disk' | awk '{print $3}')</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 45:</span></pre>
+<pre></span>        AllLed_Status="`getdb -g Device.X_PEGATRON_COM_DeviceInfo.AllLedOnOff`"</span></pre>
+<pre><span class="green">                       ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        AllLed_Status="$(getdb -g Device.X_PEGATRON_COM_DeviceInfo.AllLedOnOff)"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 46:</span></pre>
+<pre></span>        echo "AllLed_Status = " ${AllLed_Status}</span></pre>
+<pre><span class="green">                                ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        echo "AllLed_Status = " "${AllLed_Status}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 47:</span></pre>
+<pre></span>        if [ ${AllLed_Status} = "0" ]; then</span></pre>
+<pre><span class="green">             ^--------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        if [ "${AllLed_Status}" = "0" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 64:</span></pre>
+<pre></span>	country_code=`nvram get wl0_country_code`</span></pre>
+<pre><span class="green">                     ^--------------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	country_code=$(nvram get wl0_country_code)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 65:</span></pre>
+<pre></span>	country_rev=`nvram get wl0_country_rev`</span></pre>
+<pre><span class="green">                    ^-------------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	country_rev=$(nvram get wl0_country_rev)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 66:</span></pre>
+<pre></span>	if [ $country_code == "US" ] &amp;&amp; [ $country_rev != "657" ]; then</span></pre>
+<pre><span class="green">             ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                           ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<pre><span class="green">                                          ^----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	if [ "$country_code" == "US" ] &amp;&amp; [ "$country_rev" != "657" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 76:</span></pre>
+<pre></span>	bss_maxassoc=`nvram get wl0_bss_maxassoc`</span></pre>
+<pre><span class="green">                     ^--------------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	bss_maxassoc=$(nvram get wl0_bss_maxassoc)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-post.sh line 77:</span></pre>
+<pre></span>	if [ $bss_maxassoc == "64" ]; then</span></pre>
+<pre><span class="green">             ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                           ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	if [ "$bss_maxassoc" == "64" ]; then</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2006" title="https://www.shellcheck.net/wiki/SC2006" target="_blank" >https://www.shellcheck.net/wiki/SC2006</a> -- Use $(...) notation instead of le...</pre>

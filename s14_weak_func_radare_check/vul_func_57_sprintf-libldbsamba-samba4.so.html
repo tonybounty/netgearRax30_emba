@@ -1,0 +1,1117 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s14_weak_func_radare_check.html" title="./../s14_weak_func_radare_check.html" >&laquo; Back to s14_weak_func_radare_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libldbsamba-samba4.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="green">Full RELRO   </span>   <span class="green">Canary found   </span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> tear down of </span><span class="orange">libldbsamba-samba4.so</span></pre>
+<br />
+<pre>mov r1, sb</pre>
+<pre>mov r0, r6</pre>
+<pre>bl sym.imp.__strncpy_chk</pre>
+<pre>ldr r1, [0x00007598]</pre>
+<pre>add r3, sp, 0x58</pre>
+<pre>add r2, r3, r4</pre>
+<pre>mov r4, 0</pre>
+<pre>strb r4, [r2, -0x44]</pre>
+<pre>add r3, sp, 0xc</pre>
+<pre>add r2, sp, 0x10</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r6</pre>
+<pre>bl sym.imp.__isoc99_sscanf</pre>
+<pre>cmp r0, 2</pre>
+<pre>bne 0x74d4</pre>
+<pre>ldr r1, [0x0000759c]</pre>
+<pre>mov r0, r8</pre>
+<pre>ldr r2, [sp, 0x10]</pre>
+<pre>ldr r3, [sp, 0xc]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>cmp r0, r4</pre>
+<pre>str r0, [r5]</pre>
+<pre>--</pre>
+<pre>bl sym.imp.ldb_dn_from_ldb_val</pre>
+<pre>mov r5, r0</pre>
+<pre>bl sym.imp.ldb_dn_validate</pre>
+<pre>cmp r0, 0</pre>
+<pre>moveq r4, 0x22</pre>
+<pre>beq 0x7748</pre>
+<pre>mov r0, r7</pre>
+<pre>bl sym.imp.dsdb_dn_is_deleted_val</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x7750</pre>
+<pre>mov r0, r7</pre>
+<pre>bl sym.imp.dsdb_dn_val_rmd_flags</pre>
+<pre>mov r7, r0</pre>
+<pre>mov r0, r5</pre>
+<pre>bl sym.imp.ldb_dn_get_casefold</pre>
+<pre>ldr r1, [0x00007760]</pre>
+<pre>mov r3, r0</pre>
+<pre>mov r2, r7</pre>
+<pre>mov r0, r6</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>str r0, [r4]</pre>
+<pre>ldr r0, [r4]</pre>
+<pre>--</pre>
+<pre>mov r7, r1</pre>
+<pre>ldr r1, [0x0000899c]</pre>
+<pre>mov r5, r3</pre>
+<pre>ldr r3, [0x000089a0]</pre>
+<pre>sub sp, sp, 0x1c</pre>
+<pre>mov r6, r0</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r2</pre>
+<pre>ldr r3, [r1, r3]</pre>
+<pre>add r1, sp, 8</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>str r3, [sp, 0x14]</pre>
+<pre>mov r3, 0</pre>
+<pre>bl 0x7148</pre>
+<pre>subs r4, r0, 0</pre>
+<pre>bne 0x8960</pre>
+<pre>ldr r1, [0x000089a4]</pre>
+<pre>mov r0, r7</pre>
+<pre>ldrd r2, r3, [sp, 8]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>cmp r0, 0</pre>
+<pre>str r0, [r5]</pre>
+<pre>--</pre>
+<pre>mov r7, r1</pre>
+<pre>ldr r1, [0x00008a88]</pre>
+<pre>mov r5, r3</pre>
+<pre>ldr r3, [0x00008a8c]</pre>
+<pre>sub sp, sp, 0x1c</pre>
+<pre>mov r6, r0</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r2</pre>
+<pre>ldr r3, [r1, r3]</pre>
+<pre>add r1, sp, 8</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>str r3, [sp, 0x14]</pre>
+<pre>mov r3, 0</pre>
+<pre>bl 0x7148</pre>
+<pre>subs r4, r0, 0</pre>
+<pre>bne 0x8a4c</pre>
+<pre>ldr r1, [0x00008a90]</pre>
+<pre>mov r0, r7</pre>
+<pre>ldrd r2, r3, [sp, 8]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>cmp r0, 0</pre>
+<pre>str r0, [r5]</pre>
+<pre>--</pre>
+<pre>mov r7, r1</pre>
+<pre>ldr r1, [0x00008b74]</pre>
+<pre>mov r5, r3</pre>
+<pre>ldr r3, [0x00008b78]</pre>
+<pre>sub sp, sp, 0x14</pre>
+<pre>mov r6, r0</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r2</pre>
+<pre>ldr r3, [r1, r3]</pre>
+<pre>add r1, sp, 8</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>str r3, [sp, 0xc]</pre>
+<pre>mov r3, 0</pre>
+<pre>bl 0x72c8</pre>
+<pre>subs r4, r0, 0</pre>
+<pre>bne 0x8b38</pre>
+<pre>ldr r1, [0x00008b7c]</pre>
+<pre>mov r0, r7</pre>
+<pre>ldr r2, [sp, 8]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>cmp r0, 0</pre>
+<pre>str r0, [r5]</pre>
+<pre>--</pre>
+<pre>cmp r6, r3</pre>
+<pre>blo 0x9068</pre>
+<pre>ldr r1, [0x000091a0]</pre>
+<pre>mov r0, r4</pre>
+<pre>add r4, sp, 0x18</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp._talloc_free</pre>
+<pre>mov r1, r5</pre>
+<pre>mov r0, r4</pre>
+<pre>bl sym.imp.data_blob_string_const</pre>
+<pre>ldm r4, {r0, r1}</pre>
+<pre>stm r8, {r0, r1}</pre>
+<pre>mov r0, 0</pre>
+<pre>b 0x8f84</pre>
+<pre>mov r3, 0</pre>
+<pre>cmp r6, r3</pre>
+<pre>str r3, [sp, 0x20]</pre>
+<pre>beq 0x9088</pre>
+<pre>mov r0, r5</pre>
+<pre>ldr r1, [sp, 0x10]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov r5, r0</pre>
+<pre>mov sb, 0xc</pre>
+<pre>--</pre>
+<pre>add r2, pc, r2</pre>
+<pre>bl sym.imp.dbghdrclass</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x9110</pre>
+<pre>ldr r3, [r4, 0xc]</pre>
+<pre>ldr r0, [0x000091b0]</pre>
+<pre>ldr r1, [r3, sb]</pre>
+<pre>add r0, pc, r0</pre>
+<pre>bl sym.imp.dbgtext</pre>
+<pre>ldr r1, [0x000091b4]</pre>
+<pre>mov r0, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp._talloc_free</pre>
+<pre>mvn r0, 0</pre>
+<pre>b 0x8f84</pre>
+<pre>ldr r2, [r4, 0xc]</pre>
+<pre>mov r1, sl</pre>
+<pre>ldr r3, [sp, 0x20]</pre>
+<pre>mov r0, r5</pre>
+<pre>ldr r2, [r2, sb]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov r1, fp</pre>
+<pre>mov r5, r0</pre>
+<pre>--</pre>
+<pre>mov r0, r8</pre>
+<pre>ldr r2, [r2, r4, lsl 2]</pre>
+<pre>bl 0x6580</pre>
+<pre>subs r1, r0, 0</pre>
+<pre>beq 0xe31c</pre>
+<pre>ldr r2, [sp]</pre>
+<pre>ldr r3, [fp, 4]</pre>
+<pre>str r1, [sp, 4]</pre>
+<pre>ldr r3, [r3, r2]</pre>
+<pre>ldr r0, [r3]</pre>
+<pre>bl sym.imp.ldb_dn_get_linearized</pre>
+<pre>ldr r1, [sp, 4]</pre>
+<pre>mov r4, r0</pre>
+<pre>mov r0, r1</pre>
+<pre>bl sym.imp.win_errstr</pre>
+<pre>ldr r1, [0x0000e32c]</pre>
+<pre>mov r3, r0</pre>
+<pre>mov r2, r4</pre>
+<pre>mov r0, r7</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r3, [sp, 0x30]</pre>
+<pre>str r0, [r3]</pre>
+<pre>--</pre>
+<pre>add sl, pc, sl</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>str r3, [sp, 0x24]</pre>
+<pre>mov r3, 0</pre>
+<pre>bl sym.imp.ldb_get_opaque</pre>
+<pre>ldr r2, [0x0000e810]</pre>
+<pre>mov sb, r0</pre>
+<pre>mov r1, 0</pre>
+<pre>mov r0, r5</pre>
+<pre>add r2, pc, r2</pre>
+<pre>bl sym.imp.talloc_named_const</pre>
+<pre>subs r6, r0, 0</pre>
+<pre>bne 0xe430</pre>
+<pre>ldr r4, [0x0000e814]</pre>
+<pre>mov r3, 0x3c0</pre>
+<pre>ldr r1, [0x0000e818]</pre>
+<pre>mov r0, r5</pre>
+<pre>add r4, pc, r4</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r2, [0x0000e81c]</pre>
+<pre>movw r3, 0x3c1</pre>
+<pre>--</pre>
+<pre>mov r8, r0</pre>
+<pre>ldr r2, [0x0000e820]</pre>
+<pre>ldr r3, [0x0000e808]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r3, [r2, r3]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre>ldr r3, [sp, 0x24]</pre>
+<pre>eors r2, r3, r2</pre>
+<pre>beq 0xe7f4</pre>
+<pre>bl sym.imp.__stack_chk_fail</pre>
+<pre>bl 0x652c</pre>
+<pre>subs r4, r0, 0</pre>
+<pre>bne 0xe488</pre>
+<pre>ldr r4, [0x0000e824]</pre>
+<pre>movw r3, 0x3c6</pre>
+<pre>ldr r1, [0x0000e828]</pre>
+<pre>mov r0, r5</pre>
+<pre>add r4, pc, r4</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r1, [0x0000e82c]</pre>
+<pre>str r0, [r8]</pre>
+<pre>--</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp._talloc_get_type_abort</pre>
+<pre>ldr r3, [0x0000e83c]</pre>
+<pre>mov r1, 0</pre>
+<pre>ldr r2, [0x0000e840]</pre>
+<pre>str r1, [sp]</pre>
+<pre>add r3, pc, r3</pre>
+<pre>add r2, pc, r2</pre>
+<pre>bl sym.imp.lpcfg_parm_bool</pre>
+<pre>strb r0, [r4, 0x51]</pre>
+<pre>ldr r1, [0x0000e844]</pre>
+<pre>mov r0, fp</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp.ldb_msg_find_ldb_val</pre>
+<pre>subs r3, r0, 0</pre>
+<pre>str r3, [sp, 8]</pre>
+<pre>bne 0xe564</pre>
+<pre>ldr r1, [0x0000e848]</pre>
+<pre>mov r0, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r3, [0x0000e84c]</pre>
+<pre>str r0, [r8]</pre>
+<pre>--</pre>
+<pre>b 0xe40c</pre>
+<pre>ldr r1, [0x0000e860]</pre>
+<pre>mov r0, fp</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp.ldb_msg_find_ldb_val</pre>
+<pre>subs sb, r0, 0</pre>
+<pre>bne 0xe638</pre>
+<pre>add r1, sp, 0x1c</pre>
+<pre>mov r0, r5</pre>
+<pre>str r1, [sp, 0x14]</pre>
+<pre>bl 0x63ac</pre>
+<pre>ldr r1, [sp, 0x14]</pre>
+<pre>cmp r0, 0</pre>
+<pre>moveq sb, r1</pre>
+<pre>beq 0xe638</pre>
+<pre>bl sym.imp.win_errstr</pre>
+<pre>ldr r1, [0x0000e864]</pre>
+<pre>mov r2, r0</pre>
+<pre>mov r0, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r3, [0x0000e84c]</pre>
+<pre>str r0, [r8]</pre>
+<pre>--</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp._talloc_free</pre>
+<pre>movw r3, 0x3e3</pre>
+<pre>ldr r2, [0x0000e878]</pre>
+<pre>str r3, [sp]</pre>
+<pre>ldr r3, [0x0000e87c]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>add r3, pc, r3</pre>
+<pre>b 0xe3fc</pre>
+<pre>ldr r1, [sp, 8]</pre>
+<pre>mov r2, sb</pre>
+<pre>mov r0, r4</pre>
+<pre>bl 0x6d48</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0xe6cc</pre>
+<pre>bl sym.imp.win_errstr</pre>
+<pre>ldr r1, [0x0000e880]</pre>
+<pre>mov r2, r0</pre>
+<pre>mov r0, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r3, [0x0000e84c]</pre>
+<pre>str r0, [r8]</pre>
+<pre>--</pre>
+<pre>add r2, pc, r2</pre>
+<pre>add r3, pc, r3</pre>
+<pre>b 0x11220</pre>
+<pre>ldr r1, [sb, 0xc]</pre>
+<pre>lsl r2, sl, 3</pre>
+<pre>ldr r0, [sp, 0xc]</pre>
+<pre>str r2, [sp, 0x18]</pre>
+<pre>add r1, r1, sl, lsl 3</pre>
+<pre>bl 0x6c70</pre>
+<pre>cmp r0, 0</pre>
+<pre>ldr r2, [sp, 0x18]</pre>
+<pre>str r0, [r5, 8]</pre>
+<pre>bne 0x1131c</pre>
+<pre>ldr r3, [sb, 0xc]</pre>
+<pre>mov r0, r8</pre>
+<pre>add r1, r3, r2</pre>
+<pre>ldr r3, [r3, r2]</pre>
+<pre>ldr r2, [r1, 4]</pre>
+<pre>ldr r1, [0x00011780]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.ldb_asprintf_errstring</span></pre>
+<pre>ldr r1, [0x00011784]</pre>
+<pre>add r1, pc, r1</pre>
+<pre>--</pre>
+<pre>ldr r2, [0x00011788]</pre>
+<pre>ldr r3, [0x0001175c]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r3, [r2, r3]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre>ldr r3, [sp, 0x2c]</pre>
+<pre>eors r2, r3, r2</pre>
+<pre>bne 0x11204</pre>
+<pre>add sp, sp, 0x34</pre>
+<pre>pop {r4, r5, r6, r7, r8, sb, sl, fp, pc}</pre>
+<pre>ldrb r1, [r0, 0x95]</pre>
+<pre>cmp r1, 0</pre>
+<pre>beq 0x11354</pre>
+<pre>ldr r3, [sb, 0xc]</pre>
+<pre>mov r0, r8</pre>
+<pre>add r1, r3, r2</pre>
+<pre>ldr r3, [r3, r2]</pre>
+<pre>ldr r2, [r1, 4]</pre>
+<pre>ldr r1, [0x0001178c]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.ldb_asprintf_errstring</span></pre>
+<pre>ldr r1, [0x00011790]</pre>
+<pre>add r1, pc, r1</pre>
+<pre>--</pre>
+<pre>mov r0, 0</pre>
+<pre>ldr r2, [0x00012400]</pre>
+<pre>ldr r3, [0x000123f4]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r3, [r2, r3]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre>ldr r3, [sp, 0xc]</pre>
+<pre>eors r2, r3, r2</pre>
+<pre>beq 0x123e8</pre>
+<pre>bl sym.imp.__stack_chk_fail</pre>
+<pre>ldr r3, [r7, 8]</pre>
+<pre>lsl fp, r4, 3</pre>
+<pre>add r3, r3, r4, lsl 3</pre>
+<pre>ldr r3, [r3, 4]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x123e0</pre>
+<pre>ldr r3, [r6, 0xa8]</pre>
+<pre>mov r1, sl</pre>
+<pre>ldr r0, [r5, 0xc]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>subs r1, r0, 0</pre>
+<pre>beq 0x1231c</pre>
+<pre>--</pre>
+<pre>ldr r3, [r6, 8]</pre>
+<pre>cmp r5, r3</pre>
+<pre>blo 0x1264c</pre>
+<pre>mov r4, 0</pre>
+<pre>mov r0, r4</pre>
+<pre>b 0x125dc</pre>
+<pre>ldr r3, [r7, 8]</pre>
+<pre>lsl sl, r5, 3</pre>
+<pre>add r3, r3, r5, lsl 3</pre>
+<pre>ldr r3, [r3, 4]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x126b0</pre>
+<pre>ldr r4, [r3, 4]</pre>
+<pre>cmp r4, 8</pre>
+<pre>bne 0x126b0</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>mov r1, sb</pre>
+<pre>ldr r0, [r6, 0xc]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre>ldr r3, [r3, 4]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>subs r1, r0, 0</pre>
+<pre>beq 0x12644</pre>
+<pre>--</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r3, [r2, r3]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre>ldr r3, [sp, 0xc]</pre>
+<pre>eors r2, r3, r2</pre>
+<pre>beq 0x12804</pre>
+<pre>bl sym.imp.__stack_chk_fail</pre>
+<pre>ldr r3, [r6, 8]</pre>
+<pre>lsl sl, r4, 3</pre>
+<pre>add r3, r3, r4, lsl 3</pre>
+<pre>ldr r3, [r3, 4]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x127fc</pre>
+<pre>ldr r2, [r3, 4]</pre>
+<pre>cmp r2, 4</pre>
+<pre>bne 0x127fc</pre>
+<pre>ldr r3, [r3]</pre>
+<pre>mov r1, sb</pre>
+<pre>ldr r0, [r5, 0xc]</pre>
+<pre>ldr r2, [r3]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>subs r1, r0, 0</pre>
+<pre>beq 0x1272c</pre>
+<pre>--</pre>
+<pre>ldr r1, [sp, 0x48]</pre>
+<pre>str r2, [sp]</pre>
+<pre>ldr sl, [sp, 0x4c]</pre>
+<pre>str r1, [sp, 0xc]</pre>
+<pre>ldrb r1, [sp, 0x58]</pre>
+<pre>ldr sb, [sp, 0x50]</pre>
+<pre>ldr r8, [sp, 0x54]</pre>
+<pre>str r1, [sp, 0x10]</pre>
+<pre>ldrb r1, [sp, 0x5c]</pre>
+<pre>ldr r7, [sp, 0x60]</pre>
+<pre>ldr fp, [sp, 0x64]</pre>
+<pre>str r1, [sp, 0x14]</pre>
+<pre>ldrb r1, [sp, 0x70]</pre>
+<pre>ldr r6, [sp, 0x68]</pre>
+<pre>ldr r5, [sp, 0x6c]</pre>
+<pre>str r1, [sp, 0x18]</pre>
+<pre>ldrb r1, [sp, 0x74]</pre>
+<pre>str r1, [sp, 0x1c]</pre>
+<pre>ldr r1, [0x00016e14]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r1, [0x00016e18]</pre>
+<pre>mov r3, r4</pre>
+<pre>ldr r2, [sp, 0xc]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp sl, 0</pre>
+<pre>beq 0x16c60</pre>
+<pre>ldr r1, [0x00016e1c]</pre>
+<pre>mov r3, r4</pre>
+<pre>mov r2, sl</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp sb, 0</pre>
+<pre>beq 0x16c88</pre>
+<pre>ldr r1, [0x00016e20]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r3, r4</pre>
+<pre>mov r2, sb</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp r8, 0</pre>
+<pre>beq 0x16cb0</pre>
+<pre>ldr r1, [0x00016e24]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r3, r4</pre>
+<pre>mov r2, r8</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>ldr r3, [sp, 0x10]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x16cd8</pre>
+<pre>ldr r1, [0x00016e28]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>ldr r3, [sp, 0x14]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x16d00</pre>
+<pre>ldr r1, [0x00016e2c]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp r7, 0</pre>
+<pre>beq 0x16d28</pre>
+<pre>ldr r1, [0x00016e30]</pre>
+<pre>mov r0, ip</pre>
+<pre>ldr r2, [r7]</pre>
+<pre>mov r3, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp fp, 0</pre>
+<pre>beq 0x16d50</pre>
+<pre>ldr r1, [0x00016e34]</pre>
+<pre>mov r0, ip</pre>
+<pre>ldr r2, [fp]</pre>
+<pre>mov r3, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp r6, 0</pre>
+<pre>beq 0x16d78</pre>
+<pre>ldr r1, [0x00016e38]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r3, r4</pre>
+<pre>mov r2, r6</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>cmp r5, 0</pre>
+<pre>beq 0x16da0</pre>
+<pre>ldr r1, [0x00016e3c]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r3, r4</pre>
+<pre>mov r2, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>ldr r3, [sp, 0x18]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x16dc8</pre>
+<pre>ldr r1, [0x00016e40]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>ldr r3, [sp, 0x1c]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x16df0</pre>
+<pre>ldr r1, [0x00016e44]</pre>
+<pre>mov r0, ip</pre>
+<pre>mov r2, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs ip, r0, 0</pre>
+<pre>beq 0x16e08</pre>
+<pre>--</pre>
+<pre>mov ip, 0x1000</pre>
+<pre>push {r4, r5, r6, r7, r8, sb, lr}</pre>
+<pre>sub ip, sp, ip</pre>
+<pre>str r0, [ip, 0xfb0]</pre>
+<pre>ldr r2, [0x00016f18]</pre>
+<pre>sub sp, sp, 0x34</pre>
+<pre>ldr r3, [r1, 0xa8]</pre>
+<pre>mov r4, r1</pre>
+<pre>mov r1, 0</pre>
+<pre>mov r6, r0</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr sb, [r3, 4]</pre>
+<pre>bl sym.imp.talloc_named_const</pre>
+<pre>subs r5, r0, 0</pre>
+<pre>beq 0x16f0c</pre>
+<pre>ldr r1, [0x00016f1c]</pre>
+<pre>mov r2, sb</pre>
+<pre>ldr r7, [r4, 0x10]</pre>
+<pre>ldr r8, [r4, 0xc]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>mov r2, 0</pre>
+<pre>mov r1, 2</pre>
+<pre>--</pre>
+<pre>andeq sl, r0, pc, ror sl</pre>
+<pre>mov ip, 0x1000</pre>
+<pre>push {r4, r5, r6, r7, r8, sb, sl, fp, lr}</pre>
+<pre>sub ip, sp, ip</pre>
+<pre>str r0, [ip, 0xfb8]</pre>
+<pre>sub sp, sp, 0x24</pre>
+<pre>mov r6, r1</pre>
+<pre>ldr r1, [sp, 0x54]</pre>
+<pre>mov r5, r2</pre>
+<pre>str r2, [sp]</pre>
+<pre>ldr fp, [sp, 0x48]</pre>
+<pre>str r1, [sp, 0xc]</pre>
+<pre>ldr r1, [sp, 0x60]</pre>
+<pre>ldr sl, [sp, 0x4c]</pre>
+<pre>ldr sb, [sp, 0x50]</pre>
+<pre>str r1, [sp, 8]</pre>
+<pre>ldr r1, [0x00017420]</pre>
+<pre>ldr r8, [sp, 0x58]</pre>
+<pre>ldr r7, [sp, 0x5c]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr r1, [0x00017424]</pre>
+<pre>mov r3, r5</pre>
+<pre>mov r2, fp</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>cmp sl, 0</pre>
+<pre>beq 0x170e4</pre>
+<pre>ldr r1, [0x00017428]</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr r2, [0x0001742c]</pre>
+<pre>mov r4, 0</pre>
+<pre>add r2, pc, r2</pre>
+<pre>str r2, [sp, 0x10]</pre>
+<pre>ldr r2, [0x00017430]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>str r2, [sp, 0x14]</pre>
+<pre>ldr r2, [0x00017434]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>str r2, [sp, 0x18]</pre>
+<pre>ldr r2, [sl, r4, lsl 2]</pre>
+<pre>cmp r2, 0</pre>
+<pre>bne 0x17140</pre>
+<pre>ldr r1, [0x00017438]</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r0, r3</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>cmp sb, 0</pre>
+<pre>beq 0x17120</pre>
+<pre>mov r1, fp</pre>
+<pre>mov r0, sb</pre>
+<pre>bl sym.imp.strcasecmp</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x17120</pre>
+<pre>ldr r1, [0x0001743c]</pre>
+<pre>mov r0, r4</pre>
+<pre>mov r3, r5</pre>
+<pre>mov r2, sb</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr r3, [sp, 0xc]</pre>
+<pre>cmp r3, 3</pre>
+<pre>addls pc, pc, r3, lsl 2</pre>
+<pre>b 0x171d4</pre>
+<pre>b 0x171b8</pre>
+<pre>b 0x17300</pre>
+<pre>b 0x17310</pre>
+<pre>b 0x17320</pre>
+<pre>mov r0, r3</pre>
+<pre>ldr r1, [sp, 0x10]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>add r4, r4, 1</pre>
+<pre>ldr r2, [sl, r4, lsl 2]</pre>
+<pre>cmp r2, 0</pre>
+<pre>beq 0x170bc</pre>
+<pre>mov r1, 5</pre>
+<pre>mov r0, r4</pre>
+<pre>str r3, [sp, 0x1c]</pre>
+<pre>bl 0x1ae5c</pre>
+<pre>orrs r3, r1, r6</pre>
+<pre>ldr r3, [sp, 0x1c]</pre>
+<pre>bne 0x171a4</pre>
+<pre>mov r0, r3</pre>
+<pre>ldr r1, [sp, 0x18]</pre>
+<pre>mov r2, r5</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>bne 0x170bc</pre>
+<pre>mov r0, 0</pre>
+<pre>add sp, sp, 0x24</pre>
+<pre>pop {r4, r5, r6, r7, r8, sb, sl, fp, pc}</pre>
+<pre>mov r0, r3</pre>
+<pre>ldr r1, [sp, 0x14]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov r3, r0</pre>
+<pre>b 0x170bc</pre>
+<pre>ldr r1, [0x00017440]</pre>
+<pre>mov r2, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r4</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>cmp r8, 0</pre>
+<pre>beq 0x17248</pre>
+<pre>cmp r6, 2</pre>
+<pre>beq 0x17330</pre>
+<pre>ldr r2, [0x00017444]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r1, [0x00017448]</pre>
+<pre>mov r0, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr sb, [0x0001744c]</pre>
+<pre>mov r4, 0</pre>
+<pre>ldr sl, [0x00017450]</pre>
+<pre>ldr fp, [0x00017454]</pre>
+<pre>add sb, pc, sb</pre>
+<pre>add sl, pc, sl</pre>
+<pre>add fp, pc, fp</pre>
+<pre>ldr r2, [r8, r4, lsl 2]</pre>
+<pre>cmp r2, 0</pre>
+<pre>bne 0x1733c</pre>
+<pre>ldr r1, [0x00017458]</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r0, r3</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>cmp r7, 0</pre>
+<pre>beq 0x172bc</pre>
+<pre>cmp r6, 2</pre>
+<pre>beq 0x173ac</pre>
+<pre>ldr r2, [0x0001745c]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>ldr r1, [0x00017460]</pre>
+<pre>mov r0, r4</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs fp, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr r8, [0x00017464]</pre>
+<pre>mov r4, 0</pre>
+<pre>ldr sb, [0x00017468]</pre>
+<pre>ldr sl, [0x0001746c]</pre>
+<pre>add r8, pc, r8</pre>
+<pre>add sb, pc, sb</pre>
+<pre>add sl, pc, sl</pre>
+<pre>ldr r2, [r7, r4, lsl 2]</pre>
+<pre>cmp r2, 0</pre>
+<pre>bne 0x173b8</pre>
+<pre>ldr r1, [0x00017470]</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r0, fp</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>ldr r3, [sp, 8]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x172e8</pre>
+<pre>ldr r1, [0x00017474]</pre>
+<pre>mov r0, r4</pre>
+<pre>ldr r2, [sp, 8]</pre>
+<pre>mov r3, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r4, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>--</pre>
+<pre>add sp, sp, 0x24</pre>
+<pre>pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}</pre>
+<pre><span class="red">b sym.imp.talloc_asprintf_append</span></pre>
+<pre>ldr r1, [0x0001747c]</pre>
+<pre>mov r2, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre>b 0x171c4</pre>
+<pre>ldr r1, [0x00017480]</pre>
+<pre>mov r2, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre>b 0x171c4</pre>
+<pre>ldr r1, [0x00017484]</pre>
+<pre>mov r2, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre>b 0x171c4</pre>
+<pre>ldr r2, [0x00017488]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>b 0x171ec</pre>
+<pre>mov r0, r3</pre>
+<pre>mov r1, sb</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>add r4, r4, 1</pre>
+<pre>ldr r2, [r8, r4, lsl 2]</pre>
+<pre>cmp r2, 0</pre>
+<pre>beq 0x17220</pre>
+<pre>mov r1, 5</pre>
+<pre>mov r0, r4</pre>
+<pre>str r3, [sp, 0xc]</pre>
+<pre>bl 0x1ae5c</pre>
+<pre>orrs r3, r1, r6</pre>
+<pre>ldr r3, [sp, 0xc]</pre>
+<pre>bne 0x17398</pre>
+<pre>mov r0, r3</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r1, fp</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs r3, r0, 0</pre>
+<pre>bne 0x17220</pre>
+<pre>b 0x17198</pre>
+<pre>mov r0, r3</pre>
+<pre>mov r1, sl</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov r3, r0</pre>
+<pre>b 0x17220</pre>
+<pre>ldr r2, [0x0001748c]</pre>
+<pre>add r2, pc, r2</pre>
+<pre>b 0x17260</pre>
+<pre>mov r0, fp</pre>
+<pre>mov r1, r8</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs fp, r0, 0</pre>
+<pre>beq 0x17198</pre>
+<pre>add r4, r4, 1</pre>
+<pre>ldr r3, [r7, r4, lsl 2]</pre>
+<pre>cmp r3, 0</pre>
+<pre>beq 0x17294</pre>
+<pre>mov r1, 5</pre>
+<pre>mov r0, r4</pre>
+<pre>bl 0x1ae5c</pre>
+<pre>orrs r3, r1, r6</pre>
+<pre>bne 0x1740c</pre>
+<pre>mov r0, fp</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r1, sl</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>subs fp, r0, 0</pre>
+<pre>bne 0x17294</pre>
+<pre>b 0x17198</pre>
+<pre>mov r0, fp</pre>
+<pre>mov r1, sb</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov fp, r0</pre>
+<pre>b 0x17294</pre>
+<pre>--</pre>
+<pre>mov r0, r3</pre>
+<pre>str r2, [sp, 0x4c]</pre>
+<pre>str r3, [sp, 0x48]</pre>
+<pre>add fp, fp, 8</pre>
+<pre>bl sym.imp.strcasecmp</pre>
+<pre>cmp r0, 0</pre>
+<pre>ldr r3, [sp, 0x48]</pre>
+<pre>ldr r2, [sp, 0x4c]</pre>
+<pre>bne 0x17b50</pre>
+<pre>ldr r3, [r2, 4]</pre>
+<pre>str r3, [sl]</pre>
+<pre>add sl, sl, 4</pre>
+<pre>b 0x17a38</pre>
+<pre>ldr r3, [sp, 0x38]</pre>
+<pre>mov r2, r8</pre>
+<pre>cmp r3, 1</pre>
+<pre>beq 0x17c44</pre>
+<pre>ldr r1, [0x00017ca4]</pre>
+<pre>add r1, pc, r1</pre>
+<pre>mov r0, r4</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>ldr r1, [0x00017ca8]</pre>
+<pre>mov r4, r0</pre>
+<pre>--</pre>
+<pre>ldr r3, [0x0001840c]</pre>
+<pre>mov r1, r8</pre>
+<pre>ldr r2, [0x00018410]</pre>
+<pre>mov r0, r8</pre>
+<pre>add r3, pc, r3</pre>
+<pre>add r3, r3, 0x17</pre>
+<pre>add r2, pc, r2</pre>
+<pre>bl sym.imp.dbghdrclass</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x17d68</pre>
+<pre>ldr r0, [0x00018414]</pre>
+<pre>mov r1, sb</pre>
+<pre>add r0, pc, r0</pre>
+<pre>b 0x17dac</pre>
+<pre>ldr r3, [sp, 0x40]</pre>
+<pre>mov r0, r5</pre>
+<pre>mov r2, r8</pre>
+<pre>cmp r3, 1</pre>
+<pre>ldrne r1, [sp, 0x5c]</pre>
+<pre>ldreq r1, [sp, 0x58]</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf_append</span></pre>
+<pre>mov r5, r0</pre>
+<pre>b 0x1820c</pre>
+<pre>--</pre>
+<pre>ldr r0, [0x0001a738]</pre>
+<pre>add lr, pc, lr</pre>
+<pre>ldr ip, [lr, ip]</pre>
+<pre>add r0, pc, r0</pre>
+<pre>ldr ip, [ip]</pre>
+<pre>str ip, [sp, 4]</pre>
+<pre>mov ip, 0</pre>
+<pre>ldrls ip, [0x0001a73c]</pre>
+<pre>addls ip, pc, ip</pre>
+<pre>ldrsbls r4, [ip, r1]</pre>
+<pre>ldr r1, [0x0001a740]</pre>
+<pre>ldr r5, [r0, r1]</pre>
+<pre>ldr r1, [r5]</pre>
+<pre>ldr r1, [r1, 0x58]</pre>
+<pre>cmp r1, r4</pre>
+<pre>blt 0x1a704</pre>
+<pre>mov r1, 0</pre>
+<pre>mov r0, sp</pre>
+<pre>str r1, [sp]</pre>
+<pre>mov r1, 1</pre>
+<pre><span class="red">bl sym.imp.__vasprintf_chk</span></pre>
+<pre>cmn r0, 1</pre>
+<pre>beq 0x1a704</pre>
+<pre>--</pre>
+<pre>add r0, pc, r0</pre>
+<pre>bl sym.imp.strncmp</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x1ace4</pre>
+<pre>mov r1, r4</pre>
+<pre>mov r0, r6</pre>
+<pre>bl sym.imp.talloc_strdup</pre>
+<pre>subs r5, r0, 0</pre>
+<pre>beq 0x1acb8</pre>
+<pre>mov r1, 0x2f</pre>
+<pre>bl sym.imp.strrchr</pre>
+<pre>cmp r0, 0</pre>
+<pre>beq 0x1ad80</pre>
+<pre>ldr r1, [0x0001ada8]</pre>
+<pre>mov r3, 0</pre>
+<pre>strb r3, [r0]</pre>
+<pre>mov r2, r5</pre>
+<pre>mov r3, r7</pre>
+<pre>mov r0, r6</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>ldr r1, [0x0001adac]</pre>
+<pre>mov r4, r0</pre>
+<pre>mov r0, r5</pre>
+<pre>add r1, pc, r1</pre>
+<pre>bl sym.imp._talloc_free</pre>
+<pre>b 0x1acbc</pre>
+<pre>ldr r1, [0x0001adb0]</pre>
+<pre>mov r2, r7</pre>
+<pre>mov r0, r6</pre>
+<pre>add r1, pc, r1</pre>
+<pre><span class="red">bl sym.imp.talloc_asprintf</span></pre>
+<pre>b 0x1ad68</pre>
+<pre>ldrdeq r8, sb, [r0], -r2</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">sprintf</span> used </span><span class="orange">57</span> times </span><span class="orange">libldbsamba-samba4.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

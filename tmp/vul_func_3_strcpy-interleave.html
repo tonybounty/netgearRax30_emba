@@ -1,0 +1,63 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">interleave</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> tear down of </span><span class="orange">interleave</span></pre>
+<br />
+<pre>   104d4:	ebffffe9 	bl	10480 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   104d8:	e3a0207c 	mov	r2, #124	; 0x7c</pre>
+<pre>   104dc:	e1a01004 	mov	r1, r4</pre>
+<pre>   104e0:	e28d0f41 	add	r0, sp, #260	; 0x104</pre>
+<pre>   104e4:	e58d4100 	str	r4, [sp, #256]	; 0x100</pre>
+<pre>   104e8:	ebffffe4 	bl	10480 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   104ec:	e3a0203c 	mov	r2, #60	; 0x3c</pre>
+<pre>   104f0:	e1a01004 	mov	r1, r4</pre>
+<pre>   104f4:	e28d0004 	add	r0, sp, #4</pre>
+<pre>   104f8:	e58d4000 	str	r4, [sp]</pre>
+<pre>   104fc:	ebffffdf 	bl	10480 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   10500:	e3a0203c 	mov	r2, #60	; 0x3c</pre>
+<pre>   10504:	e1a01004 	mov	r1, r4</pre>
+<pre>   10508:	e28d0044 	add	r0, sp, #68	; 0x44</pre>
+<pre>   1050c:	e58d4040 	str	r4, [sp, #64]	; 0x40</pre>
+<pre>   10510:	ebffffda 	bl	10480 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   10514:	e3560002 	cmp	r6, #2</pre>
+<pre>   10518:	da000022 	ble	105a8 &lt;abort&commat;plt+0x104&gt;</pre>
+<pre>   1051c:	e5951004 	ldr	r1, [r5, #4]</pre>
+<pre>   10520:	e1a0000d 	mov	r0, sp</pre>
+<pre><span class="red">   10524:	ebffffc6 	bl	10444 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   10528:	e5951008 	ldr	r1, [r5, #8]</pre>
+<pre>   1052c:	e59f7138 	ldr	r7, [pc, #312]	; 1066c &lt;abort&commat;plt+0x1c8&gt;</pre>
+<pre>   10530:	e28d0040 	add	r0, sp, #64	; 0x40</pre>
+<pre><span class="red">   10534:	ebffffc2 	bl	10444 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   10538:	e28d3040 	add	r3, sp, #64	; 0x40</pre>
+<pre>   1053c:	e1a0200d 	mov	r2, sp</pre>
+<pre>--</pre>
+<pre>   10560:	e28d0040 	add	r0, sp, #64	; 0x40</pre>
+<pre>   10564:	ebffffb0 	bl	1042c &lt;fopen&commat;plt&gt;</pre>
+<pre>   10568:	e16f4f10 	clz	r4, r0</pre>
+<pre>   1056c:	e3550000 	cmp	r5, #0</pre>
+<pre>   10570:	e1a042a4 	lsr	r4, r4, #5</pre>
+<pre>   10574:	03a04001 	moveq	r4, #1</pre>
+<pre>   10578:	e1a06000 	mov	r6, r0</pre>
+<pre>   1057c:	e3540000 	cmp	r4, #0</pre>
+<pre>   10580:	0a00000d 	beq	105bc &lt;abort&commat;plt+0x118&gt;</pre>
+<pre>   10584:	e5971000 	ldr	r1, [r7]</pre>
+<pre>   10588:	e59f00ec 	ldr	r0, [pc, #236]	; 1067c &lt;abort&commat;plt+0x1d8&gt;</pre>
+<pre>   1058c:	ebffffc1 	bl	10498 &lt;fputs&commat;plt&gt;</pre>
+<pre>   10590:	e1a00005 	mov	r0, r5</pre>
+<pre>   10594:	ebffffbc 	bl	1048c &lt;fclose&commat;plt&gt;</pre>
+<pre>   10598:	e1a00006 	mov	r0, r6</pre>
+<pre>   1059c:	ebffffba 	bl	1048c &lt;fclose&commat;plt&gt;</pre>
+<pre>   105a0:	e28ddf61 	add	sp, sp, #388	; 0x184</pre>
+<pre>   105a4:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>   105a8:	e59f10d0 	ldr	r1, [pc, #208]	; 10680 &lt;abort&commat;plt+0x1dc&gt;</pre>
+<pre>   105ac:	e1a0000d 	mov	r0, sp</pre>
+<pre><span class="red">   105b0:	ebffffa3 	bl	10444 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   105b4:	e59f10c8 	ldr	r1, [pc, #200]	; 10684 &lt;abort&commat;plt+0x1e0&gt;</pre>
+<pre>   105b8:	eaffffdb 	b	1052c &lt;abort&commat;plt+0x88&gt;</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> used </span><span class="orange">3</span> times </span><span class="orange">interleave</span></pre>
+<br />

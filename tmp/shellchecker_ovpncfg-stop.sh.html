@@ -1,0 +1,34 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/ovpncfg-stop.sh line 3:</span></pre>
+<pre></span>echo "wan interface name = " $1</span></pre>
+<pre><span class="green">                             ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>echo "wan interface name = " "$1"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/ovpncfg-stop.sh line 9:</span></pre>
+<pre></span>iptables -w -D FORWARD -i tap+ -o $1 -j OPENVPN_ACC_AUTO || true</span></pre>
+<pre><span class="green">                                  ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>iptables -w -D FORWARD -i tap+ -o "$1" -j OPENVPN_ACC_AUTO || true</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/ovpncfg-stop.sh line 10:</span></pre>
+<pre></span>iptables -w -D FORWARD -i tun+ -o $1 -j OPENVPN_ACC_AUTO || true</span></pre>
+<pre><span class="green">                                  ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>iptables -w -D FORWARD -i tun+ -o "$1" -j OPENVPN_ACC_AUTO || true</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/openvpncfg/ovpncfg-stop.sh line 22:</span></pre>
+<pre></span>iptables -w -t nat -D POSTROUTING -s 192.168.254.0/24 -o $1 -j MASQUERADE</span></pre>
+<pre><span class="green">                                                         ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>iptables -w -t nat -D POSTROUTING -s 192.168.254.0/24 -o "$1" -j MASQUERADE</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>

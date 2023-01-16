@@ -1,0 +1,352 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">websockd</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">websockd</span></pre>
+<br />
+<pre>   11b84:	e2851013 	add	r1, r5, #19</pre>
+<pre>   11b88:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   11b8c:	ebfffef1 	bl	11758 &lt;log_log&commat;plt&gt;</pre>
+<pre>   11b90:	e3a01001 	mov	r1, #1</pre>
+<pre>   11b94:	e3a0000d 	mov	r0, #13</pre>
+<pre>   11b98:	ebfffee2 	bl	11728 &lt;signal&commat;plt&gt;</pre>
+<pre>   11b9c:	e3a00000 	mov	r0, #0</pre>
+<pre>   11ba0:	ebffff82 	bl	119b0 &lt;epoll_create1&commat;plt&gt;</pre>
+<pre>   11ba4:	e59f3640 	ldr	r3, [pc, #1600]	; 121ec &lt;fcCtlSetTupleParam&commat;plt+0x6e0&gt;</pre>
+<pre>   11ba8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   11bac:	e3500000 	cmp	r0, #0</pre>
+<pre>   11bb0:	e5830004 	str	r0, [r3, #4]</pre>
+<pre>   11bb4:	aa000048 	bge	11cdc &lt;fcCtlSetTupleParam&commat;plt+0x1d0&gt;</pre>
+<pre>   11bb8:	ebffffb2 	bl	11a88 &lt;__errno_location&commat;plt&gt;</pre>
+<pre>   11bbc:	e5900000 	ldr	r0, [r0]</pre>
+<pre>   11bc0:	ebffff14 	bl	11818 &lt;strerror&commat;plt&gt;</pre>
+<pre>   11bc4:	e2851018 	add	r1, r5, #24</pre>
+<pre>   11bc8:	e1a02000 	mov	r2, r0</pre>
+<pre>   11bcc:	e59f061c 	ldr	r0, [pc, #1564]	; 121f0 &lt;fcCtlSetTupleParam&commat;plt+0x6e4&gt;</pre>
+<pre>   11bd0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11bd4:	ebffff0c 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11bd8:	e59f3614 	ldr	r3, [pc, #1556]	; 121f4 &lt;fcCtlSetTupleParam&commat;plt+0x6e8&gt;</pre>
+<pre>   11bdc:	e79f0003 	ldr	r0, [pc, r3]</pre>
+<pre>--</pre>
+<pre>   12600:	e59f1034 	ldr	r1, [pc, #52]	; 1263c &lt;fcCtlSetTupleParam&commat;plt+0xb30&gt;</pre>
+<pre>   12604:	e3a00007 	mov	r0, #7</pre>
+<pre>   12608:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1260c:	e58d5004 	str	r5, [sp, #4]</pre>
+<pre>   12610:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12614:	e58d6000 	str	r6, [sp]</pre>
+<pre>   12618:	ebfffc4e 	bl	11758 &lt;log_log&commat;plt&gt;</pre>
+<pre>   1261c:	eaffffee 	b	125dc &lt;fcCtlSetTupleParam&commat;plt+0xad0&gt;</pre>
+<pre>   12620:	0000188a 	andeq	r1, r0, sl, lsl #17</pre>
+<pre>   12624:	10000254 	andne	r0, r0, r4, asr r2</pre>
+<pre>   12628:	00012c48 	andeq	r2, r1, r8, asr #24</pre>
+<pre>   1262c:	00001829 	andeq	r1, r0, r9, lsr #16</pre>
+<pre>   12630:	00001ea7 	andeq	r1, r0, r7, lsr #29</pre>
+<pre>   12634:	000017f4 	strdeq	r1, [r0], -r4</pre>
+<pre>   12638:	0000180f 	andeq	r1, r0, pc, lsl #16</pre>
+<pre>   1263c:	00001e5f 	andeq	r1, r0, pc, asr lr</pre>
+<pre>   12640:	e1a01000 	mov	r1, r0</pre>
+<pre>   12644:	e59f0024 	ldr	r0, [pc, #36]	; 12670 &lt;fcCtlSetTupleParam&commat;plt+0xb64&gt;</pre>
+<pre>   12648:	e92d4010 	push	{r4, lr}</pre>
+<pre>   1264c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12650:	ebfffc6d 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12654:	e59f0018 	ldr	r0, [pc, #24]	; 12674 &lt;fcCtlSetTupleParam&commat;plt+0xb68&gt;</pre>
+<pre>   12658:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>   12e98:	00001814 	andeq	r1, r0, r4, lsl r8</pre>
+<pre>   12e9c:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   12ea0:	e3a02090 	mov	r2, #144	; 0x90</pre>
+<pre>   12ea4:	e59f4050 	ldr	r4, [pc, #80]	; 12efc &lt;fcCtlSetTupleParam&commat;plt+0x13f0&gt;</pre>
+<pre>   12ea8:	e1a05000 	mov	r5, r0</pre>
+<pre>   12eac:	e1a06001 	mov	r6, r1</pre>
+<pre>   12eb0:	e3a01000 	mov	r1, #0</pre>
+<pre>   12eb4:	e08f4004 	add	r4, pc, r4</pre>
+<pre>   12eb8:	e1a00004 	mov	r0, r4</pre>
+<pre>   12ebc:	ebfffa70 	bl	11884 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   12ec0:	e1a02004 	mov	r2, r4</pre>
+<pre>   12ec4:	e1a01006 	mov	r1, r6</pre>
+<pre>   12ec8:	e1a00005 	mov	r0, r5</pre>
+<pre>   12ecc:	ebfffb0e 	bl	11b0c &lt;fcCtlSetTupleParam&commat;plt&gt;</pre>
+<pre>   12ed0:	e3500000 	cmp	r0, #0</pre>
+<pre>   12ed4:	0a000006 	beq	12ef4 &lt;fcCtlSetTupleParam&commat;plt+0x13e8&gt;</pre>
+<pre>   12ed8:	e59f0020 	ldr	r0, [pc, #32]	; 12f00 &lt;fcCtlSetTupleParam&commat;plt+0x13f4&gt;</pre>
+<pre>   12edc:	e1a02006 	mov	r2, r6</pre>
+<pre>   12ee0:	e1a01005 	mov	r1, r5</pre>
+<pre>   12ee4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12ee8:	ebfffa47 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12eec:	e3a00000 	mov	r0, #0</pre>
+<pre>   12ef0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   12f04:	e92d46f0 	push	{r4, r5, r6, r7, r9, sl, lr}</pre>
+<pre>   12f08:	e2519000 	subs	r9, r1, #0</pre>
+<pre>   12f0c:	e24dd044 	sub	sp, sp, #68	; 0x44</pre>
+<pre>   12f10:	0a00004b 	beq	13044 &lt;fcCtlSetTupleParam&commat;plt+0x1538&gt;</pre>
+<pre>   12f14:	e59fa130 	ldr	sl, [pc, #304]	; 1304c &lt;fcCtlSetTupleParam&commat;plt+0x1540&gt;</pre>
+<pre>   12f18:	e1a07002 	mov	r7, r2</pre>
+<pre>   12f1c:	e1a06000 	mov	r6, r0</pre>
+<pre>   12f20:	e3a04000 	mov	r4, #0</pre>
+<pre>   12f24:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   12f28:	e28a2090 	add	r2, sl, #144	; 0x90</pre>
+<pre>   12f2c:	e7923204 	ldr	r3, [r2, r4, lsl #4]</pre>
+<pre>   12f30:	e3730001 	cmn	r3, #1</pre>
+<pre>   12f34:	1a000015 	bne	12f90 &lt;fcCtlSetTupleParam&commat;plt+0x1484&gt;</pre>
+<pre>   12f38:	e1a00009 	mov	r0, r9</pre>
+<pre>   12f3c:	ebfffa29 	bl	117e8 &lt;fcCtlCreateFlwStatsQuery&commat;plt&gt;</pre>
+<pre>   12f40:	e2505000 	subs	r5, r0, #0</pre>
+<pre>   12f44:	0a00001d 	beq	12fc0 &lt;fcCtlSetTupleParam&commat;plt+0x14b4&gt;</pre>
+<pre>   12f48:	e59f0100 	ldr	r0, [pc, #256]	; 13050 &lt;fcCtlSetTupleParam&commat;plt+0x1544&gt;</pre>
+<pre>   12f4c:	e1a01005 	mov	r1, r5</pre>
+<pre>   12f50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12f54:	ebfffa2c 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f58:	e59f20f4 	ldr	r2, [pc, #244]	; 13054 &lt;fcCtlSetTupleParam&commat;plt+0x1548&gt;</pre>
+<pre>   12f5c:	e1a03005 	mov	r3, r5</pre>
+<pre>--</pre>
+<pre>   13098:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1309c:	e0830204 	add	r0, r3, r4, lsl #4</pre>
+<pre>   130a0:	e3a04000 	mov	r4, #0</pre>
+<pre>   130a4:	e5902090 	ldr	r2, [r0, #144]	; 0x90</pre>
+<pre>   130a8:	e1c049f8 	strd	r4, [r0, #152]	; 0x98</pre>
+<pre>   130ac:	e58d2000 	str	r2, [sp]</pre>
+<pre>   130b0:	e3e02000 	mvn	r2, #0</pre>
+<pre>   130b4:	e5802090 	str	r2, [r0, #144]	; 0x90</pre>
+<pre>   130b8:	e3a02000 	mov	r2, #0</pre>
+<pre>   130bc:	e5802094 	str	r2, [r0, #148]	; 0x94</pre>
+<pre>   130c0:	e1a0000d 	mov	r0, sp</pre>
+<pre>   130c4:	e5932190 	ldr	r2, [r3, #400]	; 0x190</pre>
+<pre>   130c8:	e2422001 	sub	r2, r2, #1</pre>
+<pre>   130cc:	e5832190 	str	r2, [r3, #400]	; 0x190</pre>
+<pre>   130d0:	ebfffa33 	bl	119a4 &lt;fcCtlDeleteFlwStatsQuery&commat;plt&gt;</pre>
+<pre>   130d4:	e2502000 	subs	r2, r0, #0</pre>
+<pre>   130d8:	0a000003 	beq	130ec &lt;fcCtlSetTupleParam&commat;plt+0x15e0&gt;</pre>
+<pre>   130dc:	e59f0030 	ldr	r0, [pc, #48]	; 13114 &lt;fcCtlSetTupleParam&commat;plt+0x1608&gt;</pre>
+<pre>   130e0:	e59d1000 	ldr	r1, [sp]</pre>
+<pre>   130e4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   130e8:	ebfff9c7 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   130ec:	e59f0024 	ldr	r0, [pc, #36]	; 13118 &lt;fcCtlSetTupleParam&commat;plt+0x160c&gt;</pre>
+<pre>   130f0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>   13510:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>   13514:	e3530000 	cmp	r3, #0</pre>
+<pre>   13518:	1a00000b 	bne	1354c &lt;fcCtlSetTupleParam&commat;plt+0x1a40&gt;</pre>
+<pre>   1351c:	e59d3058 	ldr	r3, [sp, #88]	; 0x58</pre>
+<pre>   13520:	e3a01ffa 	mov	r1, #1000	; 0x3e8</pre>
+<pre>   13524:	e59d205c 	ldr	r2, [sp, #92]	; 0x5c</pre>
+<pre>   13528:	e0232391 	mla	r3, r1, r3, r2</pre>
+<pre>   1352c:	e5853004 	str	r3, [r5, #4]</pre>
+<pre>   13530:	e2899001 	add	r9, r9, #1</pre>
+<pre>   13534:	e2855010 	add	r5, r5, #16</pre>
+<pre>   13538:	e3590010 	cmp	r9, #16</pre>
+<pre>   1353c:	1affffe4 	bne	134d4 &lt;fcCtlSetTupleParam&commat;plt+0x19c8&gt;</pre>
+<pre>   13540:	e35b0000 	cmp	fp, #0</pre>
+<pre>   13544:	0affffca 	beq	13474 &lt;fcCtlSetTupleParam&commat;plt+0x1968&gt;</pre>
+<pre>   13548:	ea00000d 	b	13584 &lt;fcCtlSetTupleParam&commat;plt+0x1a78&gt;</pre>
+<pre>   1354c:	e3520000 	cmp	r2, #0</pre>
+<pre>   13550:	0a000004 	beq	13568 &lt;fcCtlSetTupleParam&commat;plt+0x1a5c&gt;</pre>
+<pre>   13554:	e59f02a0 	ldr	r0, [pc, #672]	; 137fc &lt;fcCtlSetTupleParam&commat;plt+0x1cf0&gt;</pre>
+<pre>   13558:	e59d10e8 	ldr	r1, [sp, #232]	; 0xe8</pre>
+<pre>   1355c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13560:	ebfff8a9 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13564:	eafffff1 	b	13530 &lt;fcCtlSetTupleParam&commat;plt+0x1a24&gt;</pre>
+<pre>   13568:	e35b0c02 	cmp	fp, #512	; 0x200</pre>
+<pre>   1356c:	ba00000a 	blt	1359c &lt;fcCtlSetTupleParam&commat;plt+0x1a90&gt;</pre>
+<pre>   13570:	e59f0288 	ldr	r0, [pc, #648]	; 13800 &lt;fcCtlSetTupleParam&commat;plt+0x1cf4&gt;</pre>
+<pre>   13574:	e1a0200b 	mov	r2, fp</pre>
+<pre>   13578:	e3a01c02 	mov	r1, #512	; 0x200</pre>
+<pre>   1357c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13580:	ebfff8a1 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13584:	e59f1278 	ldr	r1, [pc, #632]	; 13804 &lt;fcCtlSetTupleParam&commat;plt+0x1cf8&gt;</pre>
+<pre>   13588:	e1a00006 	mov	r0, r6</pre>
+<pre>--</pre>
+<pre>   136d4:	e3a00000 	mov	r0, #0</pre>
+<pre>   136d8:	ebfff85d 	bl	11854 &lt;strtok&commat;plt&gt;</pre>
+<pre>   136dc:	e1a01005 	mov	r1, r5</pre>
+<pre>   136e0:	e3a00000 	mov	r0, #0</pre>
+<pre>   136e4:	ebfff85a 	bl	11854 &lt;strtok&commat;plt&gt;</pre>
+<pre>   136e8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   136ec:	1a000004 	bne	13704 &lt;fcCtlSetTupleParam&commat;plt+0x1bf8&gt;</pre>
+<pre>   136f0:	e1a02009 	mov	r2, r9</pre>
+<pre>   136f4:	e1a01007 	mov	r1, r7</pre>
+<pre>   136f8:	e1a00006 	mov	r0, r6</pre>
+<pre>   136fc:	ebfffe00 	bl	12f04 &lt;fcCtlSetTupleParam&commat;plt+0x13f8&gt;</pre>
+<pre>   13700:	eaffff48 	b	13428 &lt;fcCtlSetTupleParam&commat;plt+0x191c&gt;</pre>
+<pre>   13704:	e1a01005 	mov	r1, r5</pre>
+<pre>   13708:	e3a00000 	mov	r0, #0</pre>
+<pre>   1370c:	ebfff850 	bl	11854 &lt;strtok&commat;plt&gt;</pre>
+<pre>   13710:	e250a000 	subs	sl, r0, #0</pre>
+<pre>   13714:	1a00000e 	bne	13754 &lt;fcCtlSetTupleParam&commat;plt+0x1c48&gt;</pre>
+<pre>   13718:	e59f0108 	ldr	r0, [pc, #264]	; 13828 &lt;fcCtlSetTupleParam&commat;plt+0x1d1c&gt;</pre>
+<pre>   1371c:	e1a01004 	mov	r1, r4</pre>
+<pre>   13720:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13724:	ebfff838 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13728:	e59f30fc 	ldr	r3, [pc, #252]	; 1382c &lt;fcCtlSetTupleParam&commat;plt+0x1d20&gt;</pre>
+<pre>   1372c:	e59f10fc 	ldr	r1, [pc, #252]	; 13830 &lt;fcCtlSetTupleParam&commat;plt+0x1d24&gt;</pre>
+<pre>   13730:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   13734:	e2833f67 	add	r3, r3, #412	; 0x19c</pre>
+<pre>   13738:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1373c:	e1a00003 	mov	r0, r3</pre>
+<pre>   13740:	ebfff873 	bl	11914 &lt;strcpy&commat;plt&gt;</pre>
+<pre>   13744:	e1a01000 	mov	r1, r0</pre>
+<pre>   13748:	e1a00006 	mov	r0, r6</pre>
+<pre>   1374c:	ebfffc2b 	bl	12800 &lt;fcCtlSetTupleParam&commat;plt+0xcf4&gt;</pre>
+<pre>   13750:	eaffff34 	b	13428 &lt;fcCtlSetTupleParam&commat;plt+0x191c&gt;</pre>
+<pre>   13754:	e1a02007 	mov	r2, r7</pre>
+<pre>   13758:	e1a0100a 	mov	r1, sl</pre>
+<pre>   1375c:	e1a00004 	mov	r0, r4</pre>
+<pre>   13760:	ebfff8e9 	bl	11b0c &lt;fcCtlSetTupleParam&commat;plt&gt;</pre>
+<pre>   13764:	e3500000 	cmp	r0, #0</pre>
+<pre>   13768:	0affffdb 	beq	136dc &lt;fcCtlSetTupleParam&commat;plt+0x1bd0&gt;</pre>
+<pre>   1376c:	e59f00c0 	ldr	r0, [pc, #192]	; 13834 &lt;fcCtlSetTupleParam&commat;plt+0x1d28&gt;</pre>
+<pre>   13770:	e1a0200a 	mov	r2, sl</pre>
+<pre>   13774:	e1a01004 	mov	r1, r4</pre>
+<pre>   13778:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1377c:	ebfff822 	bl	1180c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13780:	eaffffe8 	b	13728 &lt;fcCtlSetTupleParam&commat;plt+0x1c1c&gt;</pre>
+<pre>   13784:	e59f10ac 	ldr	r1, [pc, #172]	; 13838 &lt;fcCtlSetTupleParam&commat;plt+0x1d2c&gt;</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">9</span> times </span><span class="orange">websockd</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

@@ -1,0 +1,398 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 33:</span></pre>
+<pre></span>	echo "#" $*</span></pre>
+<pre><span class="orange">                 ^-- SC2048 (warning): Use "$&commat;" (with quotes) to prevent whitespace problems.</span></pre>
+<pre><span class="green">                 ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	echo "#" "$*"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 34:</span></pre>
+<pre></span>	$*</span></pre>
+<pre><span class="orange">        ^-- SC2048 (warning): Use "$&commat;" (with quotes) to prevent whitespace problems.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 42:</span></pre>
+<pre></span>	fwid=$(wl -i $ifname ver | grep -c FWID)</span></pre>
+<pre><span class="green">                     ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	fwid=$(wl -i "$ifname" ver | grep -c FWID)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 43:</span></pre>
+<pre></span>	if [ $fwid = "1" ]</span></pre>
+<pre><span class="green">             ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	if [ "$fwid" = "1" ]</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 49:</span></pre>
+<pre></span>	exec_cmd WlGetDriverCfg.sh $ifname $band $mode</span></pre>
+<pre><span class="green">                                   ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                           ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	exec_cmd WlGetDriverCfg.sh "$ifname" "$band" $mode</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 54:</span></pre>
+<pre></span>	ifnames=`nvram get lan_ifnames; nvram get lan1_ifnames`</span></pre>
+<pre><span class="green">                ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	ifnames=$(nvram get lan_ifnames; nvram get lan1_ifnames)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 58:</span></pre>
+<pre></span>		wl -i $ifname ver &gt;&amp; /dev/null</span></pre>
+<pre><span class="green">                      ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="orange">                                  ^----------^ SC3021 (warning): In POSIX sh, &gt;&amp; filename (as opposed to &gt;&amp; fd) is undefined.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		wl -i "$ifname" ver &gt;&amp; /dev/null</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 59:</span></pre>
+<pre></span>		if [ $? -eq 0 ]</span></pre>
+<pre><span class="green">                     ^-- SC2181 (style): Check exit code directly with e.g. 'if mycmd;', not indirectly with $?.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 61:</span></pre>
+<pre></span>			echo -n "$ifname "</span></pre>
+<pre><span class="orange">                             ^-- SC3037 (warning): In POSIX sh, echo flags are undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 73:</span></pre>
+<pre></span>	radionames=`nvram get wl0_ifname; nvram get wl1_ifname; nvram get wl2_ifname`</span></pre>
+<pre><span class="green">                   ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	radionames=$(nvram get wl0_ifname; nvram get wl1_ifname; nvram get wl2_ifname)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 74:</span></pre>
+<pre></span>	echo $radionames</span></pre>
+<pre><span class="green">             ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	echo "$radionames"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 80:</span></pre>
+<pre></span>	band=`wl -i $radio band`</span></pre>
+<pre><span class="green">             ^-----------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                    ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	band=$(wl -i "$radio" band)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 81:</span></pre>
+<pre></span>	if [ "$band" == "a" ]</span></pre>
+<pre><span class="orange">                     ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 84:</span></pre>
+<pre></span>	elif [ "$band" == "b" ]</span></pre>
+<pre><span class="orange">                       ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 87:</span></pre>
+<pre></span>	elif [ "$band" == "6g" ]</span></pre>
+<pre><span class="orange">                       ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 90:</span></pre>
+<pre></span>	elif [ "$band" == "auto" ]</span></pre>
+<pre><span class="orange">                       ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 102:</span></pre>
+<pre></span>if [ ! -z $2 ]</span></pre>
+<pre><span class="green">     ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<pre><span class="green">          ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>if [ ! -z "$2" ]</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 114:</span></pre>
+<pre></span>bridgelist=`get_BridgeList`</span></pre>
+<pre><span class="green">           ^--------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>bridgelist=$(get_BridgeList)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 115:</span></pre>
+<pre></span>radiolist=`get_RadioList`</span></pre>
+<pre><span class="green">          ^-------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>radiolist=$(get_RadioList)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 116:</span></pre>
+<pre></span>bsslist=`get_BSSList`</span></pre>
+<pre><span class="green">        ^-----------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>bsslist=$(get_BSSList)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 120:</span></pre>
+<pre></span>	band=`get_Frequency $radio`</span></pre>
+<pre><span class="green">             ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                            ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	band=$(get_Frequency "$radio")</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 121:</span></pre>
+<pre></span>	do_WlGetDriverCfg $radio $band</span></pre>
+<pre><span class="green">                          ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                 ^---^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	do_WlGetDriverCfg "$radio" "$band"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 127:</span></pre>
+<pre></span>while [ $cnt -le $loop_count ]</span></pre>
+<pre><span class="green">                 ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>while [ $cnt -le "$loop_count" ]</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 151:</span></pre>
+<pre></span>		exec_cmd brctl showstp $bridge</span></pre>
+<pre><span class="green">                                       ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd brctl showstp "$bridge"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 152:</span></pre>
+<pre></span>		exec_cmd brctl showmacs $bridge</span></pre>
+<pre><span class="green">                                        ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd brctl showmacs "$bridge"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 157:</span></pre>
+<pre></span>		exec_cmd wl -i $radio band</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" band</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 158:</span></pre>
+<pre></span>		exec_cmd wl -i $radio chanspec</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" chanspec</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 159:</span></pre>
+<pre></span>		exec_cmd wl -i $radio chan_info</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" chan_info</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 160:</span></pre>
+<pre></span>		exec_cmd wl -i $radio chanim_stats</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" chanim_stats</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 161:</span></pre>
+<pre></span>		exec_cmd wl -i $radio counters</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" counters</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 162:</span></pre>
+<pre></span>		exec_cmd wl -i $radio pktq_stats C: A:</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" pktq_stats C: A:</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 163:</span></pre>
+<pre></span>		exec_cmd wl -i $radio dump ptrack</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" dump ptrack</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 164:</span></pre>
+<pre></span>		exec_cmd wl -i $radio ptclear</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" ptclear</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 165:</span></pre>
+<pre></span>		exec_cmd wl -i $radio dump wlc</span></pre>
+<pre><span class="green">                               ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$radio" dump wlc</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 166:</span></pre>
+<pre></span>		exec_cmd cat /tmp/${radio}_wpa_supplicant.conf</span></pre>
+<pre><span class="green">                                  ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd cat /tmp/"${radio}"_wpa_supplicant.conf</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 167:</span></pre>
+<pre></span>		exec_cmd wpa_cli -p /var/run/${radio}_wpa_supplicant -i$radio scan_results</span></pre>
+<pre><span class="green">                                             ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                                       ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wpa_cli -p /var/run/"${radio}"_wpa_supplicant -i"$radio" scan_results</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 168:</span></pre>
+<pre></span>		exec_cmd wpa_cli -p /var/run/${radio}_wpa_supplicant list_network</span></pre>
+<pre><span class="green">                                             ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wpa_cli -p /var/run/"${radio}"_wpa_supplicant list_network</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 169:</span></pre>
+<pre></span>		exec_cmd wpa_cli -p /var/run/${radio}_wpa_supplicant status</span></pre>
+<pre><span class="green">                                             ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wpa_cli -p /var/run/"${radio}"_wpa_supplicant status</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 174:</span></pre>
+<pre></span>		exec_cmd wl -i $bss status</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" status</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 175:</span></pre>
+<pre></span>		exec_cmd wl -i $bss assoclist</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" assoclist</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 176:</span></pre>
+<pre></span>		exec_cmd wl -i $bss sta_info all</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" sta_info all</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 177:</span></pre>
+<pre></span>		exec_cmd wl -i $bss bs_data -noreset</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" bs_data -noreset</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 178:</span></pre>
+<pre></span>		exec_cmd wl -i $bss macmode</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" macmode</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 179:</span></pre>
+<pre></span>		exec_cmd wl -i $bss mac</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" mac</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 180:</span></pre>
+<pre></span>		exec_cmd wl -i $bss sta_monitor</span></pre>
+<pre><span class="green">                               ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd wl -i "$bss" sta_monitor</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 181:</span></pre>
+<pre></span>		for sta in `wl -i $bss sta_monitor`</span></pre>
+<pre><span class="green">                           ^----------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                  ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		for sta in $(wl -i "$bss" sta_monitor)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 183:</span></pre>
+<pre></span>			exec_cmd wl -i $bss sta_monitor stats $sta</span></pre>
+<pre><span class="green">                                       ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                              ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			exec_cmd wl -i "$bss" sta_monitor stats "$sta"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 185:</span></pre>
+<pre></span>		exec_cmd hostapd_cli -i $bss all_sta</span></pre>
+<pre><span class="green">                                        ^--^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd hostapd_cli -i "$bss" all_sta</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 186:</span></pre>
+<pre></span>		exec_cmd cat /tmp/${bss}_hapd.conf</span></pre>
+<pre><span class="green">                                  ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		exec_cmd cat /tmp/"${bss}"_hapd.conf</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 188:</span></pre>
+<pre></span>	exec_cmd sleep $sleep_time</span></pre>
+<pre><span class="green">                       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	exec_cmd sleep "$sleep_time"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/mapgetcfg.sh line 189:</span></pre>
+<pre></span>	let "cnt += 1"</span></pre>
+<pre><span class="orange">        ^-----------^ SC3039 (warning): In POSIX sh, 'let' is undefined.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2048" title="https://www.shellcheck.net/wiki/SC2048" target="_blank" >https://www.shellcheck.net/wiki/SC2048</a> -- Use "$&commat;" (with quotes) to prevent...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3021" title="https://www.shellcheck.net/wiki/SC3021" target="_blank" >https://www.shellcheck.net/wiki/SC3021</a> -- In POSIX sh, &gt;&amp; filename (as oppo...</pre>

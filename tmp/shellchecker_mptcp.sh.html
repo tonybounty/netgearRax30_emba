@@ -1,0 +1,107 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 42:</span></pre>
+<pre></span>	iptables -w -t nat -D PREROUTING -i $LAN_DEV -p tcp -j REDSOCKS 2&gt; /dev/null</span></pre>
+<pre><span class="green">                                            ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	iptables -w -t nat -D PREROUTING -i "$LAN_DEV" -p tcp -j REDSOCKS 2&gt; /dev/null</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 55:</span></pre>
+<pre></span>		config $&commat</span></span></pre>
+<pre><span class="red">                       ^-- SC2068 (error): Double quote array expansions to avoid re-splitting elements.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 60:</span></pre>
+<pre></span>		[ ! -z "$LAN_DEV" ] &amp;&amp; ip link set dev $LAN_DEV multipath off</span></pre>
+<pre><span class="green">                  ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<pre><span class="green">                                                       ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		[ ! -z "$LAN_DEV" ] &amp;&amp; ip link set dev "$LAN_DEV" multipath off</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 67:</span></pre>
+<pre></span>		[ ! -z "$WAN1_ADDR" ] &amp;&amp; ip rule add from $WAN1_ADDR table 1</span></pre>
+<pre><span class="green">                  ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<pre><span class="green">                                                          ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		[ ! -z "$WAN1_ADDR" ] &amp;&amp; ip rule add from "$WAN1_ADDR" table 1</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 69:</span></pre>
+<pre></span>		[ ! -z "$WAN1_GW" ] &amp;&amp; {</span></pre>
+<pre><span class="green">                  ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 70:</span></pre>
+<pre></span>			ip route add $WAN1_NET dev $WAN1_DEV scope link table 1</span></pre>
+<pre><span class="green">                                     ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                   ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ip route add "$WAN1_NET" dev "$WAN1_DEV" scope link table 1</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 71:</span></pre>
+<pre></span>			ip route add default via $WAN1_GW dev $WAN1_DEV table 1</span></pre>
+<pre><span class="green">                                                 ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                              ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ip route add default via "$WAN1_GW" dev "$WAN1_DEV" table 1</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 75:</span></pre>
+<pre></span>		[ ! -z "$WAN2_ADDR" ] &amp;&amp; ip rule add from $WAN2_ADDR table 2</span></pre>
+<pre><span class="green">                  ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<pre><span class="green">                                                          ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		[ ! -z "$WAN2_ADDR" ] &amp;&amp; ip rule add from "$WAN2_ADDR" table 2</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 77:</span></pre>
+<pre></span>		[ ! -z "$WAN2_GW" ] &amp;&amp; {</span></pre>
+<pre><span class="green">                  ^-- SC2236 (style): Use -n instead of ! -z.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 78:</span></pre>
+<pre></span>			ip route add $WAN2_NET dev $WAN2_DEV scope link table 2</span></pre>
+<pre><span class="green">                                     ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                   ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ip route add "$WAN2_NET" dev "$WAN2_DEV" scope link table 2</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 79:</span></pre>
+<pre></span>			ip route add default via $WAN2_GW dev $WAN2_DEV table 2</span></pre>
+<pre><span class="green">                                                 ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                              ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>			ip route add default via "$WAN2_GW" dev "$WAN2_DEV" table 2</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 97:</span></pre>
+<pre></span>		iptables -w -t nat -I REDSOCKS -p tcp -d $PROXY_SERVER_ADDR --dport $PROXY_SERVER_PORT -j RETURN</span></pre>
+<pre><span class="green">                                                         ^----------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                                                                    ^----------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		iptables -w -t nat -I REDSOCKS -p tcp -d "$PROXY_SERVER_ADDR" --dport "$PROXY_SERVER_PORT" -j RETURN</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/mptcp.sh line 110:</span></pre>
+<pre></span>		iptables -w -t nat -I PREROUTING -i $LAN_DEV -p tcp -j REDSOCKS</span></pre>
+<pre><span class="green">                                                    ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		iptables -w -t nat -I PREROUTING -i "$LAN_DEV" -p tcp -j REDSOCKS</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2068" title="https://www.shellcheck.net/wiki/SC2068" target="_blank" >https://www.shellcheck.net/wiki/SC2068</a> -- Double quote array expansions to ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2236" title="https://www.shellcheck.net/wiki/SC2236" target="_blank" >https://www.shellcheck.net/wiki/SC2236</a> -- Use -n instead of ! -z.</pre>

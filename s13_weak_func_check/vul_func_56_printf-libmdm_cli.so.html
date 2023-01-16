@@ -1,0 +1,1072 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libmdm_cli.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">libmdm_cli.so</span></pre>
+<br />
+<pre>    2014:	e59f0080 	ldr	r0, [pc, #128]	; 209c &lt;tcgetattr&commat;plt+0x3b0&gt;</pre>
+<pre>    2018:	e1a01004 	mov	r1, r4</pre>
+<pre>    201c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    2020:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre><span class="red">    2024:	eafffe46 	b	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2028:	e3530000 	cmp	r3, #0</pre>
+<pre>    202c:	0a000003 	beq	2040 &lt;tcgetattr&commat;plt+0x354&gt;</pre>
+<pre>    2030:	e3a0000d 	mov	r0, #13</pre>
+<pre>    2034:	ebfffede 	bl	1bb4 &lt;putchar&commat;plt&gt;</pre>
+<pre>    2038:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>    203c:	e0444003 	sub	r4, r4, r3</pre>
+<pre>    2040:	e59f6058 	ldr	r6, [pc, #88]	; 20a0 &lt;tcgetattr&commat;plt+0x3b4&gt;</pre>
+<pre>    2044:	e1a00004 	mov	r0, r4</pre>
+<pre>    2048:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    204c:	e5961000 	ldr	r1, [r6]</pre>
+<pre>    2050:	eb000cbb 	bl	5344 &lt;processDumpRemoteObjStatCmd&commat;&commat;Base+0x160&gt;</pre>
+<pre>    2054:	e2805001 	add	r5, r0, #1</pre>
+<pre>    2058:	e59f0044 	ldr	r0, [pc, #68]	; 20a4 &lt;tcgetattr&commat;plt+0x3b8&gt;</pre>
+<pre>    205c:	e1a01005 	mov	r1, r5</pre>
+<pre>    2060:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    2064:	ebfffe36 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2068:	e5961000 	ldr	r1, [r6]</pre>
+<pre>    206c:	e59f3034 	ldr	r3, [pc, #52]	; 20a8 &lt;tcgetattr&commat;plt+0x3bc&gt;</pre>
+<pre>--</pre>
+<pre>    20d0:	e2851001 	add	r1, r5, #1</pre>
+<pre>    20d4:	e2466001 	sub	r6, r6, #1</pre>
+<pre>    20d8:	e0801001 	add	r1, r0, r1</pre>
+<pre>    20dc:	e0800005 	add	r0, r0, r5</pre>
+<pre>    20e0:	ebfffe62 	bl	1a70 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    20e4:	e5846018 	str	r6, [r4, #24]</pre>
+<pre>    20e8:	ebffff9d 	bl	1f64 &lt;tcgetattr&commat;plt+0x278&gt;</pre>
+<pre>    20ec:	e3a00000 	mov	r0, #0</pre>
+<pre>    20f0:	ebffff6a 	bl	1ea0 &lt;tcgetattr&commat;plt+0x1b4&gt;</pre>
+<pre>    20f4:	e594000c 	ldr	r0, [r4, #12]</pre>
+<pre>    20f8:	e0400005 	sub	r0, r0, r5</pre>
+<pre>    20fc:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>    2100:	eaffffad 	b	1fbc &lt;tcgetattr&commat;plt+0x2d0&gt;</pre>
+<pre>    2104:	000150ec 	andeq	r5, r1, ip, ror #1</pre>
+<pre>    2108:	e92d4010 	push	{r4, lr}</pre>
+<pre>    210c:	e1a04001 	mov	r4, r1</pre>
+<pre>    2110:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    2114:	da000002 	ble	2124 &lt;tcgetattr&commat;plt+0x438&gt;</pre>
+<pre>    2118:	e59f002c 	ldr	r0, [pc, #44]	; 214c &lt;tcgetattr&commat;plt+0x460&gt;</pre>
+<pre>    211c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    2120:	ebfffe07 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2124:	e3a0000d 	mov	r0, #13</pre>
+<pre>    2128:	ebfffea1 	bl	1bb4 &lt;putchar&commat;plt&gt;</pre>
+<pre>    212c:	ebffff44 	bl	1e44 &lt;tcgetattr&commat;plt+0x158&gt;</pre>
+<pre>    2130:	ebffff8b 	bl	1f64 &lt;tcgetattr&commat;plt+0x278&gt;</pre>
+<pre>    2134:	e59f0014 	ldr	r0, [pc, #20]	; 2150 &lt;tcgetattr&commat;plt+0x464&gt;</pre>
+<pre>    2138:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    213c:	ebfffe00 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2140:	e1a00004 	mov	r0, r4</pre>
+<pre>    2144:	e8bd4010 	pop	{r4, lr}</pre>
+<pre>    2148:	eaffff9b 	b	1fbc &lt;tcgetattr&commat;plt+0x2d0&gt;</pre>
+<pre>    214c:	00003352 	andeq	r3, r0, r2, asr r3</pre>
+<pre>    2150:	00003342 	andeq	r3, r0, r2, asr #6</pre>
+<pre>    2154:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    2158:	0a00000a 	beq	2188 &lt;tcgetattr&commat;plt+0x49c&gt;</pre>
+<pre>    215c:	e92d4010 	push	{r4, lr}</pre>
+<pre>    2160:	ebfffe27 	bl	1a04 &lt;strdup&commat;plt&gt;</pre>
+<pre>    2164:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    2168:	1a000004 	bne	2180 &lt;tcgetattr&commat;plt+0x494&gt;</pre>
+<pre>    216c:	e59f001c 	ldr	r0, [pc, #28]	; 2190 &lt;tcgetattr&commat;plt+0x4a4&gt;</pre>
+<pre>    2170:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    2174:	ebfffdf2 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2178:	e3a00001 	mov	r0, #1</pre>
+<pre>    217c:	ebfffe5f 	bl	1b00 &lt;exit&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    2588:	e59f348c 	ldr	r3, [pc, #1164]	; 2a1c &lt;cmdedit_read_input&commat;&commat;Base+0x59c&gt;</pre>
+<pre>    258c:	e79a7003 	ldr	r7, [sl, r3]</pre>
+<pre>    2590:	e5970000 	ldr	r0, [r7]</pre>
+<pre>    2594:	ebfffcf9 	bl	1980 &lt;fflush&commat;plt&gt;</pre>
+<pre>    2598:	ebfffd8e 	bl	1bd8 &lt;cli_waitForInputAvailable&commat;plt&gt;</pre>
+<pre>    259c:	e3500000 	cmp	r0, #0</pre>
+<pre>    25a0:	1a00000a 	bne	25d0 &lt;cmdedit_read_input&commat;&commat;Base+0x150&gt;</pre>
+<pre>    25a4:	e28d9007 	add	r9, sp, #7</pre>
+<pre>    25a8:	e3a02001 	mov	r2, #1</pre>
+<pre>    25ac:	e1a01009 	mov	r1, r9</pre>
+<pre>    25b0:	e3a00000 	mov	r0, #0</pre>
+<pre>    25b4:	ebfffce5 	bl	1950 &lt;read&commat;plt&gt;</pre>
+<pre>    25b8:	e3500000 	cmp	r0, #0</pre>
+<pre>    25bc:	aa00000a 	bge	25ec &lt;cmdedit_read_input&commat;&commat;Base+0x16c&gt;</pre>
+<pre>    25c0:	ebfffd6c 	bl	1b78 &lt;__errno_location&commat;plt&gt;</pre>
+<pre>    25c4:	e5903000 	ldr	r3, [r0]</pre>
+<pre>    25c8:	e3530004 	cmp	r3, #4</pre>
+<pre>    25cc:	0afffff5 	beq	25a8 &lt;cmdedit_read_input&commat;&commat;Base+0x128&gt;</pre>
+<pre>    25d0:	e59f0448 	ldr	r0, [pc, #1096]	; 2a20 &lt;cmdedit_read_input&commat;&commat;Base+0x5a0&gt;</pre>
+<pre>    25d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    25d8:	ebfffcd9 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    25dc:	ebfffe6b 	bl	1f90 &lt;tcgetattr&commat;plt+0x2a4&gt;</pre>
+<pre>    25e0:	e3e00000 	mvn	r0, #0</pre>
+<pre>--</pre>
+<pre>    27a8:	ebfffded 	bl	1f64 &lt;tcgetattr&commat;plt+0x278&gt;</pre>
+<pre>    27ac:	eaffff77 	b	2590 &lt;cmdedit_read_input&commat;&commat;Base+0x110&gt;</pre>
+<pre>    27b0:	ebfffde0 	bl	1f38 &lt;tcgetattr&commat;plt+0x24c&gt;</pre>
+<pre>    27b4:	eaffff75 	b	2590 &lt;cmdedit_read_input&commat;&commat;Base+0x110&gt;</pre>
+<pre>    27b8:	e59f3278 	ldr	r3, [pc, #632]	; 2a38 &lt;cmdedit_read_input&commat;&commat;Base+0x5b8&gt;</pre>
+<pre>    27bc:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    27c0:	e593300c 	ldr	r3, [r3, #12]</pre>
+<pre>    27c4:	e3530000 	cmp	r3, #0</pre>
+<pre>    27c8:	daffff70 	ble	2590 &lt;cmdedit_read_input&commat;&commat;Base+0x110&gt;</pre>
+<pre>    27cc:	e3a00001 	mov	r0, #1</pre>
+<pre>    27d0:	ebfffdf9 	bl	1fbc &lt;tcgetattr&commat;plt+0x2d0&gt;</pre>
+<pre>    27d4:	eafffff1 	b	27a0 &lt;cmdedit_read_input&commat;&commat;Base+0x320&gt;</pre>
+<pre>    27d8:	e59f325c 	ldr	r3, [pc, #604]	; 2a3c &lt;cmdedit_read_input&commat;&commat;Base+0x5bc&gt;</pre>
+<pre>    27dc:	e3a01000 	mov	r1, #0</pre>
+<pre>    27e0:	e59f0258 	ldr	r0, [pc, #600]	; 2a40 &lt;cmdedit_read_input&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    27e4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    27e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    27ec:	e593200c 	ldr	r2, [r3, #12]</pre>
+<pre>    27f0:	e7c51002 	strb	r1, [r5, r2]</pre>
+<pre>    27f4:	e5832018 	str	r2, [r3, #24]</pre>
+<pre><span class="red">    27f8:	ebfffc51 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    27fc:	eaffff63 	b	2590 &lt;cmdedit_read_input&commat;&commat;Base+0x110&gt;</pre>
+<pre>    2800:	e59f023c 	ldr	r0, [pc, #572]	; 2a44 &lt;cmdedit_read_input&commat;&commat;Base+0x5c4&gt;</pre>
+<pre>    2804:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    2808:	ebfffc4d 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    280c:	e59f3234 	ldr	r3, [pc, #564]	; 2a48 &lt;cmdedit_read_input&commat;&commat;Base+0x5c8&gt;</pre>
+<pre>    2810:	e3a00000 	mov	r0, #0</pre>
+<pre>--</pre>
+<pre>    2a64:	e59f3014 	ldr	r3, [pc, #20]	; 2a80 &lt;processLogoutCmd&commat;&commat;Base+0x1c&gt;</pre>
+<pre>    2a68:	e59f2014 	ldr	r2, [pc, #20]	; 2a84 &lt;processLogoutCmd&commat;&commat;Base+0x20&gt;</pre>
+<pre>    2a6c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    2a70:	e7933002 	ldr	r3, [r3, r2]</pre>
+<pre>    2a74:	e3a02000 	mov	r2, #0</pre>
+<pre>    2a78:	e5c32000 	strb	r2, [r3]</pre>
+<pre>    2a7c:	e12fff1e 	bx	lr</pre>
+<pre>    2a80:	0001458c 	andeq	r4, r1, ip, lsl #11</pre>
+<pre>    2a84:	00000168 	andeq	r0, r0, r8, ror #2</pre>
+<pre>    2a88:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    2a8c:	e3a04000 	mov	r4, #0</pre>
+<pre>    2a90:	e59f60ac 	ldr	r6, [pc, #172]	; 2b44 &lt;processLogoutCmd&commat;&commat;Base+0xe0&gt;</pre>
+<pre>    2a94:	e59f50ac 	ldr	r5, [pc, #172]	; 2b48 &lt;processLogoutCmd&commat;&commat;Base+0xe4&gt;</pre>
+<pre>    2a98:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    2a9c:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    2aa0:	e3a0300c 	mov	r3, #12</pre>
+<pre>    2aa4:	e1a00005 	mov	r0, r5</pre>
+<pre>    2aa8:	e0030493 	mul	r3, r3, r4</pre>
+<pre>    2aac:	e2844001 	add	r4, r4, #1</pre>
+<pre>    2ab0:	e7931006 	ldr	r1, [r3, r6]</pre>
+<pre><span class="red">    2ab4:	ebfffba2 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2ab8:	e3540005 	cmp	r4, #5</pre>
+<pre>    2abc:	1afffff7 	bne	2aa0 &lt;processLogoutCmd&commat;&commat;Base+0x3c&gt;</pre>
+<pre>--</pre>
+<pre>    2acc:	e285503c 	add	r5, r5, #60	; 0x3c</pre>
+<pre>    2ad0:	e59f3078 	ldr	r3, [pc, #120]	; 2b50 &lt;processLogoutCmd&commat;&commat;Base+0xec&gt;</pre>
+<pre>    2ad4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    2ad8:	e5933000 	ldr	r3, [r3]</pre>
+<pre>    2adc:	e1530004 	cmp	r3, r4</pre>
+<pre>    2ae0:	8a00000f 	bhi	2b24 &lt;processLogoutCmd&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    2ae4:	e59f5068 	ldr	r5, [pc, #104]	; 2b54 &lt;processLogoutCmd&commat;&commat;Base+0xf0&gt;</pre>
+<pre>    2ae8:	e3a04000 	mov	r4, #0</pre>
+<pre>    2aec:	e59f6064 	ldr	r6, [pc, #100]	; 2b58 &lt;processLogoutCmd&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    2af0:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    2af4:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    2af8:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>    2afc:	e1530004 	cmp	r3, r4</pre>
+<pre>    2b00:	98bd8070 	popls	{r4, r5, r6, pc}</pre>
+<pre>    2b04:	e3a0300c 	mov	r3, #12</pre>
+<pre>    2b08:	e5952000 	ldr	r2, [r5]</pre>
+<pre>    2b0c:	e0030493 	mul	r3, r3, r4</pre>
+<pre>    2b10:	e1a00006 	mov	r0, r6</pre>
+<pre>    2b14:	e2844001 	add	r4, r4, #1</pre>
+<pre>    2b18:	e7921003 	ldr	r1, [r2, r3]</pre>
+<pre><span class="red">    2b1c:	ebfffb88 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2b20:	eafffff4 	b	2af8 &lt;processLogoutCmd&commat;&commat;Base+0x94&gt;</pre>
+<pre>    2b24:	e3a0300c 	mov	r3, #12</pre>
+<pre>    2b28:	e59f002c 	ldr	r0, [pc, #44]	; 2b5c &lt;processLogoutCmd&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    2b2c:	e0030493 	mul	r3, r3, r4</pre>
+<pre>    2b30:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    2b34:	e2844001 	add	r4, r4, #1</pre>
+<pre>    2b38:	e7931005 	ldr	r1, [r3, r5]</pre>
+<pre><span class="red">    2b3c:	ebfffb80 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2b40:	eaffffe2 	b	2ad0 &lt;processLogoutCmd&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    2b44:	000143b0 			; &lt;UNDEFINED&gt; instruction: 0x000143b0</pre>
+<pre>--</pre>
+<pre>    2e00:	52613000 	rsbpl	r3, r1, #0</pre>
+<pre>    2e04:	e5121080 	ldr	r1, [r2, #-128]	; 0xffffff80</pre>
+<pre>    2e08:	e1813310 	orr	r3, r1, r0, lsl r3</pre>
+<pre>    2e0c:	e5023080 	str	r3, [r2, #-128]	; 0xffffff80</pre>
+<pre>    2e10:	e28d9030 	add	r9, sp, #48	; 0x30</pre>
+<pre>    2e14:	e28d0028 	add	r0, sp, #40	; 0x28</pre>
+<pre>    2e18:	e1a01009 	mov	r1, r9</pre>
+<pre>    2e1c:	ebfffb16 	bl	1a7c &lt;gettimeofday&commat;plt&gt;</pre>
+<pre>    2e20:	e59d0010 	ldr	r0, [sp, #16]</pre>
+<pre>    2e24:	e3a03000 	mov	r3, #0</pre>
+<pre>    2e28:	e1a0100b 	mov	r1, fp</pre>
+<pre>    2e2c:	e2800001 	add	r0, r0, #1</pre>
+<pre>    2e30:	e1a02003 	mov	r2, r3</pre>
+<pre>    2e34:	e58d7000 	str	r7, [sp]</pre>
+<pre>    2e38:	ebfffaeb 	bl	19ec &lt;select&commat;plt&gt;</pre>
+<pre>    2e3c:	e3500000 	cmp	r0, #0</pre>
+<pre>    2e40:	1a000006 	bne	2e60 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x11c&gt;</pre>
+<pre>    2e44:	e59f01ac 	ldr	r0, [pc, #428]	; 2ff8 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x2b4&gt;</pre>
+<pre>    2e48:	e5961000 	ldr	r1, [r6]</pre>
+<pre>    2e4c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    2e50:	ebfffabb 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    2e54:	e3020651 	movw	r0, #9809	; 0x2651</pre>
+<pre>    2e58:	e28dd0b8 	add	sp, sp, #184	; 0xb8</pre>
+<pre>--</pre>
+<pre>    30b8:	e5c32000 	strb	r2, [r3]</pre>
+<pre>    30bc:	eaffffe8 	b	3064 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x320&gt;</pre>
+<pre>    30c0:	e3520031 	cmp	r2, #49	; 0x31</pre>
+<pre>    30c4:	1a000003 	bne	30d8 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x394&gt;</pre>
+<pre>    30c8:	e5dd2001 	ldrb	r2, [sp, #1]</pre>
+<pre>    30cc:	e3520000 	cmp	r2, #0</pre>
+<pre>    30d0:	03a02001 	moveq	r2, #1</pre>
+<pre>    30d4:	0afffff7 	beq	30b8 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x374&gt;</pre>
+<pre>    30d8:	e59f000c 	ldr	r0, [pc, #12]	; 30ec &lt;cli_waitForInputAvailable&commat;&commat;Base+0x3a8&gt;</pre>
+<pre>    30dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    30e0:	e28dd014 	add	sp, sp, #20</pre>
+<pre>    30e4:	e49de004 	pop	{lr}		; (ldr lr, [sp], #4)</pre>
+<pre>    30e8:	eafffa72 	b	1ab8 &lt;puts&commat;plt&gt;</pre>
+<pre>    30ec:	0000263b 	andeq	r2, r0, fp, lsr r6</pre>
+<pre>    30f0:	e92d4010 	push	{r4, lr}</pre>
+<pre>    30f4:	e1a04000 	mov	r4, r0</pre>
+<pre>    30f8:	e5902004 	ldr	r2, [r0, #4]</pre>
+<pre>    30fc:	e1d010b0 	ldrh	r1, [r0]</pre>
+<pre>    3100:	e59f0060 	ldr	r0, [pc, #96]	; 3168 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x424&gt;</pre>
+<pre>    3104:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3108:	ebfffa0d 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    310c:	e1d400b0 	ldrh	r0, [r4]</pre>
+<pre>    3110:	ebfffa62 	bl	1aa0 &lt;cmsLck_getLockZone&commat;plt&gt;</pre>
+<pre>    3114:	e1a01000 	mov	r1, r0</pre>
+<pre>    3118:	e59f004c 	ldr	r0, [pc, #76]	; 316c &lt;cli_waitForInputAvailable&commat;&commat;Base+0x428&gt;</pre>
+<pre>    311c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3120:	ebfffa07 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3124:	e59f0044 	ldr	r0, [pc, #68]	; 3170 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x42c&gt;</pre>
+<pre>    3128:	e5941008 	ldr	r1, [r4, #8]</pre>
+<pre>    312c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3130:	ebfffa03 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3134:	e59f0038 	ldr	r0, [pc, #56]	; 3174 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x430&gt;</pre>
+<pre>    3138:	e594100c 	ldr	r1, [r4, #12]</pre>
+<pre>    313c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3140:	ebfff9ff 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3144:	e59f002c 	ldr	r0, [pc, #44]	; 3178 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x434&gt;</pre>
+<pre>    3148:	e5941014 	ldr	r1, [r4, #20]</pre>
+<pre>    314c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3150:	ebfff9fb 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3154:	e59f0020 	ldr	r0, [pc, #32]	; 317c &lt;cli_waitForInputAvailable&commat;&commat;Base+0x438&gt;</pre>
+<pre>    3158:	e5941018 	ldr	r1, [r4, #24]</pre>
+<pre>--</pre>
+<pre>    3388:	0a000007 	beq	33ac &lt;processDumpCfgCmd&commat;&commat;Base+0x184&gt;</pre>
+<pre>    338c:	e88d0009 	stm	sp, {r0, r3}</pre>
+<pre>    3390:	e3a020aa 	mov	r2, #170	; 0xaa</pre>
+<pre>    3394:	e59f30d4 	ldr	r3, [pc, #212]	; 3470 &lt;processDumpCfgCmd&commat;&commat;Base+0x248&gt;</pre>
+<pre>    3398:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    339c:	e1a01007 	mov	r1, r7</pre>
+<pre>    33a0:	e3a00003 	mov	r0, #3</pre>
+<pre>    33a4:	ebfff978 	bl	198c &lt;ulog_log&commat;plt&gt;</pre>
+<pre>    33a8:	ea000004 	b	33c0 &lt;processDumpCfgCmd&commat;&commat;Base+0x198&gt;</pre>
+<pre>    33ac:	e3530001 	cmp	r3, #1</pre>
+<pre>    33b0:	8a000005 	bhi	33cc &lt;processDumpCfgCmd&commat;&commat;Base+0x1a4&gt;</pre>
+<pre>    33b4:	e59f00b8 	ldr	r0, [pc, #184]	; 3474 &lt;processDumpCfgCmd&commat;&commat;Base+0x24c&gt;</pre>
+<pre>    33b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    33bc:	ebfff9bd 	bl	1ab8 &lt;puts&commat;plt&gt;</pre>
+<pre>    33c0:	e1a00006 	mov	r0, r6</pre>
+<pre>    33c4:	ebfff9d3 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    33c8:	eaffffb3 	b	329c &lt;processDumpCfgCmd&commat;&commat;Base+0x74&gt;</pre>
+<pre>    33cc:	e59f00a4 	ldr	r0, [pc, #164]	; 3478 &lt;processDumpCfgCmd&commat;&commat;Base+0x250&gt;</pre>
+<pre>    33d0:	e1a01006 	mov	r1, r6</pre>
+<pre>    33d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    33d8:	ebfff959 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    33dc:	e59f0098 	ldr	r0, [pc, #152]	; 347c &lt;processDumpCfgCmd&commat;&commat;Base+0x254&gt;</pre>
+<pre>    33e0:	e59d200c 	ldr	r2, [sp, #12]</pre>
+<pre>    33e4:	e1a01004 	mov	r1, r4</pre>
+<pre>    33e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    33ec:	ebfff954 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    33f0:	eafffff2 	b	33c0 &lt;processDumpCfgCmd&commat;&commat;Base+0x198&gt;</pre>
+<pre>    33f4:	ebfff9fd 	bl	1bf0 &lt;cmsMgm_writeConfigToBuf&commat;plt&gt;</pre>
+<pre>    33f8:	e3500000 	cmp	r0, #0</pre>
+<pre>    33fc:	0a000005 	beq	3418 &lt;processDumpCfgCmd&commat;&commat;Base+0x1f0&gt;</pre>
+<pre>    3400:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    3404:	e3a020bc 	mov	r2, #188	; 0xbc</pre>
+<pre>    3408:	e88d0009 	stm	sp, {r0, r3}</pre>
+<pre>    340c:	e59f306c 	ldr	r3, [pc, #108]	; 3480 &lt;processDumpCfgCmd&commat;&commat;Base+0x258&gt;</pre>
+<pre>    3410:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    3414:	eaffffe0 	b	339c &lt;processDumpCfgCmd&commat;&commat;Base+0x174&gt;</pre>
+<pre>    3418:	e59f0064 	ldr	r0, [pc, #100]	; 3484 &lt;processDumpCfgCmd&commat;&commat;Base+0x25c&gt;</pre>
+<pre>    341c:	e1a01006 	mov	r1, r6</pre>
+<pre>    3420:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3424:	ebfff946 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3428:	e59f0058 	ldr	r0, [pc, #88]	; 3488 &lt;processDumpCfgCmd&commat;&commat;Base+0x260&gt;</pre>
+<pre>    342c:	e59d200c 	ldr	r2, [sp, #12]</pre>
+<pre>--</pre>
+<pre>    3644:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3648:	ebfff8b1 	bl	1914 &lt;strcasestr&commat;plt&gt;</pre>
+<pre>    364c:	e3500000 	cmp	r0, #0</pre>
+<pre>    3650:	0a000001 	beq	365c &lt;processMeminfoCmd&commat;&commat;Base+0x1d0&gt;</pre>
+<pre>    3654:	e59f3134 	ldr	r3, [pc, #308]	; 3790 &lt;processMeminfoCmd&commat;&commat;Base+0x304&gt;</pre>
+<pre>    3658:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    365c:	e59d0020 	ldr	r0, [sp, #32]</pre>
+<pre>    3660:	e3500000 	cmp	r0, #0</pre>
+<pre>    3664:	1a00000e 	bne	36a4 &lt;processMeminfoCmd&commat;&commat;Base+0x218&gt;</pre>
+<pre>    3668:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>    366c:	e1530005 	cmp	r3, r5</pre>
+<pre>    3670:	1a000009 	bne	369c &lt;processMeminfoCmd&commat;&commat;Base+0x210&gt;</pre>
+<pre>    3674:	e28d000c 	add	r0, sp, #12</pre>
+<pre>    3678:	ebfff971 	bl	1c44 &lt;cmsMdm_getInfo&commat;plt&gt;</pre>
+<pre>    367c:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>    3680:	e59d2014 	ldr	r2, [sp, #20]</pre>
+<pre>    3684:	e59f0108 	ldr	r0, [pc, #264]	; 3794 &lt;processMeminfoCmd&commat;&commat;Base+0x308&gt;</pre>
+<pre>    3688:	e0423001 	sub	r3, r2, r1</pre>
+<pre>    368c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3690:	e1a03523 	lsr	r3, r3, #10</pre>
+<pre><span class="red">    3694:	ebfff8aa 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3698:	ebfff98d 	bl	1cd4 &lt;cmsMem_dumpMemStats&commat;plt&gt;</pre>
+<pre>    369c:	e28dd038 	add	sp, sp, #56	; 0x38</pre>
+<pre>    36a0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    36a4:	ebfff98d 	bl	1ce0 &lt;cmsEid_getEntityInfo&commat;plt&gt;</pre>
+<pre>    36a8:	e3500000 	cmp	r0, #0</pre>
+<pre>    36ac:	0a00001b 	beq	3720 &lt;processMeminfoCmd&commat;&commat;Base+0x294&gt;</pre>
+<pre>    36b0:	e5902010 	ldr	r2, [r0, #16]</pre>
+<pre>    36b4:	e59f00dc 	ldr	r0, [pc, #220]	; 3798 &lt;processMeminfoCmd&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    36b8:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>    36bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    36c0:	ebfff89f 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    36c4:	e59f30d0 	ldr	r3, [pc, #208]	; 379c &lt;processMeminfoCmd&commat;&commat;Base+0x310&gt;</pre>
+<pre>    36c8:	e7964003 	ldr	r4, [r6, r3]</pre>
+<pre>--</pre>
+<pre>    391c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    3920:	ebfff873 	bl	1af4 &lt;__ctype_b_loc&commat;plt&gt;</pre>
+<pre>    3924:	e5d53000 	ldrb	r3, [r5]</pre>
+<pre>    3928:	e1a03083 	lsl	r3, r3, #1</pre>
+<pre>    392c:	e5902000 	ldr	r2, [r0]</pre>
+<pre>    3930:	e19240b3 	ldrh	r4, [r2, r3]</pre>
+<pre>    3934:	e2144b02 	ands	r4, r4, #2048	; 0x800</pre>
+<pre>    3938:	0a00000d 	beq	3974 &lt;processDumpOidCmd&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    393c:	e1a00005 	mov	r0, r5</pre>
+<pre>    3940:	ebfff8c8 	bl	1c68 &lt;atoi&commat;plt&gt;</pre>
+<pre>    3944:	e1a04000 	mov	r4, r0</pre>
+<pre>    3948:	e6ff0070 	uxth	r0, r0</pre>
+<pre>    394c:	ebfff83e 	bl	1a4c &lt;cmsMdm_getOidInfoEntry&commat;plt&gt;</pre>
+<pre>    3950:	e3500000 	cmp	r0, #0</pre>
+<pre>    3954:	0a000001 	beq	3960 &lt;processDumpOidCmd&commat;&commat;Base+0xac&gt;</pre>
+<pre>    3958:	ebfffde4 	bl	30f0 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x3ac&gt;</pre>
+<pre>    395c:	eaffffed 	b	3918 &lt;processDumpOidCmd&commat;&commat;Base+0x64&gt;</pre>
+<pre>    3960:	e59f0058 	ldr	r0, [pc, #88]	; 39c0 &lt;processDumpOidCmd&commat;&commat;Base+0x10c&gt;</pre>
+<pre>    3964:	e6ff1074 	uxth	r1, r4</pre>
+<pre>    3968:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    396c:	ebfff7f4 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3970:	eaffffe8 	b	3918 &lt;processDumpOidCmd&commat;&commat;Base+0x64&gt;</pre>
+<pre>    3974:	e28d0004 	add	r0, sp, #4</pre>
+<pre>--</pre>
+<pre>    39e8:	e1a0000a 	mov	r0, sl</pre>
+<pre>    39ec:	e3a06000 	mov	r6, #0</pre>
+<pre>    39f0:	ebfff86c 	bl	1ba8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    39f4:	e3a02058 	mov	r2, #88	; 0x58</pre>
+<pre>    39f8:	e3a01000 	mov	r1, #0</pre>
+<pre>    39fc:	e1a00004 	mov	r0, r4</pre>
+<pre>    3a00:	ebfff868 	bl	1ba8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    3a04:	e3a02064 	mov	r2, #100	; 0x64</pre>
+<pre>    3a08:	e3a01000 	mov	r1, #0</pre>
+<pre>    3a0c:	e1a0000b 	mov	r0, fp</pre>
+<pre>    3a10:	ebfff864 	bl	1ba8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    3a14:	e59f32c4 	ldr	r3, [pc, #708]	; 3ce0 &lt;processLogLevelCmd&commat;&commat;Base+0x318&gt;</pre>
+<pre>    3a18:	e58d601c 	str	r6, [sp, #28]</pre>
+<pre>    3a1c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    3a20:	e8930007 	ldm	r3, {r0, r1, r2}</pre>
+<pre>    3a24:	e28d3020 	add	r3, sp, #32</pre>
+<pre>    3a28:	e8830007 	stm	r3, {r0, r1, r2}</pre>
+<pre>    3a2c:	e1a01005 	mov	r1, r5</pre>
+<pre>    3a30:	e59f02ac 	ldr	r0, [pc, #684]	; 3ce4 &lt;processLogLevelCmd&commat;&commat;Base+0x31c&gt;</pre>
+<pre>    3a34:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3a38:	ebfff7c1 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3a3c:	e59f12a4 	ldr	r1, [pc, #676]	; 3ce8 &lt;processLogLevelCmd&commat;&commat;Base+0x320&gt;</pre>
+<pre>    3a40:	e3a02004 	mov	r2, #4</pre>
+<pre>--</pre>
+<pre>    3be4:	e1a01004 	mov	r1, r4</pre>
+<pre>    3be8:	e1a00006 	mov	r0, r6</pre>
+<pre>    3bec:	ebfff7c6 	bl	1b0c &lt;cmsMdm_fullPathToPathDescriptor&commat;plt&gt;</pre>
+<pre>    3bf0:	e3590000 	cmp	r9, #0</pre>
+<pre>    3bf4:	1a000015 	bne	3c50 &lt;processLogLevelCmd&commat;&commat;Base+0x288&gt;</pre>
+<pre>    3bf8:	e3a02001 	mov	r2, #1</pre>
+<pre>    3bfc:	e28d301c 	add	r3, sp, #28</pre>
+<pre>    3c00:	e1a01002 	mov	r1, r2</pre>
+<pre>    3c04:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    3c08:	e1a00004 	mov	r0, r4</pre>
+<pre>    3c0c:	e28d3018 	add	r3, sp, #24</pre>
+<pre>    3c10:	e58d3000 	str	r3, [sp]</pre>
+<pre>    3c14:	e1a03009 	mov	r3, r9</pre>
+<pre>    3c18:	ebfff746 	bl	1938 &lt;cmsPhl_getParameterValuesFlags&commat;plt&gt;</pre>
+<pre>    3c1c:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    3c20:	1a00002b 	bne	3cd4 &lt;processLogLevelCmd&commat;&commat;Base+0x30c&gt;</pre>
+<pre>    3c24:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>    3c28:	e59f00dc 	ldr	r0, [pc, #220]	; 3d0c &lt;processLogLevelCmd&commat;&commat;Base+0x344&gt;</pre>
+<pre>    3c2c:	e5931058 	ldr	r1, [r3, #88]	; 0x58</pre>
+<pre>    3c30:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3c34:	ebfff742 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3c38:	e1cd01d8 	ldrd	r0, [sp, #24]</pre>
+<pre>    3c3c:	ebfff7f4 	bl	1c14 &lt;cmsPhl_freeGetParamValueBuf&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    3c68:	e3a02058 	mov	r2, #88	; 0x58</pre>
+<pre>    3c6c:	e51331a0 	ldr	r3, [r3, #-416]	; 0xfffffe60</pre>
+<pre>    3c70:	e58d3138 	str	r3, [sp, #312]	; 0x138</pre>
+<pre>    3c74:	e58d0134 	str	r0, [sp, #308]	; 0x134</pre>
+<pre>    3c78:	e1a0000b 	mov	r0, fp</pre>
+<pre>    3c7c:	ebfff751 	bl	19c8 &lt</span>emcpy&commat;plt&gt;</pre>
+<pre>    3c80:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    3c84:	e3a01001 	mov	r1, #1</pre>
+<pre>    3c88:	e1a0000b 	mov	r0, fp</pre>
+<pre>    3c8c:	e58d313c 	str	r3, [sp, #316]	; 0x13c</pre>
+<pre>    3c90:	ebfff7ac 	bl	1b48 &lt;cmsPhl_setParameterValues&commat;plt&gt;</pre>
+<pre>    3c94:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    3c98:	1a000008 	bne	3cc0 &lt;processLogLevelCmd&commat;&commat;Base+0x2f8&gt;</pre>
+<pre>    3c9c:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>    3ca0:	e28d3d07 	add	r3, sp, #448	; 0x1c0</pre>
+<pre>    3ca4:	e59f0068 	ldr	r0, [pc, #104]	; 3d14 &lt;processLogLevelCmd&commat;&commat;Base+0x34c&gt;</pre>
+<pre>    3ca8:	e0831101 	add	r1, r3, r1, lsl #2</pre>
+<pre>    3cac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    3cb0:	e5973000 	ldr	r3, [r7]</pre>
+<pre>    3cb4:	e51111a0 	ldr	r1, [r1, #-416]	; 0xfffffe60</pre>
+<pre><span class="red">    3cb8:	ebfff721 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3cbc:	eaffff93 	b	3b10 &lt;processLogLevelCmd&commat;&commat;Base+0x148&gt;</pre>
+<pre>    3cc0:	e59f0050 	ldr	r0, [pc, #80]	; 3d18 &lt;processLogLevelCmd&commat;&commat;Base+0x350&gt;</pre>
+<pre>    3cc4:	e1a01002 	mov	r1, r2</pre>
+<pre>    3cc8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3ccc:	ebfff71c 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3cd0:	eaffff8e 	b	3b10 &lt;processLogLevelCmd&commat;&commat;Base+0x148&gt;</pre>
+<pre>    3cd4:	e59f0040 	ldr	r0, [pc, #64]	; 3d1c &lt;processLogLevelCmd&commat;&commat;Base+0x354&gt;</pre>
+<pre>--</pre>
+<pre>    3e24:	eaffffd7 	b	3d88 &lt;processDumpMdmCmd&commat;&commat;Base+0x68&gt;</pre>
+<pre>    3e28:	e28d1014 	add	r1, sp, #20</pre>
+<pre>    3e2c:	ebfff6fd 	bl	1a28 &lt;cmsMgm_writeMdmToBuf&commat;plt&gt;</pre>
+<pre>    3e30:	e3500000 	cmp	r0, #0</pre>
+<pre>    3e34:	0a00000b 	beq	3e68 &lt;processDumpMdmCmd&commat;&commat;Base+0x148&gt;</pre>
+<pre>    3e38:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>    3e3c:	e3a02e22 	mov	r2, #544	; 0x220</pre>
+<pre>    3e40:	e88d0011 	stm	sp, {r0, r4}</pre>
+<pre>    3e44:	e1a01006 	mov	r1, r6</pre>
+<pre>    3e48:	e3a00003 	mov	r0, #3</pre>
+<pre>    3e4c:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>    3e50:	e59f3058 	ldr	r3, [pc, #88]	; 3eb0 &lt;processDumpMdmCmd&commat;&commat;Base+0x190&gt;</pre>
+<pre>    3e54:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    3e58:	ebfff6cb 	bl	198c &lt;ulog_log&commat;plt&gt;</pre>
+<pre>    3e5c:	e1a00005 	mov	r0, r5</pre>
+<pre>    3e60:	ebfff72c 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    3e64:	eaffffc7 	b	3d88 &lt;processDumpMdmCmd&commat;&commat;Base+0x68&gt;</pre>
+<pre>    3e68:	e59f0044 	ldr	r0, [pc, #68]	; 3eb4 &lt;processDumpMdmCmd&commat;&commat;Base+0x194&gt;</pre>
+<pre>    3e6c:	e1a01005 	mov	r1, r5</pre>
+<pre>    3e70:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3e74:	ebfff6b2 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3e78:	e59f0038 	ldr	r0, [pc, #56]	; 3eb8 &lt;processDumpMdmCmd&commat;&commat;Base+0x198&gt;</pre>
+<pre>    3e7c:	e59d2014 	ldr	r2, [sp, #20]</pre>
+<pre>    3e80:	e1a01004 	mov	r1, r4</pre>
+<pre>    3e84:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3e88:	ebfff6ad 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3e8c:	eafffff2 	b	3e5c &lt;processDumpMdmCmd&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    3e90:	00001afc 	strdeq	r1, [r0], -ip</pre>
+<pre>--</pre>
+<pre>    3ed4:	ebfff6d0 	bl	1a1c &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    3ed8:	e59f5f64 	ldr	r5, [pc, #3940]	; 4e44 &lt;processMdmCmd&commat;&commat;Base+0xf88&gt;</pre>
+<pre>    3edc:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    3ee0:	e3500000 	cmp	r0, #0</pre>
+<pre>    3ee4:	0a00000b 	beq	3f18 &lt;processMdmCmd&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    3ee8:	e59f1f58 	ldr	r1, [pc, #3928]	; 4e48 &lt;processMdmCmd&commat;&commat;Base+0xf8c&gt;</pre>
+<pre>    3eec:	e1a00004 	mov	r0, r4</pre>
+<pre>    3ef0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3ef4:	ebfff6c8 	bl	1a1c &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    3ef8:	e3500000 	cmp	r0, #0</pre>
+<pre>    3efc:	0a000005 	beq	3f18 &lt;processMdmCmd&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    3f00:	e59f1f44 	ldr	r1, [pc, #3908]	; 4e4c &lt;processMdmCmd&commat;&commat;Base+0xf90&gt;</pre>
+<pre>    3f04:	e1a00004 	mov	r0, r4</pre>
+<pre>    3f08:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3f0c:	ebfff6c2 	bl	1a1c &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    3f10:	e3500000 	cmp	r0, #0</pre>
+<pre>    3f14:	1a00001c 	bne	3f8c &lt;processMdmCmd&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    3f18:	e59f0f30 	ldr	r0, [pc, #3888]	; 4e50 &lt;processMdmCmd&commat;&commat;Base+0xf94&gt;</pre>
+<pre>    3f1c:	e3a0101d 	mov	r1, #29</pre>
+<pre>    3f20:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3f24:	ebfff686 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3f28:	e59f0f24 	ldr	r0, [pc, #3876]	; 4e54 &lt;processMdmCmd&commat;&commat;Base+0xf98&gt;</pre>
+<pre>    3f2c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    4068:	e1a00009 	mov	r0, r9</pre>
+<pre>    406c:	ebfff6a9 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    4070:	eaffffdc 	b	3fe8 &lt;processMdmCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    4074:	e3002101 	movw	r2, #257	; 0x101</pre>
+<pre>    4078:	e3a01000 	mov	r1, #0</pre>
+<pre>    407c:	e1a0000b 	mov	r0, fp</pre>
+<pre>    4080:	ebfff6c8 	bl	1ba8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    4084:	e1a0200b 	mov	r2, fp</pre>
+<pre>    4088:	e7d43007 	ldrb	r3, [r4, r7]</pre>
+<pre>    408c:	e31300df 	tst	r3, #223	; 0xdf</pre>
+<pre>    4090:	1a00000f 	bne	40d4 &lt;processMdmCmd&commat;&commat;Base+0x218&gt;</pre>
+<pre>    4094:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>    4098:	e1a0000b 	mov	r0, fp</pre>
+<pre>    409c:	ebfff69a 	bl	1b0c &lt;cmsMdm_fullPathToPathDescriptor&commat;plt&gt;</pre>
+<pre>    40a0:	e3500000 	cmp	r0, #0</pre>
+<pre>    40a4:	0a00000d 	beq	40e0 &lt;processMdmCmd&commat;&commat;Base+0x224&gt;</pre>
+<pre>    40a8:	e59f0ddc 	ldr	r0, [pc, #3548]	; 4e8c &lt;processMdmCmd&commat;&commat;Base+0xfd0&gt;</pre>
+<pre>    40ac:	e1a0200b 	mov	r2, fp</pre>
+<pre>    40b0:	e1a01005 	mov	r1, r5</pre>
+<pre>    40b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    40b8:	ebfff621 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    40bc:	e1a00009 	mov	r0, r9</pre>
+<pre>    40c0:	ebfff694 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    41e0:	e2855001 	add	r5, r5, #1</pre>
+<pre>    41e4:	e2833058 	add	r3, r3, #88	; 0x58</pre>
+<pre>    41e8:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    41ec:	eaffff8c 	b	4024 &lt;processMdmCmd&commat;&commat;Base+0x168&gt;</pre>
+<pre>    41f0:	e516225c 	ldr	r2, [r6, #-604]	; 0xfffffda4</pre>
+<pre>    41f4:	e1a01005 	mov	r1, r5</pre>
+<pre>    41f8:	e5063254 	str	r3, [r6, #-596]	; 0xfffffdac</pre>
+<pre>    41fc:	e1a00009 	mov	r0, r9</pre>
+<pre>    4200:	e5062264 	str	r2, [r6, #-612]	; 0xfffffd9c</pre>
+<pre>    4204:	e28d2d21 	add	r2, sp, #2112	; 0x840</pre>
+<pre>    4208:	e58d2004 	str	r2, [sp, #4]</pre>
+<pre>    420c:	e59d2010 	ldr	r2, [sp, #16]</pre>
+<pre>    4210:	e2422014 	sub	r2, r2, #20</pre>
+<pre>    4214:	e58d2000 	str	r2, [sp]</pre>
+<pre>    4218:	e3a02001 	mov	r2, #1</pre>
+<pre>    421c:	ebfff5c5 	bl	1938 &lt;cmsPhl_getParameterValuesFlags&commat;plt&gt;</pre>
+<pre>    4220:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    4224:	0a000006 	beq	4244 &lt;processMdmCmd&commat;&commat;Base+0x388&gt;</pre>
+<pre>    4228:	e59f0c6c 	ldr	r0, [pc, #3180]	; 4e9c &lt;processMdmCmd&commat;&commat;Base+0xfe0&gt;</pre>
+<pre>    422c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4230:	ebfff5c3 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4234:	e59d3010 	ldr	r3, [sp, #16]</pre>
+<pre>    4238:	e2430024 	sub	r0, r3, #36	; 0x24</pre>
+<pre>--</pre>
+<pre>    42d8:	e5832058 	str	r2, [r3, #88]	; 0x58</pre>
+<pre>    42dc:	e5162264 	ldr	r2, [r6, #-612]	; 0xfffffd9c</pre>
+<pre>    42e0:	e7922107 	ldr	r2, [r2, r7, lsl #2]</pre>
+<pre>    42e4:	e583205c 	str	r2, [r3, #92]	; 0x5c</pre>
+<pre>    42e8:	e3a02058 	mov	r2, #88	; 0x58</pre>
+<pre>    42ec:	e0219792 	mla	r1, r2, r7, r9</pre>
+<pre>    42f0:	ebfff5b4 	bl	19c8 &lt</span>emcpy&commat;plt&gt;</pre>
+<pre>    42f4:	e2877001 	add	r7, r7, #1</pre>
+<pre>    42f8:	e1570005 	cmp	r7, r5</pre>
+<pre>    42fc:	e3a02000 	mov	r2, #0</pre>
+<pre>    4300:	e2803064 	add	r3, r0, #100	; 0x64</pre>
+<pre>    4304:	e5802060 	str	r2, [r0, #96]	; 0x60</pre>
+<pre>    4308:	baffffee 	blt	42c8 &lt;processMdmCmd&commat;&commat;Base+0x40c&gt;</pre>
+<pre>    430c:	e1a01005 	mov	r1, r5</pre>
+<pre>    4310:	e1a00004 	mov	r0, r4</pre>
+<pre>    4314:	ebfff60b 	bl	1b48 &lt;cmsPhl_setParameterValues&commat;plt&gt;</pre>
+<pre>    4318:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    431c:	0a000005 	beq	4338 &lt;processMdmCmd&commat;&commat;Base+0x47c&gt;</pre>
+<pre>    4320:	e59f0b88 	ldr	r0, [pc, #2952]	; 4eb0 &lt;processMdmCmd&commat;&commat;Base+0xff4&gt;</pre>
+<pre>    4324:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4328:	ebfff585 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    432c:	e1a00004 	mov	r0, r4</pre>
+<pre>    4330:	ebfff5f8 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    4334:	eaffffdf 	b	42b8 &lt;processMdmCmd&commat;&commat;Base+0x3fc&gt;</pre>
+<pre>    4338:	e59fbb74 	ldr	fp, [pc, #2932]	; 4eb4 &lt;processMdmCmd&commat;&commat;Base+0xff8&gt;</pre>
+<pre>    433c:	e2847020 	add	r7, r4, #32</pre>
+<pre>    4340:	e59f3b70 	ldr	r3, [pc, #2928]	; 4eb8 &lt;processMdmCmd&commat;&commat;Base+0xffc&gt;</pre>
+<pre>    4344:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>    4348:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    434c:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    4350:	e5163264 	ldr	r3, [r6, #-612]	; 0xfffffd9c</pre>
+<pre>    4354:	e1a0100a 	mov	r1, sl</pre>
+<pre>    4358:	e1a0000b 	mov	r0, fp</pre>
+<pre>    435c:	e793210a 	ldr	r2, [r3, sl, lsl #2]</pre>
+<pre><span class="red">    4360:	ebfff577 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4364:	e3a03068 	mov	r3, #104	; 0x68</pre>
+<pre>    4368:	e0030a93 	mul	r3, r3, sl</pre>
+<pre>    436c:	e5162254 	ldr	r2, [r6, #-596]	; 0xfffffdac</pre>
+<pre>    4370:	e59d0014 	ldr	r0, [sp, #20]</pre>
+<pre>    4374:	e28aa001 	add	sl, sl, #1</pre>
+<pre>    4378:	e0822003 	add	r2, r2, r3</pre>
+<pre>    437c:	e5921058 	ldr	r1, [r2, #88]	; 0x58</pre>
+<pre>    4380:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre><span class="red">    4384:	ebfff56e 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4388:	e59f0b2c 	ldr	r0, [pc, #2860]	; 4ebc &lt;processMdmCmd&commat;&commat;Base+0x1000&gt;</pre>
+<pre>    438c:	e1a01007 	mov	r1, r7</pre>
+<pre>    4390:	e2877064 	add	r7, r7, #100	; 0x64</pre>
+<pre>    4394:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4398:	ebfff569 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    439c:	e5162254 	ldr	r2, [r6, #-596]	; 0xfffffdac</pre>
+<pre>    43a0:	e59d3018 	ldr	r3, [sp, #24]</pre>
+<pre>    43a4:	e59f0b14 	ldr	r0, [pc, #2836]	; 4ec0 &lt;processMdmCmd&commat;&commat;Base+0x1004&gt;</pre>
+<pre>    43a8:	e0823003 	add	r3, r2, r3</pre>
+<pre>    43ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    43b0:	e593105c 	ldr	r1, [r3, #92]	; 0x5c</pre>
+<pre><span class="red">    43b4:	ebfff562 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    43b8:	e15a0005 	cmp	sl, r5</pre>
+<pre>    43bc:	baffffe3 	blt	4350 &lt;processMdmCmd&commat;&commat;Base+0x494&gt;</pre>
+<pre>--</pre>
+<pre>    442c:	ebfff5dd 	bl	1ba8 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    4430:	e2840006 	add	r0, r4, #6</pre>
+<pre>    4434:	e59f4a8c 	ldr	r4, [pc, #2700]	; 4ec8 &lt;processMdmCmd&commat;&commat;Base+0x100c&gt;</pre>
+<pre>    4438:	e247302d 	sub	r3, r7, #45	; 0x2d</pre>
+<pre>    443c:	e3002801 	movw	r2, #2049	; 0x801</pre>
+<pre>    4440:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    4444:	e1a01006 	mov	r1, r6</pre>
+<pre>    4448:	ebfffaf4 	bl	3020 &lt;cli_waitForInputAvailable&commat;&commat;Base+0x2dc&gt;</pre>
+<pre>    444c:	e1a0200a 	mov	r2, sl</pre>
+<pre>    4450:	e1a01004 	mov	r1, r4</pre>
+<pre>    4454:	e1a00006 	mov	r0, r6</pre>
+<pre>    4458:	ebfff58a 	bl	1a88 &lt;strtok_r&commat;plt&gt;</pre>
+<pre>    445c:	e1a01009 	mov	r1, r9</pre>
+<pre>    4460:	e505025c 	str	r0, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4464:	ebfff5a8 	bl	1b0c &lt;cmsMdm_fullPathToPathDescriptor&commat;plt&gt;</pre>
+<pre>    4468:	e3500000 	cmp	r0, #0</pre>
+<pre>    446c:	0a00000e 	beq	44ac &lt;processMdmCmd&commat;&commat;Base+0x5f0&gt;</pre>
+<pre>    4470:	e59f0a54 	ldr	r0, [pc, #2644]	; 4ecc &lt;processMdmCmd&commat;&commat;Base+0x1010&gt;</pre>
+<pre>    4474:	e515125c 	ldr	r1, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4478:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    447c:	ebfff530 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4480:	eafffed8 	b	3fe8 &lt;processMdmCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    4484:	e3a01058 	mov	r1, #88	; 0x58</pre>
+<pre>--</pre>
+<pre>    44d0:	e2473028 	sub	r3, r7, #40	; 0x28</pre>
+<pre>    44d4:	e1a0100b 	mov	r1, fp</pre>
+<pre>    44d8:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    44dc:	e1a00009 	mov	r0, r9</pre>
+<pre>    44e0:	e247302c 	sub	r3, r7, #44	; 0x2c</pre>
+<pre>    44e4:	e58d3000 	str	r3, [sp]</pre>
+<pre>    44e8:	e3a03000 	mov	r3, #0</pre>
+<pre>    44ec:	e555226d 	ldrb	r2, [r5, #-621]	; 0xfffffd93</pre>
+<pre>    44f0:	ebfff510 	bl	1938 &lt;cmsPhl_getParameterValuesFlags&commat;plt&gt;</pre>
+<pre>    44f4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    44f8:	0a000003 	beq	450c &lt;processMdmCmd&commat;&commat;Base+0x650&gt;</pre>
+<pre>    44fc:	e59f09d0 	ldr	r0, [pc, #2512]	; 4ed4 &lt;processMdmCmd&commat;&commat;Base+0x1018&gt;</pre>
+<pre>    4500:	e1a01004 	mov	r1, r4</pre>
+<pre>    4504:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4508:	eaffffdb 	b	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    450c:	e59f09c4 	ldr	r0, [pc, #2500]	; 4ed8 &lt;processMdmCmd&commat;&commat;Base+0x101c&gt;</pre>
+<pre>    4510:	e1a0100b 	mov	r1, fp</pre>
+<pre>    4514:	e5152268 	ldr	r2, [r5, #-616]	; 0xfffffd98</pre>
+<pre>    4518:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    451c:	e59f99b8 	ldr	r9, [pc, #2488]	; 4edc &lt;processMdmCmd&commat;&commat;Base+0x1020&gt;</pre>
+<pre><span class="red">    4520:	ebfff507 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4524:	e59fa9b4 	ldr	sl, [pc, #2484]	; 4ee0 &lt;processMdmCmd&commat;&commat;Base+0x1024&gt;</pre>
+<pre>    4528:	e08f9009 	add	r9, pc, r9</pre>
+<pre>--</pre>
+<pre>    4530:	e5153268 	ldr	r3, [r5, #-616]	; 0xfffffd98</pre>
+<pre>    4534:	e1530004 	cmp	r3, r4</pre>
+<pre>    4538:	ca000005 	bgt	4554 &lt;processMdmCmd&commat;&commat;Base+0x698&gt;</pre>
+<pre>    453c:	e3a0000a 	mov	r0, #10</pre>
+<pre>    4540:	ebfff59b 	bl	1bb4 &lt;putchar&commat;plt&gt;</pre>
+<pre>    4544:	e5151268 	ldr	r1, [r5, #-616]	; 0xfffffd98</pre>
+<pre>    4548:	e515026c 	ldr	r0, [r5, #-620]	; 0xfffffd94</pre>
+<pre>    454c:	ebfff5b0 	bl	1c14 &lt;cmsPhl_freeGetParamValueBuf&commat;plt&gt;</pre>
+<pre>    4550:	eafffea4 	b	3fe8 &lt;processMdmCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    4554:	e3a06068 	mov	r6, #104	; 0x68</pre>
+<pre>    4558:	e515026c 	ldr	r0, [r5, #-620]	; 0xfffffd94</pre>
+<pre>    455c:	e0060496 	mul	r6, r6, r4</pre>
+<pre>    4560:	e247101c 	sub	r1, r7, #28</pre>
+<pre>    4564:	e3a0b000 	mov	fp, #0</pre>
+<pre>    4568:	e505b25c 	str	fp, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    456c:	e0800006 	add	r0, r0, r6</pre>
+<pre>    4570:	ebfff51a 	bl	19e0 &lt;cmsMdm_pathDescriptorToFullPath&commat;plt&gt;</pre>
+<pre>    4574:	e515225c 	ldr	r2, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4578:	e1a01004 	mov	r1, r4</pre>
+<pre>    457c:	e1a00009 	mov	r0, r9</pre>
+<pre><span class="red">    4580:	ebfff4ef 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4584:	e515025c 	ldr	r0, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4588:	e150000b 	cmp	r0, fp</pre>
+<pre>    458c:	0a000001 	beq	4598 &lt;processMdmCmd&commat;&commat;Base+0x6dc&gt;</pre>
+<pre>    4590:	ebfff560 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    4594:	e505b25c 	str	fp, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4598:	e515326c 	ldr	r3, [r5, #-620]	; 0xfffffd94</pre>
+<pre>    459c:	e1a0000a 	mov	r0, sl</pre>
+<pre>    45a0:	e2844001 	add	r4, r4, #1</pre>
+<pre>    45a4:	e0833006 	add	r3, r3, r6</pre>
+<pre>    45a8:	e5931058 	ldr	r1, [r3, #88]	; 0x58</pre>
+<pre><span class="red">    45ac:	ebfff4e4 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    45b0:	e515326c 	ldr	r3, [r5, #-620]	; 0xfffffd94</pre>
+<pre>    45b4:	e59f0928 	ldr	r0, [pc, #2344]	; 4ee4 &lt;processMdmCmd&commat;&commat;Base+0x1028&gt;</pre>
+<pre>    45b8:	e0836006 	add	r6, r3, r6</pre>
+<pre>    45bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    45c0:	e596105c 	ldr	r1, [r6, #92]	; 0x5c</pre>
+<pre><span class="red">    45c4:	ebfff4de 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    45c8:	eaffffd8 	b	4530 &lt;processMdmCmd&commat;&commat;Base+0x674&gt;</pre>
+<pre>    45cc:	e59f1914 	ldr	r1, [pc, #2324]	; 4ee8 &lt;processMdmCmd&commat;&commat;Base+0x102c&gt;</pre>
+<pre>--</pre>
+<pre>    4684:	ebfff4ab 	bl	1938 &lt;cmsPhl_getParameterValuesFlags&commat;plt&gt;</pre>
+<pre>    4688:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    468c:	0a00000c 	beq	46c4 &lt;processMdmCmd&commat;&commat;Base+0x808&gt;</pre>
+<pre>    4690:	e59f3858 	ldr	r3, [pc, #2136]	; 4ef0 &lt;processMdmCmd&commat;&commat;Base+0x1034&gt;</pre>
+<pre>    4694:	e59f1858 	ldr	r1, [pc, #2136]	; 4ef4 &lt;processMdmCmd&commat;&commat;Base+0x1038&gt;</pre>
+<pre>    4698:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    469c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    46a0:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    46a4:	ebfff52d 	bl	1b60 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    46a8:	eafffe4e 	b	3fe8 &lt;processMdmCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    46ac:	e59f383c 	ldr	r3, [pc, #2108]	; 4ef0 &lt;processMdmCmd&commat;&commat;Base+0x1034&gt;</pre>
+<pre>    46b0:	e1a0200a 	mov	r2, sl</pre>
+<pre>    46b4:	e59f183c 	ldr	r1, [pc, #2108]	; 4ef8 &lt;processMdmCmd&commat;&commat;Base+0x103c&gt;</pre>
+<pre>    46b8:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    46bc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    46c0:	eafffff6 	b	46a0 &lt;processMdmCmd&commat;&commat;Base+0x7e4&gt;</pre>
+<pre>    46c4:	e59f0830 	ldr	r0, [pc, #2096]	; 4efc &lt;processMdmCmd&commat;&commat;Base+0x1040&gt;</pre>
+<pre>    46c8:	e5171264 	ldr	r1, [r7, #-612]	; 0xfffffd9c</pre>
+<pre>    46cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    46d0:	e59f5828 	ldr	r5, [pc, #2088]	; 4f00 &lt;processMdmCmd&commat;&commat;Base+0x1044&gt;</pre>
+<pre><span class="red">    46d4:	ebfff49a 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    46d8:	e59f9824 	ldr	r9, [pc, #2084]	; 4f04 &lt;processMdmCmd&commat;&commat;Base+0x1048&gt;</pre>
+<pre>    46dc:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    46e0:	e08f9009 	add	r9, pc, r9</pre>
+<pre>    46e4:	e5171264 	ldr	r1, [r7, #-612]	; 0xfffffd9c</pre>
+<pre>    46e8:	e517025c 	ldr	r0, [r7, #-604]	; 0xfffffda4</pre>
+<pre>    46ec:	e1510006 	cmp	r1, r6</pre>
+<pre>    46f0:	daffff95 	ble	454c &lt;processMdmCmd&commat;&commat;Base+0x690&gt;</pre>
+<pre>    46f4:	e3a04068 	mov	r4, #104	; 0x68</pre>
+<pre>    46f8:	e0040694 	mul	r4, r4, r6</pre>
+<pre>    46fc:	e0801004 	add	r1, r0, r4</pre>
+<pre>    4700:	e1a00005 	mov	r0, r5</pre>
+<pre>    4704:	e2811020 	add	r1, r1, #32</pre>
+<pre><span class="red">    4708:	ebfff48d 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    470c:	e517325c 	ldr	r3, [r7, #-604]	; 0xfffffda4</pre>
+<pre>    4710:	e0833004 	add	r3, r3, r4</pre>
+<pre>    4714:	e593105c 	ldr	r1, [r3, #92]	; 0x5c</pre>
+<pre>    4718:	e3510000 	cmp	r1, #0</pre>
+<pre>    471c:	0a00000c 	beq	4754 &lt;processMdmCmd&commat;&commat;Base+0x898&gt;</pre>
+<pre>    4720:	e59f07e0 	ldr	r0, [pc, #2016]	; 4f08 &lt;processMdmCmd&commat;&commat;Base+0x104c&gt;</pre>
+<pre>    4724:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4728:	ebfff485 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    472c:	e517325c 	ldr	r3, [r7, #-604]	; 0xfffffda4</pre>
+<pre>    4730:	e0834004 	add	r4, r3, r4</pre>
+<pre>    4734:	e5941058 	ldr	r1, [r4, #88]	; 0x58</pre>
+<pre>    4738:	e3510000 	cmp	r1, #0</pre>
+<pre>    473c:	0a000007 	beq	4760 &lt;processMdmCmd&commat;&commat;Base+0x8a4&gt;</pre>
+<pre>    4740:	e59f07c4 	ldr	r0, [pc, #1988]	; 4f0c &lt;processMdmCmd&commat;&commat;Base+0x1050&gt;</pre>
+<pre>    4744:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4748:	ebfff47d 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    474c:	e2866001 	add	r6, r6, #1</pre>
+<pre>    4750:	eaffffe3 	b	46e4 &lt;processMdmCmd&commat;&commat;Base+0x828&gt;</pre>
+<pre>    4754:	e1a00009 	mov	r0, r9</pre>
+<pre><span class="red">    4758:	ebfff479 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    475c:	eafffff2 	b	472c &lt;processMdmCmd&commat;&commat;Base+0x870&gt;</pre>
+<pre>    4760:	e59f07a8 	ldr	r0, [pc, #1960]	; 4f10 &lt;processMdmCmd&commat;&commat;Base+0x1054&gt;</pre>
+<pre>--</pre>
+<pre>    484c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    4850:	0a000004 	beq	4868 &lt;processMdmCmd&commat;&commat;Base+0x9ac&gt;</pre>
+<pre>    4854:	e59f3694 	ldr	r3, [pc, #1684]	; 4ef0 &lt;processMdmCmd&commat;&commat;Base+0x1034&gt;</pre>
+<pre>    4858:	e59f16c0 	ldr	r1, [pc, #1728]	; 4f20 &lt;processMdmCmd&commat;&commat;Base+0x1064&gt;</pre>
+<pre>    485c:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    4860:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    4864:	eaffff8d 	b	46a0 &lt;processMdmCmd&commat;&commat;Base+0x7e4&gt;</pre>
+<pre>    4868:	e247701c 	sub	r7, r7, #28</pre>
+<pre>    486c:	e1a00007 	mov	r0, r7</pre>
+<pre>    4870:	ebfff487 	bl	1a94 &lt;cmsTms_get&commat;plt&gt;</pre>
+<pre>    4874:	e1a0100b 	mov	r1, fp</pre>
+<pre>    4878:	e1a00007 	mov	r0, r7</pre>
+<pre>    487c:	e519526c 	ldr	r5, [r9, #-620]	; 0xfffffd94</pre>
+<pre>    4880:	ebfff50a 	bl	1cb0 &lt;cmsTms_deltaInMilliSeconds&commat;plt&gt;</pre>
+<pre>    4884:	e59f7698 	ldr	r7, [pc, #1688]	; 4f24 &lt;processMdmCmd&commat;&commat;Base+0x1068&gt;</pre>
+<pre>    4888:	e1a01005 	mov	r1, r5</pre>
+<pre>    488c:	e08f7007 	add	r7, pc, r7</pre>
+<pre>    4890:	e1a02000 	mov	r2, r0</pre>
+<pre>    4894:	e59f068c 	ldr	r0, [pc, #1676]	; 4f28 &lt;processMdmCmd&commat;&commat;Base+0x106c&gt;</pre>
+<pre>    4898:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    489c:	ebfff428 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    48a0:	e5195268 	ldr	r5, [r9, #-616]	; 0xfffffd98</pre>
+<pre>    48a4:	e519126c 	ldr	r1, [r9, #-620]	; 0xfffffd94</pre>
+<pre>    48a8:	e2855010 	add	r5, r5, #16</pre>
+<pre>    48ac:	e1510006 	cmp	r1, r6</pre>
+<pre>    48b0:	ca000002 	bgt	48c0 &lt;processMdmCmd&commat;&commat;Base+0xa04&gt;</pre>
+<pre>    48b4:	e1a00004 	mov	r0, r4</pre>
+<pre>    48b8:	ebfff4f0 	bl	1c80 &lt;cmsPhl_freeParamNamesEx&commat;plt&gt;</pre>
+<pre>    48bc:	eafffdc9 	b	3fe8 &lt;processMdmCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    48c0:	e5553003 	ldrb	r3, [r5, #-3]</pre>
+<pre>    48c4:	e1a01006 	mov	r1, r6</pre>
+<pre>    48c8:	e1a00007 	mov	r0, r7</pre>
+<pre>    48cc:	e2866001 	add	r6, r6, #1</pre>
+<pre>    48d0:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>    48d4:	e5553004 	ldrb	r3, [r5, #-4]</pre>
+<pre>    48d8:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    48dc:	e5153008 	ldr	r3, [r5, #-8]</pre>
+<pre>    48e0:	e58d3000 	str	r3, [sp]</pre>
+<pre>    48e4:	e14521d0 	ldrd	r2, [r5, #-16]</pre>
+<pre><span class="red">    48e8:	ebfff415 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    48ec:	eaffffec 	b	48a4 &lt;processMdmCmd&commat;&commat;Base+0x9e8&gt;</pre>
+<pre>    48f0:	e59f1634 	ldr	r1, [pc, #1588]	; 4f2c &lt;processMdmCmd&commat;&commat;Base+0x1070&gt;</pre>
+<pre>--</pre>
+<pre>    49a0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    49a4:	eaffff3d 	b	46a0 &lt;processMdmCmd&commat;&commat;Base+0x7e4&gt;</pre>
+<pre>    49a8:	e249301c 	sub	r3, r9, #28</pre>
+<pre>    49ac:	e3a01001 	mov	r1, #1</pre>
+<pre>    49b0:	e58d3000 	str	r3, [sp]</pre>
+<pre>    49b4:	e1a00004 	mov	r0, r4</pre>
+<pre>    49b8:	e557226c 	ldrb	r2, [r7, #-620]	; 0xfffffd94</pre>
+<pre>    49bc:	e2493024 	sub	r3, r9, #36	; 0x24</pre>
+<pre>    49c0:	ebfff3e8 	bl	1968 &lt;cmsPhl_getParameterAttributes&commat;plt&gt;</pre>
+<pre>    49c4:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    49c8:	0a000004 	beq	49e0 &lt;processMdmCmd&commat;&commat;Base+0xb24&gt;</pre>
+<pre>    49cc:	e59f351c 	ldr	r3, [pc, #1308]	; 4ef0 &lt;processMdmCmd&commat;&commat;Base+0x1034&gt;</pre>
+<pre>    49d0:	e59f1560 	ldr	r1, [pc, #1376]	; 4f38 &lt;processMdmCmd&commat;&commat;Base+0x107c&gt;</pre>
+<pre>    49d4:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    49d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    49dc:	eaffff2f 	b	46a0 &lt;processMdmCmd&commat;&commat;Base+0x7e4&gt;</pre>
+<pre>    49e0:	e59f0554 	ldr	r0, [pc, #1364]	; 4f3c &lt;processMdmCmd&commat;&commat;Base+0x1080&gt;</pre>
+<pre>    49e4:	e517125c 	ldr	r1, [r7, #-604]	; 0xfffffda4</pre>
+<pre>    49e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    49ec:	e59fa54c 	ldr	sl, [pc, #1356]	; 4f40 &lt;processMdmCmd&commat;&commat;Base+0x1084&gt;</pre>
+<pre><span class="red">    49f0:	ebfff3d3 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    49f4:	e59fb548 	ldr	fp, [pc, #1352]	; 4f44 &lt;processMdmCmd&commat;&commat;Base+0x1088&gt;</pre>
+<pre>    49f8:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>--</pre>
+<pre>    4a28:	e1a00004 	mov	r0, r4</pre>
+<pre>    4a2c:	ebfff3eb 	bl	19e0 &lt;cmsMdm_pathDescriptorToFullPath&commat;plt&gt;</pre>
+<pre>    4a30:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    4a34:	0a00000d 	beq	4a70 &lt;processMdmCmd&commat;&commat;Base+0xbb4&gt;</pre>
+<pre>    4a38:	e59f34b0 	ldr	r3, [pc, #1200]	; 4ef0 &lt;processMdmCmd&commat;&commat;Base+0x1034&gt;</pre>
+<pre>    4a3c:	e59f1504 	ldr	r1, [pc, #1284]	; 4f48 &lt;processMdmCmd&commat;&commat;Base+0x108c&gt;</pre>
+<pre>    4a40:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    4a44:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    4a48:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    4a4c:	ebfff443 	bl	1b60 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    4a50:	e5170268 	ldr	r0, [r7, #-616]	; 0xfffffd98</pre>
+<pre>    4a54:	e3500000 	cmp	r0, #0</pre>
+<pre>    4a58:	0a000002 	beq	4a68 &lt;processMdmCmd&commat;&commat;Base+0xbac&gt;</pre>
+<pre>    4a5c:	ebfff42d 	bl	1b18 &lt;cmsMem_free&commat;plt&gt;</pre>
+<pre>    4a60:	e3a03000 	mov	r3, #0</pre>
+<pre>    4a64:	e5073268 	str	r3, [r7, #-616]	; 0xfffffd98</pre>
+<pre>    4a68:	e2866001 	add	r6, r6, #1</pre>
+<pre>    4a6c:	eaffffe3 	b	4a00 &lt;processMdmCmd&commat;&commat;Base+0xb44&gt;</pre>
+<pre>    4a70:	e5171268 	ldr	r1, [r7, #-616]	; 0xfffffd98</pre>
+<pre>    4a74:	e1a0000a 	mov	r0, sl</pre>
+<pre><span class="red">    4a78:	ebfff3b1 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4a7c:	e1d415b8 	ldrh	r1, [r4, #88]	; 0x58</pre>
+<pre>    4a80:	e1a0000b 	mov	r0, fp</pre>
+<pre>    4a84:	e1a010a1 	lsr	r1, r1, #1</pre>
+<pre><span class="red">    4a88:	ebfff3ad 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4a8c:	e5d4105a 	ldrb	r1, [r4, #90]	; 0x5a</pre>
+<pre>    4a90:	e59f04b4 	ldr	r0, [pc, #1204]	; 4f4c &lt;processMdmCmd&commat;&commat;Base+0x1090&gt;</pre>
+<pre>    4a94:	e1a010a1 	lsr	r1, r1, #1</pre>
+<pre>    4a98:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4a9c:	ebfff3a8 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4aa0:	eaffffea 	b	4a50 &lt;processMdmCmd&commat;&commat;Base+0xb94&gt;</pre>
+<pre>    4aa4:	e59f14a4 	ldr	r1, [pc, #1188]	; 4f50 &lt;processMdmCmd&commat;&commat;Base+0x1094&gt;</pre>
+<pre>--</pre>
+<pre>    4d9c:	e3500000 	cmp	r0, #0</pre>
+<pre>    4da0:	0a000003 	beq	4db4 &lt;processMdmCmd&commat;&commat;Base+0xef8&gt;</pre>
+<pre>    4da4:	e59f01c8 	ldr	r0, [pc, #456]	; 4f74 &lt;processMdmCmd&commat;&commat;Base+0x10b8&gt;</pre>
+<pre>    4da8:	e1a01009 	mov	r1, r9</pre>
+<pre>    4dac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4db0:	eafffdb1 	b	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    4db4:	e5553234 	ldrb	r3, [r5, #-564]	; 0xfffffdcc</pre>
+<pre>    4db8:	e3530000 	cmp	r3, #0</pre>
+<pre>    4dbc:	159f01b4 	ldrne	r0, [pc, #436]	; 4f78 &lt;processMdmCmd&commat;&commat;Base+0x10bc&gt;</pre>
+<pre>    4dc0:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    4dc4:	1afffc6e 	bne	3f84 &lt;processMdmCmd&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    4dc8:	e2479010 	sub	r9, r7, #16</pre>
+<pre>    4dcc:	e2456f95 	sub	r6, r5, #596	; 0x254</pre>
+<pre>    4dd0:	e1a00009 	mov	r0, r9</pre>
+<pre>    4dd4:	e1d6a0b0 	ldrh	sl, [r6]</pre>
+<pre>    4dd8:	ebfff2f7 	bl	19bc &lt;cmsMdm_dumpIidStack&commat;plt&gt;</pre>
+<pre>    4ddc:	e1a0100a 	mov	r1, sl</pre>
+<pre>    4de0:	e1a02000 	mov	r2, r0</pre>
+<pre>    4de4:	e59f0190 	ldr	r0, [pc, #400]	; 4f7c &lt;processMdmCmd&commat;&commat;Base+0x10c0&gt;</pre>
+<pre>    4de8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4dec:	ebfff2d4 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4df0:	e1a01009 	mov	r1, r9</pre>
+<pre>    4df4:	e1d600b0 	ldrh	r0, [r6]</pre>
+<pre>    4df8:	ebfff379 	bl	1be4 &lt;cmsObj_addInstance&commat;plt&gt;</pre>
+<pre>    4dfc:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    4e00:	159f0178 	ldrne	r0, [pc, #376]	; 4f80 &lt;processMdmCmd&commat;&commat;Base+0x10c4&gt;</pre>
+<pre>    4e04:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    4e08:	1afffd9b 	bne	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    4e0c:	e247101c 	sub	r1, r7, #28</pre>
+<pre>    4e10:	e1a00004 	mov	r0, r4</pre>
+<pre>    4e14:	ebfff2f1 	bl	19e0 &lt;cmsMdm_pathDescriptorToFullPath&commat;plt&gt;</pre>
+<pre>    4e18:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    4e1c:	159f0160 	ldrne	r0, [pc, #352]	; 4f84 &lt;processMdmCmd&commat;&commat;Base+0x10c8&gt;</pre>
+<pre>    4e20:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    4e24:	1afffd94 	bne	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    4e28:	e59f0158 	ldr	r0, [pc, #344]	; 4f88 &lt;processMdmCmd&commat;&commat;Base+0x10cc&gt;</pre>
+<pre>    4e2c:	e515125c 	ldr	r1, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4e30:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4e34:	ebfff2c2 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4e38:	e515025c 	ldr	r0, [r5, #-604]	; 0xfffffda4</pre>
+<pre>    4e3c:	eafffef3 	b	4a10 &lt;processMdmCmd&commat;&commat;Base+0xb54&gt;</pre>
+<pre>--</pre>
+<pre>    5050:	0a000003 	beq	5064 &lt;processMdmCmd&commat;&commat;Base+0x11a8&gt;</pre>
+<pre>    5054:	e51f00c8 	ldr	r0, [pc, #-200]	; 4f94 &lt;processMdmCmd&commat;&commat;Base+0x10d8&gt;</pre>
+<pre>    5058:	e1a01007 	mov	r1, r7</pre>
+<pre>    505c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5060:	eafffd05 	b	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    5064:	e5dd305c 	ldrb	r3, [sp, #92]	; 0x5c</pre>
+<pre>    5068:	e28d4e29 	add	r4, sp, #656	; 0x290</pre>
+<pre>    506c:	e3530000 	cmp	r3, #0</pre>
+<pre>    5070:	151f00e0 	ldrne	r0, [pc, #-224]	; 4f98 &lt;processMdmCmd&commat;&commat;Base+0x10dc&gt;</pre>
+<pre>    5074:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    5078:	1afffbc1 	bne	3f84 &lt;processMdmCmd&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    507c:	e2466010 	sub	r6, r6, #16</pre>
+<pre>    5080:	e2444f95 	sub	r4, r4, #596	; 0x254</pre>
+<pre>    5084:	e1a00006 	mov	r0, r6</pre>
+<pre>    5088:	e1d490b0 	ldrh	r9, [r4]</pre>
+<pre>    508c:	ebfff24a 	bl	19bc &lt;cmsMdm_dumpIidStack&commat;plt&gt;</pre>
+<pre>    5090:	e1a01009 	mov	r1, r9</pre>
+<pre>    5094:	e1a02000 	mov	r2, r0</pre>
+<pre>    5098:	e51f0104 	ldr	r0, [pc, #-260]	; 4f9c &lt;processMdmCmd&commat;&commat;Base+0x10e0&gt;</pre>
+<pre>    509c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    50a0:	ebfff227 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    50a4:	e1a01006 	mov	r1, r6</pre>
+<pre>    50a8:	e1d400b0 	ldrh	r0, [r4]</pre>
+<pre>--</pre>
+<pre>    5158:	0a000003 	beq	516c &lt;processMdmCmd&commat;&commat;Base+0x12b0&gt;</pre>
+<pre>    515c:	e51f01b4 	ldr	r0, [pc, #-436]	; 4fb0 &lt;processMdmCmd&commat;&commat;Base+0x10f4&gt;</pre>
+<pre>    5160:	e1a01007 	mov	r1, r7</pre>
+<pre>    5164:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    5168:	eafffcc3 	b	447c &lt;processMdmCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    516c:	e5dd305c 	ldrb	r3, [sp, #92]	; 0x5c</pre>
+<pre>    5170:	e28d4e29 	add	r4, sp, #656	; 0x290</pre>
+<pre>    5174:	e3530000 	cmp	r3, #0</pre>
+<pre>    5178:	151f01cc 	ldrne	r0, [pc, #-460]	; 4fb4 &lt;processMdmCmd&commat;&commat;Base+0x10f8&gt;</pre>
+<pre>    517c:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    5180:	1afffb7f 	bne	3f84 &lt;processMdmCmd&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    5184:	e2466010 	sub	r6, r6, #16</pre>
+<pre>    5188:	e2444f95 	sub	r4, r4, #596	; 0x254</pre>
+<pre>    518c:	e1a00006 	mov	r0, r6</pre>
+<pre>    5190:	e1d490b0 	ldrh	r9, [r4]</pre>
+<pre>    5194:	ebfff208 	bl	19bc &lt;cmsMdm_dumpIidStack&commat;plt&gt;</pre>
+<pre>    5198:	e1a01009 	mov	r1, r9</pre>
+<pre>    519c:	e1a02000 	mov	r2, r0</pre>
+<pre>    51a0:	e51f01f0 	ldr	r0, [pc, #-496]	; 4fb8 &lt;processMdmCmd&commat;&commat;Base+0x10fc&gt;</pre>
+<pre>    51a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    51a8:	ebfff1e5 	bl	1944 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    51ac:	e1a01006 	mov	r1, r6</pre>
+<pre>    51b0:	e1d400b0 	ldrh	r0, [r4]</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">56</span> times </span><span class="orange">libmdm_cli.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

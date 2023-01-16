@@ -1,0 +1,2890 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libcms_cli.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">libcms_cli.so</span></pre>
+<br />
+<pre>    47c0:	eaffffcb 	b	46f4 &lt;rut_sendMsgToSsk&commat;plt+0x88&gt;</pre>
+<br />
+<pre>000047c4 &lt;cmsCli_printWelcomeBanner&commat;&commat;Base&gt;:</pre>
+<pre>    47c4:	e92d4007 	push	{r0, r1, r2, lr}</pre>
+<pre>    47c8:	e28d0004 	add	r0, sp, #4</pre>
+<pre>    47cc:	ebfffe53 	bl	4120 &lt;devCtl_getChipId&commat;plt&gt;</pre>
+<pre>    47d0:	e3500000 	cmp	r0, #0</pre>
+<pre>    47d4:	0a000008 	beq	47fc &lt;cmsCli_printWelcomeBanner&commat;&commat;Base+0x38&gt;</pre>
+<pre>    47d8:	e59f3034 	ldr	r3, [pc, #52]	; 4814 &lt;cmsCli_printWelcomeBanner&commat;&commat;Base+0x50&gt;</pre>
+<pre>    47dc:	e3a0205d 	mov	r2, #93	; 0x5d</pre>
+<pre>    47e0:	e59f1030 	ldr	r1, [pc, #48]	; 4818 &lt;cmsCli_printWelcomeBanner&commat;&commat;Base+0x54&gt;</pre>
+<pre>    47e4:	e3a00003 	mov	r0, #3</pre>
+<pre>    47e8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    47ec:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    47f0:	ebffff73 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    47f4:	e3093999 	movw	r3, #39321	; 0x9999</pre>
+<pre>    47f8:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    47fc:	e59f0018 	ldr	r0, [pc, #24]	; 481c &lt;cmsCli_printWelcomeBanner&commat;&commat;Base+0x58&gt;</pre>
+<pre>    4800:	e59d1004 	ldr	r1, [sp, #4]</pre>
+<pre>    4804:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4808:	ebfffda5 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    480c:	e28dd00c 	add	sp, sp, #12</pre>
+<pre>    4810:	e49df004 	pop	{pc}		; (ldr pc, [sp], #4)</pre>
+<pre>--</pre>
+<pre>    4a8c:	e58d4000 	str	r4, [sp]</pre>
+<pre>    4a90:	ebfffecb 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    4a94:	e1a00004 	mov	r0, r4</pre>
+<pre>    4a98:	e28ddf8e 	add	sp, sp, #568	; 0x238</pre>
+<pre>    4a9c:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>    4aa0:	e1a00007 	mov	r0, r7</pre>
+<pre>    4aa4:	e28d9038 	add	r9, sp, #56	; 0x38</pre>
+<pre>    4aa8:	ebfffeb9 	bl	4594 &lt;cmsLck_releaseLockTraced&commat;plt&gt;</pre>
+<pre>    4aac:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>    4ab0:	e3530003 	cmp	r3, #3</pre>
+<pre>    4ab4:	0a00002d 	beq	4b70 &lt;cmsCli_authenticate&commat;&commat;Base+0x198&gt;</pre>
+<pre>    4ab8:	e59fa2ac 	ldr	sl, [pc, #684]	; 4d6c &lt;cmsCli_authenticate&commat;&commat;Base+0x394&gt;</pre>
+<pre>    4abc:	e3a07000 	mov	r7, #0</pre>
+<pre>    4ac0:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>    4ac4:	e28aa01a 	add	sl, sl, #26</pre>
+<pre>    4ac8:	e59f02a0 	ldr	r0, [pc, #672]	; 4d70 &lt;cmsCli_authenticate&commat;&commat;Base+0x398&gt;</pre>
+<pre>    4acc:	e3a03000 	mov	r3, #0</pre>
+<pre>    4ad0:	e5cd3038 	strb	r3, [sp, #56]	; 0x38</pre>
+<pre>    4ad4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    4ad8:	e5cd3138 	strb	r3, [sp, #312]	; 0x138</pre>
+<pre><span class="red">    4adc:	ebfffcf0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4ae0:	e59f328c 	ldr	r3, [pc, #652]	; 4d74 &lt;cmsCli_authenticate&commat;&commat;Base+0x39c&gt;</pre>
+<pre>    4ae4:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>--</pre>
+<pre>    4c9c:	ebfffc6e 	bl	3e5c &lt;strcmp&commat;plt&gt;</pre>
+<pre>    4ca0:	e3500000 	cmp	r0, #0</pre>
+<pre>    4ca4:	05c5b000 	strbeq	fp, [r5]</pre>
+<pre>    4ca8:	0affffec 	beq	4c60 &lt;cmsCli_authenticate&commat;&commat;Base+0x288&gt;</pre>
+<pre>    4cac:	e59f10e8 	ldr	r1, [pc, #232]	; 4d9c &lt;cmsCli_authenticate&commat;&commat;Base+0x3c4&gt;</pre>
+<pre>    4cb0:	e3a020df 	mov	r2, #223	; 0xdf</pre>
+<pre>    4cb4:	e59f30e4 	ldr	r3, [pc, #228]	; 4da0 &lt;cmsCli_authenticate&commat;&commat;Base+0x3c8&gt;</pre>
+<pre>    4cb8:	e3a00003 	mov	r0, #3</pre>
+<pre>    4cbc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    4cc0:	e58d6000 	str	r6, [sp]</pre>
+<pre>    4cc4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    4cc8:	e281101a 	add	r1, r1, #26</pre>
+<pre>    4ccc:	ebfffe3c 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    4cd0:	eaffffe2 	b	4c60 &lt;cmsCli_authenticate&commat;&commat;Base+0x288&gt;</pre>
+<pre>    4cd4:	e3570002 	cmp	r7, #2</pre>
+<pre>    4cd8:	da000012 	ble	4d28 &lt;cmsCli_authenticate&commat;&commat;Base+0x350&gt;</pre>
+<pre>    4cdc:	e59f00c0 	ldr	r0, [pc, #192]	; 4da4 &lt;cmsCli_authenticate&commat;&commat;Base+0x3cc&gt;</pre>
+<pre>    4ce0:	e1a01007 	mov	r1, r7</pre>
+<pre>    4ce4:	e3a07000 	mov	r7, #0</pre>
+<pre>    4ce8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    4cec:	ebfffc6c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    4cf0:	e59d3010 	ldr	r3, [sp, #16]</pre>
+<pre>    4cf4:	e5930000 	ldr	r0, [r3]</pre>
+<pre>--</pre>
+<pre>    5018:	0000eca9 	andeq	lr, r0, r9, lsr #25</pre>
+<pre>    501c:	0000032c 	andeq	r0, r0, ip, lsr #6</pre>
+<pre>    5020:	e12fff1e 	bx	lr</pre>
+<pre>    5024:	eafffc28 	b	40cc &lt;processUptimeCmd_dev2&commat;plt&gt;</pre>
+<pre>    5028:	e59f3050 	ldr	r3, [pc, #80]	; 5080 &lt;cmsCli_run&commat;&commat;Base+0x1a4&gt;</pre>
+<pre>    502c:	e59f2050 	ldr	r2, [pc, #80]	; 5084 &lt;cmsCli_run&commat;&commat;Base+0x1a8&gt;</pre>
+<pre>    5030:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    5034:	e92d42f0 	push	{r4, r5, r6, r7, r9, lr}</pre>
+<pre>    5038:	e3a05000 	mov	r5, #0</pre>
+<pre>    503c:	e59f4044 	ldr	r4, [pc, #68]	; 5088 &lt;cmsCli_run&commat;&commat;Base+0x1ac&gt;</pre>
+<pre>    5040:	e59f7044 	ldr	r7, [pc, #68]	; 508c &lt;cmsCli_run&commat;&commat;Base+0x1b0&gt;</pre>
+<pre>    5044:	e7936002 	ldr	r6, [r3, r2]</pre>
+<pre>    5048:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    504c:	e08f7007 	add	r7, pc, r7</pre>
+<pre>    5050:	e5d42008 	ldrb	r2, [r4, #8]</pre>
+<pre>    5054:	e5d63000 	ldrb	r3, [r6]</pre>
+<pre>    5058:	e1120003 	tst	r2, r3</pre>
+<pre>    505c:	0a000002 	beq	506c &lt;cmsCli_run&commat;&commat;Base+0x190&gt;</pre>
+<pre>    5060:	e5941000 	ldr	r1, [r4]</pre>
+<pre>    5064:	e1a00007 	mov	r0, r7</pre>
+<pre><span class="red">    5068:	ebfffb8d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    506c:	e2855001 	add	r5, r5, #1</pre>
+<pre>    5070:	e2844010 	add	r4, r4, #16</pre>
+<pre>--</pre>
+<pre>    5294:	e1a0000a 	mov	r0, sl</pre>
+<pre>    5298:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    529c:	ebfffb78 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    52a0:	e3500000 	cmp	r0, #0</pre>
+<pre>    52a4:	1a00003e 	bne	53a4 &lt;cmsCli_run&commat;&commat;Base+0x4c8&gt;</pre>
+<pre>    52a8:	e1953007 	orrs	r3, r5, r7</pre>
+<pre>    52ac:	059f01a4 	ldreq	r0, [pc, #420]	; 5458 &lt;cmsCli_run&commat;&commat;Base+0x57c&gt;</pre>
+<pre>    52b0:	008f0000 	addeq	r0, pc, r0</pre>
+<pre>    52b4:	0affffaa 	beq	5164 &lt;cmsCli_run&commat;&commat;Base+0x288&gt;</pre>
+<pre>    52b8:	e3550001 	cmp	r5, #1</pre>
+<pre>    52bc:	1a000021 	bne	5348 &lt;cmsCli_run&commat;&commat;Base+0x46c&gt;</pre>
+<pre>    52c0:	e2842003 	add	r2, r4, #3</pre>
+<pre>    52c4:	e3a00002 	mov	r0, #2</pre>
+<pre>    52c8:	e08aa282 	add	sl, sl, r2, lsl #5</pre>
+<pre>    52cc:	e1a0100a 	mov	r1, sl</pre>
+<pre>    52d0:	ebfffb35 	bl	3fac &lt;cmsUtl_isValidIpAddress&commat;plt&gt;</pre>
+<pre>    52d4:	e3500000 	cmp	r0, #0</pre>
+<pre>    52d8:	1a000003 	bne	52ec &lt;cmsCli_run&commat;&commat;Base+0x410&gt;</pre>
+<pre>    52dc:	e59f0178 	ldr	r0, [pc, #376]	; 545c &lt;cmsCli_run&commat;&commat;Base+0x580&gt;</pre>
+<pre>    52e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    52e4:	ebfffaee 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    52e8:	eaffffd6 	b	5248 &lt;cmsCli_run&commat;&commat;Base+0x36c&gt;</pre>
+<pre>    52ec:	e3540000 	cmp	r4, #0</pre>
+<pre>--</pre>
+<pre>    5598:	0a000006 	beq	55b8 &lt;cmsCli_run&commat;&commat;Base+0x6dc&gt;</pre>
+<pre>    559c:	e59f1494 	ldr	r1, [pc, #1172]	; 5a38 &lt;cmsCli_run&commat;&commat;Base+0xb5c&gt;</pre>
+<pre>    55a0:	e3a02006 	mov	r2, #6</pre>
+<pre>    55a4:	e1a00005 	mov	r0, r5</pre>
+<pre>    55a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    55ac:	ebfffb65 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    55b0:	e1500004 	cmp	r0, r4</pre>
+<pre>    55b4:	1a000007 	bne	55d8 &lt;cmsCli_run&commat;&commat;Base+0x6fc&gt;</pre>
+<pre>    55b8:	e59f047c 	ldr	r0, [pc, #1148]	; 5a3c &lt;cmsCli_run&commat;&commat;Base+0xb60&gt;</pre>
+<pre>    55bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    55c0:	ebfffafd 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    55c4:	e59f0474 	ldr	r0, [pc, #1140]	; 5a40 &lt;cmsCli_run&commat;&commat;Base+0xb64&gt;</pre>
+<pre>    55c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    55cc:	ebfffafa 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    55d0:	e28dd080 	add	sp, sp, #128	; 0x80</pre>
+<pre>    55d4:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>    55d8:	e59f0464 	ldr	r0, [pc, #1124]	; 5a44 &lt;cmsCli_run&commat;&commat;Base+0xb68&gt;</pre>
+<pre>    55dc:	e5cd4030 	strb	r4, [sp, #48]	; 0x30</pre>
+<pre>    55e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    55e4:	e5cd4050 	strb	r4, [sp, #80]	; 0x50</pre>
+<pre><span class="red">    55e8:	ebfffa2d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    55ec:	e59f3454 	ldr	r3, [pc, #1108]	; 5a48 &lt;cmsCli_run&commat;&commat;Base+0xb6c&gt;</pre>
+<pre>    55f0:	e28d4030 	add	r4, sp, #48	; 0x30</pre>
+<pre>--</pre>
+<pre>    5968:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    596c:	ebfffa81 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    5970:	e2866029 	add	r6, r6, #41	; 0x29</pre>
+<pre>    5974:	e3a02030 	mov	r2, #48	; 0x30</pre>
+<pre>    5978:	e1a01009 	mov	r1, r9</pre>
+<pre>    597c:	ebfffa83 	bl	4390 &lt;strncpy&commat;plt&gt;</pre>
+<pre>    5980:	e3011770 	movw	r1, #6000	; 0x1770</pre>
+<pre>    5984:	e1a00006 	mov	r0, r6</pre>
+<pre>    5988:	ebfff9ff 	bl	418c &lt;cmsLck_acquireLockWithTimeoutTraced&commat;plt&gt;</pre>
+<pre>    598c:	e3500000 	cmp	r0, #0</pre>
+<pre>    5990:	0a000010 	beq	59d8 &lt;cmsCli_run&commat;&commat;Base+0xafc&gt;</pre>
+<pre>    5994:	e59f311c 	ldr	r3, [pc, #284]	; 5ab8 &lt;cmsCli_run&commat;&commat;Base+0xbdc&gt;</pre>
+<pre>    5998:	e3002a52 	movw	r2, #2642	; 0xa52</pre>
+<pre>    599c:	e1a01006 	mov	r1, r6</pre>
+<pre>    59a0:	e58d0000 	str	r0, [sp]</pre>
+<pre>    59a4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    59a8:	eaffff3a 	b	5698 &lt;cmsCli_run&commat;&commat;Base+0x7bc&gt;</pre>
+<pre>    59ac:	e59f0108 	ldr	r0, [pc, #264]	; 5abc &lt;cmsCli_run&commat;&commat;Base+0xbe0&gt;</pre>
+<pre>    59b0:	e1a01004 	mov	r1, r4</pre>
+<pre>    59b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    59b8:	ebfff939 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    59bc:	e59f20fc 	ldr	r2, [pc, #252]	; 5ac0 &lt;cmsCli_run&commat;&commat;Base+0xbe4&gt;</pre>
+<pre>    59c0:	e1a03004 	mov	r3, r4</pre>
+<pre>    59c4:	e1a01007 	mov	r1, r7</pre>
+<pre>    59c8:	e08f2002 	add	r2, pc, r2</pre>
+<pre>    59cc:	e3a00002 	mov	r0, #2</pre>
+<pre>    59d0:	ebfffa77 	bl	43b4 &lt;cmsLog_security&commat;plt&gt;</pre>
+<pre>    59d4:	eafffefd 	b	55d0 &lt;cmsCli_run&commat;&commat;Base+0x6f4&gt;</pre>
+<pre>    59d8:	e1a00005 	mov	r0, r5</pre>
+<pre>    59dc:	ebfff9db 	bl	4150 &lt;cmsDal_setLoginCfg&commat;plt&gt;</pre>
+<pre>    59e0:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    59e4:	0a000007 	beq	5a08 &lt;cmsCli_run&commat;&commat;Base+0xb2c&gt;</pre>
+<pre>    59e8:	e59f00d4 	ldr	r0, [pc, #212]	; 5ac4 &lt;cmsCli_run&commat;&commat;Base+0xbe8&gt;</pre>
+<pre>    59ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    59f0:	ebfff92b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    59f4:	e59f00cc 	ldr	r0, [pc, #204]	; 5ac8 &lt;cmsCli_run&commat;&commat;Base+0xbec&gt;</pre>
+<pre>    59f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    5b38:	e1a00005 	mov	r0, r5</pre>
+<pre>    5b3c:	ebfffa0d 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    5b40:	e3a03000 	mov	r3, #0</pre>
+<pre>    5b44:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>    5b48:	e1a03006 	mov	r3, r6</pre>
+<pre>    5b4c:	e1a02005 	mov	r2, r5</pre>
+<pre>    5b50:	e1a01004 	mov	r1, r4</pre>
+<pre>    5b54:	e3a00045 	mov	r0, #69	; 0x45</pre>
+<pre>    5b58:	ebfffa81 	bl	4564 &lt;cmsObj_getNextInSubTree&commat;plt&gt;</pre>
+<pre>    5b5c:	e3500000 	cmp	r0, #0</pre>
+<pre>    5b60:	0a000001 	beq	5b6c &lt;processSyslogCmd&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    5b64:	e28dd02c 	add	sp, sp, #44	; 0x2c</pre>
+<pre>    5b68:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>    5b6c:	e59d1008 	ldr	r1, [sp, #8]</pre>
+<pre>    5b70:	e1a00007 	mov	r0, r7</pre>
+<pre>    5b74:	e5913014 	ldr	r3, [r1, #20]</pre>
+<pre>    5b78:	e58d3000 	str	r3, [sp]</pre>
+<pre>    5b7c:	e591300c 	ldr	r3, [r1, #12]</pre>
+<pre>    5b80:	e5912004 	ldr	r2, [r1, #4]</pre>
+<pre>    5b84:	e5911010 	ldr	r1, [r1, #16]</pre>
+<pre><span class="red">    5b88:	ebfff8c5 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    5b8c:	e1a00006 	mov	r0, r6</pre>
+<pre>    5b90:	ebfffa55 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    5fc8:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>    5fcc:	eaffffa9 	b	5e78 &lt;processSwVersionCmd&commat;&commat;Base+0x2dc&gt;</pre>
+<pre>    5fd0:	e59d4018 	ldr	r4, [sp, #24]</pre>
+<pre>    5fd4:	e59f11e8 	ldr	r1, [pc, #488]	; 61c4 &lt;processSwVersionCmd&commat;&commat;Base+0x628&gt;</pre>
+<pre>    5fd8:	e1a00004 	mov	r0, r4</pre>
+<pre>    5fdc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    5fe0:	ebfff79d 	bl	3e5c &lt;strcmp&commat;plt&gt;</pre>
+<pre>    5fe4:	e3500000 	cmp	r0, #0</pre>
+<pre>    5fe8:	0a00000c 	beq	6020 &lt;processSwVersionCmd&commat;&commat;Base+0x484&gt;</pre>
+<pre>    5fec:	e59f3180 	ldr	r3, [pc, #384]	; 6174 &lt;processSwVersionCmd&commat;&commat;Base+0x5d8&gt;</pre>
+<pre>    5ff0:	e1a02004 	mov	r2, r4</pre>
+<pre>    5ff4:	e59f11cc 	ldr	r1, [pc, #460]	; 61c8 &lt;processSwVersionCmd&commat;&commat;Base+0x62c&gt;</pre>
+<pre>    5ff8:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    5ffc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6000:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">    6004:	ebfff8c0 	bl	430c &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6008:	e302032b 	movw	r0, #9003	; 0x232b</pre>
+<pre>    600c:	e1a01000 	mov	r1, r0</pre>
+<pre>    6010:	e59f01b4 	ldr	r0, [pc, #436]	; 61cc &lt;processSwVersionCmd&commat;&commat;Base+0x630&gt;</pre>
+<pre>    6014:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    6018:	ebfff7a1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    601c:	eaffff5f 	b	5da0 &lt;processSwVersionCmd&commat;&commat;Base+0x204&gt;</pre>
+<pre>    6020:	e59d401c 	ldr	r4, [sp, #28]</pre>
+<pre>--</pre>
+<pre>    60f0:	e3500000 	cmp	r0, #0</pre>
+<pre>    60f4:	059f00f8 	ldreq	r0, [pc, #248]	; 61f4 &lt;processSwVersionCmd&commat;&commat;Base+0x658&gt;</pre>
+<pre>    60f8:	008f0000 	addeq	r0, pc, r0</pre>
+<pre>    60fc:	0affffea 	beq	60ac &lt;processSwVersionCmd&commat;&commat;Base+0x510&gt;</pre>
+<pre>    6100:	e59f306c 	ldr	r3, [pc, #108]	; 6174 &lt;processSwVersionCmd&commat;&commat;Base+0x5d8&gt;</pre>
+<pre>    6104:	e1a02004 	mov	r2, r4</pre>
+<pre>    6108:	e59f10e8 	ldr	r1, [pc, #232]	; 61f8 &lt;processSwVersionCmd&commat;&commat;Base+0x65c&gt;</pre>
+<pre>    610c:	e7963003 	ldr	r3, [r6, r3]</pre>
+<pre>    6110:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6114:	eaffff1f 	b	5d98 &lt;processSwVersionCmd&commat;&commat;Base+0x1fc&gt;</pre>
+<pre>    6118:	e59f10dc 	ldr	r1, [pc, #220]	; 61fc &lt;processSwVersionCmd&commat;&commat;Base+0x660&gt;</pre>
+<pre>    611c:	e1a00004 	mov	r0, r4</pre>
+<pre>    6120:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6124:	ebfff7d6 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    6128:	e3500000 	cmp	r0, #0</pre>
+<pre>    612c:	01a00005 	moveq	r0, r5</pre>
+<pre>    6130:	0a000009 	beq	615c &lt;processSwVersionCmd&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>    6134:	e59f00c4 	ldr	r0, [pc, #196]	; 6200 &lt;processSwVersionCmd&commat;&commat;Base+0x664&gt;</pre>
+<pre>    6138:	e1a01004 	mov	r1, r4</pre>
+<pre>    613c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    6140:	ebfff757 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    6144:	e59f30b8 	ldr	r3, [pc, #184]	; 6204 &lt;processSwVersionCmd&commat;&commat;Base+0x668&gt;</pre>
+<pre>    6148:	e59f00b8 	ldr	r0, [pc, #184]	; 6208 &lt;processSwVersionCmd&commat;&commat;Base+0x66c&gt;</pre>
+<pre>--</pre>
+<pre>    66a8:	1a000014 	bne	6700 &lt;processSyslogCmd_igd&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    66ac:	e28d4008 	add	r4, sp, #8</pre>
+<pre>    66b0:	e1a01005 	mov	r1, r5</pre>
+<pre>    66b4:	e3a00002 	mov	r0, #2</pre>
+<pre>    66b8:	e1a03004 	mov	r3, r4</pre>
+<pre>    66bc:	ebfff7e4 	bl	4654 &lt;cmsObj_get&commat;plt&gt;</pre>
+<pre>    66c0:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    66c4:	1a000009 	bne	66f0 &lt;processSyslogCmd_igd&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    66c8:	e59f0044 	ldr	r0, [pc, #68]	; 6714 &lt;processSyslogCmd_igd&commat;&commat;Base+0xc8&gt;</pre>
+<pre>    66cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    66d0:	ebfff6b9 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    66d4:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>    66d8:	e593004c 	ldr	r0, [r3, #76]	; 0x4c</pre>
+<pre>    66dc:	ebfff6b6 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    66e0:	e1a00004 	mov	r0, r4</pre>
+<pre>    66e4:	ebfff780 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    66e8:	e28dd02c 	add	sp, sp, #44	; 0x2c</pre>
+<pre>    66ec:	e8bd8030 	pop	{r4, r5, pc}</pre>
+<pre>    66f0:	e59f0020 	ldr	r0, [pc, #32]	; 6718 &lt;processSyslogCmd_igd&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    66f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    66f8:	ebfff5e9 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    66fc:	eafffff9 	b	66e8 &lt;processSyslogCmd_igd&commat;&commat;Base+0x9c&gt;</pre>
+<pre>    6700:	ebfff749 	bl	442c &lt;cmdSyslogHelp&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    6c30:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6c34:	e5931000 	ldr	r1, [r3]</pre>
+<pre>    6c38:	ebfff66a 	bl	45e8 &lt;fputs&commat;plt&gt;</pre>
+<pre>    6c3c:	ea00000a 	b	6c6c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x110&gt;</pre>
+<pre>    6c40:	e1a00006 	mov	r0, r6</pre>
+<pre>    6c44:	ebfff5aa 	bl	42f4 &lt;dalRt_setDefaultGatewayList_dev2&commat;plt&gt;</pre>
+<pre>    6c48:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    6c4c:	0a000008 	beq	6c74 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x118&gt;</pre>
+<pre>    6c50:	e59f3114 	ldr	r3, [pc, #276]	; 6d6c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x210&gt;</pre>
+<pre>    6c54:	e59f1118 	ldr	r1, [pc, #280]	; 6d74 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x218&gt;</pre>
+<pre>    6c58:	e7950003 	ldr	r0, [r5, r3]</pre>
+<pre>    6c5c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6c60:	e1a03006 	mov	r3, r6</pre>
+<pre>    6c64:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">    6c68:	ebfff5a7 	bl	430c &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>    6c6c:	e28ddf42 	add	sp, sp, #264	; 0x108</pre>
+<pre>    6c70:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>    6c74:	e59f00fc 	ldr	r0, [pc, #252]	; 6d78 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x21c&gt;</pre>
+<pre>    6c78:	e1a01006 	mov	r1, r6</pre>
+<pre>    6c7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    6c80:	ebfff487 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    6c84:	e59f30f0 	ldr	r3, [pc, #240]	; 6d7c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x220&gt;</pre>
+<pre>    6c88:	e3a02001 	mov	r2, #1</pre>
+<pre>--</pre>
+<pre>    6cd4:	e1a00004 	mov	r0, r4</pre>
+<pre>    6cd8:	ebfff492 	bl	3f28 &lt;dalRt_getDefaultGatewayList_dev2&commat;plt&gt;</pre>
+<pre>    6cdc:	e3500000 	cmp	r0, #0</pre>
+<pre>    6ce0:	0a000005 	beq	6cfc &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x1a0&gt;</pre>
+<pre>    6ce4:	e59f3080 	ldr	r3, [pc, #128]	; 6d6c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x210&gt;</pre>
+<pre>    6ce8:	e59f0098 	ldr	r0, [pc, #152]	; 6d88 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x22c&gt;</pre>
+<pre>    6cec:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    6cf0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    6cf4:	e5931000 	ldr	r1, [r3]</pre>
+<pre>    6cf8:	eaffffce 	b	6c38 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0xdc&gt;</pre>
+<pre>    6cfc:	e5dd3008 	ldrb	r3, [sp, #8]</pre>
+<pre>    6d00:	e3530000 	cmp	r3, #0</pre>
+<pre>    6d04:	1a000003 	bne	6d18 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x1bc&gt;</pre>
+<pre>    6d08:	e59f107c 	ldr	r1, [pc, #124]	; 6d8c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x230&gt;</pre>
+<pre>    6d0c:	e1a00004 	mov	r0, r4</pre>
+<pre>    6d10:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6d14:	ebfff513 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    6d18:	e59f0070 	ldr	r0, [pc, #112]	; 6d90 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x234&gt;</pre>
+<pre>    6d1c:	e1a01004 	mov	r1, r4</pre>
+<pre>    6d20:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    6d24:	ebfff45e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    6d28:	eaffffcf 	b	6c6c &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x110&gt;</pre>
+<pre>    6d2c:	e59f1060 	ldr	r1, [pc, #96]	; 6d94 &lt;cmdDefaultGatewayHelp&commat;&commat;Base+0x238&gt;</pre>
+<pre>--</pre>
+<pre>    6f54:	e59f107c 	ldr	r1, [pc, #124]	; 6fd8 &lt;cmdDhcpServerHelp&commat;&commat;Base+0x23c&gt;</pre>
+<pre>    6f58:	e7953003 	ldr	r3, [r5, r3]</pre>
+<pre>    6f5c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6f60:	eaffffe3 	b	6ef4 &lt;cmdDhcpServerHelp&commat;&commat;Base+0x158&gt;</pre>
+<pre>    6f64:	e1a01006 	mov	r1, r6</pre>
+<pre>    6f68:	e1a00004 	mov	r0, r4</pre>
+<pre>    6f6c:	ebfff48f 	bl	41b0 &lt;cliCmd_updateDhcpServer_dev2&commat;plt&gt;</pre>
+<pre>    6f70:	eaffffe1 	b	6efc &lt;cmdDhcpServerHelp&commat;&commat;Base+0x160&gt;</pre>
+<pre>    6f74:	ebfff4f0 	bl	433c &lt;cliCmd_showDhcpServer_dev2&commat;plt&gt;</pre>
+<pre>    6f78:	eaffffdf 	b	6efc &lt;cmdDhcpServerHelp&commat;&commat;Base+0x160&gt;</pre>
+<pre>    6f7c:	e59f1058 	ldr	r1, [pc, #88]	; 6fdc &lt;cmdDhcpServerHelp&commat;&commat;Base+0x240&gt;</pre>
+<pre>    6f80:	e1a00004 	mov	r0, r4</pre>
+<pre>    6f84:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    6f88:	ebfff43d 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    6f8c:	e3500000 	cmp	r0, #0</pre>
+<pre>    6f90:	01a00009 	moveq	r0, r9</pre>
+<pre>    6f94:	0a000004 	beq	6fac &lt;cmdDhcpServerHelp&commat;&commat;Base+0x210&gt;</pre>
+<pre>    6f98:	e59f0040 	ldr	r0, [pc, #64]	; 6fe0 &lt;cmdDhcpServerHelp&commat;&commat;Base+0x244&gt;</pre>
+<pre>    6f9c:	e1a01004 	mov	r1, r4</pre>
+<pre>    6fa0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    6fa4:	ebfff3be 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    6fa8:	eaffffd3 	b	6efc &lt;cmdDhcpServerHelp&commat;&commat;Base+0x160&gt;</pre>
+<pre>    6fac:	ebfff44c 	bl	40e4 &lt;cmdDhcpServerHelp&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    72d0:	ebfff40a 	bl	4300 &lt;qdmDns_getStaticIpvxDnsServersLocked_dev2&commat;plt&gt;</pre>
+<pre>    72d4:	e1a03005 	mov	r3, r5</pre>
+<pre>    72d8:	e1a02009 	mov	r2, r9</pre>
+<pre>    72dc:	e1a01006 	mov	r1, r6</pre>
+<pre>    72e0:	e1a0000a 	mov	r0, sl</pre>
+<pre>    72e4:	ebfff4b3 	bl	45b8 &lt;cmsUtl_parseDNS&commat;plt&gt;</pre>
+<pre>    72e8:	e1a01004 	mov	r1, r4</pre>
+<pre>    72ec:	e3a00003 	mov	r0, #3</pre>
+<pre>    72f0:	ebfff3de 	bl	4270 &lt;cmsUtl_isZeroIpvxAddress&commat;plt&gt;</pre>
+<pre>    72f4:	e3500000 	cmp	r0, #0</pre>
+<pre>    72f8:	1a00000f 	bne	733c &lt;cmdDnsHelp&commat;&commat;Base+0x358&gt;</pre>
+<pre>    72fc:	e1a01006 	mov	r1, r6</pre>
+<pre>    7300:	e1a00004 	mov	r0, r4</pre>
+<pre>    7304:	ebfff3b8 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    7308:	e3500000 	cmp	r0, #0</pre>
+<pre>    730c:	1a000005 	bne	7328 &lt;cmdDnsHelp&commat;&commat;Base+0x344&gt;</pre>
+<pre>    7310:	e59f00a8 	ldr	r0, [pc, #168]	; 73c0 &lt;cmdDnsHelp&commat;&commat;Base+0x3dc&gt;</pre>
+<pre>    7314:	e1a02009 	mov	r2, r9</pre>
+<pre>    7318:	e1a01006 	mov	r1, r6</pre>
+<pre>    731c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7320:	ebfff2df 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7324:	eaffff91 	b	7170 &lt;cmdDnsHelp&commat;&commat;Base+0x18c&gt;</pre>
+<pre>    7328:	e59f0094 	ldr	r0, [pc, #148]	; 73c4 &lt;cmdDnsHelp&commat;&commat;Base+0x3e0&gt;</pre>
+<pre>    732c:	e1a02007 	mov	r2, r7</pre>
+<pre>    7330:	e1a01004 	mov	r1, r4</pre>
+<pre>    7334:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7338:	eafffff8 	b	7320 &lt;cmdDnsHelp&commat;&commat;Base+0x33c&gt;</pre>
+<pre>    733c:	e59f0084 	ldr	r0, [pc, #132]	; 73c8 &lt;cmdDnsHelp&commat;&commat;Base+0x3e4&gt;</pre>
+<pre>    7340:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7344:	ebfff39c 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    7348:	eaffff88 	b	7170 &lt;cmdDnsHelp&commat;&commat;Base+0x18c&gt;</pre>
+<pre>    734c:	e59f1078 	ldr	r1, [pc, #120]	; 73cc &lt;cmdDnsHelp&commat;&commat;Base+0x3e8&gt;</pre>
+<pre>    7350:	e1a00007 	mov	r0, r7</pre>
+<pre>    7354:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7358:	ebfff349 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    735c:	e3500000 	cmp	r0, #0</pre>
+<pre>    7360:	01a00005 	moveq	r0, r5</pre>
+<pre>    7364:	0a000004 	beq	737c &lt;cmdDnsHelp&commat;&commat;Base+0x398&gt;</pre>
+<pre>    7368:	e59f0060 	ldr	r0, [pc, #96]	; 73d0 &lt;cmdDnsHelp&commat;&commat;Base+0x3ec&gt;</pre>
+<pre>    736c:	e1a01007 	mov	r1, r7</pre>
+<pre>    7370:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7374:	ebfff2ca 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7378:	eaffff7c 	b	7170 &lt;cmdDnsHelp&commat;&commat;Base+0x18c&gt;</pre>
+<pre>    737c:	ebfff4b7 	bl	4660 &lt;cmdDnsHelp&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    748c:	e1a02004 	mov	r2, r4</pre>
+<pre>    7490:	e1a01005 	mov	r1, r5</pre>
+<pre>    7494:	e3a0001d 	mov	r0, #29</pre>
+<pre>    7498:	ebfff431 	bl	4564 &lt;cmsObj_getNextInSubTree&commat;plt&gt;</pre>
+<pre>    749c:	e3500000 	cmp	r0, #0</pre>
+<pre>    74a0:	0a000009 	beq	74cc &lt;processLanHostsCmd_igd&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    74a4:	e1a00005 	mov	r0, r5</pre>
+<pre>    74a8:	ebfff2b0 	bl	3f70 &lt;cmsMdm_dumpIidStack&commat;plt&gt;</pre>
+<pre>    74ac:	e59f30f4 	ldr	r3, [pc, #244]	; 75a8 &lt;processLanHostsCmd_igd&commat;&commat;Base+0x1d4&gt;</pre>
+<pre>    74b0:	e3002975 	movw	r2, #2421	; 0x975</pre>
+<pre>    74b4:	e1a01006 	mov	r1, r6</pre>
+<pre>    74b8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    74bc:	e58d0000 	str	r0, [sp]</pre>
+<pre>    74c0:	e3a00003 	mov	r0, #3</pre>
+<pre>    74c4:	ebfff43e 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    74c8:	eaffffdd 	b	7444 &lt;processLanHostsCmd_igd&commat;&commat;Base+0x70&gt;</pre>
+<pre>    74cc:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    74d0:	e59f00d4 	ldr	r0, [pc, #212]	; 75ac &lt;processLanHostsCmd_igd&commat;&commat;Base+0x1d8&gt;</pre>
+<pre>    74d4:	e5931014 	ldr	r1, [r3, #20]</pre>
+<pre>    74d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    74dc:	ebfff270 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    74e0:	e1a00007 	mov	r0, r7</pre>
+<pre>    74e4:	ebfff400 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    7504:	e3a02007 	mov	r2, #7</pre>
+<pre>    7508:	e1a00004 	mov	r0, r4</pre>
+<pre>    750c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7510:	ebfff38c 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    7514:	e3500000 	cmp	r0, #0</pre>
+<pre>    7518:	1a000014 	bne	7570 &lt;processLanHostsCmd_igd&commat;&commat;Base+0x19c&gt;</pre>
+<pre>    751c:	e59f0094 	ldr	r0, [pc, #148]	; 75b8 &lt;processLanHostsCmd_igd&commat;&commat;Base+0x1e4&gt;</pre>
+<pre>    7520:	e2844005 	add	r4, r4, #5</pre>
+<pre>    7524:	e28d6008 	add	r6, sp, #8</pre>
+<pre>    7528:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    752c:	ebfff322 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    7530:	e1a02006 	mov	r2, r6</pre>
+<pre>    7534:	e1a01005 	mov	r1, r5</pre>
+<pre>    7538:	e1a00004 	mov	r0, r4</pre>
+<pre>    753c:	ebfff2be 	bl	403c &lt;dalLan_getLanDevByBridgeIfName&commat;plt&gt;</pre>
+<pre>    7540:	e3500000 	cmp	r0, #0</pre>
+<pre>    7544:	0a000004 	beq	755c &lt;processLanHostsCmd_igd&commat;&commat;Base+0x188&gt;</pre>
+<pre>    7548:	e59f006c 	ldr	r0, [pc, #108]	; 75bc &lt;processLanHostsCmd_igd&commat;&commat;Base+0x1e8&gt;</pre>
+<pre>    754c:	e1a01004 	mov	r1, r4</pre>
+<pre>    7550:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7554:	ebfff252 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7558:	eaffffc0 	b	7460 &lt;processLanHostsCmd_igd&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    755c:	e1a00006 	mov	r0, r6</pre>
+<pre>--</pre>
+<pre>    7678:	0a000002 	beq	7688 &lt;cmdPppHelp&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    767c:	e2899001 	add	r9, r9, #1</pre>
+<pre>    7680:	e3590005 	cmp	r9, #5</pre>
+<pre>    7684:	1afffff4 	bne	765c &lt;cmdPppHelp&commat;&commat;Base+0x90&gt;</pre>
+<pre>    7688:	e59f1138 	ldr	r1, [pc, #312]	; 77c8 &lt;cmdPppHelp&commat;&commat;Base+0x1fc&gt;</pre>
+<pre>    768c:	e1a00004 	mov	r0, r4</pre>
+<pre>    7690:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7694:	ebfff27a 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    7698:	e3500000 	cmp	r0, #0</pre>
+<pre>    769c:	0a00000b 	beq	76d0 &lt;cmdPppHelp&commat;&commat;Base+0x104&gt;</pre>
+<pre>    76a0:	e59f1124 	ldr	r1, [pc, #292]	; 77cc &lt;cmdPppHelp&commat;&commat;Base+0x200&gt;</pre>
+<pre>    76a4:	e1a00004 	mov	r0, r4</pre>
+<pre>    76a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    76ac:	ebfff274 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    76b0:	e3500000 	cmp	r0, #0</pre>
+<pre>    76b4:	01a00009 	moveq	r0, r9</pre>
+<pre>    76b8:	0a00003e 	beq	77b8 &lt;cmdPppHelp&commat;&commat;Base+0x1ec&gt;</pre>
+<pre>    76bc:	e59f010c 	ldr	r0, [pc, #268]	; 77d0 &lt;cmdPppHelp&commat;&commat;Base+0x204&gt;</pre>
+<pre>    76c0:	e1a01004 	mov	r1, r4</pre>
+<pre>    76c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    76c8:	ebfff1f5 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    76cc:	ea000007 	b	76f0 &lt;cmdPppHelp&commat;&commat;Base+0x124&gt;</pre>
+<pre>    76d0:	e3590003 	cmp	r9, #3</pre>
+<pre>--</pre>
+<pre>    7b4c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7b50:	ebfff14b 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    7b54:	e3500000 	cmp	r0, #0</pre>
+<pre>    7b58:	1a000002 	bne	7b68 &lt;processUptimeCmd_igd&commat;&commat;Base+0x100&gt;</pre>
+<pre>    7b5c:	e3a03001 	mov	r3, #1</pre>
+<pre>    7b60:	e5853000 	str	r3, [r5]</pre>
+<pre>    7b64:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    7b68:	e59f103c 	ldr	r1, [pc, #60]	; 7bac &lt;processUptimeCmd_igd&commat;&commat;Base+0x144&gt;</pre>
+<pre>    7b6c:	e1a00004 	mov	r0, r4</pre>
+<pre>    7b70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    7b74:	ebfff142 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    7b78:	e3500000 	cmp	r0, #0</pre>
+<pre>    7b7c:	1a000003 	bne	7b90 &lt;processUptimeCmd_igd&commat;&commat;Base+0x128&gt;</pre>
+<pre>    7b80:	e5850000 	str	r0, [r5]</pre>
+<pre>    7b84:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    7b88:	e59f4020 	ldr	r4, [pc, #32]	; 7bb0 &lt;processUptimeCmd_igd&commat;&commat;Base+0x148&gt;</pre>
+<pre>    7b8c:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    7b90:	e59f001c 	ldr	r0, [pc, #28]	; 7bb4 &lt;processUptimeCmd_igd&commat;&commat;Base+0x14c&gt;</pre>
+<pre>    7b94:	e1a01004 	mov	r1, r4</pre>
+<pre>    7b98:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    7b9c:	ebfff0c0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7ba0:	e302032b 	movw	r0, #9003	; 0x232b</pre>
+<pre>    7ba4:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>    7bf0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7bf4:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    7bf8:	e59f3538 	ldr	r3, [pc, #1336]	; 8138 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d0&gt;</pre>
+<pre>    7bfc:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7c00:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    7c04:	e59f3530 	ldr	r3, [pc, #1328]	; 813c &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d4&gt;</pre>
+<pre>    7c08:	e59d2018 	ldr	r2, [sp, #24]</pre>
+<pre>    7c0c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7c10:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>    7c14:	e59f3524 	ldr	r3, [pc, #1316]	; 8140 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d8&gt;</pre>
+<pre>    7c18:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>    7c1c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7c20:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>    7c24:	e59f3518 	ldr	r3, [pc, #1304]	; 8144 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6dc&gt;</pre>
+<pre>    7c28:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7c2c:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    7c30:	e59f3510 	ldr	r3, [pc, #1296]	; 8148 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6e0&gt;</pre>
+<pre>    7c34:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7c38:	e58d3000 	str	r3, [sp]</pre>
+<pre>    7c3c:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre><span class="red">    7c40:	ebfff097 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7c44:	e28dd024 	add	sp, sp, #36	; 0x24</pre>
+<pre>    7c48:	e8bd8030 	pop	{r4, r5, pc}</pre>
+<pre>--</pre>
+<pre>    7cb4:	ebfff0f2 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    7cb8:	e3500000 	cmp	r0, #0</pre>
+<pre>    7cbc:	1a000012 	bne	7d0c &lt;processUptimeCmd_igd&commat;&commat;Base+0x2a4&gt;</pre>
+<pre>    7cc0:	e59f3490 	ldr	r3, [pc, #1168]	; 8158 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6f0&gt;</pre>
+<pre>    7cc4:	e59f0490 	ldr	r0, [pc, #1168]	; 815c &lt;processUptimeCmd_igd&commat;&commat;Base+0x6f4&gt;</pre>
+<pre>    7cc8:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7ccc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7cd0:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    7cd4:	e59f345c 	ldr	r3, [pc, #1116]	; 8138 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d0&gt;</pre>
+<pre>    7cd8:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7cdc:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    7ce0:	e59f3454 	ldr	r3, [pc, #1108]	; 813c &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d4&gt;</pre>
+<pre>    7ce4:	e59d2018 	ldr	r2, [sp, #24]</pre>
+<pre>    7ce8:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7cec:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>    7cf0:	e59f3468 	ldr	r3, [pc, #1128]	; 8160 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6f8&gt;</pre>
+<pre>    7cf4:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>    7cf8:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7cfc:	e58d3000 	str	r3, [sp]</pre>
+<pre>    7d00:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre><span class="red">    7d04:	ebfff066 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7d08:	eaffffcd 	b	7c44 &lt;processUptimeCmd_igd&commat;&commat;Base+0x1dc&gt;</pre>
+<pre>    7d0c:	e59f1450 	ldr	r1, [pc, #1104]	; 8164 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6fc&gt;</pre>
+<pre>--</pre>
+<pre>    7d3c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d40:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    7d44:	e59f33f0 	ldr	r3, [pc, #1008]	; 813c &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d4&gt;</pre>
+<pre>    7d48:	e59d2018 	ldr	r2, [sp, #24]</pre>
+<pre>    7d4c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d50:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>    7d54:	e59f3414 	ldr	r3, [pc, #1044]	; 8170 &lt;processUptimeCmd_igd&commat;&commat;Base+0x708&gt;</pre>
+<pre>    7d58:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>    7d5c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d60:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>    7d64:	e59f3408 	ldr	r3, [pc, #1032]	; 8174 &lt;processUptimeCmd_igd&commat;&commat;Base+0x70c&gt;</pre>
+<pre>    7d68:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d6c:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>    7d70:	e59f3400 	ldr	r3, [pc, #1024]	; 8178 &lt;processUptimeCmd_igd&commat;&commat;Base+0x710&gt;</pre>
+<pre>    7d74:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d78:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    7d7c:	e59f33f8 	ldr	r3, [pc, #1016]	; 817c &lt;processUptimeCmd_igd&commat;&commat;Base+0x714&gt;</pre>
+<pre>    7d80:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7d84:	e58d3000 	str	r3, [sp]</pre>
+<pre>    7d88:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre><span class="red">    7d8c:	ebfff044 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7d90:	eaffffab 	b	7c44 &lt;processUptimeCmd_igd&commat;&commat;Base+0x1dc&gt;</pre>
+<pre>    7d94:	e59f13e4 	ldr	r1, [pc, #996]	; 8180 &lt;processUptimeCmd_igd&commat;&commat;Base+0x718&gt;</pre>
+<pre>--</pre>
+<pre>    7f08:	e59f3238 	ldr	r3, [pc, #568]	; 8148 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6e0&gt;</pre>
+<pre>    7f0c:	e59f029c 	ldr	r0, [pc, #668]	; 81b0 &lt;processUptimeCmd_igd&commat;&commat;Base+0x748&gt;</pre>
+<pre>    7f10:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7f14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    7f18:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    7f1c:	e59f3244 	ldr	r3, [pc, #580]	; 8168 &lt;processUptimeCmd_igd&commat;&commat;Base+0x700&gt;</pre>
+<pre>    7f20:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7f24:	e58d3018 	str	r3, [sp, #24]</pre>
+<pre>    7f28:	e59f320c 	ldr	r3, [pc, #524]	; 813c &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d4&gt;</pre>
+<pre>    7f2c:	e59d2018 	ldr	r2, [sp, #24]</pre>
+<pre>    7f30:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7f34:	e58d301c 	str	r3, [sp, #28]</pre>
+<pre>    7f38:	e59f3200 	ldr	r3, [pc, #512]	; 8140 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6d8&gt;</pre>
+<pre>    7f3c:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>    7f40:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7f44:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    7f48:	e59f31f4 	ldr	r3, [pc, #500]	; 8144 &lt;processUptimeCmd_igd&commat;&commat;Base+0x6dc&gt;</pre>
+<pre>    7f4c:	e7943003 	ldr	r3, [r4, r3]</pre>
+<pre>    7f50:	e58d3000 	str	r3, [sp]</pre>
+<pre>    7f54:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre><span class="red">    7f58:	ebffefd1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    7f5c:	eaffff38 	b	7c44 &lt;processUptimeCmd_igd&commat;&commat;Base+0x1dc&gt;</pre>
+<pre>    7f60:	e59f124c 	ldr	r1, [pc, #588]	; 81b4 &lt;processUptimeCmd_igd&commat;&commat;Base+0x74c&gt;</pre>
+<pre>--</pre>
+<pre>    8674:	e3002345 	movw	r2, #837	; 0x345</pre>
+<pre>    8678:	e1a01006 	mov	r1, r6</pre>
+<pre>    867c:	e3a00007 	mov	r0, #7</pre>
+<pre>    8680:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    8684:	ebffefce 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    8688:	e1a00005 	mov	r0, r5</pre>
+<pre>    868c:	ebffef84 	bl	44a4 &lt;dalWan_addService_dev2&commat;plt&gt;</pre>
+<pre>    8690:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8694:	0a000234 	beq	8f6c &lt;processWanCmd&commat;&commat;Base+0xd94&gt;</pre>
+<pre>    8698:	e59f3978 	ldr	r3, [pc, #2424]	; 9018 &lt;processWanCmd&commat;&commat;Base+0xe40&gt;</pre>
+<pre>    869c:	e3a02fd2 	mov	r2, #840	; 0x348</pre>
+<pre>    86a0:	e58d4000 	str	r4, [sp]</pre>
+<pre>    86a4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    86a8:	e1a01006 	mov	r1, r6</pre>
+<pre>    86ac:	e3a00003 	mov	r0, #3</pre>
+<pre>    86b0:	ebffefc3 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    86b4:	e59f0960 	ldr	r0, [pc, #2400]	; 901c &lt;processWanCmd&commat;&commat;Base+0xe44&gt;</pre>
+<pre>    86b8:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>    86bc:	e2852e23 	add	r2, r5, #560	; 0x230</pre>
+<pre>    86c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    86c4:	ebffedf6 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    86c8:	e3a03000 	mov	r3, #0</pre>
+<pre>    86cc:	e5c93000 	strb	r3, [r9]</pre>
+<pre>    86d0:	e3023329 	movw	r3, #9001	; 0x2329</pre>
+<pre>    86d4:	e1540003 	cmp	r4, r3</pre>
+<pre>    86d8:	1affff4f 	bne	841c &lt;processWanCmd&commat;&commat;Base+0x244&gt;</pre>
+<pre>    86dc:	eaffff09 	b	8308 &lt;processWanCmd&commat;&commat;Base+0x130&gt;</pre>
+<pre>    86e0:	e3560000 	cmp	r6, #0</pre>
+<pre>    86e4:	059f6934 	ldreq	r6, [pc, #2356]	; 9020 &lt;processWanCmd&commat;&commat;Base+0xe48&gt;</pre>
+<pre>    86e8:	008f6006 	addeq	r6, pc, r6</pre>
+<pre>    86ec:	e59f0930 	ldr	r0, [pc, #2352]	; 9024 &lt;processWanCmd&commat;&commat;Base+0xe4c&gt;</pre>
+<pre>    86f0:	e1a01006 	mov	r1, r6</pre>
+<pre>    86f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    86f8:	ebffede9 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    86fc:	e302432b 	movw	r4, #9003	; 0x232b</pre>
+<pre>    8700:	eaffffba 	b	85f0 &lt;processWanCmd&commat;&commat;Base+0x418&gt;</pre>
+<pre>--</pre>
+<pre>    87f0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    87f4:	ebffee22 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    87f8:	e3500000 	cmp	r0, #0</pre>
+<pre>    87fc:	1a000002 	bne	880c &lt;processWanCmd&commat;&commat;Base+0x634&gt;</pre>
+<pre>    8800:	e3a03002 	mov	r3, #2</pre>
+<pre>    8804:	e58537dc 	str	r3, [r5, #2012]	; 0x7dc</pre>
+<pre>    8808:	eaffffd6 	b	8768 &lt;processWanCmd&commat;&commat;Base+0x590&gt;</pre>
+<pre>    880c:	e59f1830 	ldr	r1, [pc, #2096]	; 9044 &lt;processWanCmd&commat;&commat;Base+0xe6c&gt;</pre>
+<pre>    8810:	e1a00004 	mov	r0, r4</pre>
+<pre>    8814:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8818:	ebffee19 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    881c:	e3500000 	cmp	r0, #0</pre>
+<pre>    8820:	1a000003 	bne	8834 &lt;processWanCmd&commat;&commat;Base+0x65c&gt;</pre>
+<pre>    8824:	e3a03005 	mov	r3, #5</pre>
+<pre>    8828:	eafffff5 	b	8804 &lt;processWanCmd&commat;&commat;Base+0x62c&gt;</pre>
+<pre>    882c:	e59f4814 	ldr	r4, [pc, #2068]	; 9048 &lt;processWanCmd&commat;&commat;Base+0xe70&gt;</pre>
+<pre>    8830:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    8834:	e59f0810 	ldr	r0, [pc, #2064]	; 904c &lt;processWanCmd&commat;&commat;Base+0xe74&gt;</pre>
+<pre>    8838:	e1a01004 	mov	r1, r4</pre>
+<pre>    883c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8840:	ebffed97 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8844:	e59f0804 	ldr	r0, [pc, #2052]	; 9050 &lt;processWanCmd&commat;&commat;Base+0xe78&gt;</pre>
+<pre>    8848:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    8bfc:	ebffed59 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    8c00:	e2850e4a 	add	r0, r5, #1184	; 0x4a0</pre>
+<pre>    8c04:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    8c08:	e1a01006 	mov	r1, r6</pre>
+<pre>    8c0c:	ebffed55 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    8c10:	e2850d13 	add	r0, r5, #1216	; 0x4c0</pre>
+<pre>    8c14:	e280000e 	add	r0, r0, #14</pre>
+<pre>    8c18:	e1a01006 	mov	r1, r6</pre>
+<pre>    8c1c:	eaffff79 	b	8a08 &lt;processWanCmd&commat;&commat;Base+0x830&gt;</pre>
+<pre>    8c20:	e59f149c 	ldr	r1, [pc, #1180]	; 90c4 &lt;processWanCmd&commat;&commat;Base+0xeec&gt;</pre>
+<pre>    8c24:	e1a00007 	mov	r0, r7</pre>
+<pre>    8c28:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8c2c:	ebffed14 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    8c30:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8c34:	02850d0e 	addeq	r0, r5, #896	; 0x380</pre>
+<pre>    8c38:	051a1048 	ldreq	r1, [sl, #-72]	; 0xffffffb8</pre>
+<pre>    8c3c:	0affff71 	beq	8a08 &lt;processWanCmd&commat;&commat;Base+0x830&gt;</pre>
+<pre>    8c40:	e59f0480 	ldr	r0, [pc, #1152]	; 90c8 &lt;processWanCmd&commat;&commat;Base+0xef0&gt;</pre>
+<pre>    8c44:	e1a01007 	mov	r1, r7</pre>
+<pre>    8c48:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8c4c:	ebffec94 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8c50:	e58db010 	str	fp, [sp, #16]</pre>
+<pre>    8c54:	eafffea8 	b	86fc &lt;processWanCmd&commat;&commat;Base+0x524&gt;</pre>
+<pre>--</pre>
+<pre>    8df4:	e3a00007 	mov	r0, #7</pre>
+<pre>    8df8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    8dfc:	e58d4000 	str	r4, [sp]</pre>
+<pre>    8e00:	ebffedef 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    8e04:	e59f31a4 	ldr	r3, [pc, #420]	; 8fb0 &lt;processWanCmd&commat;&commat;Base+0xdd8&gt;</pre>
+<pre>    8e08:	e1a01004 	mov	r1, r4</pre>
+<pre>    8e0c:	e7966003 	ldr	r6, [r6, r3]</pre>
+<pre>    8e10:	e2865d0e 	add	r5, r6, #896	; 0x380</pre>
+<pre>    8e14:	e1a00005 	mov	r0, r5</pre>
+<pre>    8e18:	ebffecd2 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>    8e1c:	e1a00006 	mov	r0, r6</pre>
+<pre>    8e20:	ebffee05 	bl	463c &lt;dalWan_deleteService_dev2&commat;plt&gt;</pre>
+<pre>    8e24:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    8e28:	0a00000b 	beq	8e5c &lt;processWanCmd&commat;&commat;Base+0xc84&gt;</pre>
+<pre>    8e2c:	e302364c 	movw	r3, #9804	; 0x264c</pre>
+<pre>    8e30:	e1540003 	cmp	r4, r3</pre>
+<pre>    8e34:	e1a01005 	mov	r1, r5</pre>
+<pre>    8e38:	1a000003 	bne	8e4c &lt;processWanCmd&commat;&commat;Base+0xc74&gt;</pre>
+<pre>    8e3c:	e59f02c4 	ldr	r0, [pc, #708]	; 9108 &lt;processWanCmd&commat;&commat;Base+0xf30&gt;</pre>
+<pre>    8e40:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8e44:	ebffec16 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8e48:	eafffdc3 	b	855c &lt;processWanCmd&commat;&commat;Base+0x384&gt;</pre>
+<pre>    8e4c:	e59f02b8 	ldr	r0, [pc, #696]	; 910c &lt;processWanCmd&commat;&commat;Base+0xf34&gt;</pre>
+<pre>    8e50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8e54:	ebffec12 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8e58:	eafffe1a 	b	86c8 &lt;processWanCmd&commat;&commat;Base+0x4f0&gt;</pre>
+<pre>    8e5c:	e59f02ac 	ldr	r0, [pc, #684]	; 9110 &lt;processWanCmd&commat;&commat;Base+0xf38&gt;</pre>
+<pre>    8e60:	e1a01005 	mov	r1, r5</pre>
+<pre>    8e64:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8e68:	ebffec0d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8e6c:	e5c9a000 	strb	sl, [r9]</pre>
+<pre>    8e70:	eafffd69 	b	841c &lt;processWanCmd&commat;&commat;Base+0x244&gt;</pre>
+<pre>--</pre>
+<pre>    8f14:	e1a01005 	mov	r1, r5</pre>
+<pre>    8f18:	e1a00004 	mov	r0, r4</pre>
+<pre>    8f1c:	ebffebdd 	bl	3e98 &lt;cmsUtl_strcasecmp&commat;plt&gt;</pre>
+<pre>    8f20:	e3500000 	cmp	r0, #0</pre>
+<pre>    8f24:	1a000001 	bne	8f30 &lt;processWanCmd&commat;&commat;Base+0xd58&gt;</pre>
+<pre>    8f28:	ebffec46 	bl	4048 &lt;cli_wanShowInterfaces_dev2&commat;plt&gt;</pre>
+<pre>    8f2c:	eafffd3a 	b	841c &lt;processWanCmd&commat;&commat;Base+0x244&gt;</pre>
+<pre>    8f30:	e59f01ec 	ldr	r0, [pc, #492]	; 9124 &lt;processWanCmd&commat;&commat;Base+0xf4c&gt;</pre>
+<pre>    8f34:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    8f38:	eafffcfa 	b	8328 &lt;processWanCmd&commat;&commat;Base+0x150&gt;</pre>
+<pre>    8f3c:	e59f11e4 	ldr	r1, [pc, #484]	; 9128 &lt;processWanCmd&commat;&commat;Base+0xf50&gt;</pre>
+<pre>    8f40:	e1a00005 	mov	r0, r5</pre>
+<pre>    8f44:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    8f48:	ebffec4d 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    8f4c:	e3500000 	cmp	r0, #0</pre>
+<pre>    8f50:	059d0030 	ldreq	r0, [sp, #48]	; 0x30</pre>
+<pre>    8f54:	0afffcf3 	beq	8328 &lt;processWanCmd&commat;&commat;Base+0x150&gt;</pre>
+<pre>    8f58:	e59f01cc 	ldr	r0, [pc, #460]	; 912c &lt;processWanCmd&commat;&commat;Base+0xf54&gt;</pre>
+<pre>    8f5c:	e1a01005 	mov	r1, r5</pre>
+<pre>    8f60:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8f64:	ebffebce 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8f68:	eafffe07 	b	878c &lt;processWanCmd&commat;&commat;Base+0x5b4&gt;</pre>
+<pre>    8f6c:	e59f01bc 	ldr	r0, [pc, #444]	; 9130 &lt;processWanCmd&commat;&commat;Base+0xf58&gt;</pre>
+<pre>    8f70:	e2852e23 	add	r2, r5, #560	; 0x230</pre>
+<pre>    8f74:	e59d1018 	ldr	r1, [sp, #24]</pre>
+<pre>    8f78:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    8f7c:	ebffebc8 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    8f80:	eaffff82 	b	8d90 &lt;processWanCmd&commat;&commat;Base+0xbb8&gt;</pre>
+<pre>    8f84:	00021df8 	strdeq	r1, [r2], -r8</pre>
+<pre>--</pre>
+<pre>    91a8:	ebffec33 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>    91ac:	e3500000 	cmp	r0, #0</pre>
+<pre>    91b0:	0a000014 	beq	9208 &lt;virtualServerShow_igd&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    91b4:	e3540000 	cmp	r4, #0</pre>
+<pre>    91b8:	1a000002 	bne	91c8 &lt;virtualServerShow_igd&commat;&commat;Base+0x94&gt;</pre>
+<pre>    91bc:	e59f0084 	ldr	r0, [pc, #132]	; 9248 &lt;virtualServerShow_igd&commat;&commat;Base+0x114&gt;</pre>
+<pre>    91c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    91c4:	ebffebfc 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    91c8:	e28dd034 	add	sp, sp, #52	; 0x34</pre>
+<pre>    91cc:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>    91d0:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    91d4:	e1a00007 	mov	r0, r7</pre>
+<pre>    91d8:	e5931018 	ldr	r1, [r3, #24]</pre>
+<pre>    91dc:	e5d32004 	ldrb	r2, [r3, #4]</pre>
+<pre>    91e0:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>    91e4:	e5931014 	ldr	r1, [r3, #20]</pre>
+<pre>    91e8:	e58d1000 	str	r1, [sp]</pre>
+<pre>    91ec:	e1a01004 	mov	r1, r4</pre>
+<pre>    91f0:	e593302c 	ldr	r3, [r3, #44]	; 0x2c</pre>
+<pre>    91f4:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">    91f8:	ebffeb29 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    91fc:	e1a00006 	mov	r0, r6</pre>
+<pre>    9200:	ebffecb9 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    9204:	eaffffd7 	b	9168 &lt;virtualServerShow_igd&commat;&commat;Base+0x34&gt;</pre>
+<pre>    9208:	e59d3010 	ldr	r3, [sp, #16]</pre>
+<pre>    920c:	e1a00007 	mov	r0, r7</pre>
+<pre>    9210:	e5931018 	ldr	r1, [r3, #24]</pre>
+<pre>    9214:	e5d32004 	ldrb	r2, [r3, #4]</pre>
+<pre>    9218:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>    921c:	e5931014 	ldr	r1, [r3, #20]</pre>
+<pre>    9220:	e58d1000 	str	r1, [sp]</pre>
+<pre>    9224:	e1a01004 	mov	r1, r4</pre>
+<pre>    9228:	e593302c 	ldr	r3, [r3, #44]	; 0x2c</pre>
+<pre>    922c:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">    9230:	ebffeb1b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9234:	e1a00006 	mov	r0, r6</pre>
+<pre>    9238:	ebffecab 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    9280:	e58d5004 	str	r5, [sp, #4]</pre>
+<pre>    9284:	e58d5008 	str	r5, [sp, #8]</pre>
+<pre>    9288:	e1a0200a 	mov	r2, sl</pre>
+<pre>    928c:	e1a01007 	mov	r1, r7</pre>
+<pre>    9290:	e3a0007c 	mov	r0, #124	; 0x7c</pre>
+<pre>    9294:	ebffebf8 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>    9298:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    929c:	13a04000 	movne	r4, #0</pre>
+<pre>    92a0:	1a000011 	bne	92ec &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    92a4:	e1560005 	cmp	r6, r5</pre>
+<pre>    92a8:	1a00000a 	bne	92d8 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x8c&gt;</pre>
+<pre>    92ac:	e59d0004 	ldr	r0, [sp, #4]</pre>
+<pre>    92b0:	e1a01007 	mov	r1, r7</pre>
+<pre>    92b4:	e5c09004 	strb	r9, [r0, #4]</pre>
+<pre>    92b8:	ebffece2 	bl	4648 &lt;cmsObj_set&commat;plt&gt;</pre>
+<pre>    92bc:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    92c0:	0a000003 	beq	92d4 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x88&gt;</pre>
+<pre>    92c4:	e1a02009 	mov	r2, r9</pre>
+<pre>    92c8:	e1a01006 	mov	r1, r6</pre>
+<pre>    92cc:	e1a0000b 	mov	r0, fp</pre>
+<pre><span class="red">    92d0:	ebffeaf3 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    92d4:	e3a04001 	mov	r4, #1</pre>
+<pre>    92d8:	e1a0000a 	mov	r0, sl</pre>
+<pre>--</pre>
+<pre>    92e4:	e3540000 	cmp	r4, #0</pre>
+<pre>    92e8:	0affffe6 	beq	9288 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    92ec:	e3a0201c 	mov	r2, #28</pre>
+<pre>    92f0:	e3a01000 	mov	r1, #0</pre>
+<pre>    92f4:	e1a00007 	mov	r0, r7</pre>
+<pre>    92f8:	e59fb088 	ldr	fp, [pc, #136]	; 9388 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    92fc:	ebffec1d 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    9300:	e28da008 	add	sl, sp, #8</pre>
+<pre>    9304:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>    9308:	e1a0200a 	mov	r2, sl</pre>
+<pre>    930c:	e1a01007 	mov	r1, r7</pre>
+<pre>    9310:	e3a00083 	mov	r0, #131	; 0x83</pre>
+<pre>    9314:	ebffebd8 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>    9318:	e3500000 	cmp	r0, #0</pre>
+<pre>    931c:	0a000007 	beq	9340 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0xf4&gt;</pre>
+<pre>    9320:	e3540000 	cmp	r4, #0</pre>
+<pre>    9324:	1a000003 	bne	9338 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0xec&gt;</pre>
+<pre>    9328:	e59f005c 	ldr	r0, [pc, #92]	; 938c &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x140&gt;</pre>
+<pre>    932c:	e1a01006 	mov	r1, r6</pre>
+<pre>    9330:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9334:	ebffeada 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9338:	e28dd028 	add	sp, sp, #40	; 0x28</pre>
+<pre>    933c:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>    9340:	e1550006 	cmp	r5, r6</pre>
+<pre>    9344:	1a00000a 	bne	9374 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x128&gt;</pre>
+<pre>    9348:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>    934c:	e1a01007 	mov	r1, r7</pre>
+<pre>    9350:	e5c09004 	strb	r9, [r0, #4]</pre>
+<pre>    9354:	ebffecbb 	bl	4648 &lt;cmsObj_set&commat;plt&gt;</pre>
+<pre>    9358:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    935c:	0a000003 	beq	9370 &lt;virtualServerEnableDisable_igd&commat;&commat;Base+0x124&gt;</pre>
+<pre>    9360:	e1a02009 	mov	r2, r9</pre>
+<pre>    9364:	e1a01005 	mov	r1, r5</pre>
+<pre>    9368:	e1a0000b 	mov	r0, fp</pre>
+<pre><span class="red">    936c:	ebffeacc 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9370:	e3a04001 	mov	r4, #1</pre>
+<pre>    9374:	e1a0000a 	mov	r0, sl</pre>
+<pre>--</pre>
+<pre>    94a0:	e1a00005 	mov	r0, r5</pre>
+<pre>    94a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    94a8:	ebffeba6 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    94ac:	e3500000 	cmp	r0, #0</pre>
+<pre>    94b0:	0a000006 	beq	94d0 &lt;processLogLevelCmd&commat;&commat;Base+0x78&gt;</pre>
+<pre>    94b4:	e59f16b4 	ldr	r1, [pc, #1716]	; 9b70 &lt;processLogLevelCmd&commat;&commat;Base+0x718&gt;</pre>
+<pre>    94b8:	e3a02006 	mov	r2, #6</pre>
+<pre>    94bc:	e1a00005 	mov	r0, r5</pre>
+<pre>    94c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    94c4:	ebffeb9f 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    94c8:	e3500000 	cmp	r0, #0</pre>
+<pre>    94cc:	1a000012 	bne	951c &lt;processLogLevelCmd&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    94d0:	e59f069c 	ldr	r0, [pc, #1692]	; 9b74 &lt;processLogLevelCmd&commat;&commat;Base+0x71c&gt;</pre>
+<pre>    94d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    94d8:	ebffeb37 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    94dc:	e59f0694 	ldr	r0, [pc, #1684]	; 9b78 &lt;processLogLevelCmd&commat;&commat;Base+0x720&gt;</pre>
+<pre>    94e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    94e4:	ebffeb34 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    94e8:	e59f068c 	ldr	r0, [pc, #1676]	; 9b7c &lt;processLogLevelCmd&commat;&commat;Base+0x724&gt;</pre>
+<pre>    94ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    94f0:	ebffea6b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    94f4:	e59f0684 	ldr	r0, [pc, #1668]	; 9b80 &lt;processLogLevelCmd&commat;&commat;Base+0x728&gt;</pre>
+<pre>    94f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    94fc:	ebffea68 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9500:	e3a0000a 	mov	r0, #10</pre>
+<pre>    9504:	ebffeb9e 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    9534:	e59f1650 	ldr	r1, [pc, #1616]	; 9b8c &lt;processLogLevelCmd&commat;&commat;Base+0x734&gt;</pre>
+<pre>    9538:	e3a02005 	mov	r2, #5</pre>
+<pre>    953c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9540:	e1a06000 	mov	r6, r0</pre>
+<pre>    9544:	e1a00007 	mov	r0, r7</pre>
+<pre>    9548:	ebffeb7e 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    954c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    9550:	1a00002d 	bne	960c &lt;processLogLevelCmd&commat;&commat;Base+0x1b4&gt;</pre>
+<pre>    9554:	e28d7008 	add	r7, sp, #8</pre>
+<pre>    9558:	e1a01004 	mov	r1, r4</pre>
+<pre>    955c:	e3000c4e 	movw	r0, #3150	; 0xc4e</pre>
+<pre>    9560:	e58d2008 	str	r2, [sp, #8]</pre>
+<pre>    9564:	e1a03007 	mov	r3, r7</pre>
+<pre>    9568:	ebffec39 	bl	4654 &lt;cmsObj_get&commat;plt&gt;</pre>
+<pre>    956c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    9570:	0a000005 	beq	958c &lt;processLogLevelCmd&commat;&commat;Base+0x134&gt;</pre>
+<pre>    9574:	e59f1614 	ldr	r1, [pc, #1556]	; 9b90 &lt;processLogLevelCmd&commat;&commat;Base+0x738&gt;</pre>
+<pre>    9578:	e59f0614 	ldr	r0, [pc, #1556]	; 9b94 &lt;processLogLevelCmd&commat;&commat;Base+0x73c&gt;</pre>
+<pre>    957c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9580:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9584:	ebffea46 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9588:	eaffffe1 	b	9514 &lt;processLogLevelCmd&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    958c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>    9590:	e3560000 	cmp	r6, #0</pre>
+<pre>    9594:	e5932008 	ldr	r2, [r3, #8]</pre>
+<pre>    9598:	1a000007 	bne	95bc &lt;processLogLevelCmd&commat;&commat;Base+0x164&gt;</pre>
+<pre>    959c:	e59f15f4 	ldr	r1, [pc, #1524]	; 9b98 &lt;processLogLevelCmd&commat;&commat;Base+0x740&gt;</pre>
+<pre>    95a0:	e59f05f4 	ldr	r0, [pc, #1524]	; 9b9c &lt;processLogLevelCmd&commat;&commat;Base+0x744&gt;</pre>
+<pre>    95a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    95a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    95ac:	ebffea3c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    95b0:	e1a00007 	mov	r0, r7</pre>
+<pre>    95b4:	ebffebcc 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    9b0c:	e2850009 	add	r0, r5, #9</pre>
+<pre>    9b10:	e59d6008 	ldr	r6, [sp, #8]</pre>
+<pre>    9b14:	ebffe9c6 	bl	4234 &lt;cmsMem_strdup&commat;plt&gt;</pre>
+<pre>    9b18:	e1a01004 	mov	r1, r4</pre>
+<pre>    9b1c:	e5860008 	str	r0, [r6, #8]</pre>
+<pre>    9b20:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>    9b24:	ebffeac7 	bl	4648 &lt;cmsObj_set&commat;plt&gt;</pre>
+<pre>    9b28:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    9b2c:	0a000004 	beq	9b44 &lt;processLogLevelCmd&commat;&commat;Base+0x6ec&gt;</pre>
+<pre>    9b30:	e59f1148 	ldr	r1, [pc, #328]	; 9c80 &lt;processLogLevelCmd&commat;&commat;Base+0x828&gt;</pre>
+<pre>    9b34:	e59f0148 	ldr	r0, [pc, #328]	; 9c84 &lt;processLogLevelCmd&commat;&commat;Base+0x82c&gt;</pre>
+<pre>    9b38:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9b3c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9b40:	eafffe99 	b	95ac &lt;processLogLevelCmd&commat;&commat;Base+0x154&gt;</pre>
+<pre>    9b44:	e59f013c 	ldr	r0, [pc, #316]	; 9c88 &lt;processLogLevelCmd&commat;&commat;Base+0x830&gt;</pre>
+<pre>    9b48:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9b4c:	eafffeac 	b	9604 &lt;processLogLevelCmd&commat;&commat;Base+0x1ac&gt;</pre>
+<pre>    9b50:	e59f0134 	ldr	r0, [pc, #308]	; 9c8c &lt;processLogLevelCmd&commat;&commat;Base+0x834&gt;</pre>
+<pre>    9b54:	e1a01007 	mov	r1, r7</pre>
+<pre>    9b58:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9b5c:	ebffe8d0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9b60:	eafffe6b 	b	9514 &lt;processLogLevelCmd&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    9b64:	0000d6ca 	andeq	sp, r0, sl, asr #13</pre>
+<pre>--</pre>
+<pre>    9cc0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9cc4:	e08f9009 	add	r9, pc, r9</pre>
+<pre>    9cc8:	ebffe99e 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    9ccc:	e3500000 	cmp	r0, #0</pre>
+<pre>    9cd0:	0a000006 	beq	9cf0 &lt;processLogDestCmd&commat;&commat;Base+0x60&gt;</pre>
+<pre>    9cd4:	e59f1840 	ldr	r1, [pc, #2112]	; a51c &lt;processLogDestCmd&commat;&commat;Base+0x88c&gt;</pre>
+<pre>    9cd8:	e3a02006 	mov	r2, #6</pre>
+<pre>    9cdc:	e1a00005 	mov	r0, r5</pre>
+<pre>    9ce0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9ce4:	ebffe997 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    9ce8:	e3500000 	cmp	r0, #0</pre>
+<pre>    9cec:	1a000012 	bne	9d3c &lt;processLogDestCmd&commat;&commat;Base+0xac&gt;</pre>
+<pre>    9cf0:	e59f0828 	ldr	r0, [pc, #2088]	; a520 &lt;processLogDestCmd&commat;&commat;Base+0x890&gt;</pre>
+<pre>    9cf4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9cf8:	ebffe92f 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    9cfc:	e59f0820 	ldr	r0, [pc, #2080]	; a524 &lt;processLogDestCmd&commat;&commat;Base+0x894&gt;</pre>
+<pre>    9d00:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    9d04:	ebffe92c 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    9d08:	e59f0818 	ldr	r0, [pc, #2072]	; a528 &lt;processLogDestCmd&commat;&commat;Base+0x898&gt;</pre>
+<pre>    9d0c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9d10:	ebffe863 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9d14:	e59f0810 	ldr	r0, [pc, #2064]	; a52c &lt;processLogDestCmd&commat;&commat;Base+0x89c&gt;</pre>
+<pre>    9d18:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9d1c:	ebffe860 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9d20:	e59f0808 	ldr	r0, [pc, #2056]	; a530 &lt;processLogDestCmd&commat;&commat;Base+0x8a0&gt;</pre>
+<pre>    9d24:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    9d54:	e59f17e0 	ldr	r1, [pc, #2016]	; a53c &lt;processLogDestCmd&commat;&commat;Base+0x8ac&gt;</pre>
+<pre>    9d58:	e3a02005 	mov	r2, #5</pre>
+<pre>    9d5c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9d60:	e1a06000 	mov	r6, r0</pre>
+<pre>    9d64:	e1a00007 	mov	r0, r7</pre>
+<pre>    9d68:	ebffe976 	bl	4348 &lt;strncasecmp&commat;plt&gt;</pre>
+<pre>    9d6c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    9d70:	1a00002e 	bne	9e30 &lt;processLogDestCmd&commat;&commat;Base+0x1a0&gt;</pre>
+<pre>    9d74:	e28d7028 	add	r7, sp, #40	; 0x28</pre>
+<pre>    9d78:	e1a01004 	mov	r1, r4</pre>
+<pre>    9d7c:	e3000c4e 	movw	r0, #3150	; 0xc4e</pre>
+<pre>    9d80:	e58d2028 	str	r2, [sp, #40]	; 0x28</pre>
+<pre>    9d84:	e1a03007 	mov	r3, r7</pre>
+<pre>    9d88:	ebffea31 	bl	4654 &lt;cmsObj_get&commat;plt&gt;</pre>
+<pre>    9d8c:	e2502000 	subs	r2, r0, #0</pre>
+<pre>    9d90:	0a000006 	beq	9db0 &lt;processLogDestCmd&commat;&commat;Base+0x120&gt;</pre>
+<pre>    9d94:	e59f17a4 	ldr	r1, [pc, #1956]	; a540 &lt;processLogDestCmd&commat;&commat;Base+0x8b0&gt;</pre>
+<pre>    9d98:	e59f07a4 	ldr	r0, [pc, #1956]	; a544 &lt;processLogDestCmd&commat;&commat;Base+0x8b4&gt;</pre>
+<pre>    9d9c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9da0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9da4:	ebffe83e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9da8:	e28dd048 	add	sp, sp, #72	; 0x48</pre>
+<pre>    9dac:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>    9db0:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>    9db4:	e3560000 	cmp	r6, #0</pre>
+<pre>    9db8:	e593200c 	ldr	r2, [r3, #12]</pre>
+<pre>    9dbc:	1a000007 	bne	9de0 &lt;processLogDestCmd&commat;&commat;Base+0x150&gt;</pre>
+<pre>    9dc0:	e59f1780 	ldr	r1, [pc, #1920]	; a548 &lt;processLogDestCmd&commat;&commat;Base+0x8b8&gt;</pre>
+<pre>    9dc4:	e59f0780 	ldr	r0, [pc, #1920]	; a54c &lt;processLogDestCmd&commat;&commat;Base+0x8bc&gt;</pre>
+<pre>    9dc8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    9dcc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    9dd0:	ebffe833 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    9dd4:	e1a00007 	mov	r0, r7</pre>
+<pre>    9dd8:	ebffe9c3 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    a4bc:	e3023653 	movw	r3, #9811	; 0x2653</pre>
+<pre>    a4c0:	e3500000 	cmp	r0, #0</pre>
+<pre>    a4c4:	11500003 	cmpne	r0, r3</pre>
+<pre>    a4c8:	0a000009 	beq	a4f4 &lt;processLogDestCmd&commat;&commat;Base+0x864&gt;</pre>
+<pre>    a4cc:	e59f1198 	ldr	r1, [pc, #408]	; a66c &lt;processLogDestCmd&commat;&commat;Base+0x9dc&gt;</pre>
+<pre>    a4d0:	e3002565 	movw	r2, #1381	; 0x565</pre>
+<pre>    a4d4:	e59f3194 	ldr	r3, [pc, #404]	; a670 &lt;processLogDestCmd&commat;&commat;Base+0x9e0&gt;</pre>
+<pre>    a4d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    a4dc:	e58d0000 	str	r0, [sp]</pre>
+<pre>    a4e0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    a4e4:	e2811013 	add	r1, r1, #19</pre>
+<pre>    a4e8:	e3a00003 	mov	r0, #3</pre>
+<pre>    a4ec:	ebffe834 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    a4f0:	eafffe2c 	b	9da8 &lt;processLogDestCmd&commat;&commat;Base+0x118&gt;</pre>
+<pre>    a4f4:	e59f0178 	ldr	r0, [pc, #376]	; a674 &lt;processLogDestCmd&commat;&commat;Base+0x9e4&gt;</pre>
+<pre>    a4f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a4fc:	eafffe0c 	b	9d34 &lt;processLogDestCmd&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    a500:	e59f0170 	ldr	r0, [pc, #368]	; a678 &lt;processLogDestCmd&commat;&commat;Base+0x9e8&gt;</pre>
+<pre>    a504:	e1a01007 	mov	r1, r7</pre>
+<pre>    a508:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    a50c:	ebffe664 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    a510:	eafffe24 	b	9da8 &lt;processLogDestCmd&commat;&commat;Base+0x118&gt;</pre>
+<pre>    a514:	00020334 	andeq	r0, r2, r4, lsr r3</pre>
+<pre>--</pre>
+<pre>    a888:	ebffe64b 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    a88c:	e1a00004 	mov	r0, r4</pre>
+<pre>    a890:	ebffe65b 	bl	4204 &lt;processMeminfoCmd&commat;plt&gt;</pre>
+<pre>    a894:	e59f0080 	ldr	r0, [pc, #128]	; a91c &lt;processDumpSysInfoCmd&commat;&commat;Base+0x130&gt;</pre>
+<pre>    a898:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a89c:	ebffe646 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    a8a0:	e1a00004 	mov	r0, r4</pre>
+<pre>    a8a4:	ebffe722 	bl	4534 &lt;processDumpCfgCmd&commat;plt&gt;</pre>
+<pre>    a8a8:	e59f0070 	ldr	r0, [pc, #112]	; a920 &lt;processDumpSysInfoCmd&commat;&commat;Base+0x134&gt;</pre>
+<pre>    a8ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a8b0:	ebffe641 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    a8b4:	e1a00004 	mov	r0, r4</pre>
+<pre>    a8b8:	ebffe552 	bl	3e08 &lt;processDumpMdmCmd&commat;plt&gt;</pre>
+<pre>    a8bc:	e59f0060 	ldr	r0, [pc, #96]	; a924 &lt;processDumpSysInfoCmd&commat;&commat;Base+0x138&gt;</pre>
+<pre>    a8c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    a8c4:	ebffe63c 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    a8c8:	e1a00004 	mov	r0, r4</pre>
+<pre>    a8cc:	ebffe5b9 	bl	3fb8 &lt;processDumpAppInfoCmd&commat;plt&gt;</pre>
+<pre>    a8d0:	e59f0050 	ldr	r0, [pc, #80]	; a928 &lt;processDumpSysInfoCmd&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    a8d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    a8d8:	ebffe571 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    a8dc:	e59f0048 	ldr	r0, [pc, #72]	; a92c &lt;processDumpSysInfoCmd&commat;&commat;Base+0x140&gt;</pre>
+<pre>    a8e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    ab88:	ebffe6a8 	bl	4630 &lt;cli_isNumber&commat;plt&gt;</pre>
+<pre>    ab8c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    ab90:	0a00000a 	beq	abc0 &lt;cli_isValidVpi&commat;&commat;Base+0x40&gt;</pre>
+<pre>    ab94:	e1a00005 	mov	r0, r5</pre>
+<pre>    ab98:	ebffe65f 	bl	451c &lt;atoi&commat;plt&gt;</pre>
+<pre>    ab9c:	e35000ff 	cmp	r0, #255	; 0xff</pre>
+<pre>    aba0:	93a04001 	movls	r4, #1</pre>
+<pre>    aba4:	9a000003 	bls	abb8 &lt;cli_isValidVpi&commat;&commat;Base+0x38&gt;</pre>
+<pre>    aba8:	e59f0030 	ldr	r0, [pc, #48]	; abe0 &lt;cli_isValidVpi&commat;&commat;Base+0x60&gt;</pre>
+<pre>    abac:	e3a04000 	mov	r4, #0</pre>
+<pre>    abb0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    abb4:	ebffe580 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    abb8:	e1a00004 	mov	r0, r4</pre>
+<pre>    abbc:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    abc0:	e3550000 	cmp	r5, #0</pre>
+<pre>    abc4:	059f5018 	ldreq	r5, [pc, #24]	; abe4 &lt;cli_isValidVpi&commat;&commat;Base+0x64&gt;</pre>
+<pre>    abc8:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>    abcc:	e59f0014 	ldr	r0, [pc, #20]	; abe8 &lt;cli_isValidVpi&commat;&commat;Base+0x68&gt;</pre>
+<pre>    abd0:	e1a01005 	mov	r1, r5</pre>
+<pre>    abd4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    abd8:	ebffe4b1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    abdc:	eafffff5 	b	abb8 &lt;cli_isValidVpi&commat;&commat;Base+0x38&gt;</pre>
+<pre>    abe0:	0000c510 	andeq	ip, r0, r0, lsl r5</pre>
+<pre>--</pre>
+<pre>    abfc:	0a00000c 	beq	ac34 &lt;cli_isValidVci&commat;&commat;Base+0x48&gt;</pre>
+<pre>    ac00:	e1a00005 	mov	r0, r5</pre>
+<pre>    ac04:	ebffe644 	bl	451c &lt;atoi&commat;plt&gt;</pre>
+<pre>    ac08:	e30f3fdf 	movw	r3, #65503	; 0xffdf</pre>
+<pre>    ac0c:	e2400020 	sub	r0, r0, #32</pre>
+<pre>    ac10:	e1500003 	cmp	r0, r3</pre>
+<pre>    ac14:	93a04001 	movls	r4, #1</pre>
+<pre>    ac18:	9a000003 	bls	ac2c &lt;cli_isValidVci&commat;&commat;Base+0x40&gt;</pre>
+<pre>    ac1c:	e59f0030 	ldr	r0, [pc, #48]	; ac54 &lt;cli_isValidVci&commat;&commat;Base+0x68&gt;</pre>
+<pre>    ac20:	e3a04000 	mov	r4, #0</pre>
+<pre>    ac24:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    ac28:	ebffe563 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    ac2c:	e1a00004 	mov	r0, r4</pre>
+<pre>    ac30:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    ac34:	e3550000 	cmp	r5, #0</pre>
+<pre>    ac38:	059f5018 	ldreq	r5, [pc, #24]	; ac58 &lt;cli_isValidVci&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    ac3c:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>    ac40:	e59f0014 	ldr	r0, [pc, #20]	; ac5c &lt;cli_isValidVci&commat;&commat;Base+0x70&gt;</pre>
+<pre>    ac44:	e1a01005 	mov	r1, r5</pre>
+<pre>    ac48:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ac4c:	ebffe494 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ac50:	eafffff5 	b	ac2c &lt;cli_isValidVci&commat;&commat;Base+0x40&gt;</pre>
+<pre>    ac54:	0000c4ca 	andeq	ip, r0, sl, asr #9</pre>
+<pre>    ac58:	0000c7f4 	strdeq	ip, [r0], -r4</pre>
+<pre>    ac5c:	0000c4c6 	andeq	ip, r0, r6, asr #9</pre>
+<br />
+<pre>0000ac60 &lt;cli_isValidWanId&commat;&commat;Base&gt;:</pre>
+<pre>    ac60:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    ac64:	e1a05000 	mov	r5, r0</pre>
+<pre>    ac68:	ebffe670 	bl	4630 &lt;cli_isNumber&commat;plt&gt;</pre>
+<pre>    ac6c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    ac70:	0a00000b 	beq	aca4 &lt;cli_isValidWanId&commat;&commat;Base+0x44&gt;</pre>
+<pre>    ac74:	e1a00005 	mov	r0, r5</pre>
+<pre>    ac78:	ebffe627 	bl	451c &lt;atoi&commat;plt&gt;</pre>
+<pre>    ac7c:	e3500010 	cmp	r0, #16</pre>
+<pre>    ac80:	93a04001 	movls	r4, #1</pre>
+<pre>    ac84:	9a000004 	bls	ac9c &lt;cli_isValidWanId&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    ac88:	e59f0034 	ldr	r0, [pc, #52]	; acc4 &lt;cli_isValidWanId&commat;&commat;Base+0x64&gt;</pre>
+<pre>    ac8c:	e3a01010 	mov	r1, #16</pre>
+<pre>    ac90:	e3a04000 	mov	r4, #0</pre>
+<pre>    ac94:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ac98:	ebffe481 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ac9c:	e1a00004 	mov	r0, r4</pre>
+<pre>    aca0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    aca4:	e3550000 	cmp	r5, #0</pre>
+<pre>    aca8:	059f5018 	ldreq	r5, [pc, #24]	; acc8 &lt;cli_isValidWanId&commat;&commat;Base+0x68&gt;</pre>
+<pre>    acac:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>    acb0:	e59f0014 	ldr	r0, [pc, #20]	; accc &lt;cli_isValidWanId&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    acb4:	e1a01005 	mov	r1, r5</pre>
+<pre>    acb8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    acbc:	ebffe478 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    acc0:	eafffff5 	b	ac9c &lt;cli_isValidWanId&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    acc4:	0000c48b 	andeq	ip, r0, fp, lsl #9</pre>
+<pre>    acc8:	0000c784 	andeq	ip, r0, r4, lsl #15</pre>
+<pre>    accc:	0000c487 	andeq	ip, r0, r7, lsl #9</pre>
+<br />
+<pre>0000acd0 &lt;cli_isValidVlanId&commat;&commat;Base&gt;:</pre>
+<pre>    acd0:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    acd4:	e1a05000 	mov	r5, r0</pre>
+<pre>    acd8:	ebffe654 	bl	4630 &lt;cli_isNumber&commat;plt&gt;</pre>
+<pre>    acdc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    ace0:	0a00000b 	beq	ad14 &lt;cli_isValidVlanId&commat;&commat;Base+0x44&gt;</pre>
+<pre>    ace4:	e1a00005 	mov	r0, r5</pre>
+<pre>    ace8:	ebffe60b 	bl	451c &lt;atoi&commat;plt&gt;</pre>
+<pre>    acec:	e3500010 	cmp	r0, #16</pre>
+<pre>    acf0:	93a04001 	movls	r4, #1</pre>
+<pre>    acf4:	9a000004 	bls	ad0c &lt;cli_isValidVlanId&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    acf8:	e59f0034 	ldr	r0, [pc, #52]	; ad34 &lt;cli_isValidVlanId&commat;&commat;Base+0x64&gt;</pre>
+<pre>    acfc:	e3a01010 	mov	r1, #16</pre>
+<pre>    ad00:	e3a04000 	mov	r4, #0</pre>
+<pre>    ad04:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ad08:	ebffe465 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ad0c:	e1a00004 	mov	r0, r4</pre>
+<pre>    ad10:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    ad14:	e3550000 	cmp	r5, #0</pre>
+<pre>    ad18:	059f5018 	ldreq	r5, [pc, #24]	; ad38 &lt;cli_isValidVlanId&commat;&commat;Base+0x68&gt;</pre>
+<pre>    ad1c:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>    ad20:	e59f0014 	ldr	r0, [pc, #20]	; ad3c &lt;cli_isValidVlanId&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    ad24:	e1a01005 	mov	r1, r5</pre>
+<pre>    ad28:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ad2c:	ebffe45c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ad30:	eafffff5 	b	ad0c &lt;cli_isValidVlanId&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    ad34:	0000c44f 	andeq	ip, r0, pc, asr #8</pre>
+<pre>--</pre>
+<pre>    ae28:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    ae2c:	0a00000b 	beq	ae60 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x44&gt;</pre>
+<pre>    ae30:	e1a00005 	mov	r0, r5</pre>
+<pre>    ae34:	ebffe5b8 	bl	451c &lt;atoi&commat;plt&gt;</pre>
+<pre>    ae38:	e3003442 	movw	r3, #1090	; 0x442</pre>
+<pre>    ae3c:	e1500003 	cmp	r0, r3</pre>
+<pre>    ae40:	93a04001 	movls	r4, #1</pre>
+<pre>    ae44:	9a000003 	bls	ae58 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    ae48:	e59f0030 	ldr	r0, [pc, #48]	; ae80 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x64&gt;</pre>
+<pre>    ae4c:	e3a04000 	mov	r4, #0</pre>
+<pre>    ae50:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    ae54:	ebffe4d8 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    ae58:	e1a00004 	mov	r0, r4</pre>
+<pre>    ae5c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>    ae60:	e3550000 	cmp	r5, #0</pre>
+<pre>    ae64:	059f5018 	ldreq	r5, [pc, #24]	; ae84 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x68&gt;</pre>
+<pre>    ae68:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>    ae6c:	e59f0014 	ldr	r0, [pc, #20]	; ae88 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    ae70:	e1a01005 	mov	r1, r5</pre>
+<pre>    ae74:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ae78:	ebffe409 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ae7c:	eafffff5 	b	ae58 &lt;cli_isValidIdleTimeout&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    ae80:	0000c339 	andeq	ip, r0, r9, lsr r3</pre>
+<pre>    ae84:	0000c5c8 	andeq	ip, r0, r8, asr #11</pre>
+<pre>    ae88:	0000c33c 	andeq	ip, r0, ip, lsr r3</pre>
+<br />
+<pre>0000ae8c &lt;cli_isValidWanServiceName&commat;&commat;Base&gt;:</pre>
+<pre>    ae8c:	e92d4010 	push	{r4, lr}</pre>
+<pre>    ae90:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    ae94:	0a000007 	beq	aeb8 &lt;cli_isValidWanServiceName&commat;&commat;Base+0x2c&gt;</pre>
+<pre>    ae98:	ebffe506 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    ae9c:	e3500020 	cmp	r0, #32</pre>
+<pre>    aea0:	9a00000a 	bls	aed0 &lt;cli_isValidWanServiceName&commat;&commat;Base+0x44&gt;</pre>
+<pre>    aea4:	e59f002c 	ldr	r0, [pc, #44]	; aed8 &lt;cli_isValidWanServiceName&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    aea8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    aeac:	ebffe4c2 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    aeb0:	e3a00000 	mov	r0, #0</pre>
+<pre>    aeb4:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>    aeb8:	e59f101c 	ldr	r1, [pc, #28]	; aedc &lt;cli_isValidWanServiceName&commat;&commat;Base+0x50&gt;</pre>
+<pre>    aebc:	e59f001c 	ldr	r0, [pc, #28]	; aee0 &lt;cli_isValidWanServiceName&commat;&commat;Base+0x54&gt;</pre>
+<pre>    aec0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    aec4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    aec8:	ebffe3f5 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    aecc:	eafffff7 	b	aeb0 &lt;cli_isValidWanServiceName&commat;&commat;Base+0x24&gt;</pre>
+<pre>    aed0:	e3a00001 	mov	r0, #1</pre>
+<pre>--</pre>
+<pre>    aed8:	0000c322 	andeq	ip, r0, r2, lsr #6</pre>
+<pre>    aedc:	0000c570 	andeq	ip, r0, r0, ror r5</pre>
+<pre>    aee0:	0000c335 	andeq	ip, r0, r5, lsr r3</pre>
+<br />
+<pre>0000aee4 &lt;cli_isValidPppUserName&commat;&commat;Base&gt;:</pre>
+<pre>    aee4:	e92d4010 	push	{r4, lr}</pre>
+<pre>    aee8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    aeec:	0a000007 	beq	af10 &lt;cli_isValidPppUserName&commat;&commat;Base+0x2c&gt;</pre>
+<pre>    aef0:	ebffe4f0 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    aef4:	e3500c01 	cmp	r0, #256	; 0x100</pre>
+<pre>    aef8:	9a00000a 	bls	af28 &lt;cli_isValidPppUserName&commat;&commat;Base+0x44&gt;</pre>
+<pre>    aefc:	e59f002c 	ldr	r0, [pc, #44]	; af30 &lt;cli_isValidPppUserName&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    af00:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    af04:	ebffe4ac 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    af08:	e3a00000 	mov	r0, #0</pre>
+<pre>    af0c:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>    af10:	e59f101c 	ldr	r1, [pc, #28]	; af34 &lt;cli_isValidPppUserName&commat;&commat;Base+0x50&gt;</pre>
+<pre>    af14:	e59f001c 	ldr	r0, [pc, #28]	; af38 &lt;cli_isValidPppUserName&commat;&commat;Base+0x54&gt;</pre>
+<pre>    af18:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    af1c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    af20:	ebffe3df 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    af24:	eafffff7 	b	af08 &lt;cli_isValidPppUserName&commat;&commat;Base+0x24&gt;</pre>
+<pre>    af28:	e3a00001 	mov	r0, #1</pre>
+<pre>--</pre>
+<pre>    af30:	0000c317 	andeq	ip, r0, r7, lsl r3</pre>
+<pre>    af34:	0000c518 	andeq	ip, r0, r8, lsl r5</pre>
+<pre>    af38:	0000c327 	andeq	ip, r0, r7, lsr #6</pre>
+<br />
+<pre>0000af3c &lt;cli_isValidPppPassword&commat;&commat;Base&gt;:</pre>
+<pre>    af3c:	e92d4010 	push	{r4, lr}</pre>
+<pre>    af40:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    af44:	0a000007 	beq	af68 &lt;cli_isValidPppPassword&commat;&commat;Base+0x2c&gt;</pre>
+<pre>    af48:	ebffe4da 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    af4c:	e3500020 	cmp	r0, #32</pre>
+<pre>    af50:	9a00000a 	bls	af80 &lt;cli_isValidPppPassword&commat;&commat;Base+0x44&gt;</pre>
+<pre>    af54:	e59f002c 	ldr	r0, [pc, #44]	; af88 &lt;cli_isValidPppPassword&commat;&commat;Base+0x4c&gt;</pre>
+<pre>    af58:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    af5c:	ebffe496 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>    af60:	e3a00000 	mov	r0, #0</pre>
+<pre>    af64:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>    af68:	e59f101c 	ldr	r1, [pc, #28]	; af8c &lt;cli_isValidPppPassword&commat;&commat;Base+0x50&gt;</pre>
+<pre>    af6c:	e59f001c 	ldr	r0, [pc, #28]	; af90 &lt;cli_isValidPppPassword&commat;&commat;Base+0x54&gt;</pre>
+<pre>    af70:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    af74:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    af78:	ebffe3c9 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    af7c:	eafffff7 	b	af60 &lt;cli_isValidPppPassword&commat;&commat;Base+0x24&gt;</pre>
+<pre>    af80:	e3a00001 	mov	r0, #1</pre>
+<pre>--</pre>
+<pre>    b18c:	ebffe479 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    b190:	e59fb608 	ldr	fp, [pc, #1544]	; b7a0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6d8&gt;</pre>
+<pre>    b194:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>    b198:	e28d9020 	add	r9, sp, #32</pre>
+<pre>    b19c:	e1a01005 	mov	r1, r5</pre>
+<pre>    b1a0:	e1a02007 	mov	r2, r7</pre>
+<pre>    b1a4:	e3a00082 	mov	r0, #130	; 0x82</pre>
+<pre>    b1a8:	e1a03009 	mov	r3, r9</pre>
+<pre>    b1ac:	ebffe4ec 	bl	4564 &lt;cmsObj_getNextInSubTree&commat;plt&gt;</pre>
+<pre>    b1b0:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    b1b4:	0a0000c9 	beq	b4e0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x418&gt;</pre>
+<pre>    b1b8:	e28dd090 	add	sp, sp, #144	; 0x90</pre>
+<pre>    b1bc:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>    b1c0:	e1a00006 	mov	r0, r6</pre>
+<pre>    b1c4:	ebffe46b 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    b1c8:	e3540000 	cmp	r4, #0</pre>
+<pre>    b1cc:	0a000074 	beq	b3a4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x2dc&gt;</pre>
+<pre>    b1d0:	e59f05cc 	ldr	r0, [pc, #1484]	; b7a4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6dc&gt;</pre>
+<pre>    b1d4:	e1a01004 	mov	r1, r4</pre>
+<pre>    b1d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b1dc:	ebffe330 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b1e0:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b1e4:	e5939014 	ldr	r9, [r3, #20]</pre>
+<pre>    b1e8:	e1a00009 	mov	r0, r9</pre>
+<pre>    b1ec:	ebffe431 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    b1f0:	e1a01009 	mov	r1, r9</pre>
+<pre>    b1f4:	e3500007 	cmp	r0, #7</pre>
+<pre>    b1f8:	8a00006d 	bhi	b3b4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x2ec&gt;</pre>
+<pre>    b1fc:	e59f05a4 	ldr	r0, [pc, #1444]	; b7a8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6e0&gt;</pre>
+<pre>    b200:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b204:	ebffe326 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b208:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b20c:	e5939054 	ldr	r9, [r3, #84]	; 0x54</pre>
+<pre>    b210:	e1a00009 	mov	r0, r9</pre>
+<pre>    b214:	ebffe427 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    b218:	e1a01009 	mov	r1, r9</pre>
+<pre>    b21c:	e3500007 	cmp	r0, #7</pre>
+<pre>    b220:	8a000066 	bhi	b3c0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x2f8&gt;</pre>
+<pre>    b224:	e59f0580 	ldr	r0, [pc, #1408]	; b7ac &lt;cli_wanShowDslServices&commat;&commat;Base+0x6e4&gt;</pre>
+<pre>    b228:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b22c:	ebffe31c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b230:	e59f1578 	ldr	r1, [pc, #1400]	; b7b0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6e8&gt;</pre>
+<pre>    b234:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>    b238:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b23c:	ebffe3ea 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    b240:	e3500000 	cmp	r0, #0</pre>
+<pre>    b244:	1a000065 	bne	b3e0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x318&gt;</pre>
+<pre>    b248:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b24c:	e59f1560 	ldr	r1, [pc, #1376]	; b7b4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6ec&gt;</pre>
+<pre>    b250:	e5930010 	ldr	r0, [r3, #16]</pre>
+<pre>    b254:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b258:	ebffe2ff 	bl	3e5c &lt;strcmp&commat;plt&gt;</pre>
+<pre>    b25c:	e2509000 	subs	r9, r0, #0</pre>
+<pre>    b260:	1a000059 	bne	b3cc &lt;cli_wanShowDslServices&commat;&commat;Base+0x304&gt;</pre>
+<pre>    b264:	e59f054c 	ldr	r0, [pc, #1356]	; b7b8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6f0&gt;</pre>
+<pre>    b268:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b26c:	ebffe30c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b270:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b274:	e5d33035 	ldrb	r3, [r3, #53]	; 0x35</pre>
+<pre>    b278:	e3530000 	cmp	r3, #0</pre>
+<pre>    b27c:	1a00005c 	bne	b3f4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x32c&gt;</pre>
+<pre>    b280:	e59f1534 	ldr	r1, [pc, #1332]	; b7bc &lt;cli_wanShowDslServices&commat;&commat;Base+0x6f4&gt;</pre>
+<pre>    b284:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b288:	e59f0530 	ldr	r0, [pc, #1328]	; b7c0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6f8&gt;</pre>
+<pre>    b28c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b290:	ebffe303 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b294:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b298:	e5d33036 	ldrb	r3, [r3, #54]	; 0x36</pre>
+<pre>    b29c:	e3530000 	cmp	r3, #0</pre>
+<pre>    b2a0:	1a000056 	bne	b400 &lt;cli_wanShowDslServices&commat;&commat;Base+0x338&gt;</pre>
+<pre>    b2a4:	e59f1518 	ldr	r1, [pc, #1304]	; b7c4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6fc&gt;</pre>
+<pre>    b2a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b2ac:	e59f0514 	ldr	r0, [pc, #1300]	; b7c8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x700&gt;</pre>
+<pre>    b2b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b2b4:	ebffe2fa 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b2b8:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b2bc:	e5d3309c 	ldrb	r3, [r3, #156]	; 0x9c</pre>
+<pre>    b2c0:	e3530000 	cmp	r3, #0</pre>
+<pre>    b2c4:	1a000050 	bne	b40c &lt;cli_wanShowDslServices&commat;&commat;Base+0x344&gt;</pre>
+<pre>    b2c8:	e59f14fc 	ldr	r1, [pc, #1276]	; b7cc &lt;cli_wanShowDslServices&commat;&commat;Base+0x704&gt;</pre>
+<pre>    b2cc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b2d0:	e59f04f8 	ldr	r0, [pc, #1272]	; b7d0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x708&gt;</pre>
+<pre>    b2d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b2d8:	ebffe2f1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b2dc:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b2e0:	e5d3309d 	ldrb	r3, [r3, #157]	; 0x9d</pre>
+<pre>    b2e4:	e3530000 	cmp	r3, #0</pre>
+<pre>    b2e8:	1a00004a 	bne	b418 &lt;cli_wanShowDslServices&commat;&commat;Base+0x350&gt;</pre>
+<pre>    b2ec:	e59f14e0 	ldr	r1, [pc, #1248]	; b7d4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x70c&gt;</pre>
+<pre>    b2f0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b2f4:	e59f04dc 	ldr	r0, [pc, #1244]	; b7d8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x710&gt;</pre>
+<pre>    b2f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b2fc:	ebffe2e8 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b300:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b304:	e5931008 	ldr	r1, [r3, #8]</pre>
+<pre>    b308:	e3510000 	cmp	r1, #0</pre>
+<pre>    b30c:	059f14c8 	ldreq	r1, [pc, #1224]	; b7dc &lt;cli_wanShowDslServices&commat;&commat;Base+0x714&gt;</pre>
+<pre>    b310:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b314:	e59f04c4 	ldr	r0, [pc, #1220]	; b7e0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x718&gt;</pre>
+<pre>    b318:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b31c:	ebffe2e0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b320:	e3590000 	cmp	r9, #0</pre>
+<pre>    b324:	1a00003e 	bne	b424 &lt;cli_wanShowDslServices&commat;&commat;Base+0x35c&gt;</pre>
+<pre>    b328:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b32c:	e5931028 	ldr	r1, [r3, #40]	; 0x28</pre>
+<pre>    b330:	e3510000 	cmp	r1, #0</pre>
+<pre>    b334:	059f14a8 	ldreq	r1, [pc, #1192]	; b7e4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x71c&gt;</pre>
+<pre>    b338:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b33c:	e59f04a4 	ldr	r0, [pc, #1188]	; b7e8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x720&gt;</pre>
+<pre>    b340:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b344:	ebffe2d6 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b348:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b34c:	e5930028 	ldr	r0, [r3, #40]	; 0x28</pre>
+<pre>    b350:	ebffe489 	bl	457c &lt;cmsUtl_strlen&commat;plt&gt;</pre>
+<pre>    b354:	e3500007 	cmp	r0, #7</pre>
+<pre>    b358:	1a000001 	bne	b364 &lt;cli_wanShowDslServices&commat;&commat;Base+0x29c&gt;</pre>
+<pre>    b35c:	e3a00009 	mov	r0, #9</pre>
+<pre>    b360:	ebffe407 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    b364:	e59f3480 	ldr	r3, [pc, #1152]	; b7ec &lt;cli_wanShowDslServices&commat;&commat;Base+0x724&gt;</pre>
+<pre>    b368:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    b36c:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>    b370:	e28db024 	add	fp, sp, #36	; 0x24</pre>
+<pre>    b374:	e1a01006 	mov	r1, r6</pre>
+<pre>    b378:	e3000579 	movw	r0, #1401	; 0x579</pre>
+<pre>    b37c:	e1a0200b 	mov	r2, fp</pre>
+<pre>    b380:	ebffe3bd 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>    b384:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    b388:	0a000029 	beq	b434 &lt;cli_wanShowDslServices&commat;&commat;Base+0x36c&gt;</pre>
+<pre>    b38c:	e59f145c 	ldr	r1, [pc, #1116]	; b7f0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x728&gt;</pre>
+<pre>    b390:	e59f045c 	ldr	r0, [pc, #1116]	; b7f4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x72c&gt;</pre>
+<pre>    b394:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b398:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b39c:	ebffe2c0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b3a0:	ea00003a 	b	b490 &lt;cli_wanShowDslServices&commat;&commat;Base+0x3c8&gt;</pre>
+<pre>    b3a4:	e59f044c 	ldr	r0, [pc, #1100]	; b7f8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x730&gt;</pre>
+<pre>    b3a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b3ac:	ebffe2bc 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b3b0:	eaffff8a 	b	b1e0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x118&gt;</pre>
+<pre>    b3b4:	e59f0440 	ldr	r0, [pc, #1088]	; b7fc &lt;cli_wanShowDslServices&commat;&commat;Base+0x734&gt;</pre>
+<pre>    b3b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    b3bc:	eaffff90 	b	b204 &lt;cli_wanShowDslServices&commat;&commat;Base+0x13c&gt;</pre>
+<pre>    b3c0:	e59f0438 	ldr	r0, [pc, #1080]	; b800 &lt;cli_wanShowDslServices&commat;&commat;Base+0x738&gt;</pre>
+<pre>    b3c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    b3c8:	eaffff97 	b	b22c &lt;cli_wanShowDslServices&commat;&commat;Base+0x164&gt;</pre>
+<pre>    b3cc:	e59f0430 	ldr	r0, [pc, #1072]	; b804 &lt;cli_wanShowDslServices&commat;&commat;Base+0x73c&gt;</pre>
+<pre>    b3d0:	e3a09001 	mov	r9, #1</pre>
+<pre>    b3d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b3d8:	ebffe2b1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b3dc:	eaffffa3 	b	b270 &lt;cli_wanShowDslServices&commat;&commat;Base+0x1a8&gt;</pre>
+<pre>    b3e0:	e59f0420 	ldr	r0, [pc, #1056]	; b808 &lt;cli_wanShowDslServices&commat;&commat;Base+0x740&gt;</pre>
+<pre>    b3e4:	e3a09000 	mov	r9, #0</pre>
+<pre>    b3e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b3ec:	ebffe2ac 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b3f0:	eaffff9e 	b	b270 &lt;cli_wanShowDslServices&commat;&commat;Base+0x1a8&gt;</pre>
+<pre>    b3f4:	e59f1410 	ldr	r1, [pc, #1040]	; b80c &lt;cli_wanShowDslServices&commat;&commat;Base+0x744&gt;</pre>
+<pre>    b3f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b3fc:	eaffffa1 	b	b288 &lt;cli_wanShowDslServices&commat;&commat;Base+0x1c0&gt;</pre>
+<pre>    b400:	e59f1408 	ldr	r1, [pc, #1032]	; b810 &lt;cli_wanShowDslServices&commat;&commat;Base+0x748&gt;</pre>
+<pre>    b404:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b408:	eaffffa7 	b	b2ac &lt;cli_wanShowDslServices&commat;&commat;Base+0x1e4&gt;</pre>
+<pre>    b40c:	e59f1400 	ldr	r1, [pc, #1024]	; b814 &lt;cli_wanShowDslServices&commat;&commat;Base+0x74c&gt;</pre>
+<pre>    b410:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b414:	eaffffad 	b	b2d0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x208&gt;</pre>
+<pre>    b418:	e59f13f8 	ldr	r1, [pc, #1016]	; b818 &lt;cli_wanShowDslServices&commat;&commat;Base+0x750&gt;</pre>
+<pre>    b41c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b420:	eaffffb3 	b	b2f4 &lt;cli_wanShowDslServices&commat;&commat;Base+0x22c&gt;</pre>
+<pre>    b424:	e59f03f0 	ldr	r0, [pc, #1008]	; b81c &lt;cli_wanShowDslServices&commat;&commat;Base+0x754&gt;</pre>
+<pre>    b428:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b42c:	ebffe29c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b430:	eaffffcb 	b	b364 &lt;cli_wanShowDslServices&commat;&commat;Base+0x29c&gt;</pre>
+<pre>    b434:	e59d201c 	ldr	r2, [sp, #28]</pre>
+<pre>    b438:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    b43c:	e5921054 	ldr	r1, [r2, #84]	; 0x54</pre>
+<pre>    b440:	e59d2024 	ldr	r2, [sp, #36]	; 0x24</pre>
+<pre>    b444:	e5920014 	ldr	r0, [r2, #20]</pre>
+<pre>    b448:	ebffe367 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    b44c:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>    b450:	e3500000 	cmp	r0, #0</pre>
+<pre>    b454:	1a000007 	bne	b478 &lt;cli_wanShowDslServices&commat;&commat;Base+0x3b0&gt;</pre>
+<pre>    b458:	e59d3024 	ldr	r3, [sp, #36]	; 0x24</pre>
+<pre>    b45c:	e59d0010 	ldr	r0, [sp, #16]</pre>
+<pre>    b460:	e593104c 	ldr	r1, [r3, #76]	; 0x4c</pre>
+<pre>    b464:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    b468:	e3510000 	cmp	r1, #0</pre>
+<pre>    b46c:	01a01003 	moveq	r1, r3</pre>
+<pre><span class="red">    b470:	ebffe28b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b474:	e3a03001 	mov	r3, #1</pre>
+<pre>    b478:	e1a0000b 	mov	r0, fp</pre>
+<pre>    b47c:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre>    b480:	ebffe419 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    b484:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>    b488:	e3530000 	cmp	r3, #0</pre>
+<pre>    b48c:	0affffb7 	beq	b370 &lt;cli_wanShowDslServices&commat;&commat;Base+0x2a8&gt;</pre>
+<pre>    b490:	e3590000 	cmp	r9, #0</pre>
+<pre>    b494:	1a00000c 	bne	b4cc &lt;cli_wanShowDslServices&commat;&commat;Base+0x404&gt;</pre>
+<pre>    b498:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>    b49c:	e28d9060 	add	r9, sp, #96	; 0x60</pre>
+<pre>    b4a0:	e1a01009 	mov	r1, r9</pre>
+<pre>    b4a4:	e5930054 	ldr	r0, [r3, #84]	; 0x54</pre>
+<pre>    b4a8:	ebffe310 	bl	40f0 &lt;qdmIpIntf_getIpv6AddressByNameLocked_dev2&commat;plt&gt;</pre>
+<pre>    b4ac:	e5dd3060 	ldrb	r3, [sp, #96]	; 0x60</pre>
+<pre>    b4b0:	e3530000 	cmp	r3, #0</pre>
+<pre>    b4b4:	11a01009 	movne	r1, r9</pre>
+<pre>    b4b8:	059f1360 	ldreq	r1, [pc, #864]	; b820 &lt;cli_wanShowDslServices&commat;&commat;Base+0x758&gt;</pre>
+<pre>    b4bc:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b4c0:	e59f035c 	ldr	r0, [pc, #860]	; b824 &lt;cli_wanShowDslServices&commat;&commat;Base+0x75c&gt;</pre>
+<pre>    b4c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b4c8:	ebffe275 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b4cc:	e3a0000a 	mov	r0, #10</pre>
+<pre>    b4d0:	ebffe3ab 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    b4d4:	e1a0000a 	mov	r0, sl</pre>
+<pre>    b4d8:	ebffe403 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    b4dc:	eaffff1f 	b	b160 &lt;cli_wanShowDslServices&commat;&commat;Base+0x98&gt;</pre>
+<pre>    b4e0:	e3a0201c 	mov	r2, #28</pre>
+<pre>    b4e4:	e1a00006 	mov	r0, r6</pre>
+<pre>    b4e8:	ebffe3a2 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    b4ec:	e3540000 	cmp	r4, #0</pre>
+<pre>    b4f0:	0a00008e 	beq	b730 &lt;cli_wanShowDslServices&commat;&commat;Base+0x668&gt;</pre>
+<pre>    b4f4:	e59f032c 	ldr	r0, [pc, #812]	; b828 &lt;cli_wanShowDslServices&commat;&commat;Base+0x760&gt;</pre>
+<pre>    b4f8:	e1a01004 	mov	r1, r4</pre>
+<pre>    b4fc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b500:	ebffe267 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b504:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b508:	e593a014 	ldr	sl, [r3, #20]</pre>
+<pre>    b50c:	e1a0000a 	mov	r0, sl</pre>
+<pre>    b510:	ebffe368 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    b514:	e1a0100a 	mov	r1, sl</pre>
+<pre>    b518:	e3500007 	cmp	r0, #7</pre>
+<pre>    b51c:	8a000087 	bhi	b740 &lt;cli_wanShowDslServices&commat;&commat;Base+0x678&gt;</pre>
+<pre>    b520:	e59f0304 	ldr	r0, [pc, #772]	; b82c &lt;cli_wanShowDslServices&commat;&commat;Base+0x764&gt;</pre>
+<pre>    b524:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b528:	ebffe25d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b52c:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b530:	e593a054 	ldr	sl, [r3, #84]	; 0x54</pre>
+<pre>    b534:	e1a0000a 	mov	r0, sl</pre>
+<pre>    b538:	ebffe35e 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    b53c:	e1a0100a 	mov	r1, sl</pre>
+<pre>    b540:	e3500007 	cmp	r0, #7</pre>
+<pre>    b544:	8a000080 	bhi	b74c &lt;cli_wanShowDslServices&commat;&commat;Base+0x684&gt;</pre>
+<pre>    b548:	e59f02e0 	ldr	r0, [pc, #736]	; b830 &lt;cli_wanShowDslServices&commat;&commat;Base+0x768&gt;</pre>
+<pre>    b54c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b550:	ebffe253 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b554:	e59f12d8 	ldr	r1, [pc, #728]	; b834 &lt;cli_wanShowDslServices&commat;&commat;Base+0x76c&gt;</pre>
+<pre>    b558:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>    b55c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b560:	ebffe321 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    b564:	e3500000 	cmp	r0, #0</pre>
+<pre>    b568:	1a00007a 	bne	b758 &lt;cli_wanShowDslServices&commat;&commat;Base+0x690&gt;</pre>
+<pre>    b56c:	e59f02c4 	ldr	r0, [pc, #708]	; b838 &lt;cli_wanShowDslServices&commat;&commat;Base+0x770&gt;</pre>
+<pre>    b570:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b574:	ebffe24a 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b578:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b57c:	e5d33028 	ldrb	r3, [r3, #40]	; 0x28</pre>
+<pre>    b580:	e3530000 	cmp	r3, #0</pre>
+<pre>    b584:	1a000076 	bne	b764 &lt;cli_wanShowDslServices&commat;&commat;Base+0x69c&gt;</pre>
+<pre>    b588:	e59f12ac 	ldr	r1, [pc, #684]	; b83c &lt;cli_wanShowDslServices&commat;&commat;Base+0x774&gt;</pre>
+<pre>    b58c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b590:	e59f02a8 	ldr	r0, [pc, #680]	; b840 &lt;cli_wanShowDslServices&commat;&commat;Base+0x778&gt;</pre>
+<pre>    b594:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b598:	ebffe241 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b59c:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b5a0:	e5d33029 	ldrb	r3, [r3, #41]	; 0x29</pre>
+<pre>    b5a4:	e3530000 	cmp	r3, #0</pre>
+<pre>    b5a8:	1a000070 	bne	b770 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6a8&gt;</pre>
+<pre>    b5ac:	e59f1290 	ldr	r1, [pc, #656]	; b844 &lt;cli_wanShowDslServices&commat;&commat;Base+0x77c&gt;</pre>
+<pre>    b5b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b5b4:	e59f028c 	ldr	r0, [pc, #652]	; b848 &lt;cli_wanShowDslServices&commat;&commat;Base+0x780&gt;</pre>
+<pre>    b5b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b5bc:	ebffe238 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b5c0:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b5c4:	e5d330b4 	ldrb	r3, [r3, #180]	; 0xb4</pre>
+<pre>    b5c8:	e3530000 	cmp	r3, #0</pre>
+<pre>    b5cc:	1a00006a 	bne	b77c &lt;cli_wanShowDslServices&commat;&commat;Base+0x6b4&gt;</pre>
+<pre>    b5d0:	e59f1274 	ldr	r1, [pc, #628]	; b84c &lt;cli_wanShowDslServices&commat;&commat;Base+0x784&gt;</pre>
+<pre>    b5d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b5d8:	e59f0270 	ldr	r0, [pc, #624]	; b850 &lt;cli_wanShowDslServices&commat;&commat;Base+0x788&gt;</pre>
+<pre>    b5dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b5e0:	ebffe22f 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b5e4:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b5e8:	e5d330b5 	ldrb	r3, [r3, #181]	; 0xb5</pre>
+<pre>    b5ec:	e3530000 	cmp	r3, #0</pre>
+<pre>    b5f0:	1a000064 	bne	b788 &lt;cli_wanShowDslServices&commat;&commat;Base+0x6c0&gt;</pre>
+<pre>    b5f4:	e59f1258 	ldr	r1, [pc, #600]	; b854 &lt;cli_wanShowDslServices&commat;&commat;Base+0x78c&gt;</pre>
+<pre>    b5f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b5fc:	e59f0254 	ldr	r0, [pc, #596]	; b858 &lt;cli_wanShowDslServices&commat;&commat;Base+0x790&gt;</pre>
+<pre>    b600:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b604:	ebffe226 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b608:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b60c:	e5931008 	ldr	r1, [r3, #8]</pre>
+<pre>    b610:	e3510000 	cmp	r1, #0</pre>
+<pre>    b614:	059f1240 	ldreq	r1, [pc, #576]	; b85c &lt;cli_wanShowDslServices&commat;&commat;Base+0x794&gt;</pre>
+<pre>    b618:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b61c:	e59f023c 	ldr	r0, [pc, #572]	; b860 &lt;cli_wanShowDslServices&commat;&commat;Base+0x798&gt;</pre>
+<pre>    b620:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b624:	ebffe21e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b628:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b62c:	e5931070 	ldr	r1, [r3, #112]	; 0x70</pre>
+<pre>    b630:	e3510000 	cmp	r1, #0</pre>
+<pre>    b634:	059f1228 	ldreq	r1, [pc, #552]	; b864 &lt;cli_wanShowDslServices&commat;&commat;Base+0x79c&gt;</pre>
+<pre>    b638:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b63c:	e59f0224 	ldr	r0, [pc, #548]	; b868 &lt;cli_wanShowDslServices&commat;&commat;Base+0x7a0&gt;</pre>
+<pre>    b640:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b644:	ebffe216 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b648:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b64c:	e5930070 	ldr	r0, [r3, #112]	; 0x70</pre>
+<pre>--</pre>
+<pre>    b678:	e3000579 	movw	r0, #1401	; 0x579</pre>
+<pre>    b67c:	e1a0200a 	mov	r2, sl</pre>
+<pre>    b680:	ebffe2fd 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>    b684:	e2503000 	subs	r3, r0, #0</pre>
+<pre>    b688:	1a000016 	bne	b6e8 &lt;cli_wanShowDslServices&commat;&commat;Base+0x620&gt;</pre>
+<pre>    b68c:	e59d2020 	ldr	r2, [sp, #32]</pre>
+<pre>    b690:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    b694:	e5921054 	ldr	r1, [r2, #84]	; 0x54</pre>
+<pre>    b698:	e59d2024 	ldr	r2, [sp, #36]	; 0x24</pre>
+<pre>    b69c:	e5920014 	ldr	r0, [r2, #20]</pre>
+<pre>    b6a0:	ebffe2d1 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    b6a4:	e59d3010 	ldr	r3, [sp, #16]</pre>
+<pre>    b6a8:	e3500000 	cmp	r0, #0</pre>
+<pre>    b6ac:	1a000007 	bne	b6d0 &lt;cli_wanShowDslServices&commat;&commat;Base+0x608&gt;</pre>
+<pre>    b6b0:	e59d3024 	ldr	r3, [sp, #36]	; 0x24</pre>
+<pre>    b6b4:	e1a0000b 	mov	r0, fp</pre>
+<pre>    b6b8:	e593104c 	ldr	r1, [r3, #76]	; 0x4c</pre>
+<pre>    b6bc:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>    b6c0:	e3510000 	cmp	r1, #0</pre>
+<pre>    b6c4:	01a01003 	moveq	r1, r3</pre>
+<pre><span class="red">    b6c8:	ebffe1f5 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b6cc:	e3a03001 	mov	r3, #1</pre>
+<pre>    b6d0:	e1a0000a 	mov	r0, sl</pre>
+<pre>    b6d4:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>    b6d8:	ebffe383 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    b6dc:	e59d3010 	ldr	r3, [sp, #16]</pre>
+<pre>    b6e0:	e3530000 	cmp	r3, #0</pre>
+<pre>    b6e4:	0affffe1 	beq	b670 &lt;cli_wanShowDslServices&commat;&commat;Base+0x5a8&gt;</pre>
+<pre>    b6e8:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>    b6ec:	e28da060 	add	sl, sp, #96	; 0x60</pre>
+<pre>    b6f0:	e1a0100a 	mov	r1, sl</pre>
+<pre>    b6f4:	e5930054 	ldr	r0, [r3, #84]	; 0x54</pre>
+<pre>    b6f8:	ebffe27c 	bl	40f0 &lt;qdmIpIntf_getIpv6AddressByNameLocked_dev2&commat;plt&gt;</pre>
+<pre>    b6fc:	e5dd3060 	ldrb	r3, [sp, #96]	; 0x60</pre>
+<pre>    b700:	e3530000 	cmp	r3, #0</pre>
+<pre>    b704:	11a0100a 	movne	r1, sl</pre>
+<pre>    b708:	059f1160 	ldreq	r1, [pc, #352]	; b870 &lt;cli_wanShowDslServices&commat;&commat;Base+0x7a8&gt;</pre>
+<pre>    b70c:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>    b710:	e59f015c 	ldr	r0, [pc, #348]	; b874 &lt;cli_wanShowDslServices&commat;&commat;Base+0x7ac&gt;</pre>
+<pre>    b714:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b718:	ebffe1e1 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b71c:	e3a0000a 	mov	r0, #10</pre>
+<pre>    b720:	ebffe317 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    b724:	e1a00009 	mov	r0, r9</pre>
+<pre>    b728:	ebffe36f 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    b72c:	eafffe99 	b	b198 &lt;cli_wanShowDslServices&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    b730:	e59f0140 	ldr	r0, [pc, #320]	; b878 &lt;cli_wanShowDslServices&commat;&commat;Base+0x7b0&gt;</pre>
+<pre>    b734:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    b738:	ebffe1d9 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b73c:	eaffff70 	b	b504 &lt;cli_wanShowDslServices&commat;&commat;Base+0x43c&gt;</pre>
+<pre>    b740:	e59f0134 	ldr	r0, [pc, #308]	; b87c &lt;cli_wanShowDslServices&commat;&commat;Base+0x7b4&gt;</pre>
+<pre>--</pre>
+<pre>    b86c:	0000bdc7 	andeq	fp, r0, r7, asr #27</pre>
+<pre>    b870:	0000bd23 	andeq	fp, r0, r3, lsr #26</pre>
+<pre>    b874:	0000bc67 	andeq	fp, r0, r7, ror #24</pre>
+<pre>    b878:	0000bc4b 	andeq	fp, r0, fp, asr #24</pre>
+<pre>    b87c:	0000bc37 	andeq	fp, r0, r7, lsr ip</pre>
+<pre>    b880:	0000bc2b 	andeq	fp, r0, fp, lsr #24</pre>
+<pre>    b884:	0000bc57 	andeq	fp, r0, r7, asr ip</pre>
+<pre>    b888:	0000bbf2 	strdeq	fp, [r0], -r2</pre>
+<pre>    b88c:	0000bbe6 	andeq	fp, r0, r6, ror #23</pre>
+<pre>    b890:	0000bbda 	ldrdeq	fp, [r0], -sl</pre>
+<pre>    b894:	0000bbce 	andeq	fp, r0, lr, asr #23</pre>
+<br />
+<pre>0000b898 &lt;cli_wanShowServices&commat;&commat;Base&gt;:</pre>
+<pre>    b898:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    b89c:	e1a05000 	mov	r5, r0</pre>
+<pre>    b8a0:	e59f4094 	ldr	r4, [pc, #148]	; b93c &lt;cli_wanShowServices&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    b8a4:	e59f1094 	ldr	r1, [pc, #148]	; b940 &lt;cli_wanShowServices&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    b8a8:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    b8ac:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    b8b0:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">    b8b4:	ebffe17a 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b8b8:	e59f1084 	ldr	r1, [pc, #132]	; b944 &lt;cli_wanShowServices&commat;&commat;Base+0xac&gt;</pre>
+<pre>    b8bc:	e1a00004 	mov	r0, r4</pre>
+<pre>    b8c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b8c4:	ebffe176 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b8c8:	e59f1078 	ldr	r1, [pc, #120]	; b948 &lt;cli_wanShowServices&commat;&commat;Base+0xb0&gt;</pre>
+<pre>    b8cc:	e1a00004 	mov	r0, r4</pre>
+<pre>    b8d0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b8d4:	ebffe172 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b8d8:	e59f106c 	ldr	r1, [pc, #108]	; b94c &lt;cli_wanShowServices&commat;&commat;Base+0xb4&gt;</pre>
+<pre>    b8dc:	e1a00004 	mov	r0, r4</pre>
+<pre>    b8e0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b8e4:	ebffe16e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b8e8:	e3a0000a 	mov	r0, #10</pre>
+<pre>    b8ec:	ebffe2a4 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    b8f0:	e59f1058 	ldr	r1, [pc, #88]	; b950 &lt;cli_wanShowServices&commat;&commat;Base+0xb8&gt;</pre>
+<pre>    b8f4:	e1a00004 	mov	r0, r4</pre>
+<pre>    b8f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b8fc:	ebffe168 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b900:	e3a00009 	mov	r0, #9</pre>
+<pre>    b904:	ebffe29e 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    b908:	e59f1044 	ldr	r1, [pc, #68]	; b954 &lt;cli_wanShowServices&commat;&commat;Base+0xbc&gt;</pre>
+<pre>    b90c:	e1a00004 	mov	r0, r4</pre>
+<pre>    b910:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b914:	ebffe162 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b918:	e59f1038 	ldr	r1, [pc, #56]	; b958 &lt;cli_wanShowServices&commat;&commat;Base+0xc0&gt;</pre>
+<pre>    b91c:	e1a00004 	mov	r0, r4</pre>
+<pre>    b920:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">    b924:	ebffe15e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    b928:	e3a0000a 	mov	r0, #10</pre>
+<pre>    b92c:	ebffe294 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    c154:	e58d2018 	str	r2, [sp, #24]</pre>
+<pre>    c158:	e2832d11 	add	r2, r3, #1088	; 0x440</pre>
+<pre>    c15c:	e2822006 	add	r2, r2, #6</pre>
+<pre>    c160:	e58d2014 	str	r2, [sp, #20]</pre>
+<pre>    c164:	e2832e46 	add	r2, r3, #1120	; 0x460</pre>
+<pre>    c168:	e2822008 	add	r2, r2, #8</pre>
+<pre>    c16c:	e58d2010 	str	r2, [sp, #16]</pre>
+<pre>    c170:	e2832d12 	add	r2, r3, #1152	; 0x480</pre>
+<pre>    c174:	e282200a 	add	r2, r2, #10</pre>
+<pre>    c178:	e58d200c 	str	r2, [sp, #12]</pre>
+<pre>    c17c:	e2832e4a 	add	r2, r3, #1184	; 0x4a0</pre>
+<pre>    c180:	e282200e 	add	r2, r2, #14</pre>
+<pre>    c184:	e58d2008 	str	r2, [sp, #8]</pre>
+<pre>    c188:	e2832e4d 	add	r2, r3, #1232	; 0x4d0</pre>
+<pre>    c18c:	e2822002 	add	r2, r2, #2</pre>
+<pre>    c190:	e58d2004 	str	r2, [sp, #4]</pre>
+<pre>    c194:	e2832e4e 	add	r2, r3, #1248	; 0x4e0</pre>
+<pre>    c198:	e2822007 	add	r2, r2, #7</pre>
+<pre>    c19c:	e58d2000 	str	r2, [sp]</pre>
+<pre>    c1a0:	e283202a 	add	r2, r3, #42	; 0x2a</pre>
+<pre><span class="red">    c1a4:	ebffdf3e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    c1a8:	e28dd050 	add	sp, sp, #80	; 0x50</pre>
+<pre>    c1ac:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>--</pre>
+<pre>    c50c:	eaffff41 	b	c218 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x604&gt;</pre>
+<pre>    c510:	e59f1250 	ldr	r1, [pc, #592]	; c768 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xb54&gt;</pre>
+<pre>    c514:	e1a00004 	mov	r0, r4</pre>
+<pre>    c518:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    c51c:	ebffded8 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    c520:	e3500000 	cmp	r0, #0</pre>
+<pre>    c524:	1a00000e 	bne	c564 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x950&gt;</pre>
+<pre>    c528:	e59f123c 	ldr	r1, [pc, #572]	; c76c &lt;cli_wanIfaceInfo&commat;&commat;Base+0xb58&gt;</pre>
+<pre>    c52c:	e59f023c 	ldr	r0, [pc, #572]	; c770 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xb5c&gt;</pre>
+<pre>    c530:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    c534:	e2813f89 	add	r3, r1, #548	; 0x224</pre>
+<pre>    c538:	e2812fbf 	add	r2, r1, #764	; 0x2fc</pre>
+<pre>    c53c:	e2833003 	add	r3, r3, #3</pre>
+<pre>    c540:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    c544:	e2813e29 	add	r3, r1, #656	; 0x290</pre>
+<pre>    c548:	e58d3000 	str	r3, [sp]</pre>
+<pre>    c54c:	e2813fab 	add	r3, r1, #684	; 0x2ac</pre>
+<pre>    c550:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    c554:	e2833001 	add	r3, r3, #1</pre>
+<pre>    c558:	e2811057 	add	r1, r1, #87	; 0x57</pre>
+<pre><span class="red">    c55c:	ebffde50 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    c560:	eaffff10 	b	c1a8 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x594&gt;</pre>
+<pre>    c564:	e59f1208 	ldr	r1, [pc, #520]	; c774 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xb60&gt;</pre>
+<pre>--</pre>
+<pre>    cb84:	e59f60e0 	ldr	r6, [pc, #224]	; cc6c &lt;cli_wanIfaceInfo&commat;&commat;Base+0x1058&gt;</pre>
+<pre>    cb88:	ebffddfa 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>    cb8c:	e59f10dc 	ldr	r1, [pc, #220]	; cc70 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x105c&gt;</pre>
+<pre>    cb90:	e1a00004 	mov	r0, r4</pre>
+<pre>    cb94:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    cb98:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    cb9c:	e3a04000 	mov	r4, #0</pre>
+<pre>    cba0:	ebffde33 	bl	4474 &lt;strtok&commat;plt&gt;</pre>
+<pre>    cba4:	e35400a5 	cmp	r4, #165	; 0xa5</pre>
+<pre>    cba8:	c3a01000 	movgt	r1, #0</pre>
+<pre>    cbac:	d3a01001 	movle	r1, #1</pre>
+<pre>    cbb0:	e3500000 	cmp	r0, #0</pre>
+<pre>    cbb4:	03a01000 	moveq	r1, #0</pre>
+<pre>    cbb8:	e3510000 	cmp	r1, #0</pre>
+<pre>    cbbc:	1a000007 	bne	cbe0 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xfcc&gt;</pre>
+<pre>    cbc0:	e35400a6 	cmp	r4, #166	; 0xa6</pre>
+<pre>    cbc4:	0a00000c 	beq	cbfc &lt;cli_wanIfaceInfo&commat;&commat;Base+0xfe8&gt;</pre>
+<pre>    cbc8:	e59f00a4 	ldr	r0, [pc, #164]	; cc74 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x1060&gt;</pre>
+<pre>    cbcc:	e26410a6 	rsb	r1, r4, #166	; 0xa6</pre>
+<pre>    cbd0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    cbd4:	ebffdcb2 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    cbd8:	e28ddfb6 	add	sp, sp, #728	; 0x2d8</pre>
+<pre>    cbdc:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>    cdac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    cdb0:	ebfffcb4 	bl	c088 &lt;cli_wanIfaceInfo&commat;&commat;Base+0x474&gt;</pre>
+<pre>    cdb4:	e59f3ed0 	ldr	r3, [pc, #3792]	; dc8c &lt;processLaserCmd&commat;&commat;Base+0x1004&gt;</pre>
+<pre>    cdb8:	e3002211 	movw	r2, #529	; 0x211</pre>
+<pre>    cdbc:	e59f1ecc 	ldr	r1, [pc, #3788]	; dc90 &lt;processLaserCmd&commat;&commat;Base+0x1008&gt;</pre>
+<pre>    cdc0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    cdc4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    cdc8:	e2811e53 	add	r1, r1, #1328	; 0x530</pre>
+<pre>    cdcc:	e281100e 	add	r1, r1, #14</pre>
+<pre>    cdd0:	ea000254 	b	d728 &lt;processLaserCmd&commat;&commat;Base+0xaa0&gt;</pre>
+<pre>    cdd4:	e59f1eb8 	ldr	r1, [pc, #3768]	; dc94 &lt;processLaserCmd&commat;&commat;Base+0x100c&gt;</pre>
+<pre>    cdd8:	e1a00004 	mov	r0, r4</pre>
+<pre>    cddc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    cde0:	ebffdc3b 	bl	3ed4 &lt;fopen&commat;plt&gt;</pre>
+<pre>    cde4:	e1a01004 	mov	r1, r4</pre>
+<pre>    cde8:	e2506000 	subs	r6, r0, #0</pre>
+<pre>    cdec:	0a000039 	beq	ced8 &lt;processLaserCmd&commat;&commat;Base+0x250&gt;</pre>
+<pre>    cdf0:	e59f0ea0 	ldr	r0, [pc, #3744]	; dc98 &lt;processLaserCmd&commat;&commat;Base+0x1010&gt;</pre>
+<pre>    cdf4:	e28d5040 	add	r5, sp, #64	; 0x40</pre>
+<pre>    cdf8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    cdfc:	ebffdc28 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ce00:	e1a02006 	mov	r2, r6</pre>
+<pre>    ce04:	e3a01010 	mov	r1, #16</pre>
+<pre>--</pre>
+<pre>    ce90:	e3a02010 	mov	r2, #16</pre>
+<pre>    ce94:	e1a00005 	mov	r0, r5</pre>
+<pre>    ce98:	e3a07000 	mov	r7, #0</pre>
+<pre>    ce9c:	e58d701c 	str	r7, [sp, #28]</pre>
+<pre>    cea0:	ebffdbf6 	bl	3e80 &lt;strtol&commat;plt&gt;</pre>
+<pre>    cea4:	e1a04000 	mov	r4, r0</pre>
+<pre>    cea8:	e59d001c 	ldr	r0, [sp, #28]</pre>
+<pre>    ceac:	e1500007 	cmp	r0, r7</pre>
+<pre>    ceb0:	0affffd2 	beq	ce00 &lt;processLaserCmd&commat;&commat;Base+0x178&gt;</pre>
+<pre>    ceb4:	e354002f 	cmp	r4, #47	; 0x2f</pre>
+<pre>    ceb8:	8affffd0 	bhi	ce00 &lt;processLaserCmd&commat;&commat;Base+0x178&gt;</pre>
+<pre>    cebc:	e3a02010 	mov	r2, #16</pre>
+<pre>    cec0:	e1a01007 	mov	r1, r7</pre>
+<pre>    cec4:	ebffdbed 	bl	3e80 &lt;strtol&commat;plt&gt;</pre>
+<pre>    cec8:	e28d3d07 	add	r3, sp, #448	; 0x1c0</pre>
+<pre>    cecc:	e0834004 	add	r4, r3, r4</pre>
+<pre>    ced0:	e5440140 	strb	r0, [r4, #-320]	; 0xfffffec0</pre>
+<pre>    ced4:	eaffffc9 	b	ce00 &lt;processLaserCmd&commat;&commat;Base+0x178&gt;</pre>
+<pre>    ced8:	e59f0dc8 	ldr	r0, [pc, #3528]	; dca8 &lt;processLaserCmd&commat;&commat;Base+0x1020&gt;</pre>
+<pre>    cedc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    cee0:	ebffdbef 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    cee4:	eaffffb2 	b	cdb4 &lt;processLaserCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    cee8:	e59f1dbc 	ldr	r1, [pc, #3516]	; dcac &lt;processLaserCmd&commat;&commat;Base+0x1024&gt;</pre>
+<pre>--</pre>
+<pre>    cf7c:	e1a00006 	mov	r0, r6</pre>
+<pre>    cf80:	ebffdda7 	bl	4624 &lt;close&commat;plt&gt;</pre>
+<pre>    cf84:	e3540000 	cmp	r4, #0</pre>
+<pre>    cf88:	0a000009 	beq	cfb4 &lt;processLaserCmd&commat;&commat;Base+0x32c&gt;</pre>
+<pre>    cf8c:	e59f1d2c 	ldr	r1, [pc, #3372]	; dcc0 &lt;processLaserCmd&commat;&commat;Base+0x1038&gt;</pre>
+<pre>    cf90:	e300219d 	movw	r2, #413	; 0x19d</pre>
+<pre>    cf94:	e59f3d28 	ldr	r3, [pc, #3368]	; dcc4 &lt;processLaserCmd&commat;&commat;Base+0x103c&gt;</pre>
+<pre>    cf98:	e3a00003 	mov	r0, #3</pre>
+<pre>    cf9c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    cfa0:	e2811d15 	add	r1, r1, #1344	; 0x540</pre>
+<pre>    cfa4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    cfa8:	e281100e 	add	r1, r1, #14</pre>
+<pre>    cfac:	ebffdd84 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>    cfb0:	eaffff7f 	b	cdb4 &lt;processLaserCmd&commat;&commat;Base+0x12c&gt;</pre>
+<pre>    cfb4:	e59f6d0c 	ldr	r6, [pc, #3340]	; dcc8 &lt;processLaserCmd&commat;&commat;Base+0x1040&gt;</pre>
+<pre>    cfb8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    cfbc:	e1a01004 	mov	r1, r4</pre>
+<pre>    cfc0:	e4d52001 	ldrb	r2, [r5], #1</pre>
+<pre>    cfc4:	e2844001 	add	r4, r4, #1</pre>
+<pre>    cfc8:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    cfcc:	ebffdbb4 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    cfd0:	e3540060 	cmp	r4, #96	; 0x60</pre>
+<pre>    cfd4:	1afffff8 	bne	cfbc &lt;processLaserCmd&commat;&commat;Base+0x334&gt;</pre>
+<pre>--</pre>
+<pre>    d02c:	ebffdc14 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d030:	e3500000 	cmp	r0, #0</pre>
+<pre>    d034:	1a000073 	bne	d208 &lt;processLaserCmd&commat;&commat;Base+0x580&gt;</pre>
+<pre>    d038:	e3a0000a 	mov	r0, #10</pre>
+<pre>    d03c:	ebffdcd0 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    d040:	e59d5024 	ldr	r5, [sp, #36]	; 0x24</pre>
+<pre>    d044:	e3550000 	cmp	r5, #0</pre>
+<pre>    d048:	1a00001b 	bne	d0bc &lt;processLaserCmd&commat;&commat;Base+0x434&gt;</pre>
+<pre>    d04c:	e28d4080 	add	r4, sp, #128	; 0x80</pre>
+<pre>    d050:	e59f0c88 	ldr	r0, [pc, #3208]	; dce0 &lt;processLaserCmd&commat;&commat;Base+0x1058&gt;</pre>
+<pre>    d054:	e1a01004 	mov	r1, r4</pre>
+<pre>    d058:	ebfffe2a 	bl	c908 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xcf4&gt;</pre>
+<pre>    d05c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d060:	1a000006 	bne	d080 &lt;processLaserCmd&commat;&commat;Base+0x3f8&gt;</pre>
+<pre>    d064:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d068:	e59f3c74 	ldr	r3, [pc, #3188]	; dce4 &lt;processLaserCmd&commat;&commat;Base+0x105c&gt;</pre>
+<pre>    d06c:	e0810390 	umull	r0, r1, r0, r3</pre>
+<pre>    d070:	e59f0c70 	ldr	r0, [pc, #3184]	; dce8 &lt;processLaserCmd&commat;&commat;Base+0x1060&gt;</pre>
+<pre>    d074:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    d078:	e1a011a1 	lsr	r1, r1, #3</pre>
+<pre><span class="red">    d07c:	ebffdb88 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d080:	e59f0c64 	ldr	r0, [pc, #3172]	; dcec &lt;processLaserCmd&commat;&commat;Base+0x1064&gt;</pre>
+<pre>    d084:	e1a01004 	mov	r1, r4</pre>
+<pre>    d088:	ebfffe1e 	bl	c908 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xcf4&gt;</pre>
+<pre>    d08c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d090:	1a000006 	bne	d0b0 &lt;processLaserCmd&commat;&commat;Base+0x428&gt;</pre>
+<pre>    d094:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d098:	e59f3c44 	ldr	r3, [pc, #3140]	; dce4 &lt;processLaserCmd&commat;&commat;Base+0x105c&gt;</pre>
+<pre>    d09c:	e0810390 	umull	r0, r1, r0, r3</pre>
+<pre>    d0a0:	e59f0c48 	ldr	r0, [pc, #3144]	; dcf0 &lt;processLaserCmd&commat;&commat;Base+0x1068&gt;</pre>
+<pre>    d0a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    d0a8:	e1a011a1 	lsr	r1, r1, #3</pre>
+<pre><span class="red">    d0ac:	ebffdb7c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d0b0:	e3a0000a 	mov	r0, #10</pre>
+<pre>    d0b4:	ebffdcb2 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    d0bc:	e59f1c30 	ldr	r1, [pc, #3120]	; dcf4 &lt;processLaserCmd&commat;&commat;Base+0x106c&gt;</pre>
+<pre>    d0c0:	e1a00005 	mov	r0, r5</pre>
+<pre>    d0c4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    d0c8:	ebffdbed 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d0cc:	e3500000 	cmp	r0, #0</pre>
+<pre>    d0d0:	1a00001d 	bne	d14c &lt;processLaserCmd&commat;&commat;Base+0x4c4&gt;</pre>
+<pre>    d0d4:	e59f0c04 	ldr	r0, [pc, #3076]	; dce0 &lt;processLaserCmd&commat;&commat;Base+0x1058&gt;</pre>
+<pre>    d0d8:	e28d1080 	add	r1, sp, #128	; 0x80</pre>
+<pre>    d0dc:	ebfffe09 	bl	c908 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xcf4&gt;</pre>
+<pre>    d0e0:	e3500000 	cmp	r0, #0</pre>
+<pre>    d0e4:	1afffff1 	bne	d0b0 &lt;processLaserCmd&commat;&commat;Base+0x428&gt;</pre>
+<pre>    d0e8:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d0ec:	eb00174b 	bl	12e20 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x944&gt;</pre>
+<pre>    d0f0:	e59f3c00 	ldr	r3, [pc, #3072]	; dcf8 &lt;processLaserCmd&commat;&commat;Base+0x1070&gt;</pre>
+<pre>    d0f4:	e3a02000 	mov	r2, #0</pre>
+<pre>    d0f8:	eb001825 	bl	13194 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0xcb8&gt;</pre>
+<pre>    d0fc:	e1a02000 	mov	r2, r0</pre>
+<pre>    d100:	e59f0bf4 	ldr	r0, [pc, #3060]	; dcfc &lt;processLaserCmd&commat;&commat;Base+0x1074&gt;</pre>
+<pre>    d104:	e1a03001 	mov	r3, r1</pre>
+<pre>    d108:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    d10c:	ebffdb64 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d110:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d114:	eb001741 	bl	12e20 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x944&gt;</pre>
+<pre>    d118:	e59f3be0 	ldr	r3, [pc, #3040]	; dd00 &lt;processLaserCmd&commat;&commat;Base+0x1078&gt;</pre>
+<pre>    d11c:	e3a02000 	mov	r2, #0</pre>
+<pre>    d120:	eb00181b 	bl	13194 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0xcb8&gt;</pre>
+<pre>    d124:	ebffdc27 	bl	41c8 &lt;log10&commat;plt&gt;</pre>
+<pre>    d128:	e59f3bc8 	ldr	r3, [pc, #3016]	; dcf8 &lt;processLaserCmd&commat;&commat;Base+0x1070&gt;</pre>
+<pre>    d12c:	e3a02000 	mov	r2, #0</pre>
+<pre>    d130:	eb00177c 	bl	12f28 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0xa4c&gt;</pre>
+<pre>    d134:	e1a02000 	mov	r2, r0</pre>
+<pre>    d138:	e59f0bc4 	ldr	r0, [pc, #3012]	; dd04 &lt;processLaserCmd&commat;&commat;Base+0x107c&gt;</pre>
+<pre>    d13c:	e1a03001 	mov	r3, r1</pre>
+<pre>    d140:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    d144:	ebffdb56 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d148:	eaffffd8 	b	d0b0 &lt;processLaserCmd&commat;&commat;Base+0x428&gt;</pre>
+<pre>    d14c:	e59f1bb4 	ldr	r1, [pc, #2996]	; dd08 &lt;processLaserCmd&commat;&commat;Base+0x1080&gt;</pre>
+<pre>    d150:	e1a00005 	mov	r0, r5</pre>
+<pre>    d154:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    d158:	ebffdbc9 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d15c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d160:	1a00001c 	bne	d1d8 &lt;processLaserCmd&commat;&commat;Base+0x550&gt;</pre>
+<pre>    d164:	e59f0b80 	ldr	r0, [pc, #2944]	; dcec &lt;processLaserCmd&commat;&commat;Base+0x1064&gt;</pre>
+<pre>    d168:	e28d1080 	add	r1, sp, #128	; 0x80</pre>
+<pre>    d16c:	ebfffde5 	bl	c908 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xcf4&gt;</pre>
+<pre>    d170:	e3500000 	cmp	r0, #0</pre>
+<pre>    d174:	1a000009 	bne	d1a0 &lt;processLaserCmd&commat;&commat;Base+0x518&gt;</pre>
+<pre>    d178:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d17c:	eb001727 	bl	12e20 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x944&gt;</pre>
+<pre>    d180:	e59f3b70 	ldr	r3, [pc, #2928]	; dcf8 &lt;processLaserCmd&commat;&commat;Base+0x1070&gt;</pre>
+<pre>    d184:	e3a02000 	mov	r2, #0</pre>
+<pre>    d188:	eb001801 	bl	13194 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0xcb8&gt;</pre>
+<pre>    d18c:	e1a02000 	mov	r2, r0</pre>
+<pre>    d190:	e59f0b74 	ldr	r0, [pc, #2932]	; dd0c &lt;processLaserCmd&commat;&commat;Base+0x1084&gt;</pre>
+<pre>    d194:	e1a03001 	mov	r3, r1</pre>
+<pre>    d198:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    d19c:	ebffdb40 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d1a0:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d1a4:	eb00171d 	bl	12e20 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x944&gt;</pre>
+<pre>--</pre>
+<pre>    d214:	ebffdb9a 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d218:	e3500000 	cmp	r0, #0</pre>
+<pre>    d21c:	1a00001e 	bne	d29c &lt;processLaserCmd&commat;&commat;Base+0x614&gt;</pre>
+<pre>    d220:	e59d0024 	ldr	r0, [sp, #36]	; 0x24</pre>
+<pre>    d224:	e3500000 	cmp	r0, #0</pre>
+<pre>    d228:	0a000015 	beq	d284 &lt;processLaserCmd&commat;&commat;Base+0x5fc&gt;</pre>
+<pre>    d22c:	e59f1aec 	ldr	r1, [pc, #2796]	; dd20 &lt;processLaserCmd&commat;&commat;Base+0x1098&gt;</pre>
+<pre>    d230:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    d234:	ebffdb92 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d238:	e3500000 	cmp	r0, #0</pre>
+<pre>    d23c:	1a00000a 	bne	d26c &lt;processLaserCmd&commat;&commat;Base+0x5e4&gt;</pre>
+<pre>    d240:	e59f0adc 	ldr	r0, [pc, #2780]	; dd24 &lt;processLaserCmd&commat;&commat;Base+0x109c&gt;</pre>
+<pre>    d244:	e28d1080 	add	r1, sp, #128	; 0x80</pre>
+<pre>    d248:	ebfffdbf 	bl	c94c &lt;cli_wanIfaceInfo&commat;&commat;Base+0xd38&gt;</pre>
+<pre>    d24c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d250:	1affff60 	bne	cfd8 &lt;processLaserCmd&commat;&commat;Base+0x350&gt;</pre>
+<pre>    d254:	e59d1080 	ldr	r1, [sp, #128]	; 0x80</pre>
+<pre>    d258:	e59f0ac8 	ldr	r0, [pc, #2760]	; dd28 &lt;processLaserCmd&commat;&commat;Base+0x10a0&gt;</pre>
+<pre>    d25c:	e1a01081 	lsl	r1, r1, #1</pre>
+<pre>    d260:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    d264:	ebffdb0e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d268:	eaffff5a 	b	cfd8 &lt;processLaserCmd&commat;&commat;Base+0x350&gt;</pre>
+<pre>    d26c:	e59f3ab8 	ldr	r3, [pc, #2744]	; dd2c &lt;processLaserCmd&commat;&commat;Base+0x10a4&gt;</pre>
+<pre>--</pre>
+<pre>    d38c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d390:	1a000019 	bne	d3fc &lt;processLaserCmd&commat;&commat;Base+0x774&gt;</pre>
+<pre>    d394:	e28d3080 	add	r3, sp, #128	; 0x80</pre>
+<pre>    d398:	e3a02004 	mov	r2, #4</pre>
+<pre>    d39c:	e300192c 	movw	r1, #2348	; 0x92c</pre>
+<pre>    d3a0:	ebfffd18 	bl	c808 &lt;cli_wanIfaceInfo&commat;&commat;Base+0xbf4&gt;</pre>
+<pre>    d3a4:	e3500000 	cmp	r0, #0</pre>
+<pre>    d3a8:	1a00000d 	bne	d3e4 &lt;processLaserCmd&commat;&commat;Base+0x75c&gt;</pre>
+<pre>    d3ac:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d3b0:	e6bf0f30 	rev	r0, r0</pre>
+<pre>    d3b4:	eb001886 	bl	135d4 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x10f8&gt;</pre>
+<pre>    d3b8:	e59f19ac 	ldr	r1, [pc, #2476]	; dd6c &lt;processLaserCmd&commat;&commat;Base+0x10e4&gt;</pre>
+<pre>    d3bc:	eb0018b1 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    d3c0:	e59f19a8 	ldr	r1, [pc, #2472]	; dd70 &lt;processLaserCmd&commat;&commat;Base+0x10e8&gt;</pre>
+<pre>    d3c4:	eb001915 	bl	13820 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1344&gt;</pre>
+<pre>    d3c8:	eb0016a7 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    d3cc:	e1a02000 	mov	r2, r0</pre>
+<pre>    d3d0:	e59f099c 	ldr	r0, [pc, #2460]	; dd74 &lt;processLaserCmd&commat;&commat;Base+0x10ec&gt;</pre>
+<pre>    d3d4:	e1a03001 	mov	r3, r1</pre>
+<pre>    d3d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    d3dc:	ebffdab0 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d3e0:	eafffefc 	b	cfd8 &lt;processLaserCmd&commat;&commat;Base+0x350&gt;</pre>
+<pre>    d3e4:	e59f398c 	ldr	r3, [pc, #2444]	; dd78 &lt;processLaserCmd&commat;&commat;Base+0x10f0&gt;</pre>
+<pre>--</pre>
+<pre>    d44c:	0a000025 	beq	d4e8 &lt;processLaserCmd&commat;&commat;Base+0x860&gt;</pre>
+<pre>    d450:	e59f193c 	ldr	r1, [pc, #2364]	; dd94 &lt;processLaserCmd&commat;&commat;Base+0x110c&gt;</pre>
+<pre>    d454:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    d458:	ebffdb09 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>    d45c:	e3500000 	cmp	r0, #0</pre>
+<pre>    d460:	1a00001a 	bne	d4d0 &lt;processLaserCmd&commat;&commat;Base+0x848&gt;</pre>
+<pre>    d464:	e59f092c 	ldr	r0, [pc, #2348]	; dd98 &lt;processLaserCmd&commat;&commat;Base+0x1110&gt;</pre>
+<pre>    d468:	e28d1080 	add	r1, sp, #128	; 0x80</pre>
+<pre>    d46c:	ebfffd36 	bl	c94c &lt;cli_wanIfaceInfo&commat;&commat;Base+0xd38&gt;</pre>
+<pre>    d470:	e3500000 	cmp	r0, #0</pre>
+<pre>    d474:	1afffed7 	bne	cfd8 &lt;processLaserCmd&commat;&commat;Base+0x350&gt;</pre>
+<pre>    d478:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d47c:	e59f4860 	ldr	r4, [pc, #2144]	; dce4 &lt;processLaserCmd&commat;&commat;Base+0x105c&gt;</pre>
+<pre>    d480:	e1b03820 	lsrs	r3, r0, #16</pre>
+<pre>    d484:	0a00000c 	beq	d4bc &lt;processLaserCmd&commat;&commat;Base+0x834&gt;</pre>
+<pre>    d488:	e6ff0070 	uxth	r0, r0</pre>
+<pre>    d48c:	e0810490 	umull	r0, r1, r0, r4</pre>
+<pre>    d490:	e59f0904 	ldr	r0, [pc, #2308]	; dd9c &lt;processLaserCmd&commat;&commat;Base+0x1114&gt;</pre>
+<pre>    d494:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    d498:	e1a011a1 	lsr	r1, r1, #3</pre>
+<pre><span class="red">    d49c:	ebffda80 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d4a0:	e59d0080 	ldr	r0, [sp, #128]	; 0x80</pre>
+<pre>    d4a4:	e1a00820 	lsr	r0, r0, #16</pre>
+<pre>--</pre>
+<pre>    d61c:	e3a02010 	mov	r2, #16</pre>
+<pre>    d620:	e1a07000 	mov	r7, r0</pre>
+<pre>    d624:	e1a00006 	mov	r0, r6</pre>
+<pre>    d628:	ebffda14 	bl	3e80 &lt;strtol&commat;plt&gt;</pre>
+<pre>    d62c:	e28d6040 	add	r6, sp, #64	; 0x40</pre>
+<pre>    d630:	e1a01005 	mov	r1, r5</pre>
+<pre>    d634:	e1a02006 	mov	r2, r6</pre>
+<pre>    d638:	e1a04000 	mov	r4, r0</pre>
+<pre>    d63c:	e1a00009 	mov	r0, r9</pre>
+<pre>    d640:	ebfffd0d 	bl	ca7c &lt;cli_wanIfaceInfo&commat;&commat;Base+0xe68&gt;</pre>
+<pre>    d644:	e1d690b0 	ldrh	r9, [r6]</pre>
+<pre>    d648:	e2501000 	subs	r1, r0, #0</pre>
+<pre>    d64c:	0a000015 	beq	d6a8 &lt;processLaserCmd&commat;&commat;Base+0xa20&gt;</pre>
+<pre>    d650:	e1a00005 	mov	r0, r5</pre>
+<pre>    d654:	e59f4788 	ldr	r4, [pc, #1928]	; dde4 &lt;processLaserCmd&commat;&commat;Base+0x115c&gt;</pre>
+<pre>    d658:	ebffdb16 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    d65c:	e1a02089 	lsl	r2, r9, #1</pre>
+<pre>    d660:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    d664:	e1a01000 	mov	r1, r0</pre>
+<pre>    d668:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">    d66c:	ebffda0c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d670:	e1a00005 	mov	r0, r5</pre>
+<pre>    d674:	ebffdb0f 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    d7e8:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    d7ec:	1a000664 	bne	f184 &lt;processLaserCmd&commat;&commat;Base+0x24fc&gt;</pre>
+<pre>    d7f0:	e59f6614 	ldr	r6, [pc, #1556]	; de0c &lt;processLaserCmd&commat;&commat;Base+0x1184&gt;</pre>
+<pre>    d7f4:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    d7f8:	e6ff3074 	uxth	r3, r4</pre>
+<pre>    d7fc:	e1550003 	cmp	r5, r3</pre>
+<pre>    d800:	8a000004 	bhi	d818 &lt;processLaserCmd&commat;&commat;Base+0xb90&gt;</pre>
+<pre>    d804:	e3a0000a 	mov	r0, #10</pre>
+<pre>    d808:	ebffdadd 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    d80c:	e59f05fc 	ldr	r0, [pc, #1532]	; de10 &lt;processLaserCmd&commat;&commat;Base+0x1188&gt;</pre>
+<pre>    d810:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    d814:	eafffeb9 	b	d300 &lt;processLaserCmd&commat;&commat;Base+0x678&gt;</pre>
+<pre>    d818:	e3530000 	cmp	r3, #0</pre>
+<pre>    d81c:	0a000003 	beq	d830 &lt;processLaserCmd&commat;&commat;Base+0xba8&gt;</pre>
+<pre>    d820:	e3130003 	tst	r3, #3</pre>
+<pre>    d824:	1a000001 	bne	d830 &lt;processLaserCmd&commat;&commat;Base+0xba8&gt;</pre>
+<pre>    d828:	e3a00020 	mov	r0, #32</pre>
+<pre>    d82c:	ebffdad4 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    d830:	e7d91004 	ldrb	r1, [r9, r4]</pre>
+<pre>    d834:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    d838:	ebffd999 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    d83c:	e2844001 	add	r4, r4, #1</pre>
+<pre>    d840:	eaffffec 	b	d7f8 &lt;processLaserCmd&commat;&commat;Base+0xb70&gt;</pre>
+<pre>--</pre>
+<pre>    e4f0:	e3550008 	cmp	r5, #8</pre>
+<pre>    e4f4:	e59d4040 	ldr	r4, [sp, #64]	; 0x40</pre>
+<pre>    e4f8:	1a000014 	bne	e550 &lt;processLaserCmd&commat;&commat;Base+0x18c8&gt;</pre>
+<pre>    e4fc:	e6ef0074 	uxtb	r0, r4</pre>
+<pre>    e500:	eb001435 	bl	135dc &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1100&gt;</pre>
+<pre>    e504:	e3a015ee 	mov	r1, #998244352	; 0x3b800000</pre>
+<pre>    e508:	eb00145e 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    e50c:	eb001256 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    e510:	e1a06000 	mov	r6, r0</pre>
+<pre>    e514:	e1a00444 	asr	r0, r4, #8</pre>
+<pre>    e518:	e1a07001 	mov	r7, r1</pre>
+<pre>    e51c:	eb00142e 	bl	135dc &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1100&gt;</pre>
+<pre>    e520:	e3a015ee 	mov	r1, #998244352	; 0x3b800000</pre>
+<pre>    e524:	eb001457 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    e528:	eb00124f 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    e52c:	e1a02006 	mov	r2, r6</pre>
+<pre>    e530:	e1a03007 	mov	r3, r7</pre>
+<pre>    e534:	e1cd00f0 	strd	r0, [sp]</pre>
+<pre>    e538:	e51f0648 	ldr	r0, [pc, #-1608]	; def8 &lt;processLaserCmd&commat;&commat;Base+0x1270&gt;</pre>
+<pre>    e53c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    e540:	ebffd657 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e544:	e51f0650 	ldr	r0, [pc, #-1616]	; defc &lt;processLaserCmd&commat;&commat;Base+0x1274&gt;</pre>
+<pre>    e548:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e54c:	eafffb6b 	b	d300 &lt;processLaserCmd&commat;&commat;Base+0x678&gt;</pre>
+<pre>    e550:	e3550006 	cmp	r5, #6</pre>
+<pre>    e554:	1a000005 	bne	e570 &lt;processLaserCmd&commat;&commat;Base+0x18e8&gt;</pre>
+<pre>    e558:	e51f0660 	ldr	r0, [pc, #-1632]	; df00 &lt;processLaserCmd&commat;&commat;Base+0x1278&gt;</pre>
+<pre>    e55c:	e7e92054 	ubfx	r2, r4, #0, #10</pre>
+<pre>    e560:	e1a01006 	mov	r1, r6</pre>
+<pre>    e564:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    e568:	ebffd64d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e56c:	eafffff4 	b	e544 &lt;processLaserCmd&commat;&commat;Base+0x18bc&gt;</pre>
+<pre>    e570:	e3550007 	cmp	r5, #7</pre>
+<pre>    e574:	1a000004 	bne	e58c &lt;processLaserCmd&commat;&commat;Base+0x1904&gt;</pre>
+<pre>    e578:	e51f067c 	ldr	r0, [pc, #-1660]	; df04 &lt;processLaserCmd&commat;&commat;Base+0x127c&gt;</pre>
+<pre>    e57c:	e7e12554 	ubfx	r2, r4, #10, #2</pre>
+<pre>    e580:	e7e31654 	ubfx	r1, r4, #12, #4</pre>
+<pre>    e584:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e588:	eafffff6 	b	e568 &lt;processLaserCmd&commat;&commat;Base+0x18e0&gt;</pre>
+<pre>    e58c:	e245300a 	sub	r3, r5, #10</pre>
+<pre>    e590:	e3530002 	cmp	r3, #2</pre>
+<pre>    e594:	8a00000a 	bhi	e5c4 &lt;processLaserCmd&commat;&commat;Base+0x193c&gt;</pre>
+<pre>    e598:	e1a00004 	mov	r0, r4</pre>
+<pre>    e59c:	eb00140e 	bl	135dc &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1100&gt;</pre>
+<pre>    e5a0:	e3a015ee 	mov	r1, #998244352	; 0x3b800000</pre>
+<pre>    e5a4:	eb001437 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    e5a8:	eb00122f 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    e5ac:	e1a02000 	mov	r2, r0</pre>
+<pre>    e5b0:	e51f06b0 	ldr	r0, [pc, #-1712]	; df08 &lt;processLaserCmd&commat;&commat;Base+0x1280&gt;</pre>
+<pre>    e5b4:	e1a03001 	mov	r3, r1</pre>
+<pre>    e5b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    e5bc:	ebffd638 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e5c0:	eaffffdf 	b	e544 &lt;processLaserCmd&commat;&commat;Base+0x18bc&gt;</pre>
+<pre>    e5c4:	e355000e 	cmp	r5, #14</pre>
+<pre>--</pre>
+<pre>    e5e8:	e1a03001 	mov	r3, r1</pre>
+<pre>    e5ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e5f0:	eafffff1 	b	e5bc &lt;processLaserCmd&commat;&commat;Base+0x1934&gt;</pre>
+<pre>    e5f4:	e355000f 	cmp	r5, #15</pre>
+<pre>    e5f8:	1a000009 	bne	e624 &lt;processLaserCmd&commat;&commat;Base+0x199c&gt;</pre>
+<pre>    e5fc:	e1a00004 	mov	r0, r4</pre>
+<pre>    e600:	eb0013f5 	bl	135dc &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1100&gt;</pre>
+<pre>    e604:	e3a015e6 	mov	r1, #964689920	; 0x39800000</pre>
+<pre>    e608:	eb00141e 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    e60c:	eb001216 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    e610:	e1a02000 	mov	r2, r0</pre>
+<pre>    e614:	e51f070c 	ldr	r0, [pc, #-1804]	; df10 &lt;processLaserCmd&commat;&commat;Base+0x1288&gt;</pre>
+<pre>    e618:	e1a03001 	mov	r3, r1</pre>
+<pre>    e61c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e620:	eaffffe5 	b	e5bc &lt;processLaserCmd&commat;&commat;Base+0x1934&gt;</pre>
+<pre>    e624:	e3550014 	cmp	r5, #20</pre>
+<pre>    e628:	1a000004 	bne	e640 &lt;processLaserCmd&commat;&commat;Base+0x19b8&gt;</pre>
+<pre>    e62c:	e51f0720 	ldr	r0, [pc, #-1824]	; df14 &lt;processLaserCmd&commat;&commat;Base+0x128c&gt;</pre>
+<pre>    e630:	e1a01004 	mov	r1, r4</pre>
+<pre>    e634:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    e638:	ebffd619 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e63c:	eaffffc0 	b	e544 &lt;processLaserCmd&commat;&commat;Base+0x18bc&gt;</pre>
+<pre>    e640:	e3550015 	cmp	r5, #21</pre>
+<pre>--</pre>
+<pre>    e6c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e6c8:	eaffffa6 	b	e568 &lt;processLaserCmd&commat;&commat;Base+0x18e0&gt;</pre>
+<pre>    e6cc:	e3550023 	cmp	r5, #35	; 0x23</pre>
+<pre>    e6d0:	1a000004 	bne	e6e8 &lt;processLaserCmd&commat;&commat;Base+0x1a60&gt;</pre>
+<pre>    e6d4:	e51f07b0 	ldr	r0, [pc, #-1968]	; df2c &lt;processLaserCmd&commat;&commat;Base+0x12a4&gt;</pre>
+<pre>    e6d8:	e1a02824 	lsr	r2, r4, #16</pre>
+<pre>    e6dc:	e6ff1074 	uxth	r1, r4</pre>
+<pre>    e6e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e6e4:	eaffff9f 	b	e568 &lt;processLaserCmd&commat;&commat;Base+0x18e0&gt;</pre>
+<pre>    e6e8:	e3550025 	cmp	r5, #37	; 0x25</pre>
+<pre>    e6ec:	1a00000a 	bne	e71c &lt;processLaserCmd&commat;&commat;Base+0x1a94&gt;</pre>
+<pre>    e6f0:	e51f07c8 	ldr	r0, [pc, #-1992]	; df30 &lt;processLaserCmd&commat;&commat;Base+0x12a8&gt;</pre>
+<pre>    e6f4:	e1a03c24 	lsr	r3, r4, #24</pre>
+<pre>    e6f8:	e7e020d4 	ubfx	r2, r4, #1, #1</pre>
+<pre>    e6fc:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>    e700:	e2041001 	and	r1, r4, #1</pre>
+<pre>    e704:	e7e73854 	ubfx	r3, r4, #16, #8</pre>
+<pre>    e708:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e70c:	e58d3000 	str	r3, [sp]</pre>
+<pre>    e710:	e7a73454 	sbfx	r3, r4, #8, #8</pre>
+<pre><span class="red">    e714:	ebffd5e2 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e718:	eaffff89 	b	e544 &lt;processLaserCmd&commat;&commat;Base+0x18bc&gt;</pre>
+<pre>    e71c:	e51f07f0 	ldr	r0, [pc, #-2032]	; df34 &lt;processLaserCmd&commat;&commat;Base+0x12ac&gt;</pre>
+<pre>--</pre>
+<pre>    e93c:	e1a02009 	mov	r2, r9</pre>
+<pre>    e940:	ebffd5f3 	bl	4114 &lt;ioctl&commat;plt&gt;</pre>
+<pre>    e944:	e1a04000 	mov	r4, r0</pre>
+<pre>    e948:	e1a00007 	mov	r0, r7</pre>
+<pre>    e94c:	ebffd734 	bl	4624 &lt;close&commat;plt&gt;</pre>
+<pre>    e950:	e3540000 	cmp	r4, #0</pre>
+<pre>    e954:	1a000045 	bne	ea70 &lt;processLaserCmd&commat;&commat;Base+0x1de8&gt;</pre>
+<pre>    e958:	e356000e 	cmp	r6, #14</pre>
+<pre>    e95c:	1a00000e 	bne	e99c &lt;processLaserCmd&commat;&commat;Base+0x1d14&gt;</pre>
+<pre>    e960:	e59d3048 	ldr	r3, [sp, #72]	; 0x48</pre>
+<pre>    e964:	e5930000 	ldr	r0, [r3]</pre>
+<pre>    e968:	e6bf0f30 	rev	r0, r0</pre>
+<pre>    e96c:	eb00131a 	bl	135dc &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x1100&gt;</pre>
+<pre>    e970:	e3a015de 	mov	r1, #931135488	; 0x37800000</pre>
+<pre>    e974:	eb001343 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    e978:	eb00113b 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    e97c:	e1a02000 	mov	r2, r0</pre>
+<pre>    e980:	e51f09f0 	ldr	r0, [pc, #-2544]	; df98 &lt;processLaserCmd&commat;&commat;Base+0x1310&gt;</pre>
+<pre>    e984:	e1a03001 	mov	r3, r1</pre>
+<pre>    e988:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    e98c:	ebffd544 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    e990:	e51f09fc 	ldr	r0, [pc, #-2556]	; df9c &lt;processLaserCmd&commat;&commat;Base+0x1314&gt;</pre>
+<pre>    e994:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>    e9c8:	e1a02000 	mov	r2, r0</pre>
+<pre>    e9cc:	e51f0a34 	ldr	r0, [pc, #-2612]	; dfa0 &lt;processLaserCmd&commat;&commat;Base+0x1318&gt;</pre>
+<pre>    e9d0:	e1a03001 	mov	r3, r1</pre>
+<pre>    e9d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e9d8:	eaffffeb 	b	e98c &lt;processLaserCmd&commat;&commat;Base+0x1d04&gt;</pre>
+<pre>    e9dc:	e3560001 	cmp	r6, #1</pre>
+<pre>    e9e0:	1a00001f 	bne	ea64 &lt;processLaserCmd&commat;&commat;Base+0x1ddc&gt;</pre>
+<pre>    e9e4:	e59d3048 	ldr	r3, [sp, #72]	; 0x48</pre>
+<pre>    e9e8:	e51f0a4c 	ldr	r0, [pc, #-2636]	; dfa4 &lt;processLaserCmd&commat;&commat;Base+0x131c&gt;</pre>
+<pre>    e9ec:	e5932000 	ldr	r2, [r3]</pre>
+<pre>    e9f0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>    e9f4:	e1d330b0 	ldrh	r3, [r3]</pre>
+<pre>    e9f8:	e6bf3fb3 	rev16	r3, r3</pre>
+<pre>    e9fc:	e1a01402 	lsl	r1, r2, #8</pre>
+<pre>    ea00:	e20114ff 	and	r1, r1, #-16777216	; 0xff000000</pre>
+<pre>    ea04:	e6ff3073 	uxth	r3, r3</pre>
+<pre>    ea08:	e1833001 	orr	r3, r3, r1</pre>
+<pre>    ea0c:	e1a01422 	lsr	r1, r2, #8</pre>
+<pre>    ea10:	e20118ff 	and	r1, r1, #16711680	; 0xff0000</pre>
+<pre>    ea14:	e1831001 	orr	r1, r3, r1</pre>
+<pre><span class="red">    ea18:	ebffd521 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ea1c:	eaffffdb 	b	e990 &lt;processLaserCmd&commat;&commat;Base+0x1d08&gt;</pre>
+<pre>    ea20:	e3530000 	cmp	r3, #0</pre>
+<pre>    ea24:	0a000003 	beq	ea38 &lt;processLaserCmd&commat;&commat;Base+0x1db0&gt;</pre>
+<pre>    ea28:	e3130003 	tst	r3, #3</pre>
+<pre>    ea2c:	1a000001 	bne	ea38 &lt;processLaserCmd&commat;&commat;Base+0x1db0&gt;</pre>
+<pre>    ea30:	e3a00020 	mov	r0, #32</pre>
+<pre>    ea34:	ebffd652 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>    ea38:	e59d3048 	ldr	r3, [sp, #72]	; 0x48</pre>
+<pre>    ea3c:	e1a00006 	mov	r0, r6</pre>
+<pre>    ea40:	e7d31004 	ldrb	r1, [r3, r4]</pre>
+<pre>    ea44:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">    ea48:	ebffd515 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ea4c:	e6ff3074 	uxth	r3, r4</pre>
+<pre>    ea50:	e1550003 	cmp	r5, r3</pre>
+<pre>--</pre>
+<pre>    eae0:	108f0000 	addne	r0, pc, r0</pre>
+<pre>    eae4:	1afff898 	bne	cd4c &lt;processLaserCmd&commat;&commat;Base+0xc4&gt;</pre>
+<pre>    eae8:	e3a02010 	mov	r2, #16</pre>
+<pre>    eaec:	e28d6080 	add	r6, sp, #128	; 0x80</pre>
+<pre>    eaf0:	ebffd4e2 	bl	3e80 &lt;strtol&commat;plt&gt;</pre>
+<pre>    eaf4:	e1a01005 	mov	r1, r5</pre>
+<pre>    eaf8:	e1a02006 	mov	r2, r6</pre>
+<pre>    eafc:	e1a04000 	mov	r4, r0</pre>
+<pre>    eb00:	e1a00007 	mov	r0, r7</pre>
+<pre>    eb04:	ebfff7dc 	bl	ca7c &lt;cli_wanIfaceInfo&commat;&commat;Base+0xe68&gt;</pre>
+<pre>    eb08:	e1d670b0 	ldrh	r7, [r6]</pre>
+<pre>    eb0c:	e3500000 	cmp	r0, #0</pre>
+<pre>    eb10:	0a000013 	beq	eb64 &lt;processLaserCmd&commat;&commat;Base+0x1edc&gt;</pre>
+<pre>    eb14:	e1a00005 	mov	r0, r5</pre>
+<pre>    eb18:	e51f4b60 	ldr	r4, [pc, #-2912]	; dfc0 &lt;processLaserCmd&commat;&commat;Base+0x1338&gt;</pre>
+<pre>    eb1c:	ebffd5e5 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>    eb20:	e1a02087 	lsl	r2, r7, #1</pre>
+<pre>    eb24:	e08f4004 	add	r4, pc, r4</pre>
+<pre>    eb28:	e1a01000 	mov	r1, r0</pre>
+<pre>    eb2c:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">    eb30:	ebffd4db 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    eb34:	e1a00005 	mov	r0, r5</pre>
+<pre>    eb38:	ebffd5de 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>    ec70:	e51f5c84 	ldr	r5, [pc, #-3204]	; dff4 &lt;processLaserCmd&commat;&commat;Base+0x136c&gt;</pre>
+<pre>    ec74:	eb0011c7 	bl	13398 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0xebc&gt;</pre>
+<pre>    ec78:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    ec7c:	e1d530b0 	ldrh	r3, [r5]</pre>
+<pre>    ec80:	e2033001 	and	r3, r3, #1</pre>
+<pre>    ec84:	e0853183 	add	r3, r5, r3, lsl #3</pre>
+<pre>    ec88:	e5834004 	str	r4, [r3, #4]</pre>
+<pre>    ec8c:	e5830008 	str	r0, [r3, #8]</pre>
+<pre>    ec90:	e1a06000 	mov	r6, r0</pre>
+<pre>    ec94:	e1a00004 	mov	r0, r4</pre>
+<pre>    ec98:	eb001073 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    ec9c:	e1a0a000 	mov	sl, r0</pre>
+<pre>    eca0:	e1a00006 	mov	r0, r6</pre>
+<pre>    eca4:	e1a0b001 	mov	fp, r1</pre>
+<pre>    eca8:	eb00106f 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    ecac:	e1a0200a 	mov	r2, sl</pre>
+<pre>    ecb0:	e1a0300b 	mov	r3, fp</pre>
+<pre>    ecb4:	e1cd00f0 	strd	r0, [sp]</pre>
+<pre>    ecb8:	e51f0cc8 	ldr	r0, [pc, #-3272]	; dff8 &lt;processLaserCmd&commat;&commat;Base+0x1370&gt;</pre>
+<pre>    ecbc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    ecc0:	ebffd477 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    ecc4:	e1d540b0 	ldrh	r4, [r5]</pre>
+<pre>    ecc8:	e3540000 	cmp	r4, #0</pre>
+<pre>--</pre>
+<pre>    ed84:	e1a00004 	mov	r0, r4</pre>
+<pre>    ed88:	eb00123e 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    ed8c:	eb00133a 	bl	13a7c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x15a0&gt;</pre>
+<pre>    ed90:	e51f1d8c 	ldr	r1, [pc, #-3468]	; e00c &lt;processLaserCmd&commat;&commat;Base+0x1384&gt;</pre>
+<pre>    ed94:	e58d0040 	str	r0, [sp, #64]	; 0x40</pre>
+<pre>    ed98:	e1a00006 	mov	r0, r6</pre>
+<pre>    ed9c:	eb001239 	bl	13688 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x11ac&gt;</pre>
+<pre>    eda0:	eb001335 	bl	13a7c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x15a0&gt;</pre>
+<pre>    eda4:	e58d0080 	str	r0, [sp, #128]	; 0x80</pre>
+<pre>    eda8:	e1a00004 	mov	r0, r4</pre>
+<pre>    edac:	eb00102e 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    edb0:	e1a04000 	mov	r4, r0</pre>
+<pre>    edb4:	e1a00006 	mov	r0, r6</pre>
+<pre>    edb8:	e1a05001 	mov	r5, r1</pre>
+<pre>    edbc:	eb00102a 	bl	12e6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x990&gt;</pre>
+<pre>    edc0:	e1a02004 	mov	r2, r4</pre>
+<pre>    edc4:	e1a03005 	mov	r3, r5</pre>
+<pre>    edc8:	e1cd00f0 	strd	r0, [sp]</pre>
+<pre>    edcc:	e51f0dc4 	ldr	r0, [pc, #-3524]	; e010 &lt;processLaserCmd&commat;&commat;Base+0x1388&gt;</pre>
+<pre>    edd0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    edd4:	ebffd432 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    edd8:	e28d2040 	add	r2, sp, #64	; 0x40</pre>
+<pre>    eddc:	e3a01004 	mov	r1, #4</pre>
+<pre>--</pre>
+<pre>    fa1c:	e1a00004 	mov	r0, r4</pre>
+<pre>    fa20:	ebffd2b1 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>    fa24:	e3560000 	cmp	r6, #0</pre>
+<pre>    fa28:	0affffe3 	beq	f9bc &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x48&gt;</pre>
+<pre>    fa2c:	e3020670 	movw	r0, #9840	; 0x2670</pre>
+<pre>    fa30:	e28dd040 	add	sp, sp, #64	; 0x40</pre>
+<pre>    fa34:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>    fa38:	e1a01007 	mov	r1, r7</pre>
+<pre>    fa3c:	e1a00006 	mov	r0, r6</pre>
+<pre>    fa40:	ebffd1e9 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>    fa44:	e3500000 	cmp	r0, #0</pre>
+<pre>    fa48:	1afffff2 	bne	fa18 &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0xa4&gt;</pre>
+<pre>    fa4c:	e59d3000 	ldr	r3, [sp]</pre>
+<pre>    fa50:	e5d33004 	ldrb	r3, [r3, #4]</pre>
+<pre>    fa54:	e3530000 	cmp	r3, #0</pre>
+<pre>    fa58:	1a000017 	bne	fabc &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x148&gt;</pre>
+<pre>    fa5c:	e59f1074 	ldr	r1, [pc, #116]	; fad8 &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x164&gt;</pre>
+<pre>    fa60:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    fa64:	e1a00009 	mov	r0, r9</pre>
+<pre>    fa68:	e3a06001 	mov	r6, #1</pre>
+<pre><span class="red">    fa6c:	ebffd10c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    fa70:	e59d3000 	ldr	r3, [sp]</pre>
+<pre>    fa74:	e59f0060 	ldr	r0, [pc, #96]	; fadc &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x168&gt;</pre>
+<pre>    fa78:	e5931014 	ldr	r1, [r3, #20]</pre>
+<pre>    fa7c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    fa80:	ebffd107 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    fa84:	e59d3000 	ldr	r3, [sp]</pre>
+<pre>    fa88:	e59f0050 	ldr	r0, [pc, #80]	; fae0 &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x16c&gt;</pre>
+<pre>    fa8c:	e5931018 	ldr	r1, [r3, #24]</pre>
+<pre>    fa90:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    fa94:	ebffd102 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    fa98:	e59d3000 	ldr	r3, [sp]</pre>
+<pre>    fa9c:	e3a01ee1 	mov	r1, #3600	; 0xe10</pre>
+<pre>    faa0:	e593002c 	ldr	r0, [r3, #44]	; 0x2c</pre>
+<pre>    faa4:	eb000bf0 	bl	12a6c &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x590&gt;</pre>
+<pre>    faa8:	e1a01000 	mov	r1, r0</pre>
+<pre>    faac:	e59f0030 	ldr	r0, [pc, #48]	; fae4 &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x170&gt;</pre>
+<pre>    fab0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    fab4:	ebffd0fa 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    fab8:	eaffffd7 	b	fa1c &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0xa8&gt;</pre>
+<pre>    fabc:	e59f1024 	ldr	r1, [pc, #36]	; fae8 &lt;cliCmd_showDhcpServer_dev2&commat;&commat;Base+0x174&gt;</pre>
+<pre>--</pre>
+<pre>   10054:	e1a01005 	mov	r1, r5</pre>
+<pre>   10058:	e30005f1 	movw	r0, #1521	; 0x5f1</pre>
+<pre>   1005c:	e1a02006 	mov	r2, r6</pre>
+<pre>   10060:	ebffd085 	bl	427c &lt;cmsObj_getNext&commat;plt&gt;</pre>
+<pre>   10064:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   10068:	0a000001 	beq	10074 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0xa0&gt;</pre>
+<pre>   1006c:	e28dd04c 	add	sp, sp, #76	; 0x4c</pre>
+<pre>   10070:	e8bd86f0 	pop	{r4, r5, r6, r7, r9, sl, pc}</pre>
+<pre>   10074:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   10078:	e5930008 	ldr	r0, [r3, #8]</pre>
+<pre>   1007c:	ebffd003 	bl	4090 &lt;cmsUtl_isValidIpv4Address&commat;plt&gt;</pre>
+<pre>   10080:	e59d1008 	ldr	r1, [sp, #8]</pre>
+<pre>   10084:	e3500000 	cmp	r0, #0</pre>
+<pre>   10088:	0a000020 	beq	10110 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x13c&gt;</pre>
+<pre>   1008c:	e5913020 	ldr	r3, [r1, #32]</pre>
+<pre>   10090:	e1a00009 	mov	r0, r9</pre>
+<pre>   10094:	e28da00c 	add	sl, sp, #12</pre>
+<pre>   10098:	e58d3000 	str	r3, [sp]</pre>
+<pre>   1009c:	e5913010 	ldr	r3, [r1, #16]</pre>
+<pre>   100a0:	e9910006 	ldmib	r1, {r1, r2}</pre>
+<pre><span class="red">   100a4:	ebffcf7e 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   100a8:	e1a01004 	mov	r1, r4</pre>
+<pre>   100ac:	e58d400c 	str	r4, [sp, #12]</pre>
+<pre>   100b0:	e28d402c 	add	r4, sp, #44	; 0x2c</pre>
+<pre>   100b4:	e3a0201c 	mov	r2, #28</pre>
+<pre>   100b8:	e1a00004 	mov	r0, r4</pre>
+<pre>   100bc:	ebffd0ad 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   100c0:	e3a03002 	mov	r3, #2</pre>
+<pre>   100c4:	e1a02004 	mov	r2, r4</pre>
+<pre>   100c8:	e1a01005 	mov	r1, r5</pre>
+<pre>   100cc:	e30005f3 	movw	r0, #1523	; 0x5f3</pre>
+<pre>   100d0:	e58da000 	str	sl, [sp]</pre>
+<pre>   100d4:	ebffd053 	bl	4228 &lt;cmsObj_getNextInSubTreeFlags&commat;plt&gt;</pre>
+<pre>   100d8:	e3500000 	cmp	r0, #0</pre>
+<pre>   100dc:	1a000008 	bne	10104 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x130&gt;</pre>
+<pre>   100e0:	e59d300c 	ldr	r3, [sp, #12]</pre>
+<pre>   100e4:	e59f0080 	ldr	r0, [pc, #128]	; 1016c &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x198&gt;</pre>
+<pre>   100e8:	e5932004 	ldr	r2, [r3, #4]</pre>
+<pre>   100ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   100f0:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   100f4:	e5931004 	ldr	r1, [r3, #4]</pre>
+<pre><span class="red">   100f8:	ebffcf69 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   100fc:	e1a0000a 	mov	r0, sl</pre>
+<pre>   10100:	ebffd0f9 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   10104:	e1a00006 	mov	r0, r6</pre>
+<pre>   10108:	ebffd0f7 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   1010c:	eaffffcf 	b	10050 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x7c&gt;</pre>
+<pre>   10110:	e5911008 	ldr	r1, [r1, #8]</pre>
+<pre>   10114:	e3a0000a 	mov	r0, #10</pre>
+<pre>   10118:	ebffcfa3 	bl	3fac &lt;cmsUtl_isValidIpAddress&commat;plt&gt;</pre>
+<pre>   1011c:	e3500000 	cmp	r0, #0</pre>
+<pre>   10120:	0afffff7 	beq	10104 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x130&gt;</pre>
+<pre>   10124:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   10128:	e1a00007 	mov	r0, r7</pre>
+<pre>   1012c:	e9930006 	ldmib	r3, {r1, r2}</pre>
+<pre><span class="red">   10130:	ebffcf5b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10134:	eafffff2 	b	10104 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x130&gt;</pre>
+<pre>   10138:	e59f0030 	ldr	r0, [pc, #48]	; 10170 &lt;processLanHostsCmd_dev2&commat;&commat;Base+0x19c&gt;</pre>
+<pre>--</pre>
+<pre>   103d0:	e59f33e8 	ldr	r3, [pc, #1000]	; 107c0 &lt;processSntpCmd_dev2&commat;&commat;Base+0x648&gt;</pre>
+<pre>   103d4:	e3a02e29 	mov	r2, #656	; 0x290</pre>
+<pre>   103d8:	e59f13e4 	ldr	r1, [pc, #996]	; 107c4 &lt;processSntpCmd_dev2&commat;&commat;Base+0x64c&gt;</pre>
+<pre>   103dc:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   103e0:	e58d7000 	str	r7, [sp]</pre>
+<pre>   103e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   103e8:	eaffffbf 	b	102ec &lt;processSntpCmd_dev2&commat;&commat;Base+0x174&gt;</pre>
+<pre>   103ec:	e59f13d4 	ldr	r1, [pc, #980]	; 107c8 &lt;processSntpCmd_dev2&commat;&commat;Base+0x650&gt;</pre>
+<pre>   103f0:	e1a00004 	mov	r0, r4</pre>
+<pre>   103f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   103f8:	ebffcf21 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>   103fc:	e2505000 	subs	r5, r0, #0</pre>
+<pre>   10400:	1a000008 	bne	10428 &lt;processSntpCmd_dev2&commat;&commat;Base+0x2b0&gt;</pre>
+<pre>   10404:	ebffcee5 	bl	3fa0 &lt;time&commat;plt&gt;</pre>
+<pre>   10408:	e58d004c 	str	r0, [sp, #76]	; 0x4c</pre>
+<pre>   1040c:	e28d004c 	add	r0, sp, #76	; 0x4c</pre>
+<pre>   10410:	ebffcef4 	bl	3fe8 &lt;ctime&commat;plt&gt;</pre>
+<pre>   10414:	e1a01000 	mov	r1, r0</pre>
+<pre>   10418:	e59f03ac 	ldr	r0, [pc, #940]	; 107cc &lt;processSntpCmd_dev2&commat;&commat;Base+0x654&gt;</pre>
+<pre>   1041c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10420:	ebffce9f 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10424:	eaffffb3 	b	102f8 &lt;processSntpCmd_dev2&commat;&commat;Base+0x180&gt;</pre>
+<pre>   10428:	e59f13a0 	ldr	r1, [pc, #928]	; 107d0 &lt;processSntpCmd_dev2&commat;&commat;Base+0x658&gt;</pre>
+<pre>--</pre>
+<pre>   10444:	e1a07005 	mov	r7, r5</pre>
+<pre>   10448:	e1a0a005 	mov	sl, r5</pre>
+<pre>   1044c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   10450:	ebffcf59 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>   10454:	e59f337c 	ldr	r3, [pc, #892]	; 107d8 &lt;processSntpCmd_dev2&commat;&commat;Base+0x660&gt;</pre>
+<pre>   10458:	e799b003 	ldr	fp, [r9, r3]</pre>
+<pre>   1045c:	e59f3378 	ldr	r3, [pc, #888]	; 107dc &lt;processSntpCmd_dev2&commat;&commat;Base+0x664&gt;</pre>
+<pre>   10460:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   10464:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   10468:	e49b3004 	ldr	r3, [fp], #4</pre>
+<pre>   1046c:	e3530000 	cmp	r3, #0</pre>
+<pre>   10470:	0affffa1 	beq	102fc &lt;processSntpCmd_dev2&commat;&commat;Base+0x184&gt;</pre>
+<pre>   10474:	e35a0000 	cmp	sl, #0</pre>
+<pre>   10478:	0a000007 	beq	1049c &lt;processSntpCmd_dev2&commat;&commat;Base+0x324&gt;</pre>
+<pre>   1047c:	e3a01016 	mov	r1, #22</pre>
+<pre>   10480:	e1a0000a 	mov	r0, sl</pre>
+<pre>   10484:	eb0009af 	bl	12b48 &lt;cliIntfGroup_isAvailableWanInterface_dev2&commat;&commat;Base+0x66c&gt;</pre>
+<pre>   10488:	e3510000 	cmp	r1, #0</pre>
+<pre>   1048c:	1a000002 	bne	1049c &lt;processSntpCmd_dev2&commat;&commat;Base+0x324&gt;</pre>
+<pre>   10490:	e59d000c 	ldr	r0, [sp, #12]</pre>
+<pre><span class="red">   10494:	ebffce82 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10498:	ebffceb7 	bl	3f7c &lt;getchar&commat;plt&gt;</pre>
+<pre>   1049c:	e51b0004 	ldr	r0, [fp, #-4]</pre>
+<pre>--</pre>
+<pre>   108e4:	ebffcdec 	bl	409c &lt;cmsObj_getNextFlags&commat;plt&gt;</pre>
+<pre>   108e8:	e3500000 	cmp	r0, #0</pre>
+<pre>   108ec:	0a000006 	beq	1090c &lt;virtualServerShow_dev2&commat;&commat;Base+0x68&gt;</pre>
+<pre>   108f0:	e3540000 	cmp	r4, #0</pre>
+<pre>   108f4:	1a000002 	bne	10904 &lt;virtualServerShow_dev2&commat;&commat;Base+0x60&gt;</pre>
+<pre>   108f8:	e59f0048 	ldr	r0, [pc, #72]	; 10948 &lt;virtualServerShow_dev2&commat;&commat;Base+0xa4&gt;</pre>
+<pre>   108fc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   10900:	ebffce2d 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>   10904:	e28dd02c 	add	sp, sp, #44	; 0x2c</pre>
+<pre>   10908:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>   1090c:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   10910:	e1a00007 	mov	r0, r7</pre>
+<pre>   10914:	e5931024 	ldr	r1, [r3, #36]	; 0x24</pre>
+<pre>   10918:	e5d32004 	ldrb	r2, [r3, #4]</pre>
+<pre>   1091c:	e58d1004 	str	r1, [sp, #4]</pre>
+<pre>   10920:	e5931020 	ldr	r1, [r3, #32]</pre>
+<pre>   10924:	e58d1000 	str	r1, [sp]</pre>
+<pre>   10928:	e1a01004 	mov	r1, r4</pre>
+<pre>   1092c:	e5933038 	ldr	r3, [r3, #56]	; 0x38</pre>
+<pre>   10930:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">   10934:	ebffcd5a 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10938:	e1a00006 	mov	r0, r6</pre>
+<pre>   1093c:	ebffceea 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   10964:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   10968:	e1a04001 	mov	r4, r1</pre>
+<pre>   1096c:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>   10970:	e3a0201c 	mov	r2, #28</pre>
+<pre>   10974:	e3a01000 	mov	r1, #0</pre>
+<pre>   10978:	e1a00007 	mov	r0, r7</pre>
+<pre>   1097c:	ebffce7d 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   10980:	e3a06000 	mov	r6, #0</pre>
+<pre>   10984:	e58d6008 	str	r6, [sp, #8]</pre>
+<pre>   10988:	e28d9008 	add	r9, sp, #8</pre>
+<pre>   1098c:	e3a02002 	mov	r2, #2</pre>
+<pre>   10990:	e1a01007 	mov	r1, r7</pre>
+<pre>   10994:	e3000e09 	movw	r0, #3593	; 0xe09</pre>
+<pre>   10998:	e1a03009 	mov	r3, r9</pre>
+<pre>   1099c:	ebffcdbe 	bl	409c &lt;cmsObj_getNextFlags&commat;plt&gt;</pre>
+<pre>   109a0:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   109a4:	0a000004 	beq	109bc &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0x70&gt;</pre>
+<pre>   109a8:	e59f0098 	ldr	r0, [pc, #152]	; 10a48 &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xfc&gt;</pre>
+<pre>   109ac:	e1a01004 	mov	r1, r4</pre>
+<pre>   109b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   109b4:	ebffcd3a 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   109b8:	ea000017 	b	10a1c &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xd0&gt;</pre>
+<pre>   109bc:	e1540006 	cmp	r4, r6</pre>
+<pre>   109c0:	1a00000e 	bne	10a00 &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xb4&gt;</pre>
+<pre>   109c4:	e59d0008 	ldr	r0, [sp, #8]</pre>
+<pre>   109c8:	e5d03004 	ldrb	r3, [r0, #4]</pre>
+<pre>   109cc:	e1530005 	cmp	r3, r5</pre>
+<pre>   109d0:	0a000016 	beq	10a30 &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xe4&gt;</pre>
+<pre>   109d4:	e1a01007 	mov	r1, r7</pre>
+<pre>   109d8:	e5c05004 	strb	r5, [r0, #4]</pre>
+<pre>   109dc:	ebffcf19 	bl	4648 &lt;cmsObj_set&commat;plt&gt;</pre>
+<pre>   109e0:	e1a02005 	mov	r2, r5</pre>
+<pre>   109e4:	e1a01004 	mov	r1, r4</pre>
+<pre>   109e8:	e2503000 	subs	r3, r0, #0</pre>
+<pre>   109ec:	0a00000c 	beq	10a24 &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xd8&gt;</pre>
+<pre>   109f0:	e59f0054 	ldr	r0, [pc, #84]	; 10a4c &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0x100&gt;</pre>
+<pre>   109f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   109f8:	ebffcd29 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   109fc:	e3a03001 	mov	r3, #1</pre>
+<pre>   10a00:	e1a00009 	mov	r0, r9</pre>
+<pre>   10a04:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   10a08:	ebffceb7 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   10a0c:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   10a10:	e2866001 	add	r6, r6, #1</pre>
+<pre>   10a14:	e3530000 	cmp	r3, #0</pre>
+<pre>   10a18:	0affffda 	beq	10988 &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0x3c&gt;</pre>
+<pre>   10a1c:	e28dd028 	add	sp, sp, #40	; 0x28</pre>
+<pre>   10a20:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>   10a24:	e1a0000b 	mov	r0, fp</pre>
+<pre><span class="red">   10a28:	ebffcd1d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10a2c:	eafffff2 	b	109fc &lt;virtualServerEnableDisable_dev2&commat;&commat;Base+0xb0&gt;</pre>
+<pre>   10a30:	e1a02005 	mov	r2, r5</pre>
+<pre>--</pre>
+<pre>   10c1c:	1a000003 	bne	10c30 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x1e0&gt;</pre>
+<pre>   10c20:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   10c24:	e28d0038 	add	r0, sp, #56	; 0x38</pre>
+<pre>   10c28:	ebffcd4e 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>   10c2c:	e3a05001 	mov	r5, #1</pre>
+<pre>   10c30:	e1a00006 	mov	r0, r6</pre>
+<pre>   10c34:	ebffce2c 	bl	44ec &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   10c38:	eaffffe9 	b	10be4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x194&gt;</pre>
+<pre>   10c3c:	e5931010 	ldr	r1, [r3, #16]</pre>
+<pre>   10c40:	e1a00009 	mov	r0, r9</pre>
+<pre>   10c44:	ebffcd68 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>   10c48:	e3500000 	cmp	r0, #0</pre>
+<pre>   10c4c:	1affffd9 	bne	10bb8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x168&gt;</pre>
+<pre>   10c50:	e28d0038 	add	r0, sp, #56	; 0x38</pre>
+<pre>   10c54:	e1a0100b 	mov	r1, fp</pre>
+<pre>   10c58:	ebffcd42 	bl	4168 &lt;strcpy&commat;plt&gt;</pre>
+<pre>   10c5c:	eaffffd6 	b	10bbc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x16c&gt;</pre>
+<pre>   10c60:	e59f0364 	ldr	r0, [pc, #868]	; 10fcc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x57c&gt;</pre>
+<pre>   10c64:	e28d1058 	add	r1, sp, #88	; 0x58</pre>
+<pre>   10c68:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10c6c:	ebffcc8c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10c70:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10c74:	e5935010 	ldr	r5, [r3, #16]</pre>
+<pre>   10c78:	e1a00005 	mov	r0, r5</pre>
+<pre>   10c7c:	ebffcd8d 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>   10c80:	e1a01005 	mov	r1, r5</pre>
+<pre>   10c84:	e3500007 	cmp	r0, #7</pre>
+<pre>   10c88:	8a00008a 	bhi	10eb8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x468&gt;</pre>
+<pre>   10c8c:	e59f033c 	ldr	r0, [pc, #828]	; 10fd0 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x580&gt;</pre>
+<pre>   10c90:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10c94:	ebffcc82 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10c98:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10c9c:	e5935014 	ldr	r5, [r3, #20]</pre>
+<pre>   10ca0:	e1a00005 	mov	r0, r5</pre>
+<pre>   10ca4:	ebffcd83 	bl	42b8 &lt;strlen&commat;plt&gt;</pre>
+<pre>   10ca8:	e1a01005 	mov	r1, r5</pre>
+<pre>   10cac:	e3500007 	cmp	r0, #7</pre>
+<pre>   10cb0:	8a000083 	bhi	10ec4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x474&gt;</pre>
+<pre>   10cb4:	e59f0318 	ldr	r0, [pc, #792]	; 10fd4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x584&gt;</pre>
+<pre>   10cb8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10cbc:	ebffcc78 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10cc0:	e28d5038 	add	r5, sp, #56	; 0x38</pre>
+<pre>   10cc4:	e59f130c 	ldr	r1, [pc, #780]	; 10fd8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x588&gt;</pre>
+<pre>   10cc8:	e1a00005 	mov	r0, r5</pre>
+<pre>   10ccc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10cd0:	ebffcd45 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>   10cd4:	e3500000 	cmp	r0, #0</pre>
+<pre>   10cd8:	1a000082 	bne	10ee8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x498&gt;</pre>
+<pre>   10cdc:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10ce0:	e5d32058 	ldrb	r2, [r3, #88]	; 0x58</pre>
+<pre>   10ce4:	e3520000 	cmp	r2, #0</pre>
+<pre>   10ce8:	1a00007b 	bne	10edc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x48c&gt;</pre>
+<pre>   10cec:	e59f12e8 	ldr	r1, [pc, #744]	; 10fdc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x58c&gt;</pre>
+<pre>   10cf0:	e5930020 	ldr	r0, [r3, #32]</pre>
+<pre>   10cf4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10cf8:	ebffcc45 	bl	3e14 &lt;strstr&commat;plt&gt;</pre>
+<pre>   10cfc:	e3500000 	cmp	r0, #0</pre>
+<pre>   10d00:	0a000072 	beq	10ed0 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x480&gt;</pre>
+<pre>   10d04:	e59f02d4 	ldr	r0, [pc, #724]	; 10fe0 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x590&gt;</pre>
+<pre>   10d08:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10d0c:	ebffcc64 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10d10:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10d14:	e5d33062 	ldrb	r3, [r3, #98]	; 0x62</pre>
+<pre>   10d18:	e3530000 	cmp	r3, #0</pre>
+<pre>   10d1c:	1a000082 	bne	10f2c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x4dc&gt;</pre>
+<pre>   10d20:	e59f12bc 	ldr	r1, [pc, #700]	; 10fe4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x594&gt;</pre>
+<pre>   10d24:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10d28:	e59f02b8 	ldr	r0, [pc, #696]	; 10fe8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x598&gt;</pre>
+<pre>   10d2c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10d30:	ebffcc5b 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10d34:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10d38:	e5d33063 	ldrb	r3, [r3, #99]	; 0x63</pre>
+<pre>   10d3c:	e3530000 	cmp	r3, #0</pre>
+<pre>   10d40:	1a00007c 	bne	10f38 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x4e8&gt;</pre>
+<pre>   10d44:	e59f12a0 	ldr	r1, [pc, #672]	; 10fec &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x59c&gt;</pre>
+<pre>   10d48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10d4c:	e59f029c 	ldr	r0, [pc, #668]	; 10ff0 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5a0&gt;</pre>
+<pre>   10d50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10d54:	ebffcc52 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10d58:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10d5c:	e5d33064 	ldrb	r3, [r3, #100]	; 0x64</pre>
+<pre>   10d60:	e3530000 	cmp	r3, #0</pre>
+<pre>   10d64:	1a000076 	bne	10f44 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x4f4&gt;</pre>
+<pre>   10d68:	e59f1284 	ldr	r1, [pc, #644]	; 10ff4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5a4&gt;</pre>
+<pre>   10d6c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10d70:	e59f0280 	ldr	r0, [pc, #640]	; 10ff8 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5a8&gt;</pre>
+<pre>   10d74:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10d78:	ebffcc49 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10d7c:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10d80:	e5d33065 	ldrb	r3, [r3, #101]	; 0x65</pre>
+<pre>   10d84:	e3530000 	cmp	r3, #0</pre>
+<pre>   10d88:	1a000070 	bne	10f50 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x500&gt;</pre>
+<pre>   10d8c:	e59f1268 	ldr	r1, [pc, #616]	; 10ffc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5ac&gt;</pre>
+<pre>   10d90:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10d94:	e59f0264 	ldr	r0, [pc, #612]	; 11000 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5b0&gt;</pre>
+<pre>   10d98:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10d9c:	ebffcc40 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10da0:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10da4:	e593100c 	ldr	r1, [r3, #12]</pre>
+<pre>   10da8:	e3510000 	cmp	r1, #0</pre>
+<pre>   10dac:	059f1250 	ldreq	r1, [pc, #592]	; 11004 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5b4&gt;</pre>
+<pre>   10db0:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>   10db4:	e59f024c 	ldr	r0, [pc, #588]	; 11008 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5b8&gt;</pre>
+<pre>   10db8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10dbc:	ebffcc38 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10dc0:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10dc4:	e59f1240 	ldr	r1, [pc, #576]	; 1100c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5bc&gt;</pre>
+<pre>--</pre>
+<pre>   10dd8:	1a00005f 	bne	10f5c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x50c&gt;</pre>
+<pre>   10ddc:	e3a00009 	mov	r0, #9</pre>
+<pre>   10de0:	ebffcd67 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>   10de4:	e59d5014 	ldr	r5, [sp, #20]</pre>
+<pre>   10de8:	e5d51058 	ldrb	r1, [r5, #88]	; 0x58</pre>
+<pre>   10dec:	e3510000 	cmp	r1, #0</pre>
+<pre>   10df0:	1a000065 	bne	10f8c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x53c&gt;</pre>
+<pre>   10df4:	e3a0202a 	mov	r2, #42	; 0x2a</pre>
+<pre>   10df8:	e28d009c 	add	r0, sp, #156	; 0x9c</pre>
+<pre>   10dfc:	e58d1098 	str	r1, [sp, #152]	; 0x98</pre>
+<pre>   10e00:	ebffcd5c 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   10e04:	e5951014 	ldr	r1, [r5, #20]</pre>
+<pre>   10e08:	e1a02004 	mov	r2, r4</pre>
+<pre>   10e0c:	e3a00001 	mov	r0, #1</pre>
+<pre>   10e10:	ebffcdf7 	bl	45f4 &lt;qdmIpIntf_getIpvxAddressByNameLocked_dev2&commat;plt&gt;</pre>
+<pre>   10e14:	e3500000 	cmp	r0, #0</pre>
+<pre>   10e18:	1a000057 	bne	10f7c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x52c&gt;</pre>
+<pre>   10e1c:	e59f01ec 	ldr	r0, [pc, #492]	; 11010 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5c0&gt;</pre>
+<pre>   10e20:	e1a01004 	mov	r1, r4</pre>
+<pre>   10e24:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10e28:	ebffcc1d 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10e2c:	e1a00004 	mov	r0, r4</pre>
+<pre>   10e30:	ebffcdd1 	bl	457c &lt;cmsUtl_strlen&commat;plt&gt;</pre>
+<pre>   10e34:	e3500007 	cmp	r0, #7</pre>
+<pre>   10e38:	1a000001 	bne	10e44 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x3f4&gt;</pre>
+<pre>   10e3c:	e3a00009 	mov	r0, #9</pre>
+<pre>   10e40:	ebffcd4f 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>   10e44:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10e48:	e593104c 	ldr	r1, [r3, #76]	; 0x4c</pre>
+<pre>   10e4c:	e3510000 	cmp	r1, #0</pre>
+<pre>   10e50:	059f11bc 	ldreq	r1, [pc, #444]	; 11014 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5c4&gt;</pre>
+<pre>   10e54:	008f1001 	addeq	r1, pc, r1</pre>
+<pre>   10e58:	e59f01b8 	ldr	r0, [pc, #440]	; 11018 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5c8&gt;</pre>
+<pre>   10e5c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10e60:	ebffcc0f 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10e64:	e59d5014 	ldr	r5, [sp, #20]</pre>
+<pre>   10e68:	e5d51058 	ldrb	r1, [r5, #88]	; 0x58</pre>
+<pre>   10e6c:	e3510000 	cmp	r1, #0</pre>
+<pre>   10e70:	1a00000d 	bne	10eac &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x45c&gt;</pre>
+<pre>   10e74:	e3a0202a 	mov	r2, #42	; 0x2a</pre>
+<pre>   10e78:	e28d009c 	add	r0, sp, #156	; 0x9c</pre>
+<pre>   10e7c:	e58d1098 	str	r1, [sp, #152]	; 0x98</pre>
+<pre>   10e80:	ebffcd3c 	bl	4378 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   10e84:	e5951014 	ldr	r1, [r5, #20]</pre>
+<pre>   10e88:	e1a02004 	mov	r2, r4</pre>
+<pre>   10e8c:	e3a00002 	mov	r0, #2</pre>
+<pre>   10e90:	ebffcdd7 	bl	45f4 &lt;qdmIpIntf_getIpvxAddressByNameLocked_dev2&commat;plt&gt;</pre>
+<pre>   10e94:	e3500000 	cmp	r0, #0</pre>
+<pre>   10e98:	1a000003 	bne	10eac &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x45c&gt;</pre>
+<pre>   10e9c:	e59f0178 	ldr	r0, [pc, #376]	; 1101c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5cc&gt;</pre>
+<pre>   10ea0:	e1a01004 	mov	r1, r4</pre>
+<pre>   10ea4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10ea8:	ebffcbfd 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10eac:	e3a0000a 	mov	r0, #10</pre>
+<pre>   10eb0:	ebffcd33 	bl	4384 &lt;putchar&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   10f34:	eaffff7b 	b	10d28 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x2d8&gt;</pre>
+<pre>   10f38:	e59f1104 	ldr	r1, [pc, #260]	; 11044 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5f4&gt;</pre>
+<pre>   10f3c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f40:	eaffff81 	b	10d4c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x2fc&gt;</pre>
+<pre>   10f44:	e59f10fc 	ldr	r1, [pc, #252]	; 11048 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5f8&gt;</pre>
+<pre>   10f48:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f4c:	eaffff87 	b	10d70 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x320&gt;</pre>
+<pre>   10f50:	e59f10f4 	ldr	r1, [pc, #244]	; 1104c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x5fc&gt;</pre>
+<pre>   10f54:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f58:	eaffff8d 	b	10d94 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x344&gt;</pre>
+<pre>   10f5c:	e59d3014 	ldr	r3, [sp, #20]</pre>
+<pre>   10f60:	e59f10e8 	ldr	r1, [pc, #232]	; 11050 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x600&gt;</pre>
+<pre>   10f64:	e593000c 	ldr	r0, [r3, #12]</pre>
+<pre>   10f68:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   10f6c:	ebffcc9e 	bl	41ec &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>   10f70:	e3500000 	cmp	r0, #0</pre>
+<pre>   10f74:	0affff98 	beq	10ddc &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x38c&gt;</pre>
+<pre>   10f78:	eaffff99 	b	10de4 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x394&gt;</pre>
+<pre>   10f7c:	e59f00d0 	ldr	r0, [pc, #208]	; 11054 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x604&gt;</pre>
+<pre>   10f80:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10f84:	ebffcbc6 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10f88:	eaffffad 	b	10e44 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x3f4&gt;</pre>
+<pre>   10f8c:	e59f00c4 	ldr	r0, [pc, #196]	; 11058 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x608&gt;</pre>
+<pre>   10f90:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   10f94:	eafffffa 	b	10f84 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x534&gt;</pre>
+<pre>   10f98:	e5dd3058 	ldrb	r3, [sp, #88]	; 0x58</pre>
+<pre>   10f9c:	e3530000 	cmp	r3, #0</pre>
+<pre>   10fa0:	1affff2e 	bne	10c60 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x210&gt;</pre>
+<pre>   10fa4:	e59f00b0 	ldr	r0, [pc, #176]	; 1105c &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x60c&gt;</pre>
+<pre>   10fa8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   10fac:	ebffcbbc 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   10fb0:	eaffff2e 	b	10c70 &lt;cli_wanShowServicesSub_dev2&commat;&commat;Base+0x220&gt;</pre>
+<pre>   10fb4:	000068d5 	ldrdeq	r6, [r0], -r5</pre>
+<pre>--</pre>
+<pre>   1119c:	e59fa1a8 	ldr	sl, [pc, #424]	; 1134c &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2bc&gt;</pre>
+<pre>   111a0:	ebffcb78 	bl	3f88 &lt;cliIntfGroup_getNumberOfGroups_dev2&commat;plt&gt;</pre>
+<pre>   111a4:	e59f31a4 	ldr	r3, [pc, #420]	; 11350 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2c0&gt;</pre>
+<pre>   111a8:	e59f11a4 	ldr	r1, [pc, #420]	; 11354 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2c4&gt;</pre>
+<pre>   111ac:	e30021e7 	movw	r2, #487	; 0x1e7</pre>
+<pre>   111b0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   111b4:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   111b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   111bc:	e58d0018 	str	r0, [sp, #24]</pre>
+<pre>   111c0:	e58d0000 	str	r0, [sp]</pre>
+<pre>   111c4:	e3a00007 	mov	r0, #7</pre>
+<pre>   111c8:	ebffccfd 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>   111cc:	e59f3184 	ldr	r3, [pc, #388]	; 11358 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2c8&gt;</pre>
+<pre>   111d0:	e59f2184 	ldr	r2, [pc, #388]	; 1135c &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2cc&gt;</pre>
+<pre>   111d4:	e59f1184 	ldr	r1, [pc, #388]	; 11360 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2d0&gt;</pre>
+<pre>   111d8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   111dc:	e59f0180 	ldr	r0, [pc, #384]	; 11364 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2d4&gt;</pre>
+<pre>   111e0:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   111e4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   111e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   111ec:	ebffcb2c 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   111f0:	e59f3170 	ldr	r3, [pc, #368]	; 11368 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2d8&gt;</pre>
+<pre>   111f4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>--</pre>
+<pre>   112e0:	ebffccb7 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>   112e4:	e59f3084 	ldr	r3, [pc, #132]	; 11370 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2e0&gt;</pre>
+<pre>   112e8:	e30021fe 	movw	r2, #510	; 0x1fe</pre>
+<pre>   112ec:	e1a0100a 	mov	r1, sl</pre>
+<pre>   112f0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   112f4:	e3a00007 	mov	r0, #7</pre>
+<pre>   112f8:	e58d6000 	str	r6, [sp]</pre>
+<pre>   112fc:	ebffccb0 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>   11300:	e59f306c 	ldr	r3, [pc, #108]	; 11374 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2e4&gt;</pre>
+<pre>   11304:	e30021ff 	movw	r2, #511	; 0x1ff</pre>
+<pre>   11308:	e1a0100a 	mov	r1, sl</pre>
+<pre>   1130c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   11310:	e3a00007 	mov	r0, #7</pre>
+<pre>   11314:	e58d7000 	str	r7, [sp]</pre>
+<pre>   11318:	ebffcca9 	bl	45c4 &lt;log_log&commat;plt&gt;</pre>
+<pre>   1131c:	e59f3054 	ldr	r3, [pc, #84]	; 11378 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x2e8&gt;</pre>
+<pre>   11320:	e1a01007 	mov	r1, r7</pre>
+<pre>   11324:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   11328:	e1a07003 	mov	r7, r3</pre>
+<pre>   1132c:	e1a00003 	mov	r0, r3</pre>
+<pre><span class="red">   11330:	ebffcadb 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11334:	e1a01006 	mov	r1, r6</pre>
+<pre>   11338:	e1a00007 	mov	r0, r7</pre>
+<pre><span class="red">   1133c:	ebffcad8 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11340:	e1a00005 	mov	r0, r5</pre>
+<pre>   11344:	ebffcb9c 	bl	41bc &lt;puts&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   118e8:	00007b1f 	andeq	r7, r0, pc, lsl fp</pre>
+<pre>   118ec:	00007b27 	andeq	r7, r0, r7, lsr #22</pre>
+<pre>   118f0:	e92d4013 	push	{r0, r1, r4, lr}</pre>
+<pre>   118f4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   118f8:	0a000004 	beq	11910 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x880&gt;</pre>
+<pre>   118fc:	e59f10b4 	ldr	r1, [pc, #180]	; 119b8 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x928&gt;</pre>
+<pre>   11900:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11904:	ebffc9de 	bl	4084 &lt;strcasecmp&commat;plt&gt;</pre>
+<pre>   11908:	e3500000 	cmp	r0, #0</pre>
+<pre>   1190c:	1a00000c 	bne	11944 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x8b4&gt;</pre>
+<pre>   11910:	e59f10a4 	ldr	r1, [pc, #164]	; 119bc &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x92c&gt;</pre>
+<pre>   11914:	e59f00a4 	ldr	r0, [pc, #164]	; 119c0 &lt;cli_isValidL2IfName_dev2&commat;&commat;Base+0x930&gt;</pre>
+<pre>   11918:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1191c:	e2813f42 	add	r3, r1, #264	; 0x108</pre>
+<pre>   11920:	e28120b7 	add	r2, r1, #183	; 0xb7</pre>
+<pre>   11924:	e2833002 	add	r3, r3, #2</pre>
+<pre>   11928:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1192c:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11930:	e281303a 	add	r3, r1, #58	; 0x3a</pre>
+<pre>   11934:	e28110cf 	add	r1, r1, #207	; 0xcf</pre>
+<pre><span class="red">   11938:	ebffc959 	bl	3ea4 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1193c:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   11940:	e8bd8010 	pop	{r4, pc}</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">155</span> times </span><span class="orange">libcms_cli.so</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

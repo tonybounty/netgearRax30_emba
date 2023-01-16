@@ -1,0 +1,53 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 4:</span></pre>
+<pre></span>volname_path="/sys/class/"$2"/"$1"/volname"</span></pre>
+<pre><span class="orange">                          ^-- SC2027 (warning): The surrounding quotes actually unquote this. Remove or escape them.</span></pre>
+<pre><span class="orange">                               ^-- SC2027 (warning): The surrounding quotes actually unquote this. Remove or escape them.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 6:</span></pre>
+<pre></span>if [ -e $volname_path ]</span></pre>
+<pre><span class="green">        ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>if [ -e "$volname_path" ]</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 8:</span></pre>
+<pre></span>    link_path="/dev/"$(cat $volname_path)</span></pre>
+<pre><span class="green">                           ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    link_path="/dev/"$(cat "$volname_path")</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 11:</span></pre>
+<pre></span>    mmc_vol_name=`grep PARTNAME /sys/class/$2/$1/uevent`</span></pre>
+<pre><span class="green">                 ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                           ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                              ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    mmc_vol_name=$(grep PARTNAME /sys/class/"$2"/"$1"/uevent)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 13:</span></pre>
+<pre></span>    if [ -z $mmc_vol_name ]</span></pre>
+<pre><span class="green">            ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ -z "$mmc_vol_name" ]</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/make_mmc_links.sh line 23:</span></pre>
+<pre></span>ln -s $dev_path $link_path</span></pre>
+<pre><span class="green">      ^-------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>ln -s "$dev_path" "$link_path"</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2027" title="https://www.shellcheck.net/wiki/SC2027" target="_blank" >https://www.shellcheck.net/wiki/SC2027</a> -- The surrounding quotes actually u...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2006" title="https://www.shellcheck.net/wiki/SC2006" target="_blank" >https://www.shellcheck.net/wiki/SC2006</a> -- Use $(...) notation instead of le...</pre>

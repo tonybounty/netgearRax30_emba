@@ -1,0 +1,1072 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libxml2.so.2.9.0</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> tear down of </span><span class="orange">libxml2.so.2.9.0</span></pre>
+<br />
+<pre>   2489c:	e1a05fc4 	asr	r5, r4, #31</pre>
+<pre>   248a0:	e34628db 	movt	r2, #26843	; 0x68db</pre>
+<pre>   248a4:	e59f7050 	ldr	r7, [pc, #80]	; 248fc &lt;xmlCheckVersion&commat;&commat;LIBXML2_2.4.30+0xd4&gt;</pre>
+<pre>   248a8:	e0c23492 	smull	r3, r2, r2, r4</pre>
+<pre>   248ac:	e08f7007 	add	r7, pc, r7</pre>
+<pre>   248b0:	e0655642 	rsb	r5, r5, r2, asr #12</pre>
+<pre>   248b4:	eb01a01b 	bl	8c928 &lt;__xmlGenericError&commat;&commat;Base&gt;</pre>
+<pre>   248b8:	e5908000 	ldr	r8, [r0]</pre>
+<pre>   248bc:	eb01a035 	bl	8c998 &lt;__xmlGenericErrorContext&commat;&commat;Base&gt;</pre>
+<pre>   248c0:	e1a02005 	mov	r2, r5</pre>
+<pre>   248c4:	e1a01007 	mov	r1, r7</pre>
+<pre>   248c8:	e5900000 	ldr	r0, [r0]</pre>
+<pre>   248cc:	e3a03002 	mov	r3, #2</pre>
+<pre>   248d0:	e12fff38 	blx	r8</pre>
+<pre>   248d4:	e59f0024 	ldr	r0, [pc, #36]	; 24900 &lt;xmlCheckVersion&commat;&commat;LIBXML2_2.4.30+0xd8&gt;</pre>
+<pre>   248d8:	e1a02005 	mov	r2, r5</pre>
+<pre>   248dc:	e1a01007 	mov	r1, r7</pre>
+<pre>   248e0:	e3a03002 	mov	r3, #2</pre>
+<pre>   248e4:	e7960000 	ldr	r0, [r6, r0]</pre>
+<pre>   248e8:	e5900000 	ldr	r0, [r0]</pre>
+<pre><span class="red">   248ec:	ebffe225 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   248f0:	eaffffd6 	b	24850 &lt;xmlCheckVersion&commat;&commat;LIBXML2_2.4.30+0x28&gt;</pre>
+<pre>   248f4:	001007b0 			; &lt;UNDEFINED&gt; instruction: 0x001007b0</pre>
+<pre>--</pre>
+<pre>   6d418:	e78b1002 	str	r1, [fp, r2]</pre>
+<pre>   6d41c:	eaffff95 	b	6d278 &lt;xmlXPathNextPrecedingSibling&commat;&commat;LIBXML2_2.4.30+0x198&gt;</pre>
+<pre>   6d420:	e1a01102 	lsl	r1, r2, #2</pre>
+<pre>   6d424:	e1a0000b 	mov	r0, fp</pre>
+<pre>   6d428:	e58d304c 	str	r3, [sp, #76]	; 0x4c</pre>
+<pre>   6d42c:	e58d2048 	str	r2, [sp, #72]	; 0x48</pre>
+<pre>   6d430:	e58d1044 	str	r1, [sp, #68]	; 0x44</pre>
+<pre>   6d434:	ebfebec9 	bl	1cf60 &lt;realloc&commat;plt&gt;</pre>
+<pre>   6d438:	e250b000 	subs	fp, r0, #0</pre>
+<pre>   6d43c:	e28d1044 	add	r1, sp, #68	; 0x44</pre>
+<pre>   6d440:	e891000e 	ldm	r1, {r1, r2, r3}</pre>
+<pre>   6d444:	18830804 	stmne	r3, {r2, fp}</pre>
+<pre>   6d448:	1affff54 	bne	6d1a0 &lt;xmlXPathNextPrecedingSibling&commat;&commat;LIBXML2_2.4.30+0xc0&gt;</pre>
+<pre>   6d44c:	e59d0040 	ldr	r0, [sp, #64]	; 0x40</pre>
+<pre>   6d450:	e1a02001 	mov	r2, r1</pre>
+<pre>   6d454:	e59f301c 	ldr	r3, [pc, #28]	; 6d478 &lt;xmlXPathNextPrecedingSibling&commat;&commat;LIBXML2_2.4.30+0x398&gt;</pre>
+<pre>   6d458:	e59f101c 	ldr	r1, [pc, #28]	; 6d47c &lt;xmlXPathNextPrecedingSibling&commat;&commat;LIBXML2_2.4.30+0x39c&gt;</pre>
+<pre>   6d45c:	e7903003 	ldr	r3, [r0, r3]</pre>
+<pre>   6d460:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   6d464:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   6d468:	ebfebf46 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   6d46c:	e3a00001 	mov	r0, #1</pre>
+<pre>   6d470:	ebfebf20 	bl	1d0f8 &lt;exit&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   88e78:	ea000000 	b	88e80 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2540&gt;</pre>
+<pre>   88e7c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   88e80:	e59f01e0 	ldr	r0, [pc, #480]	; 89068 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2728&gt;</pre>
+<pre>   88e84:	e1a03001 	mov	r3, r1</pre>
+<pre>   88e88:	e3a02009 	mov	r2, #9</pre>
+<pre>   88e8c:	e3a01001 	mov	r1, #1</pre>
+<pre>   88e90:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   88e94:	ebfe5049 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   88e98:	e594200c 	ldr	r2, [r4, #12]</pre>
+<pre>   88e9c:	e3520013 	cmp	r2, #19</pre>
+<pre>   88ea0:	ca00005c 	bgt	89018 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x26d8&gt;</pre>
+<pre>   88ea4:	e352000e 	cmp	r2, #14</pre>
+<pre>   88ea8:	ca00005e 	bgt	89028 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x26e8&gt;</pre>
+<pre>   88eac:	e242200d 	sub	r2, r2, #13</pre>
+<pre>   88eb0:	e3520001 	cmp	r2, #1</pre>
+<pre>   88eb4:	8a000006 	bhi	88ed4 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2594&gt;</pre>
+<pre>   88eb8:	e59f11ac 	ldr	r1, [pc, #428]	; 8906c &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x272c&gt;</pre>
+<pre>   88ebc:	e1a00005 	mov	r0, r5</pre>
+<pre>   88ec0:	e5942010 	ldr	r2, [r4, #16]</pre>
+<pre>   88ec4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   88ec8:	ebfe50ae 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   88ecc:	e594200c 	ldr	r2, [r4, #12]</pre>
+<pre>   88ed0:	e242200d 	sub	r2, r2, #13</pre>
+<pre>--</pre>
+<pre>   88efc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   88f00:	ebfe502e 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   88f04:	eaffffe3 	b	88e98 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2558&gt;</pre>
+<pre>   88f08:	e59f0164 	ldr	r0, [pc, #356]	; 89074 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2734&gt;</pre>
+<pre>   88f0c:	e1a03001 	mov	r3, r1</pre>
+<pre>   88f10:	e3a02007 	mov	r2, #7</pre>
+<pre>   88f14:	e3a01001 	mov	r1, #1</pre>
+<pre>   88f18:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   88f1c:	ebfe5027 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   88f20:	eaffffdc 	b	88e98 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2558&gt;</pre>
+<pre>   88f24:	e59f014c 	ldr	r0, [pc, #332]	; 89078 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2738&gt;</pre>
+<pre>   88f28:	e1a03001 	mov	r3, r1</pre>
+<pre>   88f2c:	e3a02007 	mov	r2, #7</pre>
+<pre>   88f30:	e3a01001 	mov	r1, #1</pre>
+<pre>   88f34:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   88f38:	ebfe5020 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   88f3c:	eaffffd5 	b	88e98 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2558&gt;</pre>
+<pre>   88f40:	e59f1134 	ldr	r1, [pc, #308]	; 8907c &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x273c&gt;</pre>
+<pre>   88f44:	e1a00005 	mov	r0, r5</pre>
+<pre>   88f48:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   88f4c:	ebfe508d 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   88f50:	eaffffd0 	b	88e98 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2558&gt;</pre>
+<pre>   88f54:	e59f0124 	ldr	r0, [pc, #292]	; 89080 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2740&gt;</pre>
+<pre>--</pre>
+<pre>   89004:	e3a02009 	mov	r2, #9</pre>
+<pre>   89008:	e3a01001 	mov	r1, #1</pre>
+<pre>   8900c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   89010:	ebfe4fea 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   89014:	eaffff9f 	b	88e98 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2558&gt;</pre>
+<pre>   89018:	e2423014 	sub	r3, r2, #20</pre>
+<pre>   8901c:	e3530004 	cmp	r3, #4</pre>
+<pre>   89020:	9affffa4 	bls	88eb8 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2578&gt;</pre>
+<pre>   89024:	eaffffa9 	b	88ed0 &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x2590&gt;</pre>
+<pre>   89028:	e5940010 	ldr	r0, [r4, #16]</pre>
+<pre>   8902c:	e1a01005 	mov	r1, r5</pre>
+<pre>   89030:	ebfe50f3 	bl	1d404 &lt;fputs&commat;plt&gt;</pre>
+<pre>   89034:	e594200c 	ldr	r2, [r4, #12]</pre>
+<pre>   89038:	e242200d 	sub	r2, r2, #13</pre>
+<pre>   8903c:	e3520007 	cmp	r2, #7</pre>
+<pre>   89040:	8affffa5 	bhi	88edc &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x259c&gt;</pre>
+<pre>   89044:	e59f1050 	ldr	r1, [pc, #80]	; 8909c &lt;xmlXIncludeProcessNode&commat;&commat;LIBXML2_2.6.2+0x275c&gt;</pre>
+<pre>   89048:	e1a00005 	mov	r0, r5</pre>
+<pre>   8904c:	e5942014 	ldr	r2, [r4, #20]</pre>
+<pre>   89050:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   89054:	ebfe504b 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   89058:	e1a01005 	mov	r1, r5</pre>
+<pre>   8905c:	e3a0000a 	mov	r0, #10</pre>
+<pre>--</pre>
+<pre>   991fc:	e8bd8010 	pop	{r4, pc}</pre>
+<br />
+<pre>00099200 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30&gt;:</pre>
+<pre>   99200:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}</pre>
+<pre>   99204:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   99208:	e24dd01c 	sub	sp, sp, #28</pre>
+<pre>   9920c:	0a000102 	beq	9961c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x41c&gt;</pre>
+<pre>   99210:	e59f06dc 	ldr	r0, [pc, #1756]	; 998f4 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x6f4&gt;</pre>
+<pre>   99214:	e1a0b001 	mov	fp, r1</pre>
+<pre>   99218:	e1a03004 	mov	r3, r4</pre>
+<pre>   9921c:	e3a02009 	mov	r2, #9</pre>
+<pre>   99220:	e3a01001 	mov	r1, #1</pre>
+<pre>   99224:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   99228:	ebfe0f64 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9922c:	e35b0000 	cmp	fp, #0</pre>
+<pre>   99230:	0a0001a7 	beq	998d4 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x6d4&gt;</pre>
+<pre>   99234:	e59f16bc 	ldr	r1, [pc, #1724]	; 998f8 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x6f8&gt;</pre>
+<pre>   99238:	e1a00004 	mov	r0, r4</pre>
+<pre>   9923c:	e59b2000 	ldr	r2, [fp]</pre>
+<pre>   99240:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99244:	ebfe0fcf 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99248:	e1a01004 	mov	r1, r4</pre>
+<pre>   9924c:	e3a0000a 	mov	r0, #10</pre>
+<pre>   99250:	ebfe1023 	bl	1d2e4 &lt;fputc&commat;plt&gt;</pre>
+<pre>   99254:	e59f16a0 	ldr	r1, [pc, #1696]	; 998fc &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x6fc&gt;</pre>
+<pre>   99258:	e1a00004 	mov	r0, r4</pre>
+<pre>   9925c:	e59b200c 	ldr	r2, [fp, #12]</pre>
+<pre>   99260:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99264:	ebfe0fc7 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99268:	e59b300c 	ldr	r3, [fp, #12]</pre>
+<pre>   9926c:	e3530000 	cmp	r3, #0</pre>
+<pre>   99270:	da000046 	ble	99390 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x190&gt;</pre>
+<pre>   99274:	e59f3684 	ldr	r3, [pc, #1668]	; 99900 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x700&gt;</pre>
+<pre>   99278:	e3a07000 	mov	r7, #0</pre>
+<pre>   9927c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   99280:	e58d3008 	str	r3, [sp, #8]</pre>
+<pre>   99284:	e59f3678 	ldr	r3, [pc, #1656]	; 99904 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x704&gt;</pre>
+<pre>   99288:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   9928c:	e58d3010 	str	r3, [sp, #16]</pre>
+<pre>   99290:	e59d1008 	ldr	r1, [sp, #8]</pre>
+<pre>   99294:	e1a02007 	mov	r2, r7</pre>
+<pre>   99298:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">   9929c:	ebfe0fb9 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   992a0:	e59bc010 	ldr	ip, [fp, #16]</pre>
+<pre>   992a4:	e1a03004 	mov	r3, r4</pre>
+<pre>--</pre>
+<pre>   992fc:	ea000155 	b	99858 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x658&gt;</pre>
+<pre>   99300:	ea00014c 	b	99838 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x638&gt;</pre>
+<pre>   99304:	ea000143 	b	99818 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x618&gt;</pre>
+<pre>   99308:	ea00013a 	b	997f8 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x5f8&gt;</pre>
+<pre>   9930c:	ea000131 	b	997d8 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x5d8&gt;</pre>
+<pre>   99310:	eaffffff 	b	99314 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x114&gt;</pre>
+<pre>   99314:	e59f05f0 	ldr	r0, [pc, #1520]	; 9990c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x70c&gt;</pre>
+<pre>   99318:	e1a03004 	mov	r3, r4</pre>
+<pre>   9931c:	e3a02006 	mov	r2, #6</pre>
+<pre>   99320:	e3a01001 	mov	r1, #1</pre>
+<pre>   99324:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   99328:	ebfe0f24 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9932c:	e5953008 	ldr	r3, [r5, #8]</pre>
+<pre>   99330:	e3530008 	cmp	r3, #8</pre>
+<pre>   99334:	1a000005 	bne	99350 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x150&gt;</pre>
+<pre>   99338:	e59f15d0 	ldr	r1, [pc, #1488]	; 99910 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x710&gt;</pre>
+<pre>   9933c:	e1a00004 	mov	r0, r4</pre>
+<pre>   99340:	e5953010 	ldr	r3, [r5, #16]</pre>
+<pre>   99344:	e595200c 	ldr	r2, [r5, #12]</pre>
+<pre>   99348:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   9934c:	ebfe0f8d 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99350:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>   99354:	e3530005 	cmp	r3, #5</pre>
+<pre>   99358:	0a0000e9 	beq	99704 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x504&gt;</pre>
+<pre>   9935c:	e3530002 	cmp	r3, #2</pre>
+<pre>   99360:	0a0000e1 	beq	996ec &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x4ec&gt;</pre>
+<pre>   99364:	e3530003 	cmp	r3, #3</pre>
+<pre>   99368:	0a0000ec 	beq	99720 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x520&gt;</pre>
+<pre>   9936c:	e3530004 	cmp	r3, #4</pre>
+<pre>   99370:	0a0000c6 	beq	99690 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x490&gt;</pre>
+<pre>   99374:	e1a01004 	mov	r1, r4</pre>
+<pre>   99378:	e3a0000a 	mov	r0, #10</pre>
+<pre>   9937c:	ebfe0fd8 	bl	1d2e4 &lt;fputc&commat;plt&gt;</pre>
+<pre>   99380:	e59b300c 	ldr	r3, [fp, #12]</pre>
+<pre>   99384:	e2877001 	add	r7, r7, #1</pre>
+<pre>   99388:	e1570003 	cmp	r7, r3</pre>
+<pre>   9938c:	baffffbf 	blt	99290 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x90&gt;</pre>
+<pre>   99390:	e59f157c 	ldr	r1, [pc, #1404]	; 99914 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x714&gt;</pre>
+<pre>   99394:	e1a00004 	mov	r0, r4</pre>
+<pre>   99398:	e59b2004 	ldr	r2, [fp, #4]</pre>
+<pre>   9939c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   993a0:	ebfe0f78 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   993a4:	e1a01004 	mov	r1, r4</pre>
+<pre>   993a8:	e3a0000a 	mov	r0, #10</pre>
+<pre>--</pre>
+<pre>   993e8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   993ec:	e58d300c 	str	r3, [sp, #12]</pre>
+<pre>   993f0:	e59bc008 	ldr	ip, [fp, #8]</pre>
+<pre>   993f4:	e1a03004 	mov	r3, r4</pre>
+<pre>   993f8:	e59d0010 	ldr	r0, [sp, #16]</pre>
+<pre>   993fc:	e3a02008 	mov	r2, #8</pre>
+<pre>   99400:	e3a01001 	mov	r1, #1</pre>
+<pre>   99404:	e79c6109 	ldr	r6, [ip, r9, lsl #2]</pre>
+<pre>   99408:	ebfe0eec 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9940c:	e3560000 	cmp	r6, #0</pre>
+<pre>   99410:	0a00005f 	beq	99594 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x394&gt;</pre>
+<pre>   99414:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   99418:	e3510001 	cmp	r1, #1</pre>
+<pre>   9941c:	0a0000ab 	beq	996d0 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x4d0&gt;</pre>
+<pre>   99420:	e3510002 	cmp	r1, #2</pre>
+<pre>   99424:	0a0000a2 	beq	996b4 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x4b4&gt;</pre>
+<pre>   99428:	e5963018 	ldr	r3, [r6, #24]</pre>
+<pre>   9942c:	e1a00004 	mov	r0, r4</pre>
+<pre>   99430:	e59d1014 	ldr	r1, [sp, #20]</pre>
+<pre>   99434:	e5962010 	ldr	r2, [r6, #16]</pre>
+<pre><span class="red">   99438:	ebfe0f52 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9943c:	e5963018 	ldr	r3, [r6, #24]</pre>
+<pre>   99440:	e3530000 	cmp	r3, #0</pre>
+<pre>   99444:	da000058 	ble	995ac &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x3ac&gt;</pre>
+<pre>   99448:	e59fa4d4 	ldr	sl, [pc, #1236]	; 99924 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x724&gt;</pre>
+<pre>   9944c:	e3a07000 	mov	r7, #0</pre>
+<pre>   99450:	e1a08007 	mov	r8, r7</pre>
+<pre>   99454:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   99458:	ea000015 	b	994b4 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x2b4&gt;</pre>
+<pre>   9945c:	e3520000 	cmp	r2, #0</pre>
+<pre>   99460:	ba000003 	blt	99474 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x274&gt;</pre>
+<pre>   99464:	e59f14bc 	ldr	r1, [pc, #1212]	; 99928 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x728&gt;</pre>
+<pre>   99468:	e1a00004 	mov	r0, r4</pre>
+<pre>   9946c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99470:	ebfe0f44 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99474:	e5952000 	ldr	r2, [r5]</pre>
+<pre>   99478:	e3520000 	cmp	r2, #0</pre>
+<pre>   9947c:	0a000037 	beq	99560 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x360&gt;</pre>
+<pre>   99480:	e5923004 	ldr	r3, [r2, #4]</pre>
+<pre>   99484:	e3530002 	cmp	r3, #2</pre>
+<pre>   99488:	0a00003a 	beq	99578 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x378&gt;</pre>
+<pre>   9948c:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>   99490:	e1a00004 	mov	r0, r4</pre>
+<pre>   99494:	e59d100c 	ldr	r1, [sp, #12]</pre>
+<pre>   99498:	e5922000 	ldr	r2, [r2]</pre>
+<pre><span class="red">   9949c:	ebfe0f39 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   994a0:	e5963018 	ldr	r3, [r6, #24]</pre>
+<pre>   994a4:	e2888001 	add	r8, r8, #1</pre>
+<pre>--</pre>
+<pre>   994d8:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>   994dc:	e3530000 	cmp	r3, #0</pre>
+<pre>   994e0:	ba00004f 	blt	99624 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x424&gt;</pre>
+<pre>   994e4:	e5953010 	ldr	r3, [r5, #16]</pre>
+<pre>   994e8:	e3530000 	cmp	r3, #0</pre>
+<pre>   994ec:	0a000007 	beq	99510 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x310&gt;</pre>
+<pre>   994f0:	e3530002 	cmp	r3, #2</pre>
+<pre>   994f4:	e1a03004 	mov	r3, r4</pre>
+<pre>   994f8:	0a000050 	beq	99640 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x440&gt;</pre>
+<pre>   994fc:	e59f0428 	ldr	r0, [pc, #1064]	; 9992c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x72c&gt;</pre>
+<pre>   99500:	e3a02011 	mov	r2, #17</pre>
+<pre>   99504:	e3a01001 	mov	r1, #1</pre>
+<pre>   99508:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   9950c:	ebfe0eab 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   99510:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   99514:	e3520000 	cmp	r2, #0</pre>
+<pre>   99518:	ba000003 	blt	9952c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x32c&gt;</pre>
+<pre>   9951c:	e59f140c 	ldr	r1, [pc, #1036]	; 99930 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x730&gt;</pre>
+<pre>   99520:	e1a00004 	mov	r0, r4</pre>
+<pre>   99524:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99528:	ebfe0f16 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9952c:	e595200c 	ldr	r2, [r5, #12]</pre>
+<pre>   99530:	e59d3008 	ldr	r3, [sp, #8]</pre>
+<pre>   99534:	e1520003 	cmp	r2, r3</pre>
+<pre>   99538:	1affffc7 	bne	9945c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x25c&gt;</pre>
+<pre>   9953c:	e59f03f0 	ldr	r0, [pc, #1008]	; 99934 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x734&gt;</pre>
+<pre>   99540:	e3a02010 	mov	r2, #16</pre>
+<pre>   99544:	e1a03004 	mov	r3, r4</pre>
+<pre>   99548:	e3a01001 	mov	r1, #1</pre>
+<pre>   9954c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   99550:	ebfe0e9a 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   99554:	e5952000 	ldr	r2, [r5]</pre>
+<pre>   99558:	e3520000 	cmp	r2, #0</pre>
+<pre>   9955c:	1affffc7 	bne	99480 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x280&gt;</pre>
+<pre>   99560:	e59f13d0 	ldr	r1, [pc, #976]	; 99938 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x738&gt;</pre>
+<pre>   99564:	e1a00004 	mov	r0, r4</pre>
+<pre>   99568:	e5952004 	ldr	r2, [r5, #4]</pre>
+<pre>   9956c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99570:	ebfe0f04 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99574:	eaffffc9 	b	994a0 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x2a0&gt;</pre>
+<pre>   99578:	e59f13bc 	ldr	r1, [pc, #956]	; 9993c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x73c&gt;</pre>
+<pre>   9957c:	e1a00004 	mov	r0, r4</pre>
+<pre>   99580:	e5922020 	ldr	r2, [r2, #32]</pre>
+<pre>   99584:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99588:	ebfe0efe 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9958c:	e5952000 	ldr	r2, [r5]</pre>
+<pre>   99590:	eaffffbd 	b	9948c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x28c&gt;</pre>
+<pre>   99594:	e59f03a4 	ldr	r0, [pc, #932]	; 99940 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x740&gt;</pre>
+<pre>   99598:	e1a03004 	mov	r3, r4</pre>
+<pre>   9959c:	e3a02005 	mov	r2, #5</pre>
+<pre>   995a0:	e3a01001 	mov	r1, #1</pre>
+<pre>   995a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   995a8:	ebfe0e84 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   995ac:	e59b3004 	ldr	r3, [fp, #4]</pre>
+<pre>   995b0:	e2899001 	add	r9, r9, #1</pre>
+<pre>   995b4:	e1590003 	cmp	r9, r3</pre>
+<pre>   995b8:	baffff8c 	blt	993f0 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x1f0&gt;</pre>
+<pre>   995bc:	e59f1380 	ldr	r1, [pc, #896]	; 99944 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x744&gt;</pre>
+<pre>   995c0:	e1a00004 	mov	r0, r4</pre>
+<pre>   995c4:	e59b2014 	ldr	r2, [fp, #20]</pre>
+<pre>   995c8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   995cc:	ebfe0eed 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   995d0:	e59b3014 	ldr	r3, [fp, #20]</pre>
+<pre>   995d4:	e3530000 	cmp	r3, #0</pre>
+<pre>   995d8:	da00000f 	ble	9961c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x41c&gt;</pre>
+<pre>   995dc:	e59f6364 	ldr	r6, [pc, #868]	; 99948 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x748&gt;</pre>
+<pre>   995e0:	e3a05000 	mov	r5, #0</pre>
+<pre>   995e4:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   995e8:	e59bc018 	ldr	ip, [fp, #24]</pre>
+<pre>   995ec:	e1a02005 	mov	r2, r5</pre>
+<pre>   995f0:	e1a01006 	mov	r1, r6</pre>
+<pre>   995f4:	e1a00004 	mov	r0, r4</pre>
+<pre>   995f8:	e79c3185 	ldr	r3, [ip, r5, lsl #3]</pre>
+<pre>   995fc:	e08cc185 	add	ip, ip, r5, lsl #3</pre>
+<pre>   99600:	e2855001 	add	r5, r5, #1</pre>
+<pre>   99604:	e59cc004 	ldr	ip, [ip, #4]</pre>
+<pre>   99608:	e58dc000 	str	ip, [sp]</pre>
+<pre><span class="red">   9960c:	ebfe0edd 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99610:	e59b3014 	ldr	r3, [fp, #20]</pre>
+<pre>   99614:	e1550003 	cmp	r5, r3</pre>
+<pre>--</pre>
+<pre>   9965c:	e1a03004 	mov	r3, r4</pre>
+<pre>   99660:	e3a02005 	mov	r2, #5</pre>
+<pre>   99664:	e3a01001 	mov	r1, #1</pre>
+<pre>   99668:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   9966c:	ebfe0e53 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   99670:	eaffff8a 	b	994a0 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x2a0&gt;</pre>
+<pre>   99674:	e59f02dc 	ldr	r0, [pc, #732]	; 99958 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x758&gt;</pre>
+<pre>   99678:	e1a03004 	mov	r3, r4</pre>
+<pre>   9967c:	e3a02004 	mov	r2, #4</pre>
+<pre>   99680:	e3a01001 	mov	r1, #1</pre>
+<pre>   99684:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   99688:	ebfe0e4c 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9968c:	eaffff10 	b	992d4 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0xd4&gt;</pre>
+<pre>   99690:	e595302c 	ldr	r3, [r5, #44]	; 0x2c</pre>
+<pre>   99694:	e1a00004 	mov	r0, r4</pre>
+<pre>   99698:	e5952024 	ldr	r2, [r5, #36]	; 0x24</pre>
+<pre>   9969c:	e59f12b8 	ldr	r1, [pc, #696]	; 9995c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x75c&gt;</pre>
+<pre>   996a0:	e5933010 	ldr	r3, [r3, #16]</pre>
+<pre>   996a4:	e5922010 	ldr	r2, [r2, #16]</pre>
+<pre>   996a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   996ac:	ebfe0eb5 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   996b0:	eaffff32 	b	99380 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x180&gt;</pre>
+<pre>   996b4:	e59f02a4 	ldr	r0, [pc, #676]	; 99960 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x760&gt;</pre>
+<pre>   996b8:	e1a03004 	mov	r3, r4</pre>
+<pre>   996bc:	e3a02006 	mov	r2, #6</pre>
+<pre>   996c0:	e3a01001 	mov	r1, #1</pre>
+<pre>   996c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   996c8:	ebfe0e3c 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   996cc:	eaffff55 	b	99428 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x228&gt;</pre>
+<pre>   996d0:	e59f028c 	ldr	r0, [pc, #652]	; 99964 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x764&gt;</pre>
+<pre>   996d4:	e1a03004 	mov	r3, r4</pre>
+<pre>   996d8:	e3a02006 	mov	r2, #6</pre>
+<pre>   996dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   996e0:	ebfe0e36 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   996e4:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   996e8:	eaffff4c 	b	99420 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x220&gt;</pre>
+<pre>   996ec:	e59f1274 	ldr	r1, [pc, #628]	; 99968 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x768&gt;</pre>
+<pre>   996f0:	e1a00004 	mov	r0, r4</pre>
+<pre>   996f4:	e5952020 	ldr	r2, [r5, #32]</pre>
+<pre>   996f8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   996fc:	ebfe0ea1 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99700:	eaffff1e 	b	99380 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x180&gt;</pre>
+<pre>   99704:	e59f1260 	ldr	r1, [pc, #608]	; 9996c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x76c&gt;</pre>
+<pre>   99708:	e1a00004 	mov	r0, r4</pre>
+<pre>   9970c:	e5952014 	ldr	r2, [r5, #20]</pre>
+<pre>   99710:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99714:	ebfe0e9b 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99718:	e5953004 	ldr	r3, [r5, #4]</pre>
+<pre>   9971c:	eaffff0e 	b	9935c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x15c&gt;</pre>
+<pre>   99720:	e59f1248 	ldr	r1, [pc, #584]	; 99970 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x770&gt;</pre>
+<pre>   99724:	e1a00004 	mov	r0, r4</pre>
+<pre>   99728:	e5952034 	ldr	r2, [r5, #52]	; 0x34</pre>
+<pre>   9972c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   99730:	ebfe0e94 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99734:	e5953034 	ldr	r3, [r5, #52]	; 0x34</pre>
+<pre>   99738:	e3530000 	cmp	r3, #0</pre>
+<pre>   9973c:	daffff0f 	ble	99380 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x180&gt;</pre>
+<pre>   99740:	e59fa22c 	ldr	sl, [pc, #556]	; 99974 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x774&gt;</pre>
+<pre>   99744:	e3a08000 	mov	r8, #0</pre>
+<pre>   99748:	e59f9228 	ldr	r9, [pc, #552]	; 99978 &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x778&gt;</pre>
+<pre>   9974c:	e58d700c 	str	r7, [sp, #12]</pre>
+<pre>   99750:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   99754:	e59d7010 	ldr	r7, [sp, #16]</pre>
+<pre>   99758:	e08f9009 	add	r9, pc, r9</pre>
+<pre>   9975c:	ea00000a 	b	9978c &lt;xmlRegexpPrint&commat;&commat;LIBXML2_2.4.30+0x58c&gt;</pre>
+<pre>   99760:	e5961004 	ldr	r1, [r6, #4]</pre>
+<pre>   99764:	e1a00004 	mov	r0, r4</pre>
+<pre>   99768:	ebffe81e 	bl	937e8 &lt;xmlBufSetInputBaseCur&commat;&commat;Base+0xd3c&gt;</pre>
+<pre>   9976c:	e596300c 	ldr	r3, [r6, #12]</pre>
+<pre>   99770:	e1a01009 	mov	r1, r9</pre>
+<pre>   99774:	e5962008 	ldr	r2, [r6, #8]</pre>
+<pre>   99778:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">   9977c:	ebfe0e81 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   99780:	e5953034 	ldr	r3, [r5, #52]	; 0x34</pre>
+<pre>   99784:	e1580003 	cmp	r8, r3</pre>
+<pre>--</pre>
+<pre>   9ca2c:	e5d23000 	ldrb	r3, [r2]</pre>
+<pre>   9ca30:	e353000d 	cmp	r3, #13</pre>
+<pre>   9ca34:	13530020 	cmpne	r3, #32</pre>
+<pre>   9ca38:	e2433009 	sub	r3, r3, #9</pre>
+<pre>   9ca3c:	03a01001 	moveq	r1, #1</pre>
+<pre>   9ca40:	13a01000 	movne	r1, #0</pre>
+<pre>   9ca44:	e3530001 	cmp	r3, #1</pre>
+<pre>   9ca48:	81a03001 	movhi	r3, r1</pre>
+<pre>   9ca4c:	93813001 	orrls	r3, r1, #1</pre>
+<pre>   9ca50:	e3530000 	cmp	r3, #0</pre>
+<pre>   9ca54:	1afffff2 	bne	9ca24 &lt;xmlExpFree&commat;&commat;LIBXML2_2.6.21+0xef4&gt;</pre>
+<pre>   9ca58:	e1a00006 	mov	r0, r6</pre>
+<pre>   9ca5c:	e28dd014 	add	sp, sp, #20</pre>
+<pre>   9ca60:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<pre>   9ca64:	e59f3160 	ldr	r3, [pc, #352]	; 9cbcc &lt;xmlExpFree&commat;&commat;LIBXML2_2.6.21+0x109c&gt;</pre>
+<pre>   9ca68:	e1a02004 	mov	r2, r4</pre>
+<pre>   9ca6c:	e59f115c 	ldr	r1, [pc, #348]	; 9cbd0 &lt;xmlExpFree&commat;&commat;LIBXML2_2.6.21+0x10a0&gt;</pre>
+<pre>   9ca70:	e7973003 	ldr	r3, [r7, r3]</pre>
+<pre>   9ca74:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   9ca78:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   9ca7c:	ebfe01c1 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9ca80:	e1a01006 	mov	r1, r6</pre>
+<pre>   9ca84:	e1a00005 	mov	r0, r5</pre>
+<pre>--</pre>
+<pre>   9eb94:	ea000040 	b	9ec9c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x10cc&gt;</pre>
+<pre>   9eb98:	ea000046 	b	9ecb8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x10e8&gt;</pre>
+<pre>   9eb9c:	ea00002f 	b	9ec60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1090&gt;</pre>
+<pre>   9eba0:	ea00002e 	b	9ec60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1090&gt;</pre>
+<pre>   9eba4:	ea00002d 	b	9ec60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1090&gt;</pre>
+<pre>   9eba8:	ea00002c 	b	9ec60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1090&gt;</pre>
+<pre>   9ebac:	ea00002b 	b	9ec60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1090&gt;</pre>
+<pre>   9ebb0:	ea000047 	b	9ecd4 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1104&gt;</pre>
+<pre>   9ebb4:	e59f01ac 	ldr	r0, [pc, #428]	; 9ed68 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1198&gt;</pre>
+<pre>   9ebb8:	e1a03007 	mov	r3, r7</pre>
+<pre>   9ebbc:	e3a02003 	mov	r2, #3</pre>
+<pre>   9ebc0:	e3a01001 	mov	r1, #1</pre>
+<pre>   9ebc4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   9ebc8:	ebfdf8fc 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9ebcc:	e5952010 	ldr	r2, [r5, #16]</pre>
+<pre>   9ebd0:	e3520001 	cmp	r2, #1</pre>
+<pre>   9ebd4:	0a000003 	beq	9ebe8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1018&gt;</pre>
+<pre>   9ebd8:	e59f118c 	ldr	r1, [pc, #396]	; 9ed6c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x119c&gt;</pre>
+<pre>   9ebdc:	e1a00007 	mov	r0, r7</pre>
+<pre>   9ebe0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   9ebe4:	ebfdf967 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9ebe8:	e5952014 	ldr	r2, [r5, #20]</pre>
+<pre>   9ebec:	e3720107 	cmn	r2, #-1073741823	; 0xc0000001</pre>
+<pre>   9ebf0:	ca00004a 	bgt	9ed20 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x1150&gt;</pre>
+<pre>   9ebf4:	e3520001 	cmp	r2, #1</pre>
+<pre>   9ebf8:	0a000003 	beq	9ec0c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x103c&gt;</pre>
+<pre>   9ebfc:	e59f116c 	ldr	r1, [pc, #364]	; 9ed70 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x11a0&gt;</pre>
+<pre>   9ec00:	e1a00007 	mov	r0, r7</pre>
+<pre>   9ec04:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   9ec08:	ebfdf95e 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9ec0c:	e1a01007 	mov	r1, r7</pre>
+<pre>   9ec10:	e3a0000a 	mov	r0, #10</pre>
+<pre>--</pre>
+<pre>   9eca4:	e3a02006 	mov	r2, #6</pre>
+<pre>   9eca8:	e3a01001 	mov	r1, #1</pre>
+<pre>   9ecac:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   9ecb0:	ebfdf8c2 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9ecb4:	eaffffc4 	b	9ebcc &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0xffc&gt;</pre>
+<pre>   9ecb8:	e59f00c0 	ldr	r0, [pc, #192]	; 9ed80 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x11b0&gt;</pre>
+<pre>   9ecbc:	e1a03007 	mov	r3, r7</pre>
+<pre>   9ecc0:	e3a02003 	mov	r2, #3</pre>
+<pre>   9ecc4:	e3a01001 	mov	r1, #1</pre>
+<pre>   9ecc8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   9eccc:	ebfdf8bb 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   9ecd0:	eaffffbd 	b	9ebcc &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0xffc&gt;</pre>
+<pre>   9ecd4:	e5982008 	ldr	r2, [r8, #8]</pre>
+<pre>   9ecd8:	e1a0000d 	mov	r0, sp</pre>
+<pre>   9ecdc:	e5981034 	ldr	r1, [r8, #52]	; 0x34</pre>
+<pre>   9ece0:	ebffff48 	bl	9ea08 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0xe38&gt;</pre>
+<pre>   9ece4:	e59f1098 	ldr	r1, [pc, #152]	; 9ed84 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x11b4&gt;</pre>
+<pre>   9ece8:	e1a02000 	mov	r2, r0</pre>
+<pre>   9ecec:	e1a00007 	mov	r0, r7</pre>
+<pre>   9ecf0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   9ecf4:	ebfdf923 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   9ecf8:	e59d0000 	ldr	r0, [sp]</pre>
+<pre>   9ecfc:	e3500000 	cmp	r0, #0</pre>
+<pre>--</pre>
+<pre>   a18c4:	e58dc000 	str	ip, [sp]</pre>
+<pre>   a18c8:	ebfded59 	bl	1ce34 &lt;__xmlSimpleError&commat;plt&gt;</pre>
+<pre>   a18cc:	eafffff3 	b	a18a0 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3cd0&gt;</pre>
+<pre>   a18d0:	00083794 	muleq	r8, r4, r7</pre>
+<pre>   a18d4:	00000350 	andeq	r0, r0, r0, asr r3</pre>
+<pre>   a18d8:	00061a1c 	andeq	r1, r6, ip, lsl sl</pre>
+<pre>   a18dc:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   a18e0:	e3510000 	cmp	r1, #0</pre>
+<pre>   a18e4:	e59f6060 	ldr	r6, [pc, #96]	; a194c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3d7c&gt;</pre>
+<pre>   a18e8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   a18ec:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>   a18f0:	e1a05000 	mov	r5, r0</pre>
+<pre>   a18f4:	e5910004 	ldr	r0, [r1, #4]</pre>
+<pre>   a18f8:	ebfe94c4 	bl	46c10 &lt;xmlNodeGetContent&commat;&commat;LIBXML2_2.4.30&gt;</pre>
+<pre>   a18fc:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   a1900:	0a00000a 	beq	a1930 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3d60&gt;</pre>
+<pre>   a1904:	e59f1044 	ldr	r1, [pc, #68]	; a1950 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3d80&gt;</pre>
+<pre>   a1908:	e1a00005 	mov	r0, r5</pre>
+<pre>   a190c:	e1a02004 	mov	r2, r4</pre>
+<pre>   a1910:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1914:	ebfdee1b 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1918:	e59f3034 	ldr	r3, [pc, #52]	; a1954 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3d84&gt;</pre>
+<pre>   a191c:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   a1958:	000619cc 	andeq	r1, r6, ip, asr #19</pre>
+<pre>   a195c:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}</pre>
+<pre>   a1960:	e2505000 	subs	r5, r0, #0</pre>
+<pre>   a1964:	e59f94d4 	ldr	r9, [pc, #1236]	; a1e40 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4270&gt;</pre>
+<pre>   a1968:	e24dd01c 	sub	sp, sp, #28</pre>
+<pre>   a196c:	e1a04001 	mov	r4, r1</pre>
+<pre>   a1970:	e1a03001 	mov	r3, r1</pre>
+<pre>   a1974:	e08f9009 	add	r9, pc, r9</pre>
+<pre>   a1978:	0a000125 	beq	a1e14 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4244&gt;</pre>
+<pre>   a197c:	e59f04c0 	ldr	r0, [pc, #1216]	; a1e44 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4274&gt;</pre>
+<pre>   a1980:	e3a02006 	mov	r2, #6</pre>
+<pre>   a1984:	e3a01001 	mov	r1, #1</pre>
+<pre>   a1988:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   a198c:	ebfded8b 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   a1990:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   a1994:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1998:	0a00001c 	beq	a1a10 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3e40&gt;</pre>
+<pre>   a199c:	e59f14a4 	ldr	r1, [pc, #1188]	; a1e48 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4278&gt;</pre>
+<pre>   a19a0:	e1a00004 	mov	r0, r4</pre>
+<pre>   a19a4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a19a8:	ebfdedf6 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a19ac:	e5952070 	ldr	r2, [r5, #112]	; 0x70</pre>
+<pre>   a19b0:	e3520000 	cmp	r2, #0</pre>
+<pre>   a19b4:	0a000003 	beq	a19c8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3df8&gt;</pre>
+<pre>   a19b8:	e59f148c 	ldr	r1, [pc, #1164]	; a1e4c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x427c&gt;</pre>
+<pre>   a19bc:	e1a00004 	mov	r0, r4</pre>
+<pre>   a19c0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a19c4:	ebfdedef 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a19c8:	e5952000 	ldr	r2, [r5]</pre>
+<pre>   a19cc:	e2423001 	sub	r3, r2, #1</pre>
+<pre>--</pre>
+<pre>   a19e8:	ea0000da 	b	a1d58 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4188&gt;</pre>
+<pre>   a19ec:	ea0000e0 	b	a1d74 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x41a4&gt;</pre>
+<pre>   a19f0:	ea0000ae 	b	a1cb0 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x40e0&gt;</pre>
+<pre>   a19f4:	ea0000b4 	b	a1ccc &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x40fc&gt;</pre>
+<pre>   a19f8:	ea0000ba 	b	a1ce8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4118&gt;</pre>
+<pre>   a19fc:	ea00000a 	b	a1a2c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3e5c&gt;</pre>
+<pre>   a1a00:	ea000009 	b	a1a2c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3e5c&gt;</pre>
+<pre>   a1a04:	ea0000be 	b	a1d04 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4134&gt;</pre>
+<pre>   a1a08:	ea0000c4 	b	a1d20 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4150&gt;</pre>
+<pre>   a1a0c:	ea0000ca 	b	a1d3c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x416c&gt;</pre>
+<pre>   a1a10:	e59f0438 	ldr	r0, [pc, #1080]	; a1e50 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4280&gt;</pre>
+<pre>   a1a14:	e1a03004 	mov	r3, r4</pre>
+<pre>   a1a18:	e3a0200a 	mov	r2, #10</pre>
+<pre>   a1a1c:	e3a01001 	mov	r1, #1</pre>
+<pre>   a1a20:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   a1a24:	ebfded65 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   a1a28:	eaffffdf 	b	a19ac &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3ddc&gt;</pre>
+<pre>   a1a2c:	e59f1420 	ldr	r1, [pc, #1056]	; a1e54 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4284&gt;</pre>
+<pre>   a1a30:	e1a00004 	mov	r0, r4</pre>
+<pre>   a1a34:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1a38:	ebfdedd2 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1a3c:	e59f0414 	ldr	r0, [pc, #1044]	; a1e58 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4288&gt;</pre>
+<pre>   a1a40:	e1a03004 	mov	r3, r4</pre>
+<pre>--</pre>
+<pre>   a1a70:	ea000072 	b	a1c40 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4070&gt;</pre>
+<pre>   a1a74:	ea00006a 	b	a1c24 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4054&gt;</pre>
+<pre>   a1a78:	ea000007 	b	a1a9c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3ecc&gt;</pre>
+<pre>   a1a7c:	ea000061 	b	a1c08 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4038&gt;</pre>
+<pre>   a1a80:	eaffffff 	b	a1a84 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3eb4&gt;</pre>
+<pre>   a1a84:	e59f03d0 	ldr	r0, [pc, #976]	; a1e5c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x428c&gt;</pre>
+<pre>   a1a88:	e1a03004 	mov	r3, r4</pre>
+<pre>   a1a8c:	e3a02006 	mov	r2, #6</pre>
+<pre>   a1a90:	e3a01001 	mov	r1, #1</pre>
+<pre>   a1a94:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   a1a98:	ebfded48 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   a1a9c:	e1a01004 	mov	r1, r4</pre>
+<pre>   a1aa0:	e3a0000a 	mov	r0, #10</pre>
+<pre>   a1aa4:	ebfdee0e 	bl	1d2e4 &lt;fputc&commat;plt&gt;</pre>
+<pre>   a1aa8:	e5952038 	ldr	r2, [r5, #56]	; 0x38</pre>
+<pre>   a1aac:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1ab0:	0a00000a 	beq	a1ae0 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3f10&gt;</pre>
+<pre>   a1ab4:	e59f13a4 	ldr	r1, [pc, #932]	; a1e60 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4290&gt;</pre>
+<pre>   a1ab8:	e1a00004 	mov	r0, r4</pre>
+<pre>   a1abc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1ac0:	ebfdedb0 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1ac4:	e595203c 	ldr	r2, [r5, #60]	; 0x3c</pre>
+<pre>   a1ac8:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1acc:	0a0000d7 	beq	a1e30 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4260&gt;</pre>
+<pre>   a1ad0:	e59f138c 	ldr	r1, [pc, #908]	; a1e64 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4294&gt;</pre>
+<pre>   a1ad4:	e1a00004 	mov	r0, r4</pre>
+<pre>   a1ad8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1adc:	ebfdeda9 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1ae0:	e5957074 	ldr	r7, [r5, #116]	; 0x74</pre>
+<pre>   a1ae4:	e3570000 	cmp	r7, #0</pre>
+<pre>--</pre>
+<pre>   a1b34:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   a1b38:	e58d500c 	str	r5, [sp, #12]</pre>
+<pre>   a1b3c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   a1b40:	e1a05003 	mov	r5, r3</pre>
+<pre>   a1b44:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>   a1b48:	e58d2008 	str	r2, [sp, #8]</pre>
+<pre>   a1b4c:	ea000019 	b	a1bb8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x3fe8&gt;</pre>
+<pre>   a1b50:	ebfded1a 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   a1b54:	e598300c 	ldr	r3, [r8, #12]</pre>
+<pre>   a1b58:	e5932038 	ldr	r2, [r3, #56]	; 0x38</pre>
+<pre>   a1b5c:	e58d2004 	str	r2, [sp, #4]</pre>
+<pre>   a1b60:	e5932008 	ldr	r2, [r3, #8]</pre>
+<pre>   a1b64:	e59d1004 	ldr	r1, [sp, #4]</pre>
+<pre>   a1b68:	e1a0000a 	mov	r0, sl</pre>
+<pre>   a1b6c:	ebfff3a5 	bl	9ea08 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0xe38&gt;</pre>
+<pre>   a1b70:	e59f1300 	ldr	r1, [pc, #768]	; a1e78 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x42a8&gt;</pre>
+<pre>   a1b74:	e1a02000 	mov	r2, r0</pre>
+<pre>   a1b78:	e1a00004 	mov	r0, r4</pre>
+<pre>   a1b7c:	e2866001 	add	r6, r6, #1</pre>
+<pre>   a1b80:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1b84:	ebfded7f 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1b88:	e59d0014 	ldr	r0, [sp, #20]</pre>
+<pre>   a1b8c:	e59f32e8 	ldr	r3, [pc, #744]	; a1e7c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x42ac&gt;</pre>
+<pre>--</pre>
+<pre>   a1eb8:	000615ac 	andeq	r1, r6, ip, lsr #11</pre>
+<pre>   a1ebc:	00061500 	andeq	r1, r6, r0, lsl #10</pre>
+<pre>   a1ec0:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   a1ec4:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   a1ec8:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>   a1ecc:	e1a05001 	mov	r5, r1</pre>
+<pre>   a1ed0:	e1a06003 	mov	r6, r3</pre>
+<pre>   a1ed4:	e59f021c 	ldr	r0, [pc, #540]	; a20f8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4528&gt;</pre>
+<pre>   a1ed8:	e1a03001 	mov	r3, r1</pre>
+<pre>   a1edc:	e3a02007 	mov	r2, #7</pre>
+<pre>   a1ee0:	e3a01001 	mov	r1, #1</pre>
+<pre>   a1ee4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   a1ee8:	ebfdec34 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   a1eec:	e5943030 	ldr	r3, [r4, #48]	; 0x30</pre>
+<pre>   a1ef0:	e3130002 	tst	r3, #2</pre>
+<pre>   a1ef4:	1a000051 	bne	a2040 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4470&gt;</pre>
+<pre>   a1ef8:	e59f11fc 	ldr	r1, [pc, #508]	; a20fc &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x452c&gt;</pre>
+<pre>   a1efc:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1f00:	e5942008 	ldr	r2, [r4, #8]</pre>
+<pre>   a1f04:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1f08:	ebfdec9e 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1f0c:	e3560000 	cmp	r6, #0</pre>
+<pre>   a1f10:	0a000004 	beq	a1f28 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4358&gt;</pre>
+<pre>   a1f14:	e59f11e4 	ldr	r1, [pc, #484]	; a2100 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4530&gt;</pre>
+<pre>   a1f18:	e1a02006 	mov	r2, r6</pre>
+<pre>   a1f1c:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1f20:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1f24:	ebfdec97 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1f28:	e1a01005 	mov	r1, r5</pre>
+<pre>   a1f2c:	e3a0000a 	mov	r0, #10</pre>
+<pre>   a1f30:	ebfdeceb 	bl	1d2e4 &lt;fputc&commat;plt&gt;</pre>
+<pre>   a1f34:	e5943030 	ldr	r3, [r4, #48]	; 0x30</pre>
+<pre>   a1f38:	e313001d 	tst	r3, #29</pre>
+<pre>   a1f3c:	1a000029 	bne	a1fe8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4418&gt;</pre>
+<pre>   a1f40:	e594204c 	ldr	r2, [r4, #76]	; 0x4c</pre>
+<pre>   a1f44:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1f48:	0a000003 	beq	a1f5c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x438c&gt;</pre>
+<pre>   a1f4c:	e59f11b0 	ldr	r1, [pc, #432]	; a2104 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4534&gt;</pre>
+<pre>   a1f50:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1f54:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1f58:	ebfdec8a 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1f5c:	e5942038 	ldr	r2, [r4, #56]	; 0x38</pre>
+<pre>   a1f60:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1f64:	0a000019 	beq	a1fd0 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4400&gt;</pre>
+<pre>   a1f68:	e59f1198 	ldr	r1, [pc, #408]	; a2108 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4538&gt;</pre>
+<pre>   a1f6c:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1f70:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1f74:	ebfdec83 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1f78:	e594203c 	ldr	r2, [r4, #60]	; 0x3c</pre>
+<pre>   a1f7c:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1f80:	0a000058 	beq	a20e8 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4518&gt;</pre>
+<pre>   a1f84:	e59f1180 	ldr	r1, [pc, #384]	; a210c &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x453c&gt;</pre>
+<pre>   a1f88:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1f8c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1f90:	ebfdec7c 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1f94:	e5942040 	ldr	r2, [r4, #64]	; 0x40</pre>
+<pre>   a1f98:	e3520000 	cmp	r2, #0</pre>
+<pre>   a1f9c:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>   a1fa0:	e59f1168 	ldr	r1, [pc, #360]	; a2110 &lt;xmlExpCtxtNbCons&commat;&commat;LIBXML2_2.6.21+0x4540&gt;</pre>
+<pre>   a1fa4:	e1a00005 	mov	r0, r5</pre>
+<pre>   a1fa8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   a1fac:	ebfdec75 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   a1fb0:	e5942044 	ldr	r2, [r4, #68]	; 0x44</pre>
+<pre>   a1fb4:	e3520000 	cmp	r2, #0</pre>
+<pre>--</pre>
+<br />
+<pre>000b5850 &lt;xmlSchemaDump&commat;&commat;LIBXML2_2.5.8&gt;:</pre>
+<pre>   b5850:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   b5854:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   b5858:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>   b585c:	e3510000 	cmp	r1, #0</pre>
+<pre>   b5860:	e1a05001 	mov	r5, r1</pre>
+<pre>   b5864:	e1a03004 	mov	r3, r4</pre>
+<pre>   b5868:	0a000033 	beq	b593c &lt;xmlSchemaDump&commat;&commat;LIBXML2_2.5.8+0xec&gt;</pre>
+<pre>   b586c:	e59f00e0 	ldr	r0, [pc, #224]	; b5954 &lt;xmlSchemaDump&commat;&commat;LIBXML2_2.5.8+0x104&gt;</pre>
+<pre>   b5870:	e3a02009 	mov	r2, #9</pre>
+<pre>   b5874:	e3a01001 	mov	r1, #1</pre>
+<pre>   b5878:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   b587c:	ebfd9dcf 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   b5880:	e5952000 	ldr	r2, [r5]</pre>
+<pre>   b5884:	e3520000 	cmp	r2, #0</pre>
+<pre>   b5888:	0a00001b 	beq	b58fc &lt;xmlSchemaDump&commat;&commat;LIBXML2_2.5.8+0xac&gt;</pre>
+<pre>   b588c:	e59f10c4 	ldr	r1, [pc, #196]	; b5958 &lt;xmlSchemaDump&commat;&commat;LIBXML2_2.5.8+0x108&gt;</pre>
+<pre>   b5890:	e1a00004 	mov	r0, r4</pre>
+<pre>   b5894:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   b5898:	ebfd9e3a 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   b589c:	e5950004 	ldr	r0, [r5, #4]</pre>
+<pre>   b58a0:	e3500000 	cmp	r0, #0</pre>
+<pre>--</pre>
+<pre>   d383c:	e5941088 	ldr	r1, [r4, #136]	; 0x88</pre>
+<pre>   d3840:	e5940084 	ldr	r0, [r4, #132]	; 0x84</pre>
+<pre>   d3844:	ebff1d30 	bl	9ad0c &lt;xmlAutomataSetFinalState&commat;&commat;LIBXML2_2.4.30&gt;</pre>
+<pre>   d3848:	e5940084 	ldr	r0, [r4, #132]	; 0x84</pre>
+<pre>   d384c:	ebff204b 	bl	9b980 &lt;xmlAutomataCompile&commat;&commat;LIBXML2_2.4.30&gt;</pre>
+<pre>   d3850:	e5860034 	str	r0, [r6, #52]	; 0x34</pre>
+<pre>   d3854:	ebff1ad9 	bl	9a3c0 &lt;xmlRegexpIsDeterminist&commat;&commat;LIBXML2_2.4.30&gt;</pre>
+<pre>   d3858:	e2505000 	subs	r5, r0, #0</pre>
+<pre>   d385c:	0a00006c 	beq	d3a14 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x1fe8&gt;</pre>
+<pre>   d3860:	e5940084 	ldr	r0, [r4, #132]	; 0x84</pre>
+<pre>   d3864:	e3a05000 	mov	r5, #0</pre>
+<pre>   d3868:	ebff1d1c 	bl	9ace0 &lt;xmlFreeAutomata&commat;&commat;LIBXML2_2.4.30&gt;</pre>
+<pre>   d386c:	e5848088 	str	r8, [r4, #136]	; 0x88</pre>
+<pre>   d3870:	e5847084 	str	r7, [r4, #132]	; 0x84</pre>
+<pre>   d3874:	eaffff4c 	b	d35ac &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x1b80&gt;</pre>
+<pre>   d3878:	e59f21cc 	ldr	r2, [pc, #460]	; d3a4c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2020&gt;</pre>
+<pre>   d387c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   d3880:	e59f11c8 	ldr	r1, [pc, #456]	; d3a50 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2024&gt;</pre>
+<pre>   d3884:	e3a05000 	mov	r5, #0</pre>
+<pre>   d3888:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d388c:	ebfd263d 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d3890:	eaffff45 	b	d35ac &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x1b80&gt;</pre>
+<pre>   d3894:	e59f21b8 	ldr	r2, [pc, #440]	; d3a54 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2028&gt;</pre>
+<pre>--</pre>
+<pre>   d3ca4:	e12fff1c 	bx	ip</pre>
+<pre>   d3ca8:	e1a03000 	mov	r3, r0</pre>
+<pre>   d3cac:	e59f04a0 	ldr	r0, [pc, #1184]	; d4154 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2728&gt;</pre>
+<pre>   d3cb0:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>   d3cb4:	e3a02009 	mov	r2, #9</pre>
+<pre>   d3cb8:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3cbc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3cc0:	eafd24be 	b	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3cc4:	e1a03000 	mov	r3, r0</pre>
+<pre>   d3cc8:	e59f0488 	ldr	r0, [pc, #1160]	; d4158 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x272c&gt;</pre>
+<pre>   d3ccc:	e3a02004 	mov	r2, #4</pre>
+<pre>   d3cd0:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3cd4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3cd8:	ebfd24b8 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3cdc:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   d3ce0:	e3520000 	cmp	r2, #0</pre>
+<pre>   d3ce4:	0a000003 	beq	d3cf8 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x22cc&gt;</pre>
+<pre>   d3ce8:	e59f146c 	ldr	r1, [pc, #1132]	; d415c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2730&gt;</pre>
+<pre>   d3cec:	e1a00004 	mov	r0, r4</pre>
+<pre>   d3cf0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d3cf4:	ebfd2523 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d3cf8:	e59f0460 	ldr	r0, [pc, #1120]	; d4160 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2734&gt;</pre>
+<pre>   d3cfc:	e1a03004 	mov	r3, r4</pre>
+<pre>--</pre>
+<pre>   d3d18:	eb000133 	bl	d41ec &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27c0&gt;</pre>
+<pre>   d3d1c:	e59f0440 	ldr	r0, [pc, #1088]	; d4164 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2738&gt;</pre>
+<pre>   d3d20:	e1a03004 	mov	r3, r4</pre>
+<pre>   d3d24:	e3a02007 	mov	r2, #7</pre>
+<pre>   d3d28:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>   d3d2c:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3d30:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3d34:	eafd24a1 	b	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3d38:	e1a03000 	mov	r3, r0</pre>
+<pre>   d3d3c:	e59f0424 	ldr	r0, [pc, #1060]	; d4168 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x273c&gt;</pre>
+<pre>   d3d40:	e3a02007 	mov	r2, #7</pre>
+<pre>   d3d44:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3d48:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3d4c:	ebfd249b 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3d50:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   d3d54:	e3520000 	cmp	r2, #0</pre>
+<pre>   d3d58:	0a000003 	beq	d3d6c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2340&gt;</pre>
+<pre>   d3d5c:	e59f1408 	ldr	r1, [pc, #1032]	; d416c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2740&gt;</pre>
+<pre>   d3d60:	e1a00004 	mov	r0, r4</pre>
+<pre>   d3d64:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d3d68:	ebfd2506 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d3d6c:	e59f03fc 	ldr	r0, [pc, #1020]	; d4170 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2744&gt;</pre>
+<pre>   d3d70:	e1a03004 	mov	r3, r4</pre>
+<pre>--</pre>
+<pre>   d3dcc:	eb000106 	bl	d41ec &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27c0&gt;</pre>
+<pre>   d3dd0:	e59f03a4 	ldr	r0, [pc, #932]	; d417c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2750&gt;</pre>
+<pre>   d3dd4:	e1a03004 	mov	r3, r4</pre>
+<pre>   d3dd8:	e3a0200c 	mov	r2, #12</pre>
+<pre>   d3ddc:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>   d3de0:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3de4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3de8:	eafd2474 	b	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3dec:	e1a03000 	mov	r3, r0</pre>
+<pre>   d3df0:	e59f0388 	ldr	r0, [pc, #904]	; d4180 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2754&gt;</pre>
+<pre>   d3df4:	e3a0200a 	mov	r2, #10</pre>
+<pre>   d3df8:	e3a01001 	mov	r1, #1</pre>
+<pre>   d3dfc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d3e00:	ebfd246e 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d3e04:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   d3e08:	e3520000 	cmp	r2, #0</pre>
+<pre>   d3e0c:	0a000003 	beq	d3e20 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x23f4&gt;</pre>
+<pre>   d3e10:	e59f136c 	ldr	r1, [pc, #876]	; d4184 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x2758&gt;</pre>
+<pre>   d3e14:	e1a00004 	mov	r0, r4</pre>
+<pre>   d3e18:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d3e1c:	ebfd24d9 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d3e20:	e59f0360 	ldr	r0, [pc, #864]	; d4188 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x275c&gt;</pre>
+<pre>   d3e24:	e1a03004 	mov	r3, r4</pre>
+<pre>--</pre>
+<pre>   d40a8:	e59f0128 	ldr	r0, [pc, #296]	; d41d8 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27ac&gt;</pre>
+<pre>   d40ac:	e3a0200a 	mov	r2, #10</pre>
+<pre>   d40b0:	e3a01001 	mov	r1, #1</pre>
+<pre>   d40b4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d40b8:	ebfd23c0 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d40bc:	e5953008 	ldr	r3, [r5, #8]</pre>
+<pre>   d40c0:	e3530000 	cmp	r3, #0</pre>
+<pre>   d40c4:	0a000011 	beq	d4110 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x26e4&gt;</pre>
+<pre>   d40c8:	e59f010c 	ldr	r0, [pc, #268]	; d41dc &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27b0&gt;</pre>
+<pre>   d40cc:	e3a02005 	mov	r2, #5</pre>
+<pre>   d40d0:	e1a03004 	mov	r3, r4</pre>
+<pre>   d40d4:	e3a01001 	mov	r1, #1</pre>
+<pre>   d40d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   d40dc:	ebfd23b7 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   d40e0:	e595200c 	ldr	r2, [r5, #12]</pre>
+<pre>   d40e4:	e3520000 	cmp	r2, #0</pre>
+<pre>   d40e8:	0a000003 	beq	d40fc &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x26d0&gt;</pre>
+<pre>   d40ec:	e59f10ec 	ldr	r1, [pc, #236]	; d41e0 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27b4&gt;</pre>
+<pre>   d40f0:	e1a00004 	mov	r0, r4</pre>
+<pre>   d40f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d40f8:	ebfd2422 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d40fc:	e59f10e0 	ldr	r1, [pc, #224]	; d41e4 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x27b8&gt;</pre>
+<pre>   d4100:	e1a00004 	mov	r0, r4</pre>
+<pre>   d4104:	e5952008 	ldr	r2, [r5, #8]</pre>
+<pre>   d4108:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   d410c:	ebfd241d 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   d4110:	e5951024 	ldr	r1, [r5, #36]	; 0x24</pre>
+<pre>   d4114:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   e006c:	ebffd43e 	bl	d516c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0x3740&gt;</pre>
+<pre>   e0070:	e5941040 	ldr	r1, [r4, #64]	; 0x40</pre>
+<pre>   e0074:	e5913000 	ldr	r3, [r1]</pre>
+<pre>   e0078:	e1530006 	cmp	r3, r6</pre>
+<pre>   e007c:	cafffff6 	bgt	e005c &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe630&gt;</pre>
+<pre>   e0080:	e1a00004 	mov	r0, r4</pre>
+<pre>   e0084:	ebffc922 	bl	d2514 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xae8&gt;</pre>
+<pre>   e0088:	e3590000 	cmp	r9, #0</pre>
+<pre>   e008c:	e3a03000 	mov	r3, #0</pre>
+<pre>   e0090:	e5843040 	str	r3, [r4, #64]	; 0x40</pre>
+<pre>   e0094:	1a000048 	bne	e01bc &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe790&gt;</pre>
+<pre>   e0098:	e584801c 	str	r8, [r4, #28]</pre>
+<pre>   e009c:	e5943064 	ldr	r3, [r4, #100]	; 0x64</pre>
+<pre>   e00a0:	ea000037 	b	e0184 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe758&gt;</pre>
+<pre>   e00a4:	e1a02001 	mov	r2, r1</pre>
+<pre>   e00a8:	e59f1160 	ldr	r1, [pc, #352]	; e0210 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe7e4&gt;</pre>
+<pre>   e00ac:	e59f0160 	ldr	r0, [pc, #352]	; e0214 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe7e8&gt;</pre>
+<pre>   e00b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   e00b4:	e7933000 	ldr	r3, [r3, r0]</pre>
+<pre>   e00b8:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   e00bc:	ebfcf431 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   e00c0:	e5943028 	ldr	r3, [r4, #40]	; 0x28</pre>
+<pre>   e00c4:	e3530000 	cmp	r3, #0</pre>
+<pre>--</pre>
+<pre>   e0210:	0002f4d4 	ldrdeq	pc, [r2], -r4</pre>
+<pre>   e0214:	000002fc 	strdeq	r0, [r0], -ip</pre>
+<pre>   e0218:	0002f46c 	andeq	pc, r2, ip, ror #8</pre>
+<pre>   e021c:	0002f404 	andeq	pc, r2, r4, lsl #8</pre>
+<pre>   e0220:	e92d4010 	push	{r4, lr}</pre>
+<pre>   e0224:	e2534000 	subs	r4, r3, #0</pre>
+<pre>   e0228:	e59f30a0 	ldr	r3, [pc, #160]	; e02d0 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe8a4&gt;</pre>
+<pre>   e022c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   e0230:	0a00001e 	beq	e02b0 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe884&gt;</pre>
+<pre>   e0234:	e3520000 	cmp	r2, #0</pre>
+<pre>   e0238:	0a000014 	beq	e0290 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe864&gt;</pre>
+<pre>   e023c:	e5920000 	ldr	r0, [r2]</pre>
+<pre>   e0240:	e3500004 	cmp	r0, #4</pre>
+<pre>   e0244:	0a00000b 	beq	e0278 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe84c&gt;</pre>
+<pre>   e0248:	e1a02001 	mov	r2, r1</pre>
+<pre>   e024c:	e59f1080 	ldr	r1, [pc, #128]	; e02d4 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe8a8&gt;</pre>
+<pre>   e0250:	e59fc080 	ldr	ip, [pc, #128]	; e02d8 &lt;xmlReaderNewIO&commat;&commat;LIBXML2_2.6.0+0xe8ac&gt;</pre>
+<pre>   e0254:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   e0258:	e793300c 	ldr	r3, [r3, ip]</pre>
+<pre>   e025c:	e5930000 	ldr	r0, [r3]</pre>
+<pre><span class="red">   e0260:	ebfcf3c8 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   e0264:	e5943028 	ldr	r3, [r4, #40]	; 0x28</pre>
+<pre>   e0268:	e3530000 	cmp	r3, #0</pre>
+<pre>--</pre>
+<pre>   e0cc0:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   e0cc4:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>   e0cc8:	e3510000 	cmp	r1, #0</pre>
+<pre>   e0ccc:	e1a05001 	mov	r5, r1</pre>
+<pre>   e0cd0:	e1a03004 	mov	r3, r4</pre>
+<pre>   e0cd4:	0a000056 	beq	e0e34 &lt;xmlRelaxNGDump&commat;&commat;LIBXML2_2.5.2+0x178&gt;</pre>
+<pre>   e0cd8:	e59f01d4 	ldr	r0, [pc, #468]	; e0eb4 &lt;xmlRelaxNGDump&commat;&commat;LIBXML2_2.5.2+0x1f8&gt;</pre>
+<pre>   e0cdc:	e3a02009 	mov	r2, #9</pre>
+<pre>   e0ce0:	e3a01001 	mov	r1, #1</pre>
+<pre>   e0ce4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   e0ce8:	ebfcf0b4 	bl	1cfc0 &lt;fwrite&commat;plt&gt;</pre>
+<pre>   e0cec:	e5953008 	ldr	r3, [r5, #8]</pre>
+<pre>   e0cf0:	e3530000 	cmp	r3, #0</pre>
+<pre>   e0cf4:	0a000054 	beq	e0e4c &lt;xmlRelaxNGDump&commat;&commat;LIBXML2_2.5.2+0x190&gt;</pre>
+<pre>   e0cf8:	e5932048 	ldr	r2, [r3, #72]	; 0x48</pre>
+<pre>   e0cfc:	e3520000 	cmp	r2, #0</pre>
+<pre>   e0d00:	0a00003e 	beq	e0e00 &lt;xmlRelaxNGDump&commat;&commat;LIBXML2_2.5.2+0x144&gt;</pre>
+<pre>   e0d04:	e59f11ac 	ldr	r1, [pc, #428]	; e0eb8 &lt;xmlRelaxNGDump&commat;&commat;LIBXML2_2.5.2+0x1fc&gt;</pre>
+<pre>   e0d08:	e1a00004 	mov	r0, r4</pre>
+<pre>   e0d0c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   e0d10:	ebfcf11c 	bl	1d188 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   e0d14:	e5955004 	ldr	r5, [r5, #4]</pre>
+<pre>   e0d18:	e1a03004 	mov	r3, r4</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">fprintf</span> used </span><span class="orange">50</span> times </span><span class="orange">libxml2.so.2.9.0</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

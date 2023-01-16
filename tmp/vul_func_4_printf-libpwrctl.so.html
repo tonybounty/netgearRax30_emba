@@ -1,0 +1,107 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libpwrctl.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">libpwrctl.so</span></pre>
+<br />
+<pre>    1e74:	0000181f 	andeq	r1, r0, pc, lsl r8</pre>
+<pre>    1e78:	000018c1 	andeq	r1, r0, r1, asr #17</pre>
+<pre>    1e7c:	000018a7 	andeq	r1, r0, r7, lsr #17</pre>
+<pre>    1e80:	00001841 	andeq	r1, r0, r1, asr #16</pre>
+<pre>    1e84:	0000181f 	andeq	r1, r0, pc, lsl r8</pre>
+<pre>    1e88:	000017df 	ldrdeq	r1, [r0], -pc	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>    1e8c:	00001758 	andeq	r1, r0, r8, asr r7</pre>
+<pre>    1e90:	00001717 	andeq	r1, r0, r7, lsl r7</pre>
+<pre>    1e94:	000017c4 	andeq	r1, r0, r4, asr #15</pre>
+<pre>    1e98:	00001769 	andeq	r1, r0, r9, ror #14</pre>
+<pre>    1e9c:	e92d4037 	push	{r0, r1, r2, r4, r5, lr}</pre>
+<pre>    1ea0:	e1a04001 	mov	r4, r1</pre>
+<pre>    1ea4:	e3540000 	cmp	r4, #0</pre>
+<pre>    1ea8:	e5901004 	ldr	r1, [r0, #4]</pre>
+<pre>    1eac:	e1a05000 	mov	r5, r0</pre>
+<pre>    1eb0:	11a02004 	movne	r2, r4</pre>
+<pre>    1eb4:	059f2068 	ldreq	r2, [pc, #104]	; 1f24 &lt;pwr_api_pmd_get&commat;&commat;Base+0x254&gt;</pre>
+<pre>    1eb8:	008f2002 	addeq	r2, pc, r2</pre>
+<pre>    1ebc:	e59f0064 	ldr	r0, [pc, #100]	; 1f28 &lt;pwr_api_pmd_get&commat;&commat;Base+0x258&gt;</pre>
+<pre>    1ec0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    1ec4:	ebfffc93 	bl	1118 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    1ec8:	e595300c 	ldr	r3, [r5, #12]</pre>
+<pre>    1ecc:	e3530000 	cmp	r3, #0</pre>
+<pre>--</pre>
+<pre>    30cc:	e1a05000 	mov	r5, r0</pre>
+<pre>    30d0:	e1a04001 	mov	r4, r1</pre>
+<pre>    30d4:	ebffffb0 	bl	2f9c &lt;pwr_api_cpu_speed_get&commat;&commat;Base+0xf8&gt;</pre>
+<pre>    30d8:	e3500000 	cmp	r0, #0</pre>
+<pre>    30dc:	da000008 	ble	3104 &lt;pwr_api_wldpd_set&commat;&commat;Base+0x3c&gt;</pre>
+<pre>    30e0:	e3550000 	cmp	r5, #0</pre>
+<pre>    30e4:	0a000003 	beq	30f8 &lt;pwr_api_wldpd_set&commat;&commat;Base+0x30&gt;</pre>
+<pre>    30e8:	e1a01004 	mov	r1, r4</pre>
+<pre>    30ec:	e1a00005 	mov	r0, r5</pre>
+<pre>    30f0:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>    30f4:	eafffaf9 	b	1ce0 &lt;pwr_api_pmd_get&commat;&commat;Base+0x10&gt;</pre>
+<pre>    30f8:	e1a00004 	mov	r0, r4</pre>
+<pre>    30fc:	e8bd4070 	pop	{r4, r5, r6, lr}</pre>
+<pre>    3100:	eafffa9b 	b	1b74 &lt;pwr_api_disk_suspend_set&commat;&commat;Base+0x124&gt;</pre>
+<pre>    3104:	e59f101c 	ldr	r1, [pc, #28]	; 3128 &lt;pwr_api_wldpd_set&commat;&commat;Base+0x60&gt;</pre>
+<pre>    3108:	e3e0201f 	mvn	r2, #31</pre>
+<pre>    310c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>    3110:	e0211092 	mla	r1, r2, r0, r1</pre>
+<pre>    3114:	e59f0010 	ldr	r0, [pc, #16]	; 312c &lt;pwr_api_wldpd_set&commat;&commat;Base+0x64&gt;</pre>
+<pre>    3118:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    311c:	ebfff7fd 	bl	1118 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3120:	e3e00000 	mvn	r0, #0</pre>
+<pre>    3124:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>    312c:	000006a0 	andeq	r0, r0, r0, lsr #13</pre>
+<br />
+<pre>00003130 &lt;pwr_enable_set&commat;&commat;Base&gt;:</pre>
+<pre>    3130:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>    3134:	e1a04001 	mov	r4, r1</pre>
+<pre>    3138:	e1a06002 	mov	r6, r2</pre>
+<pre>    313c:	ebfff955 	bl	1698 &lt;pwr_api_pcie_aspm_get&commat;&commat;Base+0x8&gt;</pre>
+<pre>    3140:	e2505000 	subs	r5, r0, #0</pre>
+<pre>    3144:	08bd8070 	popeq	{r4, r5, r6, pc}</pre>
+<pre>    3148:	e3540000 	cmp	r4, #0</pre>
+<pre>    314c:	e5951004 	ldr	r1, [r5, #4]</pre>
+<pre>    3150:	11a02004 	movne	r2, r4</pre>
+<pre>    3154:	059f203c 	ldreq	r2, [pc, #60]	; 3198 &lt;pwr_enable_set&commat;&commat;Base+0x68&gt;</pre>
+<pre>    3158:	008f2002 	addeq	r2, pc, r2</pre>
+<pre>    315c:	e3560000 	cmp	r6, #0</pre>
+<pre>    3160:	1a000009 	bne	318c &lt;pwr_enable_set&commat;&commat;Base+0x5c&gt;</pre>
+<pre>    3164:	e59f3030 	ldr	r3, [pc, #48]	; 319c &lt;pwr_enable_set&commat;&commat;Base+0x6c&gt;</pre>
+<pre>    3168:	e08f3003 	add	r3, pc, r3</pre>
+<pre>    316c:	e59f002c 	ldr	r0, [pc, #44]	; 31a0 &lt;pwr_enable_set&commat;&commat;Base+0x70&gt;</pre>
+<pre>    3170:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">    3174:	ebfff7e7 	bl	1118 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3178:	e5953008 	ldr	r3, [r5, #8]</pre>
+<pre>    317c:	e1a01006 	mov	r1, r6</pre>
+<pre>--</pre>
+<pre>    31cc:	e5142010 	ldr	r2, [r4, #-16]</pre>
+<pre>    31d0:	e5141014 	ldr	r1, [r4, #-20]	; 0xffffffec</pre>
+<pre>    31d4:	ebfff80b 	bl	1208 &lt;pwr_enable_set&commat;plt&gt;</pre>
+<pre>    31d8:	e1855000 	orr	r5, r5, r0</pre>
+<pre>    31dc:	eafffff4 	b	31b4 &lt;pwr_profile_activate&commat;&commat;Base+0xc&gt;</pre>
+<br />
+<pre>000031e0 &lt;pwr_status_show&commat;&commat;Base&gt;:</pre>
+<pre>    31e0:	e92d40f7 	push	{r0, r1, r2, r4, r5, r6, r7, lr}</pre>
+<pre>    31e4:	e1a05001 	mov	r5, r1</pre>
+<pre>    31e8:	ebfff92a 	bl	1698 &lt;pwr_api_pcie_aspm_get&commat;&commat;Base+0x8&gt;</pre>
+<pre>    31ec:	e2504000 	subs	r4, r0, #0</pre>
+<pre>    31f0:	1a000022 	bne	3280 &lt;pwr_status_show&commat;&commat;Base+0xa0&gt;</pre>
+<pre>    31f4:	e59f50b0 	ldr	r5, [pc, #176]	; 32ac &lt;pwr_status_show&commat;&commat;Base+0xcc&gt;</pre>
+<pre>    31f8:	e59f60b0 	ldr	r6, [pc, #176]	; 32b0 &lt;pwr_status_show&commat;&commat;Base+0xd0&gt;</pre>
+<pre>    31fc:	e59f70b0 	ldr	r7, [pc, #176]	; 32b4 &lt;pwr_status_show&commat;&commat;Base+0xd4&gt;</pre>
+<pre>    3200:	e08f5005 	add	r5, pc, r5</pre>
+<pre>    3204:	e08f6006 	add	r6, pc, r6</pre>
+<pre>    3208:	e08f7007 	add	r7, pc, r7</pre>
+<pre>    320c:	e5951004 	ldr	r1, [r5, #4]</pre>
+<pre>    3210:	e1a00006 	mov	r0, r6</pre>
+<pre><span class="red">    3214:	ebfff7bf 	bl	1118 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>    3218:	e595300c 	ldr	r3, [r5, #12]</pre>
+<pre>    321c:	e3530000 	cmp	r3, #0</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">4</span> times </span><span class="orange">libpwrctl.so</span></pre>
+<br />

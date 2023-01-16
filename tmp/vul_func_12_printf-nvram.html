@@ -1,0 +1,228 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">nvram</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">nvram</span></pre>
+<br />
+<pre>   1145c:	e5803000 	str	r3, [r0]</pre>
+<pre>   11460:	eafffe73 	b	10e34 &lt;nvram_kcommit&commat;plt&gt;</pre>
+<pre>   11464:	e5912000 	ldr	r2, [r1]</pre>
+<pre>   11468:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   1146c:	e2823004 	add	r3, r2, #4</pre>
+<pre>   11470:	e5925004 	ldr	r5, [r2, #4]</pre>
+<pre>   11474:	e5813000 	str	r3, [r1]</pre>
+<pre>   11478:	e3550000 	cmp	r5, #0</pre>
+<pre>   1147c:	e5903000 	ldr	r3, [r0]</pre>
+<pre>   11480:	e2433001 	sub	r3, r3, #1</pre>
+<pre>   11484:	e5803000 	str	r3, [r0]</pre>
+<pre>   11488:	059f5028 	ldreq	r5, [pc, #40]	; 114b8 &lt;fputs&commat;plt+0x450&gt;</pre>
+<pre>   1148c:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>   11490:	e1a00005 	mov	r0, r5</pre>
+<pre>   11494:	ebfffec6 	bl	10fb4 &lt;nvram_populate&commat;plt&gt;</pre>
+<pre>   11498:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   1149c:	1a000003 	bne	114b0 &lt;fputs&commat;plt+0x448&gt;</pre>
+<pre>   114a0:	e59f0014 	ldr	r0, [pc, #20]	; 114bc &lt;fputs&commat;plt+0x454&gt;</pre>
+<pre>   114a4:	e1a01005 	mov	r1, r5</pre>
+<pre>   114a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   114ac:	ebfffeae 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   114b0:	e1a00004 	mov	r0, r4</pre>
+<pre>   114b4:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   11588:	e3e00000 	mvn	r0, #0</pre>
+<pre>   1158c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   11590:	e59f3064 	ldr	r3, [pc, #100]	; 115fc &lt;fputs&commat;plt+0x594&gt;</pre>
+<pre>   11594:	e3a01802 	mov	r1, #131072	; 0x20000</pre>
+<pre>   11598:	e7966003 	ldr	r6, [r6, r3]</pre>
+<pre>   1159c:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   115a0:	ebfffe77 	bl	10f84 &lt;nvram_ugetall&commat;plt&gt;</pre>
+<pre>   115a4:	e3500000 	cmp	r0, #0</pre>
+<pre>   115a8:	1a000005 	bne	115c4 &lt;fputs&commat;plt+0x55c&gt;</pre>
+<pre>   115ac:	e1a01004 	mov	r1, r4</pre>
+<pre>   115b0:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   115b4:	ebfffeab 	bl	11068 &lt;fputs&commat;plt&gt;</pre>
+<pre>   115b8:	e1a01004 	mov	r1, r4</pre>
+<pre>   115bc:	e3a0000a 	mov	r0, #10</pre>
+<pre>   115c0:	ebfffe7e 	bl	10fc0 &lt;fputc&commat;plt&gt;</pre>
+<pre>   115c4:	e1a00004 	mov	r0, r4</pre>
+<pre>   115c8:	ebfffe34 	bl	10ea0 &lt;fclose&commat;plt&gt;</pre>
+<pre>   115cc:	e59f002c 	ldr	r0, [pc, #44]	; 11600 &lt;fputs&commat;plt+0x598&gt;</pre>
+<pre>   115d0:	e1a01005 	mov	r1, r5</pre>
+<pre>   115d4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   115d8:	ebfffe63 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   115dc:	e3a00000 	mov	r0, #0</pre>
+<pre>   115e0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   116e4:	e1a01007 	mov	r1, r7</pre>
+<pre>   116e8:	e58d6004 	str	r6, [sp, #4]</pre>
+<pre>   116ec:	ebfffde5 	bl	10e88 &lt;strsep&commat;plt&gt;</pre>
+<pre>   116f0:	e3500000 	cmp	r0, #0</pre>
+<pre>   116f4:	0affffeb 	beq	116a8 &lt;fputs&commat;plt+0x640&gt;</pre>
+<pre>   116f8:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   116fc:	e3530000 	cmp	r3, #0</pre>
+<pre>   11700:	0affffe8 	beq	116a8 &lt;fputs&commat;plt+0x640&gt;</pre>
+<pre>   11704:	ebfffdf7 	bl	10ee8 &lt;trim_str&commat;plt&gt;</pre>
+<pre>   11708:	e1a04000 	mov	r4, r0</pre>
+<pre>   1170c:	e59d0004 	ldr	r0, [sp, #4]</pre>
+<pre>   11710:	ebfffdf4 	bl	10ee8 &lt;trim_str&commat;plt&gt;</pre>
+<pre>   11714:	e1a01000 	mov	r1, r0</pre>
+<pre>   11718:	e58d0004 	str	r0, [sp, #4]</pre>
+<pre>   1171c:	e1a00004 	mov	r0, r4</pre>
+<pre>   11720:	ebfffdfc 	bl	10f18 &lt;nvram_kset&commat;plt&gt;</pre>
+<pre>   11724:	eaffffdf 	b	116a8 &lt;fputs&commat;plt+0x640&gt;</pre>
+<pre>   11728:	e59f0030 	ldr	r0, [pc, #48]	; 11760 &lt;fputs&commat;plt+0x6f8&gt;</pre>
+<pre>   1172c:	e1a01004 	mov	r1, r4</pre>
+<pre>   11730:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11734:	ebfffe0c 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11738:	e3e00000 	mvn	r0, #0</pre>
+<pre>   1173c:	eaffffe2 	b	116cc &lt;fputs&commat;plt+0x664&gt;</pre>
+<pre>--</pre>
+<pre>   11760:	0000094f 	andeq	r0, r0, pc, asr #18</pre>
+<pre>   11764:	00000950 	andeq	r0, r0, r0, asr r9</pre>
+<pre>   11768:	e5912000 	ldr	r2, [r1]</pre>
+<pre>   1176c:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   11770:	e2823004 	add	r3, r2, #4</pre>
+<pre>   11774:	e5925004 	ldr	r5, [r2, #4]</pre>
+<pre>   11778:	e5813000 	str	r3, [r1]</pre>
+<pre>   1177c:	e3550000 	cmp	r5, #0</pre>
+<pre>   11780:	e5903000 	ldr	r3, [r0]</pre>
+<pre>   11784:	e2433001 	sub	r3, r3, #1</pre>
+<pre>   11788:	e5803000 	str	r3, [r0]</pre>
+<pre>   1178c:	059f5028 	ldreq	r5, [pc, #40]	; 117bc &lt;fputs&commat;plt+0x754&gt;</pre>
+<pre>   11790:	008f5005 	addeq	r5, pc, r5</pre>
+<pre>   11794:	e1a00005 	mov	r0, r5</pre>
+<pre>   11798:	ebffffb4 	bl	11670 &lt;fputs&commat;plt+0x608&gt;</pre>
+<pre>   1179c:	e2504000 	subs	r4, r0, #0</pre>
+<pre>   117a0:	1a000003 	bne	117b4 &lt;fputs&commat;plt+0x74c&gt;</pre>
+<pre>   117a4:	e59f0014 	ldr	r0, [pc, #20]	; 117c0 &lt;fputs&commat;plt+0x758&gt;</pre>
+<pre>   117a8:	e1a01005 	mov	r1, r5</pre>
+<pre>   117ac:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   117b0:	ebfffded 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   117b4:	e1a00004 	mov	r0, r4</pre>
+<pre>   117b8:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   117bc:	00000877 	andeq	r0, r0, r7, ror r8</pre>
+<pre>   117c0:	00000872 	andeq	r0, r0, r2, ror r8</pre>
+<pre>   117c4:	e92d4ef0 	push	{r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>   117c8:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   117cc:	e59f70e0 	ldr	r7, [pc, #224]	; 118b4 &lt;fputs&commat;plt+0x84c&gt;</pre>
+<pre>   117d0:	e08f7007 	add	r7, pc, r7</pre>
+<pre>   117d4:	0a000002 	beq	117e4 &lt;fputs&commat;plt+0x77c&gt;</pre>
+<pre>   117d8:	e59f00d8 	ldr	r0, [pc, #216]	; 118b8 &lt;fputs&commat;plt+0x850&gt;</pre>
+<pre>   117dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   117e0:	ebfffde1 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   117e4:	e59f00d0 	ldr	r0, [pc, #208]	; 118bc &lt;fputs&commat;plt+0x854&gt;</pre>
+<pre>   117e8:	e3a06000 	mov	r6, #0</pre>
+<pre>   117ec:	e59fa0cc 	ldr	sl, [pc, #204]	; 118c0 &lt;fputs&commat;plt+0x858&gt;</pre>
+<pre>   117f0:	e1a09006 	mov	r9, r6</pre>
+<pre>   117f4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   117f8:	e59fb0c4 	ldr	fp, [pc, #196]	; 118c4 &lt;fputs&commat;plt+0x85c&gt;</pre>
+<pre>   117fc:	ebfffdf8 	bl	10fe4 &lt;puts&commat;plt&gt;</pre>
+<pre>   11800:	e59f30c0 	ldr	r3, [pc, #192]	; 118c8 &lt;fputs&commat;plt+0x860&gt;</pre>
+<pre>   11804:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   11808:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>   1180c:	e7974003 	ldr	r4, [r7, r3]</pre>
+<pre>   11810:	e3160001 	tst	r6, #1</pre>
+<pre>   11814:	11a0000b 	movne	r0, fp</pre>
+<pre>   11818:	01a0000a 	moveq	r0, sl</pre>
+<pre><span class="red">   1181c:	ebfffdd2 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11820:	e5d45008 	ldrb	r5, [r4, #8]</pre>
+<pre>   11824:	e3550000 	cmp	r5, #0</pre>
+<pre>   11828:	1a00000b 	bne	1185c &lt;fputs&commat;plt+0x7f4&gt;</pre>
+<pre>   1182c:	e59f0098 	ldr	r0, [pc, #152]	; 118cc &lt;fputs&commat;plt+0x864&gt;</pre>
+<pre>   11830:	e5941000 	ldr	r1, [r4]</pre>
+<pre>   11834:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11838:	ebfffdcb 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1183c:	e5d43010 	ldrb	r3, [r4, #16]</pre>
+<pre>   11840:	e1530005 	cmp	r3, r5</pre>
+<pre>   11844:	ca000016 	bgt	118a4 &lt;fputs&commat;plt+0x83c&gt;</pre>
+<pre>   11848:	e59f0080 	ldr	r0, [pc, #128]	; 118d0 &lt;fputs&commat;plt+0x868&gt;</pre>
+<pre>   1184c:	e2866001 	add	r6, r6, #1</pre>
+<pre>   11850:	e5941004 	ldr	r1, [r4, #4]</pre>
+<pre>   11854:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11858:	ebfffdc3 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1185c:	e2899001 	add	r9, r9, #1</pre>
+<pre>   11860:	e2844014 	add	r4, r4, #20</pre>
+<pre>   11864:	e3590013 	cmp	r9, #19</pre>
+<pre>   11868:	1affffe8 	bne	11810 &lt;fputs&commat;plt+0x7a8&gt;</pre>
+<pre>   1186c:	e59f0060 	ldr	r0, [pc, #96]	; 118d4 &lt;fputs&commat;plt+0x86c&gt;</pre>
+<pre>   11870:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11874:	ebfffdbc 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11878:	e59f0058 	ldr	r0, [pc, #88]	; 118d8 &lt;fputs&commat;plt+0x870&gt;</pre>
+<pre>   1187c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>--</pre>
+<pre>   11948:	e5912000 	ldr	r2, [r1]</pre>
+<pre>   1194c:	e59f3140 	ldr	r3, [pc, #320]	; 11a94 &lt;fputs&commat;plt+0xa2c&gt;</pre>
+<pre>   11950:	e92d4ef3 	push	{r0, r1, r4, r5, r6, r7, r9, sl, fp, lr}</pre>
+<pre>   11954:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   11958:	e58d3004 	str	r3, [sp, #4]</pre>
+<pre>   1195c:	e2823004 	add	r3, r2, #4</pre>
+<pre>   11960:	e5813000 	str	r3, [r1]</pre>
+<pre>   11964:	e1a04001 	mov	r4, r1</pre>
+<pre>   11968:	e5903000 	ldr	r3, [r0]</pre>
+<pre>   1196c:	e2433001 	sub	r3, r3, #1</pre>
+<pre>   11970:	e5803000 	str	r3, [r0]</pre>
+<pre>   11974:	e3530000 	cmp	r3, #0</pre>
+<pre>   11978:	da000002 	ble	11988 &lt;fputs&commat;plt+0x920&gt;</pre>
+<pre>   1197c:	e5923004 	ldr	r3, [r2, #4]</pre>
+<pre>   11980:	e3530000 	cmp	r3, #0</pre>
+<pre>   11984:	1a000001 	bne	11990 &lt;fputs&commat;plt+0x928&gt;</pre>
+<pre>   11988:	e3a00000 	mov	r0, #0</pre>
+<pre>   1198c:	ebffff8c 	bl	117c4 &lt;fputs&commat;plt+0x75c&gt;</pre>
+<pre>   11990:	e59f0100 	ldr	r0, [pc, #256]	; 11a98 &lt;fputs&commat;plt+0xa30&gt;</pre>
+<pre>   11994:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11998:	ebfffd73 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1199c:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   119a0:	e59f10f4 	ldr	r1, [pc, #244]	; 11a9c &lt;fputs&commat;plt+0xa34&gt;</pre>
+<pre>--</pre>
+<pre>   11de8:	e59d3004 	ldr	r3, [sp, #4]</pre>
+<pre>   11dec:	e3530000 	cmp	r3, #0</pre>
+<pre>   11df0:	13500000 	cmpne	r0, #0</pre>
+<pre>   11df4:	e1a06000 	mov	r6, r0</pre>
+<pre>   11df8:	0a000021 	beq	11e84 &lt;fputs&commat;plt+0xe1c&gt;</pre>
+<pre>   11dfc:	e1a00003 	mov	r0, r3</pre>
+<pre>   11e00:	ebfffdb6 	bl	114e0 &lt;fputs&commat;plt+0x478&gt;</pre>
+<pre>   11e04:	e3500000 	cmp	r0, #0</pre>
+<pre>   11e08:	0a00001d 	beq	11e84 &lt;fputs&commat;plt+0xe1c&gt;</pre>
+<pre>   11e0c:	e1a00006 	mov	r0, r6</pre>
+<pre>   11e10:	ebfffdb2 	bl	114e0 &lt;fputs&commat;plt+0x478&gt;</pre>
+<pre>   11e14:	e3500000 	cmp	r0, #0</pre>
+<pre>   11e18:	0a000019 	beq	11e84 &lt;fputs&commat;plt+0xe1c&gt;</pre>
+<pre>   11e1c:	e5990000 	ldr	r0, [r9]</pre>
+<pre>   11e20:	ebfffc6c 	bl	10fd8 &lt;nvram_unf_get&commat;plt&gt;</pre>
+<pre>   11e24:	e2507000 	subs	r7, r0, #0</pre>
+<pre>   11e28:	0a00001e 	beq	11ea8 &lt;fputs&commat;plt+0xe40&gt;</pre>
+<pre>   11e2c:	e59f0088 	ldr	r0, [pc, #136]	; 11ebc &lt;fputs&commat;plt+0xe54&gt;</pre>
+<pre>   11e30:	e1a01007 	mov	r1, r7</pre>
+<pre>   11e34:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11e38:	ebfffc4b 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11e3c:	e1a00007 	mov	r0, r7</pre>
+<pre>   11e40:	ebfffc37 	bl	10f24 &lt;free&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   11e60:	e5990000 	ldr	r0, [r9]</pre>
+<pre>   11e64:	ebfffbfb 	bl	10e58 &lt;nvram_set_bitflag&commat;plt&gt;</pre>
+<pre>   11e68:	e5990000 	ldr	r0, [r9]</pre>
+<pre>   11e6c:	ebfffc59 	bl	10fd8 &lt;nvram_unf_get&commat;plt&gt;</pre>
+<pre>   11e70:	e2506000 	subs	r6, r0, #0</pre>
+<pre>   11e74:	0a000002 	beq	11e84 &lt;fputs&commat;plt+0xe1c&gt;</pre>
+<pre>   11e78:	ebfffc59 	bl	10fe4 &lt;puts&commat;plt&gt;</pre>
+<pre>   11e7c:	e1a00006 	mov	r0, r6</pre>
+<pre>   11e80:	ebfffc27 	bl	10f24 &lt;free&commat;plt&gt;</pre>
+<pre>   11e84:	e5953000 	ldr	r3, [r5]</pre>
+<pre>   11e88:	e3a00000 	mov	r0, #0</pre>
+<pre>   11e8c:	e2833004 	add	r3, r3, #4</pre>
+<pre>   11e90:	e5853000 	str	r3, [r5]</pre>
+<pre>   11e94:	e5943000 	ldr	r3, [r4]</pre>
+<pre>   11e98:	e2433001 	sub	r3, r3, #1</pre>
+<pre>   11e9c:	e5843000 	str	r3, [r4]</pre>
+<pre>   11ea0:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   11ea4:	e8bd82f0 	pop	{r4, r5, r6, r7, r9, pc}</pre>
+<pre>   11ea8:	e59f0010 	ldr	r0, [pc, #16]	; 11ec0 &lt;fputs&commat;plt+0xe58&gt;</pre>
+<pre>   11eac:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11eb0:	ebfffc2d 	bl	10f6c &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11eb4:	eaffffe2 	b	11e44 &lt;fputs&commat;plt+0xddc&gt;</pre>
+<pre>   11eb8:	0000031c 	andeq	r0, r0, ip, lsl r3</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">12</span> times </span><span class="orange">nvram</span></pre>
+<br />

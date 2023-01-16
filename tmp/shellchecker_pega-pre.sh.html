@@ -1,0 +1,42 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-pre.sh line 74:</span></pre>
+<pre></span>            CHK_KEY_DONE=`cat /data/.cert/genkey-done | head -n 1`</span></pre>
+<pre><span class="green">                         ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                              ^---------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>            CHK_KEY_DONE=$(cat /data/.cert/genkey-done | head -n 1)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-pre.sh line 75:</span></pre>
+<pre></span>            CHK_KEY=`tail -n 2 /data/.cert/keys/server/ta.key | head -n 1`</span></pre>
+<pre><span class="green">                    ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>            CHK_KEY=$(tail -n 2 /data/.cert/keys/server/ta.key | head -n 1)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-pre.sh line 78:</span></pre>
+<pre></span>            echo "CHK_KEY_DONE : "${CHK_KEY_DONE}</span></pre>
+<pre><span class="green">                                  ^-------------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>            echo "CHK_KEY_DONE : ""${CHK_KEY_DONE}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-pre.sh line 79:</span></pre>
+<pre></span>            echo "CHK_KEY      : "${CHK_KEY}</span></pre>
+<pre><span class="green">                                  ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>            echo "CHK_KEY      : ""${CHK_KEY}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/pega-pre.sh line 81:</span></pre>
+<pre></span>            if [ ! "${CHK_KEY_DONE}" == "${CHK_KEY}" ]; then</span></pre>
+<pre><span class="orange">                                     ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2002" title="https://www.shellcheck.net/wiki/SC2002" target="_blank" >https://www.shellcheck.net/wiki/SC2002</a> -- Useless cat. Consider 'cmd &lt; file...</pre>

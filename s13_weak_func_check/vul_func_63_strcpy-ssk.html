@@ -1,0 +1,887 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">ssk</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> tear down of </span><span class="orange">ssk</span></pre>
+<br />
+<pre>   155c8:	e59f31a4 	ldr	r3, [pc, #420]	; 15774 &lt;fputs&commat;plt+0x2310&gt;</pre>
+<pre>   155cc:	e3002733 	movw	r2, #1843	; 0x733</pre>
+<pre>   155d0:	e58d0000 	str	r0, [sp]</pre>
+<pre>   155d4:	e1a01004 	mov	r1, r4</pre>
+<pre>   155d8:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   155dc:	e3a00003 	mov	r0, #3</pre>
+<pre>   155e0:	ebfff625 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   155e4:	eaffff69 	b	15390 &lt;fputs&commat;plt+0x1f2c&gt;</pre>
+<pre>   155e8:	e28d600c 	add	r6, sp, #12</pre>
+<pre>   155ec:	e1a01005 	mov	r1, r5</pre>
+<pre>   155f0:	e3a00003 	mov	r0, #3</pre>
+<pre>   155f4:	e1a03006 	mov	r3, r6</pre>
+<pre>   155f8:	ebfff622 	bl	12e88 &lt;cmsObj_get&commat;plt&gt;</pre>
+<pre>   155fc:	e5d43020 	ldrb	r3, [r4, #32]</pre>
+<pre>   15600:	e3530000 	cmp	r3, #0</pre>
+<pre>   15604:	1a00003b 	bne	156f8 &lt;fputs&commat;plt+0x2294&gt;</pre>
+<pre>   15608:	e28d2050 	add	r2, sp, #80	; 0x50</pre>
+<pre>   1560c:	e59f1164 	ldr	r1, [pc, #356]	; 15778 &lt;fputs&commat;plt+0x2314&gt;</pre>
+<pre>   15610:	e1a00002 	mov	r0, r2</pre>
+<pre>   15614:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   15618:	ebfff6a4 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1561c:	e5dd3014 	ldrb	r3, [sp, #20]</pre>
+<pre>   15620:	e28d1090 	add	r1, sp, #144	; 0x90</pre>
+<pre>--</pre>
+<pre>   157dc:	e3530000 	cmp	r3, #0</pre>
+<pre>   157e0:	e595301c 	ldr	r3, [r5, #28]</pre>
+<pre>   157e4:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   157e8:	13a0b005 	movne	fp, #5</pre>
+<pre>   157ec:	03a0b001 	moveq	fp, #1</pre>
+<pre>   157f0:	e3530020 	cmp	r3, #32</pre>
+<pre>   157f4:	9a000008 	bls	1581c &lt;fputs&commat;plt+0x23b8&gt;</pre>
+<pre>   157f8:	e58d3000 	str	r3, [sp]</pre>
+<pre>   157fc:	e3002297 	movw	r2, #663	; 0x297</pre>
+<pre>   15800:	e59f3284 	ldr	r3, [pc, #644]	; 15a8c &lt;fputs&commat;plt+0x2628&gt;</pre>
+<pre>   15804:	e1a01004 	mov	r1, r4</pre>
+<pre>   15808:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1580c:	e3a00003 	mov	r0, #3</pre>
+<pre>   15810:	ebfff599 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   15814:	e28dd058 	add	sp, sp, #88	; 0x58</pre>
+<pre>   15818:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>   1581c:	e3530000 	cmp	r3, #0</pre>
+<pre>   15820:	0a000002 	beq	15830 &lt;fputs&commat;plt+0x23cc&gt;</pre>
+<pre>   15824:	e2851020 	add	r1, r5, #32</pre>
+<pre>   15828:	e28d0038 	add	r0, sp, #56	; 0x38</pre>
+<pre><span class="red">   1582c:	ebfff61f 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   15830:	e59f6258 	ldr	r6, [pc, #600]	; 15a90 &lt;fputs&commat;plt+0x262c&gt;</pre>
+<pre>   15834:	e3031a98 	movw	r1, #15000	; 0x3a98</pre>
+<pre>--</pre>
+<pre>   18e38:	0a00000b 	beq	18e6c &lt;updateLinkStatus_dev2&commat;&commat;Base+0x33c0&gt;</pre>
+<pre>   18e3c:	e59f12e8 	ldr	r1, [pc, #744]	; 1912c &lt;updateLinkStatus_dev2&commat;&commat;Base+0x3680&gt;</pre>
+<pre>   18e40:	e3a00003 	mov	r0, #3</pre>
+<pre>   18e44:	e59f32e4 	ldr	r3, [pc, #740]	; 19130 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x3684&gt;</pre>
+<pre>   18e48:	e3002429 	movw	r2, #1065	; 0x429</pre>
+<pre>   18e4c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   18e50:	e58d4000 	str	r4, [sp]</pre>
+<pre>   18e54:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   18e58:	e2811030 	add	r1, r1, #48	; 0x30</pre>
+<pre>   18e5c:	ebffe806 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   18e60:	e1a00009 	mov	r0, r9</pre>
+<pre>   18e64:	ebffe87c 	bl	1305c &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   18e68:	eaffffe8 	b	18e10 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x3364&gt;</pre>
+<pre>   18e6c:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>   18e70:	e28da050 	add	sl, sp, #80	; 0x50</pre>
+<pre>   18e74:	e59f12b8 	ldr	r1, [pc, #696]	; 19134 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x3688&gt;</pre>
+<pre>   18e78:	e28d4024 	add	r4, sp, #36	; 0x24</pre>
+<pre>   18e7c:	e1a0000a 	mov	r0, sl</pre>
+<pre>   18e80:	e593b008 	ldr	fp, [r3, #8]</pre>
+<pre>   18e84:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   18e88:	ebffe888 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   18e8c:	e28d00d0 	add	r0, sp, #208	; 0xd0</pre>
+<pre>   18e90:	e35b0001 	cmp	fp, #1</pre>
+<pre>   18e94:	1a000042 	bne	18fa4 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x34f8&gt;</pre>
+<pre>   18e98:	e59f1298 	ldr	r1, [pc, #664]	; 19138 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x368c&gt;</pre>
+<pre>   18e9c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   18ea0:	ebffe882 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   18ea4:	e59f1290 	ldr	r1, [pc, #656]	; 1913c &lt;updateLinkStatus_dev2&commat;&commat;Base+0x3690&gt;</pre>
+<pre>   18ea8:	e1a00004 	mov	r0, r4</pre>
+<pre>   18eac:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   18eb0:	ebffe87e 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   18eb4:	e59f326c 	ldr	r3, [pc, #620]	; 19128 &lt;updateLinkStatus_dev2&commat;&commat;Base+0x367c&gt;</pre>
+<pre>   18eb8:	e1a01004 	mov	r1, r4</pre>
+<pre>--</pre>
+<pre>   19254:	e3002488 	movw	r2, #1160	; 0x488</pre>
+<pre>   19258:	e1a01007 	mov	r1, r7</pre>
+<pre>   1925c:	e3a00003 	mov	r0, #3</pre>
+<pre>   19260:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19264:	e58d4000 	str	r4, [sp]</pre>
+<pre>   19268:	ebffe703 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   1926c:	e59f1c78 	ldr	r1, [pc, #3192]	; 19eec &lt;generateSMBconfig&commat;&commat;Base+0xd7c&gt;</pre>
+<pre>   19270:	e300258b 	movw	r2, #1419	; 0x58b</pre>
+<pre>   19274:	e59f3c74 	ldr	r3, [pc, #3188]	; 19ef0 &lt;generateSMBconfig&commat;&commat;Base+0xd80&gt;</pre>
+<pre>   19278:	e3a00003 	mov	r0, #3</pre>
+<pre>   1927c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   19280:	e3a06000 	mov	r6, #0</pre>
+<pre>   19284:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19288:	e281104a 	add	r1, r1, #74	; 0x4a</pre>
+<pre>   1928c:	ebffe6fa 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19290:	ea000145 	b	197ac &lt;generateSMBconfig&commat;&commat;Base+0x63c&gt;</pre>
+<pre>   19294:	e28d40d8 	add	r4, sp, #216	; 0xd8</pre>
+<pre>   19298:	e59f1c54 	ldr	r1, [pc, #3156]	; 19ef4 &lt;generateSMBconfig&commat;&commat;Base+0xd84&gt;</pre>
+<pre>   1929c:	e1a00004 	mov	r0, r4</pre>
+<pre>   192a0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   192a4:	ebffe781 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   192a8:	e1a01005 	mov	r1, r5</pre>
+<pre>   192ac:	e1a00004 	mov	r0, r4</pre>
+<pre>   192b0:	ebffe86b 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   192b4:	e59f1c3c 	ldr	r1, [pc, #3132]	; 19ef8 &lt;generateSMBconfig&commat;&commat;Base+0xd88&gt;</pre>
+<pre>   192b8:	e1a00004 	mov	r0, r4</pre>
+<pre>   192bc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   192c0:	ebffe77a 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   192c4:	e1a01005 	mov	r1, r5</pre>
+<pre>   192c8:	e1a00004 	mov	r0, r4</pre>
+<pre>   192cc:	ebffe864 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   192d0:	e59f1c24 	ldr	r1, [pc, #3108]	; 19efc &lt;generateSMBconfig&commat;&commat;Base+0xd8c&gt;</pre>
+<pre>   192d4:	e1a00004 	mov	r0, r4</pre>
+<pre>   192d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   192dc:	ebffe773 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   192e0:	e1a01005 	mov	r1, r5</pre>
+<pre>   192e4:	e1a00004 	mov	r0, r4</pre>
+<pre>   192e8:	ebffe85d 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   192ec:	e59f1c0c 	ldr	r1, [pc, #3084]	; 19f00 &lt;generateSMBconfig&commat;&commat;Base+0xd90&gt;</pre>
+<pre>   192f0:	e1a00004 	mov	r0, r4</pre>
+<pre>   192f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   192f8:	ebffe76c 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   192fc:	e1a01005 	mov	r1, r5</pre>
+<pre>   19300:	e1a00004 	mov	r0, r4</pre>
+<pre>   19304:	ebffe856 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19308:	e59f1bf4 	ldr	r1, [pc, #3060]	; 19f04 &lt;generateSMBconfig&commat;&commat;Base+0xd94&gt;</pre>
+<pre>   1930c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19310:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19314:	ebffe765 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19318:	e1a01005 	mov	r1, r5</pre>
+<pre>   1931c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19320:	ebffe84f 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19324:	e59f1bdc 	ldr	r1, [pc, #3036]	; 19f08 &lt;generateSMBconfig&commat;&commat;Base+0xd98&gt;</pre>
+<pre>   19328:	e1a00004 	mov	r0, r4</pre>
+<pre>   1932c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19330:	ebffe75e 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19334:	e1a01005 	mov	r1, r5</pre>
+<pre>   19338:	e1a00004 	mov	r0, r4</pre>
+<pre>   1933c:	ebffe848 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19340:	e59f1bc4 	ldr	r1, [pc, #3012]	; 19f0c &lt;generateSMBconfig&commat;&commat;Base+0xd9c&gt;</pre>
+<pre>   19344:	e1a00004 	mov	r0, r4</pre>
+<pre>   19348:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1934c:	ebffe757 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19350:	e1a01005 	mov	r1, r5</pre>
+<pre>   19354:	e1a00004 	mov	r0, r4</pre>
+<pre>   19358:	ebffe841 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   1935c:	e59f1bac 	ldr	r1, [pc, #2988]	; 19f10 &lt;generateSMBconfig&commat;&commat;Base+0xda0&gt;</pre>
+<pre>   19360:	e1a00004 	mov	r0, r4</pre>
+<pre>   19364:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19368:	ebffe750 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1936c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19370:	e1a00004 	mov	r0, r4</pre>
+<pre>   19374:	ebffe83a 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19378:	e59f1b94 	ldr	r1, [pc, #2964]	; 19f14 &lt;generateSMBconfig&commat;&commat;Base+0xda4&gt;</pre>
+<pre>   1937c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19380:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19384:	ebffe749 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19388:	e1a01005 	mov	r1, r5</pre>
+<pre>   1938c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19390:	ebffe833 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19394:	e59f1b7c 	ldr	r1, [pc, #2940]	; 19f18 &lt;generateSMBconfig&commat;&commat;Base+0xda8&gt;</pre>
+<pre>   19398:	e1a00004 	mov	r0, r4</pre>
+<pre>   1939c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   193a0:	ebffe742 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   193a4:	e1a01005 	mov	r1, r5</pre>
+<pre>   193a8:	e1a00004 	mov	r0, r4</pre>
+<pre>   193ac:	ebffe82c 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   193b0:	e59f1b64 	ldr	r1, [pc, #2916]	; 19f1c &lt;generateSMBconfig&commat;&commat;Base+0xdac&gt;</pre>
+<pre>   193b4:	e1a00004 	mov	r0, r4</pre>
+<pre>   193b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   193bc:	ebffe73b 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   193c0:	e1a01005 	mov	r1, r5</pre>
+<pre>   193c4:	e1a00004 	mov	r0, r4</pre>
+<pre>   193c8:	ebffe825 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   193cc:	e59f1b4c 	ldr	r1, [pc, #2892]	; 19f20 &lt;generateSMBconfig&commat;&commat;Base+0xdb0&gt;</pre>
+<pre>   193d0:	e1a00004 	mov	r0, r4</pre>
+<pre>   193d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   193d8:	ebffe734 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   193dc:	e1a01005 	mov	r1, r5</pre>
+<pre>   193e0:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   1942c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19430:	e593300c 	ldr	r3, [r3, #12]</pre>
+<pre>   19434:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   19438:	ebffe7ca 	bl	13368 &lt;snprintf&commat;plt&gt;</pre>
+<pre>   1943c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19440:	e1a00004 	mov	r0, r4</pre>
+<pre>   19444:	ebffe806 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19448:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>   1944c:	e59f2ad8 	ldr	r2, [pc, #2776]	; 19f2c &lt;generateSMBconfig&commat;&commat;Base+0xdbc&gt;</pre>
+<pre>   19450:	e3a01c01 	mov	r1, #256	; 0x100</pre>
+<pre>   19454:	e1a00004 	mov	r0, r4</pre>
+<pre>   19458:	e5933008 	ldr	r3, [r3, #8]</pre>
+<pre>   1945c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   19460:	ebffe7c0 	bl	13368 &lt;snprintf&commat;plt&gt;</pre>
+<pre>   19464:	e1a01005 	mov	r1, r5</pre>
+<pre>   19468:	e1a00004 	mov	r0, r4</pre>
+<pre>   1946c:	ebffe7fc 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19470:	e59f1ab8 	ldr	r1, [pc, #2744]	; 19f30 &lt;generateSMBconfig&commat;&commat;Base+0xdc0&gt;</pre>
+<pre>   19474:	e1a00004 	mov	r0, r4</pre>
+<pre>   19478:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1947c:	ebffe70b 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19480:	e1a01005 	mov	r1, r5</pre>
+<pre>   19484:	e1a00004 	mov	r0, r4</pre>
+<pre>   19488:	ebffe7f5 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   1948c:	e59f1aa0 	ldr	r1, [pc, #2720]	; 19f34 &lt;generateSMBconfig&commat;&commat;Base+0xdc4&gt;</pre>
+<pre>   19490:	e1a00004 	mov	r0, r4</pre>
+<pre>   19494:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19498:	ebffe704 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1949c:	e1a01005 	mov	r1, r5</pre>
+<pre>   194a0:	e1a00004 	mov	r0, r4</pre>
+<pre>   194a4:	ebffe7ee 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   194a8:	e59f1a88 	ldr	r1, [pc, #2696]	; 19f38 &lt;generateSMBconfig&commat;&commat;Base+0xdc8&gt;</pre>
+<pre>   194ac:	e1a00004 	mov	r0, r4</pre>
+<pre>   194b0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   194b4:	ebffe6fd 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   194b8:	e1a01005 	mov	r1, r5</pre>
+<pre>   194bc:	e1a00004 	mov	r0, r4</pre>
+<pre>   194c0:	ebffe7e7 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   194c4:	e59f1a70 	ldr	r1, [pc, #2672]	; 19f3c &lt;generateSMBconfig&commat;&commat;Base+0xdcc&gt;</pre>
+<pre>   194c8:	e1a00004 	mov	r0, r4</pre>
+<pre>   194cc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   194d0:	ebffe6f6 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   194d4:	e1a01005 	mov	r1, r5</pre>
+<pre>   194d8:	e1a00004 	mov	r0, r4</pre>
+<pre>   194dc:	ebffe7e0 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   194e0:	e59f1a58 	ldr	r1, [pc, #2648]	; 19f40 &lt;generateSMBconfig&commat;&commat;Base+0xdd0&gt;</pre>
+<pre>   194e4:	e1a00004 	mov	r0, r4</pre>
+<pre>   194e8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   194ec:	ebffe6ef 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   194f0:	e1a01005 	mov	r1, r5</pre>
+<pre>   194f4:	e1a00004 	mov	r0, r4</pre>
+<pre>   194f8:	ebffe7d9 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   194fc:	e59f1a40 	ldr	r1, [pc, #2624]	; 19f44 &lt;generateSMBconfig&commat;&commat;Base+0xdd4&gt;</pre>
+<pre>   19500:	e1a00004 	mov	r0, r4</pre>
+<pre>   19504:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19508:	ebffe6e8 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1950c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19510:	e1a00004 	mov	r0, r4</pre>
+<pre>   19514:	ebffe7d2 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19518:	e59f1a28 	ldr	r1, [pc, #2600]	; 19f48 &lt;generateSMBconfig&commat;&commat;Base+0xdd8&gt;</pre>
+<pre>   1951c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19520:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19524:	ebffe6e1 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19528:	e1a01005 	mov	r1, r5</pre>
+<pre>   1952c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19530:	ebffe7cb 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19534:	e59f1a10 	ldr	r1, [pc, #2576]	; 19f4c &lt;generateSMBconfig&commat;&commat;Base+0xddc&gt;</pre>
+<pre>   19538:	e1a00004 	mov	r0, r4</pre>
+<pre>   1953c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19540:	ebffe6da 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19544:	e1a01005 	mov	r1, r5</pre>
+<pre>   19548:	e1a00004 	mov	r0, r4</pre>
+<pre>   1954c:	ebffe7c4 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19550:	e59f19f8 	ldr	r1, [pc, #2552]	; 19f50 &lt;generateSMBconfig&commat;&commat;Base+0xde0&gt;</pre>
+<pre>   19554:	e1a00004 	mov	r0, r4</pre>
+<pre>   19558:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1955c:	ebffe6d3 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19560:	e1a01005 	mov	r1, r5</pre>
+<pre>   19564:	e1a00004 	mov	r0, r4</pre>
+<pre>   19568:	ebffe7bd 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   1956c:	e59f19e0 	ldr	r1, [pc, #2528]	; 19f54 &lt;generateSMBconfig&commat;&commat;Base+0xde4&gt;</pre>
+<pre>   19570:	e1a00004 	mov	r0, r4</pre>
+<pre>   19574:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19578:	ebffe6cc 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1957c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19580:	e1a00004 	mov	r0, r4</pre>
+<pre>   19584:	ebffe7b6 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19588:	e59f19c8 	ldr	r1, [pc, #2504]	; 19f58 &lt;generateSMBconfig&commat;&commat;Base+0xde8&gt;</pre>
+<pre>   1958c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19590:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19594:	ebffe6c5 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19598:	e1a01005 	mov	r1, r5</pre>
+<pre>   1959c:	e1a00004 	mov	r0, r4</pre>
+<pre>   195a0:	ebffe7af 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   195a4:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>   195a8:	e5d33010 	ldrb	r3, [r3, #16]</pre>
+<pre>   195ac:	e3530000 	cmp	r3, #0</pre>
+<pre>   195b0:	1a000006 	bne	195d0 &lt;generateSMBconfig&commat;&commat;Base+0x460&gt;</pre>
+<pre>   195b4:	e59f19a0 	ldr	r1, [pc, #2464]	; 19f5c &lt;generateSMBconfig&commat;&commat;Base+0xdec&gt;</pre>
+<pre>   195b8:	e1a00004 	mov	r0, r4</pre>
+<pre>   195bc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   195c0:	ebffe6ba 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   195c4:	e1a01005 	mov	r1, r5</pre>
+<pre>   195c8:	e1a00004 	mov	r0, r4</pre>
+<pre>   195cc:	ebffe7a4 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   195d0:	e59f1988 	ldr	r1, [pc, #2440]	; 19f60 &lt;generateSMBconfig&commat;&commat;Base+0xdf0&gt;</pre>
+<pre>   195d4:	e1a00004 	mov	r0, r4</pre>
+<pre>   195d8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   195dc:	ebffe6b3 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   195e0:	e1a01005 	mov	r1, r5</pre>
+<pre>   195e4:	e1a00004 	mov	r0, r4</pre>
+<pre>   195e8:	ebffe79d 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   195ec:	e59f1970 	ldr	r1, [pc, #2416]	; 19f64 &lt;generateSMBconfig&commat;&commat;Base+0xdf4&gt;</pre>
+<pre>   195f0:	e1a00004 	mov	r0, r4</pre>
+<pre>   195f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   195f8:	ebffe6ac 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   195fc:	e1a01005 	mov	r1, r5</pre>
+<pre>   19600:	e1a00004 	mov	r0, r4</pre>
+<pre>   19604:	ebffe796 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19608:	e59f1958 	ldr	r1, [pc, #2392]	; 19f68 &lt;generateSMBconfig&commat;&commat;Base+0xdf8&gt;</pre>
+<pre>   1960c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19610:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19614:	ebffe6a5 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19618:	e1a01005 	mov	r1, r5</pre>
+<pre>   1961c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19620:	ebffe78f 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19624:	e59f1940 	ldr	r1, [pc, #2368]	; 19f6c &lt;generateSMBconfig&commat;&commat;Base+0xdfc&gt;</pre>
+<pre>   19628:	e1a00004 	mov	r0, r4</pre>
+<pre>   1962c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19630:	ebffe69e 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19634:	e1a01005 	mov	r1, r5</pre>
+<pre>   19638:	e1a00004 	mov	r0, r4</pre>
+<pre>   1963c:	ebffe788 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19640:	e59f1928 	ldr	r1, [pc, #2344]	; 19f70 &lt;generateSMBconfig&commat;&commat;Base+0xe00&gt;</pre>
+<pre>   19644:	e1a00004 	mov	r0, r4</pre>
+<pre>   19648:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1964c:	ebffe697 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19650:	e1a01005 	mov	r1, r5</pre>
+<pre>   19654:	e1a00004 	mov	r0, r4</pre>
+<pre>   19658:	ebffe781 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   1965c:	e59f1910 	ldr	r1, [pc, #2320]	; 19f74 &lt;generateSMBconfig&commat;&commat;Base+0xe04&gt;</pre>
+<pre>   19660:	e1a00004 	mov	r0, r4</pre>
+<pre>   19664:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19668:	ebffe690 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1966c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19670:	e1a00004 	mov	r0, r4</pre>
+<pre>   19674:	ebffe77a 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19678:	e59f18f8 	ldr	r1, [pc, #2296]	; 19f78 &lt;generateSMBconfig&commat;&commat;Base+0xe08&gt;</pre>
+<pre>   1967c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19680:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19684:	ebffe689 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19688:	e1a01005 	mov	r1, r5</pre>
+<pre>   1968c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19690:	ebffe773 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19694:	e59f18e0 	ldr	r1, [pc, #2272]	; 19f7c &lt;generateSMBconfig&commat;&commat;Base+0xe0c&gt;</pre>
+<pre>   19698:	e1a00004 	mov	r0, r4</pre>
+<pre>   1969c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   196a0:	ebffe682 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   196a4:	e1a01005 	mov	r1, r5</pre>
+<pre>   196a8:	e1a00004 	mov	r0, r4</pre>
+<pre>   196ac:	ebffe76c 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   196b0:	e59f18c8 	ldr	r1, [pc, #2248]	; 19f80 &lt;generateSMBconfig&commat;&commat;Base+0xe10&gt;</pre>
+<pre>   196b4:	e1a00004 	mov	r0, r4</pre>
+<pre>   196b8:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   196bc:	ebffe67b 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   196c0:	e1a01005 	mov	r1, r5</pre>
+<pre>   196c4:	e1a00004 	mov	r0, r4</pre>
+<pre>   196c8:	ebffe765 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   196cc:	e59f18b0 	ldr	r1, [pc, #2224]	; 19f84 &lt;generateSMBconfig&commat;&commat;Base+0xe14&gt;</pre>
+<pre>   196d0:	e1a00004 	mov	r0, r4</pre>
+<pre>   196d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   196d8:	ebffe674 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   196dc:	e1a01005 	mov	r1, r5</pre>
+<pre>   196e0:	e1a00004 	mov	r0, r4</pre>
+<pre>   196e4:	ebffe75e 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   196e8:	e59f1898 	ldr	r1, [pc, #2200]	; 19f88 &lt;generateSMBconfig&commat;&commat;Base+0xe18&gt;</pre>
+<pre>   196ec:	e1a00004 	mov	r0, r4</pre>
+<pre>   196f0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   196f4:	ebffe66d 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   196f8:	e1a01005 	mov	r1, r5</pre>
+<pre>   196fc:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   19790:	e30024f2 	movw	r2, #1266	; 0x4f2</pre>
+<pre>   19794:	e1a01004 	mov	r1, r4</pre>
+<pre>   19798:	e3a00003 	mov	r0, #3</pre>
+<pre>   1979c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   197a0:	e58d7000 	str	r7, [sp]</pre>
+<pre>   197a4:	ebffe5b4 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   197a8:	e1a06007 	mov	r6, r7</pre>
+<pre>   197ac:	e1a00006 	mov	r0, r6</pre>
+<pre>   197b0:	e28ddfb6 	add	sp, sp, #728	; 0x2d8</pre>
+<pre>   197b4:	e8bd8ef0 	pop	{r4, r5, r6, r7, r9, sl, fp, pc}</pre>
+<pre>   197b8:	e59d3020 	ldr	r3, [sp, #32]</pre>
+<pre>   197bc:	e28d6f76 	add	r6, sp, #472	; 0x1d8</pre>
+<pre>   197c0:	e59fa7d8 	ldr	sl, [pc, #2008]	; 19fa0 &lt;generateSMBconfig&commat;&commat;Base+0xe30&gt;</pre>
+<pre>   197c4:	e59f17d8 	ldr	r1, [pc, #2008]	; 19fa4 &lt;generateSMBconfig&commat;&commat;Base+0xe34&gt;</pre>
+<pre>   197c8:	e1a00006 	mov	r0, r6</pre>
+<pre>   197cc:	e5933008 	ldr	r3, [r3, #8]</pre>
+<pre>   197d0:	e08fa00a 	add	sl, pc, sl</pre>
+<pre>   197d4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   197d8:	e59fb7c8 	ldr	fp, [pc, #1992]	; 19fa8 &lt;generateSMBconfig&commat;&commat;Base+0xe38&gt;</pre>
+<pre>   197dc:	e58d3014 	str	r3, [sp, #20]</pre>
+<pre><span class="red">   197e0:	ebffe632 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   197e4:	e1a0300a 	mov	r3, sl</pre>
+<pre>   197e8:	e30024f9 	movw	r2, #1273	; 0x4f9</pre>
+<pre>   197ec:	e1a01004 	mov	r1, r4</pre>
+<pre>   197f0:	e3a00003 	mov	r0, #3</pre>
+<pre>   197f4:	e58d6000 	str	r6, [sp]</pre>
+<pre>   197f8:	e08fb00b 	add	fp, pc, fp</pre>
+<pre>   197fc:	ebffe59e 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19800:	e1a00006 	mov	r0, r6</pre>
+<pre>   19804:	ebffe569 	bl	12db0 &lt;system&commat;plt&gt;</pre>
+<pre>   19808:	e59f179c 	ldr	r1, [pc, #1948]	; 19fac &lt;generateSMBconfig&commat;&commat;Base+0xe3c&gt;</pre>
+<pre>   1980c:	e1a00006 	mov	r0, r6</pre>
+<pre>   19810:	e28bb04a 	add	fp, fp, #74	; 0x4a</pre>
+<pre>   19814:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19818:	ebffe624 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1981c:	e1a0300a 	mov	r3, sl</pre>
+<pre>   19820:	e30024fc 	movw	r2, #1276	; 0x4fc</pre>
+<pre>   19824:	e1a01004 	mov	r1, r4</pre>
+<pre>   19828:	e3a00003 	mov	r0, #3</pre>
+<pre>   1982c:	e58d6000 	str	r6, [sp]</pre>
+<pre>   19830:	ebffe591 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19834:	e1a00006 	mov	r0, r6</pre>
+<pre>   19838:	ebffe55c 	bl	12db0 &lt;system&commat;plt&gt;</pre>
+<pre>   1983c:	e59f176c 	ldr	r1, [pc, #1900]	; 19fb0 &lt;generateSMBconfig&commat;&commat;Base+0xe40&gt;</pre>
+<pre>   19840:	e1a00006 	mov	r0, r6</pre>
+<pre>   19844:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19848:	ebffe618 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1984c:	e1a0300a 	mov	r3, sl</pre>
+<pre>   19850:	e30024ff 	movw	r2, #1279	; 0x4ff</pre>
+<pre>   19854:	e1a01004 	mov	r1, r4</pre>
+<pre>   19858:	e3a00003 	mov	r0, #3</pre>
+<pre>   1985c:	e58d6000 	str	r6, [sp]</pre>
+<pre>   19860:	ebffe585 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19864:	e1a00006 	mov	r0, r6</pre>
+<pre>   19868:	ebffe550 	bl	12db0 &lt;system&commat;plt&gt;</pre>
+<pre>   1986c:	e59f1740 	ldr	r1, [pc, #1856]	; 19fb4 &lt;generateSMBconfig&commat;&commat;Base+0xe44&gt;</pre>
+<pre>   19870:	e1a00006 	mov	r0, r6</pre>
+<pre>   19874:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19878:	ebffe60c 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1987c:	e1a0300a 	mov	r3, sl</pre>
+<pre>   19880:	e3002502 	movw	r2, #1282	; 0x502</pre>
+<pre>--</pre>
+<pre>   19a20:	1a0000e7 	bne	19dc4 &lt;generateSMBconfig&commat;&commat;Base+0xc54&gt;</pre>
+<pre>   19a24:	e59d3024 	ldr	r3, [sp, #36]	; 0x24</pre>
+<pre>   19a28:	e5d32004 	ldrb	r2, [r3, #4]</pre>
+<pre>   19a2c:	e3520000 	cmp	r2, #0</pre>
+<pre>   19a30:	0a0000e3 	beq	19dc4 &lt;generateSMBconfig&commat;&commat;Base+0xc54&gt;</pre>
+<pre>   19a34:	e28d40d8 	add	r4, sp, #216	; 0xd8</pre>
+<pre>   19a38:	e59f25a0 	ldr	r2, [pc, #1440]	; 19fe0 &lt;generateSMBconfig&commat;&commat;Base+0xe70&gt;</pre>
+<pre>   19a3c:	e5933020 	ldr	r3, [r3, #32]</pre>
+<pre>   19a40:	e3a01c01 	mov	r1, #256	; 0x100</pre>
+<pre>   19a44:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   19a48:	e1a00004 	mov	r0, r4</pre>
+<pre>   19a4c:	ebffe645 	bl	13368 &lt;snprintf&commat;plt&gt;</pre>
+<pre>   19a50:	e1a01005 	mov	r1, r5</pre>
+<pre>   19a54:	e1a00004 	mov	r0, r4</pre>
+<pre>   19a58:	e59f6584 	ldr	r6, [pc, #1412]	; 19fe4 &lt;generateSMBconfig&commat;&commat;Base+0xe74&gt;</pre>
+<pre>   19a5c:	ebffe680 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19a60:	e59f1580 	ldr	r1, [pc, #1408]	; 19fe8 &lt;generateSMBconfig&commat;&commat;Base+0xe78&gt;</pre>
+<pre>   19a64:	e1a00004 	mov	r0, r4</pre>
+<pre>   19a68:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   19a6c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19a70:	ebffe58e 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19a74:	e59d3024 	ldr	r3, [sp, #36]	; 0x24</pre>
+<pre>   19a78:	e59f256c 	ldr	r2, [pc, #1388]	; 19fec &lt;generateSMBconfig&commat;&commat;Base+0xe7c&gt;</pre>
+<pre>   19a7c:	e3a01c01 	mov	r1, #256	; 0x100</pre>
+<pre>   19a80:	e1a00004 	mov	r0, r4</pre>
+<pre>   19a84:	e5933020 	ldr	r3, [r3, #32]</pre>
+<pre>   19a88:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   19a8c:	ebffe635 	bl	13368 &lt;snprintf&commat;plt&gt;</pre>
+<pre>   19a90:	e1a01005 	mov	r1, r5</pre>
+<pre>   19a94:	e1a00004 	mov	r0, r4</pre>
+<pre>   19a98:	ebffe671 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19a9c:	e1a01006 	mov	r1, r6</pre>
+<pre>   19aa0:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">   19aa4:	ebffe581 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19aa8:	e1a01005 	mov	r1, r5</pre>
+<pre>   19aac:	e1a00004 	mov	r0, r4</pre>
+<pre>   19ab0:	ebffe66b 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19ab4:	e59f1534 	ldr	r1, [pc, #1332]	; 19ff0 &lt;generateSMBconfig&commat;&commat;Base+0xe80&gt;</pre>
+<pre>   19ab8:	e1a00004 	mov	r0, r4</pre>
+<pre>   19abc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19ac0:	ebffe57a 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19ac4:	e1a01005 	mov	r1, r5</pre>
+<pre>   19ac8:	e1a00004 	mov	r0, r4</pre>
+<pre>   19acc:	ebffe664 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19ad0:	e59d3028 	ldr	r3, [sp, #40]	; 0x28</pre>
+<pre>   19ad4:	e5d33010 	ldrb	r3, [r3, #16]</pre>
+<pre>   19ad8:	e3530000 	cmp	r3, #0</pre>
+<pre>   19adc:	0a00006c 	beq	19c94 &lt;generateSMBconfig&commat;&commat;Base+0xb24&gt;</pre>
+<pre>   19ae0:	e59f350c 	ldr	r3, [pc, #1292]	; 19ff4 &lt;generateSMBconfig&commat;&commat;Base+0xe84&gt;</pre>
+<pre>   19ae4:	e3002529 	movw	r2, #1321	; 0x529</pre>
+<pre>   19ae8:	e1a0100a 	mov	r1, sl</pre>
+<pre>   19aec:	e3a00003 	mov	r0, #3</pre>
+<pre>   19af0:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19af4:	ebffe4e0 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19af8:	e59f14f8 	ldr	r1, [pc, #1272]	; 19ff8 &lt;generateSMBconfig&commat;&commat;Base+0xe88&gt;</pre>
+<pre>   19afc:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b00:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19b04:	ebffe569 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19b08:	e1a01005 	mov	r1, r5</pre>
+<pre>   19b0c:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b10:	ebffe653 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19b14:	e59f14e0 	ldr	r1, [pc, #1248]	; 19ffc &lt;generateSMBconfig&commat;&commat;Base+0xe8c&gt;</pre>
+<pre>   19b18:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b1c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19b20:	ebffe562 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19b24:	e1a01005 	mov	r1, r5</pre>
+<pre>   19b28:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b2c:	ebffe64c 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19b30:	e59f14c8 	ldr	r1, [pc, #1224]	; 1a000 &lt;generateSMBconfig&commat;&commat;Base+0xe90&gt;</pre>
+<pre>   19b34:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   19b38:	e1a00004 	mov	r0, r4</pre>
+<pre><span class="red">   19b3c:	ebffe55b 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19b40:	e1a01005 	mov	r1, r5</pre>
+<pre>   19b44:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b48:	ebffe645 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19b4c:	e1a01006 	mov	r1, r6</pre>
+<pre>   19b50:	e1a00004 	mov	r0, r4</pre>
+<pre>   19b54:	e59f64a8 	ldr	r6, [pc, #1192]	; 1a004 &lt;generateSMBconfig&commat;&commat;Base+0xe94&gt;</pre>
+<pre><span class="red">   19b58:	ebffe554 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19b5c:	e1a01005 	mov	r1, r5</pre>
+<pre>   19b60:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   19c78:	e1a01006 	mov	r1, r6</pre>
+<pre>   19c7c:	e58d4000 	str	r4, [sp]</pre>
+<pre>   19c80:	ebffe47d 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19c84:	e1a00004 	mov	r0, r4</pre>
+<pre>   19c88:	ebffe448 	bl	12db0 &lt;system&commat;plt&gt;</pre>
+<pre>   19c8c:	e2877001 	add	r7, r7, #1</pre>
+<pre>   19c90:	eaffff01 	b	1989c &lt;generateSMBconfig&commat;&commat;Base+0x72c&gt;</pre>
+<pre>   19c94:	e59d3024 	ldr	r3, [sp, #36]	; 0x24</pre>
+<pre>   19c98:	e5d32024 	ldrb	r2, [r3, #36]	; 0x24</pre>
+<pre>   19c9c:	e3520000 	cmp	r2, #0</pre>
+<pre>   19ca0:	1a000016 	bne	19d00 &lt;generateSMBconfig&commat;&commat;Base+0xb90&gt;</pre>
+<pre>   19ca4:	e59f3370 	ldr	r3, [pc, #880]	; 1a01c &lt;generateSMBconfig&commat;&commat;Base+0xeac&gt;</pre>
+<pre>   19ca8:	e3002538 	movw	r2, #1336	; 0x538</pre>
+<pre>   19cac:	e1a0100a 	mov	r1, sl</pre>
+<pre>   19cb0:	e3a00003 	mov	r0, #3</pre>
+<pre>   19cb4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19cb8:	ebffe46f 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19cbc:	e59f135c 	ldr	r1, [pc, #860]	; 1a020 &lt;generateSMBconfig&commat;&commat;Base+0xeb0&gt;</pre>
+<pre>   19cc0:	e1a00004 	mov	r0, r4</pre>
+<pre>   19cc4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19cc8:	ebffe4f8 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19ccc:	e1a01005 	mov	r1, r5</pre>
+<pre>   19cd0:	e1a00004 	mov	r0, r4</pre>
+<pre>   19cd4:	ebffe5e2 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19cd8:	e59f1344 	ldr	r1, [pc, #836]	; 1a024 &lt;generateSMBconfig&commat;&commat;Base+0xeb4&gt;</pre>
+<pre>   19cdc:	e1a00004 	mov	r0, r4</pre>
+<pre>   19ce0:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19ce4:	ebffe4f1 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19ce8:	e1a01005 	mov	r1, r5</pre>
+<pre>   19cec:	e1a00004 	mov	r0, r4</pre>
+<pre>   19cf0:	ebffe5db 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19cf4:	e59f132c 	ldr	r1, [pc, #812]	; 1a028 &lt;generateSMBconfig&commat;&commat;Base+0xeb8&gt;</pre>
+<pre>   19cf8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   19cfc:	eaffff8d 	b	19b38 &lt;generateSMBconfig&commat;&commat;Base+0x9c8&gt;</pre>
+<pre>   19d00:	e5d33025 	ldrb	r3, [r3, #37]	; 0x25</pre>
+<pre>   19d04:	e3530000 	cmp	r3, #0</pre>
+<pre>   19d08:	1a000016 	bne	19d68 &lt;generateSMBconfig&commat;&commat;Base+0xbf8&gt;</pre>
+<pre>   19d0c:	e59f3318 	ldr	r3, [pc, #792]	; 1a02c &lt;generateSMBconfig&commat;&commat;Base+0xebc&gt;</pre>
+<pre>   19d10:	e3002545 	movw	r2, #1349	; 0x545</pre>
+<pre>   19d14:	e1a0100a 	mov	r1, sl</pre>
+<pre>   19d18:	e3a00003 	mov	r0, #3</pre>
+<pre>   19d1c:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19d20:	ebffe455 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19d24:	e59f1304 	ldr	r1, [pc, #772]	; 1a030 &lt;generateSMBconfig&commat;&commat;Base+0xec0&gt;</pre>
+<pre>   19d28:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d2c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19d30:	ebffe4de 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19d34:	e1a01005 	mov	r1, r5</pre>
+<pre>   19d38:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d3c:	ebffe5c8 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19d40:	e59f12ec 	ldr	r1, [pc, #748]	; 1a034 &lt;generateSMBconfig&commat;&commat;Base+0xec4&gt;</pre>
+<pre>   19d44:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d48:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19d4c:	ebffe4d7 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19d50:	e1a01005 	mov	r1, r5</pre>
+<pre>   19d54:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d58:	ebffe5c1 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19d5c:	e59f12d4 	ldr	r1, [pc, #724]	; 1a038 &lt;generateSMBconfig&commat;&commat;Base+0xec8&gt;</pre>
+<pre>   19d60:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   19d64:	eaffff79 	b	19b50 &lt;generateSMBconfig&commat;&commat;Base+0x9e0&gt;</pre>
+<pre>   19d68:	e59f32cc 	ldr	r3, [pc, #716]	; 1a03c &lt;generateSMBconfig&commat;&commat;Base+0xecc&gt;</pre>
+<pre>   19d6c:	e3a02e55 	mov	r2, #1360	; 0x550</pre>
+<pre>   19d70:	e1a0100a 	mov	r1, sl</pre>
+<pre>   19d74:	e3a00003 	mov	r0, #3</pre>
+<pre>   19d78:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   19d7c:	ebffe43e 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   19d80:	e59f12b8 	ldr	r1, [pc, #696]	; 1a040 &lt;generateSMBconfig&commat;&commat;Base+0xed0&gt;</pre>
+<pre>   19d84:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d88:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19d8c:	ebffe4c7 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19d90:	e1a01005 	mov	r1, r5</pre>
+<pre>   19d94:	e1a00004 	mov	r0, r4</pre>
+<pre>   19d98:	ebffe5b1 	bl	13464 &lt;fputs&commat;plt&gt;</pre>
+<pre>   19d9c:	e59f12a0 	ldr	r1, [pc, #672]	; 1a044 &lt;generateSMBconfig&commat;&commat;Base+0xed4&gt;</pre>
+<pre>   19da0:	e1a00004 	mov	r0, r4</pre>
+<pre>   19da4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   19da8:	ebffe4c0 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   19dac:	e1a01005 	mov	r1, r5</pre>
+<pre>   19db0:	e1a00004 	mov	r0, r4</pre>
+<pre>--</pre>
+<pre>   1b82c:	e1a0100a 	mov	r1, sl</pre>
+<pre>   1b830:	e3a00003 	mov	r0, #3</pre>
+<pre>   1b834:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1b838:	e300217f 	movw	r2, #383	; 0x17f</pre>
+<pre>   1b83c:	e58d7004 	str	r7, [sp, #4]</pre>
+<pre>   1b840:	e58d9000 	str	r9, [sp]</pre>
+<pre>   1b844:	ebffdd8c 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   1b848:	e3590003 	cmp	r9, #3</pre>
+<pre>   1b84c:	028d0048 	addeq	r0, sp, #72	; 0x48</pre>
+<pre>   1b850:	01a01007 	moveq	r1, r7</pre>
+<pre>   1b854:	0a000008 	beq	1b87c &lt;generateSMBconfig&commat;&commat;Base+0x270c&gt;</pre>
+<pre>   1b858:	e3590004 	cmp	r9, #4</pre>
+<pre>   1b85c:	0a000004 	beq	1b874 &lt;generateSMBconfig&commat;&commat;Base+0x2704&gt;</pre>
+<pre>   1b860:	e3590005 	cmp	r9, #5</pre>
+<pre>   1b864:	1a000006 	bne	1b884 &lt;generateSMBconfig&commat;&commat;Base+0x2714&gt;</pre>
+<pre>   1b868:	e28d0068 	add	r0, sp, #104	; 0x68</pre>
+<pre>   1b86c:	e1a01007 	mov	r1, r7</pre>
+<pre>   1b870:	ea000001 	b	1b87c &lt;generateSMBconfig&commat;&commat;Base+0x270c&gt;</pre>
+<pre>   1b874:	e28d0058 	add	r0, sp, #88	; 0x58</pre>
+<pre>   1b878:	e1a01007 	mov	r1, r7</pre>
+<pre><span class="red">   1b87c:	ebffde0b 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1b880:	ea000003 	b	1b894 &lt;generateSMBconfig&commat;&commat;Base+0x2724&gt;</pre>
+<pre>   1b884:	e3590006 	cmp	r9, #6</pre>
+<pre>--</pre>
+<pre>   1dc70:	e3530000 	cmp	r3, #0</pre>
+<pre>   1dc74:	0a0000de 	beq	1dff4 &lt;generateSMBconfig&commat;&commat;Base+0x4e84&gt;</pre>
+<pre>   1dc78:	e59f6dd8 	ldr	r6, [pc, #3544]	; 1ea58 &lt;generateSMBconfig&commat;&commat;Base+0x58e8&gt;</pre>
+<pre>   1dc7c:	e3a02fc5 	mov	r2, #788	; 0x314</pre>
+<pre>   1dc80:	e59f3dd4 	ldr	r3, [pc, #3540]	; 1ea5c &lt;generateSMBconfig&commat;&commat;Base+0x58ec&gt;</pre>
+<pre>   1dc84:	e3a00007 	mov	r0, #7</pre>
+<pre>   1dc88:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   1dc8c:	e28d9f79 	add	r9, sp, #484	; 0x1e4</pre>
+<pre>   1dc90:	e2866070 	add	r6, r6, #112	; 0x70</pre>
+<pre>   1dc94:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1dc98:	e28daf55 	add	sl, sp, #340	; 0x154</pre>
+<pre>   1dc9c:	e28d5fa9 	add	r5, sp, #676	; 0x2a4</pre>
+<pre>   1dca0:	e1a01006 	mov	r1, r6</pre>
+<pre>   1dca4:	ebffd474 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   1dca8:	e1a00006 	mov	r0, r6</pre>
+<pre>   1dcac:	ebffd421 	bl	12d38 &lt;cmsLck_releaseLockTraced&commat;plt&gt;</pre>
+<pre>   1dcb0:	e28d3f89 	add	r3, sp, #548	; 0x224</pre>
+<pre>   1dcb4:	e59f1da4 	ldr	r1, [pc, #3492]	; 1ea60 &lt;generateSMBconfig&commat;&commat;Base+0x58f0&gt;</pre>
+<pre>   1dcb8:	e1a00003 	mov	r0, r3</pre>
+<pre>   1dcbc:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1dcc0:	ebffd4fa 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1dcc4:	ebffd547 	bl	131e8 &lt;prctl_runCommandInShellBlocking&commat;plt&gt;</pre>
+<pre>   1dcc8:	e59d301c 	ldr	r3, [sp, #28]</pre>
+<pre>--</pre>
+<pre>   1e12c:	e59f3988 	ldr	r3, [pc, #2440]	; 1eabc &lt;generateSMBconfig&commat;&commat;Base+0x594c&gt;</pre>
+<pre>   1e130:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   1e134:	e58d3020 	str	r3, [sp, #32]</pre>
+<pre>   1e138:	e28da0e4 	add	sl, sp, #228	; 0xe4</pre>
+<pre>   1e13c:	e3a02002 	mov	r2, #2</pre>
+<pre>   1e140:	e1a0100b 	mov	r1, fp</pre>
+<pre>   1e144:	e30005b6 	movw	r0, #1462	; 0x5b6</pre>
+<pre>   1e148:	e1a0300a 	mov	r3, sl</pre>
+<pre>   1e14c:	ebffd2fc 	bl	12d44 &lt;cmsObj_getNextFlags&commat;plt&gt;</pre>
+<pre>   1e150:	e3500000 	cmp	r0, #0</pre>
+<pre>   1e154:	1a000009 	bne	1e180 &lt;generateSMBconfig&commat;&commat;Base+0x5010&gt;</pre>
+<pre>   1e158:	e59d30e4 	ldr	r3, [sp, #228]	; 0xe4</pre>
+<pre>   1e15c:	e59d101c 	ldr	r1, [sp, #28]</pre>
+<pre>   1e160:	e5930024 	ldr	r0, [r3, #36]	; 0x24</pre>
+<pre>   1e164:	ebffd47c 	bl	1335c &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>   1e168:	e3500000 	cmp	r0, #0</pre>
+<pre>   1e16c:	1a0000c5 	bne	1e488 &lt;generateSMBconfig&commat;&commat;Base+0x5318&gt;</pre>
+<pre>   1e170:	e59d30e4 	ldr	r3, [sp, #228]	; 0xe4</pre>
+<pre>   1e174:	e28d0f6d 	add	r0, sp, #436	; 0x1b4</pre>
+<pre>   1e178:	e593101c 	ldr	r1, [r3, #28]</pre>
+<pre><span class="red">   1e17c:	ebffd3cb 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1e180:	e1a0000a 	mov	r0, sl</pre>
+<pre>   1e184:	e28dac01 	add	sl, sp, #256	; 0x100</pre>
+<pre>--</pre>
+<pre>   1e200:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e204:	ebffd3f7 	bl	131e8 &lt;prctl_runCommandInShellBlocking&commat;plt&gt;</pre>
+<pre>   1e208:	e59f28c0 	ldr	r2, [pc, #2240]	; 1ead0 &lt;generateSMBconfig&commat;&commat;Base+0x5960&gt;</pre>
+<pre>   1e20c:	e59f18c0 	ldr	r1, [pc, #2240]	; 1ead4 &lt;generateSMBconfig&commat;&commat;Base+0x5964&gt;</pre>
+<pre>   1e210:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e214:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   1e218:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1e21c:	ebffd487 	bl	13440 &lt;sprintf&commat;plt&gt;</pre>
+<pre>   1e220:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e224:	ebffd3ef 	bl	131e8 &lt;prctl_runCommandInShellBlocking&commat;plt&gt;</pre>
+<pre>   1e228:	e59f18a8 	ldr	r1, [pc, #2216]	; 1ead8 &lt;generateSMBconfig&commat;&commat;Base+0x5968&gt;</pre>
+<pre>   1e22c:	e28d2f79 	add	r2, sp, #484	; 0x1e4</pre>
+<pre>   1e230:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e234:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1e238:	ebffd480 	bl	13440 &lt;sprintf&commat;plt&gt;</pre>
+<pre>   1e23c:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e240:	ebffd3e8 	bl	131e8 &lt;prctl_runCommandInShellBlocking&commat;plt&gt;</pre>
+<pre>   1e244:	e59f1890 	ldr	r1, [pc, #2192]	; 1eadc &lt;generateSMBconfig&commat;&commat;Base+0x596c&gt;</pre>
+<pre>   1e248:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e24c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   1e250:	ebffd396 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1e254:	e1a00005 	mov	r0, r5</pre>
+<pre>   1e258:	e28d5fa9 	add	r5, sp, #676	; 0x2a4</pre>
+<pre>--</pre>
+<pre>   1e470:	ebffd2f9 	bl	1305c &lt;cmsObj_free&commat;plt&gt;</pre>
+<pre>   1e474:	e59f0698 	ldr	r0, [pc, #1688]	; 1eb14 &lt;generateSMBconfig&commat;&commat;Base+0x59a4&gt;</pre>
+<pre>   1e478:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1e47c:	e2800070 	add	r0, r0, #112	; 0x70</pre>
+<pre>   1e480:	ebffd22c 	bl	12d38 &lt;cmsLck_releaseLockTraced&commat;plt&gt;</pre>
+<pre>   1e484:	eafffdb1 	b	1db50 &lt;generateSMBconfig&commat;&commat;Base+0x49e0&gt;</pre>
+<pre>   1e488:	e59d30e4 	ldr	r3, [sp, #228]	; 0xe4</pre>
+<pre>   1e48c:	e59d1020 	ldr	r1, [sp, #32]</pre>
+<pre>   1e490:	e5930024 	ldr	r0, [r3, #36]	; 0x24</pre>
+<pre>   1e494:	ebffd3b0 	bl	1335c &lt;cmsUtl_strcmp&commat;plt&gt;</pre>
+<pre>   1e498:	e3500000 	cmp	r0, #0</pre>
+<pre>   1e49c:	1affff25 	bne	1e138 &lt;generateSMBconfig&commat;&commat;Base+0x4fc8&gt;</pre>
+<pre>   1e4a0:	eaffff32 	b	1e170 &lt;generateSMBconfig&commat;&commat;Base+0x5000&gt;</pre>
+<pre>   1e4a4:	e59d3100 	ldr	r3, [sp, #256]	; 0x100</pre>
+<pre>   1e4a8:	e5d32004 	ldrb	r2, [r3, #4]</pre>
+<pre>   1e4ac:	e3520000 	cmp	r2, #0</pre>
+<pre>   1e4b0:	0a000030 	beq	1e578 &lt;generateSMBconfig&commat;&commat;Base+0x5408&gt;</pre>
+<pre>   1e4b4:	e284b021 	add	fp, r4, #33	; 0x21</pre>
+<pre>   1e4b8:	e5931008 	ldr	r1, [r3, #8]</pre>
+<pre>   1e4bc:	e28d0f79 	add	r0, sp, #484	; 0x1e4</pre>
+<pre><span class="red">   1e4c0:	ebffd2fa 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   1e4c4:	e1a0000b 	mov	r0, fp</pre>
+<pre>   1e4c8:	ebffd3d9 	bl	13434 &lt;cmsUtl_strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   24924:	e59f3194 	ldr	r3, [pc, #404]	; 24ac0 &lt;generateSMBconfig&commat;&commat;Base+0xb950&gt;</pre>
+<pre>   24928:	e3a020ac 	mov	r2, #172	; 0xac</pre>
+<pre>   2492c:	e58d0000 	str	r0, [sp]</pre>
+<pre>   24930:	e1a01004 	mov	r1, r4</pre>
+<pre>   24934:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   24938:	e3a00003 	mov	r0, #3</pre>
+<pre>   2493c:	ebffb94e 	bl	12e7c &lt;log_log&commat;plt&gt;</pre>
+<pre>   24940:	eaffff66 	b	246e0 &lt;generateSMBconfig&commat;&commat;Base+0xb570&gt;</pre>
+<pre>   24944:	e28d7014 	add	r7, sp, #20</pre>
+<pre>   24948:	e1a01005 	mov	r1, r5</pre>
+<pre>   2494c:	e30003eb 	movw	r0, #1003	; 0x3eb</pre>
+<pre>   24950:	e1a03007 	mov	r3, r7</pre>
+<pre>   24954:	ebffb94b 	bl	12e88 &lt;cmsObj_get&commat;plt&gt;</pre>
+<pre>   24958:	e5d43020 	ldrb	r3, [r4, #32]</pre>
+<pre>   2495c:	e3530000 	cmp	r3, #0</pre>
+<pre>   24960:	1a000039 	bne	24a4c &lt;generateSMBconfig&commat;&commat;Base+0xb8dc&gt;</pre>
+<pre>   24964:	e28d2058 	add	r2, sp, #88	; 0x58</pre>
+<pre>   24968:	e59f1154 	ldr	r1, [pc, #340]	; 24ac4 &lt;generateSMBconfig&commat;&commat;Base+0xb954&gt;</pre>
+<pre>   2496c:	e1a00002 	mov	r0, r2</pre>
+<pre>   24970:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   24974:	ebffb9cd 	bl	130b0 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   24978:	e5dd301c 	ldrb	r3, [sp, #28]</pre>
+<pre>   2497c:	e28d1098 	add	r1, sp, #152	; 0x98</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> used </span><span class="orange">63</span> times </span><span class="orange">ssk</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

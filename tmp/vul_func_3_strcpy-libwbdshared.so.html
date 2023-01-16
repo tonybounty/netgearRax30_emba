@@ -1,0 +1,83 @@
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">libwbdshared.so</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="orange">DSO          </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> tear down of </span><span class="orange">libwbdshared.so</span></pre>
+<br />
+<pre>   2a43c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   2a440:	e8bd8010 	pop	{r4, pc}</pre>
+<pre>   2a444:	0000db64 	andeq	sp, r0, r4, ror #22</pre>
+<br />
+<pre>0002a448 &lt;blanket_nvram_prefix_safe_get&commat;&commat;Base&gt;:</pre>
+<pre>   2a448:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   2a44c:	e24ddc01 	sub	sp, sp, #256	; 0x100</pre>
+<pre>   2a450:	e1a0600d 	mov	r6, sp</pre>
+<pre>   2a454:	e1a04000 	mov	r4, r0</pre>
+<pre>   2a458:	e1a05001 	mov	r5, r1</pre>
+<pre>   2a45c:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a460:	e3a02c01 	mov	r2, #256	; 0x100</pre>
+<pre>   2a464:	e3a01000 	mov	r1, #0</pre>
+<pre>   2a468:	ebff760a 	bl	7c98 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   2a46c:	e3540000 	cmp	r4, #0</pre>
+<pre>   2a470:	0a00000a 	beq	2a4a0 &lt;blanket_nvram_prefix_safe_get&commat;&commat;Base+0x58&gt;</pre>
+<pre>   2a474:	e1a01004 	mov	r1, r4</pre>
+<pre>   2a478:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a47c:	ebff74bb 	bl	7770 &lt;stpcpy&commat;plt&gt;</pre>
+<pre>   2a480:	e1a01005 	mov	r1, r5</pre>
+<pre><span class="red">   2a484:	ebff7525 	bl	7920 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   2a488:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a48c:	ebff7700 	bl	8094 &lt;nvram_get&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   2a688:	0000f478 	andeq	pc, r0, r8, ror r4	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>   2a68c:	0000df0c 	andeq	sp, r0, ip, lsl #30</pre>
+<br />
+<pre>0002a690 &lt;blanket_nvram_prefix_set&commat;&commat;Base&gt;:</pre>
+<pre>   2a690:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>   2a694:	e24ddf41 	sub	sp, sp, #260	; 0x104</pre>
+<pre>   2a698:	e1a0700d 	mov	r7, sp</pre>
+<pre>   2a69c:	e1a04000 	mov	r4, r0</pre>
+<pre>   2a6a0:	e1a05001 	mov	r5, r1</pre>
+<pre>   2a6a4:	e1a06002 	mov	r6, r2</pre>
+<pre>   2a6a8:	e1a00007 	mov	r0, r7</pre>
+<pre>   2a6ac:	e3a02c01 	mov	r2, #256	; 0x100</pre>
+<pre>   2a6b0:	e3a01000 	mov	r1, #0</pre>
+<pre>   2a6b4:	ebff7577 	bl	7c98 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   2a6b8:	e3540000 	cmp	r4, #0</pre>
+<pre>   2a6bc:	0a000009 	beq	2a6e8 &lt;blanket_nvram_prefix_set&commat;&commat;Base+0x58&gt;</pre>
+<pre>   2a6c0:	e1a01004 	mov	r1, r4</pre>
+<pre>   2a6c4:	e1a00007 	mov	r0, r7</pre>
+<pre>   2a6c8:	ebff7428 	bl	7770 &lt;stpcpy&commat;plt&gt;</pre>
+<pre>   2a6cc:	e1a01005 	mov	r1, r5</pre>
+<pre><span class="red">   2a6d0:	ebff7492 	bl	7920 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   2a6d4:	e1a01006 	mov	r1, r6</pre>
+<pre>   2a6d8:	e1a00007 	mov	r0, r7</pre>
+<pre>--</pre>
+<pre>   2a6f0:	ebff73a9 	bl	759c &lt;nvram_set&commat;plt&gt;</pre>
+<pre>   2a6f4:	e28ddf41 	add	sp, sp, #260	; 0x104</pre>
+<pre>   2a6f8:	e8bd80f0 	pop	{r4, r5, r6, r7, pc}</pre>
+<br />
+<pre>0002a6fc &lt;blanket_nvram_prefix_unset&commat;&commat;Base&gt;:</pre>
+<pre>   2a6fc:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   2a700:	e24ddc01 	sub	sp, sp, #256	; 0x100</pre>
+<pre>   2a704:	e1a0600d 	mov	r6, sp</pre>
+<pre>   2a708:	e1a04000 	mov	r4, r0</pre>
+<pre>   2a70c:	e1a05001 	mov	r5, r1</pre>
+<pre>   2a710:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a714:	e3a02c01 	mov	r2, #256	; 0x100</pre>
+<pre>   2a718:	e3a01000 	mov	r1, #0</pre>
+<pre>   2a71c:	ebff755d 	bl	7c98 &lt</span>emset&commat;plt&gt;</pre>
+<pre>   2a720:	e3540000 	cmp	r4, #0</pre>
+<pre>   2a724:	0a000008 	beq	2a74c &lt;blanket_nvram_prefix_unset&commat;&commat;Base+0x50&gt;</pre>
+<pre>   2a728:	e1a01004 	mov	r1, r4</pre>
+<pre>   2a72c:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a730:	ebff740e 	bl	7770 &lt;stpcpy&commat;plt&gt;</pre>
+<pre>   2a734:	e1a01005 	mov	r1, r5</pre>
+<pre><span class="red">   2a738:	ebff7478 	bl	7920 &lt;strcpy&commat;plt&gt</span></span></pre>
+<pre>   2a73c:	e1a00006 	mov	r0, r6</pre>
+<pre>   2a740:	ebff751e 	bl	7bc0 &lt;nvram_unset&commat;plt&gt;</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">strcpy</span> used </span><span class="orange">3</span> times </span><span class="orange">libwbdshared.so</span></pre>
+<br />

@@ -1,0 +1,905 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s115_usermode_emulator.html" title="./../s115_usermode_emulator.html" >&laquo; Back to s115_usermode_emulator</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Initial strace run on the command </span><span class="orange">./usr/sbin/dhd</span> to identify missing areas</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">dhd</span> in </span><span class="orange">strace</span> mode to identify missing areas</pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<br />
+<pre>1 brk(NULL) = 0x0006e000</pre>
+<pre>1 uname(0x40730688) = 0</pre>
+<pre>1 access("/etc/ld.so.preload",R_OK) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ld.so.cache",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ffa0,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fed0) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3ffcb000</pre>
+<pre>1 mmap2(NULL,1323700,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fe87000</pre>
+<pre>1 mprotect(0x3ffb5000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffc5000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x12e) = 0x3ffc5000</pre>
+<pre>1 mmap2(0x3ffc8000,8884,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ffc8000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 mprotect(0x3ffc5000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x0003c000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fffe000,4096,PROT_READ) = 0</pre>
+<pre>1 write(2,0x4072e380,67)Usage: (null) [-a|i &lt;adapter&gt;] [-h] [-d|u|x] &lt;command&gt; [arguments]</pre>
+<pre> = 67</pre>
+<pre>1 write(2,0x3ffc7cdf,1)</pre>
+<pre> = 1</pre>
+<pre>1 write(2,0x25b19,19)  -h		this message</pre>
+<pre> = 19</pre>
+<pre>1 write(2,0x25b2d,32)  -a, -i	adapter name or number</pre>
+<pre> = 32</pre>
+<pre>1 write(2,0x25b4e,39)  -d		display values as signed integer</pre>
+<pre> = 39</pre>
+<pre>1 write(2,0x25b76,41)  -u		display values as unsigned integer</pre>
+<pre> = 41</pre>
+<pre>1 write(2,0x25ba0,35)  -x		display values as hexdecimal</pre>
+<pre> = 35</pre>
+<pre>1 write(2,0x3ffc7cdf,1)</pre>
+<pre> = 1</pre>
+<pre>1 write(2,0x4072e378,50)cmds	generate a short list of available commands</pre>
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,33)version	get version information</pre>
+<br />
+<pre> = 33</pre>
+<pre>1 write(2,0x4072e378,37)lmtest	get/set low memory test flag</pre>
+<br />
+<pre> = 37</pre>
+<pre>1 write(2,0x4072e378,32)msglevel</pre>
+<pre>	get/set message bits</pre>
+<br />
+<pre> = 32</pre>
+<pre>1 write(2,0x4072e378,26)bcmerrorstr</pre>
+<pre>	errorstring</pre>
+<br />
+<pre> = 26</pre>
+<pre>1 write(2,0x4072e378,38)wdtick	watchdog tick time (ms units)</pre>
+<br />
+<pre> = 38</pre>
+<pre>1 write(2,0x4072e378,68)msi_sim	simulate MSI interrupts for the PCIE full dongle operation</pre>
+<br />
+<pre> = 68</pre>
+<pre>1 write(2,0x4072e378,47)pcie_lpbk</pre>
+<pre>	send a loopback message on the bus</pre>
+<br />
+<pre> = 47</pre>
+<pre>1 write(2,0x4072e378,54)pcie_dmaxfer</pre>
+<pre>	send a dma transfer message on the bus</pre>
+<br />
+<pre> = 54</pre>
+<pre>1 write(2,0x4072e378,64)pcie_tx_lpbk</pre>
+<pre>	enable/disable loopback of tx packets on the bus</pre>
+<br />
+<pre> = 64</pre>
+<pre>1 write(2,0x4072e378,39)pcie_suspend</pre>
+<pre>	suspend/resume pcie bus</pre>
+<br />
+<pre> = 39</pre>
+<pre>1 write(2,0x4072e378,47)oob_bt_reg_on</pre>
+<pre>	get/set level of BT_REG_ON pin</pre>
+<br />
+<pre> = 47</pre>
+<pre>1 write(2,0x4072e378,50)oob_enable</pre>
+<pre>	Enable OOB DEVICE_WAKE functionality</pre>
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,43)pciereg	get/set a pciereg from the device</pre>
+<br />
+<pre> = 43</pre>
+<pre>1 write(2,0x4072e378,57)bar0secwinreg</pre>
+<pre>	g/set any backplane address  across BAR0</pre>
+<br />
+<pre> = 57</pre>
+<pre>1 write(2,0x4072e378,52)pciecorereg</pre>
+<pre>	get/set a pciecorereg from the device</pre>
+<br />
+<pre> = 52</pre>
+<pre>1 write(2,0x4072e378,143)pcieserdesreg</pre>
+<pre>	get/set a pcieserdesreg from the device.</pre>
+<pre>first param is the block adress. second is the register offset, third is value of reg</pre>
+<br />
+<pre> = 143</pre>
+<pre>1 write(2,0x4072e378,50)pciecfgreg</pre>
+<pre>	get/set a pciecfgreg from the device</pre>
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,26)aspm	get/set ASPM values</pre>
+<br />
+<pre> = 26</pre>
+<pre>1 write(2,0x4072e378,86)sleep_allowed</pre>
+<pre>	boolean to indicate whether the device is allowed to go to deep sleep</pre>
+<br />
+<pre> = 86</pre>
+<pre>1 write(2,0x4072e378,63)cc_nvmshadow</pre>
+<pre>	dump OTP/SPROM shadow in chip common enum space</pre>
+<br />
+<pre> = 63</pre>
+<pre>1 write(2,0x4072e378,55)dump_ringupdblk</pre>
+<pre>	dump ring update block in dhd memory</pre>
+<br />
+<pre> = 55</pre>
+<pre>1 write(2,0x4072e378,78)dma_ring_indices</pre>
+<pre>	allow dmaing write/read indices from dongle to host memory</pre>
+<br />
+<pre> = 78</pre>
+<pre>1 write(2,0x4072e378,32)intr	use interrupts on the bus</pre>
+<br />
+<pre> = 32</pre>
+<pre>1 write(2,0x4072e378,66)pollrate</pre>
+<pre>	number of ticks between bus polls (0 means no polling)</pre>
+<br />
+<pre> = 66</pre>
+<pre>1 write(2,0x4072e378,74)idletime</pre>
+<pre>	number of ticks for activity timeout (-1: immediate, 0: never)</pre>
+<br />
+<pre> = 74</pre>
+<pre>1 write(2,0x4072e378,235)idleclock</pre>
+<pre>	idleclock active | stopped | &lt;N&gt;</pre>
+<pre>	active (0)   - do not request any change to the SD clock</pre>
+<pre>	stopped (-1) - request SD clock be stopped on activity timeout</pre>
+<pre>	&lt;N&gt; (other)  - an sd_divisor value to request on activity timeout</pre>
+<br />
+<br />
+<pre> = 235</pre>
+<pre>1 write(2,0x4072e378,59)sd1idle	change mode to SD1 when turning off clock at idle</pre>
+<br />
+<pre> = 59</pre>
+<pre>1 write(2,0x4072e378,46)forceeven</pre>
+<pre>	force SD tx/rx buffers to be even</pre>
+<br />
+<pre> = 46</pre>
+<pre>1 write(2,0x4072e378,74)readahead</pre>
+<pre>	enable readahead feature (look for next frame len in headers)</pre>
+<br />
+<pre> = 74</pre>
+<pre>1 write(2,0x4072e378,64)sdrxchain</pre>
+<pre>	enable packet chains to SDIO stack for glom receive</pre>
+<br />
+<pre> = 64</pre>
+<pre>1 write(2,0x4072e378,32)alignctl</pre>
+<pre>	align control frames</pre>
+<br />
+<pre> = 32</pre>
+<pre>1 write(2,0x4072e378,68)sdalign	display the (compiled in) alignment target for sd requests</pre>
+<br />
+<pre> = 68</pre>
+<pre>1 write(2,0x4072e378,60)txbound	get/set maximum number of tx frames per scheduling</pre>
+<br />
+<pre> = 60</pre>
+<pre>1 write(2,0x4072e378,60)rxbound	get/set maximum number of rx frames per scheduling</pre>
+<br />
+<pre> = 60</pre>
+<pre>1 write(2,0x4072e378,90)txminmax</pre>
+<pre>	get/set maximum number of tx frames per scheduling while rx frames outstanding</pre>
+<br />
+<pre> = 90</pre>
+<pre>1 write(2,0x4072e378,54)dconpoll</pre>
+<pre>	g/set dongle console polling interval (ms)</pre>
+<br />
+<pre> = 54</pre>
+<pre>1 write(2,0x4072e378,23)dump	dump information</pre>
+<br />
+<pre> = 23</pre>
+<pre>1 write(2,0x4072e378,46)cons	send string to device console (sd only)</pre>
+<br />
+<pre> = 46</pre>
+<pre>1 write(2,0x4072e378,56)clearcounts</pre>
+<pre>	reset the bus stats shown in the dhd dump</pre>
+<br />
+<pre> = 56</pre>
+<pre>1 write(2,0x4072e378,43)logdump	dump the timestamp logging buffer</pre>
+<br />
+<pre> = 43</pre>
+<pre>1 write(2,0x4072e378,60)logcal	logcal &lt;n&gt;  -- log around an osl_delay of &lt;n&gt; usecs</pre>
+<br />
+<pre> = 60</pre>
+<pre>1 write(2,0x4072e378,63)logstamp</pre>
+<pre>	logstamp [&lt;n1&gt;] [&lt;n2&gt;]  -- add a message to the log</pre>
+<br />
+<pre> = 63</pre>
+<pre>1 write(2,0x4072e378,50)ramstart</pre>
+<pre>	display start address of onchip SOCRAM</pre>
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,39)ramsize	display size of onchip SOCRAM</pre>
+<br />
+<pre> = 39</pre>
+<pre>1 write(2,0x4072e378,102)usb_lb_txfer</pre>
+<pre>	usb_lb_txfer &lt;cnt&gt; &lt;size&gt; send cnt usb looback packets of size equal to len on the bus</pre>
+<br />
+<pre> = 102</pre>
+<pre>1 write(2,0x4072e378,210)membytes</pre>
+<pre>	membytes [-h | -r | -i] &lt;address&gt; &lt;length&gt; [&lt;data&gt;]</pre>
+<pre>	read or write data in the dongle ram</pre>
+<pre>	-h   &lt;data&gt; is a sequence of hex digits rather than a char string</pre>
+<pre>	-r   output binary to stdout rather hex</pre>
+<br />
+<br />
+<pre> = 210</pre>
+<pre>1 write(2,0x4072e378,25)buzzz_dump</pre>
+<pre>	buzzz_dump</pre>
+<br />
+<br />
+<pre> = 25</pre>
+<pre>1 write(2,0x4072e378,25)buzzz_file</pre>
+<pre>	buzzz_file</pre>
+<br />
+<br />
+<pre> = 25</pre>
+<pre>1 write(2,0x4072e378,16)csimon	csimon</pre>
+<br />
+<br />
+<pre> = 16</pre>
+<pre>1 write(2,0x4072e378,419)download</pre>
+<pre>	download [-a &lt;address&gt;] [--noreset] [--norun] [--verify] &lt;binfile&gt; [&lt;varsfile&gt;]</pre>
+<pre>	download file to specified dongle ram address and start CPU</pre>
+<pre>	optional vars file will replace vars parsed from the CIS</pre>
+<pre>	--noreset    do not reset SOCRAM core before download</pre>
+<pre>	--norun      do not start dongle CPU after download</pre>
+<pre>	--verify     do readback verify </pre>
+<pre>	--backdoor   backdoor (Veloce) download </pre>
+<pre>	default &lt;address&gt; is 0</pre>
+<br />
+<br />
+<pre> = 419</pre>
+<pre>1 write(2,0x4072e378,75)dldn	download &lt;binfile&gt;</pre>
+<pre>	download file to specified dongle ram address 0</pre>
+<br />
+<br />
+<pre> = 75</pre>
+<pre>1 write(2,0x4072e378,72)vars	vars [&lt;file&gt;]</pre>
+<pre>	override SPROM vars with &lt;file&gt; (before download)</pre>
+<br />
+<br />
+<pre> = 72</pre>
+<pre>1 write(2,0x4072e378,116)coredump</pre>
+<pre>	coredump &lt;file&gt;</pre>
+<pre>	dump dongle RAM content into a file in dumpfile format</pre>
+<pre>	for use with ELF core generator</pre>
+<br />
+<pre> = 116</pre>
+<pre>1 write(2,0x4072e378,60)consoledump</pre>
+<pre>	consoledump</pre>
+<pre>	dump dongle debug console buffer</pre>
+<br />
+<pre> = 60</pre>
+<pre>1 write(2,0x4072e378,184)upload	upload [-a &lt;address&gt; ] [-s &lt;size&gt; ] [-r &lt;idx&gt;] &lt;file&gt;</pre>
+<pre>	upload dongle RAM and optionally register contents (-r) into file(s)</pre>
+<pre>	default &lt;address&gt; is 0, default &lt;size&gt; is RAM size</pre>
+<br />
+<pre> = 184</pre>
+<pre>1 write(2,0x4072e378,30)srdump	display SPROM content</pre>
+<br />
+<pre> = 30</pre>
+<pre>1 write(2,0x4072e378,152)srwrite	write data or file content to SPROM</pre>
+<pre>	srwrite &lt;word-offset&gt; &lt;word-value&gt; ...</pre>
+<pre>	srwrite [-c] &lt;srom-file-path&gt;</pre>
+<pre>	  -c means write regardless of crc</pre>
+<br />
+<pre> = 152</pre>
+<pre>1 write(2,0x4072e378,68)sleep	enter/exit simulated host sleep (bus powerdown w/OOB wakeup)</pre>
+<br />
+<pre> = 68</pre>
+<pre>1 write(2,0x4072e378,18)kso	keep sdio on</pre>
+<br />
+<pre> = 18</pre>
+<pre>1 write(2,0x4072e378,33)devcap	brcm device capabilities</pre>
+<br />
+<pre> = 33</pre>
+<pre>1 write(2,0x4072e378,23)devsleep</pre>
+<pre>	Sleep CMD14</pre>
+<br />
+<pre> = 23</pre>
+<pre>1 write(2,0x4072e378,68)extloop	external loopback: convert all tx data to echo test frames</pre>
+<br />
+<pre> = 68</pre>
+<pre>1 write(2,0x4072e378,859)pktgen	configure/report pktgen status (SDIO)</pre>
+<pre>	-f N     frequency: send/recv a burst every N ticks</pre>
+<pre>	-c N     count: send/recv N packets each burst</pre>
+<pre>	-t N     total: stop after a total of N packets</pre>
+<pre>	-p N     print: display counts on console every N bursts</pre>
+<pre>	-m N     min: set minimum length of packet data</pre>
+<pre>	-M N     Max: set maximum length of packet data</pre>
+<pre>	-l N     len: set fixed length of packet data</pre>
+<pre>	-s N     stop after N tx failures</pre>
+<pre>	-d dir   test direction/type:</pre>
+<pre>	            send -- send packets discarded by dongle</pre>
+<pre>	            echo -- send packets to be echoed by dongle</pre>
+<pre>	            burst -- request bursts (of size &lt;-c&gt;) from dongle</pre>
+<pre>	              one every &lt;-f&gt; ticks, until &lt;-t&gt; total requests</pre>
+<pre>	            recv -- request dongle enter continuous send mode,</pre>
+<pre>	              read up to &lt;-c&gt; pkts every &lt;-f&gt; ticks until &lt;-t&gt;</pre>
+<pre>	              total reads</pre>
+<br />
+<br />
+<pre> = 859</pre>
+<pre>1 write(2,0x4072e378,106)dngl_isolation</pre>
+<pre>	g/set dongle isolation, so the dev could be disabled with out effecting the dongle state</pre>
+<br />
+<pre> = 106</pre>
+<pre>1 write(2,0x4072e378,70)ltrsleep_on_unload</pre>
+<pre>	g/set sending ltr sleep message on unload config</pre>
+<br />
+<pre> = 70</pre>
+<pre>1 write(2,0x4072e378,61)sdreg	g/set sdpcmdev core register (f1) across SDIO (CMD53)</pre>
+<br />
+<pre> = 61</pre>
+<pre>1 write(2,0x4072e378,66)sbreg	g/set any backplane core register (f1) across SDIO (CMD53)</pre>
+<br />
+<pre> = 66</pre>
+<pre>1 write(2,0x4072e378,22)sd_cis	dump sdio CIS</pre>
+<br />
+<pre> = 22</pre>
+<pre>1 write(2,0x4072e378,58)sd_devreg</pre>
+<pre>	g/set device register across SDIO bus (CMD52)</pre>
+<br />
+<pre> = 58</pre>
+<pre>1 write(2,0x4072e378,45)sd_hostreg</pre>
+<pre>	g/set local controller register</pre>
+<br />
+<pre> = 45</pre>
+<pre>1 write(2,0x4072e378,47)sd_blocksize</pre>
+<pre>	g/set block size for a function</pre>
+<br />
+<pre> = 47</pre>
+<pre>1 write(2,0x4072e378,31)sd_blockmode</pre>
+<pre>	g/set blockmode</pre>
+<br />
+<pre> = 31</pre>
+<pre>1 write(2,0x4072e378,27)sd_ints	g/set client ints</pre>
+<br />
+<pre> = 27</pre>
+<pre>1 write(2,0x4072e378,54)sd_dma	g/set dma usage: [PIO | SDMA | ADMA1 | ADMA2]</pre>
+<br />
+<pre> = 54</pre>
+<pre>1 write(2,0x4072e378,57)sd_yieldcpu</pre>
+<pre>	allow blocking (yield of CPU) on data xfer</pre>
+<br />
+<pre> = 57</pre>
+<pre>1 write(2,0x4072e378,51)sd_minyield</pre>
+<pre>	minimum xfer size to allow CPU yield</pre>
+<br />
+<pre> = 51</pre>
+<pre>1 write(2,0x4072e378,67)sd_forcerb</pre>
+<pre>	force readback when changing local interrupt settings</pre>
+<br />
+<pre> = 67</pre>
+<pre>1 write(2,0x4072e378,41)sd_numints</pre>
+<pre>	number of device interrupts</pre>
+<br />
+<pre> = 41</pre>
+<pre>1 write(2,0x4072e378,50)sd_numlocalints</pre>
+<pre>	number of non-device interrupts</pre>
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,55)sd_divisor</pre>
+<pre>	set the divisor for SDIO clock generation</pre>
+<br />
+<pre> = 55</pre>
+<pre>1 write(2,0x4072e378,38)sd_power</pre>
+<pre>	set the SD Card slot power</pre>
+<br />
+<pre> = 38</pre>
+<pre>1 write(2,0x4072e378,49)sd_power_save</pre>
+<pre>	set the SDIO3.0 power save value</pre>
+<br />
+<pre> = 49</pre>
+<pre>1 write(2,0x4072e378,36)sd_clock</pre>
+<pre>	turn on/off the SD Clock</pre>
+<br />
+<pre> = 36</pre>
+<pre>1 write(2,0x4072e378,45)sd_crc	turn on/off CRC checking in SPI mode</pre>
+<br />
+<pre> = 45</pre>
+<pre>1 write(2,0x4072e378,45)sd_mode	g/set SDIO bus mode (spi, sd1, sd4)</pre>
+<br />
+<pre> = 45</pre>
+<pre>1 write(2,0x4072e378,48)sd_highspeed</pre>
+<pre>	set the high-speed clocking mode</pre>
+<br />
+<pre> = 48</pre>
+<pre>1 write(2,0x4072e378,40)sd_msglevel</pre>
+<pre>	g/set debug message level</pre>
+<br />
+<pre> = 40</pre>
+<pre>1 write(2,0x4072e378,57)sd_hciregs</pre>
+<pre>	display host-controller interrupt registers</pre>
+<br />
+<pre> = 57</pre>
+<pre>1 write(2,0x4072e378,77)sdiod_drive</pre>
+<pre>	SDIO Device drive strength in milliamps. (0=tri-state, 1-12mA)</pre>
+<br />
+<pre> = 77</pre>
+<pre>1 write(2,0x4072e378,51)spi_errstats</pre>
+<pre>	SPI device status error statistics.</pre>
+<br />
+<pre> = 51</pre>
+<pre>1 write(2,0x4072e378,43)spi_respdelay</pre>
+<pre>	g/set response delay flag.</pre>
+<br />
+<pre> = 43</pre>
+<pre>1 write(2,0x4072e378,78)devreset</pre>
+<pre>	Move device into or out of reset state (1/reset, or 0/operational)</pre>
+<br />
+<pre> = 78</pre>
+<pre>1 write(2,0x4072e378,62)pcie_device_trap</pre>
+<pre>	trap the pcie device via mailbox mechanism</pre>
+<br />
+<pre> = 62</pre>
+<pre>1 write(2,0x4072e378,55)ioctl_timeout</pre>
+<pre>	IOCTL response timeout (milliseconds).</pre>
+<br />
+<pre> = 55</pre>
+<pre>1 write(2,0x4072e378,75)proptx	enable/disable the proptxtstatus feature</pre>
+<pre>0 - disabled</pre>
+<pre>1 - enabled</pre>
+<br />
+<br />
+<pre> = 75</pre>
+<pre>1 write(2,0x4072e378,132)ptxmode	set the proptxtstatus operation mode:</pre>
+<pre>0 - Unsupported</pre>
+<pre>1 - Use implied credit from a packet status</pre>
+<pre>2 - Use explicit credit</pre>
+<br />
+<br />
+<pre> = 132</pre>
+<pre>1 write(2,0x4072e378,158)proptx_opt</pre>
+<pre>	enable/disable proptxtstatus optimizations to increase throughput:</pre>
+<pre>0 - Unsupported</pre>
+<pre>1 - Enable proptxstatus optimizations to increase throughput</pre>
+<br />
+<br />
+<pre> = 158</pre>
+<pre>1 write(2,0x4072e378,75)pmodule_ignore</pre>
+<pre>	use/bypass the proptxtstatus module</pre>
+<pre>0 - apply</pre>
+<pre>1 - bypass</pre>
+<br />
+<br />
+<pre> = 75</pre>
+<pre>1 write(2,0x4072e378,85)pcredit_ignore</pre>
+<pre>	apply/ignore the proptxtstatus credit control</pre>
+<pre>0 - apply</pre>
+<pre>1 - ignore</pre>
+<br />
+<br />
+<pre> = 85</pre>
+<pre>1 write(2,0x4072e378,84)ptxstatus_ignore</pre>
+<pre>	process/ignore the proptxtstatus txstaus</pre>
+<pre>0 - process</pre>
+<pre>1 - ignore</pre>
+<br />
+<br />
+<pre> = 84</pre>
+<pre>1 write(2,0x4072e378,83)rxpkt_chk</pre>
+<pre>	check/ignore rx packet for multiple AC detection</pre>
+<pre>0 - ignore</pre>
+<pre>1 - check</pre>
+<br />
+<br />
+<pre> = 83</pre>
+<pre>1 write(2,0x4072e378,30)sd_uhsimode</pre>
+<pre>	g/set UHSI Mode</pre>
+<br />
+<pre> = 30</pre>
+<pre>1 write(2,0x4072e378,45)host_reorder_flows</pre>
+<pre>	get host reorder flows </pre>
+<br />
+<pre> = 45</pre>
+<pre>1 write(2,0x4072e378,40)txglomsize</pre>
+<pre>	max glom size for sdio tx</pre>
+<br />
+<br />
+<pre> = 40</pre>
+<pre>1 write(2,0x4072e378,57)txp_thresh</pre>
+<pre>	max txp glom to flush to device on PCIE Tx</pre>
+<br />
+<br />
+<pre> = 57</pre>
+<pre>1 write(2,0x4072e378,64)txglommode</pre>
+<pre>	glom mode for sdio tx 0- copy, 1- multidescriptor</pre>
+<br />
+<br />
+<pre> = 64</pre>
+<pre>1 write(2,0x4072e378,124)fw_hang_report</pre>
+<pre>	enable/disable report firmware hangs for firmware reload</pre>
+<pre>0 - disabled (for testing)</pre>
+<pre>1 - enabled (default)</pre>
+<br />
+<br />
+<pre> = 124</pre>
+<pre>1 write(2,0x4072e378,94)tuning_mode</pre>
+<pre>	get/set tuning mode </pre>
+<pre>1 - Disabled periodic tuning </pre>
+<pre>0 - Enable periodic tuning </pre>
+<br />
+<br />
+<pre> = 94</pre>
+<pre>1 write(2,0x4072e378,62)tcpack_suppress</pre>
+<pre>	Turn tcpack_suppress on/off</pre>
+<pre>0 - off</pre>
+<pre>1 - on</pre>
+<br />
+<br />
+<pre> = 62</pre>
+<pre>1 write(2,0x4072e378,145)txinrx_thres</pre>
+<pre>	get/set threshold for num of in-queued pkts to tx in rx process</pre>
+<pre>0 - always send out in rx process</pre>
+<pre>num - amount of in-queued pkts</pre>
+<br />
+<br />
+<pre> = 145</pre>
+<pre>1 write(2,0x4072e378,173)db1_for_mb</pre>
+<pre>	get/set doorbell1 option for Mail box interrupt, for PCIE FD0 - use default config write for mb interrupt</pre>
+<pre>1 - use enumeration doorbell1 write for mb interrupt</pre>
+<br />
+<br />
+<pre> = 173</pre>
+<pre>1 write(2,0x4072e378,72)flow_prio_map</pre>
+<pre>	0 - Default AC priority map</pre>
+<pre>1 - TID based priority map</pre>
+<br />
+<br />
+<pre> = 72</pre>
+<pre>1 write(2,0x4072e378,109)op_mode	</pre>
+<pre>get/set operation mode when cfg80211 is used</pre>
+<pre>1- STA Only</pre>
+<pre>2- SOFT AP Only</pre>
+<pre>3- P2P Only</pre>
+<pre>4- STA + P2P</pre>
+<br />
+<br />
+<pre> = 109</pre>
+<pre>1 write(2,0x4072e378,72)assert_type</pre>
+<pre>	set/get the asset_bypass flag</pre>
+<pre>assert_type &lt;1/0&gt; (On/Off)</pre>
+<br />
+<br />
+<pre> = 72</pre>
+<pre>1 write(2,0x4072e378,288)wowl_wakeind</pre>
+<pre>	get wowl wake reason</pre>
+<pre>WAKE_EVENT_NLO_DISCOVERY_BIT			0x0001</pre>
+<pre>WAKE_EVENT_AP_ASSOCIATION_LOST_BIT		0x0002</pre>
+<pre>WAKE_EVENT_GTK_HANDSHAKE_ERROR_BIT		0x0004</pre>
+<pre>WAKE_EVENT_4WAY_HANDSHAKE_REQUEST_BIT		0x0008</pre>
+<pre>WAKE_EVENT_NET_PAKCET_BIT			0x0010</pre>
+<pre>UNSPECIFIED (dhd not the wake reason)		0x0000</pre>
+<br />
+<br />
+<pre> = 288</pre>
+<pre>1 write(2,0x4072e378,45)wmf_bss_enable</pre>
+<pre>	enable/disable wmf features</pre>
+<br />
+<pre> = 45</pre>
+<pre>1 write(2,0x4072e378,52)wmf_psta_disable</pre>
+<pre>	disable/enable wmf for proxy sta</pre>
+<br />
+<pre> = 52</pre>
+<pre>1 write(2,0x4072e378,58)wmf_ucast_igmp</pre>
+<pre>	enable/disable wmf unicast igmp features</pre>
+<br />
+<pre> = 58</pre>
+<pre>1 write(2,0x4072e378,65)wmf_mcast_data_sendup</pre>
+<pre>	enable/disable wmf multicast data sendup</pre>
+<br />
+<pre> = 65</pre>
+<pre>1 write(2,0x4072e378,61)wmf_ucast_igmp_query</pre>
+<pre>	enable/disable wmf unicast igmp query</pre>
+<br />
+<pre> = 61</pre>
+<pre>1 write(2,0x4072e378,58)wmf_ucast_upnp</pre>
+<pre>	enable/disable wmf unicast upnp features</pre>
+<br />
+<pre> = 58</pre>
+<pre>1 write(2,0x4072e378,34)ap_isolate</pre>
+<pre>	set/get AP isolation</pre>
+<br />
+<pre> = 34</pre>
+<pre>1 write(2,0x4072e378,46)proxy_arp</pre>
+<pre>	enable/disable proxy arp features</pre>
+<br />
+<pre> = 46</pre>
+<pre>1 write(2,0x4072e378,52)dhcp_unicast</pre>
+<pre>	enable/disable dhcp unicast features</pre>
+<br />
+<pre> = 52</pre>
+<pre>1 write(2,0x4072e378,48)block_ping</pre>
+<pre>	enable/disable block ping features</pre>
+<br />
+<pre> = 48</pre>
+<pre>1 write(2,0x4072e378,44)grat_arp</pre>
+<pre>	enable/disable grat arp features</pre>
+<br />
+<pre> = 44</pre>
+<pre>1 write(2,0x4072e378,47)block_tdls</pre>
+<pre>	enable/disable block_tdls feature</pre>
+<br />
+<pre> = 47</pre>
+<pre>1 write(2,0x4072e378,25)dev_def	set/get dev_def</pre>
+<br />
+<pre> = 25</pre>
+<pre>1 write(2,0x4072e378,259)pmac	Get mac obj values such as of SHM and IHR</pre>
+<pre>	usage: dhd -i IF pmac &lt;type&gt; &lt;address&gt; [-s step_size] [-n num] [-b bitmap] [-v]</pre>
+<pre>type: register typeaddress: register addressstep_size: 0 or 2 or 4</pre>
+<pre>num : how many to print</pre>
+<pre>bitmap : 32-bit value</pre>
+<pre>-v: verbose mode</pre>
+<br />
+<pre> = 259</pre>
+<pre>1 write(2,0x4072e378,101)psvmp	Get svmp mem values</pre>
+<pre>	usage: dhd -i IF psvmp [-n num]</pre>
+<pre>num : how many to print</pre>
+<pre>-v: verbose mode</pre>
+<br />
+<pre> = 101</pre>
+<pre>1 write(2,0x4072e378,92)mcast_regen_bss_enable</pre>
+<pre>	enable/disable per bss unicast to multicast pkt conversion feature</pre>
+<br />
+<pre> = 92</pre>
+<pre>1 write(2,0x4072e378,95)lbr_aggr_en_mask</pre>
+<pre>	get/set tid bit mask for low bit rate aggregation b'0: disable b'1: enable </pre>
+<br />
+<pre> = 95</pre>
+<pre>1 write(2,0x4072e378,54)lbr_aggr_len</pre>
+<pre>	get/set number of packets to aggregate</pre>
+<br />
+<pre> = 54</pre>
+<pre>1 write(2,0x4072e378,94)lbr_aggr_release_timeout</pre>
+<pre>	get/set low bit rate aggregation time window to release aggregates</pre>
+<br />
+<pre> = 94</pre>
+<pre>1 write(2,0x4072e378,50)pktc	Enable/Disable PKTC</pre>
+<pre>0 - disable</pre>
+<pre>1 - enable</pre>
+<br />
+<br />
+<pre> = 50</pre>
+<pre>1 write(2,0x4072e378,24)pktcbnd	RX PKTC bound</pre>
+<br />
+<br />
+<pre> = 24</pre>
+<pre>1 write(2,0x4072e378,617)rnr_flowring_profile</pre>
+<pre>	Get/Set DHD Runner Flowring profile</pre>
+<pre>	Usage: dhd -i IF rnr_flowring_profile -id &lt;id&gt; -ac_bk &lt;weight:size&gt; -ac_be &lt;weight:size&gt; -ac_vi &lt;weight:size&gt; -ac_vo &lt;weight:size&gt; -bc_mc &lt;weight:size&gt;</pre>
+<pre>	&lt;id&gt;            0-2 user profile per radio</pre>
+<pre>	                3-7 Built-in profiles</pre>
+<pre>	&lt;weight&gt;        priority to allocate reserved memory</pre>
+<pre>	                -1: Allocate all ring items</pre>
+<pre>	                0: do not allocate ring items</pre>
+<pre>	                1-n: allocate n items (&lt;size) per round robin allocation</pre>
+<pre>	&lt;size&gt;          numer of items in the flow ring</pre>
+<br />
+<pre>NOTE: Set needs DHD driver unload or system reboot</pre>
+<br />
+<br />
+<pre> = 617</pre>
+<pre>1 write(2,0x4072e378,661)rnr_flowring_policy</pre>
+<pre>	Get/Set DHD Runner Flowring selection policy for HW or SW</pre>
+<pre>	Usage: dhd -i IF rnr_flowring_policy -&lt;policy&gt; &lt;setting&gt;</pre>
+<pre>	&lt;policy&gt;        policy name (global, intfidx, clients, aclist, maclist, dot11ac)</pre>
+<pre>	&lt;setting&gt;       setting based on the policy</pre>
+<pre>	                &lt;policy&gt;    &lt;setting&gt;</pre>
+<pre>	                 global     &lt;0/1&gt;</pre>
+<pre>	                 intfidx    &lt;interface index&gt;</pre>
+<pre>	                 clients    &lt;number of clients&gt;</pre>
+<pre>	                 aclist     ac_bk:&lt;0/1&gt; ac_be:&lt;0/1&gt; ac_vi:&lt;0/1&gt; ac_vo:&lt;0/1&gt; bc_mc:&lt;0/1&gt;</pre>
+<pre>	                 maclist    &lt;xx-xx-xx-xx-xx-xx&gt;</pre>
+<pre>	                 dot11ac    &lt;0/1&gt;</pre>
+<br />
+<pre>NOTE: Set needs DHD driver unload or system reboot</pre>
+<br />
+<br />
+<pre> = 661</pre>
+<pre>1 write(2,0x4072e378,216)rnr_rxoffload</pre>
+<pre>	Get/Set DHD Runner Rx Offload</pre>
+<pre>	Usage: dhd -i IF rnr_rxoffload &lt;1/0&gt;</pre>
+<pre>	  0    disable Rx Offload acceleration</pre>
+<pre>	  1    Enable Rx Offload acceleration</pre>
+<br />
+<pre>NOTE: Set needs DHD driver unload or system reboot</pre>
+<br />
+<br />
+<pre> = 216</pre>
+<pre>1 write(2,0x4072e378,34)halt_dongle</pre>
+<pre>	halts ARM and PSMs.</pre>
+<br />
+<pre> = 34</pre>
+<pre>1 write(2,0x4072e378,30)cap	Gets dongle capabilities</pre>
+<br />
+<pre> = 30</pre>
+<pre>1 write(2,0x4072e378,56)idma_enable</pre>
+<pre>	Enable/Disable Implicit DMA functionality</pre>
+<br />
+<pre> = 56</pre>
+<pre>1 write(2,0x4072e378,175)d11dump	dump d11 registers in the list</pre>
+<pre>	usage: dhd -i IF d11dump [-k] dumpname</pre>
+<pre>-k: Kill ARM processor before start dumping</pre>
+<pre>dumpname: e.g) mac, mac1, macx, sctpl, scpsm, svmp</pre>
+<br />
+<pre> = 175</pre>
+<pre>1 write(2,0x4072e378,26)wet	Get/Set DHD WET mode</pre>
+<br />
+<pre> = 26</pre>
+<pre>1 write(2,0x4072e378,105)1905_al_ucast</pre>
+<pre>	Get/Set 1905 AL unicast mac address</pre>
+<pre>	Usage: dhd -i IF 1905_al_ucast &lt;clear/MAC address&gt;</pre>
+<br />
+<br />
+<pre> = 105</pre>
+<pre>1 write(2,0x4072e378,107)1905_al_mcast</pre>
+<pre>	Get/Set 1905 AL multicast mac address</pre>
+<pre>	Usage: dhd -i IF 1905_al_mcast &lt;clear/MAC address&gt;</pre>
+<br />
+<br />
+<pre> = 107</pre>
+<pre>1 write(2,0x4072e378,58)macdbg_dump_level</pre>
+<pre>	Set macdbg dump level for crash dumps</pre>
+<br />
+<pre> = 58</pre>
+<pre>1 write(2,0x4072e378,69)hmembytes</pre>
+<pre>	hmembytes &lt;addr&gt; &lt;length&gt;</pre>
+<pre>	read data in the host memory</pre>
+<br />
+<br />
+<pre> = 69</pre>
+<pre>1 write(2,0x4072e378,83)extended_ops_support</pre>
+<pre>	 0 - disabled to restrict some ops, 1-support all the ops </pre>
+<br />
+<br />
+<pre> = 83</pre>
+<pre>1 exit_group(0)</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Identification of missing filesytem areas.</pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ld.so.cache</span></pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

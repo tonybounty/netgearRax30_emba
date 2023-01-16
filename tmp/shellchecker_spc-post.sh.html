@@ -1,0 +1,46 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 7:</span></pre>
+<pre></span>		RouterMode=`getdb -r`</span></pre>
+<pre><span class="green">                           ^--------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		RouterMode=$(getdb -r)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 8:</span></pre>
+<pre></span>		AclStatus=`getdb -g Device.X_PEGATRON_COM_AccessCtrl.Enable`</span></pre>
+<pre><span class="green">                          ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		AclStatus=$(getdb -g Device.X_PEGATRON_COM_AccessCtrl.Enable)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 9:</span></pre>
+<pre></span>		SpcStatus=`d2 -s circlestatus.activationStatus`</span></pre>
+<pre><span class="green">                          ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>		SpcStatus=$(d2 -s circlestatus.activationStatus)</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 10:</span></pre>
+<pre></span>		if [ "$SpcStatus" == "provisioned" ]; then</span></pre>
+<pre><span class="orange">                                  ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 11:</span></pre>
+<pre></span>			if [ "$RouterMode" == "router" -a "$AclStatus" == "1" ]; then</span></pre>
+<pre><span class="orange">                                           ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<pre><span class="orange">                                                       ^-- SC2166 (warning): Prefer [ p ] &amp;&amp; [ q ] as [ p -a q ] is not well defined.</span></pre>
+<pre><span class="orange">                                                                       ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/init.d/spc-post.sh line 15:</span></pre>
+<pre></span>				if [ "$RouterMode" != "router" -a "$AclStatus" == "0" ]; then</span></pre>
+<pre><span class="orange">                                                               ^-- SC2166 (warning): Prefer [ p ] &amp;&amp; [ q ] as [ p -a q ] is not well defined.</span></pre>
+<pre><span class="orange">                                                                               ^-- SC3014 (warning): In POSIX sh, == in place of = is undefined.</span></pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2166" title="https://www.shellcheck.net/wiki/SC2166" target="_blank" >https://www.shellcheck.net/wiki/SC2166</a> -- Prefer [ p ] &amp;&amp; [ q ] as [ p -a q...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3014" title="https://www.shellcheck.net/wiki/SC3014" target="_blank" >https://www.shellcheck.net/wiki/SC3014</a> -- In POSIX sh, == in place of = is ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2006" title="https://www.shellcheck.net/wiki/SC2006" target="_blank" >https://www.shellcheck.net/wiki/SC2006</a> -- Use $(...) notation instead of le...</pre>

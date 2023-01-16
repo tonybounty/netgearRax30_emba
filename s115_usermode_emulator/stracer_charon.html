@@ -1,0 +1,1352 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s115_usermode_emulator.html" title="./../s115_usermode_emulator.html" >&laquo; Back to s115_usermode_emulator</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Initial strace run on the command </span><span class="orange">./libexec/ipsec/charon</span> to identify missing areas</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Emulating binary name: </span><span class="orange">charon</span> in </span><span class="orange">strace</span> mode to identify missing areas</pre>
+<pre>[</span><span class="orange">*</span>] Emulator used: </span><span class="orange">qemu-arm-static</span></pre>
+<pre>[</span><span class="orange">*</span>] Using root directory: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root</span> (</span><span class="orange">1/1</span>)</pre>
+<pre>[</span><span class="orange">*</span>] Using CPU config: </span><span class="orange">NONE</span></pre>
+<br />
+<pre>1 brk(NULL) = 0x00024000</pre>
+<pre>1 uname(0x40730658) = 0</pre>
+<pre>1 access("/etc/ld.so.preload",R_OK) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ld.so.cache",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libstrongswan.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff70,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fea0) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3ffcb000</pre>
+<pre>1 mmap2(NULL,355144,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff74000</pre>
+<pre>1 mprotect(0x3ffb5000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ffc4000,28672,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x40) = 0x3ffc4000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libdl.so.2",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff60,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe90) = 0</pre>
+<pre>1 mmap2(NULL,73916,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff61000</pre>
+<pre>1 mprotect(0x3ff63000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff72000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x1) = 0x3ff72000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libpthread.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff50,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe80) = 0</pre>
+<pre>1 mmap2(NULL,168548,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3ff37000</pre>
+<pre>1 mprotect(0x3ff4e000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff5d000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x16) = 0x3ff5d000</pre>
+<pre>1 mmap2(0x3ff5f000,4708,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3ff5f000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/neon",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/v8l",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/neon/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/neon",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/tls",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/neon/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/neon",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/v8l/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/v8l",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/neon/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/neon",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/vfp/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/vfp",0x4072fe70) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/libcharon.so.0",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff40,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe70) = 0</pre>
+<pre>1 mmap2(NULL,507572,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3febb000</pre>
+<pre>1 mprotect(0x3ff23000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3ff33000,16384,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x68) = 0x3ff33000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libm.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff30,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe60) = 0</pre>
+<pre>1 mmap2(NULL,663672,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fe18000</pre>
+<pre>1 mprotect(0x3fea9000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3feb9000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x91) = 0x3feb9000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libc.so.6",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3</pre>
+<pre>1 read(3,0x4072ff20,512) = 512</pre>
+<pre>1 fstat64(3,0x4072fe50) = 0</pre>
+<pre>1 mmap2(NULL,1323700,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,3,0) = 0x3fcd4000</pre>
+<pre>1 mprotect(0x3fe02000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fe12000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,3,0x12e) = 0x3fe12000</pre>
+<pre>1 mmap2(0x3fe15000,8884,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fe15000</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 mmap2(NULL,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0) = 0x3fcd2000</pre>
+<pre>1 mprotect(0x3fe12000,8192,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3feb9000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff72000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff5d000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ffc4000,16384,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3ff33000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x00022000,4096,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fffe000,4096,PROT_READ) = 0</pre>
+<pre>1 set_tid_address(1070407800,1081281108,1081281116,1070407696,0,1073078272) = 1</pre>
+<pre>1 set_robust_list(1070407808,12,-20,1070407836,0,1073078272) = -1 errno=38 (Function not implemented)</pre>
+<pre>1 rt_sigaction(32,0x40730828,NULL) = 0</pre>
+<pre>1 rt_sigaction(33,0x40730828,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_UNBLOCK,0x40730968,NULL) = 0</pre>
+<pre>1 ugetrlimit(3,1081280860,4,1073087000,1760,1073078272) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/dev/urandom",O_RDONLY) = 3</pre>
+<pre>1 read(3,0x3ffcaa25,16) = 16</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 brk(NULL) = 0x00024000</pre>
+<pre>1 brk(0x00045000) = 0x00045000</pre>
+<pre>1 lstat64("/etc/strongswan.conf",0x4072eee8) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.conf",O_RDONLY) = 3</pre>
+<pre>1 ioctl(3,TCGETS,0x4073049c) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(3,0x4072fea8) = 0</pre>
+<pre>1 read(3,0x26108,8192) = 316</pre>
+<pre>1 read(3,0x26244,4096) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 4</pre>
+<pre>1 fstat64(4,0x4072e838) = 0</pre>
+<pre>1 getdents64(4,0x2c2e0,32768) = 1328</pre>
+<pre>1 getdents64(4,0x2c2e0,32768) = 0</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/aes.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/attr.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 362</pre>
+<pre>1 read(4,0x2cc32,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/ccm.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/cmac.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/constraints.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 138</pre>
+<pre>1 read(4,0x2cb52,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/ctr.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/curve25519.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 137</pre>
+<pre>1 read(4,0x2cb51,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/des.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/dnskey.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 133</pre>
+<pre>1 read(4,0x2cb4d,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/fips-prf.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 135</pre>
+<pre>1 read(4,0x2cb4f,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/gcm.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/hmac.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/kernel-netlink.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 2239</pre>
+<pre>1 read(4,0x2d387,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/kernel-pfkey.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 245</pre>
+<pre>1 read(4,0x2cbbd,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/md5.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/nonce.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 132</pre>
+<pre>1 read(4,0x2cb4c,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/openssl.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 301</pre>
+<pre>1 read(4,0x2cbf5,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pem.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pgp.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pkcs1.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 132</pre>
+<pre>1 read(4,0x2cb4c,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pkcs12.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 133</pre>
+<pre>1 read(4,0x2cb4d,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pkcs7.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 132</pre>
+<pre>1 read(4,0x2cb4c,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pkcs8.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 132</pre>
+<pre>1 read(4,0x2cb4c,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/pubkey.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 133</pre>
+<pre>1 read(4,0x2cb4d,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/random.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 425</pre>
+<pre>1 read(4,0x2cc71,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/rc2.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 130</pre>
+<pre>1 read(4,0x2cb4a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/resolve.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 340</pre>
+<pre>1 read(4,0x2cc1c,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/revocation.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 283</pre>
+<pre>1 read(4,0x2cbe3,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/sha1.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/sha2.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/socket-default.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 402</pre>
+<pre>1 read(4,0x2cc5a,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/sshkey.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 133</pre>
+<pre>1 read(4,0x2cb4d,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/stroke.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 986</pre>
+<pre>1 read(4,0x2cea2,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/updown.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 297</pre>
+<pre>1 read(4,0x2cbf1,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/vici.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 221</pre>
+<pre>1 read(4,0x2cba5,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/x509.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/xauth-generic.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 140</pre>
+<pre>1 read(4,0x2cb54,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon/xcbc.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 131</pre>
+<pre>1 read(4,0x2cb4b,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 4</pre>
+<pre>1 fstat64(4,0x4072e840) = 0</pre>
+<pre>1 getdents64(4,0x34648,32768) = 288</pre>
+<pre>1 getdents64(4,0x34648,32768) = 0</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon-logging.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 1792</pre>
+<pre>1 read(4,0x2d1c8,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/charon.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 8192</pre>
+<pre>1 read(4,0x2cadc,8192) = 2117</pre>
+<pre>1 read(4,0x2d321,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/pki.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 65</pre>
+<pre>1 read(4,0x2cb09,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/scepclient.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 79</pre>
+<pre>1 read(4,0x2cb17,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/starter.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 173</pre>
+<pre>1 read(4,0x2cb75,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/strongswan.d/swanctl.conf",O_RDONLY) = 4</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fec4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 fstat64(4,0x4072fea8) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 62</pre>
+<pre>1 read(4,0x2cb06,4096) = 0</pre>
+<pre>1 read(4,0x2cac8,8192) = 0</pre>
+<pre>1 ioctl(4,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 lstat64("/var/ipsec/strongswan.conf",0x4072e8f8) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 write(2,0x4072c9e8,8)00[LIB]  = 8</pre>
+<pre>1 write(2,0x4072ca00,52)no files found matching '/var/ipsec/strongswan.conf' = 52</pre>
+<pre>1 write(2,0x3fe14cdf,1)</pre>
+<pre> = 1</pre>
+<pre>1 read(3,0x26108,8192) = 0</pre>
+<pre>1 ioctl(3,TCGETS,0x4072fed4) = -1 errno=25 (Inappropriate ioctl for device)</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 pipe(206060,0,-1,-1,206016,1073512448) = 0</pre>
+<pre>1 fcntl64(3,F_GETFL) = 0</pre>
+<pre>1 fcntl64(3,F_SETFL,O_RDONLY|O_NONBLOCK) = 0</pre>
+<pre>1 gettimeofday(0x407305b0,NULL) = 0 ({tv_sec = 1673796428,tv_usec = 791229},NULL)</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 uname(0x40730760) = 0</pre>
+<pre>1 fstat64(1,0x4072f128) = 0</pre>
+<pre>1 gettimeofday(0x4072ffd8,NULL) = 0 ({tv_sec = 1673796428,tv_usec = 797760},NULL)</pre>
+<pre>1 openat(AT_FDCWD,"/etc/localtime",O_RDONLY|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 5</pre>
+<pre>1 connect(5,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-aes.so",0x4072f390) = 0</pre>
+<pre>1 futex(0x3ff730b0,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-aes.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,98424,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fcb9000</pre>
+<pre>1 mprotect(0x3fcc1000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fcd0000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0x7) = 0x3fcd0000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fcd0000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-des.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-des.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,90236,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fca2000</pre>
+<pre>1 mprotect(0x3fca8000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fcb7000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0x5) = 0x3fcb7000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fcb7000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-rc2.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-rc2.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69724,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fc90000</pre>
+<pre>1 mprotect(0x3fc91000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fca0000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0) = 0x3fca0000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fca0000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-sha2.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-sha2.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73868,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fc7d000</pre>
+<pre>1 mprotect(0x3fc7f000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc8e000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0x1) = 0x3fc8e000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fc8e000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-sha1.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-sha1.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73860,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fc6a000</pre>
+<pre>1 mprotect(0x3fc6c000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc7b000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0x1) = 0x3fc7b000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fc7b000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-md5.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-md5.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73884,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fc57000</pre>
+<pre>1 mprotect(0x3fc59000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc68000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0x1) = 0x3fc68000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fc68000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-random.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-random.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 5</pre>
+<pre>1 read(5,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(5,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69792,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,5,0) = 0x3fc45000</pre>
+<pre>1 mprotect(0x3fc46000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc55000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,5,0) = 0x3fc55000</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 mprotect(0x3fc55000,4096,PROT_READ) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/dev/urandom",O_RDONLY) = 5</pre>
+<pre>1 fcntl64(5,F_SETFD,1) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/dev/random",O_RDONLY) = 6</pre>
+<pre>1 fcntl64(6,F_SETFD,1) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-nonce.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-nonce.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69748,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fc33000</pre>
+<pre>1 mprotect(0x3fc34000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc43000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0) = 0x3fc43000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fc43000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-x509.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-x509.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,127696,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fc13000</pre>
+<pre>1 mprotect(0x3fc21000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc30000,12288,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0xd) = 0x3fc30000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fc30000,8192,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-revocation.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-revocation.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,78032,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fbff000</pre>
+<pre>1 mprotect(0x3fc02000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fc11000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x2) = 0x3fc11000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fc11000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-constraints.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-constraints.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73872,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fbec000</pre>
+<pre>1 mprotect(0x3fbee000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbfd000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x1) = 0x3fbfd000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fbfd000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pubkey.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pubkey.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69824,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fbda000</pre>
+<pre>1 mprotect(0x3fbdb000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbea000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0) = 0x3fbea000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fbea000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pkcs1.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pkcs1.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,74100,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fbc7000</pre>
+<pre>1 mprotect(0x3fbc9000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbd8000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x1) = 0x3fbd8000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fbd8000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pkcs7.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pkcs7.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,90468,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fbb0000</pre>
+<pre>1 mprotect(0x3fbb5000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbc5000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x5) = 0x3fbc5000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fbc5000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pkcs8.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pkcs8.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69812,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb9e000</pre>
+<pre>1 mprotect(0x3fb9f000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fbae000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0) = 0x3fbae000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fbae000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pkcs12.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pkcs12.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73968,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb8b000</pre>
+<pre>1 mprotect(0x3fb8d000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb9c000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x1) = 0x3fb9c000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb9c000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pgp.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pgp.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,78328,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb77000</pre>
+<pre>1 mprotect(0x3fb7a000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb89000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x2) = 0x3fb89000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb89000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-dnskey.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-dnskey.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69780,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb65000</pre>
+<pre>1 mprotect(0x3fb66000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb75000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0) = 0x3fb75000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb75000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-sshkey.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-sshkey.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73964,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb52000</pre>
+<pre>1 mprotect(0x3fb54000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb63000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x1) = 0x3fb63000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb63000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-pem.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-pem.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,79124,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb3e000</pre>
+<pre>1 mprotect(0x3fb41000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb50000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x2) = 0x3fb50000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb50000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-openssl.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-openssl.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(7,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,126332,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3fb1f000</pre>
+<pre>1 mprotect(0x3fb2d000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb3c000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0xd) = 0x3fb3c000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/tls/v8l/neon/vfp/libcrypto.so.1.1",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 7</pre>
+<pre>1 read(7,0x4072e760,512) = 512</pre>
+<pre>1 fstat64(7,0x4072e690) = 0</pre>
+<pre>1 mmap2(NULL,1966348,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,7,0) = 0x3f93e000</pre>
+<pre>1 mprotect(0x3faf4000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3fb03000,98304,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,7,0x1b5) = 0x3fb03000</pre>
+<pre>1 mmap2(0x3fb1b000,12556,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS|MAP_FIXED,-1,0) = 0x3fb1b000</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 mprotect(0x3fb03000,90112,PROT_READ) = 0</pre>
+<pre>1 mprotect(0x3fb3c000,4096,PROT_READ) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x4072ef10,0x4072ee00) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x4072ecc8,0x4072ed54) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_BLOCK,NULL,0x3fb1a484) = 0</pre>
+<pre>--- SIGILL {si_signo=SIGILL, si_code=2, si_addr=0x3f9921c8} ---</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x3fb1a484,NULL) = 0</pre>
+<pre>1 rt_sigaction(SIGILL,0x4072ecc8,NULL) = 0</pre>
+<pre>1 rt_sigprocmask(SIG_SETMASK,0x4072ee00,NULL) = 0</pre>
+<pre>1 futex(0x3fb1cc5c,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fb1cc60,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fb1cc64,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fb1ab30,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fb1a62c,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 brk(0x00067000) = 0x00067000</pre>
+<pre>1 futex(0x3fb1cc68,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/mnt/ssd/RAX30/504L02/targets/RAX30/fs.build/etc/ssl/openssl.cnf",O_RDONLY|O_LARGEFILE) = 7</pre>
+<pre>1 futex(0x3fb1cb94,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 fstat64(7,0x4072f0f0) = 0</pre>
+<pre>1 read(7,0x476b8,4096) = 4096</pre>
+<pre>1 read(7,0x476b8,4096) = 4096</pre>
+<pre>1 read(7,0x476b8,4096) = 2717</pre>
+<pre>1 read(7,0x476b8,4096) = 0</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 futex(0x3fb1cc74,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 futex(0x3fb1cd28,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 openat(AT_FDCWD,"/dev/urandom",O_RDONLY) = 7</pre>
+<pre>1 fstat64(7,0x4072f1d8) = 0</pre>
+<pre>1 read(7,0x49ab8,32) = 32</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 clock_gettime(CLOCK_REALTIME,0x4072f2a8) = 0 ({tv_sec = 1673796429,tv_nsec = 183966435})</pre>
+<pre>1 gettimeofday(0x4072f2e0,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 186504},NULL)</pre>
+<pre>1 futex(0x3fb1cd14,FUTEX_PRIVATE_FLAG|FUTEX_WAKE,2147483647,NULL,NULL,0) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-fips-prf.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-fips-prf.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69752,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f92c000</pre>
+<pre>1 mprotect(0x3f92d000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f93c000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0) = 0x3f93c000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f93c000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-curve25519.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-curve25519.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,143856,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f908000</pre>
+<pre>1 mprotect(0x3f91b000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f92a000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x12) = 0x3f92a000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f92a000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-xcbc.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-xcbc.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73972,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f8f5000</pre>
+<pre>1 mprotect(0x3f8f6000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f906000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f906000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f906000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-cmac.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-cmac.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73912,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f8e2000</pre>
+<pre>1 mprotect(0x3f8e3000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8f3000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f8f3000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f8f3000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-hmac.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-hmac.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,70264,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f8d0000</pre>
+<pre>1 mprotect(0x3f8d1000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8e0000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0) = 0x3f8e0000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f8e0000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-ctr.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-ctr.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,69916,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f8be000</pre>
+<pre>1 mprotect(0x3f8bf000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8ce000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0) = 0x3f8ce000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f8ce000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-ccm.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-ccm.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,74404,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f8ab000</pre>
+<pre>1 mprotect(0x3f8ac000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8bc000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f8bc000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f8bc000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-gcm.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-gcm.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,74116,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f898000</pre>
+<pre>1 mprotect(0x3f89a000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f8a9000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f8a9000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f8a9000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-attr.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-attr.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,74048,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f885000</pre>
+<pre>1 mprotect(0x3f887000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f896000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f896000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f896000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-kernel-pfkey.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-kernel-pfkey.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,94748,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f86d000</pre>
+<pre>1 mprotect(0x3f874000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f883000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x6) = 0x3f883000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f883000,4096,PROT_READ) = 0</pre>
+<pre>1 geteuid32(181528,12,0,1073383432,331096,1065893888) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-kernel-netlink.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-kernel-netlink.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,123884,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f84e000</pre>
+<pre>1 mprotect(0x3f85c000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f86b000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0xd) = 0x3f86b000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f86b000,4096,PROT_READ) = 0</pre>
+<pre>1 geteuid32(181528,12,1081275319,0,1065795584,1065679424) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-resolve.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-resolve.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73936,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f83b000</pre>
+<pre>1 mprotect(0x3f83d000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f84c000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f84c000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f84c000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/sbin/resolvconf",0x4072f2d8) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-socket-default.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-socket-default.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,78004,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f827000</pre>
+<pre>1 mprotect(0x3f829000,65536,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f839000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x2) = 0x3f839000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f839000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-stroke.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-stroke.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,144248,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f803000</pre>
+<pre>1 mprotect(0x3f816000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f825000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x12) = 0x3f825000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f825000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-vici.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-vici.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,164940,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f7da000</pre>
+<pre>1 mprotect(0x3f7f2000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f801000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x17) = 0x3f801000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f801000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-updown.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-updown.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,78000,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f7c6000</pre>
+<pre>1 mprotect(0x3f7c9000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f7d8000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x2) = 0x3f7d8000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f7d8000,4096,PROT_READ) = 0</pre>
+<pre>1 stat64("/lib/plugins/libstrongswan-xauth-generic.so",0x4072f390) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/lib/plugins/libstrongswan-xauth-generic.so",O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 8</pre>
+<pre>1 read(8,0x4072edd0,512) = 512</pre>
+<pre>1 fstat64(8,0x4072ed00) = 0</pre>
+<pre>1 mmap2(NULL,73880,PROT_EXEC|PROT_READ,MAP_PRIVATE|MAP_DENYWRITE,8,0) = 0x3f7b3000</pre>
+<pre>1 mprotect(0x3f7b5000,61440,PROT_NONE) = 0</pre>
+<pre>1 mmap2(0x3f7c4000,8192,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_DENYWRITE|MAP_FIXED,8,0x1) = 0x3f7c4000</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 mprotect(0x3f7c4000,4096,PROT_READ) = 0</pre>
+<pre>1 socket(15,SOCK_RAW,2) = -1 errno=1 (Operation not permitted)</pre>
+<pre>1 gettimeofday(0x4072ecc0,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 333427},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 8</pre>
+<pre>1 connect(8,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/proc/sys/net/core/xfrm_acq_expires",O_WRONLY|O_CREAT|O_TRUNC,0666) = 8</pre>
+<pre>1 fstat64(8,0x4072e428) = 0</pre>
+<pre>1 write(8,0x53c18,3) = 3</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 socket(PF_NETLINK,SOCK_RAW,6) = -1 errno=93 (Protocol not supported)</pre>
+<pre>1 gettimeofday(0x4072ec48,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 367055},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 8</pre>
+<pre>1 connect(8,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 geteuid32(181528,10,0,1073383432,199816,0) = 0</pre>
+<pre>1 socket(10,SOCK_DGRAM,IPPROTO_UDP) = 8</pre>
+<pre>1 setsockopt(8,1,2,1081275036,4,10) = 0</pre>
+<pre>1 bind(8,{sa_family=10, sa_data={01, f4, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00}}, 28) = 0</pre>
+<pre>1 setsockopt(8,41,49,1081275036,4,10) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 368695},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 9</pre>
+<pre>1 connect(9,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(9) = 0</pre>
+<pre>1 socket(10,SOCK_DGRAM,IPPROTO_UDP) = 9</pre>
+<pre>1 setsockopt(9,1,2,1081275036,4,10) = 0</pre>
+<pre>1 bind(9,{sa_family=10, sa_data={11, 94, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00}}, 28) = 0</pre>
+<pre>1 setsockopt(9,41,49,1081275036,4,10) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 369085},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 10</pre>
+<pre>1 connect(10,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(10) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 369437},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 10</pre>
+<pre>1 connect(10,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(10) = 0</pre>
+<pre>1 socket(PF_INET,SOCK_DGRAM,IPPROTO_UDP) = 10</pre>
+<pre>1 setsockopt(10,1,2,1081275036,4,2) = 0</pre>
+<pre>1 bind(10,{sin_family=AF_INET,sin_port=htons(500),sin_addr=inet_addr("0.0.0.0")}, 16) = 0</pre>
+<pre>1 setsockopt(10,0,8,1081275036,4,2) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 369872},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 11</pre>
+<pre>1 connect(11,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(11) = 0</pre>
+<pre>1 socket(PF_INET,SOCK_DGRAM,IPPROTO_UDP) = 11</pre>
+<pre>1 setsockopt(11,1,2,1081275036,4,2) = 0</pre>
+<pre>1 bind(11,{sin_family=AF_INET,sin_port=htons(4500),sin_addr=inet_addr("0.0.0.0")}, 16) = 0</pre>
+<pre>1 setsockopt(11,0,8,1081275036,4,2) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 370131},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 12</pre>
+<pre>1 connect(12,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(12) = 0</pre>
+<pre>1 gettimeofday(0x4072ec70,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 370302},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 12</pre>
+<pre>1 connect(12,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(12) = 0</pre>
+<pre>1 clock_gettime(CLOCK_MONOTONIC,0x4072f370) = 0 ({tv_sec = 35759,tv_nsec = 375192705})</pre>
+<pre>1 read(5,0x307b0,16) = 16</pre>
+<pre>1 gettimeofday(0x4072ee00,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 399401},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 12</pre>
+<pre>1 connect(12,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(12) = 0</pre>
+<pre>1 socket(PF_NETLINK,SOCK_RAW,NETLINK_ROUTE) = 12</pre>
+<pre>1 bind(12,{nl_family=AF_NETLINK,nl_pid=0,nl_groups=0}, 12) = 0</pre>
+<pre>1 uname(0x4072f1f8) = 0</pre>
+<pre>1 socket(PF_NETLINK,SOCK_RAW,NETLINK_ROUTE) = 13</pre>
+<pre>1 bind(13,{nl_family=AF_NETLINK,nl_pid=0,nl_groups=1361}, 12) = 0</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081274224,17,0,1081274148,12) = 17</pre>
+<pre>1 _newselect([12],[],[],NULL) =  = 0x00000001 ([12],[],[],NULL)</pre>
+<pre>1 recv(12,1081269824,4096,32,343120,1070408912) = 2708</pre>
+<pre>1 _newselect([12],[],[],NULL) =  = 0x00000001 ([12],[],[],NULL)</pre>
+<pre>1 recv(12,1081269824,4096,32,343120,1070408912) = 20</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081274224,17,0,1081274148,12) = 17</pre>
+<pre>1 _newselect([12],[],[],NULL) =  = 0x00000001 ([12],[],[],NULL)</pre>
+<pre>1 recv(12,1081269824,4096,32,343120,1070408912) = 164</pre>
+<pre>1 _newselect([12],[],[],NULL) =  = 0x00000001 ([12],[],[],NULL)</pre>
+<pre>1 recv(12,1081269824,4096,32,343120,1070408912) = 20</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081274224,36,0,1081274124,12) = -1 errno=95 (Operation not supported)</pre>
+<pre>1 gettimeofday(0x4072e8c0,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 519210},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072ed80,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 519458},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081274224,36,0,1081274124,12) = -1 errno=95 (Operation not supported)</pre>
+<pre>1 gettimeofday(0x4072e8c0,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 519644},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072ed80,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 519791},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<br />
+<pre>1 gettimeofday(0x4072edb8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 520644},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.d/cacerts",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 gettimeofday(0x4072ece8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 521030},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072ed10,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 521222},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072edb8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 521769},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.d/aacerts",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 14</pre>
+<pre>1 fstat64(14,0x4072f288) = 0</pre>
+<pre>1 getdents64(14,0x58dc0,32768) = 48</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072edb8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 522402},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.d/ocspcerts",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 14</pre>
+<pre>1 fstat64(14,0x4072f288) = 0</pre>
+<pre>1 getdents64(14,0x58e28,32768) = 48</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072edb8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 522648},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.d/acerts",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 14</pre>
+<pre>1 fstat64(14,0x4072f288) = 0</pre>
+<pre>1 getdents64(14,0x58e90,32768) = 48</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072edb8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 522882},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.d/crls",O_RDONLY|O_DIRECTORY|O_LARGEFILE|O_NONBLOCK|O_CLOEXEC) = 14</pre>
+<pre>1 fstat64(14,0x4072f288) = 0</pre>
+<pre>1 getdents64(14,0x58ee0,32768) = 48</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 gettimeofday(0x4072dbf8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 550987},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 openat(AT_FDCWD,"/etc/ipsec.secrets",O_RDONLY) = 14</pre>
+<pre>1 fstat64(14,0x4072e120) = 0</pre>
+<pre>1 mmap2(NULL,81,PROT_READ|PROT_WRITE,MAP_PRIVATE,14,0) = 0x3f7b2000</pre>
+<pre>1 lstat64("/var/ipsec/ipsec.secrets",0x4072dbd8) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 gettimeofday(0x4072dbf8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 552137},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 15</pre>
+<pre>1 connect(15,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(15) = 0</pre>
+<pre>1 munmap(0x3f7b2000,81) = 0</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 clock_gettime(CLOCK_MONOTONIC,0x4072f3c8) = 0 ({tv_sec = 35759,tv_nsec = 557455293})</pre>
+<pre>1 socket(PF_UNIX,SOCK_STREAM,IPPROTO_IP) = 14</pre>
+<pre>1 unlink("/var/run/charon.ctl") = 0</pre>
+<pre>1 umask(07) = 18</pre>
+<pre>1 bind(14,{sun_family=AF_UNIX,sun_path="/var/run/charon.ctl"}, 21) = 0</pre>
+<pre>1 umask(022) = 7</pre>
+<pre>1 geteuid32(0,1081275192,21,1073383060,14,1065433218) = 0</pre>
+<pre>1 getegid32(0,1081275192,21,1073383044,14,1065433218) = 0</pre>
+<pre>1 chown32(1081275194,0,0,1073383044,14,1065433218) = 0</pre>
+<pre>1 listen(14,10) = 0</pre>
+<pre>1 write(4,0x4072f384,1) = 1</pre>
+<pre>1 socket(PF_UNIX,SOCK_STREAM,IPPROTO_IP) = 15</pre>
+<pre>1 unlink("/var/run/charon.vici") = 0</pre>
+<pre>1 umask(07) = 18</pre>
+<pre>1 bind(15,{sun_family=AF_UNIX,sun_path="/var/run/charon.vici"}, 22) = 0</pre>
+<pre>1 umask(022) = 7</pre>
+<pre>1 geteuid32(0,1081275120,22,1073383060,15,1065292642) = 0</pre>
+<pre>1 getegid32(0,1081275120,22,1073383044,15,1065292642) = 0</pre>
+<pre>1 chown32(1081275122,0,0,1073383044,15,1065292642) = 0</pre>
+<pre>1 listen(15,3) = 0</pre>
+<pre>1 write(4,0x4072f33c,1) = 1</pre>
+<pre>1 clock_gettime(CLOCK_MONOTONIC,0x4072f3d8) = 0 ({tv_sec = 35759,tv_nsec = 559483801})</pre>
+<pre>1 gettimeofday(0x4072ee58,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 600682},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 16</pre>
+<pre>1 connect(16,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(16) = 0</pre>
+<pre>1 gettimeofday(0x4072ffd8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 601362},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 16</pre>
+<pre>1 connect(16,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(16) = 0</pre>
+<pre>1 write(4,0x4073054c,1) = 1</pre>
+<pre>1 close(15) = 0</pre>
+<pre>1 write(4,0x4073055c,1) = 1</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081278808,36,0,1081278708,12) = -1 errno=95 (Operation not supported)</pre>
+<pre>1 gettimeofday(0x4072faa8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 629804},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 getpid() = 1</pre>
+<pre>1 sendto(12,1081278808,36,0,1081278708,12) = -1 errno=95 (Operation not supported)</pre>
+<pre>1 gettimeofday(0x4072faa8,NULL) = 0 ({tv_sec = 1673796429,tv_usec = 630220},NULL)</pre>
+<pre>1 socket(PF_UNIX,SOCK_DGRAM|SOCK_CLOEXEC,IPPROTO_IP) = 14</pre>
+<pre>1 connect(14,0x3fe15f54,110) = -1 errno=2 (No such file or directory)</pre>
+<pre>1 close(14) = 0</pre>
+<pre>1 write(4,0x4073054c,1) = 1</pre>
+<pre>1 close(13) = 0</pre>
+<pre>1 close(12) = 0</pre>
+<pre>1 close(10) = 0</pre>
+<pre>1 close(11) = 0</pre>
+<pre>1 close(8) = 0</pre>
+<pre>1 close(9) = 0</pre>
+<pre>1 close(6) = 0</pre>
+<pre>1 close(5) = 0</pre>
+<pre>1 close(3) = 0</pre>
+<pre>1 close(4) = 0</pre>
+<pre>1 fstat64(7,0x407307c0) = 0</pre>
+<pre>1 close(7) = 0</pre>
+<pre>1 write(1,0x27030,1548)00[DMN] Starting IKE charon daemon (strongSwan 5.5.2, Linux 5.15.0-58-generic, armv7l)</pre>
+<pre>00[KNL] unable to create PF_KEY socket</pre>
+<pre>00[KNL] unable to create netlink socket: Protocol not supported (93)</pre>
+<pre>00[NET] installing IKE bypass policy failed</pre>
+<pre>00[NET] installing IKE bypass policy failed</pre>
+<pre>00[NET] enabling UDP decapsulation for IPv6 on port 4500 failed</pre>
+<pre>00[NET] installing IKE bypass policy failed</pre>
+<pre>00[NET] installing IKE bypass policy failed</pre>
+<pre>00[NET] enabling UDP decapsulation for IPv4 on port 4500 failed</pre>
+<pre>00[LIB] feature CUSTOM:libcharon in critical plugin 'charon' has unmet dependency: CUSTOM:kernel-ipsec</pre>
+<pre>00[KNL] netlink write error: Operation not supported</pre>
+<pre>00[KNL] unable to create IPv4 routing table rule</pre>
+<pre>00[KNL] netlink write error: Operation not supported</pre>
+<pre>00[KNL] unable to create IPv6 routing table rule</pre>
+<pre>00[CFG] loading ca certificates from '/etc/ipsec.d/cacerts'</pre>
+<pre>00[LIB] opening directory '/etc/ipsec.d/cacerts' failed: No such file or directory</pre>
+<pre>00[CFG]   reading directory failed</pre>
+<pre>00[CFG] loading aa certificates from '/etc/ipsec.d/aacerts'</pre>
+<pre>00[CFG] loading ocsp signer certificates from '/etc/ipsec.d/ocspcerts'</pre>
+<pre>00[CFG] loading attribute certificates from '/etc/ipsec.d/acerts'</pre>
+<pre>00[CFG] loading crls from '/etc/ipsec.d/crls'</pre>
+<pre>00[CFG] loading secrets from '/etc/ipsec.secrets'</pre>
+<pre>00[CFG] expanding file expression '/var/ipsec/ipsec.secrets' failed</pre>
+<pre>00[LIB] failed to load 1 critical plugin feature</pre>
+<pre>00[DMN] initialization failed - aborting charon</pre>
+<pre>00[KNL] netlink write error: Operation not supported</pre>
+<pre>00[KNL] netlink write error: Operation not supported</pre>
+<pre> = 1548</pre>
+<pre>1 exit_group(66)</pre>
+<pre>[</span><span class="orange">*</span>] Identification of missing filesytem areas.</pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ipsec.d/cacerts</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">cacerts</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ipsec.d/cacerts</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ipsec.d/cacerts</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ipsec.d/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Missing file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/ld.so.cache</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/etc/localtime</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">localtime</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/localtime</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/localtime</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/etc/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/neon/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/neon/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/neon/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/v8l/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/tls/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/tls/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/neon/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/neon/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/v8l/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/v8l/vfp/</span></pre>
+<pre>[</span><span class="orange">*</span>] Found missing area: </span><span class="orange">/lib/vfp/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Trying to identify this missing file: </span><span class="orange">libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Possible matching file found: </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span></pre>
+<pre>[</span><span class="orange">*</span>] Copy file </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/libcharon.so.0</span> to </span><span class="orange">/logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/lib/vfp/</span></pre>
+<br />
+<pre>-----------------------------------------------------------------</pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

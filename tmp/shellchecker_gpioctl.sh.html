@@ -1,0 +1,318 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 10:</span></pre>
+<pre></span>    GPIO=`printf '%02X' ${GPIO}` ; echo ${GPIO}</span></pre>
+<pre><span class="green">         ^---------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                        ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                        ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    GPIO=$(printf '%02X' "${GPIO}") ; echo "${GPIO}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 12:</span></pre>
+<pre></span>    if [ ${FUNC} == "gpio" ]; then</span></pre>
+<pre><span class="green">         ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${FUNC}" == "gpio" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 14:</span></pre>
+<pre></span>    elif [ ${FUNC} == "func" ]; then</span></pre>
+<pre><span class="green">           ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    elif [ "${FUNC}" == "func" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 20:</span></pre>
+<pre></span>    val=`echo 0x${PINMUX}0${GPIO}`; echo ${val}</span></pre>
+<pre><span class="green">        ^------------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">        ^------------------------^ SC2116 (style): Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.</span></pre>
+<pre><span class="green">                          ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                         ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    val=$(echo 0x${PINMUX}0"${GPIO}"); echo "${val}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 23:</span></pre>
+<pre></span>    sw 0xff800554 0; sw 0xff800558 ${val}; sw 0xff80055c 0x21</span></pre>
+<pre><span class="green">                                   ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    sw 0xff800554 0; sw 0xff800558 "${val}"; sw 0xff80055c 0x21</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 25:</span></pre>
+<pre></span>    sw 0xff800554 0; sw 0xff800558 ${GPIO}; sw 0xff80055c 0x23; dw 0xff800560</span></pre>
+<pre><span class="green">                                   ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    sw 0xff800554 0; sw 0xff800558 "${GPIO}"; sw 0xff80055c 0x23; dw 0xff800560</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 38:</span></pre>
+<pre></span>        GPIO=`echo $((GPIO-32))`</span></pre>
+<pre><span class="green">             ^-----------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">             ^-----------------^ SC2116 (style): Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        GPIO=$(echo $((GPIO-32)))</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 44:</span></pre>
+<pre></span>    echo ${GPIO} ${dirAddr} ${INOUT}</span></pre>
+<pre><span class="green">         ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                            ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "${GPIO}" ${dirAddr} "${INOUT}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 46:</span></pre>
+<pre></span>    bit=`printf '0x%08x' $((0x1 &lt;&lt; ${GPIO}))` ; echo ${bit}</span></pre>
+<pre><span class="green">        ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                   ^-----^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<pre><span class="green">                                                     ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    bit=$(printf '0x%08x' $((0x1 &lt;&lt; ${GPIO}))) ; echo "${bit}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 47:</span></pre>
+<pre></span>    val=`dw ${dirAddr} | awk '{printf $3}'` ; val=`echo "0x${val}"`; echo ${val}</span></pre>
+<pre><span class="green">        ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                  ^---------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                  ^---------------^ SC2116 (style): Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.</span></pre>
+<pre><span class="green">                                                                          ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    val=$(dw ${dirAddr} | awk '{printf $3}') ; val=$(echo "0x${val}"); echo "${val}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 49:</span></pre>
+<pre></span>    if [ ${INOUT} == "in" ]; then</span></pre>
+<pre><span class="green">         ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${INOUT}" == "in" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 50:</span></pre>
+<pre></span>        ret=$((val&amp;~bit)) ; ret=`printf '0x%x' ${ret}`; echo ${ret}</span></pre>
+<pre><span class="green">                                ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                             ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        ret=$((val&amp;~bit)) ; ret=$(printf '0x%x' ${ret}); echo "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 52:</span></pre>
+<pre></span>    elif [ ${INOUT} == "out" ]; then</span></pre>
+<pre><span class="green">           ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    elif [ "${INOUT}" == "out" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 53:</span></pre>
+<pre></span>        ret=$((val|bit)) ; ret=`printf '0x%x' ${ret}`; echo ${ret}</span></pre>
+<pre><span class="green">                               ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                            ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        ret=$((val|bit)) ; ret=$(printf '0x%x' ${ret}); echo "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 61:</span></pre>
+<pre></span>        sw ${dirAddr} ${ret}</span></pre>
+<pre><span class="green">                      ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        sw ${dirAddr} "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 75:</span></pre>
+<pre></span>        GPIO=`echo $((GPIO-32))`</span></pre>
+<pre><span class="green">             ^-----------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">             ^-----------------^ SC2116 (style): Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        GPIO=$(echo $((GPIO-32)))</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 81:</span></pre>
+<pre></span>    echo ${GPIO} ${dataAddr} ${DATA}</span></pre>
+<pre><span class="green">         ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                             ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "${GPIO}" ${dataAddr} "${DATA}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 83:</span></pre>
+<pre></span>    bit=`printf '0x%08x' $((0x1 &lt;&lt; ${GPIO}))` ; echo ${bit}</span></pre>
+<pre><span class="green">        ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                   ^-----^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<pre><span class="green">                                                     ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    bit=$(printf '0x%08x' $((0x1 &lt;&lt; ${GPIO}))) ; echo "${bit}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 84:</span></pre>
+<pre></span>    val=`dw ${dataAddr} | awk '{printf $3}'` ; val=`echo "0x${val}"`; echo ${val}</span></pre>
+<pre><span class="green">        ^-- SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                   ^---------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                   ^---------------^ SC2116 (style): Useless echo? Instead of 'cmd $(echo foo)', just use 'cmd foo'.</span></pre>
+<pre><span class="green">                                                                           ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    val=$(dw ${dataAddr} | awk '{printf $3}') ; val=$(echo "0x${val}"); echo "${val}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 86:</span></pre>
+<pre></span>    if [ ${DATA} == "1" ]; then</span></pre>
+<pre><span class="green">         ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${DATA}" == "1" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 87:</span></pre>
+<pre></span>        ret=$((val&amp;~bit)) ; ret=`printf '0x%x' ${ret}`; echo ${ret}</span></pre>
+<pre><span class="green">                                ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                             ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        ret=$((val&amp;~bit)) ; ret=$(printf '0x%x' ${ret}); echo "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 89:</span></pre>
+<pre></span>    elif [ ${DATA} == "0" ]; then</span></pre>
+<pre><span class="green">           ^-----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    elif [ "${DATA}" == "0" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 90:</span></pre>
+<pre></span>        ret=$((val|bit)) ; ret=`printf '0x%x' ${ret}`; echo ${ret}</span></pre>
+<pre><span class="green">                               ^--------------------^ SC2006 (style): Use $(...) notation instead of legacy backticks `...`.</span></pre>
+<pre><span class="green">                                                            ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        ret=$((val|bit)) ; ret=$(printf '0x%x' ${ret}); echo "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 98:</span></pre>
+<pre></span>        sw ${dataAddr} ${ret}</span></pre>
+<pre><span class="green">                       ^----^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        sw ${dataAddr} "${ret}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 120:</span></pre>
+<pre></span>    lockcnt=$(( ${lockcnt} + 1 ))</span></pre>
+<pre><span class="green">                ^--------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 128:</span></pre>
+<pre></span>    echo "ParaGpio : " ${ParaGpio}</span></pre>
+<pre><span class="green">                       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "ParaGpio : " "${ParaGpio}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 130:</span></pre>
+<pre></span>    echo "ParaGpio : " ${ParaGpio} "Error!! [0-63]"</span></pre>
+<pre><span class="green">                       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    echo "ParaGpio : " "${ParaGpio}" "Error!! [0-63]"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 134:</span></pre>
+<pre></span>if [ ${ParaFunc} == "GPIO_SetPinmux" ]; then</span></pre>
+<pre><span class="green">     ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>if [ "${ParaFunc}" == "GPIO_SetPinmux" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 135:</span></pre>
+<pre></span>    if [ ${ParaArg} == "gpio" ] || [ ${ParaArg} == "func" ]; then</span></pre>
+<pre><span class="green">         ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                     ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${ParaArg}" == "gpio" ] || [ "${ParaArg}" == "func" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 136:</span></pre>
+<pre></span>        GPIO_SetPinmux ${ParaGpio} ${ParaArg}</span></pre>
+<pre><span class="green">                       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                   ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        GPIO_SetPinmux "${ParaGpio}" "${ParaArg}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 138:</span></pre>
+<pre></span>elif [ ${ParaFunc} == "GPIO_SetDir" ]; then</span></pre>
+<pre><span class="green">       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>elif [ "${ParaFunc}" == "GPIO_SetDir" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 139:</span></pre>
+<pre></span>    if [ ${ParaArg} == "in" ] || [ ${ParaArg} == "out" ]; then</span></pre>
+<pre><span class="green">         ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                   ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${ParaArg}" == "in" ] || [ "${ParaArg}" == "out" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 140:</span></pre>
+<pre></span>        GPIO_SetDir ${ParaGpio} ${ParaArg}</span></pre>
+<pre><span class="green">                    ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        GPIO_SetDir "${ParaGpio}" "${ParaArg}"</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 142:</span></pre>
+<pre></span>elif [ ${ParaFunc} == "GPIO_SetData" ]; then</span></pre>
+<pre><span class="green">       ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>elif [ "${ParaFunc}" == "GPIO_SetData" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 143:</span></pre>
+<pre></span>    if [ ${ParaArg} == "1" ] || [ ${ParaArg} == "0" ]; then</span></pre>
+<pre><span class="green">         ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                  ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    if [ "${ParaArg}" == "1" ] || [ "${ParaArg}" == "0" ]; then</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/sbin/gpioctl.sh line 144:</span></pre>
+<pre></span>        GPIO_SetData ${ParaGpio} ${ParaArg}</span></pre>
+<pre><span class="green">                     ^---------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<pre><span class="green">                                 ^--------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>        GPIO_SetData "${ParaGpio}" "${ParaArg}"</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2004" title="https://www.shellcheck.net/wiki/SC2004" target="_blank" >https://www.shellcheck.net/wiki/SC2004</a> -- $/${} is unnecessary on arithmeti...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2006" title="https://www.shellcheck.net/wiki/SC2006" target="_blank" >https://www.shellcheck.net/wiki/SC2006</a> -- Use $(...) notation instead of le...</pre>

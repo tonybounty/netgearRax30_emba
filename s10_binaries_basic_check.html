@@ -1,0 +1,1870 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./index.html"><img class="inherit" id="logoImage" src="./style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./index.html">&laquo; Back to main</a>
+      <!-- navigation start --><a class="modul" href="#check_binaries_for_critical_functions" title="#check_binaries_for_critical_functions" >Check binaries for critical functions</a>
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="blue">+</span>] </span><span class="cyan"><span class="bold"><a id="check_binaries_for_critical_functions">Check binaries for critical functions</a></span></pre>
+<pre><span class="bold"><hr class="double" /></span></pre>
+<pre>This module identifies the usage of critical binary functions in firmware via </span><span class="orange">readelf</span>.</pre>
+<pre>Examples of binary functions are system, strcpy, printf and strcat. These functions are listed in the configuration</pre>
+<pre>file config/functions.cfg.</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Interesting functions: fprintf mmap printf sprintf strcat strcpy system</pre>
+<br />
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pppd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	150:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	308:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	428:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	436:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	469:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	576:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	650:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/curl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	141:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nvram (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/send_cms_msg (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/interleave (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/iostat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	47:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	67:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcmbusybox (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	95:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	178:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	202:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	221:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	253:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/vlanctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pu_autodetect (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/docfdisk (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pidstat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	75:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	78:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubimkvol (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/openssl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(6)</pre>
+<pre>    	435:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(6)</pre>
+<pre>    	487:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(6)</pre>
+<pre>    	739:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(6)</pre>
+<pre>    	1143:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(6)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/lspci (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ssk (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	144:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	163:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/puraUpdate (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ethtool (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ceventc (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/zebra (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	122:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	195:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	218:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	261:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ceventd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubinfo (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pudilcb (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mcpd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	86:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	91:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/udhcpd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	60:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	65:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	94:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	104:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubiattach (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/posix-stress (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/smd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	84:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/iperf3 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	67:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	83:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	99:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/dhcp6s (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	88:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rfdformat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/tmctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rawSocketTest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubirsvol (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pufwUpgrade (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	54:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubirename (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	2:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/scratchpadctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_erase (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/websockd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	59:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	68:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	83:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	89:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mtdpart (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/consoled (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/fcctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_otp_dump (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	3:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/doc_loadbios (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ntfs-3g (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	166:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/archerctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ethswctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ivictl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pudil (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ATS (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubiupdatevol (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bpmctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nanddump (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rngtest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/hspotap (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	172:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	207:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	259:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/deinterleave (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/puarmor (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	3:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/tc (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	153:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	401:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	428:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	507:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	574:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/iconv (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcm_bootstate (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mtdinfo (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/brctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/maclimit (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ndisc6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubirmvol (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/dropbearconvert (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/puhttpsniff (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ddnsd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	47:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_lock (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/memaccess (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_otp_info (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	2:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ftl_check (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bdbroker-client-cmd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/spcLoader (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/wlssk (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	106:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/redsocks (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	70:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	111:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pot (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mtd_debug (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ftl_format (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mailsend (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	58:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	89:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ra_nvram (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/dhcp6c (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	58:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	104:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rastatus6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rex_maillog (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_otp_write (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubiformat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nvramUpdate (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubiblock (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/getdb (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/php-fpm (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	254:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	328:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	785:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	1028:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	1537:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	1718:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/hotplug (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/tcpdump (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	133:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcm_boot_launcher (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nftldump (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ra_cli (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nandtest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/openvpn (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	228:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	245:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	270:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	324:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pu_sshEnabled (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/eapd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	68:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	70:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pucfu (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ntgr_trafficmeter (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcmmserver (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubinize (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nandwrite (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pki (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pwrctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/xtables-legacy-multi (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	91:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	106:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pu_iQoS_db_update (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pppoe-relay (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	47:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/boot_block_housekeeping (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bdbroker-client-thread (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/lsmtd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/l2tpconfig (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flashcp (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ripd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	86:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	151:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	169:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	204:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/recv_image (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ip (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	150:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	381:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	406:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	479:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	535:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/telnetd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubicrc32 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_unlock (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/wdtctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ledSer (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcm_flasher (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcmmcastctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/sqlite3 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	75:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mpstat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/otpctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/pu_telnetEnabled (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bdbroker-client-loop (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/readycloud_nvram (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/inadyn (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/soap_serverd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	80:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	96:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	167:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ethctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/dry (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/urlfilterd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/zip (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	88:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	93:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/openl2tpd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	124:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	353:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	448:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	504:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/radvd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	71:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	100:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ntgr_ddnsd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ippd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/sshd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	81:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/wlDiagnostic (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bcm_flashutil (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rfddump (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/rex_statusd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nbtscan (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/mcpctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/ubidetach (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/setpci (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/iperf (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	65:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/bftpd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	63:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	105:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	121:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/iqctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/unzip (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	70:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	74:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/upnp (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	84:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/serve_image (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/nftl_format (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/blogctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/wandetect (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /bin/flash_otp_lock (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /etc/ntgr_ra_iot (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	86:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	140:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	294:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	336:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	412:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /etc/init.d/dilboot (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /sbin/swanctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /sbin/ipset (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	61:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	80:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /sbin/wps_pbcd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	69:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	94:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /opt/xagent/xagent (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	90:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	99:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	153:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	156:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /opt/xagent/xagent_control (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	87:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	146:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	149:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /opt/xagent/genie_handler (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /opt/usr/bin/dal_ash (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	109:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	142:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	217:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /opt/usi/usi (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/fing_dil (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	85:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	105:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	154:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/dalh (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	59:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	123:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/upagent (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	102:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	107:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	126:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	139:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	190:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/dal_ra (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	70:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	86:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	99:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	137:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/vendortest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/d2d (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	61:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/evsinkd2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/bst_daemon (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	69:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	123:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/jsontest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	96:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/d2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/bsttest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	2:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/diltest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/mpstat (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/csh (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	88:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	118:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/caller (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/pushntftest (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	3:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/bin/taskset (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wpa_supplicant (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	450:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wl_server_socket (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	69:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/hostapd_cli (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	68:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/envram (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/i5ctl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/vconfig (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ieee1905 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	128:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	140:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/toad (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/dhd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	58:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	78:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	83:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wlconf (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	75:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wbd_master (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	175:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	195:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	213:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ssd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wbd_slave (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	106:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	256:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/emf (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/shn_ctrl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ncap (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/acsd2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	146:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	163:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	202:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/toast (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ookla (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	1265:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	2555:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	2905:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	4380:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	4470:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/acs_cli2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	59:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	75:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/minidlnad (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	137:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	193:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/envrams (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ntgr_wifiguestschedule (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/eventd (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/igs (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/iw (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	59:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	86:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/hostapd (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	88:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	329:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/appeventd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/bcmiqosd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/utelnetd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wl (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	63:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	81:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	87:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/tdts_rule_agent (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/airiq_service (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	128:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/tcd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/speedtest_cli (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/airiq_app (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	53:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/dnsmasq (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	138:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wb_cli (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/aspmd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/epi_ttcp (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	72:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/ntpclient (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/debug_monitor (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/wpa_cli (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	69:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/sbin/bsd (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	83:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	152:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	168:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	213:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libbcm.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libusi.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	66:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libieee1905.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	33:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	87:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	90:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	106:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	114:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	147:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libd2dynlog.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libd2dil.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	109:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libwpa_client.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libpcreposix.so.0.0.4T (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libdalcjson.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	82:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libpcreposix.so.0.0.4 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libd2bst.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libupnp.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	3:	00000000	0	NOTYPE	GLOBAL	DEFAULT	UND	strcpy</pre>
+<pre>    	23:	00000000	0	NOTYPE	GLOBAL	DEFAULT	UND	strcat</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libfwcheck.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	64:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	129:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libshared.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(3)</pre>
+<pre>    	78:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	104:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libwbdshared.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	67:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	134:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libbshared.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libi5api.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /usr/lib/libd2lib.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	84:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libavfilter.so.5.11.102 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	203:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(7)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libwlsysutil.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libuuid.so.1.0.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libvendor.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbmedia.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/ppp_unix.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	53:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnv2hapdcfg.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libairiq_sirp.so.2.6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(4)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(4)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(4)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libwifihttp.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	78:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	96:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	127:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	171:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libconfuse.so.2.1.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libstdc++.so.6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	120:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(45)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcms_dal.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	65:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	141:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbdlna-dms-aal.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnl-genl-3.so.200.20.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libsys_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpthread.so.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(9)</pre>
+<pre>    	81:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(9)</pre>
+<pre>    	220:	00012fd8	4	FUNC	GLOBAL	DEFAULT	12	system&commat;GLIBC_2.4</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcms_qdm.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libavformat.so.56.25.101 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	207:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	254:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbcmmcast.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libjpeg.so.9.1.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/rp-pppoe.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	48:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libwlmdm.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	53:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	75:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcms_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	58:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	69:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	93:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	135:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libexpat.so.1.6.12 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libutil.so.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libblogctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libethctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libsamba-util.so.0 (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	94:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(5)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libssk_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmdm_cli.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpudil.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnss_dns.so.2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libexif.so.12.3.3 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	8:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	30:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/pppol2tp.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libiqctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbcm_flashutil.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	81:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libwebsockets.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	73:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	90:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	147:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcurl.so.4.6.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	148:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<pre>    	275:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbdlna.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	16:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	46:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnss_files.so.2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libb_playback_ip.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	85:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libc.so.6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	100:	00076120	592	FUNC	GLOBAL	DEFAULT	12	strcpy&commat;&commat;GLIBC_2.4</pre>
+<pre>    	162:	000436e4	56	FUNC	GLOBAL	DEFAULT	12	sprintf&commat;&commat;GLIBC_2.4</pre>
+<pre>    	631:	00043664	76	FUNC	GLOBAL	DEFAULT	12	printf&commat;&commat;GLIBC_2.4</pre>
+<pre>    	698:	000cf020	116	FUNC	WEAK	DEFAULT	12	mmap&commat;&commat;GLIBC_2.4</pre>
+<pre>    	1250:	00075cf4	36	FUNC	GLOBAL	DEFAULT	12	strcat&commat;&commat;GLIBC_2.4</pre>
+<pre>    	1407:	00039254	44	FUNC	WEAK	DEFAULT	12	system&commat;&commat;GLIBC_2.4</pre>
+<pre>    	1821:	00043634	48	FUNC	GLOBAL	DEFAULT	12	fprintf&commat;&commat;GLIBC_2.4</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libairiq.so.2.6 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(4)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(4)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(4)</pre>
+<pre>    	58:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmdm_cbk_wifi.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	71:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libebtc.so.0.0.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	32:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libgen_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpopt-samba4.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(3)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbcm_boardctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcms_cli.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	62:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	84:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	121:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/pppoatm.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnl-3.so.200.20.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libssl.so.1.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	229:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(7)</pre>
+<pre>    	440:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(7)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libdataapi.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	44:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbdlna-dms.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	72:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	127:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	159:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcrypto.so.1.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(16)</pre>
+<pre>    	77:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(16)</pre>
+<pre>    	104:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(16)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnl-nf-3.so.200.20.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libxml2.so.2.9.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(42)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(42)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libevent-2.1.so.7.0.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	61:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcms_core.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	38:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	139:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	152:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	172:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	230:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	340:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libvlanctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpwrctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnfnetlink.so.0.2.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/pptp.so.0.0.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	60:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libvorbis.so.0.4.7 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libzebra.so.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	54:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	80:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	105:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libresolv.so.2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(5)</pre>
+<pre>    	43:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(5)</pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(5)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libethswctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/cmsdb.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libstrongswan.so.0.0.0 (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(3)</pre>
+<pre>    	100:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(3)</pre>
+<pre>    	106:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libfcctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	5:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libjpeg.so.9.3.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	17:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<pre>    	21:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpcreposix.so.0.0.4 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbcm_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	28:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnl-route-3.so.200.20.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	99:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libntfs-3g.so.88 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	37:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	49:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	66:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpu_util.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	23:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	54:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbdbroker.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(3)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libstaged.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	25:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	mmap&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmaclimit.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	9:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libevent_core-2.1.so.7.0.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libdl.so.2 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnvram.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	36:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libavutil.so.54.20.100 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	42:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(4)</pre>
+<pre>    	57:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(4)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbridgeutil.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	18:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libvici.so.0.0.0 (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libarcher.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	10:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libcharon.so.0.0.0 (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	89:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libsmbconf.so.0 (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	112:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(10)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/plugins/libstrongswan-vici.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	53:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	80:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	118:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/plugins/libstrongswan-resolve.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	26:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/plugins/libstrongswan-kernel-netlink.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	50:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/plugins/libstrongswan-stroke.so (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	76:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	107:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmnl.so.0.2.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(5)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libjson-c.so.3.0.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmdm_cbk_devinfo.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	15:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	29:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	61:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libmdm_db.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	40:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libbcm_sslconf.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	7:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libnl-cli-3.so.200.20.0 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	79:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(5)</pre>
+<pre>    	96:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(5)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libtmctl.so (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	6:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	34:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /lib/libpcap.so.1.9.1 (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	12:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	52:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /libexec/ipsec/stroke (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	4:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	14:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	24:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /libexec/ipsec/starter (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	61:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	72:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	92:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	95:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /libexec/ipsec/charon (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	11:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	22:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/pwd_reset/reset_pwd.cgi (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	41:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	56:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	66:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	90:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	93:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/xCloud_Debug_log.zip (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	19:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	27:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	47:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	55:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/cgi-bin/NETGEAR_RAX29.cfg (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	20:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	39:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/cgi-bin/genie.cgi (-rwxr-xr-x root root) found:</span></pre>
+<pre>    	13:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	31:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/cgi-bin/rex_cgi (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	91:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	95:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	154:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	172:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	190:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcat&commat;GLIBC_2.4	(2)</pre>
+<pre>    	223:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="green">+</span>]</span><span class="green"> Interesting function in /webs/tm_block/tm_block.cgi (-rwxrwxr-x root root) found:</span></pre>
+<pre>    	35:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	printf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	45:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	system&commat;GLIBC_2.4	(2)</pre>
+<pre>    	51:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	fprintf&commat;GLIBC_2.4	(2)</pre>
+<pre>    	72:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	strcpy&commat;GLIBC_2.4	(2)</pre>
+<pre>    	74:	00000000	0	FUNC	GLOBAL	DEFAULT	UND	sprintf&commat;GLIBC_2.4	(2)</pre>
+<br />
+<pre>[</span><span class="orange">*</span>] Found </span><span class="orange">355</span> binaries with interesting functions in </span><span class="orange">694</span> files (vulnerable functions: fprintf mmap printf sprintf strcat strcpy system)</pre>
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>

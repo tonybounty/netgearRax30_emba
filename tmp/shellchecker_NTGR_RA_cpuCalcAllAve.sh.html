@@ -1,0 +1,73 @@
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 5:</span></pre>
+<pre></span>    local highCpuTime=0</span></span></pre>
+<pre><span class="orange">    ^---------------^ SC3043 (warning): In POSIX sh, 'local' is undefined.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 6:</span></pre>
+<pre></span>    local highCpuThres=$1</span></span></pre>
+<pre><span class="orange">    ^----------------^ SC3043 (warning): In POSIX sh, 'local' is undefined.</span></pre>
+<pre><span class="green">                       ^-- SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    local highCpuThres="$1";</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 20:</span></pre>
+<pre></span>    startIndex=$(($rows - $lastRow))</span></span></pre>
+<pre><span class="green">                  ^---^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<pre><span class="green">                          ^------^ SC2004 (style): $/${} is unnecessary on arithmetic variables.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 21:</span></pre>
+<pre></span>	cpuUtilArray=$(tail -n "$startIndex" /tmp/ra/cpuUsage.dat;head -n $lastRow /tmp/ra/cpuUsage.dat)</span></span></pre>
+<pre><span class="green">                                                                          ^------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>	cpuUtilArray=$(tail -n "$startIndex" /tmp/ra/cpuUsage.dat;head -n "$lastRow" /tmp/ra/cpuUsage.dat);</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 22:</span></pre>
+<pre></span>    highCpuTime=$(echo "$cpuUtilArray" | awk -F ' ' -v thres=$highCpuThres 'BEGIN{totalCpuUtilIn10times=0;highCpuCount=0;} {if ( NR % 10 == 0 ) {if ( (totalCpuUtilIn10times / 10 / 3) &gt; thres ){highCpuCount++;}totalCpuUtilIn10times=0;}else{totalCpuUtilIn10times += ($2 + $3 + $4);}} END{printf highCpuCount * 10}')</span></span></pre>
+<pre><span class="green">                                                             ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>    highCpuTime=$(echo "$cpuUtilArray" | awk -F ' ' -v thres="$highCpuThres" 'BEGIN{totalCpuUtilIn10times=0;highCpuCount=0;} {if ( NR % 10 == 0 ) {if ( (totalCpuUtilIn10times / 10 / 3) &gt; thres ){highCpuCount++;}totalCpuUtilIn10times=0;}else{totalCpuUtilIn10times += ($2 + $3 + $4);}} END{printf highCpuCount * 10}');</pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 33:</span></pre>
+<pre></span>    highCpuThres=$(cat /data/rabin/raePolicy.json | grep "cpuThresholdHigh" | cut -d'"' -f4 | xargs echo -n)</span></span></pre>
+<pre><span class="green">                       ^------------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 38:</span></pre>
+<pre></span>core1AveUtilization=$(cat /tmp/ra/cpuUsage.dat | awk -F ' ' '{core1Total += $2; count++;} END{print core1Total/count}' | awk '{printf("%.2f", $1)}')</span></span></pre>
+<pre><span class="green">                          ^------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 39:</span></pre>
+<pre></span>core2AveUtilization=$(cat /tmp/ra/cpuUsage.dat | awk -F ' ' '{core2Total += $3; count++;} END{print core2Total/count}' | awk '{printf("%.2f", $1)}')</span></span></pre>
+<pre><span class="green">                          ^------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 40:</span></pre>
+<pre></span>core3AveUtilization=$(cat /tmp/ra/cpuUsage.dat | awk -F ' ' '{core3Total += $4; count++;} END{print core3Total/count}' | awk '{printf("%.2f", $1)}')</span></span></pre>
+<pre><span class="green">                          ^------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 41:</span></pre>
+<pre></span>cpuAllAveUtilization=$(cat /tmp/ra/cpuUsage.dat | awk -F ' ' '{cpuTotal += $2 + $3 + $4; count++;} END{print cpuTotal/count/3}' | awk '{printf("%.2f", $1)}')</span></span></pre>
+<pre><span class="green">                           ^------------------^ SC2002 (style): Useless cat. Consider 'cmd &lt; file | ..' or 'cmd file | ..' instead.</span></pre>
+<br />
+<br />
+<pre><span class="bold">In /logs/firmware/firmware_binwalk_emba/_firmware.extracted/squashfs-root/usr/bin/NTGR_RA_cpuCalcAllAve.sh line 42:</span></pre>
+<pre></span>highCpuTime=$(eval calcHighCpuTime $highCpuThres)</span></span></pre>
+<pre><span class="green">                                   ^-----------^ SC2086 (info): Double quote to prevent globbing and word splitting.</span></pre>
+<br />
+<pre><span class="bold">Did you mean: </span></pre>
+<pre>highCpuTime=$(eval calcHighCpuTime "$highCpuThres");</pre>
+<br />
+<pre>For more information:</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC3043" title="https://www.shellcheck.net/wiki/SC3043" target="_blank" >https://www.shellcheck.net/wiki/SC3043</a> -- In POSIX sh, 'local' is undefined.</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2086" title="https://www.shellcheck.net/wiki/SC2086" target="_blank" >https://www.shellcheck.net/wiki/SC2086</a> -- Double quote to prevent globbing ...</pre>
+<pre>  <a href="https://www.shellcheck.net/wiki/SC2002" title="https://www.shellcheck.net/wiki/SC2002" target="_blank" >https://www.shellcheck.net/wiki/SC2002</a> -- Useless cat. Consider 'cmd &lt; file...</pre>

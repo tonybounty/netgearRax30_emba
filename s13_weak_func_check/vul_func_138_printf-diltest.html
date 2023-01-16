@@ -1,0 +1,1619 @@
+<!-- 
+EMBA - EMBEDDED LINUX ANALYZER
+
+Copyright 2020-2023 Siemens AG
+Copyright 2020-2023 Siemens Energy AG
+
+EMBA comes with ABSOLUTELY NO WARRANTY. This is free software, and you are
+welcome to redistribute it under the terms of the GNU General Public License.
+See LICENSE file for usage of this software.
+
+EMBA is licensed under GPLv3
+
+Author(s): Pascal Eckmann
+Contributor(s): Michael Messner, Stefan Haboeck
+-->
+
+<!-- Used icons: https://github.com/CoreyGinnivan/system-uicons -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>EMBA firmware report</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./../style/style.css" type="text/css">
+  <link rel="icon" type="image/png" href="./../style/favicon.png">
+</head>
+<body>
+
+<div id="sidenav" class="side">
+  <div id="logo">
+    <a class="inherit" href="./../index.html"><img class="inherit" id="logoImage" src="./../style/emba.svg" alt="logo"></a>
+  </div>
+  <div id="nav">
+      <a id="embark" class="hidden" href="{{ embarkBackUrl }}">&laquo; Back to EMBArk</a> <!-- nosem -->
+      <a class="backButton" href="./../index.html">&laquo; Back to main</a>
+<a class="modul" href="./../s13_weak_func_check.html" title="./../s13_weak_func_check.html" >&laquo; Back to s13_weak_func_check</a>
+      <!-- navigation start -->
+      <!-- navigation end -->
+      <input id="expand" class="expand_njs hidden" type="button" value="More results:" onclick="this.value=this.value=='+ Show more results'?'- Hide more results':'+ Show more results';">
+      <div class="expand_area">
+        <!-- etc start -->
+        <!-- etc end -->
+      </div>
+  </div>
+  <a href="TIMELINK"><div id="buttonTimeInvisible" class="rectButton"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round" transform="matrix(-1 0 0 1 19 2)"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 5.5v4H5"/></g></svg></div></a>
+  <div id="buttonSizer" class="rectButton buttonClose" onclick="buttonNav()"></div>
+</div>
+<div id="main" class="main">
+  <!-- content start -->
+<pre>[</span><span class="orange">*</span>] Binary protection state of </span><span class="orange">diltest</span></pre>
+<br />
+<pre>  RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      Symbols         </pre>
+<pre>  <span class="orange">Partial RELRO</span>   <span class="red">No canary found</span>   <span class="green">NX enabled </span>   <span class="red">No PIE       </span>   <span class="green">No RPATH </span>  <span class="green">No RUNPATH </span>  <span class="green">No Symbols</span></pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> tear down of </span><span class="orange">diltest</span></pre>
+<br />
+<pre>000110fc &lt;get_netgear_device_id&commat;plt&gt;:</pre>
+<pre>   110fc:	e28fc600 	add	ip, pc, #0, 12</pre>
+<pre>   11100:	e28cca16 	add	ip, ip, #90112	; 0x16000</pre>
+<pre>   11104:	e5bcffc0 	ldr	pc, [ip, #4032]!	; 0xfc0</pre>
+<br />
+<pre>Disassembly of section .text:</pre>
+<br />
+<pre>00011108 &lt;device_detail_update_function&commat;&commat;Base-0x2144&gt;:</pre>
+<pre>   11108:	e59f11f8 	ldr	r1, [pc, #504]	; 11308 &lt;get_netgear_device_id&commat;plt+0x20c&gt;</pre>
+<pre>   1110c:	e30022f2 	movw	r2, #754	; 0x2f2</pre>
+<pre>   11110:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}</pre>
+<pre>   11114:	e24dde45 	sub	sp, sp, #1104	; 0x450</pre>
+<pre>   11118:	e59f01ec 	ldr	r0, [pc, #492]	; 1130c &lt;get_netgear_device_id&commat;plt+0x210&gt;</pre>
+<pre>   1111c:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   11120:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11124:	e28d8e42 	add	r8, sp, #1056	; 0x420</pre>
+<pre>   11128:	e2811038 	add	r1, r1, #56	; 0x38</pre>
+<pre>   1112c:	e288800e 	add	r8, r8, #14</pre>
+<pre>   11130:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   11134:	e28d4fea 	add	r4, sp, #936	; 0x3a8</pre>
+<pre><span class="red">   11138:	ebffff68 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1113c:	e2844003 	add	r4, r4, #3</pre>
+<pre>   11140:	e3a02012 	mov	r2, #18</pre>
+<pre>--</pre>
+<pre>   113c8:	e50b40f4 	str	r4, [fp, #-244]	; 0xffffff0c</pre>
+<pre>   113cc:	e50b40dc 	str	r4, [fp, #-220]	; 0xffffff24</pre>
+<pre>   113d0:	e50b40f0 	str	r4, [fp, #-240]	; 0xffffff10</pre>
+<pre>   113d4:	e50b40d8 	str	r4, [fp, #-216]	; 0xffffff28</pre>
+<pre>   113d8:	e50b40d4 	str	r4, [fp, #-212]	; 0xffffff2c</pre>
+<pre>   113dc:	e50b40d0 	str	r4, [fp, #-208]	; 0xffffff30</pre>
+<pre>   113e0:	e50b40ec 	str	r4, [fp, #-236]	; 0xffffff14</pre>
+<pre>   113e4:	e50b4114 	str	r4, [fp, #-276]	; 0xfffffeec</pre>
+<pre>   113e8:	e50b4110 	str	r4, [fp, #-272]	; 0xfffffef0</pre>
+<pre>   113ec:	e50b30a8 	str	r3, [fp, #-168]	; 0xffffff58</pre>
+<pre>   113f0:	e51b20a8 	ldr	r2, [fp, #-168]	; 0xffffff58</pre>
+<pre>   113f4:	e1a01006 	mov	r1, r6</pre>
+<pre>   113f8:	e1a00007 	mov	r0, r7</pre>
+<pre>   113fc:	ebffff02 	bl	1100c &lt;getopt&commat;plt&gt;</pre>
+<pre>   11400:	e3700001 	cmn	r0, #1</pre>
+<pre>   11404:	e1a02000 	mov	r2, r0</pre>
+<pre>   11408:	0a0000b2 	beq	116d8 &lt;get_netgear_device_id&commat;plt+0x5dc&gt;</pre>
+<pre>   1140c:	e1a01002 	mov	r1, r2</pre>
+<pre>   11410:	e1a00009 	mov	r0, r9</pre>
+<pre>   11414:	e50b20b0 	str	r2, [fp, #-176]	; 0xffffff50</pre>
+<pre><span class="red">   11418:	ebfffeb0 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1141c:	e51b20b0 	ldr	r2, [fp, #-176]	; 0xffffff50</pre>
+<pre>   11420:	e2423041 	sub	r3, r2, #65	; 0x41</pre>
+<pre>--</pre>
+<pre>   114e8:	ea00006c 	b	116a0 &lt;get_netgear_device_id&commat;plt+0x5a4&gt;</pre>
+<pre>   114ec:	ea000054 	b	11644 &lt;get_netgear_device_id&commat;plt+0x548&gt;</pre>
+<pre>   114f0:	ea000056 	b	11650 &lt;get_netgear_device_id&commat;plt+0x554&gt;</pre>
+<pre>   114f4:	ea00003a 	b	115e4 &lt;get_netgear_device_id&commat;plt+0x4e8&gt;</pre>
+<pre>   114f8:	ea00003f 	b	115fc &lt;get_netgear_device_id&commat;plt+0x500&gt;</pre>
+<pre>   114fc:	ea000014 	b	11554 &lt;get_netgear_device_id&commat;plt+0x458&gt;</pre>
+<pre>   11500:	ea000043 	b	11614 &lt;get_netgear_device_id&commat;plt+0x518&gt;</pre>
+<pre>   11504:	ea000045 	b	11620 &lt;get_netgear_device_id&commat;plt+0x524&gt;</pre>
+<pre>   11508:	ea00005c 	b	11680 &lt;get_netgear_device_id&commat;plt+0x584&gt;</pre>
+<pre>   1150c:	ea00003d 	b	11608 &lt;get_netgear_device_id&commat;plt+0x50c&gt;</pre>
+<pre>   11510:	ea000054 	b	11668 &lt;get_netgear_device_id&commat;plt+0x56c&gt;</pre>
+<pre>   11514:	ea000035 	b	115f0 &lt;get_netgear_device_id&commat;plt+0x4f4&gt;</pre>
+<pre>   11518:	e3a0a001 	mov	sl, #1</pre>
+<pre>   1151c:	e1a0500a 	mov	r5, sl</pre>
+<pre>   11520:	e50ba0d0 	str	sl, [fp, #-208]	; 0xffffff30</pre>
+<pre>   11524:	eaffffb1 	b	113f0 &lt;get_netgear_device_id&commat;plt+0x2f4&gt;</pre>
+<pre>   11528:	e5962000 	ldr	r2, [r6]</pre>
+<pre>   1152c:	e59f0c38 	ldr	r0, [pc, #3128]	; 1216c &lt;get_netgear_device_id&commat;plt+0x1070&gt;</pre>
+<pre>   11530:	e1a01002 	mov	r1, r2</pre>
+<pre>   11534:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11538:	ebfffe68 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1153c:	e3a00000 	mov	r0, #0</pre>
+<pre>   11540:	ea00005d 	b	116bc &lt;get_netgear_device_id&commat;plt+0x5c0&gt;</pre>
+<pre>--</pre>
+<pre>   118a4:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   118a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   118ac:	e5931000 	ldr	r1, [r3]</pre>
+<pre>   118b0:	ebfffe08 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   118b4:	ea000602 	b	130c4 &lt;get_netgear_device_id&commat;plt+0x1fc8&gt;</pre>
+<pre>   118b8:	e51b20ac 	ldr	r2, [fp, #-172]	; 0xffffff54</pre>
+<pre>   118bc:	e3520000 	cmp	r2, #0</pre>
+<pre>   118c0:	0a000003 	beq	118d4 &lt;get_netgear_device_id&commat;plt+0x7d8&gt;</pre>
+<pre>   118c4:	e3570002 	cmp	r7, #2</pre>
+<pre>   118c8:	daffffe2 	ble	11858 &lt;get_netgear_device_id&commat;plt+0x75c&gt;</pre>
+<pre>   118cc:	e3570003 	cmp	r7, #3</pre>
+<pre>   118d0:	1afffff1 	bne	1189c &lt;get_netgear_device_id&commat;plt+0x7a0&gt;</pre>
+<pre>   118d4:	e3530000 	cmp	r3, #0</pre>
+<pre>   118d8:	1a0005f9 	bne	130c4 &lt;get_netgear_device_id&commat;plt+0x1fc8&gt;</pre>
+<pre>   118dc:	e59f38bc 	ldr	r3, [pc, #2236]	; 121a0 &lt;get_netgear_device_id&commat;plt+0x10a4&gt;</pre>
+<pre>   118e0:	e1a01007 	mov	r1, r7</pre>
+<pre>   118e4:	e59f08b8 	ldr	r0, [pc, #2232]	; 121a4 &lt;get_netgear_device_id&commat;plt+0x10a8&gt;</pre>
+<pre>   118e8:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   118ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   118f0:	e5932000 	ldr	r2, [r3]</pre>
+<pre><span class="red">   118f4:	ebfffd79 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   118f8:	e35a0000 	cmp	sl, #0</pre>
+<pre>   118fc:	1a000002 	bne	1190c &lt;get_netgear_device_id&commat;plt+0x810&gt;</pre>
+<pre>   11900:	e3e03000 	mvn	r3, #0</pre>
+<pre>   11904:	e50b30a8 	str	r3, [fp, #-168]	; 0xffffff58</pre>
+<pre>   11908:	ea00001c 	b	11980 &lt;get_netgear_device_id&commat;plt+0x884&gt;</pre>
+<pre>   1190c:	e24b70a0 	sub	r7, fp, #160	; 0xa0</pre>
+<pre>   11910:	e3a02012 	mov	r2, #18</pre>
+<pre>   11914:	e3a0100a 	mov	r1, #10</pre>
+<pre>   11918:	e1a00007 	mov	r0, r7</pre>
+<pre>   1191c:	ebfffdc6 	bl	1103c &lt</span>emset&commat;plt&gt;</pre>
+<pre>   11920:	e3a02012 	mov	r2, #18</pre>
+<pre>   11924:	e5961008 	ldr	r1, [r6, #8]</pre>
+<pre>   11928:	e1a00007 	mov	r0, r7</pre>
+<pre>   1192c:	ebfffdc8 	bl	11054 &lt;strncpy&commat;plt&gt;</pre>
+<pre>   11930:	e59f0870 	ldr	r0, [pc, #2160]	; 121a8 &lt;get_netgear_device_id&commat;plt+0x10ac&gt;</pre>
+<pre>   11934:	e1a01007 	mov	r1, r7</pre>
+<pre>   11938:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1193c:	ebfffd67 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11940:	e59f0864 	ldr	r0, [pc, #2148]	; 121ac &lt;get_netgear_device_id&commat;plt+0x10b0&gt;</pre>
+<pre>   11944:	e596200c 	ldr	r2, [r6, #12]</pre>
+<pre>   11948:	e5961008 	ldr	r1, [r6, #8]</pre>
+<pre>   1194c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11950:	ebfffd62 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11954:	e51b30ec 	ldr	r3, [fp, #-236]	; 0xffffff14</pre>
+<pre>   11958:	e1933009 	orrs	r3, r3, r9</pre>
+<pre>   1195c:	0affffe7 	beq	11900 &lt;get_netgear_device_id&commat;plt+0x804&gt;</pre>
+<pre>   11960:	e596000c 	ldr	r0, [r6, #12]</pre>
+<pre>   11964:	ebfffdd2 	bl	110b4 &lt;atoi&commat;plt&gt;</pre>
+<pre>   11968:	e50b00a8 	str	r0, [fp, #-168]	; 0xffffff58</pre>
+<pre>   1196c:	e1a02000 	mov	r2, r0</pre>
+<pre>   11970:	e59f0838 	ldr	r0, [pc, #2104]	; 121b0 &lt;get_netgear_device_id&commat;plt+0x10b4&gt;</pre>
+<pre>   11974:	e1a01007 	mov	r1, r7</pre>
+<pre>   11978:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1197c:	ebfffd57 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11980:	e3550000 	cmp	r5, #0</pre>
+<pre>   11984:	0a00005d 	beq	11b00 &lt;get_netgear_device_id&commat;plt+0xa04&gt;</pre>
+<pre>--</pre>
+<pre>   11d7c:	e51b10a8 	ldr	r1, [fp, #-168]	; 0xffffff58</pre>
+<pre>   11d80:	e24b00a0 	sub	r0, fp, #160	; 0xa0</pre>
+<pre>   11d84:	eb00060c 	bl	135bc &lt;signature_update_function&commat;&commat;Base+0x234&gt;</pre>
+<pre>   11d88:	e51b3114 	ldr	r3, [fp, #-276]	; 0xfffffeec</pre>
+<pre>   11d8c:	e3530000 	cmp	r3, #0</pre>
+<pre>   11d90:	0a000002 	beq	11da0 &lt;get_netgear_device_id&commat;plt+0xca4&gt;</pre>
+<pre>   11d94:	e51b10a8 	ldr	r1, [fp, #-168]	; 0xffffff58</pre>
+<pre>   11d98:	e24b00a0 	sub	r0, fp, #160	; 0xa0</pre>
+<pre>   11d9c:	eb0006a6 	bl	1383c &lt;signature_update_function&commat;&commat;Base+0x4b4&gt;</pre>
+<pre>   11da0:	e51b30ec 	ldr	r3, [fp, #-236]	; 0xffffff14</pre>
+<pre>   11da4:	e3530000 	cmp	r3, #0</pre>
+<pre>   11da8:	0a000057 	beq	11f0c &lt;get_netgear_device_id&commat;plt+0xe10&gt;</pre>
+<pre>   11dac:	e59f1414 	ldr	r1, [pc, #1044]	; 121c8 &lt;get_netgear_device_id&commat;plt+0x10cc&gt;</pre>
+<pre>   11db0:	e24b30a0 	sub	r3, fp, #160	; 0xa0</pre>
+<pre>   11db4:	e59f0410 	ldr	r0, [pc, #1040]	; 121cc &lt;get_netgear_device_id&commat;plt+0x10d0&gt;</pre>
+<pre>   11db8:	e3a02fe1 	mov	r2, #900	; 0x384</pre>
+<pre>   11dbc:	e24ba08c 	sub	sl, fp, #140	; 0x8c</pre>
+<pre>   11dc0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11dc4:	e2811f55 	add	r1, r1, #340	; 0x154</pre>
+<pre>   11dc8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11dcc:	ebfffc43 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11dd0:	e3a02020 	mov	r2, #32</pre>
+<pre>   11dd4:	e3a01000 	mov	r1, #0</pre>
+<pre>--</pre>
+<pre>   11ee4:	1a000004 	bne	11efc &lt;get_netgear_device_id&commat;plt+0xe00&gt;</pre>
+<pre>   11ee8:	e59f02f0 	ldr	r0, [pc, #752]	; 121e0 &lt;get_netgear_device_id&commat;plt+0x10e4&gt;</pre>
+<pre>   11eec:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   11ef0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   11ef4:	ebfffc77 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   11ef8:	ea000003 	b	11f0c &lt;get_netgear_device_id&commat;plt+0xe10&gt;</pre>
+<pre>   11efc:	e59f12e0 	ldr	r1, [pc, #736]	; 121e4 &lt;get_netgear_device_id&commat;plt+0x10e8&gt;</pre>
+<pre>   11f00:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   11f04:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   11f08:	ebfffc42 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11f0c:	e51b30d0 	ldr	r3, [fp, #-208]	; 0xffffff30</pre>
+<pre>   11f10:	e3530000 	cmp	r3, #0</pre>
+<pre>   11f14:	0a000019 	beq	11f80 &lt;get_netgear_device_id&commat;plt+0xe84&gt;</pre>
+<pre>   11f18:	e59f12c8 	ldr	r1, [pc, #712]	; 121e8 &lt;get_netgear_device_id&commat;plt+0x10ec&gt;</pre>
+<pre>   11f1c:	e30023d2 	movw	r2, #978	; 0x3d2</pre>
+<pre>   11f20:	e59f02c4 	ldr	r0, [pc, #708]	; 121ec &lt;get_netgear_device_id&commat;plt+0x10f0&gt;</pre>
+<pre>   11f24:	e51b30b4 	ldr	r3, [fp, #-180]	; 0xffffff4c</pre>
+<pre>   11f28:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11f2c:	e2811f5a 	add	r1, r1, #360	; 0x168</pre>
+<pre>   11f30:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11f34:	ebfffbe9 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11f38:	e51b00b4 	ldr	r0, [fp, #-180]	; 0xffffff4c</pre>
+<pre>   11f3c:	ebfffc29 	bl	10fe8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   11f68:	ebfffc5a 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   11f6c:	ea000003 	b	11f80 &lt;get_netgear_device_id&commat;plt+0xe84&gt;</pre>
+<pre>   11f70:	e59f127c 	ldr	r1, [pc, #636]	; 121f4 &lt;get_netgear_device_id&commat;plt+0x10f8&gt;</pre>
+<pre>   11f74:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   11f78:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   11f7c:	ebfffc25 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   11f80:	e51b30d4 	ldr	r3, [fp, #-212]	; 0xffffff2c</pre>
+<pre>   11f84:	e3530000 	cmp	r3, #0</pre>
+<pre>   11f88:	0a00001f 	beq	1200c &lt;get_netgear_device_id&commat;plt+0xf10&gt;</pre>
+<pre>   11f8c:	e24ba0a0 	sub	sl, fp, #160	; 0xa0</pre>
+<pre>   11f90:	e59f1260 	ldr	r1, [pc, #608]	; 121f8 &lt;get_netgear_device_id&commat;plt+0x10fc&gt;</pre>
+<pre>   11f94:	e58da004 	str	sl, [sp, #4]</pre>
+<pre>   11f98:	e30023b5 	movw	r2, #949	; 0x3b5</pre>
+<pre>   11f9c:	e51b30c8 	ldr	r3, [fp, #-200]	; 0xffffff38</pre>
+<pre>   11fa0:	e59f0254 	ldr	r0, [pc, #596]	; 121fc &lt;get_netgear_device_id&commat;plt+0x1100&gt;</pre>
+<pre>   11fa4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   11fa8:	e2811d06 	add	r1, r1, #384	; 0x180</pre>
+<pre>   11fac:	e58d3000 	str	r3, [sp]</pre>
+<pre>   11fb0:	e1a03005 	mov	r3, r5</pre>
+<pre>   11fb4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   11fb8:	ebfffbc8 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   11fbc:	e1a00005 	mov	r0, r5</pre>
+<pre>   11fc0:	ebfffc08 	bl	10fe8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   11fe8:	e59f0210 	ldr	r0, [pc, #528]	; 12200 &lt;get_netgear_device_id&commat;plt+0x1104&gt;</pre>
+<pre>   11fec:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   11ff0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   11ff4:	ebfffc37 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   11ff8:	ea000003 	b	1200c &lt;get_netgear_device_id&commat;plt+0xf10&gt;</pre>
+<pre>   11ffc:	e59f1200 	ldr	r1, [pc, #512]	; 12204 &lt;get_netgear_device_id&commat;plt+0x1108&gt;</pre>
+<pre>   12000:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   12004:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   12008:	ebfffc02 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   1200c:	e51b30d8 	ldr	r3, [fp, #-216]	; 0xffffff28</pre>
+<pre>   12010:	e3530000 	cmp	r3, #0</pre>
+<pre>   12014:	0a00001a 	beq	12084 &lt;get_netgear_device_id&commat;plt+0xf88&gt;</pre>
+<pre>   12018:	e59f11e8 	ldr	r1, [pc, #488]	; 12208 &lt;get_netgear_device_id&commat;plt+0x110c&gt;</pre>
+<pre>   1201c:	e1a03009 	mov	r3, r9</pre>
+<pre>   12020:	e59f01e4 	ldr	r0, [pc, #484]	; 1220c &lt;get_netgear_device_id&commat;plt+0x1110&gt;</pre>
+<pre>   12024:	e30023ed 	movw	r2, #1005	; 0x3ed</pre>
+<pre>   12028:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1202c:	e2811f66 	add	r1, r1, #408	; 0x198</pre>
+<pre>   12030:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12034:	e2811003 	add	r1, r1, #3</pre>
+<pre><span class="red">   12038:	ebfffba8 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1203c:	e1a00009 	mov	r0, r9</pre>
+<pre>   12040:	ebfffbe8 	bl	10fe8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   12060:	e59f01a8 	ldr	r0, [pc, #424]	; 12210 &lt;get_netgear_device_id&commat;plt+0x1114&gt;</pre>
+<pre>   12064:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   12068:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1206c:	ebfffc19 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   12070:	ea000003 	b	12084 &lt;get_netgear_device_id&commat;plt+0xf88&gt;</pre>
+<pre>   12074:	e59f1198 	ldr	r1, [pc, #408]	; 12214 &lt;get_netgear_device_id&commat;plt+0x1118&gt;</pre>
+<pre>   12078:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   1207c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   12080:	ebfffbe4 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12084:	e51b30f4 	ldr	r3, [fp, #-244]	; 0xffffff0c</pre>
+<pre>   12088:	e3530000 	cmp	r3, #0</pre>
+<pre>   1208c:	0a00001a 	beq	120fc &lt;get_netgear_device_id&commat;plt+0x1000&gt;</pre>
+<pre>   12090:	e59f1180 	ldr	r1, [pc, #384]	; 12218 &lt;get_netgear_device_id&commat;plt+0x111c&gt;</pre>
+<pre>   12094:	e300240a 	movw	r2, #1034	; 0x40a</pre>
+<pre>   12098:	e59f017c 	ldr	r0, [pc, #380]	; 1221c &lt;get_netgear_device_id&commat;plt+0x1120&gt;</pre>
+<pre>   1209c:	e51b30b8 	ldr	r3, [fp, #-184]	; 0xffffff48</pre>
+<pre>   120a0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   120a4:	e2811e1b 	add	r1, r1, #432	; 0x1b0</pre>
+<pre>   120a8:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   120ac:	e2811003 	add	r1, r1, #3</pre>
+<pre><span class="red">   120b0:	ebfffb8a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   120b4:	e51b00b8 	ldr	r0, [fp, #-184]	; 0xffffff48</pre>
+<pre>   120b8:	ebfffbca 	bl	10fe8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   120d4:	1a000004 	bne	120ec &lt;get_netgear_device_id&commat;plt+0xff0&gt;</pre>
+<pre>   120d8:	e59f0140 	ldr	r0, [pc, #320]	; 12220 &lt;get_netgear_device_id&commat;plt+0x1124&gt;</pre>
+<pre>   120dc:	e5961000 	ldr	r1, [r6]</pre>
+<pre>   120e0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   120e4:	ebfffbfb 	bl	110d8 &lt;fputs&commat;plt&gt;</pre>
+<pre>   120e8:	ea000003 	b	120fc &lt;get_netgear_device_id&commat;plt+0x1000&gt;</pre>
+<pre>   120ec:	e59f1130 	ldr	r1, [pc, #304]	; 12224 &lt;get_netgear_device_id&commat;plt+0x1128&gt;</pre>
+<pre>   120f0:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   120f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   120f8:	ebfffbc6 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   120fc:	e51b30f8 	ldr	r3, [fp, #-248]	; 0xffffff08</pre>
+<pre>   12100:	e3530000 	cmp	r3, #0</pre>
+<pre>   12104:	0a0000cf 	beq	12448 &lt;get_netgear_device_id&commat;plt+0x134c&gt;</pre>
+<pre>   12108:	e59f1118 	ldr	r1, [pc, #280]	; 12228 &lt;get_netgear_device_id&commat;plt+0x112c&gt;</pre>
+<pre>   1210c:	e3002426 	movw	r2, #1062	; 0x426</pre>
+<pre>   12110:	e59f0114 	ldr	r0, [pc, #276]	; 1222c &lt;get_netgear_device_id&commat;plt+0x1130&gt;</pre>
+<pre>   12114:	e51b30bc 	ldr	r3, [fp, #-188]	; 0xffffff44</pre>
+<pre>   12118:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1211c:	e2811f73 	add	r1, r1, #460	; 0x1cc</pre>
+<pre>   12120:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12124:	ebfffb6d 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12128:	e51b00bc 	ldr	r0, [fp, #-188]	; 0xffffff44</pre>
+<pre>   1212c:	ebfffbad 	bl	10fe8 &lt;strlen&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   12484:	eb000703 	bl	14098 &lt;devicename_update_function&commat;&commat;Base+0x248&gt;</pre>
+<pre>   12488:	e51b313c 	ldr	r3, [fp, #-316]	; 0xfffffec4</pre>
+<pre>   1248c:	e3530000 	cmp	r3, #0</pre>
+<pre>   12490:	0a000000 	beq	12498 &lt;get_netgear_device_id&commat;plt+0x139c&gt;</pre>
+<pre>   12494:	eb000714 	bl	140ec &lt;devicename_update_function&commat;&commat;Base+0x29c&gt;</pre>
+<pre>   12498:	e51b3128 	ldr	r3, [fp, #-296]	; 0xfffffed8</pre>
+<pre>   1249c:	e3530000 	cmp	r3, #0</pre>
+<pre>   124a0:	0a000000 	beq	124a8 &lt;get_netgear_device_id&commat;plt+0x13ac&gt;</pre>
+<pre>   124a4:	eb00058e 	bl	13ae4 &lt;signature_update_function&commat;&commat;Base+0x75c&gt;</pre>
+<pre>   124a8:	e51b3104 	ldr	r3, [fp, #-260]	; 0xfffffefc</pre>
+<pre>   124ac:	e3530000 	cmp	r3, #0</pre>
+<pre>   124b0:	0a000010 	beq	124f8 &lt;get_netgear_device_id&commat;plt+0x13fc&gt;</pre>
+<pre>   124b4:	e51f1284 	ldr	r1, [pc, #-644]	; 12238 &lt;get_netgear_device_id&commat;plt+0x113c&gt;</pre>
+<pre>   124b8:	e3002441 	movw	r2, #1089	; 0x441</pre>
+<pre>   124bc:	e51f0288 	ldr	r0, [pc, #-648]	; 1223c &lt;get_netgear_device_id&commat;plt+0x1140&gt;</pre>
+<pre>   124c0:	e1a03009 	mov	r3, r9</pre>
+<pre>   124c4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   124c8:	e2811f79 	add	r1, r1, #484	; 0x1e4</pre>
+<pre>   124cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   124d0:	e2811001 	add	r1, r1, #1</pre>
+<pre><span class="red">   124d4:	ebfffa81 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   124d8:	e3a01004 	mov	r1, #4</pre>
+<pre>   124dc:	e1a00009 	mov	r0, r9</pre>
+<pre>   124e0:	ebfffb05 	bl	110fc &lt;get_netgear_device_id&commat;plt&gt;</pre>
+<pre>   124e4:	e1a02000 	mov	r2, r0</pre>
+<pre>   124e8:	e51f02b0 	ldr	r0, [pc, #-688]	; 12240 &lt;get_netgear_device_id&commat;plt+0x1144&gt;</pre>
+<pre>   124ec:	e1a01009 	mov	r1, r9</pre>
+<pre>   124f0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   124f4:	ebfffa79 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   124f8:	e51b30e0 	ldr	r3, [fp, #-224]	; 0xffffff20</pre>
+<pre>   124fc:	e3530000 	cmp	r3, #0</pre>
+<pre>   12500:	0a00000f 	beq	12544 &lt;get_netgear_device_id&commat;plt+0x1448&gt;</pre>
+<pre>   12504:	e51f12c8 	ldr	r1, [pc, #-712]	; 12244 &lt;get_netgear_device_id&commat;plt+0x1148&gt;</pre>
+<pre>   12508:	e3002499 	movw	r2, #1177	; 0x499</pre>
+<pre>   1250c:	e51f02cc 	ldr	r0, [pc, #-716]	; 12248 &lt;get_netgear_device_id&commat;plt+0x114c&gt;</pre>
+<pre>   12510:	e1a03007 	mov	r3, r7</pre>
+<pre>   12514:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12518:	e2811f7f 	add	r1, r1, #508	; 0x1fc</pre>
+<pre>   1251c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12520:	e2811003 	add	r1, r1, #3</pre>
+<pre><span class="red">   12524:	ebfffa6d 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12528:	e1a00007 	mov	r0, r7</pre>
+<pre>   1252c:	ebfffad1 	bl	11078 &lt;get_netgear_device_type&commat;plt&gt;</pre>
+<pre>   12530:	e1a01000 	mov	r1, r0</pre>
+<pre>   12534:	e51f02f0 	ldr	r0, [pc, #-752]	; 1224c &lt;get_netgear_device_id&commat;plt+0x1150&gt;</pre>
+<pre>   12538:	e1a02007 	mov	r2, r7</pre>
+<pre>   1253c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12540:	ebfffa66 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12544:	e51b30c0 	ldr	r3, [fp, #-192]	; 0xffffff40</pre>
+<pre>   12548:	e3530000 	cmp	r3, #0</pre>
+<pre>   1254c:	0a000026 	beq	125ec &lt;get_netgear_device_id&commat;plt+0x14f0&gt;</pre>
+<pre>   12550:	e51f1308 	ldr	r1, [pc, #-776]	; 12250 &lt;get_netgear_device_id&commat;plt+0x1154&gt;</pre>
+<pre>   12554:	e1a03007 	mov	r3, r7</pre>
+<pre>   12558:	e51f030c 	ldr	r0, [pc, #-780]	; 12254 &lt;get_netgear_device_id&commat;plt+0x1158&gt;</pre>
+<pre>   1255c:	e300246f 	movw	r2, #1135	; 0x46f</pre>
+<pre>   12560:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12564:	e2811f85 	add	r1, r1, #532	; 0x214</pre>
+<pre>   12568:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1256c:	e2811003 	add	r1, r1, #3</pre>
+<pre><span class="red">   12570:	ebfffa5a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12574:	e24b008c 	sub	r0, fp, #140	; 0x8c</pre>
+<pre>   12578:	ebfffab8 	bl	11060 &lt;get_dil_upgrade_status&commat;plt&gt;</pre>
+<pre>   1257c:	e3500000 	cmp	r0, #0</pre>
+<pre>   12580:	1a000003 	bne	12594 &lt;get_netgear_device_id&commat;plt+0x1498&gt;</pre>
+<pre>   12584:	e51f0334 	ldr	r0, [pc, #-820]	; 12258 &lt;get_netgear_device_id&commat;plt+0x115c&gt;</pre>
+<pre>   12588:	e55b108c 	ldrb	r1, [fp, #-140]	; 0xffffff74</pre>
+<pre>   1258c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12590:	ebfffa52 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12594:	e55b308c 	ldrb	r3, [fp, #-140]	; 0xffffff74</pre>
+<pre>   12598:	e1530007 	cmp	r3, r7</pre>
+<pre>   1259c:	02275001 	eoreq	r5, r7, #1</pre>
+<pre>   125a0:	11a05007 	movne	r5, r7</pre>
+<pre>   125a4:	06ef5075 	uxtbeq	r5, r5</pre>
+<pre>   125a8:	e2950000 	adds	r0, r5, #0</pre>
+<pre>   125ac:	13a00001 	movne	r0, #1</pre>
+<pre>   125b0:	ebfffabc 	bl	110a8 &lt;set_dil_upgrade_status&commat;plt&gt;</pre>
+<pre>   125b4:	e3500000 	cmp	r0, #0</pre>
+<pre>   125b8:	1a00000b 	bne	125ec &lt;get_netgear_device_id&commat;plt+0x14f0&gt;</pre>
+<pre>   125bc:	e51f0368 	ldr	r0, [pc, #-872]	; 1225c &lt;get_netgear_device_id&commat;plt+0x1160&gt;</pre>
+<pre>   125c0:	e1a01005 	mov	r1, r5</pre>
+<pre>   125c4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   125c8:	ebfffa44 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   125cc:	e24b008c 	sub	r0, fp, #140	; 0x8c</pre>
+<pre>   125d0:	ebfffaa2 	bl	11060 &lt;get_dil_upgrade_status&commat;plt&gt;</pre>
+<pre>   125d4:	e3500000 	cmp	r0, #0</pre>
+<pre>   125d8:	1a000003 	bne	125ec &lt;get_netgear_device_id&commat;plt+0x14f0&gt;</pre>
+<pre>   125dc:	e51f0384 	ldr	r0, [pc, #-900]	; 12260 &lt;get_netgear_device_id&commat;plt+0x1164&gt;</pre>
+<pre>   125e0:	e55b108c 	ldrb	r1, [fp, #-140]	; 0xffffff74</pre>
+<pre>   125e4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   125e8:	ebfffa3c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   125ec:	e51b30e4 	ldr	r3, [fp, #-228]	; 0xffffff1c</pre>
+<pre>   125f0:	e3530000 	cmp	r3, #0</pre>
+<pre>   125f4:	0a0000b1 	beq	128c0 &lt;get_netgear_device_id&commat;plt+0x17c4&gt;</pre>
+<pre>   125f8:	e51f139c 	ldr	r1, [pc, #-924]	; 12264 &lt;get_netgear_device_id&commat;plt+0x1168&gt;</pre>
+<pre>   125fc:	e1a03007 	mov	r3, r7</pre>
+<pre>   12600:	e51f03a0 	ldr	r0, [pc, #-928]	; 12268 &lt;get_netgear_device_id&commat;plt+0x116c&gt;</pre>
+<pre>   12604:	e30024ee 	movw	r2, #1262	; 0x4ee</pre>
+<pre>   12608:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1260c:	e2811e23 	add	r1, r1, #560	; 0x230</pre>
+<pre>   12610:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12614:	e2811001 	add	r1, r1, #1</pre>
+<pre><span class="red">   12618:	ebfffa30 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1261c:	e300057f 	movw	r0, #1407	; 0x57f</pre>
+<pre>   12620:	ebfffa5e 	bl	10fa0 &lt</span>alloc&commat;plt&gt;</pre>
+<pre>   12624:	e1a01007 	mov	r1, r7</pre>
+<pre>   12628:	e1a05000 	mov	r5, r0</pre>
+<pre>   1262c:	ebfffa28 	bl	10ed4 &lt;get_device_info_at_index&commat;plt&gt;</pre>
+<pre>   12630:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   12634:	1a00009c 	bne	128ac &lt;get_netgear_device_id&commat;plt+0x17b0&gt;</pre>
+<pre>   12638:	e51f03d4 	ldr	r0, [pc, #-980]	; 1226c &lt;get_netgear_device_id&commat;plt+0x1170&gt;</pre>
+<pre>   1263c:	e2851c05 	add	r1, r5, #1280	; 0x500</pre>
+<pre>   12640:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12644:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12648:	ebfffa24 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1264c:	e51f03e4 	ldr	r0, [pc, #-996]	; 12270 &lt;get_netgear_device_id&commat;plt+0x1174&gt;</pre>
+<pre>   12650:	e2851c01 	add	r1, r5, #256	; 0x100</pre>
+<pre>   12654:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12658:	ebfffa20 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1265c:	e51f03f0 	ldr	r0, [pc, #-1008]	; 12274 &lt;get_netgear_device_id&commat;plt+0x1178&gt;</pre>
+<pre>   12660:	e1a01005 	mov	r1, r5</pre>
+<pre>   12664:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12668:	ebfffa1c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1266c:	e51f03fc 	ldr	r0, [pc, #-1020]	; 12278 &lt;get_netgear_device_id&commat;plt+0x117c&gt;</pre>
+<pre>   12670:	e2851e53 	add	r1, r5, #1328	; 0x530</pre>
+<pre>   12674:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12678:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1267c:	ebfffa17 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12680:	e51f040c 	ldr	r0, [pc, #-1036]	; 1227c &lt;get_netgear_device_id&commat;plt+0x1180&gt;</pre>
+<pre>   12684:	e2851e4a 	add	r1, r5, #1184	; 0x4a0</pre>
+<pre>   12688:	e2811003 	add	r1, r1, #3</pre>
+<pre>   1268c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12690:	ebfffa12 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12694:	e51f041c 	ldr	r0, [pc, #-1052]	; 12280 &lt;get_netgear_device_id&commat;plt+0x1184&gt;</pre>
+<pre>   12698:	e2851e36 	add	r1, r5, #864	; 0x360</pre>
+<pre>   1269c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126a0:	ebfffa0e 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126a4:	e51f0428 	ldr	r0, [pc, #-1064]	; 12284 &lt;get_netgear_device_id&commat;plt+0x1188&gt;</pre>
+<pre>   126a8:	e2851d15 	add	r1, r5, #1344	; 0x540</pre>
+<pre>   126ac:	e2811007 	add	r1, r1, #7</pre>
+<pre>   126b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126b4:	ebfffa09 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126b8:	e51f0438 	ldr	r0, [pc, #-1080]	; 12288 &lt;get_netgear_device_id&commat;plt+0x118c&gt;</pre>
+<pre>   126bc:	e2851d05 	add	r1, r5, #320	; 0x140</pre>
+<pre>   126c0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126c4:	ebfffa05 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126c8:	e51f0444 	ldr	r0, [pc, #-1092]	; 1228c &lt;get_netgear_device_id&commat;plt+0x1190&gt;</pre>
+<pre>   126cc:	e2851d06 	add	r1, r5, #384	; 0x180</pre>
+<pre>   126d0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126d4:	ebfffa01 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126d8:	e51f0450 	ldr	r0, [pc, #-1104]	; 12290 &lt;get_netgear_device_id&commat;plt+0x1194&gt;</pre>
+<pre>   126dc:	e2851d13 	add	r1, r5, #1216	; 0x4c0</pre>
+<pre>   126e0:	e2811003 	add	r1, r1, #3</pre>
+<pre>   126e4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126e8:	ebfff9fc 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   126ec:	e51f0460 	ldr	r0, [pc, #-1120]	; 12294 &lt;get_netgear_device_id&commat;plt+0x1198&gt;</pre>
+<pre>   126f0:	e2851d15 	add	r1, r5, #1344	; 0x540</pre>
+<pre>   126f4:	e281100f 	add	r1, r1, #15</pre>
+<pre>   126f8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   126fc:	ebfff9f7 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12700:	e51f0470 	ldr	r0, [pc, #-1136]	; 12298 &lt;get_netgear_device_id&commat;plt+0x119c&gt;</pre>
+<pre>   12704:	e2851d07 	add	r1, r5, #448	; 0x1c0</pre>
+<pre>   12708:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1270c:	ebfff9f3 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12710:	e51f047c 	ldr	r0, [pc, #-1148]	; 1229c &lt;get_netgear_device_id&commat;plt+0x11a0&gt;</pre>
+<pre>   12714:	e2851d0d 	add	r1, r5, #832	; 0x340</pre>
+<pre>   12718:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1271c:	ebfff9ef 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12720:	e51f0488 	ldr	r0, [pc, #-1160]	; 122a0 &lt;get_netgear_device_id&commat;plt+0x11a4&gt;</pre>
+<pre>   12724:	e2851d0e 	add	r1, r5, #896	; 0x380</pre>
+<pre>   12728:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1272c:	ebfff9eb 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12730:	e51f0494 	ldr	r0, [pc, #-1172]	; 122a4 &lt;get_netgear_device_id&commat;plt+0x11a8&gt;</pre>
+<pre>   12734:	e2851e3a 	add	r1, r5, #928	; 0x3a0</pre>
+<pre>   12738:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1273c:	ebfff9e7 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12740:	e51f04a0 	ldr	r0, [pc, #-1184]	; 122a8 &lt;get_netgear_device_id&commat;plt+0x11ac&gt;</pre>
+<pre>   12744:	e2851c02 	add	r1, r5, #512	; 0x200</pre>
+<pre>   12748:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1274c:	ebfff9e3 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12750:	e51f04ac 	ldr	r0, [pc, #-1196]	; 122ac &lt;get_netgear_device_id&commat;plt+0x11b0&gt;</pre>
+<pre>   12754:	e2851d0f 	add	r1, r5, #960	; 0x3c0</pre>
+<pre>   12758:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1275c:	ebfff9df 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12760:	e51f04b8 	ldr	r0, [pc, #-1208]	; 122b0 &lt;get_netgear_device_id&commat;plt+0x11b4&gt;</pre>
+<pre>   12764:	e2851e3e 	add	r1, r5, #992	; 0x3e0</pre>
+<pre>   12768:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1276c:	ebfff9db 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12770:	e51f04c4 	ldr	r0, [pc, #-1220]	; 122b4 &lt;get_netgear_device_id&commat;plt+0x11b8&gt;</pre>
+<pre>   12774:	e2851b01 	add	r1, r5, #1024	; 0x400</pre>
+<pre>   12778:	e2811001 	add	r1, r1, #1</pre>
+<pre>   1277c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12780:	ebfff9d6 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12784:	e51f04d4 	ldr	r0, [pc, #-1236]	; 122b8 &lt;get_netgear_device_id&commat;plt+0x11bc&gt;</pre>
+<pre>   12788:	e2851e42 	add	r1, r5, #1056	; 0x420</pre>
+<pre>   1278c:	e2811001 	add	r1, r1, #1</pre>
+<pre>   12790:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12794:	ebfff9d1 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12798:	e51f04e4 	ldr	r0, [pc, #-1252]	; 122bc &lt;get_netgear_device_id&commat;plt+0x11c0&gt;</pre>
+<pre>   1279c:	e2851d11 	add	r1, r5, #1088	; 0x440</pre>
+<pre>   127a0:	e2811001 	add	r1, r1, #1</pre>
+<pre>   127a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127a8:	ebfff9cc 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127ac:	e51f04f4 	ldr	r0, [pc, #-1268]	; 122c0 &lt;get_netgear_device_id&commat;plt+0x11c4&gt;</pre>
+<pre>   127b0:	e2851e46 	add	r1, r5, #1120	; 0x460</pre>
+<pre>   127b4:	e2811002 	add	r1, r1, #2</pre>
+<pre>   127b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127bc:	ebfff9c7 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127c0:	e51f0504 	ldr	r0, [pc, #-1284]	; 122c4 &lt;get_netgear_device_id&commat;plt+0x11c8&gt;</pre>
+<pre>   127c4:	e2851d09 	add	r1, r5, #576	; 0x240</pre>
+<pre>   127c8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127cc:	ebfff9c3 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127d0:	e51f0510 	ldr	r0, [pc, #-1296]	; 122c8 &lt;get_netgear_device_id&commat;plt+0x11cc&gt;</pre>
+<pre>   127d4:	e2851d0a 	add	r1, r5, #640	; 0x280</pre>
+<pre>   127d8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127dc:	ebfff9bf 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127e0:	e51f051c 	ldr	r0, [pc, #-1308]	; 122cc &lt;get_netgear_device_id&commat;plt+0x11d0&gt;</pre>
+<pre>   127e4:	e2851d0b 	add	r1, r5, #704	; 0x2c0</pre>
+<pre>   127e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   127ec:	ebfff9bb 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   127f0:	e51f0528 	ldr	r0, [pc, #-1320]	; 122d0 &lt;get_netgear_device_id&commat;plt+0x11d4&gt;</pre>
+<pre>   127f4:	e2851d12 	add	r1, r5, #1152	; 0x480</pre>
+<pre>   127f8:	e2811003 	add	r1, r1, #3</pre>
+<pre>   127fc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12800:	ebfff9b6 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12804:	e51f0538 	ldr	r0, [pc, #-1336]	; 122d4 &lt;get_netgear_device_id&commat;plt+0x11d8&gt;</pre>
+<pre>   12808:	e595157b 	ldr	r1, [r5, #1403]	; 0x57b</pre>
+<pre>   1280c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12810:	ebfff9b2 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12814:	e51f0544 	ldr	r0, [pc, #-1348]	; 122d8 &lt;get_netgear_device_id&commat;plt+0x11dc&gt;</pre>
+<pre>   12818:	e2851e52 	add	r1, r5, #1312	; 0x520</pre>
+<pre>   1281c:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12820:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12824:	ebfff9ad 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12828:	e51f0554 	ldr	r0, [pc, #-1364]	; 122dc &lt;get_netgear_device_id&commat;plt+0x11e0&gt;</pre>
+<pre>   1282c:	e2851e4e 	add	r1, r5, #1248	; 0x4e0</pre>
+<pre>   12830:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12834:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12838:	ebfff9a8 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1283c:	e51f0564 	ldr	r0, [pc, #-1380]	; 122e0 &lt;get_netgear_device_id&commat;plt+0x11e4&gt;</pre>
+<pre>   12840:	e2851c03 	add	r1, r5, #768	; 0x300</pre>
+<pre>   12844:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12848:	ebfff9a4 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1284c:	e51f0570 	ldr	r0, [pc, #-1392]	; 122e4 &lt;get_netgear_device_id&commat;plt+0x11e8&gt;</pre>
+<pre>   12850:	e2851e55 	add	r1, r5, #1360	; 0x550</pre>
+<pre>   12854:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12858:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1285c:	ebfff99f 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12860:	e51f0580 	ldr	r0, [pc, #-1408]	; 122e8 &lt;get_netgear_device_id&commat;plt+0x11ec&gt;</pre>
+<pre>   12864:	e2851e56 	add	r1, r5, #1376	; 0x560</pre>
+<pre>   12868:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1286c:	ebfff99b 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12870:	e51f058c 	ldr	r0, [pc, #-1420]	; 122ec &lt;get_netgear_device_id&commat;plt+0x11f0&gt;</pre>
+<pre>   12874:	e2851e56 	add	r1, r5, #1376	; 0x560</pre>
+<pre>   12878:	e2811009 	add	r1, r1, #9</pre>
+<pre>   1287c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12880:	ebfff996 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12884:	e51f059c 	ldr	r0, [pc, #-1436]	; 122f0 &lt;get_netgear_device_id&commat;plt+0x11f4&gt;</pre>
+<pre>   12888:	e2851e57 	add	r1, r5, #1392	; 0x570</pre>
+<pre>   1288c:	e2811002 	add	r1, r1, #2</pre>
+<pre>   12890:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12894:	ebfff991 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12898:	e51f05ac 	ldr	r0, [pc, #-1452]	; 122f4 &lt;get_netgear_device_id&commat;plt+0x11f8&gt;</pre>
+<pre>   1289c:	e2851e51 	add	r1, r5, #1296	; 0x510</pre>
+<pre>   128a0:	e2811005 	add	r1, r1, #5</pre>
+<pre>   128a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   128a8:	ea000001 	b	128b4 &lt;get_netgear_device_id&commat;plt+0x17b8&gt;</pre>
+<pre>   128ac:	e51f05bc 	ldr	r0, [pc, #-1468]	; 122f8 &lt;get_netgear_device_id&commat;plt+0x11fc&gt;</pre>
+<pre>   128b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   128b4:	ebfff989 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   128b8:	e1a00005 	mov	r0, r5</pre>
+<pre>   128bc:	ebfff98d 	bl	10ef8 &lt;free&commat;plt&gt;</pre>
+<pre>   128c0:	e51b3108 	ldr	r3, [fp, #-264]	; 0xfffffef8</pre>
+<pre>   128c4:	e3530000 	cmp	r3, #0</pre>
+<pre>   128c8:	0a0000b1 	beq	12b94 &lt;get_netgear_device_id&commat;plt+0x1a98&gt;</pre>
+<pre>   128cc:	e51f15d8 	ldr	r1, [pc, #-1496]	; 122fc &lt;get_netgear_device_id&commat;plt+0x1200&gt;</pre>
+<pre>   128d0:	e24b70a0 	sub	r7, fp, #160	; 0xa0</pre>
+<pre>   128d4:	e51f05dc 	ldr	r0, [pc, #-1500]	; 12300 &lt;get_netgear_device_id&commat;plt+0x1204&gt;</pre>
+<pre>   128d8:	e1a03007 	mov	r3, r7</pre>
+<pre>   128dc:	e3002531 	movw	r2, #1329	; 0x531</pre>
+<pre>   128e0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   128e4:	e2811f92 	add	r1, r1, #584	; 0x248</pre>
+<pre>   128e8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   128ec:	ebfff97b 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   128f0:	e300057f 	movw	r0, #1407	; 0x57f</pre>
+<pre>   128f4:	ebfff9a9 	bl	10fa0 &lt</span>alloc&commat;plt&gt;</pre>
+<pre>   128f8:	e1a01007 	mov	r1, r7</pre>
+<pre>   128fc:	e1a05000 	mov	r5, r0</pre>
+<pre>   12900:	ebfff9c7 	bl	11024 &lt;get_device_info_by_mac&commat;plt&gt;</pre>
+<pre>   12904:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   12908:	1a00009c 	bne	12b80 &lt;get_netgear_device_id&commat;plt+0x1a84&gt;</pre>
+<pre>   1290c:	e51f0610 	ldr	r0, [pc, #-1552]	; 12304 &lt;get_netgear_device_id&commat;plt+0x1208&gt;</pre>
+<pre>   12910:	e2851c05 	add	r1, r5, #1280	; 0x500</pre>
+<pre>   12914:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12918:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1291c:	ebfff96f 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12920:	e51f0620 	ldr	r0, [pc, #-1568]	; 12308 &lt;get_netgear_device_id&commat;plt+0x120c&gt;</pre>
+<pre>   12924:	e2851c01 	add	r1, r5, #256	; 0x100</pre>
+<pre>   12928:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1292c:	ebfff96b 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12930:	e51f062c 	ldr	r0, [pc, #-1580]	; 1230c &lt;get_netgear_device_id&commat;plt+0x1210&gt;</pre>
+<pre>   12934:	e1a01005 	mov	r1, r5</pre>
+<pre>   12938:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   1293c:	ebfff967 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12940:	e51f0638 	ldr	r0, [pc, #-1592]	; 12310 &lt;get_netgear_device_id&commat;plt+0x1214&gt;</pre>
+<pre>   12944:	e2851e53 	add	r1, r5, #1328	; 0x530</pre>
+<pre>   12948:	e2811007 	add	r1, r1, #7</pre>
+<pre>   1294c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12950:	ebfff962 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12954:	e51f0648 	ldr	r0, [pc, #-1608]	; 12314 &lt;get_netgear_device_id&commat;plt+0x1218&gt;</pre>
+<pre>   12958:	e2851e4a 	add	r1, r5, #1184	; 0x4a0</pre>
+<pre>   1295c:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12960:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12964:	ebfff95d 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12968:	e51f0658 	ldr	r0, [pc, #-1624]	; 12318 &lt;get_netgear_device_id&commat;plt+0x121c&gt;</pre>
+<pre>   1296c:	e2851e36 	add	r1, r5, #864	; 0x360</pre>
+<pre>   12970:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12974:	ebfff959 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12978:	e51f0664 	ldr	r0, [pc, #-1636]	; 1231c &lt;get_netgear_device_id&commat;plt+0x1220&gt;</pre>
+<pre>   1297c:	e2851d15 	add	r1, r5, #1344	; 0x540</pre>
+<pre>   12980:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12984:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12988:	ebfff954 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1298c:	e51f0674 	ldr	r0, [pc, #-1652]	; 12320 &lt;get_netgear_device_id&commat;plt+0x1224&gt;</pre>
+<pre>   12990:	e2851d05 	add	r1, r5, #320	; 0x140</pre>
+<pre>   12994:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12998:	ebfff950 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1299c:	e51f0680 	ldr	r0, [pc, #-1664]	; 12324 &lt;get_netgear_device_id&commat;plt+0x1228&gt;</pre>
+<pre>   129a0:	e2851d06 	add	r1, r5, #384	; 0x180</pre>
+<pre>   129a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   129a8:	ebfff94c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129ac:	e51f068c 	ldr	r0, [pc, #-1676]	; 12328 &lt;get_netgear_device_id&commat;plt+0x122c&gt;</pre>
+<pre>   129b0:	e2851d13 	add	r1, r5, #1216	; 0x4c0</pre>
+<pre>   129b4:	e2811003 	add	r1, r1, #3</pre>
+<pre>   129b8:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   129bc:	ebfff947 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129c0:	e51f069c 	ldr	r0, [pc, #-1692]	; 1232c &lt;get_netgear_device_id&commat;plt+0x1230&gt;</pre>
+<pre>   129c4:	e2851d15 	add	r1, r5, #1344	; 0x540</pre>
+<pre>   129c8:	e281100f 	add	r1, r1, #15</pre>
+<pre>   129cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   129d0:	ebfff942 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129d4:	e51f06ac 	ldr	r0, [pc, #-1708]	; 12330 &lt;get_netgear_device_id&commat;plt+0x1234&gt;</pre>
+<pre>   129d8:	e2851d07 	add	r1, r5, #448	; 0x1c0</pre>
+<pre>   129dc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   129e0:	ebfff93e 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129e4:	e51f06b8 	ldr	r0, [pc, #-1720]	; 12334 &lt;get_netgear_device_id&commat;plt+0x1238&gt;</pre>
+<pre>   129e8:	e2851d0d 	add	r1, r5, #832	; 0x340</pre>
+<pre>   129ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   129f0:	ebfff93a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   129f4:	e51f06c4 	ldr	r0, [pc, #-1732]	; 12338 &lt;get_netgear_device_id&commat;plt+0x123c&gt;</pre>
+<pre>   129f8:	e2851d0e 	add	r1, r5, #896	; 0x380</pre>
+<pre>   129fc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a00:	ebfff936 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a04:	e51f06d0 	ldr	r0, [pc, #-1744]	; 1233c &lt;get_netgear_device_id&commat;plt+0x1240&gt;</pre>
+<pre>   12a08:	e2851e3a 	add	r1, r5, #928	; 0x3a0</pre>
+<pre>   12a0c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a10:	ebfff932 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a14:	e51f06dc 	ldr	r0, [pc, #-1756]	; 12340 &lt;get_netgear_device_id&commat;plt+0x1244&gt;</pre>
+<pre>   12a18:	e2851c02 	add	r1, r5, #512	; 0x200</pre>
+<pre>   12a1c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a20:	ebfff92e 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a24:	e51f06e8 	ldr	r0, [pc, #-1768]	; 12344 &lt;get_netgear_device_id&commat;plt+0x1248&gt;</pre>
+<pre>   12a28:	e2851d0f 	add	r1, r5, #960	; 0x3c0</pre>
+<pre>   12a2c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a30:	ebfff92a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a34:	e51f06f4 	ldr	r0, [pc, #-1780]	; 12348 &lt;get_netgear_device_id&commat;plt+0x124c&gt;</pre>
+<pre>   12a38:	e2851e3e 	add	r1, r5, #992	; 0x3e0</pre>
+<pre>   12a3c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a40:	ebfff926 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a44:	e51f0700 	ldr	r0, [pc, #-1792]	; 1234c &lt;get_netgear_device_id&commat;plt+0x1250&gt;</pre>
+<pre>   12a48:	e2851b01 	add	r1, r5, #1024	; 0x400</pre>
+<pre>   12a4c:	e2811001 	add	r1, r1, #1</pre>
+<pre>   12a50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a54:	ebfff921 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a58:	e51f0710 	ldr	r0, [pc, #-1808]	; 12350 &lt;get_netgear_device_id&commat;plt+0x1254&gt;</pre>
+<pre>   12a5c:	e2851e42 	add	r1, r5, #1056	; 0x420</pre>
+<pre>   12a60:	e2811001 	add	r1, r1, #1</pre>
+<pre>   12a64:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a68:	ebfff91c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a6c:	e51f0720 	ldr	r0, [pc, #-1824]	; 12354 &lt;get_netgear_device_id&commat;plt+0x1258&gt;</pre>
+<pre>   12a70:	e2851d11 	add	r1, r5, #1088	; 0x440</pre>
+<pre>   12a74:	e2811001 	add	r1, r1, #1</pre>
+<pre>   12a78:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a7c:	ebfff917 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a80:	e51f0730 	ldr	r0, [pc, #-1840]	; 12358 &lt;get_netgear_device_id&commat;plt+0x125c&gt;</pre>
+<pre>   12a84:	e2851e46 	add	r1, r5, #1120	; 0x460</pre>
+<pre>   12a88:	e2811002 	add	r1, r1, #2</pre>
+<pre>   12a8c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12a90:	ebfff912 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12a94:	e51f0740 	ldr	r0, [pc, #-1856]	; 1235c &lt;get_netgear_device_id&commat;plt+0x1260&gt;</pre>
+<pre>   12a98:	e2851d09 	add	r1, r5, #576	; 0x240</pre>
+<pre>   12a9c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12aa0:	ebfff90e 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12aa4:	e51f074c 	ldr	r0, [pc, #-1868]	; 12360 &lt;get_netgear_device_id&commat;plt+0x1264&gt;</pre>
+<pre>   12aa8:	e2851d0a 	add	r1, r5, #640	; 0x280</pre>
+<pre>   12aac:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12ab0:	ebfff90a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12ab4:	e51f0758 	ldr	r0, [pc, #-1880]	; 12364 &lt;get_netgear_device_id&commat;plt+0x1268&gt;</pre>
+<pre>   12ab8:	e2851d0b 	add	r1, r5, #704	; 0x2c0</pre>
+<pre>   12abc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12ac0:	ebfff906 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12ac4:	e51f0764 	ldr	r0, [pc, #-1892]	; 12368 &lt;get_netgear_device_id&commat;plt+0x126c&gt;</pre>
+<pre>   12ac8:	e2851d12 	add	r1, r5, #1152	; 0x480</pre>
+<pre>   12acc:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12ad0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12ad4:	ebfff901 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12ad8:	e51f0774 	ldr	r0, [pc, #-1908]	; 1236c &lt;get_netgear_device_id&commat;plt+0x1270&gt;</pre>
+<pre>   12adc:	e595157b 	ldr	r1, [r5, #1403]	; 0x57b</pre>
+<pre>   12ae0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12ae4:	ebfff8fd 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12ae8:	e51f0780 	ldr	r0, [pc, #-1920]	; 12370 &lt;get_netgear_device_id&commat;plt+0x1274&gt;</pre>
+<pre>   12aec:	e2851e52 	add	r1, r5, #1312	; 0x520</pre>
+<pre>   12af0:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12af4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12af8:	ebfff8f8 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12afc:	e51f0790 	ldr	r0, [pc, #-1936]	; 12374 &lt;get_netgear_device_id&commat;plt+0x1278&gt;</pre>
+<pre>   12b00:	e2851e4e 	add	r1, r5, #1248	; 0x4e0</pre>
+<pre>   12b04:	e2811003 	add	r1, r1, #3</pre>
+<pre>   12b08:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b0c:	ebfff8f3 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b10:	e51f07a0 	ldr	r0, [pc, #-1952]	; 12378 &lt;get_netgear_device_id&commat;plt+0x127c&gt;</pre>
+<pre>   12b14:	e2851c03 	add	r1, r5, #768	; 0x300</pre>
+<pre>   12b18:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b1c:	ebfff8ef 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b20:	e51f07ac 	ldr	r0, [pc, #-1964]	; 1237c &lt;get_netgear_device_id&commat;plt+0x1280&gt;</pre>
+<pre>   12b24:	e2851e55 	add	r1, r5, #1360	; 0x550</pre>
+<pre>   12b28:	e2811007 	add	r1, r1, #7</pre>
+<pre>   12b2c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b30:	ebfff8ea 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b34:	e51f07bc 	ldr	r0, [pc, #-1980]	; 12380 &lt;get_netgear_device_id&commat;plt+0x1284&gt;</pre>
+<pre>   12b38:	e2851e56 	add	r1, r5, #1376	; 0x560</pre>
+<pre>   12b3c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b40:	ebfff8e6 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b44:	e51f07c8 	ldr	r0, [pc, #-1992]	; 12384 &lt;get_netgear_device_id&commat;plt+0x1288&gt;</pre>
+<pre>   12b48:	e2851e56 	add	r1, r5, #1376	; 0x560</pre>
+<pre>   12b4c:	e2811009 	add	r1, r1, #9</pre>
+<pre>   12b50:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b54:	ebfff8e1 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b58:	e51f07d8 	ldr	r0, [pc, #-2008]	; 12388 &lt;get_netgear_device_id&commat;plt+0x128c&gt;</pre>
+<pre>   12b5c:	e2851e57 	add	r1, r5, #1392	; 0x570</pre>
+<pre>   12b60:	e2811002 	add	r1, r1, #2</pre>
+<pre>   12b64:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b68:	ebfff8dc 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b6c:	e51f07e8 	ldr	r0, [pc, #-2024]	; 1238c &lt;get_netgear_device_id&commat;plt+0x1290&gt;</pre>
+<pre>   12b70:	e2851e51 	add	r1, r5, #1296	; 0x510</pre>
+<pre>   12b74:	e2811005 	add	r1, r1, #5</pre>
+<pre>   12b78:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12b7c:	ea000001 	b	12b88 &lt;get_netgear_device_id&commat;plt+0x1a8c&gt;</pre>
+<pre>   12b80:	e51f07f8 	ldr	r0, [pc, #-2040]	; 12390 &lt;get_netgear_device_id&commat;plt+0x1294&gt;</pre>
+<pre>   12b84:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12b88:	ebfff8d4 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12b8c:	e1a00005 	mov	r0, r5</pre>
+<pre>   12b90:	ebfff8d8 	bl	10ef8 &lt;free&commat;plt&gt;</pre>
+<pre>   12b94:	e51b310c 	ldr	r3, [fp, #-268]	; 0xfffffef4</pre>
+<pre>   12b98:	e3530000 	cmp	r3, #0</pre>
+<pre>   12b9c:	0a000012 	beq	12bec &lt;get_netgear_device_id&commat;plt+0x1af0&gt;</pre>
+<pre>   12ba0:	e51f1814 	ldr	r1, [pc, #-2068]	; 12394 &lt;get_netgear_device_id&commat;plt+0x1298&gt;</pre>
+<pre>   12ba4:	e24b50a0 	sub	r5, fp, #160	; 0xa0</pre>
+<pre>   12ba8:	e51f0818 	ldr	r0, [pc, #-2072]	; 12398 &lt;get_netgear_device_id&commat;plt+0x129c&gt;</pre>
+<pre>   12bac:	e3002574 	movw	r2, #1396	; 0x574</pre>
+<pre>   12bb0:	e1a03005 	mov	r3, r5</pre>
+<pre>   12bb4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12bb8:	e2811e26 	add	r1, r1, #608	; 0x260</pre>
+<pre>   12bbc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12bc0:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   12bc4:	ebfff8c5 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12bc8:	e1a00005 	mov	r0, r5</pre>
+<pre>   12bcc:	ebfff8ea 	bl	10f7c &lt;dil_remove_macaddress_entry&commat;plt&gt;</pre>
+<pre>   12bd0:	e2502000 	subs	r2, r0, #0</pre>
+<pre>   12bd4:	e1a01005 	mov	r1, r5</pre>
+<pre>   12bd8:	051f0844 	ldreq	r0, [pc, #-2116]	; 1239c &lt;get_netgear_device_id&commat;plt+0x12a0&gt;</pre>
+<pre>   12bdc:	008f0000 	addeq	r0, pc, r0</pre>
+<pre>   12be0:	151f0848 	ldrne	r0, [pc, #-2120]	; 123a0 &lt;get_netgear_device_id&commat;plt+0x12a4&gt;</pre>
+<pre>   12be4:	108f0000 	addne	r0, pc, r0</pre>
+<pre><span class="red">   12be8:	ebfff8bc 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12bec:	e51b30f0 	ldr	r3, [fp, #-240]	; 0xffffff10</pre>
+<pre>   12bf0:	e3530000 	cmp	r3, #0</pre>
+<pre>   12bf4:	0a000016 	beq	12c54 &lt;get_netgear_device_id&commat;plt+0x1b58&gt;</pre>
+<pre>   12bf8:	e51f185c 	ldr	r1, [pc, #-2140]	; 123a4 &lt;get_netgear_device_id&commat;plt+0x12a8&gt;</pre>
+<pre>   12bfc:	e24b50a0 	sub	r5, fp, #160	; 0xa0</pre>
+<pre>   12c00:	e51f0860 	ldr	r0, [pc, #-2144]	; 123a8 &lt;get_netgear_device_id&commat;plt+0x12ac&gt;</pre>
+<pre>   12c04:	e3002593 	movw	r2, #1427	; 0x593</pre>
+<pre>   12c08:	e1a03005 	mov	r3, r5</pre>
+<pre>   12c0c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12c10:	e2811d0a 	add	r1, r1, #640	; 0x280</pre>
+<pre>   12c14:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12c18:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   12c1c:	ebfff8af 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12c20:	e1a00005 	mov	r0, r5</pre>
+<pre>   12c24:	ebfff901 	bl	11030 &lt;check_macaddress_entry&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   12c44:	e51f189c 	ldr	r1, [pc, #-2204]	; 123b0 &lt;get_netgear_device_id&commat;plt+0x12b4&gt;</pre>
+<pre>   12c48:	e5960000 	ldr	r0, [r6]</pre>
+<pre>   12c4c:	e08f1001 	add	r1, pc, r1</pre>
+<pre><span class="red">   12c50:	ebfff8f0 	bl	11018 &lt;fprintf&commat;plt&gt</span></span></pre>
+<pre>   12c54:	e51b30dc 	ldr	r3, [fp, #-220]	; 0xffffff24</pre>
+<pre>   12c58:	e3530000 	cmp	r3, #0</pre>
+<pre>   12c5c:	0a00001a 	beq	12ccc &lt;get_netgear_device_id&commat;plt+0x1bd0&gt;</pre>
+<pre>   12c60:	e3a00012 	mov	r0, #18</pre>
+<pre>   12c64:	ebfff8cd 	bl	10fa0 &lt</span>alloc&commat;plt&gt;</pre>
+<pre>   12c68:	e3a02012 	mov	r2, #18</pre>
+<pre>   12c6c:	e3a01000 	mov	r1, #0</pre>
+<pre>   12c70:	e1a05000 	mov	r5, r0</pre>
+<pre>   12c74:	ebfff8f0 	bl	1103c &lt</span>emset&commat;plt&gt;</pre>
+<pre>   12c78:	e51f18cc 	ldr	r1, [pc, #-2252]	; 123b4 &lt;get_netgear_device_id&commat;plt+0x12b8&gt;</pre>
+<pre>   12c7c:	e30025b2 	movw	r2, #1458	; 0x5b2</pre>
+<pre>   12c80:	e51f08d0 	ldr	r0, [pc, #-2256]	; 123b8 &lt;get_netgear_device_id&commat;plt+0x12bc&gt;</pre>
+<pre>   12c84:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12c88:	e2811fa6 	add	r1, r1, #664	; 0x298</pre>
+<pre>   12c8c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12c90:	e2811003 	add	r1, r1, #3</pre>
+<pre><span class="red">   12c94:	ebfff891 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12c98:	e51b00b0 	ldr	r0, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12c9c:	ebfff8fe 	bl	1109c &lt;check_macaddress_by_index&commat;plt&gt;</pre>
+<pre>   12ca0:	e3a02011 	mov	r2, #17</pre>
+<pre>   12ca4:	e1a01000 	mov	r1, r0</pre>
+<pre>   12ca8:	e1a00005 	mov	r0, r5</pre>
+<pre>   12cac:	ebfff8e8 	bl	11054 &lt;strncpy&commat;plt&gt;</pre>
+<pre>   12cb0:	e51f08fc 	ldr	r0, [pc, #-2300]	; 123bc &lt;get_netgear_device_id&commat;plt+0x12c0&gt;</pre>
+<pre>   12cb4:	e1a02005 	mov	r2, r5</pre>
+<pre>   12cb8:	e51b10b0 	ldr	r1, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12cbc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12cc0:	ebfff886 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12cc4:	e1a00005 	mov	r0, r5</pre>
+<pre>   12cc8:	ebfff88a 	bl	10ef8 &lt;free&commat;plt&gt;</pre>
+<pre>   12ccc:	e51b3118 	ldr	r3, [fp, #-280]	; 0xfffffee8</pre>
+<pre>   12cd0:	e3530000 	cmp	r3, #0</pre>
+<pre>   12cd4:	0a000000 	beq	12cdc &lt;get_netgear_device_id&commat;plt+0x1be0&gt;</pre>
+<pre>   12cd8:	eb0003a8 	bl	13b80 &lt;signature_update_function&commat;&commat;Base+0x7f8&gt;</pre>
+<pre>   12cdc:	e51b312c 	ldr	r3, [fp, #-300]	; 0xfffffed4</pre>
+<pre>   12ce0:	e3530000 	cmp	r3, #0</pre>
+<pre>   12ce4:	0a000008 	beq	12d0c &lt;get_netgear_device_id&commat;plt+0x1c10&gt;</pre>
+<pre>   12ce8:	e51f1930 	ldr	r1, [pc, #-2352]	; 123c0 &lt;get_netgear_device_id&commat;plt+0x12c4&gt;</pre>
+<pre>   12cec:	e3002457 	movw	r2, #1111	; 0x457</pre>
+<pre>   12cf0:	e51f0934 	ldr	r0, [pc, #-2356]	; 123c4 &lt;get_netgear_device_id&commat;plt+0x12c8&gt;</pre>
+<pre>   12cf4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12cf8:	e2811fae 	add	r1, r1, #696	; 0x2b8</pre>
+<pre>   12cfc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12d00:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   12d04:	ebfff875 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12d08:	ebfff895 	bl	10f64 &lt;print_mapping_table&commat;plt&gt;</pre>
+<pre>   12d0c:	e51b311c 	ldr	r3, [fp, #-284]	; 0xfffffee4</pre>
+<pre>--</pre>
+<pre>   12d24:	0a000000 	beq	12d2c &lt;get_netgear_device_id&commat;plt+0x1c30&gt;</pre>
+<pre>   12d28:	eb0003e2 	bl	13cb8 &lt;signature_update_function&commat;&commat;Base+0x930&gt;</pre>
+<pre>   12d2c:	e51b30fc 	ldr	r3, [fp, #-252]	; 0xffffff04</pre>
+<pre>   12d30:	e3530000 	cmp	r3, #0</pre>
+<pre>   12d34:	0a000028 	beq	12ddc &lt;get_netgear_device_id&commat;plt+0x1ce0&gt;</pre>
+<pre>   12d38:	e51b30b0 	ldr	r3, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12d3c:	e1a0700d 	mov	r7, sp</pre>
+<pre>   12d40:	e51f1980 	ldr	r1, [pc, #-2432]	; 123c8 &lt;get_netgear_device_id&commat;plt+0x12cc&gt;</pre>
+<pre>   12d44:	e3a05000 	mov	r5, #0</pre>
+<pre>   12d48:	e51f0984 	ldr	r0, [pc, #-2436]	; 123cc &lt;get_netgear_device_id&commat;plt+0x12d0&gt;</pre>
+<pre>   12d4c:	e300225b 	movw	r2, #603	; 0x25b</pre>
+<pre>   12d50:	e1a03103 	lsl	r3, r3, #2</pre>
+<pre>   12d54:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12d58:	e2811e2d 	add	r1, r1, #720	; 0x2d0</pre>
+<pre>   12d5c:	e283300a 	add	r3, r3, #10</pre>
+<pre>   12d60:	e2811002 	add	r1, r1, #2</pre>
+<pre>   12d64:	e3c33007 	bic	r3, r3, #7</pre>
+<pre>   12d68:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12d6c:	e04dd003 	sub	sp, sp, r3</pre>
+<pre>   12d70:	e28d6060 	add	r6, sp, #96	; 0x60</pre>
+<pre><span class="red">   12d74:	ebfff859 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12d78:	e51b30b0 	ldr	r3, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12d7c:	e1530005 	cmp	r3, r5</pre>
+<pre>--</pre>
+<pre>   12db8:	e51b30b0 	ldr	r3, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12dbc:	e1530005 	cmp	r3, r5</pre>
+<pre>   12dc0:	da000004 	ble	12dd8 &lt;get_netgear_device_id&commat;plt+0x1cdc&gt;</pre>
+<pre>   12dc4:	e7960105 	ldr	r0, [r6, r5, lsl #2]</pre>
+<pre>   12dc8:	e3a01000 	mov	r1, #0</pre>
+<pre>   12dcc:	ebfff8af 	bl	11090 &lt;pthread_join&commat;plt&gt;</pre>
+<pre>   12dd0:	e2855001 	add	r5, r5, #1</pre>
+<pre>   12dd4:	eafffff7 	b	12db8 &lt;get_netgear_device_id&commat;plt+0x1cbc&gt;</pre>
+<pre>   12dd8:	e1a0d007 	mov	sp, r7</pre>
+<pre>   12ddc:	e51b3100 	ldr	r3, [fp, #-256]	; 0xffffff00</pre>
+<pre>   12de0:	e3530000 	cmp	r3, #0</pre>
+<pre>   12de4:	0a00008b 	beq	13018 &lt;get_netgear_device_id&commat;plt+0x1f1c&gt;</pre>
+<pre>   12de8:	e51f1a1c 	ldr	r1, [pc, #-2588]	; 123d4 &lt;get_netgear_device_id&commat;plt+0x12d8&gt;</pre>
+<pre>   12dec:	e3a04000 	mov	r4, #0</pre>
+<pre>   12df0:	e51f0a20 	ldr	r0, [pc, #-2592]	; 123d8 &lt;get_netgear_device_id&commat;plt+0x12dc&gt;</pre>
+<pre>   12df4:	e3a02fc5 	mov	r2, #788	; 0x314</pre>
+<pre>   12df8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12dfc:	e2811fbd 	add	r1, r1, #756	; 0x2f4</pre>
+<pre>   12e00:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   12e04:	e2811001 	add	r1, r1, #1</pre>
+<pre><span class="red">   12e08:	ebfff834 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12e0c:	e51b30b0 	ldr	r3, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12e10:	e1530004 	cmp	r3, r4</pre>
+<pre>   12e14:	da000002 	ble	12e24 &lt;get_netgear_device_id&commat;plt+0x1d28&gt;</pre>
+<pre>   12e18:	ebfff8ba 	bl	11108 &lt;get_netgear_device_id&commat;plt+0xc&gt;</pre>
+<pre>   12e1c:	e2844001 	add	r4, r4, #1</pre>
+<pre>   12e20:	eafffff9 	b	12e0c &lt;get_netgear_device_id&commat;plt+0x1d10&gt;</pre>
+<pre>   12e24:	e51f1a50 	ldr	r1, [pc, #-2640]	; 123dc &lt;get_netgear_device_id&commat;plt+0x12e0&gt;</pre>
+<pre>   12e28:	e30022b7 	movw	r2, #695	; 0x2b7</pre>
+<pre>   12e2c:	e51f0a54 	ldr	r0, [pc, #-2644]	; 123e0 &lt;get_netgear_device_id&commat;plt+0x12e4&gt;</pre>
+<pre>   12e30:	e51f7a54 	ldr	r7, [pc, #-2644]	; 123e4 &lt;get_netgear_device_id&commat;plt+0x12e8&gt;</pre>
+<pre>   12e34:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12e38:	e2811e31 	add	r1, r1, #784	; 0x310</pre>
+<pre>   12e3c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12e40:	ebfff826 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12e44:	e51f3a64 	ldr	r3, [pc, #-2660]	; 123e8 &lt;get_netgear_device_id&commat;plt+0x12ec&gt;</pre>
+<pre>   12e48:	e08f7007 	add	r7, pc, r7</pre>
+<pre>--</pre>
+<pre>   12eb4:	ebfff866 	bl	11054 &lt;strncpy&commat;plt&gt;</pre>
+<pre>   12eb8:	e3190001 	tst	r9, #1</pre>
+<pre>   12ebc:	e3a03064 	mov	r3, #100	; 0x64</pre>
+<pre>   12ec0:	e58d3000 	str	r3, [sp]</pre>
+<pre>   12ec4:	01a02006 	moveq	r2, r6</pre>
+<pre>   12ec8:	03a03003 	moveq	r3, #3</pre>
+<pre>   12ecc:	13a03005 	movne	r3, #5</pre>
+<pre>   12ed0:	151b20b4 	ldrne	r2, [fp, #-180]	; 0xffffff4c</pre>
+<pre>   12ed4:	e3a01006 	mov	r1, #6</pre>
+<pre>   12ed8:	e1a00004 	mov	r0, r4</pre>
+<pre>   12edc:	ebfff82c 	bl	10f94 &lt;dil_update_table_field&commat;plt&gt;</pre>
+<pre>   12ee0:	ebfff837 	bl	10fc4 &lt;clock&commat;plt&gt;</pre>
+<pre>   12ee4:	e2804d4e 	add	r4, r0, #4992	; 0x1380</pre>
+<pre>   12ee8:	e2844008 	add	r4, r4, #8</pre>
+<pre>   12eec:	ebfff834 	bl	10fc4 &lt;clock&commat;plt&gt;</pre>
+<pre>   12ef0:	e1500004 	cmp	r0, r4</pre>
+<pre>   12ef4:	bafffffc 	blt	12eec &lt;get_netgear_device_id&commat;plt+0x1df0&gt;</pre>
+<pre>   12ef8:	e3a02fb2 	mov	r2, #712	; 0x2c8</pre>
+<pre>   12efc:	e51b10b8 	ldr	r1, [fp, #-184]	; 0xffffff48</pre>
+<pre>   12f00:	e1a0000a 	mov	r0, sl</pre>
+<pre><span class="red">   12f04:	ebfff7f5 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f08:	e51f2b18 	ldr	r2, [pc, #-2840]	; 123f8 &lt;get_netgear_device_id&commat;plt+0x12fc&gt;</pre>
+<pre>   12f0c:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   12f10:	e5923000 	ldr	r3, [r2]</pre>
+<pre>   12f14:	e2833001 	add	r3, r3, #1</pre>
+<pre>   12f18:	e5823000 	str	r3, [r2]</pre>
+<pre>   12f1c:	eaffffd7 	b	12e80 &lt;get_netgear_device_id&commat;plt+0x1d84&gt;</pre>
+<pre>   12f20:	e51f1b2c 	ldr	r1, [pc, #-2860]	; 123fc &lt;get_netgear_device_id&commat;plt+0x1300&gt;</pre>
+<pre>   12f24:	e30022cb 	movw	r2, #715	; 0x2cb</pre>
+<pre>   12f28:	e51f0b30 	ldr	r0, [pc, #-2864]	; 12400 &lt;get_netgear_device_id&commat;plt+0x1304&gt;</pre>
+<pre>   12f2c:	e51f9b30 	ldr	r9, [pc, #-2864]	; 12404 &lt;get_netgear_device_id&commat;plt+0x1308&gt;</pre>
+<pre>   12f30:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   12f34:	e51f6b34 	ldr	r6, [pc, #-2868]	; 12408 &lt;get_netgear_device_id&commat;plt+0x130c&gt;</pre>
+<pre>   12f38:	e2811e31 	add	r1, r1, #784	; 0x310</pre>
+<pre>   12f3c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   12f40:	ebfff7e6 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   12f44:	e3a03000 	mov	r3, #0</pre>
+<pre>   12f48:	e51fab44 	ldr	sl, [pc, #-2884]	; 1240c &lt;get_netgear_device_id&commat;plt+0x1310&gt;</pre>
+<pre>--</pre>
+<pre>   12fac:	ebfff828 	bl	11054 &lt;strncpy&commat;plt&gt;</pre>
+<pre>   12fb0:	e3160001 	tst	r6, #1</pre>
+<pre>   12fb4:	e3a03064 	mov	r3, #100	; 0x64</pre>
+<pre>   12fb8:	e58d3000 	str	r3, [sp]</pre>
+<pre>   12fbc:	01a02009 	moveq	r2, r9</pre>
+<pre>   12fc0:	03a03005 	moveq	r3, #5</pre>
+<pre>   12fc4:	13a03003 	movne	r3, #3</pre>
+<pre>   12fc8:	151b20ac 	ldrne	r2, [fp, #-172]	; 0xffffff54</pre>
+<pre>   12fcc:	e3a01006 	mov	r1, #6</pre>
+<pre>   12fd0:	e1a00004 	mov	r0, r4</pre>
+<pre>   12fd4:	ebfff7ee 	bl	10f94 &lt;dil_update_table_field&commat;plt&gt;</pre>
+<pre>   12fd8:	ebfff7f9 	bl	10fc4 &lt;clock&commat;plt&gt;</pre>
+<pre>   12fdc:	e2804d4e 	add	r4, r0, #4992	; 0x1380</pre>
+<pre>   12fe0:	e2844008 	add	r4, r4, #8</pre>
+<pre>   12fe4:	ebfff7f6 	bl	10fc4 &lt;clock&commat;plt&gt;</pre>
+<pre>   12fe8:	e1500004 	cmp	r0, r4</pre>
+<pre>   12fec:	bafffffc 	blt	12fe4 &lt;get_netgear_device_id&commat;plt+0x1ee8&gt;</pre>
+<pre>   12ff0:	e30022db 	movw	r2, #731	; 0x2db</pre>
+<pre>   12ff4:	e51b10b0 	ldr	r1, [fp, #-176]	; 0xffffff50</pre>
+<pre>   12ff8:	e1a0000a 	mov	r0, sl</pre>
+<pre><span class="red">   12ffc:	ebfff7b7 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13000:	e51f2bf0 	ldr	r2, [pc, #-3056]	; 12418 &lt;get_netgear_device_id&commat;plt+0x131c&gt;</pre>
+<pre>   13004:	e08f2002 	add	r2, pc, r2</pre>
+<pre>   13008:	e5923000 	ldr	r3, [r2]</pre>
+<pre>   1300c:	e2833001 	add	r3, r3, #1</pre>
+<pre>   13010:	e5823000 	str	r3, [r2]</pre>
+<pre>   13014:	eaffffd6 	b	12f74 &lt;get_netgear_device_id&commat;plt+0x1e78&gt;</pre>
+<pre>   13018:	e51b30ac 	ldr	r3, [fp, #-172]	; 0xffffff54</pre>
+<pre>   1301c:	e3530000 	cmp	r3, #0</pre>
+<pre>   13020:	0a000010 	beq	13068 &lt;get_netgear_device_id&commat;plt+0x1f6c&gt;</pre>
+<pre>   13024:	e51f1c10 	ldr	r1, [pc, #-3088]	; 1241c &lt;get_netgear_device_id&commat;plt+0x1320&gt;</pre>
+<pre>   13028:	e30024b2 	movw	r2, #1202	; 0x4b2</pre>
+<pre>   1302c:	e51f0c14 	ldr	r0, [pc, #-3092]	; 12420 &lt;get_netgear_device_id&commat;plt+0x1324&gt;</pre>
+<pre>   13030:	e51b30cc 	ldr	r3, [fp, #-204]	; 0xffffff34</pre>
+<pre>   13034:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13038:	e2811fc7 	add	r1, r1, #796	; 0x31c</pre>
+<pre>   1303c:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13040:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   13044:	ebfff7a5 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13048:	e51b00cc 	ldr	r0, [fp, #-204]	; 0xffffff34</pre>
+<pre>   1304c:	ebfff806 	bl	1106c &lt;dil_set_ACL&commat;plt&gt;</pre>
+<pre>   13050:	e3500000 	cmp	r0, #0</pre>
+<pre>   13054:	1a000003 	bne	13068 &lt;get_netgear_device_id&commat;plt+0x1f6c&gt;</pre>
+<pre>   13058:	e51f0c3c 	ldr	r0, [pc, #-3132]	; 12424 &lt;get_netgear_device_id&commat;plt+0x1328&gt;</pre>
+<pre>   1305c:	e51b10cc 	ldr	r1, [fp, #-204]	; 0xffffff34</pre>
+<pre>   13060:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13064:	ebfff79d 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13068:	e51b3140 	ldr	r3, [fp, #-320]	; 0xfffffec0</pre>
+<pre>   1306c:	e3530000 	cmp	r3, #0</pre>
+<pre>   13070:	0a00000d 	beq	130ac &lt;get_netgear_device_id&commat;plt+0x1fb0&gt;</pre>
+<pre>   13074:	e51f1c54 	ldr	r1, [pc, #-3156]	; 12428 &lt;get_netgear_device_id&commat;plt+0x132c&gt;</pre>
+<pre>   13078:	e3a02e4d 	mov	r2, #1232	; 0x4d0</pre>
+<pre>   1307c:	e51f0c58 	ldr	r0, [pc, #-3160]	; 1242c &lt;get_netgear_device_id&commat;plt+0x1330&gt;</pre>
+<pre>   13080:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13084:	e2811fcb 	add	r1, r1, #812	; 0x32c</pre>
+<pre>   13088:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   1308c:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   13090:	ebfff792 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13094:	ebfff7fa 	bl	11084 &lt;dil_get_ACL&commat;plt&gt;</pre>
+<pre>   13098:	e2901000 	adds	r1, r0, #0</pre>
+<pre>   1309c:	e51f0c74 	ldr	r0, [pc, #-3188]	; 12430 &lt;get_netgear_device_id&commat;plt+0x1334&gt;</pre>
+<pre>   130a0:	13a01001 	movne	r1, #1</pre>
+<pre>   130a4:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   130a8:	ebfff78c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   130ac:	e3540000 	cmp	r4, #0</pre>
+<pre>   130b0:	0a000018 	beq	13118 &lt;get_netgear_device_id&commat;plt+0x201c&gt;</pre>
+<pre>   130b4:	e51b10e8 	ldr	r1, [fp, #-232]	; 0xffffff18</pre>
+<pre>   130b8:	e51b00c4 	ldr	r0, [fp, #-196]	; 0xffffff3c</pre>
+<pre>   130bc:	eb0003b1 	bl	13f88 &lt;devicename_update_function&commat;&commat;Base+0x138&gt;</pre>
+<pre>   130c0:	ea000014 	b	13118 &lt;get_netgear_device_id&commat;plt+0x201c&gt;</pre>
+<pre>   130c4:	e5962000 	ldr	r2, [r6]</pre>
+<pre>   130c8:	e51f0c9c 	ldr	r0, [pc, #-3228]	; 12434 &lt;get_netgear_device_id&commat;plt+0x1338&gt;</pre>
+<pre>   130cc:	e1a01002 	mov	r1, r2</pre>
+<pre>   130d0:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   130d4:	ebfff781 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   130d8:	eafff976 	b	116b8 &lt;get_netgear_device_id&commat;plt+0x5bc&gt;</pre>
+<pre>   130dc:	e5960008 	ldr	r0, [r6, #8]</pre>
+<pre>--</pre>
+<pre>   13228:	e59f3018 	ldr	r3, [pc, #24]	; 13248 &lt;get_netgear_device_id&commat;plt+0x214c&gt;</pre>
+<pre>   1322c:	e3530000 	cmp	r3, #0</pre>
+<pre>   13230:	0a000002 	beq	13240 &lt;get_netgear_device_id&commat;plt+0x2144&gt;</pre>
+<pre>   13234:	e92d4010 	push	{r4, lr}</pre>
+<pre>   13238:	e12fff33 	blx	r3</pre>
+<pre>   1323c:	e8bd4010 	pop	{r4, lr}</pre>
+<pre>   13240:	eaffffdc 	b	131b8 &lt;get_netgear_device_id&commat;plt+0x20bc&gt;</pre>
+<pre>   13244:	00027ef4 	strdeq	r7, [r2], -r4</pre>
+<pre>   13248:	00000000 	andeq	r0, r0, r0</pre>
+<br />
+<pre>0001324c &lt;device_detail_update_function&commat;&commat;Base&gt;:</pre>
+<pre>   1324c:	e59f1118 	ldr	r1, [pc, #280]	; 1336c &lt;device_detail_update_function&commat;&commat;Base+0x120&gt;</pre>
+<pre>   13250:	e300215b 	movw	r2, #347	; 0x15b</pre>
+<pre>   13254:	e59f0114 	ldr	r0, [pc, #276]	; 13370 &lt;device_detail_update_function&commat;&commat;Base+0x124&gt;</pre>
+<pre>   13258:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>   1325c:	e24ddfad 	sub	sp, sp, #692	; 0x2b4</pre>
+<pre>   13260:	e59f510c 	ldr	r5, [pc, #268]	; 13374 &lt;device_detail_update_function&commat;&commat;Base+0x128&gt;</pre>
+<pre>   13264:	e28d4f55 	add	r4, sp, #340	; 0x154</pre>
+<pre>   13268:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   1326c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13270:	ebfff71a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13274:	e08f5005 	add	r5, pc, r5</pre>
+<pre>   13278:	e3002159 	movw	r2, #345	; 0x159</pre>
+<pre>--</pre>
+<pre>   13370:	00001496 	muleq	r0, r6, r4</pre>
+<pre>   13374:	000014a5 	andeq	r1, r0, r5, lsr #9</pre>
+<pre>   13378:	00014d14 	andeq	r4, r1, r4, lsl sp</pre>
+<pre>   1337c:	000151f8 	strdeq	r5, [r1], -r8</pre>
+<pre>   13380:	00001411 	andeq	r1, r0, r1, lsl r4</pre>
+<pre>   13384:	000000dc 	ldrdeq	r0, [r0], -ip</pre>
+<br />
+<pre>00013388 &lt;signature_update_function&commat;&commat;Base&gt;:</pre>
+<pre>   13388:	e59f11f8 	ldr	r1, [pc, #504]	; 13588 &lt;signature_update_function&commat;&commat;Base+0x200&gt;</pre>
+<pre>   1338c:	e3a02f67 	mov	r2, #412	; 0x19c</pre>
+<pre>   13390:	e92d47f0 	push	{r4, r5, r6, r7, r8, r9, sl, lr}</pre>
+<pre>   13394:	e24dde45 	sub	sp, sp, #1104	; 0x450</pre>
+<pre>   13398:	e59f01ec 	ldr	r0, [pc, #492]	; 1358c &lt;signature_update_function&commat;&commat;Base+0x204&gt;</pre>
+<pre>   1339c:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   133a0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   133a4:	e28d8e42 	add	r8, sp, #1056	; 0x420</pre>
+<pre>   133a8:	e281101e 	add	r1, r1, #30</pre>
+<pre>   133ac:	e288800e 	add	r8, r8, #14</pre>
+<pre>   133b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   133b4:	e28d4fea 	add	r4, sp, #936	; 0x3a8</pre>
+<pre><span class="red">   133b8:	ebfff6c8 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   133bc:	e2844003 	add	r4, r4, #3</pre>
+<pre>   133c0:	e3a02012 	mov	r2, #18</pre>
+<pre>--</pre>
+<pre>   135bc:	e59f3244 	ldr	r3, [pc, #580]	; 13808 &lt;signature_update_function&commat;&commat;Base+0x480&gt;</pre>
+<pre>   135c0:	e3a02e33 	mov	r2, #816	; 0x330</pre>
+<pre>   135c4:	e92d4ff0 	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}</pre>
+<pre>   135c8:	e24dde46 	sub	sp, sp, #1120	; 0x460</pre>
+<pre>   135cc:	e24dd004 	sub	sp, sp, #4</pre>
+<pre>   135d0:	e1a0b001 	mov	fp, r1</pre>
+<pre>   135d4:	e08f3003 	add	r3, pc, r3</pre>
+<pre>   135d8:	e1a0a000 	mov	sl, r0</pre>
+<pre>   135dc:	e59f1228 	ldr	r1, [pc, #552]	; 1380c &lt;signature_update_function&commat;&commat;Base+0x484&gt;</pre>
+<pre>   135e0:	e28d6e43 	add	r6, sp, #1072	; 0x430</pre>
+<pre>   135e4:	e58d3228 	str	r3, [sp, #552]	; 0x228</pre>
+<pre>   135e8:	e1a03000 	mov	r3, r0</pre>
+<pre>   135ec:	e59f021c 	ldr	r0, [pc, #540]	; 13810 &lt;signature_update_function&commat;&commat;Base+0x488&gt;</pre>
+<pre>   135f0:	e2866006 	add	r6, r6, #6</pre>
+<pre>   135f4:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   135f8:	e28d5e3b 	add	r5, sp, #944	; 0x3b0</pre>
+<pre>   135fc:	e2811049 	add	r1, r1, #73	; 0x49</pre>
+<pre>   13600:	e2855003 	add	r5, r5, #3</pre>
+<pre>   13604:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13608:	e28d9e37 	add	r9, sp, #880	; 0x370</pre>
+<pre><span class="red">   1360c:	ebfff633 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13610:	e3a02012 	mov	r2, #18</pre>
+<pre>   13614:	e3a01000 	mov	r1, #0</pre>
+<pre>--</pre>
+<pre>   13820:	0000104d 	andeq	r1, r0, sp, asr #32</pre>
+<pre>   13824:	000010a9 	andeq	r1, r0, r9, lsr #1</pre>
+<pre>   13828:	0000107a 	andeq	r1, r0, sl, ror r0</pre>
+<pre>   1382c:	00001053 	andeq	r1, r0, r3, asr r0</pre>
+<pre>   13830:	000000e8 	andeq	r0, r0, r8, ror #1</pre>
+<pre>   13834:	00001023 	andeq	r1, r0, r3, lsr #32</pre>
+<pre>   13838:	00001039 	andeq	r1, r0, r9, lsr r0</pre>
+<pre>   1383c:	e92d40f0 	push	{r4, r5, r6, r7, lr}</pre>
+<pre>   13840:	e1a03001 	mov	r3, r1</pre>
+<pre>   13844:	e1a06001 	mov	r6, r1</pre>
+<pre>   13848:	e59f11c4 	ldr	r1, [pc, #452]	; 13a14 &lt;signature_update_function&commat;&commat;Base+0x68c&gt;</pre>
+<pre>   1384c:	e1a07000 	mov	r7, r0</pre>
+<pre>   13850:	e24ddfad 	sub	sp, sp, #692	; 0x2b4</pre>
+<pre>   13854:	e59f01bc 	ldr	r0, [pc, #444]	; 13a18 &lt;signature_update_function&commat;&commat;Base+0x690&gt;</pre>
+<pre>   13858:	e3a02fd7 	mov	r2, #860	; 0x35c</pre>
+<pre>   1385c:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13860:	e28d4f55 	add	r4, sp, #340	; 0x154</pre>
+<pre>   13864:	e281105f 	add	r1, r1, #95	; 0x5f</pre>
+<pre>   13868:	e59f51ac 	ldr	r5, [pc, #428]	; 13a1c &lt;signature_update_function&commat;&commat;Base+0x694&gt;</pre>
+<pre>   1386c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13870:	ebfff59a 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13874:	e3002159 	movw	r2, #345	; 0x159</pre>
+<pre>   13878:	e3a01000 	mov	r1, #0</pre>
+<pre>--</pre>
+<pre>   13a28:	00000fee 	andeq	r0, r0, lr, ror #31</pre>
+<pre>   13a2c:	00000fc2 	andeq	r0, r0, r2, asr #31</pre>
+<pre>   13a30:	00000f9a 	muleq	r0, sl, pc	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>   13a34:	00000f19 	andeq	r0, r0, r9, lsl pc</pre>
+<pre>   13a38:	00000d71 	andeq	r0, r0, r1, ror sp</pre>
+<pre>   13a3c:	000000e8 	andeq	r0, r0, r8, ror #1</pre>
+<pre>   13a40:	00000e7d 	andeq	r0, r0, sp, ror lr</pre>
+<pre>   13a44:	00000e90 	muleq	r0, r0, lr</pre>
+<pre>   13a48:	e59f1084 	ldr	r1, [pc, #132]	; 13ad4 &lt;signature_update_function&commat;&commat;Base+0x74c&gt;</pre>
+<pre>   13a4c:	e300221d 	movw	r2, #541	; 0x21d</pre>
+<pre>   13a50:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13a54:	e24ddb01 	sub	sp, sp, #1024	; 0x400</pre>
+<pre>   13a58:	e59f0078 	ldr	r0, [pc, #120]	; 13ad8 &lt;signature_update_function&commat;&commat;Base+0x750&gt;</pre>
+<pre>   13a5c:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   13a60:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13a64:	e3a04000 	mov	r4, #0</pre>
+<pre>   13a68:	e59f606c 	ldr	r6, [pc, #108]	; 13adc &lt;signature_update_function&commat;&commat;Base+0x754&gt;</pre>
+<pre>   13a6c:	e28d500c 	add	r5, sp, #12</pre>
+<pre>   13a70:	e2811079 	add	r1, r1, #121	; 0x79</pre>
+<pre>   13a74:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13a78:	ebfff518 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13a7c:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   13a80:	e59f3058 	ldr	r3, [pc, #88]	; 13ae0 &lt;signature_update_function&commat;&commat;Base+0x758&gt;</pre>
+<pre>--</pre>
+<pre>   13ac4:	1afffff9 	bne	13ab0 &lt;signature_update_function&commat;&commat;Base+0x728&gt;</pre>
+<pre>   13ac8:	e28ddb01 	add	sp, sp, #1024	; 0x400</pre>
+<pre>   13acc:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   13ad0:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   13ad4:	00000964 	andeq	r0, r0, r4, ror #18</pre>
+<pre>   13ad8:	00000e9f 	muleq	r0, pc, lr	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>   13adc:	0001457c 	andeq	r4, r1, ip, ror r5</pre>
+<pre>   13ae0:	000000cc 	andeq	r0, r0, ip, asr #1</pre>
+<pre>   13ae4:	e59f1084 	ldr	r1, [pc, #132]	; 13b70 &lt;signature_update_function&commat;&commat;Base+0x7e8&gt;</pre>
+<pre>   13ae8:	e3a02f8f 	mov	r2, #572	; 0x23c</pre>
+<pre>   13aec:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13af0:	e24ddb01 	sub	sp, sp, #1024	; 0x400</pre>
+<pre>   13af4:	e59f0078 	ldr	r0, [pc, #120]	; 13b74 &lt;signature_update_function&commat;&commat;Base+0x7ec&gt;</pre>
+<pre>   13af8:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   13afc:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13b00:	e3a04000 	mov	r4, #0</pre>
+<pre>   13b04:	e59f606c 	ldr	r6, [pc, #108]	; 13b78 &lt;signature_update_function&commat;&commat;Base+0x7f0&gt;</pre>
+<pre>   13b08:	e28d500c 	add	r5, sp, #12</pre>
+<pre>   13b0c:	e2811096 	add	r1, r1, #150	; 0x96</pre>
+<pre>   13b10:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13b14:	ebfff4f1 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13b18:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   13b1c:	e59f3058 	ldr	r3, [pc, #88]	; 13b7c &lt;signature_update_function&commat;&commat;Base+0x7f4&gt;</pre>
+<pre>--</pre>
+<pre>   13b60:	1afffff9 	bne	13b4c &lt;signature_update_function&commat;&commat;Base+0x7c4&gt;</pre>
+<pre>   13b64:	e28ddb01 	add	sp, sp, #1024	; 0x400</pre>
+<pre>   13b68:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   13b6c:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   13b70:	000008c8 	andeq	r0, r0, r8, asr #17</pre>
+<pre>   13b74:	00000e03 	andeq	r0, r0, r3, lsl #28</pre>
+<pre>   13b78:	000144e0 	andeq	r4, r1, r0, ror #9</pre>
+<pre>   13b7c:	000000e4 	andeq	r0, r0, r4, ror #1</pre>
+<pre>   13b80:	e59f1084 	ldr	r1, [pc, #132]	; 13c0c &lt;signature_update_function&commat;&commat;Base+0x884&gt;</pre>
+<pre>   13b84:	e30021ff 	movw	r2, #511	; 0x1ff</pre>
+<pre>   13b88:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13b8c:	e24ddb01 	sub	sp, sp, #1024	; 0x400</pre>
+<pre>   13b90:	e59f0078 	ldr	r0, [pc, #120]	; 13c10 &lt;signature_update_function&commat;&commat;Base+0x888&gt;</pre>
+<pre>   13b94:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   13b98:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13b9c:	e3a04000 	mov	r4, #0</pre>
+<pre>   13ba0:	e59f606c 	ldr	r6, [pc, #108]	; 13c14 &lt;signature_update_function&commat;&commat;Base+0x88c&gt;</pre>
+<pre>   13ba4:	e28d500c 	add	r5, sp, #12</pre>
+<pre>   13ba8:	e28110b3 	add	r1, r1, #179	; 0xb3</pre>
+<pre>   13bac:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13bb0:	ebfff4ca 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13bb4:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   13bb8:	e59f3058 	ldr	r3, [pc, #88]	; 13c18 &lt;signature_update_function&commat;&commat;Base+0x890&gt;</pre>
+<pre>--</pre>
+<pre>   13bfc:	1afffff9 	bne	13be8 &lt;signature_update_function&commat;&commat;Base+0x860&gt;</pre>
+<pre>   13c00:	e28ddb01 	add	sp, sp, #1024	; 0x400</pre>
+<pre>   13c04:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   13c08:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   13c0c:	0000082c 	andeq	r0, r0, ip, lsr #16</pre>
+<pre>   13c10:	00000d67 	andeq	r0, r0, r7, ror #26</pre>
+<pre>   13c14:	00014444 	andeq	r4, r1, r4, asr #8</pre>
+<pre>   13c18:	000000d0 	ldrdeq	r0, [r0], -r0	; &lt;UNPREDICTABLE&gt;</pre>
+<pre>   13c1c:	e59f1084 	ldr	r1, [pc, #132]	; 13ca8 &lt;signature_update_function&commat;&commat;Base+0x920&gt;</pre>
+<pre>   13c20:	e300217f 	movw	r2, #383	; 0x17f</pre>
+<pre>   13c24:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13c28:	e24ddb01 	sub	sp, sp, #1024	; 0x400</pre>
+<pre>   13c2c:	e59f0078 	ldr	r0, [pc, #120]	; 13cac &lt;signature_update_function&commat;&commat;Base+0x924&gt;</pre>
+<pre>   13c30:	e24dd008 	sub	sp, sp, #8</pre>
+<pre>   13c34:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13c38:	e3a04000 	mov	r4, #0</pre>
+<pre>   13c3c:	e59f606c 	ldr	r6, [pc, #108]	; 13cb0 &lt;signature_update_function&commat;&commat;Base+0x928&gt;</pre>
+<pre>   13c40:	e28d500c 	add	r5, sp, #12</pre>
+<pre>   13c44:	e28110cf 	add	r1, r1, #207	; 0xcf</pre>
+<pre>   13c48:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13c4c:	ebfff4a3 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13c50:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   13c54:	e59f3058 	ldr	r3, [pc, #88]	; 13cb4 &lt;signature_update_function&commat;&commat;Base+0x92c&gt;</pre>
+<pre>--</pre>
+<pre>   13c98:	1afffff9 	bne	13c84 &lt;signature_update_function&commat;&commat;Base+0x8fc&gt;</pre>
+<pre>   13c9c:	e28ddb01 	add	sp, sp, #1024	; 0x400</pre>
+<pre>   13ca0:	e28dd008 	add	sp, sp, #8</pre>
+<pre>   13ca4:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>   13ca8:	00000790 	muleq	r0, r0, r7</pre>
+<pre>   13cac:	00000ccb 	andeq	r0, r0, fp, asr #25</pre>
+<pre>   13cb0:	000143a8 	andeq	r4, r1, r8, lsr #7</pre>
+<pre>   13cb4:	000000d8 	ldrdeq	r0, [r0], -r8</pre>
+<pre>   13cb8:	e59f10c4 	ldr	r1, [pc, #196]	; 13d84 &lt;signature_update_function&commat;&commat;Base+0x9fc&gt;</pre>
+<pre>   13cbc:	e300227a 	movw	r2, #634	; 0x27a</pre>
+<pre>   13cc0:	e59f00c0 	ldr	r0, [pc, #192]	; 13d88 &lt;signature_update_function&commat;&commat;Base+0xa00&gt;</pre>
+<pre>   13cc4:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13cc8:	e24ddb02 	sub	sp, sp, #2048	; 0x800</pre>
+<pre>   13ccc:	e59f50b8 	ldr	r5, [pc, #184]	; 13d8c &lt;signature_update_function&commat;&commat;Base+0xa04&gt;</pre>
+<pre>   13cd0:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13cd4:	e3a04000 	mov	r4, #0</pre>
+<pre>   13cd8:	e28d6008 	add	r6, sp, #8</pre>
+<pre>   13cdc:	e28110ef 	add	r1, r1, #239	; 0xef</pre>
+<pre>   13ce0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   13ce4:	e08f5005 	add	r5, pc, r5</pre>
+<pre><span class="red">   13ce8:	ebfff47c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13cec:	e3a00e7d 	mov	r0, #2000	; 0x7d0</pre>
+<pre>   13cf0:	ebfff495 	bl	10f4c &lt;usleep&commat;plt&gt;</pre>
+<pre>--</pre>
+<pre>   13f08:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   13f0c:	e3a01000 	mov	r1, #0</pre>
+<pre>   13f10:	e24dd020 	sub	sp, sp, #32</pre>
+<pre>   13f14:	e1a03001 	mov	r3, r1</pre>
+<pre>   13f18:	e1a0500d 	mov	r5, sp</pre>
+<pre>   13f1c:	e7853101 	str	r3, [r5, r1, lsl #2]</pre>
+<pre>   13f20:	e2811001 	add	r1, r1, #1</pre>
+<pre>   13f24:	e3510008 	cmp	r1, #8</pre>
+<pre>   13f28:	1afffffb 	bne	13f1c &lt;devicename_update_function&commat;&commat;Base+0xcc&gt;</pre>
+<pre>   13f2c:	e1a00005 	mov	r0, r5</pre>
+<pre>   13f30:	ebfff402 	bl	10f40 &lt;dil_table_enquiry&commat;plt&gt;</pre>
+<pre>   13f34:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   13f38:	1a00000a 	bne	13f68 &lt;devicename_update_function&commat;&commat;Base+0x118&gt;</pre>
+<pre>   13f3c:	e59f6038 	ldr	r6, [pc, #56]	; 13f7c &lt;devicename_update_function&commat;&commat;Base+0x12c&gt;</pre>
+<pre>   13f40:	e1a04001 	mov	r4, r1</pre>
+<pre>   13f44:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   13f48:	e7952104 	ldr	r2, [r5, r4, lsl #2]</pre>
+<pre>   13f4c:	e1a01004 	mov	r1, r4</pre>
+<pre>   13f50:	e1a00006 	mov	r0, r6</pre>
+<pre>   13f54:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">   13f58:	ebfff3e0 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13f5c:	e3540008 	cmp	r4, #8</pre>
+<pre>   13f60:	1afffff8 	bne	13f48 &lt;devicename_update_function&commat;&commat;Base+0xf8&gt;</pre>
+<pre>   13f64:	ea000002 	b	13f74 &lt;devicename_update_function&commat;&commat;Base+0x124&gt;</pre>
+<pre>   13f68:	e59f0010 	ldr	r0, [pc, #16]	; 13f80 &lt;devicename_update_function&commat;&commat;Base+0x130&gt;</pre>
+<pre>   13f6c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13f70:	ebfff3da 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13f74:	e28dd020 	add	sp, sp, #32</pre>
+<pre>   13f78:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<pre>--</pre>
+<pre>   13f80:	00000a4a 	andeq	r0, r0, sl, asr #20</pre>
+<pre>   13f84:	eafff3f6 	b	10f64 &lt;print_mapping_table&commat;plt&gt;</pre>
+<pre>   13f88:	e92d43f0 	push	{r4, r5, r6, r7, r8, r9, lr}</pre>
+<pre>   13f8c:	e24ddb01 	sub	sp, sp, #1024	; 0x400</pre>
+<pre>   13f90:	e24dd004 	sub	sp, sp, #4</pre>
+<pre>   13f94:	e1a05000 	mov	r5, r0</pre>
+<pre>   13f98:	e1a07001 	mov	r7, r1</pre>
+<pre>   13f9c:	e3a02b01 	mov	r2, #1024	; 0x400</pre>
+<pre>   13fa0:	e3a01000 	mov	r1, #0</pre>
+<pre>   13fa4:	e1a0000d 	mov	r0, sp</pre>
+<pre>   13fa8:	ebfff423 	bl	1103c &lt</span>emset&commat;plt&gt;</pre>
+<pre>   13fac:	e59f80c4 	ldr	r8, [pc, #196]	; 14078 &lt;devicename_update_function&commat;&commat;Base+0x228&gt;</pre>
+<pre>   13fb0:	e2453001 	sub	r3, r5, #1</pre>
+<pre>   13fb4:	e35300ff 	cmp	r3, #255	; 0xff</pre>
+<pre>   13fb8:	e1a0600d 	mov	r6, sp</pre>
+<pre>   13fbc:	e08f8008 	add	r8, pc, r8</pre>
+<pre>   13fc0:	9a000003 	bls	13fd4 &lt;devicename_update_function&commat;&commat;Base+0x184&gt;</pre>
+<pre>   13fc4:	e59f00b0 	ldr	r0, [pc, #176]	; 1407c &lt;devicename_update_function&commat;&commat;Base+0x22c&gt;</pre>
+<pre>   13fc8:	e1a01005 	mov	r1, r5</pre>
+<pre>   13fcc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   13fd0:	ebfff3c2 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   13fd4:	e59f10a4 	ldr	r1, [pc, #164]	; 14080 &lt;devicename_update_function&commat;&commat;Base+0x230&gt;</pre>
+<pre>   13fd8:	e3a04000 	mov	r4, #0</pre>
+<pre>   13fdc:	e59f90a0 	ldr	r9, [pc, #160]	; 14084 &lt;devicename_update_function&commat;&commat;Base+0x234&gt;</pre>
+<pre>   13fe0:	e3570000 	cmp	r7, #0</pre>
+<pre>   13fe4:	e59f009c 	ldr	r0, [pc, #156]	; 14088 &lt;devicename_update_function&commat;&commat;Base+0x238&gt;</pre>
+<pre>   13fe8:	e3a020bd 	mov	r2, #189	; 0xbd</pre>
+<pre>   13fec:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   13ff0:	d3a07000 	movle	r7, #0</pre>
+<pre>   13ff4:	e08f9009 	add	r9, pc, r9</pre>
+<pre>   13ff8:	e2811f46 	add	r1, r1, #280	; 0x118</pre>
+<pre>   13ffc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14000:	c3a07001 	movgt	r7, #1</pre>
+<pre><span class="red">   14004:	ebfff3b5 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14008:	e1540005 	cmp	r4, r5</pre>
+<pre>   1400c:	aa000008 	bge	14034 &lt;devicename_update_function&commat;&commat;Base+0x1e4&gt;</pre>
+<pre>   14010:	e59f3074 	ldr	r3, [pc, #116]	; 1408c &lt;devicename_update_function&commat;&commat;Base+0x23c&gt;</pre>
+<pre>   14014:	e1a02004 	mov	r2, r4</pre>
+<pre>   14018:	e1a00009 	mov	r0, r9</pre>
+<pre>   1401c:	e7983003 	ldr	r3, [r8, r3]</pre>
+<pre>   14020:	e7931104 	ldr	r1, [r3, r4, lsl #2]</pre>
+<pre>   14024:	e7861104 	str	r1, [r6, r4, lsl #2]</pre>
+<pre>   14028:	e2844001 	add	r4, r4, #1</pre>
+<pre><span class="red">   1402c:	ebfff3ab 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14030:	eafffff4 	b	14008 &lt;devicename_update_function&commat;&commat;Base+0x1b8&gt;</pre>
+<pre>   14034:	e1a01007 	mov	r1, r7</pre>
+<pre>   14038:	e3a03064 	mov	r3, #100	; 0x64</pre>
+<pre>   1403c:	e1a02005 	mov	r2, r5</pre>
+<pre>   14040:	e1a00006 	mov	r0, r6</pre>
+<pre>   14044:	ebfff3a8 	bl	10eec &lt;dil_update_pause_list&commat;plt&gt;</pre>
+<pre>   14048:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   1404c:	1a000003 	bne	14060 &lt;devicename_update_function&commat;&commat;Base+0x210&gt;</pre>
+<pre>   14050:	e59f0038 	ldr	r0, [pc, #56]	; 14090 &lt;devicename_update_function&commat;&commat;Base+0x240&gt;</pre>
+<pre>   14054:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14058:	ebfff3ca 	bl	10f88 &lt;puts&commat;plt&gt;</pre>
+<pre>   1405c:	ea000002 	b	1406c &lt;devicename_update_function&commat;&commat;Base+0x21c&gt;</pre>
+<pre>   14060:	e59f002c 	ldr	r0, [pc, #44]	; 14094 &lt;devicename_update_function&commat;&commat;Base+0x244&gt;</pre>
+<pre>   14064:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14068:	ebfff39c 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1406c:	e28ddb01 	add	sp, sp, #1024	; 0x400</pre>
+<pre>   14070:	e28dd004 	add	sp, sp, #4</pre>
+<pre>   14074:	e8bd83f0 	pop	{r4, r5, r6, r7, r8, r9, pc}</pre>
+<pre>   14078:	0001403c 	andeq	r4, r1, ip, lsr r0</pre>
+<pre>   1407c:	000009fd 	strdeq	r0, [r0], -sp</pre>
+<pre>   14080:	000003d8 	ldrdeq	r0, [r0], -r8</pre>
+<pre>   14084:	00000a19 	andeq	r0, r0, r9, lsl sl</pre>
+<pre>   14088:	00000a00 	andeq	r0, r0, r0, lsl #20</pre>
+<pre>   1408c:	000000dc 	ldrdeq	r0, [r0], -ip</pre>
+<pre>   14090:	000009e1 	andeq	r0, r0, r1, ror #19</pre>
+<pre>   14094:	00000a02 	andeq	r0, r0, r2, lsl #20</pre>
+<pre>   14098:	e59f103c 	ldr	r1, [pc, #60]	; 140dc &lt;devicename_update_function&commat;&commat;Base+0x28c&gt;</pre>
+<pre>   1409c:	e3a020dd 	mov	r2, #221	; 0xdd</pre>
+<pre>   140a0:	e59f0038 	ldr	r0, [pc, #56]	; 140e0 &lt;devicename_update_function&commat;&commat;Base+0x290&gt;</pre>
+<pre>   140a4:	e92d4010 	push	{r4, lr}</pre>
+<pre>   140a8:	e08f1001 	add	r1, pc, r1</pre>
+<pre>   140ac:	e2811f4d 	add	r1, r1, #308	; 0x134</pre>
+<pre>   140b0:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   140b4:	e2811002 	add	r1, r1, #2</pre>
+<pre><span class="red">   140b8:	ebfff388 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   140bc:	ebfff390 	bl	10f04 &lt;dil_weekly_refresh_request&commat;plt&gt;</pre>
+<pre>   140c0:	e3500000 	cmp	r0, #0</pre>
+<pre>--</pre>
+<pre>   140e8:	000009d6 	ldrdeq	r0, [r0], -r6</pre>
+<pre>   140ec:	e92d4070 	push	{r4, r5, r6, lr}</pre>
+<pre>   140f0:	e3a01000 	mov	r1, #0</pre>
+<pre>   140f4:	e24dd020 	sub	sp, sp, #32</pre>
+<pre>   140f8:	e1a03001 	mov	r3, r1</pre>
+<pre>   140fc:	e1a0400d 	mov	r4, sp</pre>
+<pre>   14100:	e7843101 	str	r3, [r4, r1, lsl #2]</pre>
+<pre>   14104:	e2811001 	add	r1, r1, #1</pre>
+<pre>   14108:	e3510008 	cmp	r1, #8</pre>
+<pre>   1410c:	1afffffb 	bne	14100 &lt;devicename_update_function&commat;&commat;Base+0x2b0&gt;</pre>
+<pre>   14110:	e3a02000 	mov	r2, #0</pre>
+<pre>   14114:	e1a00004 	mov	r0, r4</pre>
+<pre>   14118:	ebfff3ac 	bl	10fd0 &lt;dil_device_state_info&commat;plt&gt;</pre>
+<pre>   1411c:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   14120:	da00000d 	ble	1415c &lt;devicename_update_function&commat;&commat;Base+0x30c&gt;</pre>
+<pre>   14124:	e59f61f0 	ldr	r6, [pc, #496]	; 1431c &lt;devicename_update_function&commat;&commat;Base+0x4cc&gt;</pre>
+<pre>   14128:	e3a05000 	mov	r5, #0</pre>
+<pre>   1412c:	e59f01ec 	ldr	r0, [pc, #492]	; 14320 &lt;devicename_update_function&commat;&commat;Base+0x4d0&gt;</pre>
+<pre>   14130:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   14134:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14138:	ebfff368 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1413c:	e7942105 	ldr	r2, [r4, r5, lsl #2]</pre>
+<pre>   14140:	e1a01005 	mov	r1, r5</pre>
+<pre>   14144:	e1a00006 	mov	r0, r6</pre>
+<pre>   14148:	e2855001 	add	r5, r5, #1</pre>
+<pre><span class="red">   1414c:	ebfff363 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14150:	e3550008 	cmp	r5, #8</pre>
+<pre>   14154:	1afffff8 	bne	1413c &lt;devicename_update_function&commat;&commat;Base+0x2ec&gt;</pre>
+<pre>   14158:	ea000003 	b	1416c &lt;devicename_update_function&commat;&commat;Base+0x31c&gt;</pre>
+<pre>   1415c:	1a000005 	bne	14178 &lt;devicename_update_function&commat;&commat;Base+0x328&gt;</pre>
+<pre>   14160:	e59f01bc 	ldr	r0, [pc, #444]	; 14324 &lt;devicename_update_function&commat;&commat;Base+0x4d4&gt;</pre>
+<pre>   14164:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14168:	ebfff386 	bl	10f88 &lt;puts&commat;plt&gt;</pre>
+<pre>   1416c:	e3a01000 	mov	r1, #0</pre>
+<pre>   14170:	e1a03001 	mov	r3, r1</pre>
+<pre>   14174:	ea000003 	b	14188 &lt;devicename_update_function&commat;&commat;Base+0x338&gt;</pre>
+<pre>   14178:	e59f01a8 	ldr	r0, [pc, #424]	; 14328 &lt;devicename_update_function&commat;&commat;Base+0x4d8&gt;</pre>
+<pre>   1417c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14180:	ebfff356 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14184:	eafffff8 	b	1416c &lt;devicename_update_function&commat;&commat;Base+0x31c&gt;</pre>
+<pre>   14188:	e7843101 	str	r3, [r4, r1, lsl #2]</pre>
+<pre>   1418c:	e2811001 	add	r1, r1, #1</pre>
+<pre>   14190:	e3510008 	cmp	r1, #8</pre>
+<pre>   14194:	1afffffb 	bne	14188 &lt;devicename_update_function&commat;&commat;Base+0x338&gt;</pre>
+<pre>   14198:	e3a02001 	mov	r2, #1</pre>
+<pre>   1419c:	e1a00004 	mov	r0, r4</pre>
+<pre>   141a0:	ebfff38a 	bl	10fd0 &lt;dil_device_state_info&commat;plt&gt;</pre>
+<pre>   141a4:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   141a8:	da00000d 	ble	141e4 &lt;devicename_update_function&commat;&commat;Base+0x394&gt;</pre>
+<pre>   141ac:	e59f6178 	ldr	r6, [pc, #376]	; 1432c &lt;devicename_update_function&commat;&commat;Base+0x4dc&gt;</pre>
+<pre>   141b0:	e3a05000 	mov	r5, #0</pre>
+<pre>   141b4:	e59f0174 	ldr	r0, [pc, #372]	; 14330 &lt;devicename_update_function&commat;&commat;Base+0x4e0&gt;</pre>
+<pre>   141b8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   141bc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   141c0:	ebfff346 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   141c4:	e7942105 	ldr	r2, [r4, r5, lsl #2]</pre>
+<pre>   141c8:	e1a01005 	mov	r1, r5</pre>
+<pre>   141cc:	e1a00006 	mov	r0, r6</pre>
+<pre>   141d0:	e2855001 	add	r5, r5, #1</pre>
+<pre><span class="red">   141d4:	ebfff341 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   141d8:	e3550008 	cmp	r5, #8</pre>
+<pre>   141dc:	1afffff8 	bne	141c4 &lt;devicename_update_function&commat;&commat;Base+0x374&gt;</pre>
+<pre>   141e0:	ea000003 	b	141f4 &lt;devicename_update_function&commat;&commat;Base+0x3a4&gt;</pre>
+<pre>   141e4:	1a000005 	bne	14200 &lt;devicename_update_function&commat;&commat;Base+0x3b0&gt;</pre>
+<pre>   141e8:	e59f0144 	ldr	r0, [pc, #324]	; 14334 &lt;devicename_update_function&commat;&commat;Base+0x4e4&gt;</pre>
+<pre>   141ec:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   141f0:	ebfff364 	bl	10f88 &lt;puts&commat;plt&gt;</pre>
+<pre>   141f4:	e3a01000 	mov	r1, #0</pre>
+<pre>   141f8:	e1a03001 	mov	r3, r1</pre>
+<pre>   141fc:	ea000003 	b	14210 &lt;devicename_update_function&commat;&commat;Base+0x3c0&gt;</pre>
+<pre>   14200:	e59f0130 	ldr	r0, [pc, #304]	; 14338 &lt;devicename_update_function&commat;&commat;Base+0x4e8&gt;</pre>
+<pre>   14204:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14208:	ebfff334 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1420c:	eafffff8 	b	141f4 &lt;devicename_update_function&commat;&commat;Base+0x3a4&gt;</pre>
+<pre>   14210:	e7843101 	str	r3, [r4, r1, lsl #2]</pre>
+<pre>   14214:	e2811001 	add	r1, r1, #1</pre>
+<pre>   14218:	e3510008 	cmp	r1, #8</pre>
+<pre>   1421c:	1afffffb 	bne	14210 &lt;devicename_update_function&commat;&commat;Base+0x3c0&gt;</pre>
+<pre>   14220:	e3a02002 	mov	r2, #2</pre>
+<pre>   14224:	e1a00004 	mov	r0, r4</pre>
+<pre>   14228:	ebfff368 	bl	10fd0 &lt;dil_device_state_info&commat;plt&gt;</pre>
+<pre>   1422c:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   14230:	da00000d 	ble	1426c &lt;devicename_update_function&commat;&commat;Base+0x41c&gt;</pre>
+<pre>   14234:	e59f6100 	ldr	r6, [pc, #256]	; 1433c &lt;devicename_update_function&commat;&commat;Base+0x4ec&gt;</pre>
+<pre>   14238:	e3a05000 	mov	r5, #0</pre>
+<pre>   1423c:	e59f00fc 	ldr	r0, [pc, #252]	; 14340 &lt;devicename_update_function&commat;&commat;Base+0x4f0&gt;</pre>
+<pre>   14240:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   14244:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14248:	ebfff324 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   1424c:	e7942105 	ldr	r2, [r4, r5, lsl #2]</pre>
+<pre>   14250:	e1a01005 	mov	r1, r5</pre>
+<pre>   14254:	e1a00006 	mov	r0, r6</pre>
+<pre>   14258:	e2855001 	add	r5, r5, #1</pre>
+<pre><span class="red">   1425c:	ebfff31f 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14260:	e3550008 	cmp	r5, #8</pre>
+<pre>   14264:	1afffff8 	bne	1424c &lt;devicename_update_function&commat;&commat;Base+0x3fc&gt;</pre>
+<pre>   14268:	ea000003 	b	1427c &lt;devicename_update_function&commat;&commat;Base+0x42c&gt;</pre>
+<pre>   1426c:	1a000005 	bne	14288 &lt;devicename_update_function&commat;&commat;Base+0x438&gt;</pre>
+<pre>   14270:	e59f00cc 	ldr	r0, [pc, #204]	; 14344 &lt;devicename_update_function&commat;&commat;Base+0x4f4&gt;</pre>
+<pre>   14274:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14278:	ebfff342 	bl	10f88 &lt;puts&commat;plt&gt;</pre>
+<pre>   1427c:	e3a01000 	mov	r1, #0</pre>
+<pre>   14280:	e1a03001 	mov	r3, r1</pre>
+<pre>   14284:	ea000003 	b	14298 &lt;devicename_update_function&commat;&commat;Base+0x448&gt;</pre>
+<pre>   14288:	e59f00b8 	ldr	r0, [pc, #184]	; 14348 &lt;devicename_update_function&commat;&commat;Base+0x4f8&gt;</pre>
+<pre>   1428c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14290:	ebfff312 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14294:	eafffff8 	b	1427c &lt;devicename_update_function&commat;&commat;Base+0x42c&gt;</pre>
+<pre>   14298:	e7843101 	str	r3, [r4, r1, lsl #2]</pre>
+<pre>   1429c:	e2811001 	add	r1, r1, #1</pre>
+<pre>   142a0:	e3510008 	cmp	r1, #8</pre>
+<pre>   142a4:	1afffffb 	bne	14298 &lt;devicename_update_function&commat;&commat;Base+0x448&gt;</pre>
+<pre>   142a8:	e3a02003 	mov	r2, #3</pre>
+<pre>   142ac:	e1a00004 	mov	r0, r4</pre>
+<pre>   142b0:	ebfff346 	bl	10fd0 &lt;dil_device_state_info&commat;plt&gt;</pre>
+<pre>   142b4:	e2501000 	subs	r1, r0, #0</pre>
+<pre>   142b8:	da00000d 	ble	142f4 &lt;devicename_update_function&commat;&commat;Base+0x4a4&gt;</pre>
+<pre>   142bc:	e59f6088 	ldr	r6, [pc, #136]	; 1434c &lt;devicename_update_function&commat;&commat;Base+0x4fc&gt;</pre>
+<pre>   142c0:	e3a05000 	mov	r5, #0</pre>
+<pre>   142c4:	e59f0084 	ldr	r0, [pc, #132]	; 14350 &lt;devicename_update_function&commat;&commat;Base+0x500&gt;</pre>
+<pre>   142c8:	e08f6006 	add	r6, pc, r6</pre>
+<pre>   142cc:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   142d0:	ebfff302 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   142d4:	e7942105 	ldr	r2, [r4, r5, lsl #2]</pre>
+<pre>   142d8:	e1a01005 	mov	r1, r5</pre>
+<pre>   142dc:	e1a00006 	mov	r0, r6</pre>
+<pre>   142e0:	e2855001 	add	r5, r5, #1</pre>
+<pre><span class="red">   142e4:	ebfff2fd 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   142e8:	e3550008 	cmp	r5, #8</pre>
+<pre>   142ec:	1afffff8 	bne	142d4 &lt;devicename_update_function&commat;&commat;Base+0x484&gt;</pre>
+<pre>   142f0:	ea000007 	b	14314 &lt;devicename_update_function&commat;&commat;Base+0x4c4&gt;</pre>
+<pre>   142f4:	1a000003 	bne	14308 &lt;devicename_update_function&commat;&commat;Base+0x4b8&gt;</pre>
+<pre>   142f8:	e59f0054 	ldr	r0, [pc, #84]	; 14354 &lt;devicename_update_function&commat;&commat;Base+0x504&gt;</pre>
+<pre>   142fc:	e08f0000 	add	r0, pc, r0</pre>
+<pre>   14300:	ebfff320 	bl	10f88 &lt;puts&commat;plt&gt;</pre>
+<pre>   14304:	ea000002 	b	14314 &lt;devicename_update_function&commat;&commat;Base+0x4c4&gt;</pre>
+<pre>   14308:	e59f0048 	ldr	r0, [pc, #72]	; 14358 &lt;devicename_update_function&commat;&commat;Base+0x508&gt;</pre>
+<pre>   1430c:	e08f0000 	add	r0, pc, r0</pre>
+<pre><span class="red">   14310:	ebfff2f2 	bl	10ee0 &lt;printf&commat;plt&gt</span></span></pre>
+<pre>   14314:	e28dd020 	add	sp, sp, #32</pre>
+<pre>   14318:	e8bd8070 	pop	{r4, r5, r6, pc}</pre>
+<br />
+<pre></span></pre>
+<pre>[</span><span class="orange">*</span>] Function </span><span class="orange">printf</span> used </span><span class="orange">138</span> times </span><span class="orange">diltest</span></pre>
+<br />
+  <!-- content end -->
+</div>
+
+<a href="https://github.com/e-m-b-a/emba" title="github.com/e-m-b-a/emba" target="_blank">
+  <div id="buttonInfo" class="rectButtonVisible">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" transform="translate(2 2)"><g stroke="white" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8.5" r="8"/><path d="M8.5 12.5v-4h-1"/><path d="M7.5 12.5h2"/></g><circle cx="8.5" cy="5.5" fill="white" r="1"/></g></svg>
+  </div>
+</a>
+<div id="buttonBack" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M9.5 14.5l4-4l-4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div id="buttonForward" class="nonClickable rectButtonVisible"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><path d="M11.5 14.5l-4-4l4-4" fill="none" stroke="#444" stroke-linecap="round" stroke-linejoin="round"/></svg></div> 
+<div id="buttonDown" class="rectButton" onclick="scrollDown()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5l-4 4l-4-4"/><path d="M14.5 10.5l-4 4l-4-4"/></g></svg></div>
+<div id="buttonUp" class="rectButton" onclick="scrollUp()"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 14.5l4-4l4 4"/><path d="M6.5 10.5l4-4l4 4"/></g></svg></div> 
+
+<script>
+window.onload = function () {
+  var buttons = document.getElementsByClassName("rectButton");
+  for (let i=0; i<buttons.length; i++) {
+    buttons[i].style.visibility = "visible";
+  }
+  var buttonDown = document.getElementById("buttonDown");
+  buttonDown.classList.add('rectButtonVisible');
+  buttonDown.classList.remove('rectButton');
+
+  var buttonUp = document.getElementById("buttonUp");
+  buttonUp.classList.add('rectButtonVisible');
+  buttonUp.classList.remove('rectButton');
+    
+  var buttonSizer = document.getElementById("buttonSizer");
+  buttonSizer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+  if (document.getElementById("buttonTime") !== null) {
+    var buttonTime = document.getElementById("buttonTime");
+    buttonTime.style.bottom = "50px";
+  }
+  document.getElementById("expand").value = "+ Show more results";
+  document.getElementById("expand").className += " expand";
+  var embarkButton = document.getElementById("embark");
+  if ( !(embarkButton.href.includes("embarkBackUrl")) ) {
+    embarkButton.classList.remove('hidden');
+    document.getElementById("logoImage").src = "./../style/embark.svg";
+    document.getElementById("logo").style.background = "#2d2d2d";
+  }
+}
+
+function openNav() {
+  document.getElementById("sidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("nav").style.visibility = "visible";
+}
+
+function closeNav() {
+  document.getElementById("sidenav").style.width = "50px";
+  document.getElementById("sidenav").scrollTop = 0;
+  document.getElementById("main").style.marginLeft = "50px";
+  document.getElementById("nav").style.visibility = "hidden";
+}
+
+function scrollDown() {
+  window.scrollTo(0,document.body.scrollHeight);
+}
+
+function scrollUp() {
+  window.scrollTo(0,0);
+}
+
+function buttonNav() {
+  var button = document.getElementById("buttonSizer");
+  if ( button.classList.contains('buttonOpen') ) {
+    button.classList.remove('buttonOpen');
+    button.classList.add('buttonClose');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 16.5v-4.978l-5-.022"/><path d="M18.5 2.5l-7 7"/><path d="M16.5 9.5l-5 .023V4.5"/><path d="M9.5 11.5l-7 7"/></g></svg>';
+    openNav();
+  } else if( button.classList.contains('buttonClose') ) {
+    button.classList.remove('buttonClose');
+    button.classList.add('buttonOpen');
+    button.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="40" height="40" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21"><g fill="none" fill-rule="evenodd" stroke="white" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 7.5v-5h-5"/><path d="M18.5 2.5l-6 5.929"/><path d="M7.5 18.5l-5 .023V13.5"/><path d="M8.5 12.5l-6 6"/></g></svg>';
+    closeNav();
+  };
+}
+
+document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        document.getElementById("buttonForward").parentNode.click(); 
+        break;
+      case 39:
+        document.getElementById("buttonBack").parentNode.click();       
+        break;
+    }
+};
+</script>
+
+</body>
+</html>
